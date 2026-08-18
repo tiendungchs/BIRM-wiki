@@ -81,6 +81,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MEG | Magnetoencephalography | |
 | MTL | Medial Temporal Lobe | Hippocampus and surrounding cortex |
 | PFC | Prefrontal Cortex | |
+| HD cell | Head Direction cell | Fires as a function of head orientation in the navigational plane; the heading half of a cognitive map ([[wiki/concepts/cognitive-map.md]]) |
+| PPA | Parahippocampal Place Area | Scene/landmark-selective region; perceptual identification of the local place or context |
+| RSC | Retrosplenial Complex | Parieto-occipital-sulcus region (partly overlapping Brodmann area 29/30) that anchors the map: heading codes in local and global reference frames |
+| OPA | Occipital Place Area | Scene region near the transverse occipital sulcus; boundaries and local navigational affordances |
+| MVPA / RSA | Multi-Voxel Pattern Analysis / Representational Similarity Analysis | Decoding from distributed fMRI patterns; RSA compares pattern similarity structure to a hypothesised representational geometry |
 | STDP | Spike-Timing-Dependent Plasticity | Hebbian rule whose sign depends on pre/post spike order |
 | V1 | Primary Visual Cortex | Simple/complex cells; origin of convolutional architecture |
 
