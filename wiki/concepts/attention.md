@@ -66,3 +66,4 @@ The memory-hop mechanism is also the paper's outstanding *prediction for neurosc
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the clearest case of an import that arrived largely unacknowledged, and the source of an open prediction (a neural substrate for memory hops).
 - **[[wiki/concepts/simulation-based-planning.md]]** — both need a control policy that decides where the next computation is spent; neither has one.
 - **[[wiki/concepts/shortcut-learning.md]]** — selecting a feature subset is also *deselecting* everything else, so an attention policy fixes which invariances the decision rule has, i.e. which shortcuts remain available to it.
+- **[[wiki/concepts/core-knowledge.md]]** — raises attention from an efficiency device to a binding bottleneck: competition for a limited attentional resource is the stated reason two specialized modules cannot pool their outputs into one representation.

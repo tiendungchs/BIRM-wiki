@@ -63,3 +63,4 @@ The tension between rows 3 and 4 is recorded as T4 in [[wiki/empirical-tensions.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — a *representation* being imported (state-space decomposition by periodic codes) rather than an algorithm, matching the pattern of every successful transfer so far.
 - **[[wiki/concepts/meta-learning.md]]** — a content-invariant structural code is what would make the outer loop's learned regularity reusable in a domain with entirely new objects.
 - **[[wiki/concepts/shortcut-learning.md]]** — a shortcut is a rule that reads content `x` where the intended rule reads structure `g`; a content-invariant code is the *architecture* lever that makes the structural rule the cheaper one to learn.
+- **[[wiki/concepts/core-knowledge.md]]** — shows what `g` looks like when it is installed rather than trained: a code whose domain is fixed in advance is content-invariant by construction, at the cost of covering only its own domain.

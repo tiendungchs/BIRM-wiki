@@ -2,7 +2,7 @@
 
 What to read or write next. Derived from [[wiki/architectural-gaps.md]], from open problems on concept pages, and from lint passes. Reordered whenever a gap opens or closes.
 
-**Status:** two sources ingested (Hassabis et al. 2017; Geirhos et al. 2020). The concept skeleton is still mostly single-sourced from surveys and needs primary sources behind it. Gap G17 now makes an evaluation instrument a precondition for the comparison work in P6.
+**Status:** four sources ingested (Hassabis et al. 2017; Geirhos et al. 2020; Schmidgall et al. 2023; Revencu & Csibra 2023). The concept skeleton is still mostly single-sourced from surveys and needs primary sources behind it. Gap G17 now makes an evaluation instrument a precondition for the comparison work in P6, and the new gaps G21–G23 open a whole column — what the model is *given* — that no queued source yet covers on the machine side.
 
 ## Now
 
@@ -16,10 +16,11 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 
 | # | Task | Why | Blocked on |
 |---|---|---|---|
-| P4 | Write the core-knowledge / intuitive-physics concept page | Hassabis names object, space and number priors as a key missing ingredient; the wiki has no page for it | `spelke-2007-core-knowledge.md`, `lake-2017-machines-learn-think-like-people.md` |
-| P5 | Decide whether disentangled/compositional representation deserves its own page | It is invoked on three pages (recombination in planning, transfer, factorized `p = f(g, x)`) but only as a passing claim here | A source with an actual disentanglement result |
+| P4 | ~~Write the core-knowledge concept page~~ **done** — [[wiki/concepts/core-knowledge.md]] (Revencu & Csibra 2023). Remaining: replace the second-hand empirical detail with the primary sources, and add the intuitive-physics half | The page currently reports Spelke's system inventory and evidence *through a commentary*; every experiment on it (Van de Walle 1998, Chiandetti & Vallortigara 2011, Stahl & Feigenson 2015, Bonatti 2002, Xu & Carey 1996) is cited at one remove | `spelke-2007-core-knowledge.md`, `lake-2017-machines-learn-think-like-people.md` |
+| P5 | Decide whether disentangled/compositional representation deserves its own page — **now leaning yes** | Invoked on three pages as a passing claim, and [[wiki/concepts/core-knowledge.md]] now carries a full composition-across-modules section (gaps G21–G22) that will outgrow a section on a priors page as soon as a second source arrives | A source with an actual disentanglement or compositional-architecture result |
 | P6 | Score architectures against the six hardness sources, per the placeholder in [[wiki/concepts/latent-graph-discovery.md]] | The scoring table is the wiki's comparison instrument and is still empty | Enough architecture pages to compare; **and an o.o.d. column** — per G17 an i.i.d. result cannot enter this table |
 | P7 | Acquire sources for the controlled-shortcut benchmarks (Shift-MNIST / biased CelebA / unfair dSprites) and for ObjectNet / ImageNet-C | These are the only listed instruments where the intended rule is known by construction, so they are what turns "did this architecture recover structure?" into a measurement (G17) | Human curation (or a web search pass) |
+| P9 | Acquire a source on *conditional* or gated inductive bias (mixture-of-experts routing, typed/sorted representations, neuro-symbolic type systems) | G23 says every machine prior applies unconditionally while every core system carries an entry test; nothing in `raw/` addresses gated priors, and G23 is the precondition for stacking priors at all | Human curation (or a web search pass) |
 | P8 | Write the inductive-bias page, or decide it belongs inside [[wiki/concepts/shortcut-learning.md]] | The four levers (architecture, data, loss, optimizer) are now the wiki's stated control surface for G16; currently they live in one section of one page | A second source with a concrete bias-vs-solution result — `deletang-2023-language-modeling-compression.md` and `talk-nd-cross-entropy-first-principles.txt` both bear on the loss lever |
 
 ## Standing
