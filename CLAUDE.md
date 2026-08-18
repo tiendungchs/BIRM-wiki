@@ -15,11 +15,13 @@ This wiki is a persistent, compounding knowledge base for research on **brain-in
 ## Directory Layout
 
 ```
-PersonalWiki/
+BIRM-Wiki/
 ├── CLAUDE.md                   ← this file: schema and operating rules
-├── raw/                        ← source documents
+├── raw/                        ← source documents (Markdown / plain text only)
+│   └── originals/              ← archived PDFs, kept for provenance; never ingested
 ├── tools/
-│   └── qmd-index.sh            ← hybrid BM25+vector search script
+│   ├── qmd-index.sh            ← hybrid BM25+vector search script
+│   └── pdf2md.sh               ← convert dropped PDFs to Markdown before ingest
 └── wiki/                       ← all LLM-generated content
     ├── overview.md             ← high-level synthesis of the research area
     ├── priority-tasks.md       ← current priority tasks identified from lint passes
@@ -35,6 +37,7 @@ PersonalWiki/
 **Rules:**
 - All wiki content lives under `wiki/`.
 - File names: lowercase, hyphens for spaces, `.md` extension. Example: `wiki/concepts/working-memory.md`.
+- Sources in `raw/` must be Markdown or plain text — both are grep-able and readable in slices, so an INGEST costs a fraction of what a PDF costs. Convert a dropped PDF first with `./tools/pdf2md.sh`; the original moves to `raw/originals/`.
 
 ---
 
@@ -66,7 +69,7 @@ PersonalWiki/
 
 ## Operations
 
-The three core operations live as project skills under `.claude/skills/`. Invoke the skill — do not improvise the procedure from memory.
+The three core operations live as project skills under `.claude/skills/`. Invoke the skill — do not improvise the procedure.
 
 | Operation | Skill | Trigger |
 |---|---|---|
@@ -113,4 +116,5 @@ Fall back to `grep -r "terms" wiki/` if qmd errors.
 - Internal links: `[[wiki/concepts/working-memory.md]]` — always use full path from repo root.
 - Full expansion of all abbreviations (e.g. FT (Full-Term)), except terms that are really common (e.g AI, NN, ML, DNA, etc) or too long (AMPA (α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid receptor)), in that case, they will be stored in `wiki/glossary.md`.
 - Never modify a page without reading it.
-- Gitlog is changelog. 
+- Gitlog is changelog. Commit only what you touched and the ingested `raw/` file (uncommit `raw/` files are not ingested).
+- Don't read between the line. Do what you are asked.
