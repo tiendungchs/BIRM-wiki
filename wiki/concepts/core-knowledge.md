@@ -56,6 +56,37 @@ The chick result is the load-bearing one for this wiki: it says relational prior
 
 ---
 
+## Computational accounts of the object and agent systems
+
+Spelke's inventory says *what* is installed; it does not say what runs. Lake et al. 2017 supply the leading computational proposals for the two systems they call "developmental start-up software", and both are **simulation over a structured model**, not cue lists.
+
+| System | Proposal | Content |
+|---|---|---|
+| **Intuitive physics** | An **intuitive physics engine** — inference over a game-engine-style simulator (Battaglia, Hamrick & Tenenbaum 2013; Bates et al. 2015; Sanborn et al. 2013) | The scene is reconstructed as objects with physically relevant properties (mass, elasticity, friction) and forces (gravity, collision impulses); the state estimate is approximate, probabilistic, oversimplified — but rich enough to simulate forward. Quantitatively fits adult tower-stability judgements and simpler infant physical predictions (Téglás et al. 2011) |
+| **Intuitive psychology** | **Bayesian inverse planning** / naive utility calculus (Baker, Saxe & Tenenbaum 2009; Jara-Ettinger et al. 2015) | Agents are treated as approximately rational planners; planning is formalized as an MDP/POMDP over the agent's utilities, beliefs and transition function. Forward: predict what the agent does. **Inverse: observe actions, infer utilities and beliefs.** Uniquely, it **nests recursively** — agents reasoning about agents — which the physics engine does not |
+
+**Developmental content the engine account has to cover:** persistence, continuity, cohesion and solidity by ~2 months (Spelke 1990); distinct expectations for rigid bodies, soft bodies and liquids by ~6 months, liquids passing barriers that solids cannot (Hespos, Ferry & Rips 2009; Rips & Hespos 2015); inertia, support, containment and collision by 12 months (Baillargeon 2004).
+
+### The regress argument against cue-based accounts
+
+The strongest available argument in the wiki for *structured* priors over learned feature detectors, and it is a **combinatorial** argument rather than an empirical one.
+
+Take "agent A moves toward a box; agent B blocks A" ⇒ B is *hindering*. A cue does it: `if an expected trajectory is prevented, associate the blocker negatively`. Then:
+
+| Perturbation | Correct reading |
+|---|---|
+| A was already a 'bad guy' | B is *good* |
+| Something harmful is in the box, unknown to A | B is *protecting* |
+| A knows it is harmful and wants it anyway | B is *paternalistic* |
+
+The cue must become "*if an expected trajectory is prevented, associate the blocker negatively, unless that trajectory leads to a negative outcome, or the blocker is previously positive, or the blocked agent is previously negative, or…*" — each perturbation adds a clause, and the clauses do not converge. A generative model over *goals, beliefs and costs* handles all four with no new machinery, by changing the inferred arguments rather than the rule.
+
+**Why this matters here.** The wiki's four-lever control surface ([[wiki/concepts/shortcut-learning.md]]) says the intended solution must be paid for by bias, without saying what *form* the bias should take. This argument says: pay for a **generative model with inferrable latent arguments**, not for more discriminative features, because the feature account's cost grows with the number of situations while the generative account's does not. It is the same reasoning as the tower-stability case — every physical "tweak" (blocks of styrofoam, lead, goo; a rubber table; glued blocks; reversed gravity; wind) requires new features and new training for a pattern-recognition account, and no new machinery for a simulator.
+
+**Machine status.** PhysNet (Lerer, Gross & Fergus 2016) trains a convolutional net to predict block-tower stability; it generalizes from synthetic to real images, matches human performance on real ones and exceeds it on synthetic — but needs 100,000–200,000 scenes to learn *one* judgement ("will it fall?") on towers of two to four cubes, and its correlation with human confidence is weaker than the simulation model's. No deep network has been applied to inverse-planning scenarios at all.
+
+---
+
 ## Signature limits as the identification criterion
 
 The methodological core of Spelke & Kinzler 2007, and the most directly transferable part: **a core system is identified not by its content but by the profile of failures it produces**, held constant across ages, species, cultures and tasks. Content can be mimicked by learning; a quantitative limit that does not move cannot.
@@ -240,3 +271,8 @@ The catch is the same attentional bottleneck: if the two systems compete for att
 - **[[wiki/entities/aixi.md]]** — the agent for which that equivalence is proved; the "boundary between implementation and training is unsharp" claim is its most direct attack on this page's architecture lever.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the direct rival on origins: it derives the "innate" conceptual primitives of infancy from very early sensorimotor prediction (starting in the womb with body-boundary learning), while agreeing that a small set of structural biases must be installed — the disagreement is over *what* is installed, domain-specific content or three typed prediction channels (tension T12).
 - **[[wiki/concepts/event-segmentation.md]]** — the rival account of where discrete entities come from: individuation by change in the active predictive-encoding set, rather than by an entry-gated core system admitting an entity to a domain.
+- **[[wiki/concepts/causal-model-building.md]]** — intuitive physics and intuitive psychology *are* causal models on that page's definition (the generative steps resemble the world's), and extending them into new domains is what it calls the primary job of learning.
+- **[[wiki/concepts/simulation-based-planning.md]]** — the computational form both core systems take is forward simulation over a structured model, so the object and agent priors are not merely constraints on a planner but the same rollout machinery applied to physics and to other minds.
+- **[[wiki/concepts/compositionality.md]]** — the harder problem this page raises (composing across encapsulated modules, gap G21) versus the tractable one that page covers: composing arrangements within a single fixed vocabulary.
+- **[[wiki/concepts/amortized-inference.md]]** — the same restrict-before-searching move applied to hypotheses instead of entities: abstract features of a *question* prune the space of admissible answers, as an entry condition prunes which entities reach a system.
+- **[[wiki/entities/bayesian-program-learning.md]]** — the same "format installed, details learned" pattern applied to a learned domain: relation types fixed by the prior, the primitive library acquired in pre-training.

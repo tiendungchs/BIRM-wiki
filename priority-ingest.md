@@ -12,7 +12,7 @@
 - [x] `hutter-2000-universal-ai-algorithmic-complexity.md` — foundations · F · 2000
 - [x] `spelke-2007-core-knowledge.md` — foundations · F · 2007
 - [x] `butz-2016-unified-subsymbolic-cognition-theory.md` — foundations · F · 2016
-- [ ] `lake-2017-machines-learn-think-like-people.md` — foundations · F · 2017
+- [x] `lake-2017-machines-learn-think-like-people.md` — foundations · F · 2017
 - [ ] `richards-2019-deep-learning-framework-neuroscience.md` — foundations · F · 2019
 - [ ] `chollet-2019-measure-of-intelligence.md` — foundations · F · 2019
 - [ ] `lecun-2022-autonomous-machine-intelligence.md` — foundations · F · 2022

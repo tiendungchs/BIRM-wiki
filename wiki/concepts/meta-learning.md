@@ -52,6 +52,23 @@ Progressive networks are a boundary case: transfer without a meta-objective, by 
 
 ---
 
+## What gets transferred, and why representation decides it
+
+Lake et al. 2017 make a claim the optimization statement above does not contain: **learning-to-learn's payoff is bounded by the form of what it transfers**, so the same outer loop over the same task family buys far more when the representation is compositional and causal.
+
+| Route | What is shared across tasks |
+|---|---|
+| **Hierarchical Bayes** | A prior over concepts, itself learned while learning the specific concepts (Salakhutdinov, Tenenbaum & Torralba 2012, 2013); used to explain human learning-to-learn in word learning, causal learning and intuitive theories of physical and social domains |
+| **Feature sharing** (deep nets) | Hidden-layer features reused across old and new objects/tasks — the dominant machine route |
+| **Hyperparameter / update-rule meta-optimization** | The form of the weight update itself (Andrychowicz et al. 2016) — see [[wiki/concepts/meta-optimized-plasticity.md]] |
+| **Compositional program transfer** ([[wiki/entities/bayesian-program-learning.md]]) | Primitives, sub-parts, parts *and relations*, plus **the typical variability within a generative model** — knowledge of how far and in what ways to generalize, "which on its own could not possibly carry any information about variance" from one example |
+
+The last row is the one to steal. Learning-to-learn occurring **at multiple levels of a hierarchical generative process** is what lets a single example fix a whole distribution: the example fixes the arrangement, pre-training already fixed the spread. Feature sharing has no level at which to store that.
+
+**The quantitative gap.** Actor-mimic (Parisotto et al. 2016) pre-trains on 13 Atari games (~4M frames each ≈ 18.5 h per game) by mimicking an expert network, then reaches in 1–2M frames on a new game what a fresh DQN needs 4–5M frames for — real transfer, still orders of magnitude short of the few minutes a human needs. On the character side, matched pre-training (5 alphabets) leaves convolutional classifiers at ~5× human error where a compositional program learner is at human level. Both comparisons hold the task family fixed and vary only the representation, which is what makes them evidence for the claim rather than for scale.
+
+---
+
 ## The knowledge-boundedness limit
 
 The inner learner adapts only within the envelope the outer loop sampled. `p(T)` is a hard boundary: a family the outer loop never saw is not "few-shot hard", it is out of scope. Any claim that a meta-learned system generalizes structurally has to specify the task distribution it was trained over.
@@ -86,4 +103,8 @@ The inner learner adapts only within the envelope the outer loop sampled. `p(T)`
 - **[[wiki/concepts/core-knowledge.md]]** — the limiting case of the outer loop: a meta-graph fixed by evolution instead of optimized over a task distribution, which is what makes instance binding one-shot.
 - **[[wiki/concepts/universal-induction.md]]** — a `2^-(program length)` mixture over all computable environments is the non-parametric limit of an outer loop over a task distribution; meta-learning is what the outer loop becomes when the mixture must fit in finite weights.
 - **[[wiki/entities/aixi.md]]** — shows the slow/fast split is not logically necessary: a full posterior over environments transfers without ever representing a meta-level, so the two-level architecture is a finite-capacity requirement.
+- **[[wiki/concepts/compositionality.md]]** — names *what* a successful outer loop transfers: a library of parts and relations rather than a weight initialization, which is why transfer over non-compositional representations stays weak however large the task family.
+- **[[wiki/entities/bayesian-program-learning.md]]** — the instance where learning-to-learn runs at several levels of one generative hierarchy, including the level that stores how much within-concept variability to expect.
+- **[[wiki/concepts/causal-model-building.md]]** — makes causal structure a precondition rather than a sibling of transfer: the full benefit of learning-to-learn is claimed to require compositional and causal representations to operate over.
+- **[[wiki/concepts/amortized-inference.md]]** — the same outer-loop shape applied to an inference problem instead of a task distribution, and it inherits the identical hard boundary at the edge of what was sampled.
 - **[[wiki/concepts/event-segmentation.md]]** — episode encodings are the meta-graph made concrete for temporally extended structure: the event schema is what is shared across instances, the binding of items to its slots is what varies (Butz 2016).

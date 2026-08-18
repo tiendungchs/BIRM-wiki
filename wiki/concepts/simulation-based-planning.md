@@ -18,6 +18,22 @@ In the wiki's framing this is **path search over the latent graph**: the interna
 
 The flexibility asymmetry is why this matters for abstract reasoning: a reasoning agent is defined by its ability to answer counterfactual and novel-goal queries, and only the model-based side can do that without retraining.
 
+**They are not exclusive, and the traffic runs both ways.** Considerable evidence has the brain running both, competing over control and cooperating over training, arbitrated by metacognitive processes on a rational speed/flexibility trade-off (Daw, Niv & Dayan 2005; Keramati et al. 2011); plans are *amortized* into cached values by letting the model-based system simulate training data for the model-free one, possibly offline (Sutton 1990; Gershman, Markman & Otto 2014), and model-based behaviour becomes automatic with training (Economides et al. 2015). See [[wiki/concepts/amortized-inference.md]].
+
+---
+
+## The re-goaling test
+
+The cleanest behavioural signature of model-based control, and a usable evaluation protocol (gap G17).
+
+Construct variants of one task that are **identical in transition structure and differ only in the reward function**. Frostbite admits at least eleven (Lake et al. 2017): get the *lowest* score; get closest to 300 without going over; beat a friend but only barely; survive as long as possible; die as fast as possible; clear each level at the last possible second; reach the furthest level ignoring score; find Easter eggs; collect only fish; touch every ice floe exactly once; teach the game to someone else. A competent human player shifts to any of these with little or no additional learning; a DQN must be retrained, and changing object colours or appearance alone is enough to destroy its performance.
+
+Go supplies the same test at a different scale: board sizes from 9×9 to 38×38, non-rectangular and non-planar boards (torus, Möbius strip, cube, diamond lattice), holes cut in the board, and rule changes (First Capture Go, NoGo, Time Is Money Go), plus multi-player and team variants. Skilled humans adapt; AlphaGo's learned value functions and policies "seem unlikely to generalize as flexibly", and most variants would need reprogramming and retraining *by the humans who built it*.
+
+**Why it is a good instrument.** The transition model is held fixed by construction, so the only thing varying is what the agent must do with it — which isolates the *use* half of the framing from the *discovery* half. It needs no distribution shift in the observations, so it is cheaper than an o.o.d. benchmark, and it has the property gap G17 demands: a well-defined intended solution.
+
+**(brainstorm)** Restated in the wiki's terms, re-goaling is a **modularity test on the graph estimate**: it passes only if the environment model is stored separately from the value function, so that an arbitrary new reward can be composed with it at query time. A system that cannot re-goal has entangled the two, whatever its architecture diagram says. That makes it a direct probe of gap G1's factorization along an axis the wiki has not used — not `g` vs `x`, but *transitions* vs *preferences*.
+
 ---
 
 ## Evidence that biology plans this way
@@ -43,6 +59,8 @@ What *initiates and steers* the rolling-forward is unresolved; the leading propo
 | **Monte Carlo tree search** | Forward search used to update a value function and/or policy; the search half of expert Go play |
 | **Deep generative environment models** | Generate temporally consistent sample sequences reflecting the geometric layout of newly experienced realistic environments — the analogue of hippocampal binding of components into a coherent imagined experience |
 | **Controller/model separation** | An explicit split between a policy controller and an environment model, queried bidirectionally; used for planning over interacting physical objects |
+| **Intuitive physics engine** | Simulation as the *model* of a cognitive competence rather than as a planner component: reconstruct objects with mass, elasticity and friction, apply forces, roll forward. Fits adult tower-stability judgements quantitatively, and answers hypothetical and counterfactual queries (remove blocks, glue them, change the material, jostle the table) that each require new features and new training for a discriminative account ([[wiki/concepts/core-knowledge.md]]) |
+| **Bayesian inverse planning** | The same idea for other minds, and the only one here that **nests recursively**: planning is an MDP/POMDP over an agent's utilities and beliefs, and inverting it recovers those utilities and beliefs from observed actions. Learning from watching an expert needs no trial of one's own — infer that birds are dangerous from the fact that avoidance is the best explanation of the expert's behaviour |
 
 **The gap.** Generative models produce rich coherent rollouts; using them *for control* is unsolved. The stated requirement is that rich internal models — approximate but accurate enough to plan on — be **learned from experience without strong priors hand-crafted by the experimenter**. That requirement is identical to the LGD problem statement.
 
@@ -83,4 +101,7 @@ What *initiates and steers* the rolling-forward is unresolved; the leading propo
 - **[[wiki/concepts/universal-induction.md]]** — supplies the model the rollout runs on in the ideal case, and the result that greedy one-step evaluation suffices only where the agent's actions do not shape its observations — i.e. planning depth > 1 is forced exactly by being an agent.
 - **[[wiki/concepts/core-knowledge.md]]** — the object system's principles (cohesion, continuity, action-on-contact) are transition constraints, i.e. a candidate hand-specified environment model for the rollout to run on.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — supplies the switch that turns perception into simulation (drop the bottom-up gain `γ → 0`, drive biased competition `β ≪ 0`) and the drive that initiates a rollout (homeostatic divergence read as free energy), which is the first candidate mechanism for gap G15's *when to plan* half (Butz 2016).
+- **[[wiki/concepts/amortized-inference.md]]** — the compilation direction: rollouts generate training data for a model-free controller, so habitization is planning being cached rather than planning being abandoned, and arbitration between the two supplies a second candidate answer to gap G15's *when to plan*.
+- **[[wiki/concepts/causal-model-building.md]]** — supplies what the rollout runs on: a model is usable for planning only if its steps correspond to the environment's generative steps, and the re-goaling test above is that page's richness criterion applied to control.
+- **[[wiki/concepts/compositionality.md]]** — constructive recombination, listed here as a missing property, is compositionality applied to imagined scenarios; and sub-goal composition is the only cited route to planning under sparse reward.
 - **[[wiki/concepts/event-segmentation.md]]** — supplies the multi-scale graph to plan over (episodes compress schema chains) and runs path search *backwards*: chain event schemata by matching a desired final event to another schema's preconditions.

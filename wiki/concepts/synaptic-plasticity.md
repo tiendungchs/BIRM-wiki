@@ -17,6 +17,8 @@ This is the brain's actual write mechanism. Where [[wiki/concepts/biologically-p
 | **Neurogenesis** | developmental, and adult (subventricular zone, amygdala, dentate gyrus) | Capacity added rather than reallocated; rate is environment-sensitive (enrichment, exercise, stress in rodents). Role in learning not established |
 | **Glial modulation** | — | Astrocytes release, reuptake and metabolize neurotransmitters, regulating availability; structural changes in synaptic strength require glial involvement. Not represented in any learning rule below |
 
+**The timescale objection.** Long-term potentiation is routinely cited as the biological warrant for Hebbian learning, and Gallistel & Matzel 2013 argue the cognitive significance of that warrant is unclear on three counts (reported in Lake et al. 2017): (i) LTP's critical interstimulus interval is *orders of magnitude smaller* than the intervals that matter behaviourally, and experiments varying interstimulus and intertrial intervals together show **no critical interval exists**; (ii) behaviour persists for weeks or months while LTP decays to baseline in days (Power et al. 1997); (iii) learned behaviour is rapidly reacquired after extinction (Bouton 2004) with no corresponding facilitation in LTP (de Jonge & Racine 1985). Their conclusion — that it would be "especially challenging" to implement structured model building with purely Hebbian mechanisms — is logged as [[wiki/empirical-tensions.md]] T13. It does not touch the rules below as *engineering*; it removes the biological argument for preferring them.
+
 **Metaplasticity is the important one for this wiki.** It is elastic weight consolidation's biological ancestor stated as a *mechanism* rather than as a penalty term — the gate on writability is intrinsic to the synapse and stateful, not computed by an outer loop from a Fisher matrix ([[wiki/concepts/continual-learning.md]]). It is distinguishable from neuromodulation, though the two overlap in time at a modified synapse.
 
 ---
@@ -80,6 +82,7 @@ The `x_i·Δx_j` increment pushes future `x_j` responses toward the perturbation
 - **Stabilization is unsolved in general**, only patched (bounding, normalization, history terms). The instability is intrinsic to the positive feedback.
 - **Glial modulation and neurogenesis appear in no learning rule.** If astrocytes are required for structural synaptic change in biology, every rule here is modelling an incomplete mechanism.
 - **What does metaplasticity compute?** It is described as protecting against saturation; no computational account states what objective its state machine is optimizing.
+- **The behavioural timescales do not line up.** If LTP has no critical interstimulus interval, decays in days where behaviour persists for months, and shows no reacquisition-after-extinction effect, then the mechanism cited as the biological warrant for the whole family is not obviously the mechanism behind behavioural learning (T13). No rule here is stated at a timescale that would fix this.
 - **Sparse-reward credit still needs an exploration policy.** Node perturbation is unbiased but its variance grows with network size; nothing says where the perturbations should be injected.
 
 ---

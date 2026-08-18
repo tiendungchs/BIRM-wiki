@@ -132,3 +132,4 @@ Reading: the ceiling is not one wall but two. Uncomputability is the famous one;
 - **[[wiki/concepts/meta-learning.md]]** — AIXI shows the two-level split is not logically necessary (a full posterior needs no meta-level); meta-learning is what the split becomes under finite capacity.
 - **[[wiki/concepts/shortcut-learning.md]]** — the passive/active asymmetry is the identifiability problem restated where the architecture is optimal by construction, so it cannot be blamed on the learner.
 - **[[wiki/entities/spiking-neural-networks.md]]** — the opposite pole of the same axis: AIXI is a substrate-free specification with no implementation, spiking networks are an implementation-first commitment with no guarantee.
+- **[[wiki/entities/bayesian-program-learning.md]]** — the same program-induction framing at the tractable end of the trade: restrict the program space by hand and keep computability, instead of keeping the full computable class and losing it.
