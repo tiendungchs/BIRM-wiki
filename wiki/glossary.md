@@ -6,6 +6,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 
 | Abbrev. | Expansion | Note |
 |---|---|---|
+| AIT | Algorithmic Information Theory | Kolmogorov complexity and its relatives; the formal language of both [[wiki/concepts/universal-induction.md]] and [[wiki/concepts/skill-acquisition-efficiency.md]] |
+| DSL | Domain-Specific Language | A restricted program space to search over; ARC's proposed solver hard-codes core-knowledge priors as one |
+| GD | Generalization Difficulty | `H(Sol^θ_T \| TrainSol^opt_{T,C}) / H(Sol^θ_T)` — how far the shortest curriculum-optimal program must be edited to work at evaluation |
 | AIXI | AI with (X) Induction (I) | Hutter's uncomputable universal agent; the formal ceiling ([[wiki/entities/aixi.md]]) |
 | AIXItl | AIXI bounded to length `l̃` and per-cycle time `t̃` | Computable reduction of AIXI; dominates all self-certifying policies within those bounds |
 | AIµ | The same agent with the *true* environment prior `µ` | Plain expectimax; optimal by construction, and the reference AIXI is measured against |
@@ -42,6 +45,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 
 | Abbrev. | Expansion | Note |
 |---|---|---|
+| CHC | Cattell-Horn-Carroll theory | The dominant hierarchical model of human cognitive abilities: `g` factor → broad abilities → task-specific skills; maps onto extreme / broad / local generalization |
+| Gf / Gc | Fluid / Crystallized intelligence | Cattell 1971: skill-acquisition ability vs. accumulated knowledge. ARC targets Gf only |
+| IRT / CTT | Item Response Theory / Classical Test Theory | Psychometric standards for reliability and validity that Chollet 2019 imports into AI evaluation |
 | CS / US | Conditioned Stimulus / Unconditioned Stimulus | Conditioning terminology; second-order conditioning motivated TD learning |
 | fMRI | functional Magnetic Resonance Imaging | |
 | LIF | Leaky Integrate-and-Fire | Standard spiking-neuron model: membrane potential integrates input, spikes at threshold, resets |
@@ -56,4 +62,5 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 
 | Abbrev. | Expansion | Note |
 |---|---|---|
-| ARC-AGI | Abstraction and Reasoning Corpus for Artificial General Intelligence | |
+| ARC / ARC-AGI | Abstraction and Reasoning Corpus (for Artificial General Intelligence) | Chollet's grid-transformation benchmark; the wiki page describes the 2019 original ([[wiki/entities/arc-agi.md]]) |
+| GLUE / SuperGLUE | General Language Understanding Evaluation | Multi-task NLP benchmarks; tasks are known to developers, so they measure skill breadth, not developer-aware generalization |

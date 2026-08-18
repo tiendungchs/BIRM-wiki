@@ -12,7 +12,9 @@ Models, frameworks, benchmarks, and biological systems. One page per artefact. N
 
 ## Benchmarks and datasets
 
-*(none yet)*
+| Page | What it is | Load-bearing for |
+|---|---|---|
+| [[wiki/entities/arc-agi.md]] | ~1,000 hand-authored grid transformation tasks, ~3 example pairs each, evaluation tasks unknown to the developer, priors enumerated as Spelke's four core systems | The wiki's first benchmark page and its only instrument for developer-aware generalization; the pure edge-label-latent case with a co-latent vocabulary |
 
 ## Biological systems
 
@@ -37,7 +39,7 @@ Artefacts named on existing pages that have no page of their own. Listed so the 
 | Monte Carlo tree search / expert Go play | [[wiki/concepts/simulation-based-planning.md]], [[wiki/concepts/causal-model-building.md]] | *(no primary source in `raw/`; Lake et al. 2017 supplies AlphaGo's training volume — 28.4M expert positions + ~100M self-play games vs. Lee Sedol's ~50,000 — and the Go-variants re-goaling argument)* |
 | Intuitive physics engine (Battaglia et al. 2013) / PhysNet (Lerer et al. 2016) | [[wiki/concepts/core-knowledge.md]], [[wiki/concepts/simulation-based-planning.md]] | *(no source in `raw/` — the simulation account of the object system, and the convolutional rival needing 100k–200k scenes for one judgement)* |
 | Bayesian inverse planning / naive utility calculus (Baker et al. 2009; Jara-Ettinger et al. 2015) | [[wiki/concepts/core-knowledge.md]], [[wiki/concepts/simulation-based-planning.md]] | *(no source in `raw/` — MDP/POMDP theory-of-mind, the only recursively nestable simulation account in the wiki)* |
-| Omniglot / the Characters Challenge | [[wiki/entities/bayesian-program-learning.md]], [[wiki/concepts/meta-learning.md]] | *(no source in `raw/` — the benchmark the one-shot results are measured on; the wiki's benchmark table is still empty)* |
+| Omniglot / the Characters Challenge | [[wiki/entities/bayesian-program-learning.md]], [[wiki/concepts/meta-learning.md]] | *(no source in `raw/` — the benchmark the one-shot results are measured on; row 2 of the latent-variable table in [[wiki/concepts/latent-graph-discovery.md]])* |
 | ImageNet | [[wiki/concepts/shortcut-learning.md]] | *(no source in `raw/` — the canonical "dataset ≠ ability" case: intended object recognition, largely solved by texture)* |
 | ImageNet-A / ImageNet-C | [[wiki/concepts/shortcut-learning.md]] | *(no source in `raw/` — natural worst case; 15 corruptions)* |
 | ObjectNet | [[wiki/concepts/shortcut-learning.md]] | *(no source in `raw/` — scientific controls over background, rotation, viewpoint)* |
@@ -54,5 +56,8 @@ Artefacts named on existing pages that have no page of their own. Listed so the 
 | Feedback alignment / direct feedback alignment / sign-symmetry | [[wiki/concepts/biologically-plausible-credit-assignment.md]] | *(no source in `raw/` — sign-symmetry is the only variant matching backpropagation at ImageNet scale)* |
 | Differentiable plasticity | [[wiki/concepts/meta-optimized-plasticity.md]] | *(no source in `raw/` — gradient-optimized plasticity coefficients, incl. neuromodulated variants)* |
 | Evolvable Neural Units | [[wiki/concepts/meta-optimized-plasticity.md]] | *(no source in `raw/` — evolved somatic/synaptic compartments that rediscover spiking dynamics and RL-type rules)* |
-| Loihi / TrueNorth / SpiNNaker | [[wiki/entities/bayesian-program-learning.md]] | Concepts as simple stochastic programs over a shared library of pen primitives, sub-parts, parts and relations; inference recovers the program from one example | The wiki's only architectural (not emergent) `g`/`x` factorization; human-level one-shot classification and a passed visual Turing test; the causal end of the generative spectrum |
-| [[wiki/entities/spiking-neural-networks.md]] | *(no source in `raw/` — neuromorphic platforms; locality is a hardware constraint here, not a preference)* |
+| Loihi / TrueNorth / SpiNNaker | [[wiki/entities/spiking-neural-networks.md]] | *(no source in `raw/` — neuromorphic platforms; locality is a hardware constraint here, not a preference)* |
+| CoinRun / Obstacle Tower | [[wiki/entities/arc-agi.md]] | *(no source in `raw/` — generalization tests whose level generators are public, so they measure local generalization: new samples from a known distribution, not a new task)* |
+| Raven's Progressive Matrices | [[wiki/entities/arc-agi.md]] | *(no source in `raw/` — the 1930s IQ format ARC is styled after; item types are public and hard-codable, which is what makes it gameable for machines)* |
+| OpenAI Five / DotA2 | [[wiki/concepts/skill-acquisition-efficiency.md]] | *(no source in `raw/` — 45,000 years of self-play, 16 of 100+ characters, reliably beaten by non-champion humans days after public release; the wiki's canonical case of skill bought with unlimited experience)* |
+| The C-Test (Hernández-Orallo) | [[wiki/entities/arc-agi.md]] | *(no source in `raw/` — AIT-grounded induction test; programmatically generated from a master program, which is Chollet's stated reason for hand-authoring ARC instead)* |

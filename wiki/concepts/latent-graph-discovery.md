@@ -47,7 +47,15 @@ These are **independent latent variables, not a partition**. A task is a *subset
 
 **"Topology given" ≠ "the solver knows the graph."** It is the technical claim that adjacency is *fixed in advance by an explicit map or by known rules*, so no structure-learning-from-observation is required. The graph may still be astronomically large and mostly dark. Edge *existence* and edge *semantics* are orthogonal: an affordance can be enumerable (topology given) while what it does is latent (label ✓, vocabulary ✓).
 
-*Benchmark × latent-variable mapping: to be filled by ingests.*
+**Benchmark × latent-variable mapping** (extended by each ingest that adds a benchmark page):
+
+| Benchmark | Node content | Edge existence | Edge label | Edge vocabulary | Path | Goal node |
+|---|---|---|---|---|---|---|
+| [[wiki/entities/arc-agi.md]] | given | n/a (single edge) | **latent** | **latent** (described, not supplied in program form) | latent when chained | **latent** (output grid constructed from scratch) |
+| Omniglot | given | n/a | **latent** | given (pen strokes) | latent (stroke sequence) | given |
+| Atari / DotA2 | given | latent | given (game rules) | given (button set) | **latent** | given (score) |
+
+A benchmark is only informative about a latent variable *the solver's developer also did not know* — see [[wiki/concepts/skill-acquisition-efficiency.md]] on developer-aware generalization. On that criterion the second and third rows measure local generalization regardless of how many variables they mark latent, because their task types were public when the solvers were written.
 
 ---
 
@@ -95,6 +103,8 @@ Mapping to the two-timescale factorization (W = slow **w**eights, gradient-updat
 - **The `g`/`x` factorization must be paid for, not discovered.** A shortcut is by construction a rule reading `x` where the intended rule reads `g`; since the data does not separate them, the split has to be imposed through inductive bias — architecture, training data, loss, or optimizer. See [[wiki/concepts/shortcut-learning.md]] for the four levers and gap G16.
 
 Corollary for evaluation: **i.i.d. testing cannot certify that any architecture on this page discovered a graph** — it cannot distinguish a recovered meta-graph from a correlation that happens to hold in the sample (gap G17). The scoring table below needs out-of-distribution tests to be meaningful.
+
+And the shift must be one the *architecture's developer* did not see either: Chollet 2019 shows that skill on any task known in advance can be bought outright with priors (hard-code the solution) or with data (dense-sample the situation space), neither of which touches generalization. So the scoring table needs tasks with non-zero **developer-aware generalization difficulty**, not merely out-of-distribution ones — see [[wiki/concepts/skill-acquisition-efficiency.md]].
 
 **Source 6 does not defeat the W/M split.** Distinguish (a) the object-level edges currently in effect, which mutate mid-episode, from (b) the generator that changes them, which is stationary. Assign **(b) → slow W** and **(a) → fast M** (now continuously updated rather than written once). Equivalently, **lift rule-state into the node**: on `s' = (base_state, rule_config)` the graph is stationary again — topology only looked dynamic because the rule dimension was marginalized out. Two catches:
 
@@ -171,3 +181,5 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 - **[[wiki/entities/bayesian-program-learning.md]]** — the two-level hierarchy realized architecturally rather than emergently: a shared library of primitives and relations as the meta-graph, a per-concept stochastic program as the instance-graph.
 - **[[wiki/concepts/event-segmentation.md]]** — supplies the discretisation this page assumes: events are nodes, event schemata are edges carrying preconditions and effects, episodes are compressed paths, and backward chaining through preconditions is path search run from the goal.
 - **[[wiki/concepts/three-component-framework.md]]** — the specification language this page lacks: any answer here must be stated as an objective function, a learning rule, or an architecture, and the `g`/`x` factorization is currently stated only as the last of the three.
+- **[[wiki/concepts/skill-acquisition-efficiency.md]]** — supplies the scoring axis this page's hardness table presupposes: an architecture's row means nothing unless the benchmark it was scored on has non-zero *developer-aware* generalization difficulty.
+- **[[wiki/entities/arc-agi.md]]** — the pure edge-label-latent benchmark with a co-latent vocabulary: hardness sources 1 and 2 isolated, 3–6 designed out, and the first row of the benchmark table above.
