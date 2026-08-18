@@ -1,0 +1,848 @@
+
+Introduction
+0:00
+The human brain remains one of science's greatest mysteries.
+0:03
+While we have mastered the art of creating computers
+0:06
+by arranging transistors into logical circuits,
+0:09
+understanding how neurons compute is a lot more challenging.
+0:13
+After all, we did not engineer them ourselves.
+0:16
+In an attempt to unravel this,
+0:18
+scientists have created mathematical models,
+0:21
+simplified descriptions that capture the essence of how neurons work.
+0:25
+In this video, we will explore the Hodgkin-Huxley model,
+0:29
+a Nobel Prize winning breakthrough that many consider to be
+0:33
+the most important equation in computational neuroscience.
+0:36
+In their pioneering work, Alan Hodgkin & Andrew Huxley
+0:40
+gave the first mathematical description
+0:42
+of how neurons generate & propagate electrical signals.
+0:46
+In fact, these equations are so fundamental
+0:49
+that I have them tattooed on my forearm.
+0:52
+In this video, we will build an intuitive understanding of the biophysics
+0:56
+behind neuronal computations from the ground up.
+0:59
+Our primary tools will be derivatives & differential equations
+1:02
+that we covered in the previous video in the series.
+1:06
+Today, we will take the framework of dynamical systems
+1:09
+and apply it to neurons
+1:11
+to describe how cells change their states over time,
+1:14
+enabling such a rich variety of computations.
+1:17
+If you're interested, stay tuned.
+1:27
+To begin describing a neuron's behavior,
+Membrane Voltage
+1:30
+we need to clarify what exactly we want to model.
+1:33
+A living cell is an incredibly complex system,
+1:36
+so we will have to make significant simplifications.
+1:38
+Using the terminology from the previous video,
+1:41
+we need to pick state variables.
+1:43
+Let's start with the most crucial one, the membrane voltage.
+1:46
+Imagine a neuron as a tiny bag
+1:49
+filled with water & various dissolved particles
+1:52
+floating in a sea of similar fluid.
+1:55
+The thin barrier separating these two environments,
+1:59
+called the cell membrane,
+2:00
+is where all the action happens.
+2:02
+The particles dissolved in the water
+2:04
+both inside and outside the cell are called ions
+2:08
+and they carry electric charge.
+2:10
+Some are positive and some are negative.
+2:12
+Now here's the key fact.
+2:14
+The composition of ions on both sides of the membrane is different.
+2:18
+Crucially for our discussion,
+2:20
+the inside of the cell contains more negative charge than the outside.
+2:25
+This separation of charges
+2:27
+creates what is known as electrical potential or voltage.
+2:31
+You can think of voltage as a measure of potential energy
+2:35
+arising from the imbalance of charges across the membrane.
+2:39
+It is similar to the potential energy of water held behind a dam.
+2:43
+Just as water has the potential to flow downhill and do work,
+2:47
+the separated charges have the potential to flow
+2:50
+and create the electrical current if given a path to do so.
+2:54
+If the membrane were freely permeable to ions,
+2:58
+this energy would get converted into the kinetic energy of ions
+3:03
+flowing through the barrier,
+3:04
+dissipating the charge imbalance.
+3:06
+However, when the membrane is impermeable,
+3:10
+excess charge has nowhere to flow
+3:12
+and this potential energy remains stored.
+3:15
+The amount of energy stored
+3:17
+depends on both the magnitude of the charge difference
+3:20
+and the physical properties of the membrane,
+3:23
+such as its thickness and area.
+3:25
+This ability to store electric charge is called capacitance.
+3:29
+The behavior of a capacitor
+3:31
+is described by a fundamental equation that relates the stored charge
+3:36
+to the voltage across the membrane.
+3:39
+To understand neuronal dynamics,
+3:41
+we need to consider how this equation changes over time.
+3:44
+Taking the time derivative or the rate of change of both sides
+3:49
+gives us the following equation.
+3:51
+It describes how the voltage changes
+3:53
+as charges redistribute across the membrane.
+3:57
+However, real neurons are more complex than perfect capacitors.
+4:02
+The membrane isn't completely impermeable.
+4:04
+It has specialized protein channels that open and close,
+4:09
+allowing specific ions to flow across the membrane.
+4:13
+These pathways for ion flow
+4:15
+can be thought of as resistors
+4:18
+working alongside our capacitor.
+4:20
+When ions physically cross the membrane through these pathways,
+4:25
+they create electrical currents
+4:27
+that alter the distribution of charge.
+4:30
+Since current is defined as the rate of change of the electric charge,
+4:35
+we can rewrite our final equation in the following way,
+4:38
+where the right hand side
+4:40
+represents the sum of all ionic currents
+4:43
+flowing through the membrane.
+4:45
+This equation marks our first crucial step
+4:48
+in understanding neural dynamics.
+4:50
+It links the rate of change of membrane voltage
+4:53
+to the various currents flowing across the membrane.
+Action Potential Overview
+4:56
+Before we talk about the underlying differential equations,
+4:59
+let's get a rough sketch of what's going on when a neuron fires.
+5:03
+There are two types of ions that play the crucial role
+5:06
+and whose dynamics we will describe:
+5:08
+Sodium & Potassium.
+5:11
+Think of an action potential as a brief electrical pulse
+5:14
+caused by a precisely coordinated way of how these ions
+5:18
+flow through channels in the membrane.
+5:20
+It starts when the membrane voltage rises slightly above its resting level,
+5:25
+crossing a certain threshold.
+5:27
+This depolarization causes sodium channels to begin opening,
+5:31
+allowing sodium ions,
+5:33
+which carry positive charge, to flow into the cell
+5:36
+& thus cause even more depolarization.
+5:39
+After a brief period of opening,
+5:41
+sodium channels close,
+5:43
+blocking the influx of positive charge.
+5:45
+At the same time, channels of another kind open,
+5:49
+allowing positively charged potassium ions to leave the cell,
+5:53
+driving the membrane voltage back down to its resting level.
+5:57
+The entire sequence takes just a few milliseconds,
+6:01
+but it's the fundamental signal that neurons use to transmit information.
+6:07
+This conceptual description makes intuitive sense,
+6:10
+but it's unclear how do channels coordinate
+6:13
+to ensure that they're opening in a proper sequence.
+6:16
+After all, there is no doorman that would open & close channels when required.
+6:20
+So, how is this dance orchestrated biophysically?
+6:23
+We'll begin by discussing
+Equilibrium potential and driving force
+6:25
+what exactly makes ions move across the membrane.
+6:28
+The rate at which ions flow through the channels
+6:31
+depends on two key factors,
+6:33
+how many channels are open
+6:34
+& how strong the driving force is.
+6:37
+There are two physical processes that determine this driving force.
+6:40
+First, there is diffusion,
+6:42
+the tendency of particles to spread
+6:45
+from areas of high concentration to low concentration.
+6:48
+You can think of it as a purely statistical process.
+6:51
+If you have more particles on one side,
+6:54
+by random motion, they are more likely to
+6:56
+bump into channels from that side and pass through.
+7:00
+This is the same reason why
+7:01
+a drop of food coloring spreads through water.
+7:05
+Second, there is the electrical force.
+7:07
+Since ions carry charge,
+7:09
+they are attracted to opposite charges
+7:12
+and repelled by like charges.
+7:14
+Remember that in the intact physiological condition,
+7:18
+there is an excess of negative charge inside the neuron.
+7:22
+This means positive ions are attracted inward,
+7:26
+while negative ions are pushed outward.
+7:29
+Now, here's where it gets interesting.
+7:31
+These two forces often oppose each other.
+7:35
+Let's take potassium as an example.
+7:38
+There are more potassium ions inside the cell than outside,
+7:41
+so diffusion tries to push them out.
+7:44
+But since potassium is positively charged,
+7:47
+it is electrically attracted to flow into the cell
+7:50
+to neutralize the excess negative charge.
+7:53
+Which force wins depends on both
+7:56
+the concentration ratio of ions
+7:58
+& the membrane voltage.
+8:00
+For any given concentration ratio,
+8:02
+there exists a special value of membrane voltage
+8:06
+known as the equilibrium potential,
+8:09
+where the electrical force exactly balances the diffusion force.
+8:13
+At this voltage,
+8:15
+even though individual ions are still moving back and forth
+8:18
+through open channels,
+8:20
+there is no net flow.
+8:22
+For every ion that moves in one direction,
+8:25
+another one moves in the opposite direction.
+8:28
+When the membrane voltage differs from this equilibrium potential,
+8:32
+there is a net flow of ions
+8:34
+that tends to drive the membrane potential towards the equilibrium.
+8:38
+Let's make this more concrete with an example.
+8:41
+In a typical neuron,
+8:42
+there are about 30 times as many potassium ions inside the cell as outside,
+8:48
+creating a strong outward diffusive force.
+8:51
+The corresponding equilibrium potential is about -90 millivolts.
+8:56
+If the membrane potential is less negative,
+8:59
+let's say -50 millivolts,
+9:01
+the electrical force is too weak & the diffusion dominates,
+9:05
+causing potassium to flow outwards.
+9:08
+This removes positive charge from the cell,
+9:11
+making the membrane potential more negative
+9:14
+until it reaches -90.
+9:16
+Conversely, if the membrane voltage is more negative than the equilibrium potential,
+9:21
+let's say -120 millivolts,
+9:24
+the electrical attraction becomes so strong
+9:27
+that it causes a net influx of potassium ions,
+9:30
+reducing the excess negative charge
+9:33
+until the membrane voltage settles back around -90.
+9:37
+We can express this mathematically.
+9:39
+For each ion,
+9:41
+the current flow through open channels
+9:44
+is proportional to the difference
+9:46
+between the actual membrane voltage
+9:48
+& the equilibrium potential.
+9:50
+This difference is what we call the driving force.
+9:53
+The proportionality constant is called conductance,
+9:56
+which represents how many channels are open
+9:59
+and how easily ions flow through them.
+10:02
+If you remember Ohm's law from physics,
+10:05
+this is exactly that,
+10:07
+with conductance being the inverse of resistance.
+Voltage-dependent conductance
+10:11
+So far, we have treated the conductance
+10:13
+as a fixed property of the membrane,
+10:15
+as if ion channels were simply holes that were permanently open,
+10:19
+but real neurons are far more interesting.
+10:22
+Many of the ion channels are voltage-dependent,
+10:25
+meaning that they open and close
+10:27
+depending on the membrane voltage itself.
+10:30
+Thus, our quest until the end of the video
+10:32
+would be to arrive at the expression for g as a function of voltage,
+10:36
+completing our description.
+10:38
+Despite the drastically different roles of sodium & potassium
+10:41
+in generating the action potential,
+10:44
+the underlying formalism for describing
+10:46
+voltage-dependent conductance
+10:48
+is basically the same for different ions
+10:50
+apart for a few technical details.
+10:53
+Let's first express the conductance to be
+10:55
+the product of two factors.
+10:57
+Here, ḡ represents the maximum conductance hypothetically possible
+11:03
+if all of the ion channels were open.
+11:06
+This is a constant determined
+11:08
+by the total number of channels present in the membrane
+11:11
+& the conductance of each channel when it's open.
+11:14
+Thus, it does not change with time.
+11:17
+The second factor p,
+11:19
+is a number between zero and one,
+11:22
+representing the fraction of ion channels
+11:25
+that are open at any given time,
+11:27
+which depends on the membrane voltage.
+11:30
+The fraction of open channels
+11:32
+is basically the same thing as the probability
+11:34
+that a channel is found in an open state.
+11:38
+How can we think about this probability of a channel being open?
+11:41
+For that, let's zoom even closer.
+11:44
+Each ion channel is a complex protein machine
+11:47
+that changes its shape in response to membrane voltage,
+11:51
+either allowing or blocking ion flow.
+11:54
+There are various molecular mechanisms of how that might happen
+11:57
+and the details are not fully resolved.
+12:00
+But broadly, channel proteins have charged parts.
+12:03
+Let's call them gates
+12:05
+that move in response to the electrical field across the membrane.
+12:09
+Each such gate can exist in one of two positions,
+12:13
+permissive and non-permissive.
+12:15
+Whether the channel as a whole allows ions to flow
+12:19
+depends on whether all the gates inside it
+12:22
+are in the correct permissive states.
+12:24
+Kind of how inside a lock,
+12:26
+multiple pins need to be in the correct position
+12:29
+for the door to open.
+12:31
+Let's call the probability of
+12:33
+finding a given gate in its permissive position as n.
+12:37
+We are looking to arrive at a differential equation for n.
+12:41
+How fast does the number of permissive gates change?
+12:44
+Well, let's think about it in terms of transitions between the states.
+12:49
+Since there are only two possible configurations,
+12:52
+n can increase
+12:53
+if a gate that was in a non-permissive position moves.
+12:57
+There are 1-n gates that are non-permissive,
+13:01
+and let's say they are opening with a certain rate alpha (α).
+13:06
+Alternatively, n can decrease
+13:08
+if one of the gates that is currently in the permissive position
+13:12
+changes its state to non-permissive.
+13:15
+By definition, at a given moment
+13:17
+there are n permissive gates,
+13:19
+and we can denote the rate of closing as beta.
+13:23
+This results in the following differential equation,
+13:26
+where both opening and closing rates depend on voltage.
+13:31
+In their original work,
+13:33
+Hodgkin and Huxley determined the equation for alpha (α) & beta (β) empirically
+13:37
+through careful experimental measurements.
+13:40
+The voltage dependence of these rate factors
+13:43
+reflects a complex physical process
+13:45
+of charged amino acid residues
+13:48
+moving within the membrane under the influence of electric field.
+13:51
+While there isn't any elegant closed-form expression
+13:55
+that can be intuitively derived to describe this,
+13:58
+Hodgkin and Huxley found that certain mathematical forms
+14:02
+involving combination of linear terms and exponentials
+14:06
+could fit their data remarkably well.
+14:09
+With these empirical expressions for alpha and beta as functions of voltage,
+14:14
+we can numerically solve the differential equation that
+14:17
+governs the fraction of individual gates in the permissive state.
+14:21
+But what about channels that require multiple gates
+14:24
+to be in the correct configuration to allow ion flow?
+14:28
+Here, the probability theory gives us a simple answer.
+14:31
+If the probability of a single gate being in its permissive state is n,
+14:36
+then for a channel with four independent gates, for example,
+14:40
+the probability of all gates being permissive,
+14:43
+and thus the channel being open,
+14:46
+must be n raised to the fourth power.
+14:49
+This is precisely what Hodgkin and Huxley found for potassium currents.
+14:53
+The conductance was proportional to the 4th power of n.
+14:57
+What makes this finding truly remarkable
+15:00
+is that at the time of these experiments,
+15:02
+the molecular structure of potassium channels was completely unknown.
+15:07
+The 4th power emerged purely from fitting curves to their experimental data.
+15:12
+Decades later, when researchers could finally
+15:16
+examine channel structures using X-ray crystallography,
+15:19
+they confirmed that each potassium channel
+15:23
+indeed contains 4 identical subunits
+15:26
+that work together to control ion flow.
+15:30
+So far, we have a description of a cell
+15:33
+that only contains voltage-gated potassium channels
+15:36
+with the following two differential equations,
+15:39
+one expressing changes in the membrane voltage
+15:42
+as a function of potassium current,
+15:44
+and one for potassium conductance
+15:46
+as a function of membrane voltage.
+15:48
+But potassium alone is not enough
+15:51
+to make neuron generate an action potential.
+15:53
+The formalism for describing sodium currents
+15:56
+is exactly the same, but instead of four identical gates,
+16:01
+each sodium channel has gates of two different kinds,
+16:04
+with the conductance following a different pattern.
+16:07
+Here, m represents one type of gate
+16:10
+analogous to n for potassium channels.
+16:14
+But we need three of them, hence the cubic power.
+16:17
+There is also an additional factor h,
+16:20
+representing a completely different type of gate
+16:23
+with its own distinct properties.
+16:25
+While the m gates open in response to increased voltage,
+16:29
+making the channel more likely to conduct,
+16:32
+the h gate does the opposite.
+16:34
+It closes with sustained depolarization
+16:37
+in a process known as inactivation.
+16:39
+But the differential equations for m & h
+16:42
+have similar flavor to potassium gates,
+16:45
+just with different constants in the alpha & beta functions.
+16:49
+This concludes our description of voltage-dependent ionic conductance.
+Review
+16:53
+Now I realize that this is a lot of information,
+16:56
+so let's step back and review the journey that we've taken.
+16:59
+We started with a fundamental question.
+17:01
+How can we describe the neuron's electrical behavior mathematically?
+17:05
+Our first key insight
+17:06
+was that the most important variable to keep track of
+17:09
+is membrane voltage,
+17:10
+the difference in electrical potential
+17:13
+between inside and outside the cell.
+17:15
+This voltage arises due to the charge separation across the cell membrane,
+17:19
+which acts as a leaky capacitor storing electrical energy.
+17:23
+This led us to the first equation
+17:25
+relating the rate of change of membrane voltage
+17:28
+to various currents flowing across the membrane.
+17:31
+To understand these currents,
+17:33
+we found that the behavior of each ion
+17:35
+follows a similar pattern given by Ohm's law.
+17:39
+Here, E is the equilibrium potential
+17:41
+determined by the concentration ratios of a given ion
+17:45
+on both sides of the membrane.
+17:46
+The real complexity and the beauty of the model
+17:50
+lies in how these conductances depend on voltage.
+17:53
+Hodgkin and Huxley experimentally discovered
+17:55
+that we need two types of ionic currents
+17:58
+to explain the neuronal dynamics.
+18:00
+A potassium current with conductance proportional to n to the 4th,
+18:05
+where n represents a probability of a single gate
+18:08
+being in the permissive position,
+18:11
+& a sodium current with conductance proportional to m cubed times h,
+18:16
+where m & h represent two different types of gates.
+18:21
+Each of the three gating variables
+18:23
+follows its own differential equation in this form,
+18:26
+where x represents any of these variables,
+18:29
+and alpha & beta are voltage-dependent rate constants
+18:33
+determined experimentally.
+18:36
+To allow for more realistic dynamics,
+18:38
+we often include a small leak current into the equation for voltage,
+18:42
+which corresponds to various ions moving through the channels
+18:46
+that are permanently open and thus, have a constant conductance.
+18:51
+There is one more important point to clarify.
+18:54
+Everything we have discussed so far
+18:56
+treats the neuron as a single point,
+18:59
+assuming the membrane voltage is the same everywhere in the cell.
+19:03
+This approximation works well for small neurons,
+19:06
+or when we are primarily interested in what happens near the cell body.
+19:10
+However, real neurons have complex branching structures,
+19:15
+dendrites that receive inputs,
+19:17
+and axons that transmit signals,
+19:19
+& the membrane voltage can vary significantly
+19:22
+across these different locations.
+19:25
+To handle this spatial complexity,
+19:27
+we essentially divide the neuron into many small segments
+19:31
+& apply the Hodgkin-Huxley equations to each segment,
+19:35
+adding terms that describe how current flows
+19:38
+between neighboring segments.
+19:40
+This gives us a system of coupled differential equations
+19:44
+where each segment's voltage
+19:46
+depends on both its local ion channels
+19:48
+and on current flows from neighbors.
+19:51
+The resulting mathematics becomes more complex,
+19:54
+but the core principles remain the same.
+19:56
+Everything is still governed by ions
+19:59
+flowing through voltage dependent channels,
+20:01
+just with the added consideration of how these currents
+20:05
+spread through the neuron's elaborate morphology,
+20:08
+What we talked about today
+Limitations & Outlook
+20:09
+is the most complete mathematical description of
+20:12
+how neurons generate electrical signals,
+20:14
+capturing the intricate dance of ion channels with remarkable accuracy.
+20:19
+However, this completeness comes at a cost.
+20:22
+Our model consists of four coupled differential equations,
+20:26
+one for voltage & three for different gating variables.
+20:29
+While we can easily solve those equations numerically
+20:32
+and simulate a neuron on the computer,
+20:34
+the high dimensionality makes it very difficult
+20:37
+to gain intuitive understanding.
+20:39
+With four equations,
+20:41
+we cannot directly visualize the system state in the phase space,
+20:45
+a powerful geometric tool that would allow us to see
+20:49
+how neurons transition between resting and firing states.
+20:53
+In the following video,
+20:54
+we will see how we can strategically simplify the full Hodgkin-Huxley model
+20:58
+to just 2 variables while preserving the essential features.
+21:01
+This reduction will allow us
+21:03
+to directly visualize systems dynamics
+21:05
+in a 2-dimensional phase plane,
+21:07
+revealing beautiful geometric insights into neuronal excitability.
+21:11
+We will explore why exactly neurons behave the way they do
+21:15
+& how subtle changes in parameters
+21:17
+can lead to dramatically different patterns of electrical activity.

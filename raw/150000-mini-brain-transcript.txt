@@ -1,0 +1,981 @@
+
+Introduction
+0:00
+This is neocortex, a sheet of cells just
+0:02
+a few millimeters thick covering the
+0:05
+surface of the brain. It is the most
+0:07
+recent addition in our evolutionary
+0:09
+history. And it's the structure
+0:11
+responsible for nearly everything we
+0:12
+consider uniquely human from language to
+0:15
+abstract reasoning. For decades,
+0:18
+scientists have tried to reverse
+0:19
+engineer this remarkable tissue. But a
+0:21
+deep mystery has always remained. What
+0:24
+are the unifying principles governing
+0:26
+the coordinated dance of billions of
+0:28
+cortical neurons?
+0:30
+In recent years, a powerful new
+0:32
+framework has emerged. The thousand
+0:34
+brains theory pioneered by Jeff Hawings
+0:36
+and the team at Nenta proposes a single
+0:39
+elegant explanation for what the
+0:40
+neoortex does and how it works. In this
+0:43
+video, we're going to dive deep into
+0:45
+this theory and explore the intricate
+0:47
+biological machinery behind what might
+0:50
+be the fundamental building block of
+0:52
+intelligence, the cortical column.
+Columnar Hypothesis
+0:57
+For over a century, since the pioneering
+1:00
+work of Rammonica Hall, autonomists have
+1:02
+known that the entire cortical sheet
+1:04
+shares a common blueprint. No matter
+1:07
+where you look, the basic circuitry and
+1:09
+cell types arranged into six
+1:11
+characteristic layers appear to be the
+1:13
+same.
+1:15
+The next turning point came from the
+1:17
+work of neurohysiologist Vernon MCastle
+1:19
+who revealed how this anatomy translates
+1:22
+into a stunningly consistent function.
+1:24
+Using microelerodes to listen to neural
+1:27
+activity, he discovered a key principle.
+1:30
+As he lowered the electrode straight
+1:32
+down through the cortical layers, he
+1:34
+found that all the cells in the vertical
+1:36
+column about half a millimeter wide were
+1:39
+all doing the same job. in the somata
+1:42
+sensory cortex. He discovered all the
+1:44
+cells in a column responded to a
+1:46
+stimulation on the exact same patch of
+1:48
+skin.
+1:50
+Soon after David Hubil and Torstston
+1:52
+Weasel famously confirmed this columnar
+1:55
+principle in a completely different
+1:56
+system, the visual cortex. There they
+1:59
+found columns of cells that were all
+2:02
+tuned to respond to a line of the exact
+2:04
+same orientation.
+2:06
+So the evidence was overwhelming. The
+2:09
+neo cortex is not a collection of many
+2:11
+unique structures. It is built from a
+2:14
+single type of processing module. The
+2:16
+six layer column replicated over and
+2:19
+over again. This led to the columnar
+2:22
+hypothesis. If the functional hardware
+2:24
+is universal, then the fundamental
+2:27
+computation, the algorithm it performs
+2:29
+must be universal as well. Seeing,
+2:32
+hearing, language, and abstract thought
+2:34
+might all be different manifestations of
+2:37
+the same underlying neural process. The
+2:40
+only thing that changes is the data
+2:42
+being fed into the columns as input.
+2:46
+This reframes our entire quest to
+2:48
+understand the neoortex. Perhaps we
+2:51
+don't need to find hundreds of different
+2:52
+solutions for all sorts of different
+2:54
+problems. We just need to find one
+2:56
+universal algorithm that powers each of
+2:59
+these information processing units. And
+3:01
+this kind of canonical computation is
+3:04
+exactly what the thousand brains theory
+3:05
+aims to describe.
+Predictive Models of the world
+3:08
+Many modern theories of brain function
+3:10
+converge on a single powerful idea that
+3:13
+the fundamental purpose of neural
+3:15
+computation is to build a predictive
+3:17
+model of the world. This internal model
+3:20
+allows us to understand the present,
+3:22
+plan the future, and navigate
+3:23
+uncertainty. all to increase our chances
+3:26
+of survival. If you're interested in
+3:28
+this, I covered related frameworks like
+3:30
+predictive coding and the free energy
+3:32
+principle in previous videos.
+3:34
+The thousand brains theory takes this
+3:36
+concept and adds an important twist. It
+3:39
+proposes that the brain doesn't build
+3:41
+one single monolithic model of the
+3:43
+world. Instead, every single cortical
+3:46
+column is its own complete modeling
+3:48
+system. Think of it this way. Rather
+3:51
+than being one giant centralized
+3:53
+factory, the cortex is like 150,000
+3:57
+parallel minifactories.
+3:59
+Each one learns its own complete model
+4:01
+of things from simple lines to complex
+4:03
+objects. Your singular rich perception
+4:06
+of the world is the result of these
+4:08
+thousands of mini brains constantly
+4:10
+comparing notes and voting to reach a
+4:13
+consensus.
+4:15
+This elegant idea immediately solves a
+4:17
+major evolutionary puzzle. How did the
+4:20
+human brain become so powerful so
+4:22
+quickly? Evolution did not have to
+4:24
+invent hundreds of new brain components
+4:26
+specialized to different cognitive
+4:27
+functions and later figure out how to
+4:29
+wire them all together properly.
+4:32
+Instead, it had to do something much
+4:33
+simpler. Add more columns. Adding more
+4:37
+instances of the same universal module
+4:39
+vastly increase the brain's
+4:40
+computational power. You're not adding
+4:43
+fundamentally new kinds of machinery.
+4:45
+You're simply expanding the pool of
+4:47
+voters which leads to a more detailed
+4:49
+and robust model of the world. So how
+4:52
+does one minifactory a single cortical
+4:55
+column actually work? The core idea
+4:58
+revolves around learning the structure
+5:00
+of things through sensory motor
+5:01
+coupling. To understand it, let's begin
+5:04
+with a simple analogy.
+Sensorimotor coupling
+5:07
+Imagine you're in a pitch black room
+5:09
+with a statue that you can't see. And
+5:11
+your goal is to understand what that
+5:13
+object is. simply by touching it. If you
+5:17
+only focus on this sensation from your
+5:19
+fingertip, you will get a sequence of
+5:21
+disconnected feelings like smooth cold
+5:23
+marble, then sharp metallic edge
+5:26
+followed by rough carved stone. You will
+5:29
+have a list of features, but no real
+5:31
+understanding of the statue itself. The
+5:34
+key is to also track your own movement.
+5:38
+Let's say you start at the statue's
+5:39
+foot, but you don't know it. Your brain
+5:42
+registers the sensation rough stone and
+5:44
+anchors it to some starting position on
+5:46
+your mental map. Let's call it 0 0. Then
+5:50
+you move your hand up 1 meter. Your
+5:52
+brain receives a copy of this motor
+5:54
+command and updates your position on the
+5:57
+map to something like 010.
+6:00
+At this new location, you feel smooth
+6:02
+marble. You've just done something
+6:04
+really important. Binding a sensation to
+6:07
+a location derived from movement.
+6:11
+You continue this process, move, update
+6:13
+location, sense, and add the new feature
+6:16
+to your map. After exploring for a
+6:18
+while, you no longer have a simple list
+6:20
+of features. You now have a rich
+6:23
+structural model where features are
+6:25
+anchored to specific locations.
+6:28
+This map is what the theory calls a
+6:30
+reference frame.
+6:32
+Once a column has this map, it gains
+6:35
+this superpower of prediction. By
+6:38
+knowing its current location on the
+6:40
+statue, it can predict what it would
+6:42
+feel if it moves to a new spot.
+6:45
+This process of tracking your location
+6:47
+based on a sequence of movements is a
+6:50
+known neural computation called path
+6:52
+integration. It's how you can navigate
+6:55
+in the dark and find your way back to
+6:56
+where you started.
+6:58
+This brings us to a profound application
+7:00
+of the theory. For this process to work,
+7:04
+every single column must have its own
+7:06
+sensory motor system. While it's obvious
+7:09
+for columns in the motor cortex, the
+7:12
+theory makes a bold prediction, every
+7:14
+other column also has a motor output.
+7:18
+But what motor means can change. In the
+7:21
+visual cortex, for example, columns send
+7:23
+commands to muscles that move your eyes.
+7:26
+And in the brain's more abstract areas,
+7:28
+a motor command might be simply an
+7:31
+instruction to shift your attention or
+7:33
+recall a specific memory.
+7:37
+So the universal algorithm is this
+7:39
+constant sensory motor loop which
+7:41
+carries out the binding of sensory
+7:43
+inputs and locations.
+7:46
+Great. Now let's see how this process is
+7:49
+physically implemented in the six cell
+7:51
+layers of a real cortical column.
+Evolutionary origins
+7:54
+To understand the origins of the
+7:56
+cortical column, it's helpful to step
+7:58
+back in evolutionary time. Long before
+8:01
+the advent of the six layered neoortex,
+8:03
+our ancestors faced the fundamental
+8:06
+challenge of navigating the world,
+8:08
+memorizing locations of food and
+8:10
+shelter, and planning efficient routes.
+8:12
+This complex job is handled by the
+8:14
+specialized set of structures deep in
+8:16
+the brain called the hippocample
+8:18
+formation. At a high level, it has three
+8:21
+main components that work in tandem. the
+8:24
+medial and lateral parts of the entrinal
+8:26
+cortex and the hippocampus itself. Now,
+8:30
+because these structures are
+8:31
+evolutionarily older, their architecture
+8:34
+is different. The hippocampus is an
+8:36
+example of what's called alo cortex,
+8:39
+which is composed of only three layers.
+8:42
+And the entrinal cortex is an
+8:43
+evolutionary bridge between the ancient
+8:46
+alo cortex and the modern neoortex. It
+8:49
+also has six layers, but its internal
+8:51
+wiring is different. It doesn't have the
+8:54
+same columnar structure. In broad
+8:57
+strokes, hippocample formation works as
+8:59
+follows. The medial portion of the
+9:01
+entrinal cortex encodes pure location
+9:04
+information.
+9:06
+It contains famous grid cells, neurons
+9:09
+which act as a universal coordinate
+9:11
+system, firing in a hexagonal grid as
+9:14
+the animal moves, constantly tracking
+9:16
+its location.
+9:18
+But a map is useless without landmarks.
+9:21
+The sensory what signal sights sounds
+9:24
+smells is encoded in the lateral
+9:27
+entrinal cortex. These two information
+9:30
+streams what and where from both
+9:32
+divisions are then sent as the input to
+9:34
+the hippocampus.
+9:36
+This is where the crucial binding takes
+9:38
+place. Parameal neurons in the
+9:40
+hippocampus called play cells fire
+9:44
+encoding a location in a specific
+9:46
+context. This is why while a grid cell's
+9:49
+firing pattern is mostly fixed, response
+9:52
+properties of place cells completely
+9:54
+change if you alter the sensory features
+9:56
+of the environment. A phenomenon called
+9:59
+remapping. If you're interested in more
+10:01
+detail on hippocample formation, we
+10:03
+covered place and grid cells in earlier
+10:05
+videos. Now, here is the stunning twist
+10:08
+of today's story. The thousand brains
+10:11
+theory proposes that this exact
+10:13
+principle binding a what signal and a
+10:16
+where signal to form a specific model is
+10:19
+the universal algorithm of the cortex.
+10:22
+The brain essentially took the entire
+10:24
+modeling toolkit from the hypocample
+10:26
+formation, miniaturized it and copied it
+10:28
+into every single cortical column. So
+10:32
+let's follow that blueprint. Let's
+10:34
+examine the six layer architecture of
+10:36
+the neoortex and try to locate where the
+10:39
+analogs of this ancient circuitry ended
+10:42
+up.
+Anatomy of the column
+10:44
+The most straightforward component to
+10:46
+locate is layer 4. This is the column's
+10:49
+primary input port receiving sensory
+10:52
+data from the phalamus. When you see a
+10:55
+specific edge or feel a particular
+10:57
+texture, it's neurons in layer 4 that
+10:59
+fire first. This is the what signal
+11:02
+making layer 4 the direct analog of the
+11:05
+lateral entrinal cortex. Next we need to
+11:09
+find the analog of the medial part. The
+11:11
+division which generates the wear
+11:13
+signal. This crucial job of location
+11:16
+tracking is thought to belong to layer
+11:18
+6.
+11:20
+One of the key predictions of the
+11:21
+thousand brains theory is that every
+11:24
+column contains its own set of grid
+11:26
+cell-like neurons in layer 6. These
+11:29
+neurons form a coordinate system
+11:31
+tracking the location of the column's
+11:33
+associated sensor, whether it's the
+11:35
+position of the finger, the direction of
+11:38
+our gaze, or even an abstract cognitive
+11:40
+variable. And indeed, there is a growing
+11:43
+body of evidence showing these grid
+11:45
+cell-like properties throughout the
+11:47
+cortex.
+11:48
+But for these grid cells to work, they
+11:51
+need to know how the sensor is moving.
+11:54
+This brings us to layer five, the
+11:56
+column's primary action output.
+11:58
+When a layer 5 neuron fires to generate
+12:01
+a motor command like move the eye along
+12:04
+with sending that command to aector
+12:07
+muscles, it also sends an copy, an
+12:10
+internal carbon copy of that command to
+12:13
+its neighbors in layer 6 within the same
+12:15
+column. The cells in layer 6 then use
+12:19
+this movement information to perform
+12:21
+path integration and update the column's
+12:23
+current location on the map. So we found
+12:27
+our inputs what from layer 4 and where
+12:30
+from layer 6 calculated by motor
+12:33
+commands of layer 5. Now we need to bind
+12:36
+the two together. This is the job of the
+12:39
+upper layers 2 three of the cortical
+12:41
+column which makes it a loose analog of
+12:44
+the hippocampus.
+12:45
+These layers receive both the sensory
+12:48
+input from below and the location
+12:50
+context from deeper layers. Technically,
+12:53
+the location information is not sent
+12:55
+directly up the column. Instead, neurons
+12:58
+in layer 6 communicate with upper layers
+13:01
+via phalamus, broadcasting positional
+13:04
+information. A layer 23 neuron then
+13:07
+learns to represent complete objects by
+13:09
+binding sensory features with location.
+13:13
+This is where the stable predictive
+13:14
+model is formed.
+13:17
+Finally, there is layer 1, the very top
+13:20
+layer. It contains very few neurons and
+13:22
+is mostly composed of neural wiring,
+13:25
+dendrites and accents of neurons whose
+13:27
+cell bodies are located in other layers.
+13:30
+This is where the location signal from
+13:32
+layer 6 arrives priming the dendrites of
+13:35
+the neurons below and setting up the
+13:37
+columns predictions.
+13:40
+And with that we have the complete
+13:41
+circuit. A beautiful self-contained
+13:44
+modeling machine. Each column uses a
+13:47
+sensory moral loop to build predictive
+13:49
+models by binding sensory features to
+13:52
+locations on the map. And what the
+13:54
+column actually does, whether it's
+13:56
+feeling a coffee cup or solving a math
+13:58
+problem, simply depends on the type of
+14:01
+information arriving at layer 4 and the
+14:04
+kind of sensor, physical or abstract,
+14:06
+that the column controls.
+14:09
+But if each column acts as its own mini
+14:12
+brain, how do we perceive the world as a
+14:14
+single unified hole? This brings us to
+14:17
+the crucial idea of voting.
+Consensus Voting
+14:21
+Imagine you're grasping a coffee cup in
+14:23
+the dark. Your fingers all project two
+14:26
+different sets of columns in your brain.
+14:28
+Your thumb touches the handle, so its
+14:31
+columns sense a C-shaped ceramic object.
+14:34
+Your index finger is on the rim. So its
+14:37
+columns sense a circular edge in each
+14:40
+column. The neurons in layer 2 three
+14:43
+represent possible explanations for the
+14:45
+sensation. But a single sensation is
+14:48
+ambiguous. The circular edge felt by
+14:51
+your index finger could belong to a
+14:53
+coffee cup or a saucer or a wine glass.
+14:56
+As a result, multiple sets of neurons,
+14:58
+each representing a different object,
+15:01
+become partially active. The column is
+15:04
+holding several hypothesis at once.
+15:07
+The columns of the thumb face the same
+15:09
+problem. Their C-shaped sensation is
+15:12
+consistent with the coffee cup handle, a
+15:14
+teapot spout, or even a cabinet drawer,
+15:17
+causing several groups of neurons in
+15:19
+layer 2 three to become partially
+15:21
+active. Notice the crucial point of
+15:24
+overlap. The coffee cup is the only
+15:27
+hypothesis that appears on both lists.
+15:31
+It is the only object consistent with
+15:33
+both the C-shaped handle and a circular
+15:36
+rim in their correct locations. The
+15:39
+thousand brains theory proposes that
+15:41
+columns agree on this shared hypothesis
+15:44
+through a rapid process of voting. This
+15:47
+reveals a key architectural feature.
+15:50
+Each column has two distinct outputs.
+15:53
+The first from layer 5 sends motor
+15:56
+commands to act on the world. As we saw
+15:58
+previously, the second from layer 2
+16:01
+three sends signals sideways to other
+16:04
+columns. Its purpose is not to move a
+16:07
+muscle but to reach a consensus by
+16:10
+refining predictions and resolving
+16:12
+ambiguity. Here is roughly how the
+16:14
+voting process unfolds.
+16:17
+In the first milliseconds after you
+16:19
+place your fingers on the cup, the
+16:21
+network is a noisy chatter of
+16:22
+conflicting hypothesis. But very quickly
+16:26
+the neurons in layer 2 three in
+16:27
+different columns begin to vote.
+16:30
+Consider the coffee cup neurons in your
+16:32
+index finger column. They receive
+16:35
+convergent evidence, the bottomup
+16:37
+sensory data for a circular rim and
+16:40
+supporting votes from the coffee cup
+16:42
+neurons in your thumb column. This
+16:44
+reinforces the coffee cup hypothesis by
+16:47
+driving those neurons to fire more
+16:49
+strongly. Meanwhile, the wine glass
+16:52
+neurons are in trouble. They have local
+16:55
+sensory evidence, but they receive no
+16:57
+supporting votes from the thumb column.
+17:00
+Lacking this reinforcement, their
+17:02
+activation fades, and they're suppressed
+17:04
+by the strong activation of their coffee
+17:06
+cup neighbors.
+17:09
+This creates a kind of rich get-richer
+17:11
+cascade. As the coffee cup neurons fire
+17:14
+more strongly, they send out more
+17:16
+powerful votes, which further reinforces
+17:19
+the coffee cup neurons in other columns.
+17:22
+The result is a rapid convergence. In a
+17:25
+fraction of a second, the one hypothesis
+17:27
+that is mutually consistent across the
+17:29
+network amplifies itself into a stable
+17:32
+unified consensus. All competing
+17:35
+inconsistent hypotheses are silenced and
+17:38
+your brain arrives at a single unified
+17:40
+perception.
+Putting all together
+17:43
+So far, we've used concrete examples
+17:46
+like touching a statue or holding a
+17:48
+coffee cup. But the real power of the
+17:51
+thousand brains theory lies in how it
+17:53
+scales from physical motion to higher
+17:56
+more abstract forms of human thought.
+17:58
+The theory makes a beautiful and simple
+18:00
+proposal that the underlying algorithm
+18:02
+is identical. It's just using a
+18:05
+different kind of sensor and a different
+18:07
+kind of movement.
+18:09
+The input arriving at columns layer 4
+18:12
+doesn't have to come from our skin or
+18:14
+eyes. It can come from the layer 2 three
+18:16
+output of other columns. In this view,
+18:20
+the stable perception of a coffee cup
+18:22
+from a lower level column can become the
+18:24
+sensory input to a column higher in the
+18:27
+cortical hierarchy. And what is the
+18:29
+motor command? Well, instead of moving a
+18:32
+finger, this higher level column issues
+18:35
+a command to shift the attention
+18:37
+directing which sets of lower level
+18:39
+columns provide the next piece of input.
+18:42
+Imagine tackling a complex logical
+18:45
+problem. You are in essence navigating a
+18:48
+conceptual space. Each step, like
+18:50
+recalling a fact, applying a rule, or
+18:53
+focusing on a sub problem, is a mental
+18:56
+move that takes you to a new location in
+18:58
+the problem's abstract terrain. As you
+19:01
+trace this journey, guided by rules
+19:04
+learned from past experience, your
+19:06
+cortical columns are executing the very
+19:08
+same algorithm they use when exploring a
+19:11
+statue in the dark. This offers a
+19:13
+compelling and unified view of the
+19:15
+neoortex, a vast network of thousands of
+19:18
+mini brains, each learning a predictive
+19:21
+model of its surroundings by binding
+19:23
+sensations to locations on a reference
+19:26
+frame derived from movement. Of course,
+19:28
+this theory is still a work in progress,
+19:30
+and many aspects of brain function don't
+19:32
+fit so neatly into this picture, but it
+19:34
+is an important first step, and it
+19:36
+provides a powerful conceptual framework
+19:38
+of thinking about intelligence in a new
+19:41
+way. One that brings together anatomy,
+19:43
+physiology, and behavior under a single
+19:45
+unifying umbrella. A central theme of
+19:48
+our discussion today is that learning is
+19:51
+not a passive process. The brain builds
+19:53
+its powerful models not just by seeing,
+19:55
+but by doing, by moving, interacting,
+19:58
+and actively exploring the problem

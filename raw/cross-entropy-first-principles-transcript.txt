@@ -1,0 +1,731 @@
+
+0:00
+Imagine you're walking home one night through a thick fog.
+0:03
+Ahead, you see a vague shape moving towards you.
+0:07
+Is it a stray dog, a cat, or maybe just a garbage bag blown by the wind?
+0:14
+In this moment, your brain doesn't pick a single answer.
+0:18
+Instead, it considers multiple possibilities,
+0:21
+each with its own likelihood.
+0:23
+This scenario illustrates a fundamental aspect of how our brains process information.
+0:30
+We don't just see things as binary, we interpret probabilities.
+0:35
+When faced with unclear or incomplete information,
+0:39
+we naturally think in terms of likelihoods and uncertainties.
+0:43
+This probabilistic view of sensory data
+0:46
+also underlies many advancements in modern machine learning.
+0:51
+In fact, a surprising number of computational problems
+0:55
+solved by both biological and artificial systems
+0:59
+can be viewed through this lens,
+1:01
+learning the probability distribution of data,
+1:05
+performing inference and synthesizing new samples from it,
+1:09
+a capability often referred to as generative modeling.
+1:13
+The language of probability and uncertainty is built on a few crucial concepts,
+1:19
+such as entropy and KL divergence.
+1:21
+These ideas are so fundamental that they appear across diverse fields,
+1:27
+from the latest diffusion models in AI
+1:30
+to theories of perception in biological brains, like the free energy principle.
+1:37
+Today, we'll dive deep into the core concepts behind probability,
+1:41
+starting from the ground up,
+1:43
+and demystifying many of the formulas that might appear intimidating at first,
+1:49
+but which have a very intuitive understanding.
+1:52
+If you're interested, stay tuned.
+Sponsor: NordVPN
+2:00
+Before we dive into probability theory,
+2:03
+let's address the uncertainty lurking in our online lives.
+2:07
+Nord VPN, who are kindly sponsoring today's video,
+2:10
+offers an excellent solution to mitigate that digital uncertainty.
+2:14
+Navigating the web is much like walking through that fog we mentioned earlier
+2:19
+but instead of mysterious shapes,
+2:21
+you're surrounded by potential threats to your privacy.
+2:24
+This risk is particularly high when using public Wi-Fi networks.
+2:28
+Using an unsecured connection is like
+2:30
+hoping to have a private conversation in a crowded room
+2:34
+where anyone could be listening.
+2:36
+This is where Nord VPN proves invaluable.
+2:38
+It encrypts your data, making it unreadable to prying eyes.
+2:43
+Remember those annoying banners that somehow know where you live?
+2:47
+That's just the tip of the iceberg.
+2:49
+Consider all the other sensitive information potentially at risk.
+2:52
+Passwords, personal identity, credit card details, the list goes on.
+2:57
+This is why using online protection tools is a must in today's reality.
+3:02
+Nord VPN goes above and beyond basic protection with their Threat Protection Pro feature.
+3:08
+It not only encrypts your data,
+3:10
+but also scans downloads for malware,
+3:13
+blocks suspicious websites, and even eliminates those pop-up ads
+3:18
+for anyone prioritizing both security and a seamless browsing experience.
+3:22
+This feature is a game changer.
+3:24
+If you're ready to take control of your online security,
+3:27
+visit
+3:31
+to get four months extra when you sign up for a two year plan.
+3:34
+Still unsure?
+3:36
+Nord VPN offers a 30 day money back guarantee.
+3:40
+You can try it risk free so the probability you'll be satisfied approaches 1.
+3:45
+Nord VPN is committed to privacy.
+3:47
+They have a strict no logs policy, which means they don't track or store online activities.
+3:53
+It is also the fastest VPN on the market,
+3:56
+ensuring you won't even notice it's running.
+3:59
+Don't leave your online security to chance.
+4:01
+Head to
+4:04
+Link in the description to claim the exclusive offer.
+What is probability (Bayesian vs Frequentist)
+4:08
+The most fundamental concept in our today's discussion
+4:12
+is the notion of a probability distribution.
+4:15
+In general, we deal with an abstract set of possible states
+4:19
+and to each of those states, we assign a positive number between zero and one.
+4:25
+This number reflects our degree of belief
+4:29
+in how likely that particular state is to occur.
+4:33
+You're probably familiar with thinking about probability
+4:37
+in terms of the proportion of outcomes from high school.
+4:40
+For example, a six-sided die has six possible states.
+4:46
+To find the probability of rolling a three,
+4:49
+for example, you would roll the die many times,
+4:53
+count how often it lands on three,
+4:56
+and divide it by the total number of rolls.
+5:00
+As you increase the number of rolls,
+5:02
+this ratio converges to 1 over 6,
+5:06
+which is the probability for any side of a fair die.
+5:10
+This approach, which relies on repeated trials and tracking outcomes,
+5:15
+is called the frequentist interpretation of probability.
+5:20
+While this interpretation works well for dice or coin flips,
+5:24
+it has limitations.
+5:26
+Consider a weather forecast stating the probability of rain tomorrow is 70%.
+5:33
+We intuitively understand this, but it doesn't fit neatly into the frequentist definition.
+5:39
+We can't repeat tomorrow's weather multiple times
+5:43
+to find the frequency of rain outcomes.
+5:46
+Tomorrow will happen only once, and it will either rain or not.
+5:51
+This is why we'll adopt the Bayesian view,
+5:54
+which treats probability more generally as the degree of belief.
+6:00
+When we say rain with probability
+6:04
+it means we've assigned a 0.7 degree of certainty to it.
+6:09
+While this definition might seem very broad,
+6:12
+it still obeys certain laws.
+6:15
+The most crucial one
+6:17
+is that all the degrees of belief you assign to possible states must sum to one.
+6:24
+For instance, if there are only two outcomes,
+6:27
+rain and sun,
+6:28
+then saying the probability of rain is 0.7
+6:32
+implies that the probability of sun is 0.3.
+6:37
+This brings us to the notion of a probability distribution.
+6:41
+Essentially, it is a function that maps each possible state
+Probability Distributions
+6:45
+to its assigned probability value.
+6:48
+Because probabilities must sum to one,
+6:51
+we can't manipulate this function for one state independently of others.
+6:56
+It characterizes the system as a whole,
+6:58
+completely describing how uncertainty is distributed among individual states.
+7:05
+Here are a few examples of probability distributions.
+7:08
+For a fair die, the distribution is uniform.
+7:12
+Each side has a possibility of 1 over 6.
+7:15
+The distribution of heights of adults in a population
+7:19
+follows the famous bell-shaped Gaussian distribution.
+7:23
+There is a technical detail here.
+7:25
+Since height is a continuous variable,
+7:28
+the probability distribution must integrate to one,
+7:32
+meaning that the area under the entire curve equals to one,
+7:36
+but this is just a general case of summation.
+7:39
+You can think of continuous distributions as being made up of a large number of tiny discrete bins.
+7:46
+It won't change the core concepts we are discussing.
+7:49
+So far we've only looked at the probability distributions over
+7:58
+But what about more complex scenarios like states that include both height and weight?
+8:04
+We could try to put them on a one-dimensional line, but that's not very enlightening.
+8:10
+Instead, it is more natural to think of states as
+8:14
+occupying a two-dimensional plane
+8:16
+with one coordinate for the height and one for the weight.
+8:20
+Then, each point on this plane corresponds to a particular state,
+8:25
+and we can represent its probability with color or as a third coordinate.
+8:32
+For more coordinates, we can't directly visualize higher dimensions,
+8:37
+but the idea remains the same.
+8:39
+In machine learning, we often deal with much higher dimensional probability distributions.
+8:45
+For instance, all possible 100 by 100 pixel images
+8:50
+images occupy a 10,000-dimensional space
+8:53
+with one axis for each pixel's value.
+8:56
+We can then reason about the probability distribution of images
+9:01
+by assigning a probability to each point in this space.
+9:05
+But how do we actually use or interact with these complex distributions?
+9:11
+To understand this, let's go back to our simpler example
+9:15
+and think about the reverse process of generating outcomes from a probability distribution.
+9:22
+This is called sampling and it is a crucial concept
+9:25
+that is at the heart of many generative AI models.
+9:30
+In the case of a die, rolling it generates a new sample from the underlying distribution,
+9:37
+picking one state at random with a certain probability.
+9:40
+Similarly, if we have a way to draw samples from a 10,000-dimensional distribution,
+9:47
+we can generate new images,
+9:50
+because this distribution captures the structure of data
+9:53
+present in natural images.
+9:55
+This would be entirely different from randomly selecting values for each pixel independently,
+10:02
+as this would always result in noise.
+10:05
+Now that we have established a common ground for the language of probability,
+10:09
+let's explore the powerful math behind what it takes to describe and model a distribution.
+10:16
+Let's start with the notion of surprise.
+Entropy as average surprisal
+10:20
+Imagine that before you toss a coin,
+10:22
+someone comes up to you and correctly predicts the outcome.
+10:27
+Will you be surprised to see this prediction hold?
+10:31
+Well, maybe, but not too much.
+10:33
+After all, the chance of guessing was 50-50.
+10:37
+Now suppose you do the same for rolling a die
+10:41
+and someone correctly predicts that it would land on one.
+10:45
+You'd likely be more surprised by this rather than a coin, right?
+10:51
+Let's try to formalize this notion of surprise.
+10:55
+Essentially, we are looking for a way to assign a positive number,
+10:59
+a surprisal measure, to each state.
+11:03
+This measure should be a function of probability
+11:06
+that gets larger for smaller values
+11:09
+and shrinks to zero when the probability approaches one.
+11:14
+After all, events that are guaranteed to happen should have no surprise at all.
+11:20
+A crucial but less obvious aspect is the additive nature of the surprise.
+11:26
+If someone correctly predicts the outcomes of three dice rolled simultaneously,
+11:31
+would be about three times as surprised as for one die.
+11:37
+But the probability of such an event
+11:39
+would be the product of individual die probabilities.
+11:43
+In other words, when probabilities multiply as for independent events,
+11:49
+the surprisal function should add.
+11:52
+The function that behaves this way is the logarithm of one over the probability.
+11:59
+This makes intuitive sense.
+12:01
+Surprise is high for rare events and low for common outcomes.
+12:07
+Now that each state has its own surprise,
+12:11
+we can characterize the entire distribution
+12:14
+by finding the average surprise packed into it.
+12:18
+This average surprise is what we call the entropy of that distribution.
+12:24
+Mathematically, it is expressed in the following way,
+12:28
+where we sum over all possible states,
+12:32
+multiplying the probability of each state by its surprisal value,
+12:41
+For example,
+12:42
+consider a thick coin that lands on heads and tails with probability 49% each,
+12:49
+and on its side 2% of the time.
+12:53
+If you randomly flip it many times,
+12:56
+record your surprisal caused by the outcome of each flip
+13:00
+and compute the average surprisal,
+13:03
+what value are you going to get?
+13:06
+Well, every time you get either a heads or a tails,
+13:09
+which in total comprises 98% of all the flips.
+13:13
+Your surprise is about 0.7,
+13:17
+but in the remaining 2%, your surprise will be around 4.
+13:23
+So the weighted average given by this formula is approximately equal to 0.8.
+13:29
+Compare this to the entropy of a fair coin that always lands on heads or tails.
+13:36
+This value is less, which means you will be on average more surprised
+13:41
+by observing outcomes of a coin that lands on its side.
+13:45
+In other words, it has more inherent uncertainty packed into it.
+13:52
+Now I'd like to highlight an important point.
+Cross-Entropy and Internal models
+13:56
+Computing entropy relies on knowing the probability distribution,
+14:01
+but in real world when we observe a random variable unfold,
+14:05
+we don't have access to the true underlying probability distribution.
+14:10
+Instead, we usually have an internal model
+14:14
+what we believe the probability distribution should be,
+14:17
+and this is what we use to assign the probabilities.
+14:22
+The true underlying distribution is hidden and typically far too complex,
+14:28
+so all we have are approximate models of it.
+14:32
+For instance, consider a fair die.
+14:35
+The true probability distribution of its sides
+14:38
+slightly deviates from uniform
+14:41
+due to inherent microscopic imperfections in the dye itself,
+14:45
+air resistance, etc.
+14:49
+It may even include other outcomes
+14:51
+such as landing exactly on a corner
+14:54
+or with vanishingly small probability falling apart in the air.
+15:00
+However, we approximate this with a simple uniform distribution.
+15:05
+1 over 6 for each side.
+15:08
+This model captures everything we need for practical purposes.
+15:13
+But what if the deviation between our internal model and the actual distribution is more drastic?
+15:20
+Let's consider an example.
+15:22
+Suppose someone gives you a coin to flip.
+15:26
+Based on your prior experience with coins,
+15:29
+you believe the probabilities for heads and tails to be around 50% each.
+15:36
+What you don't know, though, is that this particular coin is rigged
+15:40
+with its center of mass shifted so that it lands on heads around 99% of the time.
+15:48
+You go ahead and flip it 10 times, getting 10 heads in a row.
+15:53
+Under your current model of a fair coin,
+15:57
+the probability of this happening is extremely small,
+16:00
+so you will be very surprised.
+16:03
+However, the actual true probability of this outcome is quite high, because the coin is rigged.
+16:10
+Notice that the surprisal you experienced
+16:13
+is caused by your belief about the probability distribution being wrong,
+16:18
+not because something truly remarkable had happened.
+16:21
+This brings us to the idea of cross entropy.
+16:25
+Essentially, it is a function of two probability distributions that quantifies
+16:31
+the average surprise you might expect
+16:34
+when observing a random process
+16:37
+generated by one probability distribution
+16:40
+while believing it comes from another.
+16:44
+Mathematically, the cross entropy between distributions P, the true one,
+16:49
+and Q, your model,
+16:51
+is defined similarly to entropy,
+16:54
+but we use P for the outcome probabilities
+16:58
+and Q for the surprisal terms.
+17:01
+The surprise given by cross entropy can come from two sources,
+17:06
+the discrepancy between your model and the true distribution,
+17:10
+as well as the inherent uncertainty of the underlying distribution itself.
+17:16
+If P & Q are the same distribution,
+17:20
+meaning that you have a perfect model,
+17:23
+the cross entropy is simply equal to the entropy of P.
+17:27
+A key mathematical property,
+17:29
+which we're not going to prove rigorously here,
+17:32
+is that the cross entropy of distribution P as the ground truth
+17:37
+and Q as its model is always greater than or equal to the entropy of P itself.
+17:45
+In other words, believing in the wrong model of a random variable
+17:49
+can only increase the surprise you'll get by observing it, never decrease it.
+17:56
+Another important feature of cross entropy is its asymmetry.
+18:01
+The roles of P and Q matter,
+18:03
+and swapping them can lead to very different results.
+18:07
+Let's explore this with two examples.
+18:11
+First, believing a coin is fair when it is actually rigged.
+18:16
+Suppose the true distribution P is a rigged coin.
+18:20
+99% for heads, 1% for tails.
+18:25
+But your model Q is a fair coin.
+18:28
+For a single flip, the cross entropy can be calculated in the following way
+18:33
+and is equal to approximately 0.7.
+18:38
+Now let's reverse the scenario.
+18:40
+What if you believe a coin is rigged when it is actually fair?
+18:45
+Computing the cross entropy gives us 2.3.
+18:49
+This value is much larger than the other way around.
+18:53
+This is because half the time, when you see tails,
+18:57
+you will be extremely surprised
+19:00
+as your model predicted this was very unlikely.
+19:04
+The other half of the time, when you see heads,
+19:07
+you'll have a very low surprise.
+19:09
+But the extreme surprise from tails dominates,
+19:13
+leading to a high average surprise measured by the cross entropy.
+19:19
+Our examples of cross entropy highlight an important question.
+Kullback–Leier (KL) divergence
+19:24
+How can we quantify the difference between our model's beliefs and the reality?
+19:29
+Can we somehow isolate the part of the surprise
+19:33
+that comes purely from our model's inaccuracy
+19:36
+rather than from the inherent uncertainty in the data?
+19:40
+This is where the concept of Kullback-Leibler divergence,
+19:44
+or KL divergence for short, comes into play.
+19:47
+It allows us to peel away layers of surprise.
+19:51
+Recall our definition of cross entropy.
+19:54
+This measures the total surprise when using Q to predict P.
+19:59
+Now, what if we subtracted the entropy of P from this?
+20:04
+This formula represents the inherent uncertainty in P itself,
+20:09
+by subtracting it from the cross entropy
+20:12
+and using the properties of logarithms, we're left with this.
+20:17
+This is the KL divergent.
+20:19
+It measures the extra surprise we get
+20:22
+from using Q as our model instead of P
+20:26
+beyond the surprise inherent in P.
+20:30
+In our coin analogy,
+20:32
+it is like isolating the surprise caused by believing in the wrong model,
+20:36
+separate from the surprise caused by the coin flip itself.
+20:41
+But why might we need to measure this discrepancy in the first place?
+Objective functions and Cross-Entropy minimization
+20:46
+Well, the ultimate goal of building and training many machine learning systems
+20:51
+is to construct a good approximation,
+20:54
+a model of the underlying probability distribution of some data
+20:58
+to later use it for prediction or sampling.
+21:02
+For example, suppose you're building an AI system
+21:05
+that can create new lifelike photos of cats.
+21:10
+Ideally, you'd want to sample directly from the distribution of all possible cat images in the real world.
+21:17
+However, that is an incredibly complex space that we can't directly access or describe,
+21:24
+so we'll have to resort to building a model to approximate it.
+21:28
+Without diving too deep into the specifics of generative models in this video,
+21:33
+I will just say that we usually approximate the shape of that distribution with neural networks.
+21:40
+These can be viewed as mathematical functions with enough expressive power to capture complex patterns,
+21:49
+Once we have parameterized the distribution with a neural net of some kind,
+21:54
+we can optimize its parameters with techniques like gradient descent.
+21:59
+If you're not familiar with gradient descent or backpropagation,
+22:03
+you can check out my previous video on the topic.
+22:06
+But how do we know whether a particular approximation is a good or a bad fit to the true target distribution?
+22:14
+After all, we need some kind of error function that we'll be trying to minimize.
+22:19
+You might have guessed that the KL divergence between our model and the true distribution
+22:25
+is exactly the target objective we would like to make as low as possible.
+22:29
+Ideally, we'd aim for zero,
+22:32
+which would mean our model perfectly aligns with the data distribution.
+22:37
+However, in practice, if you look at the code for training models
+22:41
+to capture a probability distribution,
+22:44
+you typically won't see the KL divergence as a loss function.
+22:48
+Instead, you're likely to see the optimization objective
+22:51
+framed as minimizing the cross entropy.
+22:54
+So what's the catch here?
+22:56
+Let's look at the definition of KL divergence once again.
+22:59
+We're trying to find the model Q that would minimize this quantity.
+23:04
+However, notice that the term H of P does not depend on our model at all.
+23:10
+It is a constant determined by the true distribution P, which we can't change,
+23:15
+because it stems from the inherent uncertainty in the training data that is fixed.
+23:21
+No matter how we tweak the parameters of a neural network,
+23:25
+it has absolutely no effect on how diverse cats in the real world are.
+23:30
+This is why whatever approximation Q minimizes the KL divergence,
+23:36
+it also, by definition, minimizes the cross entropy.
+23:40
+In other words, the two objectives are equivalent.
+23:44
+The entropy of data term does not affect which Q is optimal,
+23:48
+it just shifts the value of KL divergence by a constant amount.
+23:53
+Computing the exact value of KL divergence
+23:56
+would require estimating the entropy of training data from a finite number of samples.
+24:01
+Although you can certainly do it,
+24:03
+usually we don't really care about what the actual value of the divergence is
+24:08
+as long as it's the lowest one possible.
+24:10
+It doesn't affect the resulting model,
+24:12
+so we just don't bother with estimating the entropy of data in the first place
+24:16
+to save some computation.
+24:19
+This forms the basis for many machine learning algorithms,
+Conclusion & Outro
+24:23
+especially in the realm of generative models.
+24:25
+By framing our objective in terms of cross-entropy minimization,
+24:30
+we can train our models to approximate complex real-world distributions
+24:35
+even when we don't have direct access to those distributions.
+24:39
+While minimizing the cross-entropy is at the very core of modern generative models,
+24:45
+training complex systems like image generation networks,
+24:49
+in practice, often requires additional techniques
+24:53
+that go beyond the scope of this video.
+24:55
+These may include things like variational inference,
+24:59
+which we might explore in the future.

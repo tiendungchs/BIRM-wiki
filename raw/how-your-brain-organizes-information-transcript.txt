@@ -1,0 +1,888 @@
+
+0:00
+Perhaps one of the most fascinating abilities of the mammalian brain
+0:03
+is that it can generate flexible behavior
+0:06
+that is generalized across contexts.
+0:09
+For example, let's imagine you spent a few weeks
+0:12
+learning how to cook just the perfect lasagna.
+0:15
+You learn that skill in your own kitchen,
+0:18
+where you are familiar with the location of all the utensils, ingredients and appliances
+0:23
+as well as the layout of the kitchen itself.
+0:26
+Finally, you get invited to your friend's house to cook your famous lasagna.
+0:31
+Even though you have never used their kitchen before,
+0:34
+you are still able to navigate and cook efficiently.
+0:38
+But how is it possible?
+0:39
+Because if you think about it, you have never been in that particular situation,
+0:43
+so this must be a totally new problem, right?
+0:47
+Well, the answer lies in the ability of your brain to generalize.
+0:52
+You're able to kind of strip away
+0:55
+the particular sensory context of your kitchen
+0:57
+and extract the abstract notion of lasagna cooking procedure.
+1:02
+At the same time, you know the general principles of how kitchens work,
+1:07
+so one quick glance at the location of the oven and the utensils
+1:11
+is enough to relate that particular layout
+1:14
+to your inner model of kitchens.
+1:17
+This generalization requires information about the world.
+1:21
+to be organized
+1:23
+into a multi-purpose coherent framework
+1:26
+known as a cognitive map.
+1:28
+This video is the first in a two-part series.
+1:31
+Today, we will lay the foundation for the problem of cognitive mapping
+1:35
+introduce some general ideas
+1:38
+and look at the experimental data from modern neuroscience.
+1:42
+And in the second part,
+1:44
+we'll go through a particular computational solution to the problem of cognitive mapping,
+1:48
+known as the Tolman-Eichenbaum machine
+1:51
+which might be the stepping stone on the path towards the first artificial hippocampus.
+1:57
+If you're interested, stay tuned.
+Edward Tolman
+2:08
+Let's suppose you put a rat in a maze that looks like this
+2:12
+and train it to find its way to the end of the maze to a tasty reward.
+2:17
+After a few of these training trials in a familiar maze A
+2:21
+you put a rat in a new maze B
+2:24
+which has several radial arms like so.
+2:28
+Normally, the rat would run to the familiar top path,
+2:32
+but what would happen if you blocked it?
+2:34
+Now the animal is faced with a choice.
+2:37
+"Which alternative path to pursue instead?"
+2:40
+Let's think about possible scenarios.
+2:43
+One possibility is that rats learn by associations
+2:47
+which means that they would take a path
+2:49
+that was most similar to the one that originally led to food,
+2:53
+either path NINE or TEN.
+2:56
+If, however, animals had some sort of internal map of the spatial layout,
+3:02
+they would choose path SIX
+3:04
+which pointed in the direction of food
+3:06
+but which had never been experienced before,
+3:09
+so it's not directly associated with reward.
+3:13
+And indeed, this is what's usually observed in the real life.
+3:17
+This is one example of an experiment
+3:19
+conducted in 1930's by an American psychologist,
+3:23
+Edward Tolman
+3:24
+which led him to coin the term "Cognitive map"
+3:26
+relating to this idea that animals have something like a mental map of surrounding space.
+3:32
+However, it wasn't until 40 years later
+3:35
+that neuroscientists were able to peek inside the brain
+3:38
+to see how such a map is manifested in neural activity.
+3:46
+Although cognitive maps serve as general purpose representations of the world
+Zoo of neurons in hippocampal formation
+3:51
+as we'll see further,
+3:52
+historically, they were usually studied in the context of spatial behavior.
+3:58
+The predominant view is that the workhorse of cognitive mapping in the mammalian brain
+4:03
+is the Hippocampal formation
+4:04
+which includes the hippocampus
+4:07
+a seahorse shaped structure
+4:08
+and Entorhinal cortex
+4:10
+which serves as a kind of gateway
+4:13
+through which information flows in and out of the hippocampus.
+4:16
+What's fascinating about these structures
+4:19
+is the existence of spatially selective neurons
+4:22
+which paved the way to understanding
+4:24
+how knowledge is organized into a map like structure
+4:28
+at the level of single cells.
+4:30
+Let's briefly review the major types of such map building neurons.
+4:35
+The hallmark of hippocampus are place cells,
+4:38
+neurons that become active when an animal is in a specific location
+4:42
+or place in an environment.
+4:45
+They are thought to code for the current location in a context dependent way
+4:49
+since the response of a single cell is totally different in different surroundings.
+4:55
+Upstream to the place cells are grid cells
+4:58
+that are located in the entorhinal cortex
+5:01
+and fire in regular periodic patterns.
+5:05
+arranged on a hexagonal grid as the animal moves in the environment.
+5:09
+Notably, this regular pattern is quite stable
+5:13
+and is mostly invariant to a particular surrounding.
+5:17
+Entorhinal cortex also has what are called "Object-vector cells"
+5:21
+that activate whenever the animal is at a certain distance
+5:25
+and certain direction away from any object in the environment
+5:30
+while hippocampus has neurons that are similar to object-vector cells
+5:35
+but which respond selectively to a specific object and not others
+5:40
+known as landmark cells.
+5:43
+Both regions also have boundary cells coding for the presence of boundaries
+5:48
+head direction cells that code for the direction the animal is facing,
+5:51
+and a few other cell types.
+5:53
+As you can see, there is a whole zoo of cellular responses in the hippocampal formation
+5:59
+and it might seem unclear how do we even make sense of all this mess.
+6:03
+An overall pattern can be distinguished, however.
+6:06
+From all these examples you can see that the entorhinal cortex
+6:10
+provides a kind of a general coordinate system
+6:14
+allowing the brain to perform vector computations and estimate distances.
+6:18
+Hippocampus, on the other hand,
+6:20
+forms a more specific code,
+6:23
+providing the brain with information about particular location and landmarks in this coordinate system.
+6:29
+Although such neurons historically have been discovered during spatial behavior,
+6:33
+what's crucial is that this selectivity is not restricted to physical space.
+6:39
+For example, if you train a rat to press a lever adjusting the frequency of the sound,
+Non spatial mapping
+6:50
+you'll see that certain neurons in the hippocampus
+6:53
+become selective to a particular frequency range
+6:57
+like a conventional place cell
+6:59
+but in the one-dimensional space of sound frequencies.
+7:04
+Neurons in the entorhinal cortex
+7:06
+also develop a frequency dependent pattern of activity
+7:10
+but which is periodic
+7:12
+resembling grid cells that were squished
+7:14
+to the one dimension of the frequency space.
+7:21
+In another study,
+7:22
+human subjects were trained to navigate in a highly abstract
+7:26
+two-dimensional space of bird silhouettes
+7:30
+characterized by leg and neck lengths.
+7:33
+Participants could independently vary the length of legs and neck with the controller
+7:39
+and their task was to morph a bird into a particular configuration,
+7:43
+while activity of their brains was monitored through fMRI.
+7:48
+Remarkably, activity of their entorhinal cortex
+7:51
+showed signs of a hexagonal symmetry
+7:54
+as people mentally moved in this conceptual space of birds
+7:58
+which is incredibly consistent with the grid cell code.
+8:03
+All of this suggests
+8:05
+that the hippocampus and entorhinal cortex in tandem
+8:08
+might indeed construct a multi-dimensional and multi-modal representation of the world.
+8:14
+But how can it be that the same machinery
+8:17
+is used to solve computational tasks
+8:20
+in both spatial and non-spatial domains?
+Graph formalism
+8:23
+Using what seems like similar algorithms,
+8:26
+there must be a way we can conceptually unify them
+8:29
+into a single type of problem.
+8:32
+Luckily, there is a simple and elegant mathematical formalism
+8:36
+that connects physical and abstract spaces
+8:39
+known as graph theory.
+8:44
+Notice that elements in all the tasks we have seen so far
+8:49
+have a notion of being connected by a certain relation.
+8:53
+For instance, neighboring locations in a room
+8:56
+are physically connected to each other
+8:58
+and you can move along them in horizontal and vertical directions.
+9:02
+Similarly, members of a family
+9:04
+fall onto a tree-like structure with corresponding relations such as parent, sibling, etc..
+9:11
+These type of problems are naturally described by a graph.
+9:15
+Essentially, a graph is a mathematical structure
+9:18
+that consists of a set of points called vertices or nodes
+9:23
+and a set of lines called edges that connect pairs of vertices.
+9:28
+Now the vertices can represent any kind of object or entity
+9:32
+and the edges can correspond to any kind of connection or relation between the vertices.
+9:38
+For instance, we can construct a graph of a two-dimensional space
+9:43
+space by connecting each location node to its four neighbors in a square grid-like manner.
+9:50
+To effectively perform tasks, however,
+9:53
+it is essential that you know where you are located on this graph
+9:57
+at every point in time.
+9:59
+Otherwise, there is no point in having organized knowledge in the first place.
+10:03
+To keep track of where you are,
+10:06
+you can use what's called path integration.
+10:09
+In the physical space, it refers to using self-motion cues
+10:13
+such as movement speed and direction
+10:16
+to accumulate movement vectors and update your position.
+10:20
+For example, you know that taking a sequence of steps
+10:24
+in the direction of north, then west, then south, then east
+10:28
+will take you back to where you started.
+10:31
+Many animal species such as insects, birds, rodents, and humans
+10:36
+all can path integrate.
+10:38
+In fact, as we'll see in more detail in the next video,
+10:41
+networks of grid cells can perform path
+10:45
+which can be modeled in a neural network with what's called attractor dynamics.
+10:49
+For arbitrary graphs, however,
+10:52
+you'll need a more abstract but similar notion of path integration
+10:56
+that is a finite set of rules of how to add different types of relationships.
+11:02
+For example, that taking the root sibling parent is equivalent to parent, and so forth.
+11:08
+And the very same graph can be used for generalization.
+11:12
+Notice that the task of navigating in a two-dimensional space of birds
+11:17
+Is essentially the same as walking around the room.
+11:20
+The underlying structure of connections is fundamentally the same.
+11:25
+What's different is the type of incoming sensory cues.
+11:29
+Similarly, if you have an internal model of a family tree,
+11:34
+not only you can use it for different families,
+11:37
+but you can also use it to apply to things like taxonomy
+11:41
+since it also has a tree-like structure.
+11:44
+Just relabel the relationships and you're good to go.
+11:47
+So in conclusion, if the hippocampal entorhinal system
+11:51
+can construct these relational graphs and carry out path integration and root finding on them,
+11:57
+then it makes perfect sense how this system could be reused by the brain across different modalities.
+12:04
+But how do we know which graphs to build in the first place?
+12:07
+How can the brain come up with such a structured representation?
+12:11
+Well, to understand this,
+12:13
+we need to first address another super important concept
+12:17
+and that is the idea of a latent space.
+Latent spaces
+12:24
+As it follows from the name,
+12:26
+latent space is something that is not directly observable from external cues.
+12:31
+For example, let's view the world through the eyes of a mouse, which is performing an alternation task.
+12:38
+This simply means that it is running in a T-shaped maze,
+12:42
+and each time it reaches this split,
+12:44
+a choice whether to turn left or right needs to be made.
+12:48
+Now, the task is such that the reward is always alternating between the sides.
+12:54
+So the animal has to learn
+12:56
+that if on previous trial, it turned left and received a tasty treat
+13:01
+that means that now it should go to the right and vice versa.
+13:05
+Let's try to think about the type of a mental model,
+13:08
+a cognitive map
+13:10
+that must be built in the brain of this mouse.
+13:12
+In other words, what are the relevant behavioral variables and their structure
+13:17
+required to perform this particular task?
+13:20
+Well, first of all, there is the spatial component
+13:24
+since you need to know where you are in this "T-maze" physically and
+13:28
+update your position.
+13:29
+So we can reasonably expect to see conventional place cells when looking inside the hippocampus.
+13:35
+But notice that information about physical location alone
+13:39
+is not enough to solve the problem of obtaining the maximum amount of reward.
+13:44
+Since the animal supposedly knows
+13:47
+that it needs to alternate turns at every trial,
+13:50
+it has to remember the direction of the previous turn.
+13:54
+In other words,
+13:55
+there is an additional abstract variable
+13:57
+encoding where you are going and where you have been.
+14:01
+To completely capture all the relevant information about this task,
+14:05
+you need a configuration of a cognitive map
+14:08
+which keeps track of both the location in the physical 2D space of the maze
+14:14
+and a binary location in this abstract space of left and right trials.
+14:20
+Here is another way to think about it.
+14:22
+At first, when the animal hasn't learned the nature of this task and is just exploring the maze
+14:28
+it's cognitive map only has a spatial component
+14:32
+encoding the 2D location.
+14:34
+But over the course of several trials, the mouse learns that,
+14:38
+"Aha! I need to alternate the directions
+14:41
+because the reward seems to be always located on the arm
+14:44
+opposite of the previous trial."
+14:46
+When this happens,
+14:47
+the cognitive map is expanded with a new dimension
+14:51
+and the mental representation of the T-maze
+14:54
+kind of splits into two cloned versions of it
+14:57
+one for turn left trials and another one for right turns,
+15:02
+and now all of a sudden
+15:04
+you need to update your position in this expanded space
+15:07
+which now has an additional axis.
+15:10
+Remarkably, we find cells whose firing is modulated
+15:15
+by both the physical location
+15:17
+and the direction of the future turn.
+15:19
+Such neurons were termed "Splitter cells".
+15:23
+They uniquely encode the location in the full expanded version of the cognitive map,
+15:30
+which is remarkably consistent with this idea
+15:33
+that the hippocampus keeps track of all task relevant variables
+15:37
+no matter how abstract they are.
+15:39
+This split dimension into left versus right trials
+15:43
+is an example of a latent space
+15:46
+since it is not directly observable from the sensory cues.
+15:50
+There is no light switch that would signal you where to turn.
+15:54
+Instead, you need to infer your location in the latent space
+15:58
+based on previous observations.
+16:01
+Another example includes training the animals to run in a virtual reality
+16:07
+and perform what's known as tower accumulation task.
+16:10
+Essentially, as they run on the track,
+16:13
+they are presented with visual cues on both sides
+16:16
+and at the end of the track,
+16:18
+they need to choose whether to turn left or right.
+16:21
+The direction of the reward is indicated by which side
+16:25
+had the higher number of towers.
+16:27
+So for example, if you encounter in total nine towers to your left
+16:31
+and only seven to your right,
+16:33
+it indicates that you need to turn left
+16:36
+to get a reward, since it has a higher number of queues.
+16:40
+This number of towers, or better yet the difference between the two sides
+16:45
+forms a latent evidence space,
+16:47
+and it turns out that there are hippocampal neurons
+16:50
+which form place fields in this latent space.
+16:54
+As you can see, location in latent spaces
+16:57
+and even their pure existence in the cognitive map
+17:00
+is extremely important.
+17:02
+But the problem is, it is not directly observable from individual sensory cues.
+17:08
+Instead, latent spaces are built from sequences of sensory observations.
+17:13
+For example, remembering your previous choice can affect the future one.
+17:17
+But why bother with building such relational graphs in the first place?
+Factorized representations
+17:25
+In the beginning of this video,
+17:27
+we saw an example of how knowledge acquired in one setting
+17:31
+can be successfully generalized to other contexts.
+17:35
+This is because once the structured representation is built,
+17:39
+it can be abstracted away from particular sensory observations.
+17:44
+You know that 'north-west-south-east'
+17:47
+will close a loop in any environment,
+17:50
+be it your room or a local park
+17:52
+and such generalization
+17:54
+effectively requires an existence of a factorized representation.
+17:59
+Here is what factorization means intuitively.
+18:03
+Let's imagine you are buying a car
+18:05
+and would like to predict how much you will enjoy driving it.
+18:09
+For simplicity,
+18:10
+the space of all possible cars is formed by the particular model and its color,
+18:16
+and your goal is to maximize the value of your subjective happiness,
+18:21
+Gamma
+18:21
+which is a function of two variables
+18:24
+car model and color.
+18:26
+There is some hidden distribution of gamma but you don't know it
+18:30
+since it would require driving every possible combination of models and colors
+18:35
+to find that distribution.
+18:37
+However, it makes sense to separately learn the distribution of happiness along the color axis
+18:43
+for example, by driving a Tesla of different colors
+18:46
+and the distribution of happiness along the car axis
+18:50
+by driving each model in red configuration.
+18:53
+If these two distributions are independent,
+18:56
+for example, if you prefer blue over yellow,
+18:59
+and that is the case irrespectively of the car model,
+19:02
+then the underlying two-dimensional distribution is said to be factorizable.
+19:08
+Mathematically, we can describe the joint distribution
+19:12
+to be a product of the two corresponding one-dimensional,
+19:16
+also called marginal distributions.
+19:19
+It is enough for you to know the two factors separately
+19:23
+to predict the joint distribution
+19:26
+and that means that such factorization
+19:28
+allows you to predict the value of gamma
+19:31
+for combinations you have never encountered before.
+19:34
+Also notice that since you only need to know a pair of one-dimensional distributions,
+19:40
+it is much less information
+19:42
+compared to storing the two-dimensional distribution of all possible combinations
+19:46
+and for the brain
+19:47
+that problem of information storage is even more relevant
+19:51
+since cognitive maps have a much larger number of dimensions.
+19:55
+Similarly, in the brain,
+19:57
+there is factorization of every experience
+20:00
+into its Structural component
+20:02
+which is the position on this relational graph,
+20:05
+and Sensory component,
+20:07
+which defines the particular setting of the outside world.
+20:12
+In fact, evidence for this factorization
+20:15
+can be seen in the responses of individual neurons
+20:18
+in the hippocampal formation.
+20:20
+Recall that grid cells in the entorhinal cortex
+20:24
+and in particular, the medial portion of it,
+20:27
+remain stable across environments.
+20:30
+Forming this coordinate system,
+20:33
+information about this structural basis
+20:36
+is then fed into the hippocampus.
+20:39
+A second stream of information
+20:41
+containing purely sensory cues
+20:44
+is provided to the hippocampus by a different part of entorhinal cortex
+20:49
+lateral entorhinal area
+20:51
+which doesn't have such prominent grid patterns of activity.
+20:54
+The hippocampus then forms a conjunctive representation.
+20:58
+unifying the two streams of information
+21:01
+and embedding the particular sensory information
+21:04
+into the structural backbone.
+21:06
+This difference between factorized and conjunctive representations
+21:10
+can be demonstrated by a famous phenomenon
+21:13
+called hippocampal remapping.
+21:15
+Essentially, it refers to the tendency of place cells
+21:19
+to change their firing patterns
+21:21
+in different sensory contexts.
+21:23
+For example, one neuron might activate
+21:26
+when the animal is in the middle of a room.
+21:28
+But after you change the order
+21:30
+by spraying with something minty
+21:31
+that very place cell might shift its preferred location
+21:35
+or stop firing in that environment altogether.
+21:38
+Notice that this is completely different from grid cells,
+21:41
+which are largely invariant to such contextual perturbations
+21:46
+and only care about space.
+21:50
+All right, let's try to tie everything together.
+Summary
+21:54
+In this video, we saw evidence both on the behavioral and cellular level
+21:58
+that the brain must have an internal model of the world
+22:02
+known as a cognitive map.
+22:04
+Despite the word 'map' in the name
+22:07
+it is not restricted to representing physical space.
+22:11
+Rather, cognitive maps are a systematic way to organize knowledge in some kind of structure.
+22:18
+The main purpose of such representations
+22:20
+is to effectively utilize the inherent regularities and repetitions of the outside world
+22:26
+order to minimize computational effort and generalize your knowledge.
+22:31
+For example, transitive rules
+22:34
+such as that "if A is bigger than B and B is bigger than C"
+22:38
+then "A must be bigger than C"
+22:40
+apply in a variety of different scenarios
+22:43
+from distances and sizes of predators to sound frequencies and paychecks.
+22:49
+So there is no need to learn that transitive structure every time. You can just reuse it.
+22:55
+We also talked about how such structural backbones
+22:58
+can be viewed as organizing knowledge as a relational graph
+23:03
+which needs to take into account latent spaces
+23:07
+that are not directly observable
+23:09
+but rather need to be inferred from sequences of sensory observations.
+23:14
+Incorporation of latent spaces allows the hippocampus to keep track of abstract variables,
+23:21
+such as the amount of sensory evidence in the tower accumulation task
+23:25
+and the position in the space of left versus right trials in the automation task.
+23:30
+And finally,
+23:31
+we discussed why factorizing knowledge into structural and sensory components
+23:36
+is useful to the brain
+23:38
+since it allows it to generalize and make the problems more computationally feasible.
+23:44
+Evidence for such factorized representations
+23:47
+can be found in the entorhinal cortex
+23:49
+whose medial and lateral parts
+23:52
+provide the hippocampus with the two separate streams of information
+23:57
+while the hippocampus then generates a unified, conjoined representation,
+24:02
+embedding the structure into sensory context
+24:06
+in order to solve particular behavioral tasks
+24:09
+from running in mazes and pressing sound frequency levers
+24:12
+to cooking a lasagna in your friend's kitchen.
+24:15
+Now I know this was a lot to take in and there are a lot of missing pieces.
+24:20
+The thing is, what is described in this video is a territory of hard debates and ongoing research
+24:26
+so we are still lacking a unified interpretation.
+24:29
+Hopefully, things will become more clear in the second part of the video series
+24:34
+where we will take the concepts and experimental observations we have seen here
+24:39
+and try to build a computational system that would be able to generalize and learn latent spaces.
+Brilliant
+24:47
+In the meantime, if you're interested in diving deeper into the topics related to computational neuroscience
+24:54
+you should definitely check out our today's sponsor,
+24:57
+Brilliant.org
+24:59
+Brilliant is the perfect platform to expand your knowledge in STEM fields and gain new skills.
+25:05
+Unlike traditional textbook-based learning,
+25:08
+Brilliant's courses are designed to be highly engaging and interactive
+25:12
+making learning an enjoyable and rewarding experience.
+25:16
+Hands-on exercises and stunning visualizations
+25:19
+allow you to develop a deep understanding of the underlying concepts
+25:23
+in the context of real-world applications
+25:26
+embedding problem-solving skills into your cognitive map.
+25:30
+Brilliant offers a wide variety of courses for every level and background
+25:35
+from fundamentals of math and computer science
+25:38
+to neural networks and differential equations
+25:40
+with new lessons being added every month.
+25:43
+For example,
+25:44
+if you're interested in computational models of the brain,
+25:47
+check out their crash course on reinforcement learning,
+25:50
+covering the foundations of this framework
+25:53
+where an artificial agent is trained by trial and error.
+25:57
+Don't hesitate to dive into Brilliant
+26:00
+and begin expanding your knowledge in bite-sized chunks.
+26:03
+Go to "brilliant.org/ArtemKirsanov/"
+26:07
+to get a 30-day free trial of everything Brilliant has to offer
+26:11
+and the first two hundred people to use this link
+26:14
+will get a twenty percent discount on the premium membership.
+26:18
+If you enjoyed this video, press the like button,
+Outro
+26:21
+share it with your friends & colleagues, subscribe to the channel if you haven't already
+26:25
+and consider supporting me on Patreon to suggest video topics and enjoy the bonus content.
+26:31
+Stay tuned for more interesting topics coming up.
+26:33
+Goodbye, and thank you for the interest in the brain.
+26:43
+(Subtitles by Crimson Ghoul)

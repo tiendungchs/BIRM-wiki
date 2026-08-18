@@ -1,0 +1,824 @@
+
+0:00
+The concept of a memory seems pretty intuitive to us.
+0:03
+It is the ability to store information about particular experiences
+0:08
+and reconstruct them at later times through memory retrieval.
+0:12
+But where and how is this information stored inside the brain on a physical level?
+0:18
+In this video, we are going to explore the idea of an engram,
+0:21
+a fundamental unit of physical memory substrate
+0:25
+well as biological and computational principles
+0:28
+that govern memory formation and linkage.
+0:30
+If you're interested, stay tuned.
+Historical background
+0:39
+The study of memory can be traced back to early 20th century,
+0:43
+when a German biologist, Richard Semon
+0:46
+coined the term Engram
+0:48
+referring to lasting physical changes in the brain that occur after learning or experience.
+0:53
+He envisioned that once formed, the engram, whatever it is,
+0:58
+becomes dormant and can be awakened by similar experiences
+1:02
+or parts of the original event.
+1:04
+This reactivation is what we experience as Memory Recall.
+1:10
+But notice that the original phrasing in Semon's definition is very vague.
+1:15
+It doesn't really tell us anything about the biological nature of these lasting changes.
+1:21
+As decades passed,
+1:22
+it became known that the brain consists of nerve cells
+1:25
+that generate pulses of electricity encoding incoming stimuli.
+1:30
+So memories must be stored as changes in patterns of how neurons talk to each other.
+1:35
+But before we dive deeper into what these changes are,
+1:39
+let's discuss how we can study memory formation in the first place.
+Fear conditioning paradigm
+1:44
+To address what happens in the brain during memory encoding,
+1:47
+we need two crucial pieces,
+1:49
+a proper behavioral task
+1:51
+and the means of experimentally monitoring the changes that occur in the brain.
+1:56
+It is only when you are working with human subjects
+1:59
+you can explicitly ask them if they remember something or not.
+2:02
+But looking at the level of single cells is only possible with model organisms, such as rodents
+2:08
+and they, for sure, can't tell you the contents of what they remember.
+2:12
+To overcome this problem, we can use a clever experimental design.
+2:17
+One of the most popular setups is called a fear-conditioning paradigm.
+2:22
+There are many different variations,
+2:24
+but the main idea is that memory is defined as forming an association between the two stimuli,
+2:30
+a neutral stimulus, also referred to as a a conditional one
+2:34
+for example, a sound tone or spatial context
+2:38
+and an aversive stimulus or unconditional,
+2:41
+for example, a mild foot shock.
+2:43
+During training, the sound cue and the shock
+2:47
+are presented either simultaneously or with a short delay
+2:50
+and the animal learns to associate
+2:53
+previously neutral stimulus with pain.
+2:56
+The effects of such conditioning are usually tested on the next day
+3:00
+when the mouse is presented with the same conditional stimulus.
+3:03
+If the mouse freezes in response to it,
+3:06
+and freezing is a type of a defense mechanism,
+3:09
+it means that the associative memory was successfully formed.
+3:13
+Since the animal could retrieve that,
+3:15
+this sound leads to pain.
+3:18
+Here I've used the sound cue as an example of conditional stimulus
+3:22
+but it is also possible to pair the foot shock
+3:25
+with almost any type of sensation
+3:27
+such as the particular spatial context, or a smell.
+3:31
+Great! Now, we just need to find a way to experimentally see the memory formation.
+3:37
+Now, because this is a biologically complex process,
+Immediate-early genes as memory markers
+3:41
+there are a lot of changes that occur in nerve cells,
+3:45
+from DNA modifications to the synthesis of new receptors.
+3:49
+Just like any cells, neurons contain DNA,
+3:53
+a genetic set of instructions of what proteins to make and how to make them.
+3:57
+It turns out that there is a very special class of genes called immediate-early genes
+4:03
+that rapidly and selectively get activated in neurons that undergo plastic changes during learning.
+4:10
+These geners, the two most common ones being fos and Arc,
+4:15
+do a whole lot of different things on a molecular level,
+4:18
+regulating the amount of neurotransmitter receptors and inducing synaptic plasticity,
+4:23
+the details of which is not fully understood.
+4:26
+But for our purposes,
+4:27
+you can think of these genes as markers for memory encoding,
+4:31
+triggering the downstream cascade of learning related changes.
+4:35
+But gene expression on itself is not something that we can easily observe and measure.
+4:40
+The idea is to functionally link the activation of these immediate early genes
+4:45
+to some kind of reporter process.
+4:48
+That could be addressed with our experimental toolbox.
+4:52
+For example, it is possible to inject cells with a harmless virus
+4:56
+that could genetically modify the neurons
+4:59
+spreading pieces of DNA containing a gene that encodes a fluorescent protein.
+5:05
+These DNA fragments also bear a special region
+5:08
+called a promoter These DNA fragments also bear a special region
+5:08
+called a promoter
+5:09
+that basically controls whether the gene for the fluorescent protein is turned on or off.
+5:14
+Importantly, this promoter region is identical to the promoter of the fos gene
+5:20
+controlling its expression in the intact cells.
+5:23
+As a result,
+5:24
+the production of this protein and the expression of the fos gene become closely coupled.
+5:30
+So whenever the fos gene turns on to carry out its learning related changes
+5:34
+the gene for the fluorescent also activates
+5:38
+and we can visually see the neurons responsible for memory encoding
+5:42
+because they are glowing under the microscope.
+5:44
+Pretty cool, right?
+5:46
+But there is a very big problem with this simple configuration I've just described.
+5:51
+Namely, it is impossible to carry out the fear conditioning right after the surgery
+5:56
+since the animals have to recover and the virus needs to spread around
+5:59
+which can take up to several weeks.
+6:01
+But because it is impossible to tell when exactly the modification kicks in,
+6:07
+by the time you put an animal into the experimental apparatus,
+6:11
+it may have already formed a multitude of other memories,
+6:14
+for example, while sitting in his home cage.
+6:17
+So, under the microscope,
+6:18
+you'd see many globing neurons marked for immediate-early genes
+6:23
+be impossible to tell which of them correspond to the associative memory we are interested in.
+6:29
+So, ideally, we need to be able to control the timing of this tagging process
+6:34
+and transiently turn it on for the duration of the experiment
+6:38
+to isolate the engram for a signal memory.
+6:42
+There exists a handful of approaches which I'm not going to describe in detail
+6:46
+but on a high level
+6:48
+it is possible to engineer this genetic machinery to lie dormant
+6:52
+and activate only upon the presence or absence of a certain chemical compound.
+6:58
+So, an overall simplified setup might look like this.
+7:02
+At first, we have a transgenic mouse with inactive memory tagging system,
+7:08
+so none of its neurons are glowing.
+7:10
+To perform a fear conditioning task,
+7:13
+we take the mouse,
+7:14
+put it into the training environment,
+7:17
+administer the drug to turn on the tagging system
+7:19
+and pair the foot shock to a sound.
+7:22
+Inside the brain, when this particular memory is formed,
+7:26
+some of the neurons undergo modifications controlled by the fos gene
+7:30
+to encode this experience,
+7:32
+causing a subset of neurons involved in the memory encoding
+7:36
+to express fluorescent proteins.
+7:38
+The effect of the drug quickly wears off,
+7:41
+so, although the mouse certainly forms new memories as it's chilling in the home cage afterwards,
+7:47
+no new neurons are being tagged with the fluorescent proteins.
+7:52
+So we can now look under the microscope and see the newly formed engram.
+7:58
+Depending on additional genetic modifications,
+8:01
+it is possible to interrogate these memory coding neurons
+8:05
+to uncover the properties of the memory trace.
+8:08
+The so-called tag-and-manipulate approach,
+8:11
+as we'll see shortly.
+8:12
+One of the first things that is compelling to test
+Engrams are necessary and sufficient for recall
+8:15
+is what happens to these engram neurons during memory recall.
+8:20
+Remember that according to Semon's visionary definition,
+8:24
+engram can be reactivated by stimuli similar to the original experience.
+8:30
+Indeed, during the recall of this memory on the test day.
+8:34
+the same pool of engram cells become activated.
+8:39
+But does the activation of these neurons actually cause the memory to be relived,
+8:44
+or is their activation merely a byproduct of recall?
+8:49
+Well, it turns out that if you selectively suppress their activity during test trial,
+8:54
+or even kill those tagged neurons,
+8:57
+the mouse won't show any signs of freezing when presented with the conditional stimulus.
+9:03
+Importantly, this disruption affects only the trained fear condition in memory,
+9:09
+and mice don't show any deficit in the recall of other memories.
+9:14
+and suppressing the same number of random neurons that are not tagged as engram cells
+9:20
+doesn't affect the recall of the trained memory.
+9:23
+Animals still freeze in response to the sound as before.
+9:27
+All of this indicates that the activation of these specific neurons
+9:31
+is necessary for memory recall,
+9:34
+so they are indeed responsible for storing that particular piece of information
+9:39
+And if you selectively activate them in the absence of the conditional stimulus,
+9:44
+the mouse will freeze
+9:45
+even though it's not presented with anything associated with the shock.
+9:50
+So the activation of engram neurons
+9:52
+is not only necessary, it is also sufficient to induce a memory recall.
+9:58
+Notably, similar results were obtained in other memory paradigms
+10:03
+when mice learned to associate conditional stimuli with rewards rather than pain,
+10:08
+suggesting that these principles of engram reactivation
+10:12
+are not unique to fearful memories.
+Excitabiliy and memory allocation
+10:16
+Let's take a closer look at how engrams are formed in the first place.
+10:21
+The experience can generally activate a large number of neurons
+10:25
+and there may be some background internal patterns of activity on top of that.
+10:30
+Yet only a small proportion of these active neurons
+10:33
+end up chosen to become a part of the engram.
+10:37
+So what determines which cells get to encode the memory?
+10:40
+Is there some sort of selection process?
+10:43
+If so, can we experimentally intervene with it
+10:46
+to control which neurons become allocated to the engram?
+10:50
+Short answer to both of these questions is yes,
+10:54
+but let's first make a few observations.
+10:56
+Consider the amygdala, an emotional center of the brain,
+11:00
+which has been shown to play a key role in such fear conditioning tasks.
+11:04
+Although the majority of amygdala neurons receive necessary sensory input
+11:09
+and respond to both the food shock and the tone
+11:12
+only between 10 and 20% of them become allocated to a given engram.
+11:18
+And just in comparison, in the Dentate gyrus
+11:21
+a region of the hippocampus,
+11:23
+this number is much lower, between 2 and 6%.
+11:27
+In other words, engrams are sparse and the sparsity differs across brain regions.
+11:34
+Perhaps a more exciting and counter-intuitive observation
+11:37
+is that within one brain area,
+11:40
+the sparsity is highly conserved across different memories.
+11:44
+For example, changing the strength of the stimulus in the conditioning task,
+11:48
+and even changing the memory content,
+11:51
+for example, from fear to reward,
+11:53
+doesn't affect the engram size.
+11:56
+It's compelling to think that more vivid memories after a stronger shock
+12:01
+would have larger engrams
+12:03
+with more neurons encoding for it.
+12:05
+But that's just not the case.
+12:06
+This suggests that there must be some internal mechanisms that keep the engram sparsity constant,
+12:13
+controlling the proportion of neurons that become allocated to storing each memory.
+12:19
+But why is that?
+12:20
+Well, there is a great amount of evidence
+12:22
+that the brain implements a sparse distributed system
+12:26
+for information coding and computations.
+12:29
+These representations with non-overlapping codes
+12:33
+seem to be optimal,
+12:34
+having higher storage capacity and robustness to noise.
+12:37
+So the sparsity of the engram is a defining characteristic
+12:41
+characteristic that must be kept within reasonable bounds.
+12:45
+One particular mechanism that ensures the constant engram size
+12:49
+is the competition through neuronal excitability.
+12:52
+Let's unpack what this means.
+12:55
+As you probably know,
+12:56
+neurons are electrically excitable cells.
+12:59
+To send bits of information,
+13:01
+they generate brief pulses of electricity
+13:04
+called action potentials, or Spikes.
+13:06
+Spikes are born when the voltage on the neuron's membrane
+13:10
+crosses a certain threshold.
+13:11
+The intrinsic excitability of neurons
+13:14
+refers to their inherent ability to change membrane voltage
+13:18
+and generate action potentials in response to various stimuli.
+13:22
+It is like the readiness of a neuron to fire and transmit information.
+13:27
+Imagine you have different cars, each representing a neuron.
+13:31
+The acceleration of a car represents the excitability of a neuron,
+13:36
+which determines how quickly it responds to stimuli.
+13:39
+Car A has low acceleration,
+13:41
+meaning it takes a lot of effort on the gas pedal to make it move faster.
+13:46
+Similarly, a neuron with low excitability
+13:49
+requires a strong and sustained input to generate an action potential.
+13:55
+Car B has high acceleration.
+13:57
+It quickly responds to even a light touch on the gas pedal,
+14:01
+rapidly increasing its speed.
+14:03
+Similarly, a neuron with high intrinsic excitability
+14:07
+can generate action potentials readily, even with a weak input.
+14:12
+It turns out that from this pool of all eligible neurons
+14:17
+the ones with elevated excitability
+14:20
+have a higher probability of being recruited into a memory trace.
+14:24
+This presents opportunities to control the very process of memory allocation experimentally,
+14:30
+since it is relatively simple to alter the excitability of neurons.
+14:34
+For example, it is possible to genetically modify the cells with special ion channels
+14:39
+that would open when you shine colored light on them
+14:43
+and let positive ions in,
+14:45
+bringing the voltage closer to the threshold
+14:47
+and thus, making the neuron more excitable.
+14:51
+Indeed, if in this configuration, we turn on the light
+14:54
+to excite a certain sparse population of neurons during training
+14:59
+then later, same population of neurons would be activated during memory recall.
+15:06
+And just like before, it is possible to selectively activate them
+15:11
+in the absence of sensory context to trigger freezing or inhibit their activity
+15:16
+blocking this particular memory.
+15:19
+In such allocate-and-manipulate approaches,
+15:22
+we can control where exactly memory gets stored.
+15:26
+But let's get back to the concept of intrinsic excitability for a second.
+15:31
+More excitable neurons seem to indeed get preferably recruited to the memory trace.
+15:36
+But what are the mechanisms of such competition?
+15:39
+Apparently this gating is carried out by local microcircuitry
+15:43
+with the help of inhibitory neurons.
+15:45
+Consider the circuit where the principal neurons,
+15:48
+the ones that compete for the memory
+15:50
+are also connected to interneurons
+15:53
+that locally inhibit other neighboring principal neurons, the potential competitors.
+15:59
+This ensures that the small pool of most excitable cells
+16:03
+essentially indirectly suppress their neighbors.
+16:06
+There is indeed some experimental data supporting this view.
+16:10
+For example, it has been shown that blocking inhibitory interneurons
+16:15
+results in increased engram size.
+Brain-wide engrams
+16:19
+OK, great!
+16:20
+So far, we have only looked at the engrams formed in one particular region of the brain,
+16:25
+the lateral amygdala.
+16:27
+Similar studies were conducted with other brain regions,
+16:30
+observing separate engrams for fearful memories in hippocampus and cortical areas.
+16:36
+But there remains very little understanding
+16:39
+of how these memory traces throughout the brain
+16:42
+actually interact with each other.
+16:45
+Are they separate memories or just small components of a larger distributed engram?
+16:51
+The paper published last year (in 2022) in "Nature Communications" sought to answer this question.
+16:56
+They employed a novel technique called tissue clearing,
+17:00
+essentially making the neural tissue transparent
+17:03
+which allowed them to image neurons in the entire brain
+17:08
+using similar approaches to tag neurons with active plasticity genes
+17:13
+and later, activate or inhibit them.
+17:15
+The authors discovered that a single fear memory
+17:18
+elicited an engram that was distributed across a wide range of brain regions,
+17:24
+from areas that were known to hold memories such as the hippocampus and amygdala
+17:29
+to a few surprising regions
+17:32
+regions including thalamus, hypothalamus, and even the brain stem.
+17:35
+This supports the idea of a so-called engram complex,
+17:39
+that memories are not localized in one specific region.
+17:43
+Instead, they are distributed across sparse ensembles of neurons
+17:48
+scattered throughout the brain.
+17:50
+This has led to the idea that different brain regions are likely to encode
+17:54
+specific aspects of the full memory.
+17:57
+For example, part of the engram in amygdala holds information about emotional valence.
+18:03
+Hippocampus is responsible for the spatial context
+18:06
+and the cortex might encode the particular sensory experience of the foot shock.
+Linking memories together
+18:12
+Up until this point, we have only talked about a single memory in isolation,
+18:17
+which is only one piece of a puzzle.
+18:20
+Because the brain has to utilize stored information,
+18:23
+memories need to somehow be connected to each other
+18:26
+in order to be later unified into something like an abstract concept or a principle.
+18:33
+So the question is, how can different memories be linked?
+18:37
+The important thing to realize
+18:39
+is that the very existence of a link between two memories
+18:42
+is also a piece of new behaviorally relevant information,
+18:46
+kind of a memory of itself.
+18:49
+And because it needs to be stored somewhere,
+18:52
+this information about the connection between the two memories
+18:55
+also should have some sort of physical manifestation inside the brain.
+19:00
+So how can the brain not only store the contents of individual memories,
+19:04
+but also links between them?
+19:07
+Well, a very elegant solution is to encode the connection between memories
+19:12
+as the degree of overlap between the populations of engram neurons.
+19:17
+Let's see what this means.
+19:19
+Remember, we talked about how neuronal excitability
+19:22
+controls the process of memory allocation
+19:25
+so that more excitable cells are more likely to become recruited to an engram.
+19:30
+But the excitability of a given neuron is not set in stone.
+19:34
+Instead, it constantly waxes and wanes throughout the lifetime of a cell.
+19:39
+These time windows of elevated excitability
+19:42
+last several hours before the cell's excitability goes down
+19:47
+If you think about it, it makes perfect sense.
+19:49
+Otherwise, if the excitability levels of all the neurons were fixed,
+19:53
+the same small pool of cells
+19:55
+would win the memory competition over and over again.
+19:59
+mixing memories together and drastically decreasing information storage capacity.
+20:04
+For instance, consider the experiment with two different memories
+20:08
+being associations between foot shock
+20:11
+and two different sound tones.
+20:13
+When the two corresponding fear conditioning sessions occur closely in time,
+20:18
+with less than six hours in between,
+20:21
+neurons that were most excitable during the allocation of the first memory,
+20:26
+several hours later,
+20:28
+still retain their elevated levels of excitability
+20:31
+and a large portion of them can out-compete the rest of the population
+20:35
+during the allocation of this second experience.
+20:38
+As a result, engrams for the two events become overlapping and functionally linked.
+20:45
+This means that if you try to extinguish one memory,
+20:48
+for example, by presenting sound A without the shock,
+20:52
+so that the mouse gradually dissociates them
+20:55
+and stops freezing in response to the tone A.
+20:58
+It will also affect the other memory,
+21:00
+and the mouse will show decreased levels of freezing
+21:03
+in response to the tone B as well.
+21:06
+You can see how the paired memories got extinguished together.
+21:11
+In contrast, if during training,
+21:13
+the fear conditioning sessions are separated by 24 hours instead of 6,
+21:18
+populations recruited to the two engrams are mostly non-overlapping
+21:23
+and it is possible to extinguish one memory without affecting the other.
+21:29
+This demonstrates that the larger the overlap between the populations of engram neurons,
+21:35
+the stronger the link between memories,
+21:38
+so that thinking of one experience
+21:40
+automatically makes you think of the other.
+21:43
+Notice that in this example,
+21:45
+the link is established only during the initial memory allocation,
+21:50
+when the overlapping pool of neurons is recruited.
+21:53
+But this offers very limited capabilities,
+21:56
+because the two events may not seem related at the time of the memory formation,
+22:01
+and the link may become apparent only later,
+22:03
+once the dots are connected, so to speak.
+22:06
+It turns out that memories can also be linked by core retrieval
+22:11
+when the two engrams that are initially non-overlapping
+22:15
+become repeatedly reactivated together.
+22:19
+For instance, researchers trained mice on two different tasks.
+22:23
+Taste aversion, where the animals learned to associate saccharine with the feeling of sickness
+22:29
+and fear conditioning paradigm, pairing sound to the foot shock.
+22:34
+Essentially the two memories, saccharin equals bad and sound equals shock
+22:40
+were formed independently with four days between them
+22:44
+resulting in two non overlapping engrams.
+22:48
+After this, animals were repeatedly presented with the two conditional stimuli,
+22:53
+saccharin and sound simultaneously,
+22:57
+thus reactivating the two engrams together.
+23:00
+As a result,
+23:01
+mice started to freeze when they tasted saccharin
+23:04
+which normally shouldn't happen.
+23:07
+Analysis of the neural populations
+23:09
+revealed a greater overlap of engrams
+23:12
+after such simultaneous retrievals.
+23:16
+This core retrieval reorganizes memory traces
+23:19
+and generates an assemble of neurons
+23:22
+that are shared by both engrams.
+23:26
+Intuitively, it means that if some external cue
+23:30
+repeatedly reactivates two engrams simultaneously
+23:33
+it is advantageous to physically couple those memory traces inside the brain
+23:39
+so that the next time, retrieval of only one of them
+23:42
+would read to a recall of the other.
+23:45
+Interestingly, this shared pool of neurons that emerges as a result of the core retrieval
+23:52
+is not essential for storing individual memories.
+23:56
+If you selectively silence these neurons,
+23:59
+fear conditioning and taste aversion memories in isolation are recalled properly.
+24:04
+However, after silencing,
+24:06
+saccharin fails to induce freezing.
+24:10
+This means that the emerging overlapping memory trace
+24:13
+holds information about the link between the two memories
+24:16
+rather than the content of them.
+24:19
+All right, let's try to tie everything together.
+Summary
+24:22
+In this video, we have seen how information about experiences
+24:26
+is encoded as synaptic changes in sparse arrays of neurons
+24:31
+known as memory traces or engrams.
+24:35
+The sparsity of engrams is highly conserved
+24:38
+and is kept at optimal values through a kind of a competition
+24:43
+where most excitable cells are preferably chosen to be recruited to the memory trace.
+24:50
+Activation of these chosen neurons
+24:53
+is both necessary and sufficient for memory recall,
+24:57
+and by manipulating activity of these cells,
+25:01
+we can evoke memories, delete them,
+25:04
+and even create a new memory in the absence of experience.
+25:09
+Engrams are believed to be scattered throughout the brain,
+25:12
+encoding different aspects of each experience, like pieces of a puzzle.
+25:18
+and multiple engrams can further become linked
+25:21
+by sharing some of their neurons.
+25:23
+This linkage, applied to a multitude of different individual memories,
+25:28
+is likely to underlie abstraction and general principles of learning.
+Brilliant
+25:33
+Understanding the intricate workings of engrams is crucial not only for unraveling the mysteries of memory
+25:40
+but also for unlocking the potential of our own cognitive abilities.
