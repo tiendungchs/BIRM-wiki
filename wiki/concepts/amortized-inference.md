@@ -20,6 +20,11 @@ The source treats these as one idea appearing at two levels. They share a shape:
 | When it runs | During training of the recognition net | Possibly **offline** — dreaming or quiet wakefulness, i.e. a consolidation process in reinforcement learning (Gershman, Markman & Otto 2014) |
 | Biological signature | Inferential correlations across problems that share amortized computations (Gershman & Goodman 2014) | Model-based behaviour becomes automatic over training (Economides et al. 2015); skills "habitize" |
 
+**A third amortization, and the one the wiki was missing** ([[wiki/entities/h-jepa.md]]): amortize the *latent*, not the hypothesis and not the plan. In a latent-variable energy-based model, inference requires `ž = argmin_z E(x, y, z)` at every prediction step — an inner optimization inside every forward pass. The remedy is a module trained to output the minimising latent (or a distribution over latents whose parameters are computed from the current state) directly. Two things follow that the other two rows do not give:
+
+- **The amortized latent distribution is a learned prior over what happens next**, so conditioning it on previous states biases trajectory sampling toward plausible futures — amortization doing *pruning*, not just speed.
+- **It restates the wiki's plan/policy distinction in one vocabulary.** Amortizing the action variable gives a policy; amortizing the latent variable gives a proposal distribution; both are the same operation because "there is no conceptual difference between an action and a latent variable" ([[wiki/concepts/energy-based-models.md]]). The Mode-2 → Mode-1 distillation `min_θ D(ǎ[t], A_θ(s[t]))` is then not a special mechanism but the action-shaped instance of it.
+
 **The prediction that makes amortization falsifiable:** because different problems share amortized computations, their solutions become *correlated* in ways the exact posterior would not predict. That is a signature of the mechanism rather than of its output — the same kind of evidence as a signature limit ([[wiki/concepts/core-knowledge.md]]), and directly runnable on a model.
 
 ---
@@ -89,4 +94,6 @@ The fourth row is the architectural proposal: **the neural network is the infere
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — a rival account of fast inference: instead of compiling the posterior into a feed-forward net, run a fast recurrent relaxation to a consistent state; the two differ in whether speed comes from caching or from convergence.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the *speed* constraint the framing otherwise ignores: a graph estimate that cannot be queried in real time is not usable for navigation, however well it is recovered.
 - **[[wiki/concepts/core-knowledge.md]]** — abstract-feature-guided hypothesis selection is an entry condition over the hypothesis space rather than over entities: restrict the domain before paying for search.
+- **[[wiki/entities/h-jepa.md]]** — the architecture that runs both amortizations at once: a distilled Mode-1 policy for actions and an amortized latent-inference module for uncertainty, with the distilled policy also used to *initialize* the expensive optimization rather than replace it.
+- **[[wiki/concepts/energy-based-models.md]]** — supplies the expensive computation being amortized in its most general form: `argmin` over free variables, which covers hypotheses, latents and actions with one operation.
 - **[[wiki/entities/bayesian-program-learning.md]]** — the concrete case where inference is the bottleneck: a structured program prior with human-level one-shot results, whose search cost is what amortization would remove.

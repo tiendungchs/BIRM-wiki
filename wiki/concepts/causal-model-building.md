@@ -23,6 +23,27 @@ Not every generative model is causal. A generative model assigns a probability d
 
 ---
 
+### The counter-position: do *not* model the generative process
+
+LeCun 2022 argues the opposite of this page's premise, and the argument is not about causality but about what a model is allowed to *ignore* ([[wiki/entities/h-jepa.md]], [[wiki/empirical-tensions.md]] T18):
+
+- A generative model must account for every detail of its output. Carpet texture, leaves in wind and ripples on a pond are not predictable at any useful horizon, and a generative model can only handle them by pushing them into a latent variable — it cannot **discard** them, because it has no abstract representation of `y` to discard them from.
+- A joint-embedding predictive architecture predicts the *representation* of `y`, so its encoder may drop unpredictable detail outright. "Generative latent-variable models are not capable of eliminating irrelevant details."
+- The recommendation is therefore explicit: **advocate against generative architectures** for world models.
+
+**Where the two positions actually collide.** They agree that prediction-of-everything is the wrong objective. They disagree about whether the surviving model must be *invertible into the generative process*: this page's richness criterion (parse, generate, create) requires an inverse that a non-generative energy function does not provide, since a JEPA "cannot easily be used to predict `y` from `x`". So the non-generative route buys abstraction at the cost of four of the six richness queries — which is either a fatal loss of the evaluation protocol or a demonstration that the protocol was over-specified, and nothing in either source decides which.
+
+### Which data mode establishes causality
+
+The source's five modes of information gathering (full table on [[wiki/entities/h-jepa.md]]) put a sharper edge on this page's "causal data may be unavailable" problem. Passive observation and active foveation yield correlational structure; active egomotion yields viewpoint structure. Only two modes yield causal structure, and one of them is free:
+
+- **Passive agency** — watching *another* agent act — supports inference of the causal effects of actions with no action of one's own. This is the cheap channel, and it is the same one Bayesian inverse planning exploits.
+- **Active agency** — acting oneself — is the only mode that supports causal models of one's *own* effects, and it is where the exploration/exploitation problem enters.
+
+The stated open question is the split: how much of a world model is reachable without agency at all. That is the quantitative form of this page's causal-data problem, and no source in the wiki answers it.
+
+---
+
 ## Analysis-by-synthesis
 
 Perception as inversion of a generative process (Bever & Poeppel 2010; Neisser 1966; Eden 1962; Halle & Stevens 1962). The canonical cases:
@@ -118,4 +139,5 @@ Recorded as gap G29. Note this is the wiki's third distinct argument that the ta
 - **[[wiki/concepts/universal-induction.md]]** — the formal counterweight: the provably sufficient bias selects the *shortest* program, not the causally faithful one, so simplicity and causal fidelity can come apart.
 - **[[wiki/concepts/meta-learning.md]]** — learning-to-learn is claimed to transfer well only over causal, compositional representations, which makes causal structure a precondition for the transfer meta-learning is supposed to deliver rather than an independent ingredient.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the rival account of the same target: a generative model inverted continuously by residual minimisation, where "causal" is not a separate criterion but a consequence of predicting one's own sensorimotor consequences.
+- **[[wiki/entities/h-jepa.md]]** — the direct rival: it argues *against* generative world models precisely because they cannot discard unpredictable detail, which trades this page's richness queries for the ability to abstract (T18), and its five data-gathering modes say which kinds of experience can establish causal structure at all.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — supplies the reverse constraint on that channel: cognitive plausibility as the surer foundation, with biological plausibility claims judged too under-determined to rule mechanisms in or out.

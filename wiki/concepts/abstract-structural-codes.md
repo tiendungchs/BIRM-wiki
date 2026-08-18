@@ -46,6 +46,25 @@ The tension between rows 3 and 4 is recorded as T4 in [[wiki/empirical-tensions.
 
 ---
 
+## Abstraction as long-range predictability
+
+The wiki's first *training signal* for abstraction, as opposed to an architectural stipulation of one ([[wiki/entities/h-jepa.md]]):
+
+> A representation is abstract because it is what stays predictable at long range. Detail is discarded not to save capacity but because it cannot be predicted far ahead.
+
+| Consequence | Statement |
+|---|---|
+| **Abstraction level = prediction horizon** | Low-level codes carry detail and predict a short way; high-level codes drop detail and predict far. The two are one axis, not two |
+| **The level structure is emergent** | Stack predictors, pool over time between levels, and the hierarchy of abstraction falls out of the objective rather than being designed |
+| **The trade-off is explicit** | Two criteria pull against each other: maximise the representation's information about its input, *and* make it predictable from the previous representation. Where the balance lands decides what is abstracted away |
+| **Driving example** | Given wheel and pedal commands, a driver predicts the trajectory accurately for seconds; over an hour only the abstract route survives (arrival time, the path as drawn on a map), and alternative routes are a discrete latent |
+
+**(brainstorm)** This is a candidate objective for gap G30, arriving from an unexpected direction. It does not directly reward path-consistency, but it does reward *content invariance* for a reason: content that varies unpredictably across instances of the same structure is exactly the content a long-horizon predictor is penalised for keeping. So `g` would be what survives a predictability filter, and `x` what the filter discards — measurable from trajectories alone, with no labels and no environment partition. What it still does not supply is commutativity: nothing in the criterion prefers a code that assigns the same value to a position reached by two different routes (gap G3).
+
+**The counterweight.** What gets kept is decided *implicitly* by the encoder's and predictor's inductive biases, and the source concedes it does not know how to set them, offering only auxiliary prediction heads on task-relevant derived variables. So the objective selects *among* representations the architecture can express, which puts the burden back on the architecture lever (gap G16).
+
+---
+
 ## Open problems
 
 - **Is periodic coding general or spatial?** One neuroimaging report on abstract categorization is the whole case for generality.
@@ -69,3 +88,4 @@ The tension between rows 3 and 4 is recorded as T4 in [[wiki/empirical-tensions.
 - **[[wiki/concepts/event-segmentation.md]]** — an event schema is content-invariant in the same sense `g` is: "reaching to contact" is defined by a relative distance reaching zero, whatever object fills the slot.
 - **[[wiki/concepts/compositionality.md]]** — a part-and-relation description is content-invariant by construction: the same relation vocabulary applies to pen strokes, wheels and ice floes, so compositional structure is one way of realising `g` without a metric embedding.
 - **[[wiki/concepts/three-component-framework.md]]** — locates this page in the *architecture* slot and names what the other two slots lack: no objective function is maximized by a path-consistent `g` and no learning rule ascends toward one (gap G30).
+- **[[wiki/entities/h-jepa.md]]** — supplies the first candidate objective for `g`: content that cannot be predicted at long range is penalized out of the representation, so abstraction becomes a consequence of a predictability/completeness trade-off rather than a design decision.

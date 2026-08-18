@@ -61,6 +61,7 @@ What *initiates and steers* the rolling-forward is unresolved; the leading propo
 | **Controller/model separation** | An explicit split between a policy controller and an environment model, queried bidirectionally; used for planning over interacting physical objects |
 | **Intuitive physics engine** | Simulation as the *model* of a cognitive competence rather than as a planner component: reconstruct objects with mass, elasticity and friction, apply forces, roll forward. Fits adult tower-stability judgements quantitatively, and answers hypothetical and counterfactual queries (remove blocks, glue them, change the material, jostle the table) that each require new features and new training for a discriminative account ([[wiki/concepts/core-knowledge.md]]) |
 | **Bayesian inverse planning** | The same idea for other minds, and the only one here that **nests recursively**: planning is an MDP/POMDP over an agent's utilities and beliefs, and inverting it recovers those utilities and beliefs from observed actions. Learning from watching an expert needs no trial of one's own — infer that birds are dangerous from the fact that avoidance is the best explanation of the expert's behaviour |
+| **Model-predictive control with a learned model** | The framing [[wiki/entities/h-jepa.md]] adopts wholesale: propose an action sequence, unroll the learned world model, sum a learned cost `F(x) = Σ_{t=1..T} C(s[t])`, back-propagate the cost gradient *into the action variables*, act on the first action, repeat (receding horizon). The only departure from 1960s optimal control is that model and cost are learned rather than written down. Its significance for this page is that it makes planning **differentiable end-to-end**, so path search stops being a discrete search problem — where the map is smooth |
 
 **The gap.** Generative models produce rich coherent rollouts; using them *for control* is unsolved. The stated requirement is that rich internal models — approximate but accurate enough to plan on — be **learned from experience without strong priors hand-crafted by the experimenter**. That requirement is identical to the LGD problem statement.
 
@@ -74,6 +75,22 @@ What *initiates and steers* the rolling-forward is unresolved; the leading propo
 | **Jumpy, multi-scale planning** | Terminal solutions, interim choice points and piecemeal steps are considered in parallel, not at one granularity | A hierarchy of temporal abstractions over the same graph: plan on a coarse meta-graph before the fine instance-graph |
 | **Schema transfer** | A plan forged in one setting ("go through the door to reach the room") is reused in a structurally similar new one | Plans indexed by *structure* (`g`) rather than by content (`x`) — [[wiki/concepts/abstract-structural-codes.md]] |
 
+### Jumpy planning, mechanised
+
+The wiki's first concrete proposal for row 2, from [[wiki/entities/h-jepa.md]]:
+
+| Element | Statement |
+|---|---|
+| **A high-level action is not an action** | It is a *condition the lower-level state must satisfy* for the high-level prediction to hold. `a₂[2]` is fed to a lower-level cost `C(s[2])` that measures the divergence between the fine state and that condition |
+| **A subgoal is therefore a learned cost**, not a symbol | Which is why the intermediate action vocabulary can be learned rather than predefined — the point where every prior hierarchical-planning method stops |
+| **The precedent is trivial** | A proportional servomechanism is exactly "given a target state, descend the squared distance to it". The novelty is only that the target lives in a *learned* abstract representation |
+| **Levels are timescales** | Coarse levels predict further because they have discarded what is not predictable that far ahead — so abstraction and horizon are the same axis |
+| **The described pass is greedy** | Top-down subgoal setting is acknowledged as inferior to joint optimisation across levels, which is not worked out |
+
+**(brainstorm)** This dissolves half of gap G24 without touching it. If the horizon is set *per level* by what that level's representation can still predict, planning depth is not a free parameter at all — it is read off the representation. The unanswered part is why any particular level's predictability boundary sits where it does, which relocates the depth question from the planner into the encoder.
+
+**Uncertainty is where it gets expensive.** With a `k`-valued latent per predictor per step, trajectories branch as `k^t`; pruning is named (MCTS) and not designed. With several sampled trajectories the actor can minimise expected cost *or* a mean/variance combination — planning for risk rather than for expectation, which no other entry on this page does.
+
 **(brainstorm)** All three are consequences of the factorization the wiki already requires. Recombination needs `x` separable; jumpy planning needs a coarser `g`; schema transfer needs plans keyed on `g`. The planning literature reaches the factorized code from a completely different direction than the hippocampal-coding literature — a convergence worth taking seriously: planning may need no machinery of its own beyond a good graph and a search over it.
 
 ---
@@ -85,6 +102,8 @@ What *initiates and steers* the rolling-forward is unresolved; the leading propo
 - **The depth question has no answer even in the ideal agent.** In AIXI, planning *is* expectimax over the future — `max_y Σ_x max_y … Σ_x (credit sum)` — and the horizon `m_k` is the model's only remaining free parameter. Every parameter-free proposal fails: known lifetime `T` is unavailable, exponential discounting introduces a timescale `1/λ`, power-law discounting `k^−α` introduces a dynamic one, and the unbounded limit misbehaves (Hutter's example has the *optimal* agent postpone the rewarding action forever and score zero). The least arbitrary choice is `h_k = β·k` — farsightedness proportional to elapsed history, `β ≈ 1` matching the observation that humans of age `k` rarely plan beyond `k` years. Gap G24; see [[wiki/entities/aixi.md]].
 - **Compounding model error.** Rollout accuracy decays with horizon; jumpy hierarchical planning may be as much an error-control device as an efficiency device.
 - **Creativity.** The hardest stated target: an agent that plans hierarchically and generates solutions that elude humans.
+- **Who sets the subgoals?** H-JEPA's hierarchical planner requires a module that decomposes a task into a sequence of individually achievable subgoals and configures the cost for each. The source calls that module "the most mysterious" in its architecture and leaves it explicitly unspecified — so the mechanism above assumes the decomposition rather than producing it (gap G33).
+- **Differentiability buys nothing where it is needed most.** Gradient-based action inference works when the action-to-cost map is smooth; high-abstraction choices are qualitative and discontinuous, and there the fallbacks are dynamic programming, beam search and MCTS — the classical methods the differentiable design was meant to displace.
 
 ---
 
@@ -105,3 +124,5 @@ What *initiates and steers* the rolling-forward is unresolved; the leading propo
 - **[[wiki/concepts/causal-model-building.md]]** — supplies what the rollout runs on: a model is usable for planning only if its steps correspond to the environment's generative steps, and the re-goaling test above is that page's richness criterion applied to control.
 - **[[wiki/concepts/compositionality.md]]** — constructive recombination, listed here as a missing property, is compositionality applied to imagined scenarios; and sub-goal composition is the only cited route to planning under sparse reward.
 - **[[wiki/concepts/event-segmentation.md]]** — supplies the multi-scale graph to plan over (episodes compress schema chains) and runs path search *backwards*: chain event schemata by matching a desired final event to another schema's preconditions.
+- **[[wiki/entities/h-jepa.md]]** — the fullest worked instantiation of this page: model-predictive control on a learned world model and a learned cost, with high-level actions reinterpreted as conditions on lower-level states, which is the wiki's first mechanism for the jumpy multi-scale row above.
+- **[[wiki/concepts/energy-based-models.md]]** — planning restated as constraint satisfaction: the action sequence is a set of free variables and the plan is the configuration minimising a summed energy, which makes actions and latents the same kind of object.

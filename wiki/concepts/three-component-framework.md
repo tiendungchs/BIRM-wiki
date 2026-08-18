@@ -92,6 +92,14 @@ The paper advocates none; it argues only that objectives are inferable and neces
 | **Empowerment** | Degree of control the agent has over its environment | Ecologically specifiable; goal-free |
 | **Cross-entropy** | Categorization loss | **Rejected as a brain objective** — requires the correct category for every sensory input |
 
+**A candidate the paper does not list, added by ingest** ([[wiki/entities/h-jepa.md]], [[wiki/concepts/energy-based-models.md]]): a four-term objective that is *not* description length and not reward —
+
+```
+maximize I(s_x; x)   maximize I(s_y; y)   minimize D(s_y, Pred(s_x, z))   minimize I(z; ·)
+```
+
+It belongs in this table because it is definable without reference to a task, dataset or environment — the paper's own admission criterion — and because it is jointly a specification of all three slots rather than of one. Its distinguishing property is that **three of the four terms exist only to prevent the degenerate solution**: without terms 1, 2 and 4 the constant encoder wins. That is a shape the objectives above do not have, and it suggests a general lesson for the objective slot — an objective for a *representation* may need more anti-degeneracy machinery than signal, because the cheapest satisfier of any predictability criterion is to predict nothing.
+
 Complications the paper concedes: the brain likely optimizes **multiple** objectives at once; some objectives are themselves *learned* (learning to learn a board game); others were optimized over evolution rather than within a lifetime.
 
 **Why identifying an objective is not optional.** It is the criterion that separates *learning* from mere *change*: if nothing gets better according to some metric, plasticity is not learning. This gives the wiki a usable test for any proposed fast-**M** write rule — name the quantity it improves, or admit it is drift ([[wiki/concepts/synaptic-plasticity.md]], gap G19).
@@ -179,4 +187,6 @@ The worked prediction: a hierarchical network trained with a reward objective on
 - **[[wiki/concepts/universal-induction.md]]** — the rival compactness argument: this page compresses the *design* and hands the environment unlimited entropy, while universal induction scores learnability by the environment's own description length.
 - **[[wiki/concepts/attention.md]]** — listed as one of four canonical inductive biases (some inputs matter more than others), i.e. a bias inserted through the architecture slot.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — the wiki's candidate `g`, proposed as connectivity and representation only; gap G30 is the observation that its objective-function slot is empty.
+- **[[wiki/concepts/energy-based-models.md]]** — supplies a second candidate for the objective slot (informativeness + predictability + latent parsimony) and the observation that most of a representational objective's terms are anti-degeneracy machinery rather than signal.
+- **[[wiki/entities/h-jepa.md]]** — the wiki's most complete three-slot specification, and the first in which the *cost function* is designed while the behaviour is left to emerge from minimising it.
 - **[[wiki/concepts/skill-acquisition-efficiency.md]]** — the wiki's first candidate content for the near-empty objective slot (gap G30): a computable approximation of skill-acquisition efficiency would be an objective to optimize, not only a yardstick to score against.

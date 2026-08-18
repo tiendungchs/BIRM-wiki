@@ -47,6 +47,21 @@ The differentiable neural computer (DNC) — a neural controller reading and wri
 | Content-addressable read | Retrieval by node content `x`; the missing piece is retrieval by structural position `g` |
 | Iterative memory "hops" | Multi-hop traversal — reasoning over several supporting statements ([[wiki/concepts/attention.md]]) |
 
+### The world state as a writable store
+
+A distinct argument for the same architecture, from efficiency rather than from capability ([[wiki/entities/h-jepa.md]]): a typical action modifies a *small part* of the world, but a network that passes state as a vector rewrites all of it every step. So the world state should live in a key-value memory with one entry per entity — move a bottle from the kitchen to the dining room and exactly three entries change.
+
+| Operation | Form |
+|---|---|
+| Read | `v = Σ_j Normalize(Match(k_j, q))_j · v_j`, with `Normalize` competitive/thresholded, e.g. `c_j = exp(c̃_j) / (γ + Σ_k exp(c̃_k))` |
+| Write | `Update(r, v, c) = c·r + (1−c)·v` on matched entries |
+| **Allocate** | If the query is far from every key (the `γ` threshold), create a new slot with key `q` |
+
+All differentiable, so gradients pass through the store. Two readings this wiki should carry:
+
+- **Update locality is architecturally enforced**, which is what an instance-graph in fast **M** needs and what a monolithic state vector cannot provide.
+- **The allocation threshold is a de-aliasing decision** (gap G2): "far from every key" means *this is a new node*, not a noisy version of an old one. It is the wiki's cheapest de-aliasing mechanism so far, and also its most fragile — identity is decided by a single scalar in a learned metric, with nothing path-sensitive about it.
+
 **(brainstorm)** The DNC result and the CLS story converge on the same object from opposite directions: an external, content-addressable, fast-written store. Working memory contributes the part CLS lacks — an explicit **controller** with a learned read/write policy. A reasoning architecture plausibly needs one store with two access disciplines (episodic write-once for consolidation; controller-driven read/write for manipulation), not two stores.
 
 ---
@@ -72,4 +87,5 @@ The differentiable neural computer (DNC) — a neural controller reading and wri
 - **[[wiki/concepts/meta-optimized-plasticity.md]]** — under parameter sharing, activations are interpretable as weights and attention as a weight update, so an activity-based store and a plastic-weight store are the same object in different bases and this page's capacity limits transfer directly onto plastic memory.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — active maintenance falls out as the limiting case `α = β = γ = 0` of the predictive-coding update (hold the current encoding when neither top-down prediction nor bottom-up error is precise), so a store is not needed as separate machinery (Butz 2016).
 - **[[wiki/concepts/event-segmentation.md]]** — the multiplicative gate that maintains an item until further notice is the same gate that detects an event boundary; maintenance and segmentation are one mechanism read at two timescales.
+- **[[wiki/entities/h-jepa.md]]** — applies the control/storage separation to the *environment model*: world state held in a per-entity key-value store with sparse updates and threshold-triggered slot allocation, so an action edits three entries instead of rewriting a state vector.
 - **[[wiki/concepts/compositionality.md]]** — differentiable programming (external memory, stacks, queues, Neural Turing Machine → Differentiable Neural Computer → Neural Programmer-Interpreter) is the machine route to composition over data structures, and the reason those systems are read as learning *programs* — in a representation "more like assembly language" than a causal model of a domain (Lake et al. 2017).

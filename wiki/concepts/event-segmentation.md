@@ -82,3 +82,4 @@ Secondary consequence for aliasing (gap G2): because an event is a *set*, two id
 - **[[wiki/concepts/abstract-structural-codes.md]]** — an event schema is content-invariant in the same sense `g` is: the schema "reaching to contact" is defined by relative distance reaching zero, whatever object fills it.
 - **[[wiki/concepts/core-knowledge.md]]** — the rival account of where discrete entities come from: individuation by entry-gated core systems rather than by temporal change in the active encoding set (tension T12).
 - **[[wiki/concepts/meta-learning.md]]** — episode encodings are the meta-graph level made concrete: what is shared across instances is the schema, what varies is the binding of items to its slots.
+- **[[wiki/entities/h-jepa.md]]** — the alternative to a boundary detector: fixed temporal pooling between prediction levels coarse-grains time without ever naming a boundary, which is cheaper and cannot produce variable-length events.
