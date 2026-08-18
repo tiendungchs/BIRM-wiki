@@ -55,6 +55,7 @@ These are **independent latent variables, not a partition**. A task is a *subset
 | Omniglot | given | n/a | **latent** | given (pen strokes) | latent (stroke sequence) | given |
 | Atari / DotA2 | given | latent | given (game rules) | given (button set) | **latent** | given (score) |
 | Baby Intuitions Benchmark ([[wiki/entities/hbtom.md]]) | given (symbolic states) | given (gridworld, hand-written PDDL) | given | given | given | **latent** (which object the agent is after, plus *how rational* it is) |
+| Tokenised mazes ([[wiki/entities/maze-solving-transformers.md]]) | given (one token per cell) | given *in-context*, in randomised order — must be re-represented, not discovered | given (move to an adjacent cell) | given | **latent** (the shortest route) | given (target token) |
 
 A benchmark is only informative about a latent variable *the solver's developer also did not know* — see [[wiki/concepts/skill-acquisition-efficiency.md]] on developer-aware generalization. On that criterion the second and third rows measure local generalization regardless of how many variables they mark latent, because their task types were public when the solvers were written.
 
@@ -193,3 +194,5 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 - **[[wiki/concepts/subgraph-matching.md]]** — the third operation alongside discovery and navigation: deciding whether a stored structure *occurs in* a new situation, which "instantiation is binding, not learning" presupposes and no page here had mechanised.
 - **[[wiki/entities/neuromatch.md]]** — the retrieval side taken as far as it currently goes: graph given on both sides, containment made a coordinate comparison, ~100× faster than exact search, transferring from random graphs to real domains without fine-tuning.
 - **[[wiki/concepts/contextual-inference.md]]** — supplies the arbitration step the framing left implicit: a posterior over which stored structure is currently generating the data, which decides retrieval, allocation of a new structure, and how much each existing one is updated; its context variable is hardness source 6's rule-config reified as a first-class latent (Heald et al. 2021).
+- **[[wiki/concepts/representation-probing.md]]** — the first instrument in the wiki that looks *inside* a trained model for the graph rather than inferring it from behaviour, and the one that shows the page's two halves failing independently (a verified-good estimate with invalid routing over it).
+- **[[wiki/entities/maze-solving-transformers.md]]** — the cleanest available separation of discovery from use: the whole maze is linearly decodable from one token's residual stream at layer 2, and the rollouts it supports still cross walls (Ivanitskiy et al. 2023).
