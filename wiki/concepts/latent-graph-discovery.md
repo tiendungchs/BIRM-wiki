@@ -74,7 +74,17 @@ Reading notes: **AIME/HMMT** — olympiad path over known vocabulary, largely so
 
 ## Two-Level Graph Hierarchy
 
-Every reasoning domain has two nested graph levels:
+### Why the hierarchy exists
+
+Every domain is a **family of environments**, not one environment: shared laws (Core Knowledge, physics, axioms) instantiated per level/task/instance with different objects, bindings and sampling distribution — `p(obs) = ∫ p(obs | θ_shared, θ_inst) p(θ_inst) dθ_inst`. Consequences:
+
+- **A flat model fits the wrong object.** A single-level estimator fits the mixture `E_θ[p(obs|θ)]` — a distribution *no individual instance follows*. A new instance is out-of-distribution w.r.t. past instances but in-distribution w.r.t. the family, so the target is generalization at the family level; "OOD failure" is not accidental but what fitting a mixture to a component means.
+- **Sample budgets differ by orders of magnitude.** ARC-AGI gives 2–4 demonstration pairs per task; the family gives unlimited episodes. Nothing identifies a high-dimensional instance function from k≈3 examples, so parameters must split *by sample budget*: pooled/slow vs. low-dimensional residual/fast. The hierarchy is a **sample-complexity decomposition** before it is a cognitive claim.
+- **MDL makes the split optimal.** Coding N instances separately costs `N·|instance|`; coding mechanism-plus-parameters costs `|θ_shared| + N·|θ_inst|`. Where mechanism is large and residual small the two-level code is strictly shorter — which is also why evolution finds it.
+- **Instantiation is binding, not learning.** The meta-graph is a *schema* with free slots; the instance-graph is one member obtained by binding them. Hence the fast level is Hebbian/conjunctive (`p = f(g,x)`) rather than a second slow learner, and instance acquisition can be one-shot.
+- **The two levels are poles of a continuum.** Any given regularity sits somewhere between absolute rule and instance quirk; the W/M split is the coarsest useful discretization of that spectrum, not a claim that features come in exactly two kinds.
+
+### The levels
 
 | Level              | Role                                                       | Examples                                                              |
 | ------------------ | ---------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -83,7 +93,7 @@ Every reasoning domain has two nested graph levels:
 
 A system that conflates these levels cannot transfer: it must relearn the meta-graph rules from scratch for each new instance. Separating them is the core requirement of structural generalization.
 
-Direct mapping to the W/M split (two learning timescales):
+Direct mapping to the **W/M split** — W (slow **w**eights, gradient-updated across episodes) and M (fast **m**emory, bound within an episode), the two-learning-timescale factorization:
 - **Slow W** ← meta-graph (shared structure, learned across many episodes)
 - **Fast M** ← instance-graph (episode-specific, bound within a context)
 
@@ -222,7 +232,24 @@ No *computable* architecture satisfies all six hardness sources simultaneously.
 
 ## Open Problems
 
+| # | Problem | Status |
+|---|---|---|
+| 1 | **Is the reduction legitimate?** Does the navigation framing survive contact with genuinely non-embeddable symbolic structure (modular arithmetic, syntactic recursion, type-checking), or does it hold only on the metric/embeddable slice? | Open — the wiki's load-bearing bet; tension T2 in [[wiki/empirical-tensions.md]] |
+| 2 | **Multi-level hierarchy.** W itself must be a discoverable graph, not a flat parameter set — and Nomic-class self-amendment shows two levels are not always enough | Open — gap G1 in [[wiki/architectural-gaps.md]] |
+| 3 | **Vocabulary co-discovery that transfers.** Latent action alphabets are learned per-domain (LAPA, AdaWorld) or on synthetic domains (NEO); none crosses a structural mismatch | Partial — gap G7 |
+| 4 | **Where does the environment family come from?** The two-level scheme assumes a fixed family of environments to pool over. If the family must itself be discovered, the hierarchy recurses | Open — gap G3 |
+| 5 | **Discovery→use consolidation.** Nothing converts instance-graph experience into meta-graph structure during deployment; replay in machines stops when training does | Open — gap G2 |
+| 6 | **Planning over a self-edited edge set** (hardness source 6) remains unsolved even when every rewrite is legible, controllable and bounded | Open — gap G6 |
+| 7 | **What reads the graph out?** The wiki specifies how the graph is inferred far more precisely than how a search over it is initiated, bounded, or terminated | Open — gap G5 |
 
 ---
 
 ## Connections
+
+- **[[wiki/concepts/neuroscience-ai-transfer.md]]** — supplies the licence for reading biological mechanisms as answers to this problem, and the warning that nothing has yet transferred a *factorization* — which is precisely what this page requires.
+- **[[wiki/concepts/complementary-learning-systems.md]]** — the biological derivation of the slow-W / fast-M split from catastrophic interference, independent of this page's sample-complexity derivation; hippocampal pattern separation is de-aliasing (hardness source 3) in biological form.
+- **[[wiki/concepts/meta-learning.md]]** — the optimization statement of the two-level hierarchy (outer loop = meta-graph, inner loop = instance-graph), and the mechanism behind the knowledge-boundedness recorded in the LLM row of the architecture table.
+- **[[wiki/concepts/continual-learning.md]]** — the write mechanism for slow W: without protection against interference the meta-graph cannot accumulate across environment families.
+- **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — decides whether the slow-W learner is realizable in a neural or neuromorphic substrate, and shows that locality favours the factorized code `p = f(g, x)`.
+- **[[wiki/concepts/simulation-based-planning.md]]** — the *use* half of this problem: path search over the discovered graph, and the source of three independent demands (recombination, jumpy planning, schema transfer) that all reduce to separating `g` from `x`.
+- **[[wiki/overview.md]]** — the master synthesis this page supplies the problem statement for.
