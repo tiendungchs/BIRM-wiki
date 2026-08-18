@@ -26,6 +26,8 @@ The first two motivate *inspiration*; the third is a distinct and often-overlook
 
 The exclusion is a *choice*, not a finding, and it is contested — see [[wiki/empirical-tensions.md]] T1.
 
+**What a transferred item is a component *of*.** Richards et al. 2019 sharpen the target of the whole channel: the deliverable is not a compact model of any neuron's response but a **compact normative explanation of how those responses emerge**, stated as three objects — objective function, learning rule, architecture — from which a non-compact trained model then follows (the relation natural selection has to phylogeny). Two consequences for the table above. First, every row can be sorted into one of the three slots, and the sort exposes the channel's blind spot: almost nothing has transferred into the **objective** slot, which is also the only one of the three that is *not directly observable* in brains. Second, the compactness is not an aesthetic preference — the three components must pass to offspring through the genome, which plausibly cannot specify vertebrate wiring, so they are under a hard information bound that the learned computation is not. See [[wiki/concepts/three-component-framework.md]].
+
 ---
 
 ## Track record: what has actually transferred
@@ -110,3 +112,4 @@ The exclusion is a *choice*, not a finding, and it is contested — see [[wiki/e
 - **[[wiki/concepts/shortcut-learning.md]]** — supplies Morgan's Canon as the discipline this channel needs in reverse: matched behaviour licenses no inference about the algorithm, and biological learners take shortcuts too, so the brain offers better priors rather than immunity.
 - **[[wiki/concepts/causal-model-building.md]]** — the rival source of constraint: cognitive science rather than neuroscience, with the "software before hardware" argument and the claim that a biologically motivated mechanism which is cognitively implausible should be doubted rather than imported.
 - **[[wiki/concepts/core-knowledge.md]]** — a candidate transfer of a *prior* rather than a mechanism or a gating policy, and the only case in the wiki with direct evidence that the prior is installable (object cognition in visually inexperienced newborn chicks).
+- **[[wiki/concepts/three-component-framework.md]]** — states what this channel is ultimately importing: not compact models of neurons but the three compact objects whose interaction makes neural responses emerge, with the genome bottleneck as the argument for why they must be compact.

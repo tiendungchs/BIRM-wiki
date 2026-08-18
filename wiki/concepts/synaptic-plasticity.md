@@ -76,6 +76,20 @@ The `x_i·Δx_j` increment pushes future `x_j` responses toward the perturbation
 
 ---
 
+## Does a non-gradient rule learn anything?
+
+Richards et al. 2019 answer with a decomposition. Take a plasticity rule as a **vector field over weight space**; any vector field splits into a component along `∇_W F` and components orthogonal to it.
+
+| Alignment with `∇_W F` | Trajectory | Verdict |
+|---|---|---|
+| Full | Direct ascent to the optimum | Learning |
+| Partial | Indirect ascent — still arrives | Learning |
+| Orthogonal | Never approaches the optimum | **Change, not learning** |
+
+So the standing worry that Hebbian-family rules approximate no gradient is not disqualifying: a rule needs only a **positive projection** onto some objective's gradient. The price is a demand this page must now meet for each rule it lists — **name the quantity that improves**. If no metric gets better, the phenotypic change is not learning by any usable definition, which is also the wiki's sharpest statement of what gap G19 (no local rule is selective about what it writes) actually costs: an unselective rule may be writing orthogonally.
+
+---
+
 ## Open problems
 
 - **No rule on this page is selective about *what* it writes.** Hebbian-family updates fire on any coactivity, including coactivity produced by a shortcut feature ([[wiki/concepts/shortcut-learning.md]]). A local rule cannot tell a causal edge from a correlational one — it is by construction a correlation detector.
@@ -98,3 +112,4 @@ The `x_i·Δx_j` increment pushes future `x_j` responses toward the perturbation
 - **[[wiki/concepts/shortcut-learning.md]]** — a purely local correlation detector has no lever by which to prefer a causal edge, so plasticity rules inherit the shortcut problem rather than solving it.
 - **[[wiki/concepts/universal-induction.md]]** — the ideal these rules approximate under locality and compute budgets: Bayesian conditioning of a universal mixture needs no update rule at all, so every local rule is a bounded stand-in for it.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — supplies an error-driven local write rule where this page's rules are coactivity-driven, and makes the precision gates `α, β, γ` a metaplasticity-like control over how much the fast level writes (Butz 2016).
+- **[[wiki/concepts/three-component-framework.md]]** — rehabilitates non-gradient rules by the vector-field decomposition (only a rule *orthogonal* to `∇F` fails to learn), while imposing the counter-demand that every rule name the objective it improves, or be classed as change rather than learning.

@@ -2,7 +2,7 @@
 
 What to read or write next. Derived from [[wiki/architectural-gaps.md]], from open problems on concept pages, and from lint passes. Reordered whenever a gap opens or closes.
 
-**Status:** four sources ingested (Hassabis et al. 2017; Geirhos et al. 2020; Schmidgall et al. 2023; Revencu & Csibra 2023). The concept skeleton is still mostly single-sourced from surveys and needs primary sources behind it. Gap G17 now makes an evaluation instrument a precondition for the comparison work in P6, and the new gaps G21–G23 open a whole column — what the model is *given* — that no queued source yet covers on the machine side.
+**Status:** nine sources ingested (Hassabis et al. 2017; Geirhos et al. 2020; Schmidgall et al. 2023; Revencu & Csibra 2023; Hutter 2000; Spelke & Kinzler 2007; Butz 2016; Lake et al. 2017; Richards et al. 2019). The concept skeleton is still mostly single-sourced from surveys and needs primary sources behind it. Gap G17 now makes an evaluation instrument a precondition for the comparison work in P6, and the new gaps G21–G23 open a whole column — what the model is *given* — that no queued source yet covers on the machine side.
 
 ## Now
 
@@ -21,7 +21,8 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 | P6 | Score architectures against the six hardness sources, per the placeholder in [[wiki/concepts/latent-graph-discovery.md]] | The scoring table is the wiki's comparison instrument and is still empty | Enough architecture pages to compare; **and an o.o.d. column** — per G17 an i.i.d. result cannot enter this table |
 | P7 | Acquire sources for the controlled-shortcut benchmarks (Shift-MNIST / biased CelebA / unfair dSprites) and for ObjectNet / ImageNet-C | These are the only listed instruments where the intended rule is known by construction, so they are what turns "did this architecture recover structure?" into a measurement (G17) | Human curation (or a web search pass) |
 | P9 | Acquire a source on *conditional* or gated inductive bias (mixture-of-experts routing, typed/sorted representations, neuro-symbolic type systems) | G23 says every machine prior applies unconditionally while every core system carries an entry test; nothing in `raw/` addresses gated priors, and G23 is the precondition for stacking priors at all | Human curation (or a web search pass) |
-| P8 | Write the inductive-bias page, or decide it belongs inside [[wiki/concepts/shortcut-learning.md]] | The four levers (architecture, data, loss, optimizer) are now the wiki's stated control surface for G16; currently they live in one section of one page | A second source with a concrete bias-vs-solution result — `deletang-2023-language-modeling-compression.md` and `talk-nd-cross-entropy-first-principles.txt` both bear on the loss lever |
+| P8 | ~~Write the inductive-bias page, or decide it belongs inside [[wiki/concepts/shortcut-learning.md]]~~ **partly done** — [[wiki/concepts/three-component-framework.md]] now carries the control surface, the canonical bias catalogue and the three-vs-four-lever dispute (T15). Remaining: a concrete bias-vs-solution *result*, and the loss lever specifically | The four levers (architecture, data, loss, optimizer) are now the wiki's stated control surface for G16; currently they live in one section of one page | A second source with a concrete bias-vs-solution result — `deletang-2023-language-modeling-compression.md` and `talk-nd-cross-entropy-first-principles.txt` both bear on the loss lever |
+| P10 | Find an objective function whose optimum is the `g`/`x` factorization — or a source that argues none exists | Gap G30: the factorization is specified architecturally and has no trainable target, so no learning rule can ascend toward it and no measurement scores distance from it. The nearest candidate shapes are constrained code length (G26) and a path-commutativity residual, neither of which has a source | A source on structure-sensitive or disentanglement objectives; `deletang-2023-language-modeling-compression.md` bears on the loss lever |
 
 ## Standing
 
@@ -30,3 +31,4 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 | S1 | Keep `Connections` bidirectional | A one-way link is a maintenance defect; caught at each lint pass |
 | S2 | Lint after ~every 20 ingests | Structural decay (orphans, thin pages, unexpanded abbreviations) accumulates silently |
 | S3 | Re-run `./tools/qmd-index.sh` after each ingest | The search index is what the next ingest reads first; a stale index hides existing pages and causes duplicates |
+
