@@ -120,9 +120,17 @@ Corollary for evaluation: **i.i.d. testing cannot certify that any architecture 
 
 ## Formal Ceiling
 
-**AIXI** (Hutter 2000) is the only known system satisfying all six hardness sources at once: a Bayesian mixture over *all computable environments* — hence over all latent graphs, vocabularies, aliasing structures, and topologies, including non-stationary ones — acting by expectimax. Conditioning on full history resolves aliasing; topology change is absorbed into the environment posterior. It fails only on computability. Every real architecture is a bounded-program approximation, failing on whichever hardness sources its search budget cannot reach.
+**AIXI** (Hutter 2000) is the only known system satisfying all six hardness sources at once: a Bayesian mixture over *all computable environments* — hence over all latent graphs, vocabularies, aliasing structures, and topologies, including non-stationary ones — acting by expectimax. Conditioning on full history resolves aliasing; topology change is absorbed into the environment posterior. Full architecture, results and scoring row: [[wiki/entities/aixi.md]].
 
-*Architecture-by-architecture scoring against the six sources: to be filled by ingests.*
+Three corrections the source itself forces on the wiki's earlier reading of this ceiling:
+
+- **The ceiling is two walls, not one.** Uncomputability is the famous one and **AIXItl** removes it (enumerate all programs of length `≤ l̃` carrying a proof that they never overrate their own expected credit; act on the highest self-certified value; `O(2^l̃·t̃)` per cycle). The second wall does not come down: **there is no credit bound for any agent whose actions influence its observations** — proved, not merely unfound (gap G25). Optimality guarantees exist on the *passive* slice (prediction, classification) and provably cannot exist in general on the active one.
+- **The mixture absorbs the two-level hierarchy rather than representing it.** Nothing in AIXI is factorized into `g` and `x`; the meta-graph exists only as a marginal of the posterior. So the ceiling demonstrates that the factorization is not *logically* required — it is required by finite capacity. Worse, the simplicity prior selects a short program, not a structured one, so even the ideal inductor need not expose the graph in navigable form (gap G26).
+- **Learnability = compressibility.** The only property of the environment entering the convergence bounds is `K(µ)`. This is the same statement as hardness source 6's "a rewrite process with no compressible generator is unsolvable in principle", now general: a domain is learnable to the extent it has a short description, independent of its size, stochasticity or stationarity. See [[wiki/concepts/universal-induction.md]].
+
+**Environment assumptions are a second scoring axis.** Because no bound holds for arbitrary `µ`, guarantees must be relativized to *separability classes* — passive / factorizable / stationary / (generalized) Markovian / uniform / forgetful / farsighted / asymptotically learnable, in increasing generality. Alongside "which hardness sources does this architecture reach", ask "which environment assumptions is it buying its guarantee with". The useful domains sit above the Markovian line that most practical architectures assume.
+
+*Architecture-by-architecture scoring against the six sources: [[wiki/entities/aixi.md]] supplies the reference row; other architectures to be filled by ingests.*
 
 ---
 
@@ -151,4 +159,6 @@ Corollary for evaluation: **i.i.d. testing cannot certify that any architecture 
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the candidate write rule for fast **M** during the episode; it can bind an instance-graph's weights but carries no notion of node identity or path, so it supplies the mechanism without the representation.
 - **[[wiki/concepts/meta-optimized-plasticity.md]]** — instantiates the hierarchy literally (slow **W** = plasticity coefficients, fast **M** = the weights they write), and its self-referential variants are the first named candidate for the third tier gap G9 demands.
 - **[[wiki/entities/spiking-neural-networks.md]]** — offers a substrate-level primitive for *directed* edges via the spike-timing asymmetry, which a rate-coded architecture has to learn as content instead.
+- **[[wiki/entities/aixi.md]]** — the formal ceiling made concrete: covers all six hardness sources, supplies the reference row of the scoring table, and shows the two-level factorization is a finite-capacity requirement rather than a logical one.
+- **[[wiki/concepts/universal-induction.md]]** — the prior that makes the ceiling work, and the source of the passive/active split: structure discovery is guaranteed for an observer and provably uncertifiable for a participant.
 - **[[wiki/concepts/core-knowledge.md]]** — the pre-installed case: six meta-graph fragments given by evolution rather than discovered, which converts hardness source 2 from vocabulary induction into composition across fixed vocabularies.

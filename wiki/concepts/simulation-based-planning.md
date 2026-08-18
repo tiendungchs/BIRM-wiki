@@ -64,6 +64,7 @@ What *initiates and steers* the rolling-forward is unresolved; the leading propo
 
 - **Learning the model without priors.** Everything above assumes a model exists; acquiring it *is* latent graph discovery.
 - **What initiates a rollout, and what stops it?** No account of the control policy over simulation — when to plan, how deep, which branch, when the answer is good enough (gap G15).
+- **The depth question has no answer even in the ideal agent.** In AIXI, planning *is* expectimax over the future — `max_y Σ_x max_y … Σ_x (credit sum)` — and the horizon `m_k` is the model's only remaining free parameter. Every parameter-free proposal fails: known lifetime `T` is unavailable, exponential discounting introduces a timescale `1/λ`, power-law discounting `k^−α` introduces a dynamic one, and the unbounded limit misbehaves (Hutter's example has the *optimal* agent postpone the rewarding action forever and score zero). The least arbitrary choice is `h_k = β·k` — farsightedness proportional to elapsed history, `β ≈ 1` matching the observation that humans of age `k` rarely plan beyond `k` years. Gap G24; see [[wiki/entities/aixi.md]].
 - **Compounding model error.** Rollout accuracy decays with horizon; jumpy hierarchical planning may be as much an error-control device as an efficiency device.
 - **Creativity.** The hardest stated target: an agent that plans hierarchically and generates solutions that elude humans.
 
@@ -78,4 +79,6 @@ What *initiates and steers* the rolling-forward is unresolved; the leading propo
 - **[[wiki/concepts/working-memory.md]]** — the controller/model split used for planning is the control/storage separation applied to an environment model instead of a memory matrix.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — jumpy hierarchical planning needs the state space decomposed into subgoals, which is the function claimed for periodic structural codes.
 - **[[wiki/concepts/attention.md]]** — both need a policy that decides where the next unit of computation is spent; neither supplies one.
+- **[[wiki/entities/aixi.md]]** — expectimax over a universal mixture is this page's mechanism in idealized form, and it shows the horizon problem is formal rather than practical: no parameter-free planning depth exists.
+- **[[wiki/concepts/universal-induction.md]]** — supplies the model the rollout runs on in the ideal case, and the result that greedy one-step evaluation suffices only where the agent's actions do not shape its observations — i.e. planning depth > 1 is forced exactly by being an agent.
 - **[[wiki/concepts/core-knowledge.md]]** — the object system's principles (cohesion, continuity, action-on-contact) are transition constraints, i.e. a candidate hand-specified environment model for the rollout to run on.

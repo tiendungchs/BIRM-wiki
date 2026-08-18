@@ -6,6 +6,7 @@ Models, frameworks, benchmarks, and biological systems. One page per artefact. N
 
 | Page | What it is | Load-bearing for |
 |---|---|---|
+| [[wiki/entities/aixi.md]] | Sequential decision theory (expectimax) with the unknown environment prior replaced by the universal semimeasure `ξ`; uncomputable, plus the `AIXItl` reduction that is computable at `t̃·2^l̃` per cycle | The wiki's formal ceiling — the only system covering all six hardness sources; the separability vocabulary; self-certified value as a policy-selection criterion |
 | [[wiki/entities/spiking-neural-networks.md]] | Networks whose units communicate by binary, time-located spikes; leaky integrate-and-fire dynamics, STDP-native, run on neuromorphic hardware (Loihi, TrueNorth, SpiNNaker) | The test case for the implementation-level exclusion ([[wiki/empirical-tensions.md]] T1); a substrate-level primitive for *directed* edges; why local learning stops being optional |
 
 ## Benchmarks and datasets
@@ -24,7 +25,6 @@ Artefacts named on existing pages that have no page of their own. Listed so the 
 
 | Artefact | Referenced from | Queued source |
 |---|---|---|
-| AIXI | [[wiki/concepts/latent-graph-discovery.md]] | `raw/hutter-2000-universal-ai-algorithmic-complexity.md` |
 | Hippocampus / medial temporal lobe | [[wiki/concepts/complementary-learning-systems.md]], [[wiki/concepts/simulation-based-planning.md]] | `raw/liao-2024-single-shot-many-shot-hippocampus.md`, `raw/yassa-2011-pattern-separation-hippocampus.md` |
 | Prefrontal cortex | [[wiki/concepts/working-memory.md]], [[wiki/concepts/meta-learning.md]] | `raw/wang-2018-pfc-meta-rl-system.md`, `raw/friedman-2021-prefrontal-cognitive-control.md` |
 | Entorhinal grid cells | [[wiki/concepts/abstract-structural-codes.md]] | `raw/constantinescu-2016-gridlike-code-concepts.md` |

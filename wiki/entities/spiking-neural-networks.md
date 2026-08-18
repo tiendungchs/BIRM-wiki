@@ -64,3 +64,4 @@ The wiki's stake in SNNs is not efficiency. It is [[wiki/empirical-tensions.md]]
 - **[[wiki/concepts/meta-optimized-plasticity.md]]** — surrogate gradients let the outer loop reach into a spiking inner loop, producing this substrate's strongest result (online one-shot learning).
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the test case for that page's implementation-level exclusion: SNNs claim the excluded level carries information a functional specification cannot express.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — offers a substrate-level primitive for *directed* edges (temporal asymmetry) that rate-coded architectures must learn as content.
+- **[[wiki/entities/aixi.md]]** — the opposite pole of the specification/implementation axis: AIXI is a substrate-free optimality specification with no implementation, spiking networks are an implementation-first commitment with no optimality guarantee.

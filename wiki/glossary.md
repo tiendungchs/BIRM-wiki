@@ -6,7 +6,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 
 | Abbrev. | Expansion | Note |
 |---|---|---|
-| AIXI | AI with (X) Induction (I) | Hutter's uncomputable universal agent; the formal ceiling |
+| AIXI | AI with (X) Induction (I) | Hutter's uncomputable universal agent; the formal ceiling ([[wiki/entities/aixi.md]]) |
+| AIXItl | AIXI bounded to length `l̃` and per-cycle time `t̃` | Computable reduction of AIXI; dominates all self-certifying policies within those bounds |
+| AIµ | The same agent with the *true* environment prior `µ` | Plain expectimax; optimal by construction, and the reference AIXI is measured against |
 | CLS | Complementary Learning Systems | Fast hippocampal / slow cortical memory pair; also the name of the theory |
 | CNN | Convolutional Neural Network | |
 | DFA | Direct Feedback Alignment | Output error wired straight to every hidden layer |
@@ -20,6 +22,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | EWC | Elastic Weight Consolidation | Fisher-weighted quadratic penalty protecting important weights |
 | FA | Feedback Alignment | Fixed random backward weights in place of the forward transpose |
 | i.i.d. | independent and identically distributed | Train and test drawn from the same distribution; the assumption behind standard benchmarking |
+| K(x) | Kolmogorov complexity | Length of the shortest program printing `x` |
 | LGD | Latent Graph Discovery | The wiki's core problem framing |
 | LSTM | Long Short-Term Memory | Gated recurrent architecture |
 | MCTS | Monte Carlo Tree Search | Forward search used to improve a value function or policy |
@@ -30,8 +33,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | RL | Reinforcement Learning | |
 | RNN | Recurrent Neural Network | |
 | SNN | Spiking Neural Network | Binary, time-located events instead of real-valued rates |
+| SP / CF / FM / EX | Sequence Prediction / Classification / Function Minimization / supervised learning by EXamples | Hutter 2000's problem classes; the first two are passive, the last two active |
 | SS | Sign-Symmetry | Feedback weights random in magnitude, sign-matched to the forward weights |
 | TD | Temporal Difference (learning) | Learns from successive predictions rather than final outcomes |
+| ξ | Universal semimeasure | `Σ_p 2^-l(p)` over programs producing the observed string; dominates every enumerable semimeasure |
 
 ## Neuroscience
 
