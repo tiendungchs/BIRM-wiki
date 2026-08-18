@@ -4,7 +4,9 @@ Models, frameworks, benchmarks, and biological systems. One page per artefact. N
 
 ## Models and frameworks
 
-*(none yet)*
+| Page | What it is | Load-bearing for |
+|---|---|---|
+| [[wiki/entities/spiking-neural-networks.md]] | Networks whose units communicate by binary, time-located spikes; leaky integrate-and-fire dynamics, STDP-native, run on neuromorphic hardware (Loihi, TrueNorth, SpiNNaker) | The test case for the implementation-level exclusion ([[wiki/empirical-tensions.md]] T1); a substrate-level primitive for *directed* edges; why local learning stops being optional |
 
 ## Benchmarks and datasets
 
@@ -41,4 +43,11 @@ Artefacts named on existing pages that have no page of their own. Listed so the 
 | ARCT (Argument Reasoning Comprehension Task) | [[wiki/concepts/shortcut-learning.md]] | *(no source in `raw/` — shortcut-removed variant)* |
 | BERT | [[wiki/concepts/shortcut-learning.md]] | *(no source in `raw/` — cue-word shortcut, above chance from "not" alone)* |
 | Predictive-coding networks | [[wiki/concepts/biologically-plausible-credit-assignment.md]] | `raw/whittington-2017-predictive-coding-approximates-backprop.md` |
-| Spike-timing-dependent plasticity | [[wiki/concepts/biologically-plausible-credit-assignment.md]] | `raw/bi-1998-spike-timing-dependent-plasticity.md` |
+| Spike-timing-dependent plasticity | [[wiki/concepts/biologically-plausible-credit-assignment.md]], [[wiki/concepts/synaptic-plasticity.md]] | `raw/bi-1998-spike-timing-dependent-plasticity.md` |
+| Hopfield network | [[wiki/concepts/synaptic-plasticity.md]], [[wiki/concepts/biologically-plausible-credit-assignment.md]] | *(no source in `raw/` — Hebbian storage of binary patterns in a symmetric recurrent net; the continuous version is an energy-based credit-assignment route)* |
+| REINFORCE / node perturbation | [[wiki/concepts/synaptic-plasticity.md]] | *(no source in `raw/` — the policy-gradient estimator a biologically plausible three-factor rule turns out to implement)* |
+| Eligibility propagation (e-prop) | [[wiki/concepts/biologically-plausible-credit-assignment.md]], [[wiki/entities/spiking-neural-networks.md]] | *(no source in `raw/` — forward-only local credit assignment for spiking nets)* |
+| Feedback alignment / direct feedback alignment / sign-symmetry | [[wiki/concepts/biologically-plausible-credit-assignment.md]] | *(no source in `raw/` — sign-symmetry is the only variant matching backpropagation at ImageNet scale)* |
+| Differentiable plasticity | [[wiki/concepts/meta-optimized-plasticity.md]] | *(no source in `raw/` — gradient-optimized plasticity coefficients, incl. neuromodulated variants)* |
+| Evolvable Neural Units | [[wiki/concepts/meta-optimized-plasticity.md]] | *(no source in `raw/` — evolved somatic/synaptic compartments that rediscover spiking dynamics and RL-type rules)* |
+| Loihi / TrueNorth / SpiNNaker | [[wiki/entities/spiking-neural-networks.md]] | *(no source in `raw/` — neuromorphic platforms; locality is a hardware constraint here, not a preference)* |

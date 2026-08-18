@@ -2,7 +2,7 @@
 
 Master synthesis. Rewritten after every ~10 ingests, or whenever a major insight changes the picture.
 
-> **State of the wiki:** 2 sources ingested (Hassabis et al. 2017, *Neuroscience-Inspired Artificial Intelligence*; Geirhos et al. 2020, *Shortcut Learning in Deep Neural Networks*). Sections below stay placeholders until enough sources are in to defend a thesis; the concept skeleton is listed in [[wiki/index-concepts.md]].
+> **State of the wiki:** 3 sources ingested (Hassabis et al. 2017, *Neuroscience-Inspired Artificial Intelligence*; Geirhos et al. 2020, *Shortcut Learning in Deep Neural Networks*; Schmidgall et al. 2023, *Brain-Inspired Learning in Artificial Neural Networks: a Review*). Sections below stay placeholders until enough sources are in to defend a thesis; the concept skeleton is listed in [[wiki/index-concepts.md]].
 
 ---
 
@@ -32,6 +32,14 @@ Master synthesis. Rewritten after every ~10 ingests, or whenever a major insight
 - **The environment family is doing double duty.** It was introduced as a sample-complexity decomposition; it is also the *identifiability* condition that makes an invariant edge distinguishable from a correlational one. This is the first claim in the wiki that two independent arguments converge on the same structure.
 - **Measurement is a prerequisite, not a detail.** i.i.d. benchmarks cannot separate a discovered graph from a correlation, so no architecture the wiki will ingest can be scored against the six hardness sources without an out-of-distribution test with a well-defined intended solution (gap G17).
 - **Biology is not a source of immunity.** Rats, students and conditioned animals take shortcuts too. What the brain supplies is a better *prior*, which is exactly the architecture lever — and Morgan's Canon is the discipline that keeps matched behaviour from being read as matched algorithm.
+
+*What the third ingest establishes:*
+
+- **The update rule is now a first-class design object.** [[wiki/concepts/synaptic-plasticity.md]] (Hebb → STDP → three-factor → node perturbation → eligibility traces) is the only family that writes weights *during deployment*, which is what binding an instance-graph in-episode literally requires. [[wiki/concepts/meta-optimized-plasticity.md]] then makes the rule itself the object of an outer search — the first mechanism in the wiki where slow **W** is a *searched* object rather than a parameter blob, and the first named candidate for the third tier (gap G9, now `PARTIAL`).
+- **Locality has a measured price.** Backpropagation-derived local rules generalize worse and more variably than backpropagation through time, and the deficit does not close by scaling the step size ([[wiki/empirical-tensions.md]] T7). Feedback alignment fails at ImageNet scale; only sign-symmetry matches backpropagation there, and it is the variant that still transports sign information. "Biologically plausible" and "approximates backpropagation" pull against each other.
+- **The shortcut problem recurs one level down.** Every local rule is a coactivity detector, so it writes on shortcut-driven coactivity exactly as readily as on structural coactivity. Fixing gap G6 in the slow learner does not fix it in the fast store (new gap G19).
+- **The weights-vs-activity question may be a change of basis.** Parameter-sharing in a meta-learner makes activations interpretable as weights, and self-attention's products can be cast as learned weight updates that implement gradient descent — so tension T2 may be about degrees of freedom and decay timescale rather than about architecture.
+- **The implementation-level exclusion is now actively contested.** [[wiki/entities/spiking-neural-networks.md]] — the wiki's first entity page — argues spike timing carries more information than a rate code and that energy is a first-order constraint (T1). Its most interesting property for this wiki is unclaimed in the literature: the STDP sign flip is a substrate-level *directed*-edge detector.
 
 ---
 

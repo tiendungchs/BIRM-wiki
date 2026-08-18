@@ -30,6 +30,8 @@ Two-photon imaging of dendritic spines during learning shows the brain does not 
 
 Computational content: **importance-weighted plasticity**. A synapse that has proven load-bearing becomes progressively harder to change.
 
+**The mechanism has a name in neuroscience: metaplasticity** — the "plasticity of synaptic plasticity", which alters a synapse's *ability* to change by shifting the physiological state of the neuron or synapse, and is proposed as the safeguard keeping a constantly-changing brain from saturating (Schmidgall et al. 2023; [[wiki/concepts/synaptic-plasticity.md]]). This matters for the task-boundary problem below: metaplasticity is **stateful and intrinsic to the synapse**, so it gates writability continuously from the synapse's own history. Elastic weight consolidation reimplements it as an *externally computed* penalty that needs a task boundary at which to compute the Fisher matrix. The biological mechanism does not have that dependency — which suggests the boundary problem is an artefact of the reimplementation, not of the mechanism **(brainstorm)**.
+
 ---
 
 ## Solution families
@@ -40,6 +42,9 @@ Computational content: **importance-weighted plasticity**. A synapse that has pr
 | **Rehearsal / replay** | Interleave stored or generated samples of earlier tasks | Hippocampal replay ([[wiki/concepts/complementary-learning-systems.md]]) | Storage; a generator that must not itself drift |
 | **Architectural growth** | Freeze prior parameters, add capacity with lateral access to them (progressive networks) | Cortical recruitment (weak analogy) | Parameter count scales with task count |
 | **Modularity / routing** | Different tasks recruit different sub-networks | Functional specialization | Needs task identity, or a router that must itself be learned continually |
+| **Local plasticity rules** | Do not train with backpropagation at all; let the network keep learning at deployment from local signals, so there is no discrete "training period" whose end causes the problem | Synaptic plasticity, metaplasticity, neuromodulation | Local rules are correlation detectors ([[wiki/concepts/synaptic-plasticity.md]]); a discovered rule generalizes only over its meta-training distribution |
+
+**The lifelong-learning framing (Schmidgall et al. 2023).** Catastrophic forgetting is attributed specifically to *repeatedly applying backpropagation*: the algorithm has no term expressing the need to preserve prior knowledge, so weights optimized for earlier tasks are as free to move as any other. The proposed route is not a better penalty but a different write mechanism — brain-inspired local learning, where adaptation is continuous and the mature brain is the existence proof (it learns across a lifetime while staying roughly fixed in size). The strongest result so far is **online one-shot continual learning from a meta-optimized spike-timing-dependent plasticity rule** ([[wiki/concepts/meta-optimized-plasticity.md]]), which is a demonstration on a single task family, not a general solution.
 
 EWC's practical claim: multiple tasks learned **without an increase in network capacity**, with weights shared efficiently between tasks that have related structure — protection is compatible with transfer, not opposed to it. Demonstrated at scale in deep RL agents.
 
@@ -70,4 +75,6 @@ The slow **W** of [[wiki/concepts/latent-graph-discovery.md]] *is* an accumulati
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — EWC is a clean case of a synaptic finding converted into a loss term, with optogenetic erasure supplying the causal half of the evidence.
 - **[[wiki/concepts/meta-learning.md]]** — meta-learning optimizes adaptation to future tasks, continual learning protects performance on past ones; progressive networks pursue both by growing.
 - **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — both concern *which* synapses change: credit assignment sets direction and magnitude, plasticity gating sets eligibility.
+- **[[wiki/concepts/synaptic-plasticity.md]]** — metaplasticity is the biological mechanism elastic weight consolidation reimplements as a loss term, and it gates writability without needing task boundaries.
+- **[[wiki/concepts/meta-optimized-plasticity.md]]** — a discovered plasticity rule can carry its own consolidation schedule instead of receiving one as an external penalty; online one-shot continual learning is that branch's headline result.
 - **[[wiki/concepts/shortcut-learning.md]]** — importance-gated plasticity protects whatever the model found predictive, so a shortcut consolidated into slow W is protected *as if* it were structure; out-of-distribution validation has to gate the write.

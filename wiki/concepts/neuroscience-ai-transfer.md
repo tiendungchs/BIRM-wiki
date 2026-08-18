@@ -22,7 +22,7 @@ The first two motivate *inspiration*; the third is a distinct and often-overlook
 |---|---|---|
 | **Computational** | What problem the system solves and why | **Yes** — framing transfers (e.g. "the brain infers relational structure", → [[wiki/concepts/latent-graph-discovery.md]]) |
 | **Algorithmic** | The representations and processes that realize it | **Yes** — the main working level: factorized codes, replay schedules, gating, attention |
-| **Implementation** | Ion channels, spike timing, biophysics | **Declared out of scope** by Hassabis et al. 2017 — explicitly distinguishing this programme from Blue Brain and from neuromorphic reverse-engineering |
+| **Implementation** | Ion channels, spike timing, biophysics | **Declared out of scope** by Hassabis et al. 2017 — explicitly distinguishing this programme from Blue Brain and from neuromorphic reverse-engineering. Schmidgall et al. 2023 take the opposite position by construction: spike timing is claimed to carry *more* information than a rate code, and energy cost is treated as a first-order design constraint rather than an implementation detail |
 
 The exclusion is a *choice*, not a finding, and it is contested — see [[wiki/empirical-tensions.md]] T1.
 
@@ -44,8 +44,18 @@ The exclusion is a *choice*, not a finding, and it is contested — see [[wiki/e
 | External content-addressable memory (Neural Turing Machine, differentiable neural computer) | Working-memory models separating a central executive from domain-specific buffers | **Control/storage separation** ([[wiki/concepts/working-memory.md]]) |
 | Elastic weight consolidation | Dendritic-spine enlargement persisting across later learning; cascade models of synaptic state | Per-weight plasticity gating ([[wiki/concepts/continual-learning.md]]) |
 | Grid-code-structured concept spaces | Entorhinal grid cells; functional-neuroimaging evidence of grid-like codes during abstract categorization | A *representation* for decomposing state spaces |
+| Hebbian learning; Hopfield associative storage | Hebb 1949 (with a lineage back to William James); "cells that fire together, wire together" | A **learning rule**, near-wholesale ([[wiki/concepts/synaptic-plasticity.md]]) |
+| Three-factor / reward-modulated plasticity; node perturbation → REINFORCE | Neuromodulatory broadcast (dopamine) gating Hebbian change | A learning rule *and* the policy-gradient estimator it turns out to be |
+| Feedback alignment, e-prop, cell-type-specific neuromodulated credit assignment | Absence of weight transport in cortex; eligibility traces; genetic findings on neuronal signalling architectures | Constraints that generated new algorithms ([[wiki/concepts/biologically-plausible-credit-assignment.md]]) |
+| Differentiable plasticity; neuromodulated differentiable plasticity | Synaptic plasticity and dopaminergic modulation, made differentiable | A **meta-objective** over a biological mechanism ([[wiki/concepts/meta-optimized-plasticity.md]]) |
+| Spiking neural networks; neuromorphic hardware (Loihi, TrueNorth, SpiNNaker) | Membrane-potential integration and threshold spiking | The **implementation level itself** — the entry the exclusion above forbids ([[wiki/entities/spiking-neural-networks.md]]) |
+| Deep reinforcement learning | Reward-driven learning emulating dopamine-neuron activity | An objective, and a full research programme (dexterous manipulation, locomotion, multi-agent coordination) |
 
-**Pattern (brainstorm).** Every entry transferred either a **representation** or a **scheduling/gating policy**. Nothing on this list transferred the thing the wiki needs most: the **meta-graph / instance-graph separation** of [[wiki/concepts/latent-graph-discovery.md]]. The channel has been productive where the brain's answer is a local mechanism, and silent where its answer is an architecture-wide factorization — see gap G1 in [[wiki/architectural-gaps.md]].
+**Pattern (brainstorm).** Every entry transferred either a **representation**, a **scheduling/gating policy**, or — after the Schmidgall et al. 2023 additions — a **local update rule**. Nothing on this list transferred the thing the wiki needs most: the **meta-graph / instance-graph separation** of [[wiki/concepts/latent-graph-discovery.md]]. The channel has been productive where the brain's answer is a local mechanism, and silent where its answer is an architecture-wide factorization — see gap G1 in [[wiki/architectural-gaps.md]].
+
+**The update-rule column has a systematically worse record than the other two.** Representations and gating policies transferred and stayed; imported learning rules mostly underperform the engineered alternative they were meant to replace (feedback alignment fails at ImageNet scale; backpropagation-derived local rules generalize measurably worse; evolutionary rule discovery needs far more data than gradient methods). Read against this page's *validation* argument, that is the awkward case: the mechanism is unambiguously core to the brain and still underperforms, so the argument says redouble rather than abandon — which is unfalsifiable unless the criterion is stated in advance.
+
+**The neuroconnectionist research programme** is the current name for the joint enterprise: use ANNs as a *computational language* in which to state and test theories of brain computation. Its evidential base is that task-tailored deep networks show striking similarity to the brain in handling spatial and visual information. Its exposure is Morgan's Canon below — representational similarity is a weak constraint on the algorithm.
 
 ---
 
@@ -93,4 +103,7 @@ The exclusion is a *choice*, not a finding, and it is contested — see [[wiki/e
 - **[[wiki/concepts/working-memory.md]]** — control/storage separation is the transfer that produced graph-traversal-capable networks, i.e. the one entry that touches reasoning directly.
 - **[[wiki/concepts/attention.md]]** — the modularity argument (brains are not one uniform optimizer) entered AI mostly unspoken, via attention; the case study for unacknowledged transfer.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — grid-like coding of conceptual spaces is the newest item in the track record, and the only one whose biological evidence is still a single report.
+- **[[wiki/entities/spiking-neural-networks.md]]** — the test case for the implementation-level exclusion: if spike timing is informative, a purely functional specification of a reasoning architecture is incomplete.
+- **[[wiki/concepts/synaptic-plasticity.md]]** — the largest single block of *learning-rule* transfers (Hebb, STDP, three-factor, eligibility traces), and the block with the weakest performance record relative to engineered alternatives.
+- **[[wiki/concepts/meta-optimized-plasticity.md]]** — the channel used in a third mode: rather than importing a mechanism or exporting an algorithm, take a biological mechanism and hand its free parameters to an optimizer.
 - **[[wiki/concepts/shortcut-learning.md]]** — supplies Morgan's Canon as the discipline this channel needs in reverse: matched behaviour licenses no inference about the algorithm, and biological learners take shortcuts too, so the brain offers better priors rather than immunity.

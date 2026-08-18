@@ -21,10 +21,28 @@ Both are constraints on *implementation*, and both have been substantially weake
 
 | Family | Mechanism | Resolves | Status |
 |---|---|---|---|
-| **Feedback alignment** | Use **fixed random** backward weights; forward weights adapt until the random backward projections carry useful teaching signals — alignment is learned, not assumed | 1 | Demonstrated: random fixed backward connections suffice for effective learning |
+| **Feedback alignment (FA)** | Use **fixed random** backward weights `B` in place of `(w^out)ᵀ`; forward weights adapt until the random backward projections carry useful teaching signals — alignment is learned, not assumed. Update: `Δw^in = −η·x·z`, `z` the error propagated through `B` | 1 | Demonstrated on MNIST and CIFAR; **suboptimal on ImageNet-scale data** (Schmidgall et al. 2023) |
+| **Direct feedback alignment (DFA)** | Connect the output-layer error *directly* to every hidden layer, shortening the weight-transport chain further | 1 | Same family, fewer assumptions |
+| **Sign-symmetry (SS)** | Feedback weights are random in magnitude but **share signs** with the forward weights | 1 (partially — sign information is still transported) | Comparable to backpropagation *even on large-scale datasets* — the strongest result in the family |
+| **Eligibility propagation (e-prop)** | Extends FA to spiking networks. Maintain a forward-computable eligibility trace `e_ji(t) = dz_j(t)/dW_ji` (this synapse's total contribution to the neuron's output over all past inputs), then multiply by an error estimate `L_j(t) = dE(t)/dz_j(t)` obtained from output error via symmetric or fixed random feedback | 1, 2 | Purely forward — no backward pass. **Blind to the future:** needs a real-time error at each step, so it cannot learn from delayed errors beyond individual-neuron timescales, unlike REINFORCE / node perturbation ([[wiki/concepts/synaptic-plasticity.md]]) |
+| **Cell-type-specific local neuromodulation** | Neurons broadcast their contribution to the learning outcome to *nearby* neurons via neuron-type-specific modulation; a computational model combines dopamine-like temporal-difference signalling with neuropeptide-like local modulation | 1, 2 | Built on e-prop; **improves over both e-prop and feedback alignment**. Proposes neuron-type diversity as a missing piece of the credit-assignment puzzle |
 | **Predictive-coding networks** | Hierarchy minimizing prediction error locally at each level; the local updates **approximate backpropagation** | 1, 2 | Equivalence results; ties credit assignment to a normative theory of cortex |
 | **Energy-based nets** (continuous Hopfield, equilibrium propagation) | Settle to an energy minimum, nudge the output, and use the change in local activity between phases as the gradient | 1, 2 | Local updates approximating backpropagation |
 | **Local rules producing invariance** | Hebbian-family rules that yield high-level invariances characteristic of biological systems — e.g. mirror-symmetric tuning to physically symmetric stimuli such as faces | 2 | Shows structure attributed to end-to-end optimization is partly reachable locally |
+
+Rows 1–5 are what Schmidgall et al. 2023 call **backpropagation-derived local learning**: they compute an explicit approximation of the backpropagation gradient using locally available quantities, and they are the class the generalization result below is measured on. Rows 6–7 also land near backpropagation but arrive from a *local objective* (prediction error, energy) rather than by approximating the global one; row 8 does not approximate it at all. The rules that were never trying to approximate a gradient are on [[wiki/concepts/synaptic-plasticity.md]].
+
+---
+
+## The generalization deficit of backpropagation-derived local rules
+
+The yardstick: **flat minima generalize better** — for a perturbation `ε` in weight space, performance degrades more sharply around *narrow* minima, so a rule that finds flatter minima generalizes better.
+
+Measured against backpropagation through time, backpropagation-derived local rules show **worse and more variable generalization**, and the deficit **does not close by scaling the step size**, because the gradient approximation is poorly aligned with the true gradient (Schmidgall et al. 2023). The review draws the uncomfortable conclusion itself: it is unsurprising that a *local approximation* of an optimization process generalizes worse than the complete process, which raises the question of whether backpropagation-derived local rules are worth pursuing at all given that they are *fundamentally* sub-par.
+
+**Consequence for this wiki.** "Biologically plausible" and "approximates backpropagation" are pulling in opposite directions. A rule earns its place either by being a better optimizer or by doing something backpropagation cannot (learning during deployment, from delayed sparse reward, on a spiking substrate) — not by being a cheaper version of the same computation. See [[wiki/empirical-tensions.md]] T7.
+
+---
 
 **Spike-timing-dependent plasticity (STDP)** is the connective tissue: concrete correspondences have been drawn between updates in energy-based / predictive-coding networks and STDP, a Hebbian mechanism instantiated widely across the brain. Credit assignment does not require a new biological mechanism — it requires the known one to be *interpretable* as gradient-following.
 
@@ -46,8 +64,9 @@ The motivation is not only biological fidelity. Very deep networks (>20 layers) 
 
 ## Open problems
 
-- Do the approximations hold at scale, or only in small networks and shallow hierarchies?
+- Do the approximations hold at scale, or only in small networks and shallow hierarchies? (Partly answered: feedback alignment does not reach ImageNet; sign-symmetry does — so **what sign-symmetry transports is apparently the load-bearing part**, and it is the part that is least biologically defensible.)
 - How far does feedback alignment actually reach in deep and convolutional settings?
+- Is the generalization deficit intrinsic to gradient *approximation*, or an artefact of the specific approximations tested? No result separates these.
 - None of these families addresses credit assignment across *time* at behavioural timescales (seconds to days) — where a reasoning agent actually needs it.
 - Does local credit assignment survive when the same synapses must also support fast one-shot binding?
 
@@ -58,3 +77,6 @@ The motivation is not only biological fidelity. Very deep networks (>20 layers) 
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the stress test of the "implementation level does not matter" premise: the transfer argument requires the algorithmic level to be realizable, and credit assignment is where realizability was in doubt.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the slow-W meta-graph learner needs a credit-assignment rule, and locality constrains which architectures can carry it.
 - **[[wiki/concepts/continual-learning.md]]** — both concern *which* synapses change: credit assignment sets direction and magnitude, plasticity gating sets eligibility.
+- **[[wiki/concepts/synaptic-plasticity.md]]** — the complementary family: rules that never approximated a gradient, and therefore do not inherit the generalization deficit measured here; node perturbation reaches the delayed-reward case e-prop cannot.
+- **[[wiki/entities/spiking-neural-networks.md]]** — the substrate where local credit assignment stops being optional, because backpropagation fails outright on the discrete spiking nonlinearity rather than merely lacking a biological story.
+- **[[wiki/concepts/meta-optimized-plasticity.md]]** — the alternative to approximating backpropagation: instead of deriving a local rule from the gradient, search rule-space directly and let the outer loop decide what the local rule should compute.
