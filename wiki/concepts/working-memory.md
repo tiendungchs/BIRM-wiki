@@ -1,0 +1,70 @@
+# Working Memory
+
+**Maintain and manipulate a small set of items in an active store over a delay, under the control of a process that is separate from the store itself.**
+
+The classic cognitive decomposition — a central executive plus separate domain-specific buffers (e.g. a visuo-spatial sketchpad), instantiated in prefrontal cortex and interconnected areas — is the source of the **control/storage separation** that turned out to matter most for machine reasoning (Hassabis et al. 2017).
+
+In the wiki's framing, working memory is the substrate of fast **M**: the place where an instance-graph is bound and held while it is being navigated. See [[wiki/concepts/latent-graph-discovery.md]].
+
+---
+
+## Two designs for holding information over time
+
+| | **Entangled** (recurrent nets, LSTM) | **Separated** (external memory) |
+|---|---|---|
+| Storage | Distributed in the same units that compute | An explicit memory matrix |
+| Control | Same weights that store also sequence the computation | A controller network that attends to, reads and writes memory |
+| Biological analogue | Attractor dynamics; gated maintenance in prefrontal recurrent circuits | Central executive + domain-specific buffers |
+| Capacity coupling | Memory capacity is tied to unit count and interferes with computation | Memory scales independently of the controller |
+| Demonstrated ceiling | State of the art across many sequence domains; can report on latent variable state after training on program text | Tasks that elude LSTMs: **shortest path through a graph such as a subway map**, block manipulation in a Tower-of-Hanoi variant |
+
+The lineage runs: neuroscience-inspired recurrent networks with attractor dynamics and rich sequential behaviour → detailed models of human working memory → **gating** (information admitted into a fixed activity state and maintained until output is required), which is the mechanism LSTMs share with prefrontal maintenance models. The reverse-direction influence also holds: LSTM gating motivated gating-based models of prefrontal working memory ([[wiki/concepts/neuroscience-ai-transfer.md]]).
+
+---
+
+## Why control/storage separation matters for reasoning
+
+The differentiable neural computer (DNC) — a neural controller reading and writing an external memory matrix, trained end-to-end — solves tasks that were argued to require **symbol processing and variable binding**, and therefore to lie outside the reach of neural networks. Two of those tasks are literally latent-graph tasks:
+
+| Task | Latent-graph reading |
+|---|---|
+| Shortest path in a subway map | **Path latent**: topology given as input, vocabulary known, the composition connecting two nodes must be searched |
+| Tower-of-Hanoi block manipulation | Path latent under constraints, with a goal node that must be matched exactly |
+
+**What this establishes:** an externalized, content-addressable, writable store is sufficient to make a differentiable network do explicit graph traversal. **What it does not establish:** discovery — in both tasks the graph is *given to the network as input*, so the hard part of LGD (inferring edges and vocabulary from observation) is not tested. Memory-augmented networks are evidence about the *navigate* half only.
+
+**Duration.** Nothing restricts these mechanisms to seconds: LSTMs and DNCs can maintain information across many thousands of training cycles, so the same machinery may serve longer-term memory (e.g. retaining the contents of a book). The functional distinction "working vs. long-term" does not map onto an architectural one here.
+
+---
+
+## Mapping to the core framing
+
+| Working-memory element | Latent-graph element |
+|---|---|
+| Buffer contents | Fast **M** — the instance-graph binding for this episode |
+| Controller | The search/navigation policy over that graph |
+| Gating (what enters, what is protected) | Which observations count as evidence about the current instance |
+| Content-addressable read | Retrieval by node content `x`; the missing piece is retrieval by structural position `g` |
+| Iterative memory "hops" | Multi-hop traversal — reasoning over several supporting statements ([[wiki/concepts/attention.md]]) |
+
+**(brainstorm)** The DNC result and the CLS story converge on the same object from opposite directions: an external, content-addressable, fast-written store. Working memory contributes the part CLS lacks — an explicit **controller** with a learned read/write policy. A reasoning architecture plausibly needs one store with two access disciplines (episodic write-once for consolidation; controller-driven read/write for manipulation), not two stores.
+
+---
+
+## Open problems
+
+- **Binding and variables.** The DNC demonstrates variable-binding-like behaviour without showing that a reusable variable *representation* exists; whether the binding generalizes to novel structures is untested here.
+- **Capacity and interference in the buffer** — no account of what happens when the instance-graph exceeds the memory matrix.
+- **Structural addressing.** Reads are by content similarity; navigation needs addressing by graph position (path-consistent `g`, gap G3).
+- **Interpretability.** Networks with external memory are the case that resists virtual brain analytics most stubbornly.
+
+---
+
+## Connections
+
+- **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the only architecture in this ingest that performs explicit multi-hop graph traversal, and marks the boundary: it navigates a *given* graph, it does not discover one.
+- **[[wiki/concepts/attention.md]]** — attention is the read mechanism of an external memory; internal attention and content-addressable retrieval are the same operation.
+- **[[wiki/concepts/complementary-learning-systems.md]]** — external memory is the engineering form of the fast store; working memory adds the controller that decides what is written and read.
+- **[[wiki/concepts/meta-learning.md]]** — meta-RL's inner learner lives in recurrent activity, i.e. in entangled working memory; its capacity limits are working-memory limits.
+- **[[wiki/concepts/neuroscience-ai-transfer.md]]** — control/storage separation is the transfer that produced graph-traversal-capable networks, and gating is the case where influence ran both ways.
+- **[[wiki/concepts/simulation-based-planning.md]]** — the controller/model split used for planning is the same separation applied to an environment model instead of a memory matrix.

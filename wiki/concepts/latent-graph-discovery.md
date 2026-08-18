@@ -131,4 +131,12 @@ Mapping to the two-timescale factorization (W = slow **w**eights, gradient-updat
 
 ## Connections
 
-*Empty — populated as concept and entity pages are created by ingests.*
+- **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the methodological licence for treating brain mechanisms as candidate answers to this problem; its track record shows every past transfer moved a representation or a gating policy, never a factorization.
+- **[[wiki/concepts/complementary-learning-systems.md]]** — the biological derivation of the slow-W / fast-M split from interference alone, independent of this page's sample-complexity argument; hippocampal sparse coding is the de-aliasing mechanism (hardness 3).
+- **[[wiki/concepts/meta-learning.md]]** — the optimization statement of the two-level hierarchy: outer loop over `p(T)` learns the meta-graph, inner loop binds the instance-graph.
+- **[[wiki/concepts/continual-learning.md]]** — the write mechanism for slow W: without protection against catastrophic forgetting the meta-graph cannot accumulate across environment families.
+- **[[wiki/concepts/working-memory.md]]** — control/storage separation supplies the only architecture that performs explicit multi-hop traversal (shortest path over a subway map), on a graph that is *given*, not discovered.
+- **[[wiki/concepts/attention.md]]** — a query–key similarity matrix is a content-computed soft adjacency, i.e. a one-step graph recomputed per query instead of persisted as structure.
+- **[[wiki/concepts/simulation-based-planning.md]]** — the *use* half of this page: planning is path search over the estimated graph, and it presupposes the discovery half.
+- **[[wiki/concepts/abstract-structural-codes.md]]** — the candidate implementation of `g`; periodic (grid-like) codes are the only concrete proposal so far for making it path-consistent.
+- **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — decides whether a slow-W meta-graph learner is trainable in a neural substrate at all, and locality constrains which architectures can carry it.

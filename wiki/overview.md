@@ -2,7 +2,7 @@
 
 Master synthesis. Rewritten after every ~10 ingests, or whenever a major insight changes the picture.
 
-> **State of the wiki:** skeleton only — no sources ingested yet. Every section below is a placeholder; nothing here is a claim until an ingest puts one there.
+> **State of the wiki:** 1 source ingested (Hassabis et al. 2017, *Neuroscience-Inspired Artificial Intelligence*). Sections below stay placeholders until enough sources are in to defend a thesis; the concept skeleton it created is listed in [[wiki/index-concepts.md]].
 
 ---
 
@@ -20,7 +20,11 @@ Master synthesis. Rewritten after every ~10 ingests, or whenever a major insight
 
 ## Current Best Understanding
 
-*Empty — filled by ingests.*
+*Too early for a synthesis. What the first ingest establishes:*
+
+- The brain is used as a **prior over architectures**, not as a specification: computational and algorithmic level transfer, implementation level is declared out of scope (contested — [[wiki/empirical-tensions.md]] T1).
+- The **two-timescale split** (fast instance store / slow structural learner) arrives independently from biology (complementary learning systems) and from optimization (meta-learning), and both are instantiated in working machines. The **factorized code** `p = f(g, x)` that the framing also demands is not instantiated anywhere yet — gap G1.
+- Every mechanism that has historically transferred was a *representation* or a *gating/scheduling policy*. No factorization has ever transferred ([[wiki/concepts/neuroscience-ai-transfer.md]]).
 
 ---
 

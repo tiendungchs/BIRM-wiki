@@ -5,5 +5,14 @@ Every page in `wiki/concepts/`. One line each: what the concept *is*, and what i
 | Page | What it is | Load-bearing for |
 |---|---|---|
 | [[wiki/concepts/latent-graph-discovery.md]] | **CORE PROBLEM FRAMING.** Infer a hidden relational graph from observations, then navigate it | Everything — the problem every other page answers a piece of |
+| [[wiki/concepts/neuroscience-ai-transfer.md]] | The methodological premise: import Marr levels 1–2 from the brain, treat plausibility as a search heuristic | Deciding which biological mechanisms are worth importing; the track record of what has actually transferred |
+| [[wiki/concepts/complementary-learning-systems.md]] | Fast sparse hippocampal store + slow distributed cortex, coupled by replay | The biological derivation of the slow-**W** / fast-**M** split; de-aliasing via sparse conjunctive codes |
+| [[wiki/concepts/meta-learning.md]] | Slow outer loop over a task distribution shapes a fast inner learner | The optimization statement of the meta-graph / instance-graph hierarchy; the rival (activity-based) fast level |
+| [[wiki/concepts/continual-learning.md]] | Learn task sequences without catastrophic forgetting; importance-gated plasticity | The write mechanism for slow **W** — how a meta-graph accumulates across environment families |
+| [[wiki/concepts/working-memory.md]] | Active maintenance with control separated from storage | Fast **M** as a controller-addressable store; the only architecture here doing explicit multi-hop traversal |
+| [[wiki/concepts/attention.md]] | Select a subset of input or memory per step; content-addressable retrieval | Read access to memory; multi-hop retrieval; attention weights as a soft one-step adjacency |
+| [[wiki/concepts/simulation-based-planning.md]] | Roll an internal model forward and evaluate imagined outcomes | The *use* half of LGD: path search over the estimated graph |
+| [[wiki/concepts/abstract-structural-codes.md]] | Codes for position in a relational structure, invariant to content — the wiki's `g` | Far transfer, path consistency, state-space decomposition for hierarchical planning |
+| [[wiki/concepts/biologically-plausible-credit-assignment.md]] | Local, weight-transport-free approximations to backpropagation | Whether the slow-**W** learner is trainable in a neural substrate at all |
 
-**Coverage note.** No sources ingested yet; this index grows with each ingest. Known holes are tracked in [[wiki/architectural-gaps.md]] and [[wiki/priority-tasks.md]].
+**Coverage note.** One source ingested (Hassabis et al. 2017, a survey), so every page above is broad and single-sourced: each states a mechanism and its role in the framing, and none yet carries a quantitative result. Known holes are tracked in [[wiki/architectural-gaps.md]] and [[wiki/priority-tasks.md]].
