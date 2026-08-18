@@ -19,4 +19,4 @@
 - [x] `deletang-2023-language-modeling-compression.md` — foundations · F · 2023
 - [x] `choi-2026-quantitative-definition-intelligence.md` — foundations · F · 2026
 - [x] `zhixuan-2022-bayesian-theory-of-mind-baby-intuitions.md` — foundations · M · 2022
-- [ ] `talk-nd-cross-entropy-first-principles.txt` — foundations · X · nd
+- [x] `talk-nd-cross-entropy-first-principles.txt` — foundations · X · nd

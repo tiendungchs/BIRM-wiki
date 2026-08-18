@@ -32,6 +32,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | i.i.d. | independent and identically distributed | Train and test drawn from the same distribution; the assumption behind standard benchmarking |
 | JEA | Joint Embedding Architecture | Two encoders, energy = distance between their outputs |
 | JEPA | Joint Embedding Predictive Architecture | JEA plus a predictor from `s_x` to `s_y`, optionally latent-conditioned; non-generative |
+| KL | Kullback–Leibler divergence | `KL(P‖Q) = H(P,Q) − H(P)` — the surprise due purely to a wrong model, asymmetric in its arguments ([[wiki/concepts/divergence-objectives.md]]) |
 | K(x) | Kolmogorov complexity | Length of the shortest program printing `x` |
 | LGD | Latent Graph Discovery | The wiki's core problem framing |
 | LSTM | Long Short-Term Memory | Gated recurrent architecture |
