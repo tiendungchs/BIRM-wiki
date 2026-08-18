@@ -23,6 +23,8 @@ Meta-learning is the optimization statement of the same two-level structure [[wi
 
 A flat learner optimizes average performance *before* adaptation and therefore fits the mixture `E_θ[p(obs|θ)]`, which no individual instance follows. Meta-learning optimizes performance *after* adaptation — the objective that makes the two-level split explicit rather than emergent.
 
+**A second, independent justification: identifiability.** Requiring cheap adaptation across many environments is connected to *identifying causal graphs*, because causal features are precisely those needing small changes when the environment changes (Geirhos et al. 2020). A correlational (shortcut) feature must be relearned in each new task and therefore costs the inner loop; an invariant one does not. So `p(T)` does double duty — it is the sample-complexity argument's environment family *and* the multi-environment signal under which the intended edge becomes distinguishable from a spurious one ([[wiki/concepts/shortcut-learning.md]]). Under a single environment the distinction is not merely hard to learn, it is not defined.
+
 ---
 
 ## Meta-RL: the inner learner as activity, not weights
@@ -62,6 +64,7 @@ The inner learner adapts only within the envelope the outer loop sampled. `p(T)`
 - **Does the inner loop learn structure or select among encoded rules?** Recurrent inner learners are not shown to acquire *new* transition rules.
 - **Weights vs. activity for the fast level** — CLS and meta-RL disagree, and they may be complementary (episodic fast-M for bindings, recurrent fast-M for policies).
 - **Meta-learning the plasticity rule** rather than the initialization is a distinct, less-explored branch.
+- **Is the causal-identification claim earned?** Invariance across environments identifies causal structure *under assumptions* about how the environments differ. No result shows a meta-learned inner loop actually recovering causal edges rather than a shortcut that happens to be stable across the sampled `p(T)` — and a shortcut shared by every sampled task is invisible to the objective.
 
 ---
 
@@ -74,3 +77,4 @@ The inner learner adapts only within the envelope the outer loop sampled. `p(T)`
 - **[[wiki/concepts/working-memory.md]]** — recurrent activity is the substrate meta-RL uses for its inner loop, so the capacity and gating limits of activity-based memory bound what the inner learner can hold.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — a content-invariant structural code is what would let the outer loop's learned regularity be reused in a domain populated by entirely new objects.
 - **[[wiki/concepts/simulation-based-planning.md]]** — reusing a plan across structurally similar environments is meta-learning's objective restated in planning terms: the outer loop supplies the schema the rollout instantiates.
+- **[[wiki/concepts/shortcut-learning.md]]** — the task distribution `p(T)` doubles as the multi-environment signal under which causal (invariant) edges become identifiable, so fast adaptation and shortcut resistance are the same property seen twice (Geirhos et al. 2020).

@@ -10,14 +10,17 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CLS | Complementary Learning Systems | Fast hippocampal / slow cortical memory pair; also the name of the theory |
 | CNN | Convolutional Neural Network | |
 | DNC | Differentiable Neural Computer | Controller + external memory matrix, trained end to end |
+| DNN | Deep Neural Network | |
 | DQN | Deep Q-Network | Deep RL agent for Atari; origin of experience replay in deep RL |
 | DRAW | Deep Recurrent Attentive Writer | Attentional generative model that builds an image incrementally |
 | EWC | Elastic Weight Consolidation | Fisher-weighted quadratic penalty protecting important weights |
+| i.i.d. | independent and identically distributed | Train and test drawn from the same distribution; the assumption behind standard benchmarking |
 | LGD | Latent Graph Discovery | The wiki's core problem framing |
 | LSTM | Long Short-Term Memory | Gated recurrent architecture |
 | MCTS | Monte Carlo Tree Search | Forward search used to improve a value function or policy |
 | MDL | Minimum Description Length | |
 | meta-RL | Meta-Reinforcement Learning | Outer RL over tasks producing a second RL algorithm in recurrent activity |
+| o.o.d. | out-of-distribution | Test data systematically different from training data; the only regime that separates a shortcut from the intended rule |
 | PDP | Parallel Distributed Processing | 1980s movement; origin of distributed representations in cognitive modelling |
 | RL | Reinforcement Learning | |
 | RNN | Recurrent Neural Network | |

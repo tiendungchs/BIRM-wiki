@@ -84,8 +84,15 @@ Mapping to the two-timescale factorization (W = slow **w**eights, gradient-updat
 | **2. Unknown vocabulary** | Action set and/or node types not given; inferred alongside structure | Learnable observation and transformation embeddings |
 | **3. Observation aliasing** | The same observation occurs at structurally distinct positions | Clone cells or path-integrated identity |
 | **4. Simultaneity** | Structure must be inferred *while* navigating — no discovery-then-use separation | Joint loop: update graph estimate and navigate concurrently |
-| **5. Spurious edges** | Training correlations produce false edges that work in-distribution and fail out of it | Force invariant causal edge discovery across environments; explicit intermediate-node traversal |
+| **5. Spurious edges** | Training correlations produce false edges that work in-distribution and fail out of it — the *default* outcome, not a corner case (Geirhos et al. 2020) | Force invariant causal edge discovery across environments; explicit intermediate-node traversal |
 | **6. Non-stationary topology** | The edge set rewrites *within a single episode*, violating the fixed-but-hidden assumption shared by 1–5 | Discover the stationary generator of the rewrites; re-infer the instance-graph online |
+
+**Source 5 is an identifiability problem, not a training problem.** Many decision rules fit the observations; the causal one and the spurious one are *equally consistent* with any single environment, so no amount of in-distribution data or optimization selects between them — "which rule is intended is in the eye of the beholder" (Geirhos et al. 2020). Two consequences the rest of this page depends on:
+
+- **The environment family is the identifiability condition.** The multi-environment signal that makes an invariant (causal) edge distinguishable from a correlational one is exactly the family structure of the two-level hierarchy. The meta-graph is *defined* as what survives across instances, so the hierarchy is not only a sample-complexity decomposition — it is what makes the intended graph well-posed at all.
+- **The `g`/`x` factorization must be paid for, not discovered.** A shortcut is by construction a rule reading `x` where the intended rule reads `g`; since the data does not separate them, the split has to be imposed through inductive bias — architecture, training data, loss, or optimizer. See [[wiki/concepts/shortcut-learning.md]] for the four levers and gap G16.
+
+Corollary for evaluation: **i.i.d. testing cannot certify that any architecture on this page discovered a graph** — it cannot distinguish a recovered meta-graph from a correlation that happens to hold in the sample (gap G17). The scoring table below needs out-of-distribution tests to be meaningful.
 
 **Source 6 does not defeat the W/M split.** Distinguish (a) the object-level edges currently in effect, which mutate mid-episode, from (b) the generator that changes them, which is stationary. Assign **(b) → slow W** and **(a) → fast M** (now continuously updated rather than written once). Equivalently, **lift rule-state into the node**: on `s' = (base_state, rule_config)` the graph is stationary again — topology only looked dynamic because the rule dimension was marginalized out. Two catches:
 
@@ -140,3 +147,4 @@ Mapping to the two-timescale factorization (W = slow **w**eights, gradient-updat
 - **[[wiki/concepts/simulation-based-planning.md]]** — the *use* half of this page: planning is path search over the estimated graph, and it presupposes the discovery half.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — the candidate implementation of `g`; periodic (grid-like) codes are the only concrete proposal so far for making it path-consistent.
 - **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — decides whether a slow-W meta-graph learner is trainable in a neural substrate at all, and locality constrains which architectures can carry it.
+- **[[wiki/concepts/shortcut-learning.md]]** — the empirical account of hardness source 5: spurious edges are the *default* learned solution across every subfield, and i.i.d. evaluation cannot distinguish them from the intended structure.

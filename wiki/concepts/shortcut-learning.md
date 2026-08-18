@@ -1,0 +1,118 @@
+# Shortcut Learning
+
+**A shortcut is a decision rule that solves the training and i.i.d. test data but fails under distribution shift — the learner recovered a sufficient correlation instead of the intended structure (Geirhos et al. 2020).**
+
+This is the failure mode the whole wiki is organized against. In the core framing ([[wiki/concepts/latent-graph-discovery.md]]) a shortcut is a **spurious edge that survives training because nothing in the objective distinguishes it from a causal one** — hardness source 5, gap G6. Geirhos et al. 2020 supply what that framing lacked: evidence that this is the *default* outcome across every subfield, an account of why, and the only measurement that detects it.
+
+---
+
+## Taxonomy of decision rules
+
+Nested sets, each stricter than the last (Geirhos et al. 2020, Fig. 3):
+
+| Rule class | Solves training set | Solves i.i.d. test | Solves o.o.d. test | Feature type |
+|---|---|---|---|---|
+| Non-solution | ✗ | ✗ | ✗ | uninformative |
+| Overfitting solution | ✓ | ✗ | ✗ | overfitting |
+| **Shortcut** | ✓ | ✓ | ✗ | shortcut |
+| Intended solution | ✓ | ✓ | ✓ | intended |
+
+**The decisive consequence: the top two rows are indistinguishable under i.i.d. evaluation.** Toy case — stars vs. moons separable by (a) shape, (b) white-pixel count, (c) location; a fully connected network learns (c). "Which rule is intended is in the eye of the beholder": *the intended solution is not a function of the training data.* It enters only through inductive bias.
+
+For the wiki this is a statement about the meta-graph. The intended solution is the one whose edges hold across the whole environment family; a shortcut is an edge that holds only in the sampled instances. **A learner given one environment cannot tell them apart in principle** — which is why the two-level hierarchy is not merely a sample-complexity convenience but the *identifiability condition* for the intended rule.
+
+---
+
+## Where shortcuts come from
+
+| Origin | Mechanism | Evidence |
+|---|---|---|
+| **Shortcut opportunities in data** | Systematic object↔context relations are natural, not artefactual (cows on grass; a hospital-specific metal token co-varying with pneumonia prevalence) | Persist at scale — "Big Data" does not dilute systematic bias; data alone rarely constrains a model, and cannot replace assumptions |
+| **Discriminative feature selection** | Any feature sufficient to discriminate is taken; no notion of how features *combine* to define an object. Texture suffices for ImageNet, so global shape is largely ignored | Decision rules resting on a *single predictive pixel*; **excessive invariance** — models invariant to nearly every feature humans use |
+| **Sub-symbolic subtlety** | High-frequency patterns invisible to humans are highly predictive; adversarial examples are perturbations of exactly these | Adversarial vulnerability read as a *symptom* of shortcut learning, not a separate defect |
+
+**Biological parallel (the paper's central move): shortcut learning is a property of learning systems, not of deep networks.**
+
+| System | Phenomenon | Failure |
+|---|---|---|
+| Rats in a maze | *Unintended cue learning* — apparent colour discrimination was odour discrimination of the paint | Ability vanishes when smell is controlled |
+| Students | *Surface learning* — rote reproduction | Scores *well* on multiple-choice, fails on essay questions |
+| Animal conditioning | *Blocking effect* — an already-predictive cue prevents association of a new, equally predictive one | The behavioural analogue of excessive invariance |
+| Language change | *Principle of least effort* — form erodes toward minimal speaker effort, shaped by anatomy (architecture) and prior experience (data) | — |
+
+**Implication for the brain-as-prior argument.** The brain does not escape this failure mode; it is *subject* to it. So the biology cannot be mined for a shortcut-proof learning rule — what differs is which solutions are cheap, i.e. the priors ([[wiki/concepts/neuroscience-ai-transfer.md]]).
+
+---
+
+## Generalisation is misdirected, not absent
+
+Deep networks generalise o.o.d. *enormously* — an abstract pattern with a curved body and strings is classified "guitar" with high certainty; huge sets of images humans see as noise map confidently to object categories. Conversely, rotation, blur, a few pixels of translation, or a texture swap on intact shape derail predictions.
+
+> **Generalisation failure is neither a failure to learn nor a failure to generalise — it is a failure to generalise in the *intended direction*. Using a feature set creates insensitivity to everything else; the model generalises o.o.d. exactly along the axes its chosen features ignore.**
+
+This cuts against reading o.o.d. failure purely as capacity or as mixture-fitting — recorded as T6 in [[wiki/empirical-tensions.md]]. Operationally the two readings differ in prescription: *fit the right object* (add hierarchy) vs. *choose the right invariances* (add bias).
+
+---
+
+## The four levers: inductive bias
+
+Whether a solution is easy to learn — and shortcuts are learned because they are easy — is fixed by four components jointly, not by data alone (Geirhos et al. 2020, Box II). This is the wiki's **control surface**: the complete list of places a bias toward graph-structured solutions can be inserted.
+
+| Lever | How it biases | Known effects |
+|---|---|---|
+| **Structure — architecture** | Convolution makes *location* hard to use, a prior strong enough that untrained networks support inpainting and denoising; transformer attention layers model inter-word relations | Implicit priors are mostly opaque; even ReLU produces unwarranted far-from-data confidence |
+| **Experience — training data** | Blocking a specific shortcut by construction | Works for adversarial vulnerability and texture bias; adding *more* data does not |
+| **Goal — loss function** | **Cross-entropy stops learning once a simple sufficient predictor is found**; modifications force use of all available information; regularizers using extra dataset information disentangle intended from shortcut features | The most direct lever on "how much evidence must the rule use" |
+| **Learning — optimisation** | Stochastic gradient descent is biased toward simple functions; *large* learning rates learn simple patterns shared across examples, *small* ones enable complex-pattern learning and memorisation | Architecture×optimiser interaction poorly understood; strong claims only in simple cases |
+
+**(brainstorm)** Read against the wiki's target: the factorization `p = f(g, x)` is a *shortcut-avoidance device*. A shortcut is by construction a rule that reads `x` where the intended rule reads `g`; nothing in the data distinguishes them, so the split must be imposed on one of these four levers. The wiki has so far treated `g`/`x` separation as something an architecture would *discover* (G1). This source says it cannot be — it must be *paid for* by bias, and the four rows above are the exhaustive set of accounts to pay from. The cross-entropy row is the sharpest candidate: a loss that terminates at the first sufficient predictor will never search for the structural one when a content one is available.
+
+---
+
+## Diagnosis and measurement
+
+| Practice | Statement |
+|---|---|
+| **Dataset ≠ ability** | ImageNet was meant to measure object recognition; models largely count texture patches. A dataset is useful only while it remains a proxy for the ability. Reproducing labels per se is uninteresting — a lookup table does that |
+| **Morgan's Canon for machine learning** | *Never attribute to high-level abilities that which can be adequately explained by shortcut learning.* Blocks the **same-strategy assumption**: human-level performance does not license inferring a human-like algorithm (Marr's algorithmic level is unconstrained by matched behaviour) |
+| **Surprisingly strong baselines** | Run a model that provably lacks the intended feature — local features only, single cue words, answering movie questions without the movie. If it scores well, the benchmark admits a shortcut |
+| **o.o.d. testing as default** | The i.i.d. assumption has been called "the big lie in machine learning"; i.i.d. validation is structurally incapable of separating rows 3 and 4 of the taxonomy |
+
+**Three conditions for a good o.o.d. test:** (1) a *clear distribution shift*, human-perceptible or not; (2) a *well-defined intended solution* (training on natural images and testing on white noise is a shift with no solution); (3) *current models struggle* — most conceivable shifts are uninteresting. Benchmarks must co-evolve with models: the Winograd Schema Challenge, designed to close Turing-test shortcuts, was later found to contain more shortcut opportunities than intended.
+
+**o.o.d. benchmark families named** (no wiki pages yet — see [[wiki/index-entities.md]]): adversarial attacks (model-specific worst case) · ARCT with shortcuts removed · cue-conflict stimuli (texture vs. shape, directly human-comparable) · ImageNet-A (natural worst case) · ImageNet-C (15 corruptions) · ObjectNet (scientific controls over background, rotation, viewpoint) · PACS (domain generalisation by design) · Shift-MNIST / biased CelebA / unfair dSprites (injected correlations; measures how prone an architecture+loss pair is to taking a shortcut).
+
+The last family is the instrument the wiki actually needs: a *controlled* shortcut with a known intended rule turns "does this architecture recover structure?" into a measurable quantity.
+
+---
+
+## Routes beyond shortcuts
+
+| Route | Mechanism | Relation to the framing |
+|---|---|---|
+| **Domain-specific prior knowledge** | Architectural invariance or data augmentation for known-irrelevant transformations; auto-augment as its general form; extreme augmentation is the core of current semi- and self-supervised methods | Hand-specified `g`/`x` split for one known nuisance axis; does not scale to unknown structure |
+| **Adversarial robustness** | Adversarial examples as *counterfactual explanations* — the smallest input change producing a given output; robust models are somewhat more human-aligned and generalise better | Ties robustness to causality: aligning counterfactuals is aligning edges |
+| **Domain adaptation / generalisation / randomisation** | Multiple training distributions; under assumptions the intended (or causal) rule is identifiable from several environments. Domain randomisation closes the simulation-to-real gap | **The environment family of the two-level hierarchy is exactly this multi-environment signal** — the meta-graph is what is invariant across instances |
+| **Meta-learning** | Representations that adapt quickly to new conditions; fast adaptation is connected to *identification of causal graphs*, since causal features require small changes when the environment changes | Direct: [[wiki/concepts/meta-learning.md]] gets a second justification — not just sample efficiency but shortcut resistance |
+| **Generative modelling and disentanglement** | Modelling every variation forces the network to account for all of it; disentanglement seeks the true generating factors via independent causal mechanisms | Generation alone does not give useful or o.o.d.-robust representations; the structure has to be demanded of the latent space |
+
+---
+
+## Open problems
+
+- **Identifiability.** No procedure recovers the intended rule from data alone; the assumptions must come from outside. What is the minimal set for graph-structured solutions?
+- **Which lever, and how much?** The four levers interact and the interactions are not understood. There is no theory saying which one to spend on for a given shortcut.
+- **Is the multi-environment signal sufficient?** Invariance across environments identifies causal edges *under assumptions*. Whether an environment family generated by real task variation meets them is untested.
+- **Cheap o.o.d. tests.** No simple, general procedure exists to replace i.i.d. benchmarking; every listed benchmark is domain-specific and hand-designed.
+- **Can shortcut learning be eliminated at all?** The paper's own position is that full elimination may be impossible — only better alignment between learned and intended solution.
+
+---
+
+## Connections
+
+- **[[wiki/concepts/latent-graph-discovery.md]]** — a shortcut *is* hardness source 5 realized: an edge that fits in-distribution and breaks out of it; this page supplies the evidence that it is the default outcome and that i.i.d. evaluation cannot detect it.
+- **[[wiki/concepts/meta-learning.md]]** — the environment family the outer loop samples is the multi-environment signal that makes invariant (causal) edges identifiable, so fast adaptation and shortcut resistance are the same property viewed twice.
+- **[[wiki/concepts/neuroscience-ai-transfer.md]]** — Morgan's Canon is the discipline this transfer channel needs in reverse: matched behaviour licenses no inference about the algorithm, and biological learners take shortcuts too, so the brain supplies better priors rather than immunity.
+- **[[wiki/concepts/abstract-structural-codes.md]]** — a shortcut is a rule that reads content `x` where the intended rule reads structure `g`; a content-invariant code is the architectural lever that makes the structural rule the cheaper one.
+- **[[wiki/concepts/attention.md]]** — attention chooses which features enter the decision, so it is a shortcut-selection mechanism as much as a retrieval one: what it fails to select becomes an excessive invariance.
+- **[[wiki/concepts/continual-learning.md]]** — a shortcut consolidated into slow weights is worse than one held transiently, since importance-gated plasticity will protect it; what gets written must be validated o.o.d. first.

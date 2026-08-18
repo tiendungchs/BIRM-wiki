@@ -70,3 +70,4 @@ The slow **W** of [[wiki/concepts/latent-graph-discovery.md]] *is* an accumulati
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — EWC is a clean case of a synaptic finding converted into a loss term, with optogenetic erasure supplying the causal half of the evidence.
 - **[[wiki/concepts/meta-learning.md]]** — meta-learning optimizes adaptation to future tasks, continual learning protects performance on past ones; progressive networks pursue both by growing.
 - **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — both concern *which* synapses change: credit assignment sets direction and magnitude, plasticity gating sets eligibility.
+- **[[wiki/concepts/shortcut-learning.md]]** — importance-gated plasticity protects whatever the model found predictive, so a shortcut consolidated into slow W is protected *as if* it were structure; out-of-distribution validation has to gate the write.

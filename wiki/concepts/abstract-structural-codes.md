@@ -62,3 +62,4 @@ The tension between rows 3 and 4 is recorded as T4 in [[wiki/empirical-tensions.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the hippocampal-entorhinal system is one anatomy: the sparse instance store and the structural code are neighbours, which is why binding content to position is cheap there.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — a *representation* being imported (state-space decomposition by periodic codes) rather than an algorithm, matching the pattern of every successful transfer so far.
 - **[[wiki/concepts/meta-learning.md]]** — a content-invariant structural code is what would make the outer loop's learned regularity reusable in a domain with entirely new objects.
+- **[[wiki/concepts/shortcut-learning.md]]** — a shortcut is a rule that reads content `x` where the intended rule reads structure `g`; a content-invariant code is the *architecture* lever that makes the structural rule the cheaper one to learn.

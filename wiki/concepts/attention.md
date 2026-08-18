@@ -65,3 +65,4 @@ The memory-hop mechanism is also the paper's outstanding *prediction for neurosc
 - **[[wiki/concepts/latent-graph-discovery.md]]** — attention weights are a content-computed soft adjacency, i.e. a one-step graph recomputed per query rather than a persisted structure.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the clearest case of an import that arrived largely unacknowledged, and the source of an open prediction (a neural substrate for memory hops).
 - **[[wiki/concepts/simulation-based-planning.md]]** — both need a control policy that decides where the next computation is spent; neither has one.
+- **[[wiki/concepts/shortcut-learning.md]]** — selecting a feature subset is also *deselecting* everything else, so an attention policy fixes which invariances the decision rule has, i.e. which shortcuts remain available to it.

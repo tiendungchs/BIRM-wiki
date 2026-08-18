@@ -6,7 +6,7 @@
 ## Wave 0 — foundations
 
 - [x] `hassabis-2017-neuroscience-inspired-ai.md` — foundations · S · 2017
-- [ ] `geirhos-2020-shortcut-learning.md` — foundations · S · 2020
+- [x] `geirhos-2020-shortcut-learning.md` — foundations · S · 2020
 - [ ] `schmidgall-2023-brain-inspired-learning-anns.md` — foundations · S · 2023
 - [ ] `revencu-2023-core-knowledge-language-spelke.md` — foundations · S · 2023
 - [ ] `hutter-2000-universal-ai-algorithmic-complexity.md` — foundations · F · 2000
