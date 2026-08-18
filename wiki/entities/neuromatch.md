@@ -75,3 +75,4 @@
 - **[[wiki/concepts/compositionality.md]]** — supplies the curriculum's justification: the order constraint composes across message-passing layers, so query complexity must grow monotonically during training (+6%).
 - **[[wiki/concepts/abstract-structural-codes.md]]** — the anchor one-hot is a minimal structural code, and is what lifts the encoder above the Weisfeiler-Lehman ceiling.
 - **[[wiki/entities/bayesian-program-learning.md]]** — the generative counterpart for the same question ("which stored structure accounts for this instance?"), paying search cost for a posterior where NeuroMatch pays an un-flagged error rate for speed.
+- **[[wiki/entities/coin-model.md]]** — the probabilistic alternative for the same retrieval slot (G37): a posterior over which stored model generates the current data, sequential and graded, versus a deterministic one-shot geometric containment test.

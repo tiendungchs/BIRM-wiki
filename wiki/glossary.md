@@ -38,6 +38,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | LSTM | Long Short-Term Memory | Gated recurrent architecture |
 | LVEBM | Latent-Variable Energy-Based Model | `F(x,y) = min_z E(x,y,z)`; the latent parameterises which relationship holds |
 | MCTS | Monte Carlo Tree Search | Forward search used to improve a value function or policy |
+| BIC | Bayesian Information Criterion | Model comparison score penalising parameter count; the COIN-vs-dual-rate comparison is reported as ΔBIC in nats ([[wiki/entities/coin-model.md]]) |
+| COIN | COntextual INference | Heald et al. 2021's nonparametric Bayesian model of motor learning ([[wiki/entities/coin-model.md]]) |
+| DP | Dirichlet Process | Prior over distributions with an unbounded number of components; the "sticky" variant biases self-transition |
+| GEM | Griffiths–Engen–McCloskey distribution | The stick-breaking construction generating the global mixing weights of a hierarchical Dirichlet process |
+| HDP | Hierarchical Dirichlet Process | Dirichlet processes sharing a common base measure, so components are shared across groups; supplies the two-level split in [[wiki/concepts/contextual-inference.md]] |
+| SMC | Sequential Monte Carlo | Particle filtering; COIN's inference scheme ("particle learning") is an instance |
 | MDL | Minimum Description Length | Total code length = model description + data-given-model; the *adjusted* compression rate in [[wiki/concepts/prediction-compression-equivalence.md]] is this two-part code |
 | BPE | Byte-Pair Encoding | Sub-word tokenizer built by iteratively merging frequent byte pairs; a lossless pre-compressor sitting in front of the model |
 | MPC | Model-Predictive Control | Plan over a horizon, execute the first action, replan (receding horizon) |

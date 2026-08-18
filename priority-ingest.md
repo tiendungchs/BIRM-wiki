@@ -8,6 +8,6 @@
 One INGEST each:
 
 - [x] `ying-2020-neural-subgraph-matching.md` — latent-graph · M · 2020
-- [ ] `heald-2021-contextual-inference-sensorimotor.md` — latent-graph · M · 2021
+- [x] `heald-2021-contextual-inference-sensorimotor.md` — latent-graph · M · 2021
 - [ ] `ivanitskiy-2023-maze-solving-transformers.md` — latent-graph · R · 2023
 
