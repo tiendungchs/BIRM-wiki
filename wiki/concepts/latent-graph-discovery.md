@@ -67,6 +67,7 @@ Every domain is a **family of environments**, not one environment: shared laws i
 - **A flat model fits the wrong object** — a single-level estimator fits the mixture `E_θ[p(obs|θ)]`, a distribution no individual instance follows. "OOD failure" is what fitting a mixture to a component means.
 - **Sample budgets differ by orders of magnitude** — a few demonstrations per instance vs. unlimited episodes per family. Parameters must split *by sample budget*: pooled/slow vs. low-dimensional residual/fast. The hierarchy is a **sample-complexity decomposition** before it is a cognitive claim (MDL: `|θ_shared| + N·|θ_inst|` beats `N·|instance|`).
 - **Instantiation is binding, not learning** — the meta-graph is a schema with free slots; the instance-graph binds them, so acquisition can be one-shot.
+  - **And binding presupposes a match.** Before slots can be filled, the *right* schema must be found in the library and aligned with the current situation — a subgraph-matching query, NP-complete in general and the one operation the framing had left unmechanised. Making it a coordinate comparison in an order-embedding space is the current best answer ([[wiki/concepts/subgraph-matching.md]], [[wiki/entities/neuromatch.md]]).
 
 The two levels are poles of a continuum, not a claim that features come in exactly two kinds.
 
@@ -189,3 +190,5 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 - **[[wiki/entities/arc-agi.md]]** — the pure edge-label-latent benchmark with a co-latent vocabulary: hardness sources 1 and 2 isolated, 3–6 designed out, and the first row of the benchmark table above.
 - **[[wiki/concepts/prediction-compression-equivalence.md]]** — the sharpest counterexample to compression-implies-structure: 48.0% on flattened ImageNet patches, beating PNG, with no object, depth or 2-D adjacency recovered (gap G26).
 - **[[wiki/concepts/intelligence-density.md]]** — supplies a scaling test for whether a recovered structure is real: holding the meta-graph means covering an unbounded family of instance-graphs at fixed description length, while memorised instances force `C` to grow with the family (Choi 2026).
+- **[[wiki/concepts/subgraph-matching.md]]** — the third operation alongside discovery and navigation: deciding whether a stored structure *occurs in* a new situation, which "instantiation is binding, not learning" presupposes and no page here had mechanised.
+- **[[wiki/entities/neuromatch.md]]** — the retrieval side taken as far as it currently goes: graph given on both sides, containment made a coordinate comparison, ~100× faster than exact search, transferring from random graphs to real domains without fine-tuning.
