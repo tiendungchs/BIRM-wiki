@@ -6,7 +6,7 @@
 
 Working claim: abstract reasoning, analogy, planning, mathematics, navigation, and scientific discovery all reduce to recovering an implicit relational structure and using it to generate predictions, plans, or inferences.
 
-> **Epistemic status — a chosen lens, not an established reduction.** Biologically warranted as a *substrate* on the **metric / transition-sampled slice** (structure that is orderable, continuous, or learned from traversal). On the **non-embeddable symbolic slice** (modular arithmetic, syntactic recursion, type-checking) it is untested and remains a bet. Rival one-problem reductions — program induction, probabilistic language of thought, free-energy attractor dynamics — explain the same data and are mutually foldable with navigation, so folding any of them *into* "navigation over a hypothesis graph" is a modeling choice, not a finding.
+> **Epistemic status — a chosen lens, not an established reduction.** Biologically warranted as a *substrate* on the **metric / transition-sampled slice** (structure that is orderable, continuous, or learned from traversal). On the **non-embeddable symbolic slice** (modular arithmetic, syntactic recursion, type-checking) it is untested and remains a bet. Rival one-problem reductions — program induction, probabilistic language of thought, free-energy attractor dynamics ([[wiki/concepts/predictive-coding-free-energy.md]]) — explain the same data and are mutually foldable with navigation, so folding any of them *into* "navigation over a hypothesis graph" is a modeling choice, not a finding.
 
 ---
 
@@ -21,6 +21,8 @@ Working claim: abstract reasoning, analogy, planning, mathematics, navigation, a
 | **Edge driver** | Whether an edge fires because the agent chose an action (controllable) or regardless of choice (exogenous: physics, other agents, time) |
 
 The graph is **never directly observable**. It must be inferred from sequences of (observation, action, next-observation) triples — or from before/after pairs alone (ARC-AGI style), where edge labels are what must be recovered.
+
+**And the node set is assumed, not given.** Every element above presupposes that experience already arrives discretised into states. On a continuous sensorimotor stream it does not. The one mechanism the wiki has for producing the discretisation is **event segmentation** — an event is a *set* of predictive encodings that holds over an extended period, an event boundary is a lasting change in that set, and an *event schema* ⟨precondition, transition, effect⟩ is a typed edge (Butz 2016). See [[wiki/concepts/event-segmentation.md]] and gap G27.
 
 ---
 
@@ -83,7 +85,7 @@ Mapping to the two-timescale factorization (W = slow **w**eights, gradient-updat
 | **1. Two-level entanglement** | Meta-graph rules and instance quirks co-occur in every observation | Factorized latent space + two learning rates |
 | **2. Unknown vocabulary** | Action set and/or node types not given; inferred alongside structure | Learnable observation and transformation embeddings |
 | **3. Observation aliasing** | The same observation occurs at structurally distinct positions | Clone cells or path-integrated identity |
-| **4. Simultaneity** | Structure must be inferred *while* navigating — no discovery-then-use separation | Joint loop: update graph estimate and navigate concurrently |
+| **4. Simultaneity** | Structure must be inferred *while* navigating — no discovery-then-use separation | Joint loop: update graph estimate and navigate concurrently. Butz 2016's predictive processing loop (predict → fuse sensory evidence → relax to mutual consistency, every cycle, while acting) is joint at the *instance* level; its weights still adapt slowly, so the meta level keeps the separation |
 | **5. Spurious edges** | Training correlations produce false edges that work in-distribution and fail out of it — the *default* outcome, not a corner case (Geirhos et al. 2020) | Force invariant causal edge discovery across environments; explicit intermediate-node traversal |
 | **6. Non-stationary topology** | The edge set rewrites *within a single episode*, violating the fixed-but-hidden assumption shared by 1–5 | Discover the stationary generator of the rewrites; re-infer the instance-graph online |
 
@@ -162,3 +164,5 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 - **[[wiki/entities/aixi.md]]** — the formal ceiling made concrete: covers all six hardness sources, supplies the reference row of the scoring table, and shows the two-level factorization is a finite-capacity requirement rather than a logical one.
 - **[[wiki/concepts/universal-induction.md]]** — the prior that makes the ceiling work, and the source of the passive/active split: structure discovery is guaranteed for an observer and provably uncertifiable for a participant.
 - **[[wiki/concepts/core-knowledge.md]]** — the pre-installed case: six meta-graph fragments given by evolution rather than discovered, which converts hardness source 2 from vocabulary induction into composition across fixed vocabularies.
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the free-energy rival stated in full: one residual-minimisation rule covering perception, learning and action, whose activity/weight split reproduces fast **M** / slow **W** and whose three typed prediction channels are a concrete bet on the architecture lever gap G16 demands.
+- **[[wiki/concepts/event-segmentation.md]]** — supplies the discretisation this page assumes: events are nodes, event schemata are edges carrying preconditions and effects, episodes are compressed paths, and backward chaining through preconditions is path search run from the goal.

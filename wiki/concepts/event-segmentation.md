@@ -1,0 +1,84 @@
+# Event Segmentation and Event Schemata
+
+**Cut a continuous sensorimotor stream into discrete units by watching which predictive encodings are active: an *event* is a set of encodings that holds over an extended period, an *event boundary* is a significant lasting change in that set.**
+
+This is where the wiki's graph gets its **nodes and edges** when experience arrives as a continuous stream rather than as pre-tokenised states. Every task in [[wiki/concepts/latent-graph-discovery.md]] so far assumed the discretisation was given. Source: Butz 2016, unifying the theory of event coding (Hommel et al. 2001) with event segmentation theory (Zacks et al. 2007).
+
+---
+
+## The set-based definition
+
+| Term | Definition | Graph reading |
+|---|---|---|
+| **Event** | an active set of predictive encodings applying over an extended period | a **node** (a state that persists) |
+| **Static event** | non-empty set of *spatial* + *top-down* encodings, no change predicted | a node with no self-transition — a scene |
+| **Dynamic event** | the above plus *temporal* encodings predicting change | an **edge in progress** — a transition being traversed |
+| **Event boundary** | a state at which encodings become applicable or stop being applicable | a **node boundary** — where one state ends and the next begins |
+| **Event schema** | ⟨conditional encodings, event encodings, final event encodings⟩ | a **typed edge**: precondition → transition → postcondition |
+| **Episode** | a set of event schemata and their typical ordering in time | a **path**, compressed into a single reusable encoding |
+
+The definition is *derived*, not stipulated: it needs no segmentation module, only a change detector over the active set of [[wiki/concepts/predictive-coding-free-energy.md]] encodings. One detector then catches a wide and otherwise heterogeneous range of boundaries:
+
+| Boundary kind | Example | Which encoding changes |
+|---|---|---|
+| motion onset / offset / reversal | a person starts running | temporal |
+| appearance / disappearance | an object is occluded then revealed | top-down + spatial |
+| property change | a bottle becomes light when emptied | top-down |
+| affordance change | an object rotates into a graspable orientation | spatial → enables new temporal |
+| contact | hand reaches the object, distance → 0 | spatial |
+
+---
+
+## Event schemata are the wiki's missing edge type
+
+The triple ⟨condition, event, final⟩ is precondition–action–effect. Three things follow that the wiki's plain (node, edge, label) formalisation does not supply:
+
+- **Backward chaining is free.** Because the *final* encodings of one schema are the *conditional* encodings of the next, schemata chain inversely: given a desired final event, activate whatever establishes its preconditions, recursively. This is path search expressed as constraint propagation rather than as forward rollout — "no food in reach, food consumption is the goal ⇒ find food, move it into reach". Same structure as hierarchical model-based reinforcement learning, without an explicit option framework.
+- **Multi-scale nodes come for free.** Repeated schema clusters compress into *episodes* (eating, drinking, walking, grasping-to-hold), which themselves compose in parallel, in sequence, or **recursively** — "attending a lecture" ⊂ "studying at university" ⊂ "working on a career". This is exactly the coarse graph that jumpy, multi-scale planning needs ([[wiki/concepts/simulation-based-planning.md]]), obtained by compression of experience rather than by hand-designed temporal abstraction.
+- **Partial observation is enough to identify the edge.** Because encodings co-occur systematically, seeing a fragment licenses inference of the whole episode — pantomime, occluded action, a movie shot implying years. Recognition and goal attribution are the *same* inference: activate the episode encoding that best explains the observed fragment. Action understanding and plan recognition are one mechanism.
+
+**Motor primitives fit the slot.** Habitual, dynamic motion primitives are dynamic-event encodings; the schema's conditional encodings say when a primitive applies, and the mismatch between achieved and desired final event *is* the reinforcement signal. This makes the affordance-competition view (objects afford competing habitual interactions, arbitrated by current motivation) a statement about which edges are currently active in the graph.
+
+---
+
+## How boundaries get detected
+
+Butz 2016 states plainly that deriving segmentation from free-energy inference **remains a future challenge**. Two working mechanisms are offered instead:
+
+| Mechanism | How it works | Cost |
+|---|---|---|
+| **Multiplicative gates (long short-term memory)** | a near-linear unit accumulates evidence; a saturating non-linear unit decides when the accumulation is passed on; identity recurrence maintains it until further notice. Linear part ≈ event progression, gate ≈ event boundary | trained by backpropagation through time — non-local, so the biological story is unpaid |
+| **Explicit boundary monitors** | watch the continuous activation of predictive encodings; flag onset after prolonged inactivity, or cessation after prolonged activity | robust under very large sensory noise (demonstrated on doorway detection in the four-rooms task); but the thresholds are hand-set, not learned |
+| **Driver/modulator wiring** | multiplicatively interacting predictive encodings, distinguishing driving from modulating inputs | shows the interaction is *expressible* in a predictive-coding substrate; not shown to segment anything |
+
+The honest summary: the *definition* of a boundary is principled and the *detector* is not.
+
+---
+
+## Why this is a gap the wiki did not have
+
+The graph formalisation assumes the node set exists. On a continuous stream it does not, and nothing else in the wiki supplies it — grid codes presuppose a metric space already carved up, core knowledge presupposes entities already individuated, and attention selects among items already formed. Event segmentation is the first mechanism the wiki has for **where discrete states come from**. Recorded as gap G27.
+
+Secondary consequence for aliasing (gap G2): because an event is a *set*, two identical observations belonging to different active sets are different events. Set membership is a de-aliasing tag that costs nothing extra, in the same way module membership does in [[wiki/concepts/core-knowledge.md]].
+
+---
+
+## Open problems
+
+- **No learned boundary detector.** Between hand-set thresholds and backpropagation-through-time gates there is nothing local, learned, and derived from the objective.
+- **The compression criterion is unspecified.** "Frequently encountered types of interaction may be clustered into episodes" names no clustering objective, no granularity control, and no stopping rule — so the depth of the temporal hierarchy is as unpinned as the planning horizon (gap G24).
+- **Recursive composition is asserted, not demonstrated.** The lecture ⊂ studies ⊂ career example is the paper's own illustration; nothing shows a learned system building a recursion of that depth.
+- **Boundary detection vs. surprise.** A boundary is a *lasting* change in active encodings, but so is a large prediction error from noise. What separates a real boundary from an outlier is a precision judgement the theory does not specify.
+
+---
+
+## Connections
+
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the substrate this page abstracts over: events are sets of *its* active encodings, so segmentation needs no machinery beyond a change detector on that set.
+- **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the discretisation the graph formalisation assumes: events are nodes, event schemata are typed edges with preconditions and effects, episodes are compressed paths.
+- **[[wiki/concepts/simulation-based-planning.md]]** — episode encodings are the coarse level that jumpy multi-scale planning needs, and backward chaining through schema preconditions is path search run in reverse from the goal.
+- **[[wiki/concepts/working-memory.md]]** — the multiplicative gate that detects a boundary is the same gate that maintains an item, so segmentation and maintenance are one mechanism seen at two timescales.
+- **[[wiki/concepts/attention.md]]** — a boundary is where the currently relevant set of encodings changes, i.e. an event boundary is a re-selection signal.
+- **[[wiki/concepts/abstract-structural-codes.md]]** — an event schema is content-invariant in the same sense `g` is: the schema "reaching to contact" is defined by relative distance reaching zero, whatever object fills it.
+- **[[wiki/concepts/core-knowledge.md]]** — the rival account of where discrete entities come from: individuation by entry-gated core systems rather than by temporal change in the active encoding set (tension T12).
+- **[[wiki/concepts/meta-learning.md]]** — episode encodings are the meta-graph level made concrete: what is shared across instances is the schema, what varies is the binding of items to its slots.
