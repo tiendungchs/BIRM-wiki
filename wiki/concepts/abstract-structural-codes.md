@@ -49,6 +49,7 @@ The tension between rows 3 and 4 is recorded as T4 in [[wiki/empirical-tensions.
 ## Open problems
 
 - **Is periodic coding general or spatial?** One neuroimaging report on abstract categorization is the whole case for generality.
+- **Format vs. precision.** Core number keeps a ratio-limited *format* fixed for life while its precision improves from a Weber ratio of 2.0 to 1.15–1.3 (Spelke & Kinzler 2007). If structural codes work the same way, what a model must install is the format and what it must train is the resolution — nothing here says which parts of a grid code are which.
 - **What supplies the metric?** Grid codes presuppose a space with a distance; the non-embeddable symbolic slice (modular arithmetic, syntactic recursion) offers none.
 - **How is the structure discovered?** Nothing here says how the code arises for a *new* domain, which is the discovery half of LGD.
 - **Transfer mechanisms are unknown on both sides.** How humans or animals achieve far transfer of abstract structure is stated as an open question in neuroscience, and it is the one place the transfer channel currently has nothing to send.
@@ -63,4 +64,4 @@ The tension between rows 3 and 4 is recorded as T4 in [[wiki/empirical-tensions.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — a *representation* being imported (state-space decomposition by periodic codes) rather than an algorithm, matching the pattern of every successful transfer so far.
 - **[[wiki/concepts/meta-learning.md]]** — a content-invariant structural code is what would make the outer loop's learned regularity reusable in a domain with entirely new objects.
 - **[[wiki/concepts/shortcut-learning.md]]** — a shortcut is a rule that reads content `x` where the intended rule reads structure `g`; a content-invariant code is the *architecture* lever that makes the structural rule the cheaper one to learn.
-- **[[wiki/concepts/core-knowledge.md]]** — shows what `g` looks like when it is installed rather than trained: a code whose domain is fixed in advance is content-invariant by construction, at the cost of covering only its own domain.
+- **[[wiki/concepts/core-knowledge.md]]** — shows what `g` looks like when it is installed rather than trained: a code whose domain is fixed in advance is content-invariant by construction, at the cost of covering only its own domain. It also supplies the two sharpest behavioural measurements of the split — the number system's cross-modal comparisons, as accurate as within-modality, i.e. one code shared across `x` types; and the reorientation literature's dissociation of a content-blind geometric channel from an associative landmark-to-object channel (Spelke & Kinzler 2007).

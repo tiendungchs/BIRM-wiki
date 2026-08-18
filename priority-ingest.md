@@ -10,7 +10,7 @@
 - [x] `schmidgall-2023-brain-inspired-learning-anns.md` — foundations · S · 2023
 - [x] `revencu-2023-core-knowledge-language-spelke.md` — foundations · S · 2023
 - [x] `hutter-2000-universal-ai-algorithmic-complexity.md` — foundations · F · 2000
-- [ ] `spelke-2007-core-knowledge.md` — foundations · F · 2007
+- [x] `spelke-2007-core-knowledge.md` — foundations · F · 2007
 - [ ] `butz-2016-unified-subsymbolic-cognition-theory.md` — foundations · F · 2016
 - [ ] `lake-2017-machines-learn-think-like-people.md` — foundations · F · 2017
 - [ ] `richards-2019-deep-learning-framework-neuroscience.md` — foundations · F · 2019

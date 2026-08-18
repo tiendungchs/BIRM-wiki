@@ -19,6 +19,8 @@ The brain does not implement one global optimization principle in a uniform netw
 
 Reported results: glimpse-based models classify well under clutter where whole-image convolutional networks degrade; extensions outperform convolutional networks on difficult multi-object recognition in both accuracy and efficiency; attention improves image-to-caption generation.
 
+**Attention selects core-typed objects, not regions.** Adult object-based attention inherits the object system's entry conditions and its capacity: 3–4 separately moving items can be tracked when their boundaries and motions obey cohesion and continuity, and entities *violating* those constraints cannot be tracked at all, at any set size (Scholl & Pylyshyn 1999; vanMarle & Scholl 2003; Marino & Scholl 2005; Spelke & Kinzler 2007). Two consequences for an imported attention mechanism: the unit of selection is supplied by an upstream prior rather than by the attention policy, and the capacity bound is a fixed small integer rather than a soft cost — dense machine attention has neither ([[wiki/concepts/core-knowledge.md]]).
+
 ---
 
 ## Internal attention: the spotlight turned on memory
@@ -55,6 +57,7 @@ The memory-hop mechanism is also the paper's outstanding *prediction for neurosc
 - **What controls attention?** Selection policies here are learned end-to-end for a task; no account of goal-driven control of the spotlight, which is the same gap as "what initiates a rollout" in [[wiki/concepts/simulation-based-planning.md]].
 - **Hop depth.** Multi-hop retrieval works for a few supporting statements; reliability along long chains is untested here and is the same problem as self-generated intermediate nodes (gap G10).
 - **Content vs. structure addressing.** Attention retrieves by similarity of content; a navigator needs retrieval by structural position.
+- **Where does the unit of selection come from?** Glimpse models select regions; biological object-based attention selects *objects*, individuated by a prior that runs before selection. Nothing here specifies who computes that individuation, which is gap G23's entry test in another place.
 - **Serial vs. parallel.** Biological attention is serial and resource-bounded; dense machine attention is parallel and quadratic — the biological constraint may carry computational content the import dropped.
 
 ---
