@@ -70,6 +70,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | IRT / CTT | Item Response Theory / Classical Test Theory | Psychometric standards for reliability and validity that Chollet 2019 imports into AI evaluation |
 | CS / US | Conditioned Stimulus / Unconditioned Stimulus | Conditioning terminology; second-order conditioning motivated TD learning |
 | fMRI | functional Magnetic Resonance Imaging | |
+| BOLD | Blood-Oxygen-Level-Dependent | The fMRI contrast; driven more by perisynaptic activity than by spiking, which is why it cannot resolve dentate gyrus from CA3 ([[wiki/concepts/pattern-separation-completion.md]]) |
+| DG | Dentate Gyrus | Sparse-firing granule-cell layer receiving entorhinal input; the hippocampus's pattern separator, and the only site of adult neurogenesis in the hippocampus |
+| CA1 / CA3 | Cornu Ammonis fields 1 and 3 | CA3 is the recurrent auto-associative field (pattern completion); CA1 relays hippocampal output and transforms input linearly |
+| EC | Entorhinal Cortex | The hippocampus's main cortical input/output; layer II projects to both DG and CA3, and carries the grid code ([[wiki/concepts/abstract-structural-codes.md]]) |
+| IEG | Immediate-Early Gene | Activity-dependent genes (e.g. Arc) whose expression maps which neurons were recently active — a population-level imaging method |
+| NMDAR | N-methyl-D-aspartate Receptor | Coincidence-detecting glutamate receptor; its NR1 subunit is the standard knockout target for testing plasticity-dependence of a computation |
 | LIF | Leaky Integrate-and-Fire | Standard spiking-neuron model: membrane potential integrates input, spikes at threshold, resets |
 | LTP / LTD | Long-Term Potentiation / Depression | Lasting strengthening / weakening of a synapse |
 | MEG | Magnetoencephalography | |
