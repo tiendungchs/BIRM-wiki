@@ -16,7 +16,7 @@
 - [x] `richards-2019-deep-learning-framework-neuroscience.md` — foundations · F · 2019
 - [x] `chollet-2019-measure-of-intelligence.md` — foundations · F · 2019
 - [x] `lecun-2022-autonomous-machine-intelligence.md` — foundations · F · 2022
-- [ ] `deletang-2023-language-modeling-compression.md` — foundations · F · 2023
+- [x] `deletang-2023-language-modeling-compression.md` — foundations · F · 2023
 - [ ] `choi-2026-quantitative-definition-intelligence.md` — foundations · F · 2026
 - [ ] `zhixuan-2022-bayesian-theory-of-mind-baby-intuitions.md` — foundations · M · 2022
 - [ ] `talk-nd-cross-entropy-first-principles.txt` — foundations · X · nd
