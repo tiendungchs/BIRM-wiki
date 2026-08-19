@@ -222,6 +222,21 @@ Whittington et al. 2022 bring the hippocampal-formation models into one language
 
 **5. The hierarchy above space is a sketch.** A prefrontal module coding "location in task" (before the oven, after the chopping) would contextualise the entorhinal-hippocampal system and let a recipe transfer across kitchens; the link would run through hippocampal memory as before. Prediction: **route-dependent goal-vector cells** — vector cells modulated by position in task, splitter cells generalised off the maze. Nothing implements it (gap G40).
 
+### The map watched forming, and what it turns out to be made of
+
+Sun et al. 2025 is the only source in the wiki that records a hippocampal map through its entire construction (mouse dorsal CA1, 3,000–5,000 cells tracked for weeks, [[wiki/entities/cscg.md]]). Four claims that bear on this page's three elements.
+
+| Claim | Content | Which element |
+|---|---|---|
+| **The map is a state machine, not a chart** | The learned object is a set of near-orthogonal population states, one per *latent task state*, with transitions driven by the animal's own movement — so short-term memory of the indicator cue is carried by *which state the population is in*, not by sustained activity. The classical finite-state-machine reading is explicit, and the loop is closed through the body: states set behaviour (speed, licking), behaviour changes the sensory input, input drives the transition | Element 1 |
+| **Cell types are a continuum, and cells move along it** | Place, splitter and remapping-splitter responses are three regions of one difference-score × correlation plane, populated continuously, and individual cells migrate between them across sessions. The source's proposal is to stop treating them as types: they are **state cells** whose tuning is whatever the currently inferred latent state requires | Element 1 |
+| **An established map is reused, and only the leaf is rebound** | Swapping the indicator pair for an unfamiliar one is learned in 147 ± 39 trials against 483 ± 70 for the first; population-vector correlation between old and new trials is high everywhere except the indicator region itself. Structure transfers, sensory identity is rewritten | Element 2 — this is *anchoring*, in the one form where the wiki has a number for how much it buys |
+| **Under distortion the map snaps to discrete states rather than rescaling** | Lengthen the grey zones and cells do not stretch their fields uniformly. On near trials the pre-near-reward tuning persists through the extension (the animal behaves as though still in that state); on far trials cells jump to the pre-far-reward state, then reset when the first reward cue appears | Element 1, and direct evidence on T27 (metric vs topological) |
+
+**The fourth row is the sharpest thing here for a builder.** A metric map deforms continuously under a metric distortion; a topological state machine does the two things observed instead — hold a state past its usual extent, or jump to the next plausible state — and then re-anchor on the first disambiguating observation. That is inference over discrete latent states with an observation-triggered reset, which is [[wiki/entities/hidden-state-inference-remapping.md]]'s posterior running inside a *single* map rather than between maps.
+
+**The price.** The task is one-dimensional, deterministic, and its latent structure is a 26-symbol cycle; nothing here tests whether the same account survives a branching or a two-dimensional environment, and the "state machine" description is fitted post hoc to a task the experimenters designed as a state machine.
+
 ---
 
 ## Open problems
@@ -258,7 +273,7 @@ Whittington et al. 2022 bring the hippocampal-formation models into one language
 - **[[wiki/entities/tolman-eichenbaum-machine.md]]** — the model that produces this page's element 1 from next-observation prediction alone, and the source of the map-vs-memory position that makes hippocampus an index rather than a graph.
 - **[[wiki/concepts/path-integration.md]]** — the mechanism under element 1 and the reason element 2 exists at all: an integrator has no absolute reference, so it must be reset by anchoring or it drifts.
 - **[[wiki/concepts/successor-representation.md]]** — the predictive-map reading of the same cells: place fields as rows of a discounted future-occupancy matrix, which explains their policy-dependent skew and barrier deformation.
-- **[[wiki/entities/cscg.md]]** — the opposite of the index view: hippocampal edges *are* the map, learned de novo per environment, fast and local but with no transfer.
+- **[[wiki/entities/cscg.md]]** — the opposite of the index view: hippocampal edges *are* the map, learned de novo per environment, fast and local but with no transfer. It is also the only model matched against this page's map *forming* rather than formed, and the one that predicts the state-cell continuum, the ordered de-aliasing and the snap-to-discrete-state behaviour under task distortion (Sun et al. 2025).
 - **[[wiki/concepts/offline-replay.md]]** — the map's offline maintenance: replayed sequences respect the current barrier configuration and preserve topology rather than metric proximity, which is evidence that what is reinstated is the graph rather than the trajectory.
 - **[[wiki/concepts/offline-replay.md]]** — and the map's offline *extension*: ripple co-activation for a cue and an outcome never experienced together grows across days, which is how a map comes to stretch beyond direct experience rather than merely being maintained (Barron et al. 2020).
 - **[[wiki/concepts/distributed-reference-frames.md]]** — the rival architecture to this page's single anchored-and-searched map: grid coding replicated per cortical area and anchored to *objects* rather than to the world, with recognition as consensus across frames. It also supplies this page's first candidate machinery for the anchoring operation (a universal egocentric→allocentric transform in posterior parietal cortex, multiplexed by thalamus) and the detector caveat that qualifies the "beyond space" table.

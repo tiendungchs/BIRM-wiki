@@ -136,6 +136,27 @@ This is the *empirical* instance of the split [[wiki/concepts/cognitive-map.md]]
 
 ---
 
+## The manifold's *topology* changes during learning, in a fixed order
+
+The trajectory the two open problems below ask for now exists for a third dataset, and its content is topological rather than metric. A single UMAP embedding fitted across all sessions of mouse dorsal-CA1 imaging (100 neighbours, 3 components, correlation metric, longitudinally registered cells) turns weeks of 2ACDC learning into one sequence of shapes (Sun et al. 2025, [[wiki/entities/cscg.md]]):
+
+| Stage | Shape | What has been learned |
+|---|---|---|
+| 0 | Cue-clustered but unstructured cloud | Sensory identity only |
+| 1 | **Hub-and-spoke** — hub = all four grey regions, spokes = trajectories out to each distinct cue | The grey regions are still one state; the track is not yet a sequence |
+| 2 | **Ring**, closed by the 2 s dark teleportation period | The task is a cycle; within-track ambiguity resolved |
+| 3 | **Split-shank ring** — a band splitting into two strands, plus an off-manifold "diamond" point cloud during reward consumption and immobility | The two trial types are distinct latent branches; short-term memory is carried as *which strand* |
+
+Three things this adds that a metric dimensionality estimate cannot.
+
+- **Merged states are visible as a hub.** Aliased observations that have not yet been split appear as a single high-degree vertex, and de-aliasing appears as that vertex fissioning. This is the graph framing's node-splitting operation observed directly ([[wiki/concepts/latent-graph-discovery.md]] hardness source 3).
+- **The order is a model-discriminating statistic** — see [[wiki/concepts/objective-identifiability.md]]. Endpoint geometry does not separate three of the six models tested; the sequence of shapes does.
+- **The off-manifold cloud is behavioural state, not task state.** It appears at every stage, sits beside the reward embeddings, and corresponds to periods when the animal is stationary — a candidate replay signature, and a reminder that a manifold estimated over all frames mixes the task's latent structure with the animal's postural regime ([[wiki/concepts/offline-replay.md]]; the source marks this as speculation).
+
+**The caveat is the page's standing one, sharpened.** UMAP is a visualisation with three hyperparameters and no significance test; the stages are read off by eye, and the quantitative claim that carries the argument is the population-vector correlation matrix, not the embedding.
+
+---
+
 ## Sequences are not primitives
 
 The doublet analysis dissolves a distinction the wiki has been carrying. A "sequence" of cell activations is fully accounted for by a path through a 5-dimensional surface: identity at TPR 0.87 / FPR 0.14 from the latents alone, *and* timing, since manifold path length between the two firings predicts the elapsed time better than path lengths taken from other trials.
@@ -151,6 +172,7 @@ The doublet analysis dissolves a distinction the wiki has been carrying. A "sequ
 ## Open problems
 
 - **One manifold, one task.** Nothing here says how the manifolds for two tasks relate, whether they share dimensions, or what happens on the transition. That is G40's reuse question and this paper does not touch it.
+- **~~No learning trajectory~~ — now supplied at three timescales, and the third is the one the wiki wanted.** Sun et al. 2025 track the same 3,000–5,000 CA1 cells across the entire multi-week acquisition of a task, so the intermediate geometries are measured rather than interpolated between endpoints. What it does *not* settle is the question below it: the ordered sequence is a population statistic averaged over trials, so it still cannot say whether an individual state splits abruptly or accretes.
 - **~~No learning trajectory~~ — partly supplied, and at two timescales.** Nieh et al. measure the manifold once, after weeks of training. Courellis et al. contrast sessions in which the same participants did and did not perform inference, and sessions before and after a four-minute instruction, so the *endpoints* of the formation are now measured in the same brains. What is still missing is the trajectory between them: no continuous estimate of CCGP/PS across trials, so nothing says whether the geometry snaps into place at the first successful inference or accretes.
 - **Decodability again.** Manifold inference is correlational. No intervention perturbed the population along a latent direction, so "the animal uses the geometry" is unlicensed exactly as it is for a linear probe (T25). Courellis et al. push the correlation to the single-trial level — error trials lose the format — which is the strongest version of the correlational claim and still not an intervention. Mishchanchuk et al. 2024 supply the *coarsest* intervention — remove the population, lose the strategy and the downstream dopamine signature — which licenses necessity of the region but says nothing about the geometry, since a lesion cannot distinguish "the abstract format was used" from "any context signal was used". The missing experiment in all three is the same: perturb *along* the context coding direction and leave the rest of the population intact.
 - **Pseudo-populations.** The human result pools units across patients and sessions into pseudo-populations, so every geometric quantity is computed over a population that never existed simultaneously. Noise correlations, which is what would make a geometry usable or not by a downstream reader, are destroyed by construction.
@@ -164,6 +186,7 @@ The doublet analysis dissolves a distinction the wiki has been carrying. A "sequ
 ## Connections
 
 - **[[wiki/concepts/objective-identifiability.md]]** — supplies this page's reason to exist (population structure is a legitimate prediction target, single-unit tuning is not) and receives its instrument, plus the number that bounds its own dimensionality confound: a linear PC count can exceed the true latent dimension by 7–8×, so two systems differing in participation ratio may carry identical geometry.
+- **[[wiki/entities/cscg.md]]** — the model that predicts this page's one longitudinal result: the topological progression of the CA1 manifold *is* a state machine's states separating, and the clone model is the only one tested that reproduces the order in which they separate.
 - **[[wiki/concepts/representation-probing.md]]** — the same inside-the-system ambition with the labels removed: a probe asks whether a *named* structure is decodable, manifold inference asks what shape the activity has before naming anything, and cross-subject rotation alignment is the one comparison here that does not need ground truth. Both stop at decodability without intervention.
 - **[[wiki/concepts/cognitive-map.md]]** — supplies the single-unit case its "beyond space" table lacked (a learned, non-perceptual variable with firing fields, in mouse CA1) and the measured instance of its reusable-code-plus-pose decomposition, with the pose realised as a 10-parameter `SO(5)` rotation between brains.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — the opposite pole of the same architecture: `g` requires content-invariance, and this page's cells are ~90% conjunctive, so the invariance appears only after the population geometry is extracted — which says where in a model the factorisation is allowed to live.

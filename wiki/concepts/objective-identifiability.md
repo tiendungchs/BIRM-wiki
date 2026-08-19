@@ -60,6 +60,24 @@ All four are *decodability* instruments, and this is the wiki's third independen
 
 ---
 
+## The one lever that breaks the many-to-one degeneracy: match the *trajectory*
+
+Everything above concerns a comparison made at convergence. A trained model and a trained brain are two endpoints, and the many-to-one direction says endpoints do not identify the objective. **The learning path is a second observable, and it is far more constraining, because a model must reproduce every intermediate representation in the right order rather than one final one** (Sun et al. 2025, [[wiki/entities/cscg.md]]).
+
+The demonstration: mouse dorsal CA1 learning a two-alternative cue–delay–choice task over weeks, with 3,000–5,000 cells tracked throughout. Six models — CSCG, softmax RNN, ReLU/sigmoid RNN, spiking Hebbian RNN with soft winner-take-all, LSTM, transformer — all solve the task. Three of them (CSCG, softmax RNN, Hebbian RNN) reach the *same* orthogonalized endpoint the brain reaches, so the endpoint discriminates nothing among them. Only CSCG reproduces the animals' order of decorrelation (within-track ambiguous regions → pre-far-reward → pre-near-reward). The authors' framing is worth adopting verbatim: this is **feature-matching on learning dynamics to infer a learning rule**, a class of instrument the wiki previously had only for endpoints.
+
+| | Endpoint match | Trajectory match |
+|---|---|---|
+| What it can distinguish | Whether the objective/architecture *admits* the observed representation | Which of several admissible ones the system is running |
+| Cost of obtaining it in a brain | One trained animal | Longitudinal cell-resolved recording across the entire learning period |
+| Failure mode | Many-to-one (the whole of this page) | Depends on the modeller's input format, not only on the model |
+
+**The last cell is the price, and it is charged immediately.** CSCG is fed a hand-written symbol sequence for the task. Reordering two symbols within the reward zone — water before reward-cue instead of after — leaves the learned transition graph identical and **inverts** the decorrelation order to the one the animals do not show. So the wiki's single dynamics-level model-brain match rests on an encoding choice the task does not determine (gap G46). This is audit item 2 of the checklist below reappearing one level up: the discriminating statistic came partly from the modeller's data format rather than from the model.
+
+**(brainstorm)** The generalisation of item 2 that this suggests: for any claim "model M matches system S", perturb the *input representation* over the space of encodings a modeller could defensibly have chosen, and report the fraction that preserve the match. That is a sweep of the same kind as the >11,000-network sweep above, run over the pre-processing rather than over the hyperparameters — and no source in the wiki reports it.
+
+---
+
 ## Applying it: an emergence audit
 
 A checklist for any claim in this wiki of the form "mechanism M emerges from objective O":
@@ -102,6 +120,7 @@ Three of the five are *general properties of neural codes* rather than grid-spec
 
 ## Connections
 
+- **[[wiki/entities/cscg.md]]** — the one instance in the wiki where this page's degeneracy is broken empirically: three architectures reach the same orthogonalized endpoint and only one reproduces the order in which a brain reaches it — bought at the cost of a symbol-encoding choice that flips the result.
 - **[[wiki/concepts/path-integration.md]]** — the direct target: this page shows the task on that page does not by itself produce the code, so path-consistency of `g` remains an architectural commitment rather than something a loss discovers (T38).
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the strongest limit on the reverse channel: matched tuning curves and high linear predictivity certify neither the objective nor the algorithm, so a "validation" entry in that page's track record can be an artefact of the modeller's target choice or of representational dimensionality.
 - **[[wiki/concepts/representation-probing.md]]** — the same weakness in a third instrument: grid score and regression predictivity are decodability measures, so "found in the model" and "found in the brain" are symmetric claims that both fall short of mechanism.
