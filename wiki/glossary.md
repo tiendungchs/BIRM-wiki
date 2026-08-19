@@ -85,6 +85,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | DoG / DoS | Difference-of-Gaussians / Difference-of-Softmaxes | Centre–surround readout target functions in deep grid-cell models; DoS (used in code, DoG in text) is what actually produces lattices, because the readout correlation matrix plays the role of the attractor interaction kernel ([[wiki/concepts/objective-identifiability.md]]) |
 | PI | Path Integration | Updating a position estimate by integrating self-motion ([[wiki/concepts/path-integration.md]]) |
 | PR | Participation Ratio | Linear measure of a representation's intrinsic dimensionality; correlates with linear "neural predictivity" of neural data, which may confound model-brain comparisons |
+| fcANN | functional connectivity-based Attractor Neural Network | Whole-brain Hopfield network whose couplings are the negative inverse covariance of regional fMRI time series ([[wiki/entities/fcann.md]]) |
+| FEP-ANN | Free-Energy-Principle Attractor Neural Network | Class of attractor networks derived from free-energy minimisation; its learning rule drives attractors toward orthogonality ([[wiki/concepts/predictive-coding-free-energy.md]]) |
+| K-S network | Kanter–Sompolinsky projector network | Attractor network with mutually orthogonal stored states, equal to the positive-eigenvalue eigenvectors of the coupling matrix; maximal capacity, error-free recall ([[wiki/concepts/energy-based-models.md]]) |
+| MCMC | Markov-Chain Monte Carlo | Sampling from a distribution by a stochastic transition chain; stochastic attractor relaxation is read as MCMC over the posterior ([[wiki/entities/fcann.md]]) |
+| NESS | Non-Equilibrium Steady State | Stationary distribution maintained by circulating (solenoidal) probability flow; what asymmetric couplings produce |
 | SLAM | Simultaneous Localization And Mapping | Building a map while self-localizing in it; solved by trained recurrent networks without grid units emerging |
 
 ## Neuroscience
@@ -153,6 +158,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SPW-R | Sharp-Wave Ripple | 100–250 Hz hippocampal population burst; the replay carrier ([[wiki/concepts/offline-replay.md]]) |
 | ChR2 | Channelrhodopsin-2 | Light-gated cation channel used to activate (and thereby "opto-tag") a genetically defined cell population |
 | CCK | Cholecystokinin | Peptide marking a basket-cell type inside the *Id2* interneuron family (the *Sncg* subfamily) |
+| ASD / TDC | Autism Spectrum Disorder / Typically Developing Control | Group labels in the ABIDE resting-state dataset used to test whether a connectome-derived attractor model predicts altered dynamics ([[wiki/entities/fcann.md]]) |
 | CEBRA | Consistent Embedding of high-dimensional Recordings using Auxiliary variables | Contrastive latent-embedding method used to decode position from neural populations |
 
 ## Benchmarks

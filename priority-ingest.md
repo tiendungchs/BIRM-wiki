@@ -12,7 +12,7 @@ One INGEST each:
 - [x] `chaudhry-2023-long-sequence-hopfield-memory.md` — attractor-dynamics · M · 2023
 - [x] `li-2024-adaptive-cann-dynamics.md` — attractor-dynamics · M · 2024
 - [x] `podlaski-2025-gated-associative-memory-capacity.md` — attractor-dynamics · M · 2025
-- [ ] `englert-2026-brain-attractor-dynamics.md` — attractor-dynamics · R · 2026
+- [x] `englert-2026-brain-attractor-dynamics.md` — attractor-dynamics · R · 2026
 - [ ] `crouse-2022-hopfield-networks-memory-machines.md` — attractor-dynamics · X · 2022
 - [ ] `talk-nd-boltzmann-machines.txt` — attractor-dynamics · X · nd
 - [ ] `ahmad-2016-sparse-representations-active-dendrites.md` — neuron-models · F · 2016

@@ -72,6 +72,22 @@ The strongest architectural claim in the source, and the one that engages the co
 
 ---
 
+## Landscape geometry: where the minima sit, not just how deep they are
+
+The collapse taxonomy above is about the *volume* assigned low energy. A second, independent property is the **mutual geometry of the minima**, and it has a known optimum (Englert et al. 2026, [[wiki/entities/fcann.md]]; Kanter & Sompolinsky 1987):
+
+| Property | Statement |
+|---|---|
+| **Kanter–Sompolinsky projector network** | An attractor net whose stored states are mutually *orthogonal*. Maximal capacity and error-free recall; the attractors coincide with the positive-eigenvalue eigenvectors of the coupling matrix `J` |
+| **Not what Hebbian storage gives** | Storing correlated patterns by a Hebbian outer-product rule yields overlapping basins and spurious minima; orthogonality has to be produced by the learning rule |
+| **The rule that produces it** | `ΔJ_ij ∝ σ_iσ_j − L(b_i + Σ_k J_ik σ_k)σ_j` — observed correlation minus the correlation the network already predicts. Claimed to be the only known *local, incremental, single-phase* rule approximating a K-S network (the "dreaming"/unlearning alternatives need two phases) |
+| **Free test** | Alignment between a network's attractors and the eigenvectors of its own weights is checkable with no data and no labels |
+| **Symmetry is not required for the landscape** | Decompose `J = J^S + J^A`. Only `J^S` enters the steady-state distribution; `J^A` breaks detailed balance and adds solenoidal flow *tangential to the level sets* of `p*`. So an asymmetric network still has a well-defined energy landscape — the asymmetry moves the state *along* the contours, it does not deform them |
+
+The last row qualifies the standard statement (carried on [[wiki/entities/dense-sequence-memory.md]]) that `J ≠ Jᵀ` leaves no Lyapunov function: what is lost is a *descent* reading of the dynamics, not the landscape itself, which the symmetric part continues to define.
+
+---
+
 ## Open problems
 
 - **Which latent regulariser.** Discrete, low-dimensional, sparse and noisy are all offered; nothing says which is best, and the choice determines the *shape* of the representable outcome set (points vs. manifold vs. union of manifolds).
@@ -106,3 +122,4 @@ The strongest architectural claim in the source, and the one that engages the co
 - **[[wiki/entities/dense-sequence-memory.md]]** — the asymmetric half of associative memory, where the energy formalism stops applying: `J ≠ Jᵀ` admits no Lyapunov function, so retrieval is a driven traversal rather than a descent, and the `MixedNet` writes both in one weight matrix with `λ` trading landscape depth against transition drive.
 - **[[wiki/entities/adaptive-cann.md]]** — a mechanism for this page's unmechanised multi-modal exploration: adaptation raises the energy of whichever minimum is currently occupied, so the state cannot rest, and one gain interpolates between resting in a minimum, oscillating around it, and traversing the landscape — Necker-cube alternation as a dynamical property of the energy function rather than an added sampler.
 - **[[wiki/entities/context-modular-memory-network.md]]** — a *family* of energy functions carried by one weight matrix: a discrete context imposes a binary mask `a_i^k a_j^k c_ij^k` on the couplings, so `H^(k)` reshapes without any weight changing, and minima can be deleted on demand — the landscape becomes a controllable object rather than a consequence of what was stored.
+- **[[wiki/entities/fcann.md]]** — the landscape measured rather than trained, at whole-brain scale: couplings are the inverse covariance of activity, the attractors coincide with the eigenvectors of those couplings (a Kanter–Sompolinsky projector network, i.e. the capacity-optimal geometry), and `J = J^S + J^A` shows that only the symmetric part shapes the energy while the antisymmetric part adds circulating flow along its level sets.
