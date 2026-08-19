@@ -12,7 +12,7 @@ One INGEST each:
 - [x] `bengio-2015-biologically-plausible-deep-learning.md` — plasticity · F · 2015
 - [x] `lisman-2018-synaptic-strength-excitability.md` — plasticity · F · 2018
 - [x] `litman-2025-eqprop-without-limits.md` — plasticity · F · 2025
-- [ ] `gerstner-1996-submillisecond-temporal-coding.md` — plasticity · M · 1996
+- [x] `gerstner-1996-submillisecond-temporal-coding.md` — plasticity · M · 1996
 - [ ] `scellier-2017-equilibrium-propagation.md` — plasticity · M · 2017
 - [ ] `millidge-2020-activation-relaxation.md` — plasticity · M · 2020
 - [ ] `shervanitabar-2023-meta-learning-plasticity-rules.md` — plasticity · M · 2023

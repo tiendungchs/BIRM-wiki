@@ -124,6 +124,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | NMDA spike | N-methyl-D-aspartate spike | Regenerative dendritic event triggered by 8–20 co-active synapses clustered within 20–300 µm and 1–5 ms; depolarizes the cell for 50–200 ms without necessarily firing it ([[wiki/concepts/dendritic-computation.md]]) |
 | SDR | Sparse Distributed Representation | High-dimensional binary code with 0.5–3% of bits active; the regime in which subsampled overlap detection has closed-form, near-zero error ([[wiki/concepts/sparse-distributed-representations.md]]) |
 | LIF | Leaky Integrate-and-Fire | Standard spiking-neuron model: membrane potential integrates input, spikes at threshold, resets |
+| EPSP | Excitatory PostSynaptic Potential | Depolarizing voltage transient evoked by one presynaptic spike; its half-width (250 µs in the barn-owl model, 500–800 µs in chicken) sets the coincidence window of the receiving cell ([[wiki/concepts/temporal-coding.md]]) |
+| ITD | Interaural Time Difference | Arrival-time difference of a sound at the two ears; the latent variable a coincidence detector over tuned delays recovers, and the barn owl's cue for azimuth |
 | LTP / LTD | Long-Term Potentiation / Depression | Lasting strengthening / weakening of a synapse |
 | MEG | Magnetoencephalography | |
 | MTL | Medial Temporal Lobe | Hippocampus and surrounding cortex |

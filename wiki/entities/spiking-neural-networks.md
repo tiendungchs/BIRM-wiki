@@ -23,6 +23,7 @@ The wiki's stake in SNNs is not efficiency. It is [[wiki/empirical-tensions.md]]
 | Claim | Status |
 |---|---|
 | Spikes carry **more information than rate-based representations**, despite being binary and sparse in time | Theoretical demonstration (cited) — the load-bearing claim for T1 |
+| **Output timing can be an order of magnitude more precise than the substrate producing it** | Simulation with measured parameters: a leaky integrate-and-fire unit driven by 250 µs postsynaptic potentials, `τ_m ≈ 100 µs` and 40 µs input jitter fires with 20–25 µs precision, because threshold is always crossed on the rising phase of a coherent volley — and the precision depends only weakly on `τ_m` (Gerstner et al. 1996; [[wiki/concepts/temporal-coding.md]]). This is the strongest available form of the row above: the timing content is not inherited from any fast component, so no rate specification of the same circuit can express it |
 | Better energy efficiency; capable of processing noisy and dynamic data; more robust and fault-tolerant computation | Modelling studies. The review is explicit that these follow partly from properties *distinguishing SNNs from ANNs*, not from biological plausibility as such |
 | Scale is reachable | Large spike-based transformer models exist |
 | Trainable by meta-optimized rules | Surrogate gradients make the non-differentiable threshold traversable, enabling a differentiable STDP rule to produce online one-shot continual learning and one-shot image class recognition ([[wiki/concepts/meta-optimized-plasticity.md]]) |
@@ -60,6 +61,7 @@ The wiki's stake in SNNs is not efficiency. It is [[wiki/empirical-tensions.md]]
 ## Connections
 
 - **[[wiki/concepts/synaptic-plasticity.md]]** — STDP is defined on spike times, so the rule family and this substrate presuppose each other; the substrate is what makes the timing term meaningful.
+- **[[wiki/concepts/temporal-coding.md]]** — the quantitative case for this page's central claim, plus its ceiling: 20–25 µs single-unit precision from a 250 µs postsynaptic potential, but behaviour-level 5 µs only after population-vector decoding over ~100 units and 100 ms, so the single spike time is not the message even here.
 - **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — SNNs are the hard case that forces the issue: backpropagation does not merely lack a biological story here, it fails outright on the discrete nonlinearity, so local rules are mandatory rather than optional.
 - **[[wiki/concepts/meta-optimized-plasticity.md]]** — surrogate gradients let the outer loop reach into a spiking inner loop, producing this substrate's strongest result (online one-shot learning).
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the test case for that page's implementation-level exclusion: SNNs claim the excluded level carries information a functional specification cannot express.
