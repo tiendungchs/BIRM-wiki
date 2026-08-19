@@ -9,6 +9,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | BHN | Binary Hopfield Network | The classical bipolar-state network with symmetric weights and asynchronous threshold updates ([[wiki/entities/hopfield-network.md]]) |
 | CHN | Continuous Hopfield Network | Float-valued states; exponential capacity and one-step convergence, and the update is transformer self-attention (Ramsauer et al. 2020) |
 | MHN | Modern Hopfield Network (Dense Associative Memory) | Hopfield network with a steep nonlinearity applied to the state–pattern overlap, giving polynomial or exponential item capacity ([[wiki/entities/dense-sequence-memory.md]]) |
+| BM / RBM | Boltzmann Machine / Restricted Boltzmann Machine | Stochastic Hopfield network with hidden units, trained contrastively; *restricted* = bipartite visible↔hidden only, which makes whole layers updatable in parallel ([[wiki/entities/boltzmann-machine.md]]) |
 | GPI | Generalized PseudoInverse rule | Decorrelates stored patterns inside the separation function, `Σ_ν O⁺_{μν} m^ν`; perfect sequence recall for linearly independent patterns ([[wiki/entities/dense-sequence-memory.md]]) |
 | TAN | Temporal Association Network | Sompolinsky & Kanter 1986: symmetric "fast synapse" hold term plus asymmetric "slow synapse" transition term, capacity `≈0.1N`; the linear special case of the `MixedNet` |
 | AIT | Algorithmic Information Theory | Kolmogorov complexity and its relatives; the formal language of both [[wiki/concepts/universal-induction.md]] and [[wiki/concepts/skill-acquisition-efficiency.md]] |

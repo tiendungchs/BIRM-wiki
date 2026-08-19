@@ -14,7 +14,7 @@ One INGEST each:
 - [x] `podlaski-2025-gated-associative-memory-capacity.md` — attractor-dynamics · M · 2025
 - [x] `englert-2026-brain-attractor-dynamics.md` — attractor-dynamics · R · 2026
 - [x] `crouse-2022-hopfield-networks-memory-machines.md` — attractor-dynamics · X · 2022
-- [ ] `talk-nd-boltzmann-machines.txt` — attractor-dynamics · X · nd
+- [x] `talk-nd-boltzmann-machines.txt` — attractor-dynamics · X · nd
 - [ ] `ahmad-2016-sparse-representations-active-dendrites.md` — neuron-models · F · 2016
 - [ ] `chavlis-2025-dendritic-anns.md` — neuron-models · M · 2025
 - [ ] `talk-nd-hodgkin-huxley-model.txt` — neuron-models · X · nd
