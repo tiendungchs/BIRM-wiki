@@ -28,7 +28,7 @@ One INGEST each:
 - [x] `seelig-2015-landmark-orientation-path-integration.md` — hippocampal-entorhinal · R · 2015
 - [x] `constantinescu-2016-gridlike-code-concepts.md` — hippocampal-entorhinal · R · 2016
 - [x] `garvert-2017-abstract-relational-knowledge-map.md` — hippocampal-entorhinal · R · 2017
-- [ ] `barron-2020-inferential-reasoning-humans-mice.md` — hippocampal-entorhinal · R · 2020
+- [x] `barron-2020-inferential-reasoning-humans-mice.md` — hippocampal-entorhinal · R · 2020
 - [ ] `nieh-2021-hippocampus-abstract-knowledge-geometry.md` — hippocampal-entorhinal · R · 2021
 - [ ] `park-2021-social-hierarchy-grid-like-code.md` — hippocampal-entorhinal · R · 2021
 - [ ] `sammons-2023-ca3-module-structure-function.md` — hippocampal-entorhinal · R · 2023

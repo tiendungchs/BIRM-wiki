@@ -91,6 +91,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | BOLD | Blood-Oxygen-Level-Dependent | The fMRI contrast; driven more by perisynaptic activity than by spiking, which is why it cannot resolve dentate gyrus from CA3 ([[wiki/concepts/pattern-separation-completion.md]]) |
 | DG | Dentate Gyrus | Sparse-firing granule-cell layer receiving entorhinal input; the hippocampus's pattern separator, and the only site of adult neurogenesis in the hippocampus |
 | CA1 / CA3 | Cornu Ammonis fields 1 and 3 | CA3 is the recurrent auto-associative field (pattern completion), with *diluted* recurrence (~2–4%); CA1 carries hippocampal output — as a linear relay (Yassa & Stark 2011) or as a competitive recombination stage (Rolls 2013), [[wiki/empirical-tensions.md]] T33 |
+| SWR | Sharp-Wave/Ripple | Large-amplitude hippocampal local-field deflection with a nested high-frequency oscillation, during immobility and sleep; the window in which offline sequence reactivation and offline edge construction occur ([[wiki/concepts/offline-replay.md]]) |
+| dCA1 | dorsal CA1 | The dorsal (septal) portion of hippocampal field CA1 — the standard rodent recording and optogenetic target for spatial and relational tasks |
+| mPFC | medial PreFrontal Cortex | Frontal region carrying abstract task models; represents the inferred outcome in the sensory-preconditioning task (Barron et al. 2020) |
 | EC | Entorhinal Cortex | The hippocampus's main cortical input/output; layer II projects to both DG and CA3, and carries the grid code ([[wiki/concepts/abstract-structural-codes.md]]) |
 | IEG | Immediate-Early Gene | Activity-dependent genes (e.g. Arc) whose expression maps which neurons were recently active — a population-level imaging method |
 | NMDAR | N-methyl-D-aspartate Receptor | Coincidence-detecting glutamate receptor; its NR1 subunit is the standard knockout target for testing plasticity-dependence of a computation |

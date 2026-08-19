@@ -50,13 +50,13 @@ The specific-experience model predicts replay resembles individual experiences. 
 | **Sequence order at the ripple** | Inhibitory activity before and during a SWR determines the firing order of pyramidal cells (Noguchi et al. 2022) | Observed; whether the inhibitory control itself is learned is open |
 | **A developmental prior** | **Preplay**: replay-like sequences detectable *before* any experience of an environment, later matching trajectories through it; developmentally related, interconnected CA1 subnetworks form adjacent place fields and co-fire in SWRs (Geiller et al. 2022; Huszar et al. 2022) | Contested (c.f. Silva et al. 2015). Read as a **prior on which cells may become adjacent nodes** — connectivity constrains learning without determining it |
 
-**The forward/reverse ratio is a representational knob.** Replaying trajectories in both directions with equal probability, under the *classical asymmetric* write rule, produces the same time-reversible successor representation that a symmetric rule produces online — because the rule's fixed point depends on the mixture `αP_forward + βP_backward` and reverse replay supplies the backward term (Keck et al. 2025, [[wiki/concepts/successor-representation.md]]). So the same map can be symmetrized either at the synapse or at the sampler, and the observed forward:reverse ratio becomes a *measurable* setting of how policy-contaminated the consolidated map is: all-forward stores the behavioural policy, balanced stores the geometry. This adds a seventh job — **de-biasing the stored transition structure toward uniform-policy geometry** — whose sampling criterion (mirror what was experienced) is unlike the other six.
+**The forward/reverse ratio is a representational knob.** Replaying trajectories in both directions with equal probability, under the *classical asymmetric* write rule, produces the same time-reversible successor representation that a symmetric rule produces online — because the rule's fixed point depends on the mixture `αP_forward + βP_backward` and reverse replay supplies the backward term (Keck et al. 2025, [[wiki/concepts/successor-representation.md]]). So the same map can be symmetrized either at the synapse or at the sampler, and the observed forward:reverse ratio becomes a *measurable* setting of how policy-contaminated the consolidated map is: all-forward stores the behavioural policy, balanced stores the geometry. This adds a further job — **de-biasing the stored transition structure toward uniform-policy geometry** — whose sampling criterion (mirror what was experienced) is unlike the other six.
 
 **Offline plasticity is a hole, not a mechanism.** Whether synaptic weights change *within* hippocampus during rest has not been studied. The indirect evidence is suggestive: depolarisation during one SWR raises responsivity during subsequent SWRs (King et al. 1999); SWR-patterned spiking induces long-term potentiation in vitro (Sadowski et al. 2016); disrupting awake SWRs impairs learning even when online representations and post-experience replay stay intact (Jadhav et al. 2012). If plasticity does run offline, then the fast store is **refining its own content between exposures** — signal amplified, noise attenuated, before anything reaches cortex — and no machine replay buffer does anything of the kind.
 
 ---
 
-## The four jobs the wiki now assigns to one mechanism
+## The jobs the wiki now assigns to one mechanism
 
 | Job | Where | Sampling criterion it implies |
 |---|---|---|
@@ -66,10 +66,44 @@ The specific-experience model predicts replay resembles individual experiences. 
 | **Offline state-space construction** — path-integrate away from a reward to attach a goal-vector cell to every location | [[wiki/entities/tolman-eichenbaum-machine.md]], [[wiki/concepts/cognitive-map.md]] | Coverage of the space |
 | **Amortization** — compile model-based rollouts into cached values | [[wiki/concepts/amortized-inference.md]] | Where the cache is stale |
 | **Structural organisation** — train a generative model so that sequences are organised *into* a structure, i.e. learn `g` itself | [[wiki/entities/tolman-eichenbaum-machine.md]] (Whittington et al. 2020) | Whatever the generative model would sample — the wake-sleep criterion |
+| **Edge construction** — write a *new* edge between two items never experienced together, and fire it in reverse to push value back along it | Section below (Barron et al. 2020) | Logical composability × reward: pairs that close a chain into a profitable outcome |
 
 **The sixth job is the strongest architectural claim.** TEM's learning scheme is wake-sleep shaped — an inference network awake and observing, a generative network checking offline whether what was inferred is what it would have predicted — and hippocampal replay does appear to sample from a generative model rather than to rehearse recorded episodes. The proposal is therefore that replay's *fundamental* role is the organisation of sequences into structures, which makes replay the training signal for the structural code rather than a rehearsal of the instance store (Whittington et al. 2020). If true, jobs 1 and 2 are downstream of job 6 rather than alongside it.
 
-**(brainstorm)** Six jobs, six incompatible sampling distributions, one substrate. Either the brain arbitrates between them — in which case the arbitration policy is a missing component nobody has named — or the criteria coincide more than they appear to. [[wiki/concepts/successor-representation.md]] offers the only unification currently in the wiki: all five could be the *same eigenbasis* under different diagonal reweightings `ϒ`, which converts the arbitration problem into choosing one vector. That is the cheapest available hypothesis and it is testable — fit one basis, then check whether consolidation-replay and planning-replay differ only in `ϒ`.
+**(brainstorm)** Seven jobs, seven incompatible sampling distributions, one substrate — and the newest of them (edge construction) is the only one whose output is *not* a resampling of anything stored. Either the brain arbitrates between them — in which case the arbitration policy is a missing component nobody has named — or the criteria coincide more than they appear to. [[wiki/concepts/successor-representation.md]] offers the only unification currently in the wiki: all five could be the *same eigenbasis* under different diagonal reweightings `ϒ`, which converts the arbitration problem into choosing one vector. That is the cheapest available hypothesis and it is testable — fit one basis, then check whether consolidation-replay and planning-replay differ only in `ϒ`.
+
+---
+
+## Ripples write edges that were never traversed
+
+Every row above concerns *which* experienced sequence is resampled. Barron et al. 2020 is the wiki's first recording where ripple content is a pair that **was never experienced at all** — the transitive closure of two separately learned associations, formed offline, over days.
+
+**The task** (sensory preconditioning, run identically in 22 humans under 7T fMRI and in mice with dorsal-CA1 tetrodes + optogenetics, one stage per day):
+
+| Day | Contingency | Point |
+|---|---|---|
+| 1 | `Xₙ → Yₙ` (tone → light), no outcome | Learn one edge |
+| 2 | `Yₙ → Zₙ` (light → sucrose for set 1, water for set 2) | Learn the adjacent edge |
+| 3 | `Xₙ` alone | Test the composed edge `X₁ → Z₁`; both species show the reward-seeking bias |
+
+**Offline result — ripples acquire the shortcut, not the chain.** Comparing early to late recording days, in awake SWRs:
+
+| Measurement | Result | What it rules out |
+|---|---|---|
+| Triplet `X₁,Y₁,Z₁` coactivation in one ripple | Increases for reward set 1, not for neutral set 2 | Reward-blind consolidation |
+| Triplet `X₁,Y₂,Z₁` — same endpoints, *wrong* intermediary | Increases equally | Ripples simulating the learned model `X₁→Y₁→Z₁`; the endpoints, not the path, are what is being linked |
+| Pair `X₁,Z₁` with `Y₁` **absent** from the ripple | Increases with experience, and beyond the change in `X₁`-alone or `Z₁`-alone ripple rate | A rate artefact of reward cells firing more |
+| Cross-set pair `X₂,Z₁` | No comparable increase | "Everything gets linked to reward" |
+| Spike order within the ripple | `Z₁` cells fire **before** `X₁` cells — reverse to the inferred direction; no bias for the neutral set; absent in sleep | Ripples rehearsing the inference in the direction it will be used |
+| Sleep vs awake | Same pattern, lower fidelity; reverse ordering awake only | Sleep as the privileged consolidation window for this operation |
+
+**Read as a write rule:** the ripple is not resampling a trajectory, it is *computing the composition* `X→Y ∘ Y→Z ⟹ X→Z` and storing it as a direct edge — and the reverse firing order is the natural sign that what is travelling is credit rather than prediction, in the same direction as reverse replay after reward in space. This is the wiki's first direct evidence for the write half of the edge-construction claim [[wiki/concepts/latent-graph-discovery.md]] needs: a graph estimate that contains edges the agent never traversed, built between exposures, gated by whether closing the chain pays.
+
+**The online half is a separate mechanism, and it does *not* compute the shortcut.** At the moment of inferential choice, hippocampal patterns (voxels in humans, spikes in mice) during `Xₙ` resemble the associated `Yₙ` and not the cross-set `Yₘ` — with mouse `Y`-cells spiking *after* `X`-cells, preserving the temporal order learned on day 1 — while the inferred outcome `Zₙ` is **not** decodable in hippocampus in either species, and optogenetic dCA1 silencing during `Xₙ` abolishes the inference bias while sparing first-order conditioned responding to `Yₙ`. So one substrate runs two different computations on the same knowledge: **chained mnemonic recall online** (retrieve the next link, one hop, temporally ordered) and **shortcut caching offline** (skip the link, store the endpoints, reverse-ordered). The wiki had been treating these as the same trajectory-generation machinery under different sampling policies; here they are dissociated *within one task*, by direction of firing and by content.
+
+**Where the answer lives is not where the recall lives.** Whole-brain 7T searchlight puts the representation of the inferred outcome `Zₙ` in medial prefrontal cortex and putative dopaminergic midbrain — present even for the neutral outcome, so it is a sensory-identity code and not a value signal, and conditional on which cue predicted it, so it is computed online from a task model rather than transferred to `X` at encoding. Two consequences for a builder: **(i)** the fast relational store supplies *links*, and the composition is completed downstream, which is an argument against architectures that recirculate within the memory module until an answer appears; **(ii)** the midbrain acquiring an identity code for an outcome never paired with the cue is not producible by temporal-difference learning, and the SWR shortcut is the paper's proposed teacher for it **(brainstorm — the hippocampus→midbrain training-signal direction is hypothesised, not recorded here)**.
+
+**(brainstorm) The cheapest machine import in this ingest is a rest-phase closure operator on the replay buffer.** Sample two stored transitions sharing an endpoint, emit the composed pair as a *synthetic* training item, and accept it with probability rising in the value of the terminal state. That is Dyna with composition instead of resampling, it needs no new representation, and Barron's controls give it three falsifiable properties: composition should survive substituting the intermediary, should not fire for value-mismatched pairs, and should update the *earlier* item from the later one.
 
 ---
 
@@ -83,7 +117,7 @@ The specific-experience model predicts replay resembles individual experiences. 
 
 ## Open problems
 
-- **No arbitration policy across the five jobs** above.
+- **No arbitration policy across the jobs** above.
 - **Does plasticity run during replay?** Unstudied inside hippocampus; the review flags it as a critical knowledge gap and a major underexplored facet of consolidation.
 - **What segments the stream into sequences?** The trajectory an animal traces is 1D and therefore encodable as a sequence, but "the factors that determine the length of these sequences and how the brain chooses to segment this continuous trajectory into sequence snippets remain unknown" — the same hole [[wiki/concepts/event-segmentation.md]] and gap G27 describe, restated at the sequence level rather than the node level.
 - **Is the inhibitory filter learned?** Whether inhibitory control of replay order evolves with learning is unknown; if it does, the excitatory and inhibitory plasticity mechanisms interact in ways no model captures.
@@ -119,6 +153,8 @@ The third point is the one with teeth for a machine: it makes **use frequency th
 - **[[wiki/concepts/successor-representation.md]]** — and a second, mechanistic link: balanced forward/reverse replay under an asymmetric write rule builds the *time-reversible* SR, so replay direction statistics set whether the consolidated map encodes the policy or the geometry (Keck et al. 2025).
 - **[[wiki/concepts/cognitive-map.md]]** — replay respects the current barrier configuration and preserves topological rather than metric adjacency, which is direct evidence that the thing being replayed is the graph and not the trajectory.
 - **[[wiki/concepts/amortized-inference.md]]** — the fifth job: offline reactivation compiling model-based rollouts into cached values, using the same machinery with a staleness-driven sampling criterion.
+- **[[wiki/concepts/amortized-inference.md]]** — and the strongest biological instance of that job: awake ripples cache a two-hop composition as a one-hop link, which is amortization of an inference the animal can also perform online by chained recall (Barron et al. 2020).
+- **[[wiki/entities/temporal-context-model.md]]** — the rival account of the same behaviour: TCM derives transitive-like performance from retrieved-context overlap *inside* the medial temporal lobe, whereas the ripple result puts the composed link in hippocampus and the inferred outcome downstream in medial prefrontal cortex and midbrain ([[wiki/empirical-tensions.md]] T48).
 - **[[wiki/concepts/continual-learning.md]]** — rehearsal is the machine form of this mechanism, and this page supplies the selection rule that machine rehearsal lacks: consolidating everything overfits, so the generator must cull.
 - **[[wiki/concepts/event-segmentation.md]]** — the same unsolved discretisation, one level up: that page asks what licenses a new node, this one asks what sets the boundaries of a replayed *sequence*.
 - **[[wiki/concepts/three-component-framework.md]]** — replay is a fifth lever the control surface does not list: an internally generated curriculum, learned rather than designed.

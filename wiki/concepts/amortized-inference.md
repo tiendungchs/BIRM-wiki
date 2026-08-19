@@ -41,6 +41,18 @@ The source treats these as one idea appearing at two levels. They share a shape:
 
 **Consequence for gap G15** (no control policy over simulation): arbitration is the *when-to-plan* question answered by a second criterion — an estimated value of computation — rather than by the free-energy drive [[wiki/concepts/predictive-coding-free-energy.md]] supplies. The two are compatible and neither answers *how deep* (gap G24).
 
+**The one case where both modes are recorded on the same knowledge.** Barron et al. 2020 ran a sensory-preconditioning inference task (`X→Y` day 1, `Y→Z` day 2, `X` alone day 3) in humans and mice and found the *expensive* and the *compiled* route to the same answer running in one brain:
+
+| | Online, at choice | Offline, in rest |
+|---|---|---|
+| Operation | Hippocampal pattern during `X` reinstates the associated `Y`, with `Y`-cells spiking *after* `X`-cells — one hop of chained recall, in the learned temporal order | Awake sharp-wave ripples co-activate `X₁` and `Z₁` directly, increasingly with experience, *without* the intermediary `Y₁` present |
+| Cost | A retrieval per link; the paper's stated motivation for a shortcut is the search cost over many memories | Paid once, during rest |
+| Direction | Forward (`X`→`Y`), the direction of use | **Reverse** (`Z₁`→`X₁`), the direction of credit |
+| Gating | Runs on the trial | Reward-gated: increases for the sucrose set, not the neutral set, and not for cross-set pairs |
+| Causal test | Optogenetic dorsal-CA1 silencing during `X` abolishes the inference while sparing first-order conditioned responding | Not manipulated |
+
+This is the wiki's first *neural* evidence for plan amortization as this page defines it — expensive composition run once and cached as a direct mapping — and it adds a detail no machine version has: the cached link is written **in the opposite direction to its use**, which is what a credit-assignment write looks like rather than a rehearsal. It also sharpens the arbitration question: both routes exist simultaneously after days of training, so the compiled shortcut does not retire the chained recall (silencing the hippocampus at choice still breaks behaviour), and what selects between them is unmeasured. See [[wiki/concepts/offline-replay.md]].
+
 **(brainstorm)** The wiki has been treating model-free control as the failure mode and model-based control as the target. Amortization inverts the relation: the model-free system is the *compiled output* of the model-based one, so a mature architecture should show a growing model-free component whose contents are traceable to rollouts. That is a testable architectural signature — and it says a system that is model-free *from the start* (a DQN) and one that is model-free *by consolidation* are different systems with the same interface, which no current benchmark distinguishes.
 
 ---
@@ -103,3 +115,4 @@ The fourth row is the architectural proposal: **the neural network is the infere
 - **[[wiki/concepts/contextual-inference.md]]** — splits the same two modes by *what has been observed* rather than by compute budget: expression uses the cue-only posterior and must be computed before acting, updating uses the post-feedback posterior (Heald et al. 2021).
 - **[[wiki/concepts/cognitive-map.md]]** — the navigational form of compilation: hippocampal involvement falls away once an environment is highly familiar, so map-based route computation appears to be cached into a cheaper policy rather than run every time (Epstein et al. 2017).
 - **[[wiki/concepts/offline-replay.md]]** — the mechanism this page's offline compilation would run on, plus the competition for it: four other jobs claim the same replay budget under four different sampling policies, and nothing arbitrates.
+- **[[wiki/concepts/offline-replay.md]]** — and the recording that makes offline compilation concrete: ripples cache a never-experienced `X→Z` link, reward-gated and reverse-ordered, while the chained-recall route it replaces stays functional (Barron et al. 2020).
