@@ -42,7 +42,7 @@ Artefacts named on existing pages that have no page of their own. Listed so the 
 
 | Artefact | Referenced from | Queued source |
 |---|---|---|
-| Hippocampus / medial temporal lobe | [[wiki/concepts/complementary-learning-systems.md]], [[wiki/concepts/simulation-based-planning.md]], [[wiki/concepts/offline-replay.md]], [[wiki/concepts/pattern-separation-completion.md]], [[wiki/concepts/cognitive-map.md]] | `raw/liao-2024-single-shot-many-shot-hippocampus.md`, `raw/yassa-2011-pattern-separation-hippocampus.md` |
+| Hippocampus / medial temporal lobe | [[wiki/concepts/complementary-learning-systems.md]], [[wiki/concepts/simulation-based-planning.md]], [[wiki/concepts/offline-replay.md]], [[wiki/concepts/pattern-separation-completion.md]], [[wiki/concepts/cognitive-map.md]] | `raw/liao-2024-single-shot-many-shot-hippocampus.md`, `raw/yassa-2011-pattern-separation-hippocampus.md`, `raw/bakker-2008-pattern-separation-ca3-dentate.md` |
 | Prefrontal cortex | [[wiki/concepts/working-memory.md]], [[wiki/concepts/meta-learning.md]] | `raw/wang-2018-pfc-meta-rl-system.md`, `raw/friedman-2021-prefrontal-cognitive-control.md` |
 | Entorhinal grid cells | [[wiki/concepts/abstract-structural-codes.md]] | `raw/constantinescu-2016-gridlike-code-concepts.md` |
 | Differentiable neural computer | [[wiki/concepts/working-memory.md]] | `raw/graves-2016-differentiable-neural-computer.md` |

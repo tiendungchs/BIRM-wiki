@@ -43,7 +43,7 @@ Entorhinal cortex (EC) layer II → dentate gyrus (DG) → CA3 → CA1, a primar
 |---|---|---|
 | **DG** | Separates at the *smallest* input changes; steeply nonlinear | Simultaneous DG/CA3 recordings under incremental environment morphs |
 | **CA3** | Nonlinear but shifted right: completes for small input changes (cue rotation within a room), separates for large ones (different room) | Cue-mismatch recordings, two-environment recordings, and immediate-early gene (IEG) population imaging — three studies that looked contradictory until plotted against input magnitude |
-| **CA1** | Linear — neither separates nor completes | Same studies; human high-resolution fMRI |
+| **CA1** | Linear — neither separates nor completes | Same studies; human high-resolution fMRI — though the human study's own bias score puts CA1 at 0.59–0.83, i.e. completion-biased rather than on the identity line (Bakker et al. 2008, below) |
 
 **Two codes for separation, not one** (DG/CA3 recordings):
 
@@ -55,6 +55,43 @@ Entorhinal cortex (EC) layer II → dentate gyrus (DG) → CA3 → CA1, a primar
 **"Statistically independent" is a claim about place cells alone, and it does not survive conditioning on the grid code.** Simultaneously recorded grid and place cells in two cue-different environments retain their relationship across a global remap — grid rate at the place-field peak, and place-peak-to-grid-peak distance, are both correlated across environments (Whittington et al. 2018; [[wiki/empirical-tensions.md]] T39). So separation at the level of the hippocampal population is compatible with *no* separation at the level of the `g`↔`p` mapping, which is what lets a remapped map inherit structure instead of starting over ([[wiki/entities/tolman-eichenbaum-machine.md]]).
 
 Under global remapping the two subfields differ in *kind*: DG re-codes within the **same** active cells, CA3 recruits a **different population**. Whether these are two mechanisms or one continuum, and what selects between them, is stated as open.
+
+---
+
+## Measuring the bias without unit resolution
+
+Bakker et al. 2008 is the wiki's primary human source for the DG/CA3 separation claim, and its transferable contribution is not the localisation but a **scalar estimator of where a layer sits on the transfer curve, computed from mean activity alone** — no unit resolution, no upstream recording, no labels.
+
+Design: 18 subjects, high-resolution fMRI (1.5 mm³), *incidental* encoding — subjects judged whether each pictured object is typically indoor or outdoor, never whether they had seen it. Each trial is one of three types: **first presentation**, exact **repeat**, or **lure** (a slightly different picture of the same object; 144 such sets, plus unrelated foils). Repetition suppression supplies two anchors — activity for a novel item and activity for a known one — and the lure is the probe placed between them:
+
+```
+bias = (1st − Lure) / (1st − Repeat)
+```
+
+| bias | Reading |
+|---|---|
+| → 0 | the lure was treated as a novel item — a new code was allocated — **separation** |
+| → 1 | the lure was treated as a repeat — the stored code was reinstated — **completion** |
+
+| Region | bias | Lure vs. repeat | Lure vs. first |
+|---|---|---|---|
+| **CA3/DG** (bilateral) | **0.15** | different, `p < 0.001` both sides | *not* different (`p = 0.075`, `p = 0.871`) |
+| CA1 (right), CA1/3/DG (left), subiculum, entorhinal cortex, parahippocampal cortex | **0.59 – 0.83** | not different | different (`p < 0.001` to `p < 0.01`) |
+
+Three things this buys the wiki that the rodent transfer-curve literature does not:
+
+1. **Separation is domain-general, not spatial.** The stimuli are object photographs and the task is not overtly mnemonic or spatial, yet the DG/CA3 bias is as extreme as in place-cell remapping experiments. The fast store's de-aliasing operation is not a navigation mechanism that reasoning would have to borrow — it already runs on arbitrary content.
+2. **A cover task is methodologically necessary, not just convenient.** An explicit "old / similar / new" judgement invites a *recall-to-reject* strategy: retrieve the original (completion), then compare it to the stimulus. Any explicit discrimination task therefore measures separation, completion, encoding and retrieval mixed together. The bias score avoids this only because the subject is never asked to discriminate.
+3. **The estimator needs only three stimulus conditions and one scalar per site.** **(brainstorm)** The machine version is immediate and cheap: present a model triplets of (novel input, exact repeat, near-duplicate), take any layer's mean activation, and compute the same ratio. It yields a per-layer separation/completion profile with self-generated anchors and no ground-truth labels — i.e. the first runtime-measurable read-out of gap G38's knob, usable both as a diagnostic and as the error signal a controller would descend.
+
+**What the estimator cannot see** (the source's own limits, and they transfer with it):
+
+- It is a *contrast* measure. A layer that separates while holding mean activity constant across the three conditions is invisible to it — a real hazard for machine layers with normalised activations.
+- It cannot distinguish separating from *receiving already-separated input*. Sites downstream of a separator score the same as the separator.
+- A rate-coding alternative survives: the same population firing at novelty-graded rates, with DG/CA3 simply less tolerant of small changes, would produce the same numbers. The authors argue against it (the pattern is unlike known MTL novelty signals, and rodent recordings do show population re-coding) but do not exclude it.
+- fMRI cannot resolve CA3 from DG at any achievable resolution, so the 0.15 is a property of the combined write-and-store stage, not of either alone.
+
+**The CA1 numbers do not say "linear".** [[wiki/empirical-tensions.md]] T33 records this study on the side of "CA1 relays"; what it actually shows is a CA1 bias of 0.59–0.83, i.e. squarely on the *completion* side, statistically indistinguishable from a true repeat. The support it gives position A is only the negative half — CA1 does not separate — and the positive half (CA1 sits on the identity line) is not in this data.
 
 ---
 
@@ -149,7 +186,7 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 - **The Δ-input axis is not calibrated.** Studies alter cue configurations, object identities, rooms, or picture categories, and plot them all as "environmental change". Linearly distorting the environment need not linearly distort the internal representation, so the *position* of a subfield's curve is not comparable across studies. Strictly the axis should be the **neural** input from EC, which is not manipulable.
 - **Remapping ≠ separation, stability ≠ completion.** They coincide only when the input patterns were similar-but-not-identical and the upstream input is known.
 - **Multi-day discrimination-learning tasks do not isolate separation** unless input similarity is manipulated parametrically with an unimpaired high-dissimilarity control.
-- **fMRI cannot resolve DG from CA3**, even at high resolution — which may be the whole source of the human/rodent discrepancy (humans separate at the smallest increments; rodent CA3 completes there), if the blood-oxygen-level-dependent signal is dominated by DG perisynaptic activity.
+- **fMRI cannot resolve DG from CA3**, even at high resolution — the primary human study says so explicitly and reports a combined CA3/DG region throughout (Bakker et al. 2008) — which may be the whole source of the human/rodent discrepancy (humans separate at the smallest increments; rodent CA3 completes there), if the blood-oxygen-level-dependent signal is dominated by DG perisynaptic activity.
 - **DG/CA3 activity is not hippocampal output.** It passes through CA1, and an overt recognition task recruits separation-consistent activity across the *whole* hippocampus, while DG/CA3 activity is abrupt where behaviour is graded. The mapping from an internal separation signal to behavioural discrimination is unestablished — the same measurement problem [[wiki/concepts/representation-probing.md]] raises for probes.
 
 ---
@@ -161,7 +198,7 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 - ~~**Attractor dynamics in CA3 is a hypothesis with one supporting demonstration**~~ — **closed by Rolls 2013**, which assembles four independent lines: voltage-sensitive-dye imaging in slice (LTP from two sites, then either site alone evokes the full pattern; Jackson 2013), all-or-none selection of one learned environment under a square/circle morph (Wills 2005), within-theta-cycle flickering between two maps implying completion inside ~120 ms (Jezek 2011), and the CA3 NMDA-receptor-knockout completion deficits already listed above.
 - **Newborn vs. mature granule cells.** Loss/gain-of-function says newborn cells enable separation; a computational account says immature cells are too broadly tuned to separate and instead *integrate* patterns; a reactivation study suggests mature cells may be functionally retired. Unresolved — [[wiki/empirical-tensions.md]] T26.
 - **Only mammals evolved a DG.** Birds solve the same computational problem another way, which means the anatomy is one solution rather than the solution — relevant to whether a machine should copy the circuit or the transfer curve.
-- **Non-visual and temporal separation are untested** at the subfield level; lesion work suggests spatial and temporal separation dissociate across subfields.
+- **Non-visual and temporal separation are untested** at the subfield level (the human evidence is object pictures — visual but non-spatial, so *domain* generality is established and *modality* generality is not); lesion work suggests spatial and temporal separation dissociate across subfields.
 - **Does reward or prediction error regulate separation?** Suggested, not established.
 - **Is CA1 a relay or a second completion stage?** [[wiki/empirical-tensions.md]] T33.
 - **Every confirming experiment runs the store far below capacity.** Rolls 2013 states the predictions only bite at thousands of stored memories and that behavioural work loads it with a handful — so the separation literature is testing the mechanism outside the regime its theory is about.
@@ -183,7 +220,7 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 - **[[wiki/concepts/event-segmentation.md]]** — a discrete new-event decision and a continuous separation bias are two answers to when experience gets a fresh code; the cholinergic storage/recall switch is a candidate boundary signal.
 - **[[wiki/concepts/energy-based-models.md]]** — completion is attractor relaxation, i.e. energy minimisation over the free variables of a partial cue; separation is the constraint that keeps two stored patterns in distinct basins.
 - **[[wiki/concepts/subgraph-matching.md]]** — completion from a partial cue is the same query as "does this fragment occur in the store, and where", solved by dynamics rather than by an order embedding.
-- **[[wiki/concepts/representation-probing.md]]** — measuring a transfer curve requires recording the *upstream* input, which is the same discipline probes need: an internal code's dissimilarity means nothing without the input's.
+- **[[wiki/concepts/representation-probing.md]]** — measuring a transfer curve requires recording the *upstream* input, which is the same discipline probes need: an internal code's dissimilarity means nothing without the input's. The lure bias score runs the other way: it is a label-free instrument that page lacks, buying immunity from the probe circularity by using novel/repeat activity as its own anchors (Bakker et al. 2008).
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — a candidate import of the *scheduling/gating* type rather than the representation type: a mode signal that switches a store between writing separately and reading associatively.
 - **[[wiki/concepts/cognitive-map.md]]** — the same transfer curve one level up: the separated unit is a whole map, not an episode, with global/rate remapping as the separation end and all-or-nothing attractor selection under ambiguous cues — in human multivoxel patterns as well as rodent place cells — as the completion end (Epstein et al. 2017).
 - **[[wiki/entities/cscg.md]]** — separation reduced to bookkeeping: allocating a fresh clone of an observation *is* the separation operation, with the clone-pool size standing in for the separation/completion bias as a hand-set hyperparameter (gap G38).
