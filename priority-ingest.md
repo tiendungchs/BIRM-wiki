@@ -3,40 +3,20 @@
 **One ingest per pass** - never batch ingests.
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
-## Wave 2 — hippocampal-entorhinal · the brain's cognitive-map machinery
+## Wave 3 — circuit substrate · attractors, single neurons, cortical columns
 
 One INGEST each:
 
-- [x] `yassa-2011-pattern-separation-hippocampus.md` — hippocampal-entorhinal · S · 2011
-- [x] `epstein-2017-cognitive-map-in-humans.md` — hippocampal-entorhinal · S · 2017
-- [x] `whittington-2022-how-to-build-a-cognitive-map.md` — hippocampal-entorhinal · S · 2022
-- [x] `liao-2024-single-shot-many-shot-hippocampus.md` — hippocampal-entorhinal · S · 2024
-- [x] `howard-2005-temporal-context-model-navigation.md` — hippocampal-entorhinal · F · 2005
-- [x] `rolls-2013-pattern-completion-separation.md` — hippocampal-entorhinal · F · 2013
-- [x] `sanders-2020-remapping-hidden-state-inference.md` — hippocampal-entorhinal · F · 2020
-- [x] `chen-2022-grid-like-representations-cognition.md` — hippocampal-entorhinal · F · 2022
-- [x] `schaeffer-2022-no-free-lunch-hippocampal-models.md` — hippocampal-entorhinal · F · 2022
-- [x] `whittington-2018-structural-knowledge-generalisation.md` — hippocampal-entorhinal · M · 2018
-- [x] `whittington-2020-tolman-eichenbaum-machine.md` — hippocampal-entorhinal · M · 2020
-- [x] `whittington-2022-transformers-hippocampal-formation.md` — hippocampal-entorhinal · M · 2022
-- [x] `chandra-2023-prestructured-hippocampal-memory.md` — hippocampal-entorhinal · M · 2023
-- [x] `kawahara-2025-spiking-tolman-eichenbaum-machine.md` — hippocampal-entorhinal · M · 2025
-- [x] `keck-2025-symmetry-local-rules-navigation.md` — hippocampal-entorhinal · M · 2025
-- [x] `li-2026-hippoformer-spatial-memory-transformer.md` — hippocampal-entorhinal · M · 2026
-- [x] `kumaran-2005-cognitive-maps-vs-relational-memory.md` — hippocampal-entorhinal · R · 2005
-- [x] `bakker-2008-pattern-separation-ca3-dentate.md` — hippocampal-entorhinal · R · 2008
-- [x] `seelig-2015-landmark-orientation-path-integration.md` — hippocampal-entorhinal · R · 2015
-- [x] `constantinescu-2016-gridlike-code-concepts.md` — hippocampal-entorhinal · R · 2016
-- [x] `garvert-2017-abstract-relational-knowledge-map.md` — hippocampal-entorhinal · R · 2017
-- [x] `barron-2020-inferential-reasoning-humans-mice.md` — hippocampal-entorhinal · R · 2020
-- [x] `nieh-2021-hippocampus-abstract-knowledge-geometry.md` — hippocampal-entorhinal · R · 2021
-- [x] `park-2021-social-hierarchy-grid-like-code.md` — hippocampal-entorhinal · R · 2021
-- [x] `sammons-2023-ca3-module-structure-function.md` — hippocampal-entorhinal · R · 2023
-- [x] `courellis-2024-abstract-representations-hippocampus.md` — hippocampal-entorhinal · R · 2024
-- [x] `mishchanchuk-2024-ventral-hippocampus-hidden-state.md` — hippocampal-entorhinal · R · 2024
-- [x] `zheng-2024-parallel-cognitive-maps.md` — hippocampal-entorhinal · R · 2024
-- [x] `valero-2025-interneurons-hippocampal-spatial-code.md` — hippocampal-entorhinal · R · 2025
-- [x] `sun-2025-orthogonalized-state-machine-hippocampus.md` — hippocampal-entorhinal · R · 2025
-- [x] `qu-2026-grid-codes-inference-intelligence.md` — hippocampal-entorhinal · R · 2026
-- [-] `talk-nd-brain-organizes-information.txt` — hippocampal-entorhinal · X · nd — **skipped at gate**: tertiary explainer (popular-science video, no primary data); every claim already carried at higher resolution by wave-2 primary sources — cognitive map / graph formalism ([[wiki/concepts/cognitive-map.md]], [[wiki/concepts/latent-graph-discovery.md]]), cell zoo and structural code ([[wiki/concepts/abstract-structural-codes.md]]), non-spatial grid codes (Constantinescu 2016), evidence place fields (Nieh 2021), splitter/state cells (Sun 2025), structural×sensory factorisation and MEC/LEC streams ([[wiki/entities/tolman-eichenbaum-machine.md]])
-
+- [x] `kanerva-1993-sparse-distributed-memory.md` — attractor-dynamics · F · 1993
+- [ ] `mark-2017-theta-flickering-place-cell-maps.md` — attractor-dynamics · M · 2017
+- [ ] `chaudhry-2023-long-sequence-hopfield-memory.md` — attractor-dynamics · M · 2023
+- [ ] `li-2024-adaptive-cann-dynamics.md` — attractor-dynamics · M · 2024
+- [ ] `podlaski-2025-gated-associative-memory-capacity.md` — attractor-dynamics · M · 2025
+- [ ] `englert-2026-brain-attractor-dynamics.md` — attractor-dynamics · R · 2026
+- [ ] `crouse-2022-hopfield-networks-memory-machines.md` — attractor-dynamics · X · 2022
+- [ ] `talk-nd-boltzmann-machines.txt` — attractor-dynamics · X · nd
+- [ ] `ahmad-2016-sparse-representations-active-dendrites.md` — neuron-models · F · 2016
+- [ ] `chavlis-2025-dendritic-anns.md` — neuron-models · M · 2025
+- [ ] `talk-nd-hodgkin-huxley-model.txt` — neuron-models · X · nd
+- [ ] `douglas-2004-neocortical-circuits.md` — cortical-columns · S · 2004
+- [ ] `talk-nd-thousand-brains-theory.txt` — cortical-columns · X · nd
