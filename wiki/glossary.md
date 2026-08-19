@@ -58,6 +58,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SS | Sign-Symmetry | Feedback weights random in magnitude, sign-matched to the forward weights |
 | SSL | Self-Supervised Learning | Training on dependencies within the input; here, pattern completion of unobserved parts |
 | TD | Temporal Difference (learning) | Learns from successive predictions rather than final outcomes |
+| BPTT | Backpropagation Through Time | Credit assignment in recurrent nets by unrolling; truncation length bounds the gradient horizon, not necessarily the model's memory |
+| ELBO | Evidence Lower Bound | The variational objective maximised in place of the intractable log-likelihood |
 | VAE / VQ-VAE | Variational / Vector-Quantized Auto-Encoder | Noise- and quantisation-based latent-capacity regularisers |
 | VICReg | Variance-Invariance-Covariance Regularization | Non-contrastive JEPA criterion: variance hinge per component + covariance decorrelation |
 | ξ | Universal semimeasure | `Σ_p 2^-l(p)` over programs producing the observed string; dominates every enumerable semimeasure |

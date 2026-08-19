@@ -52,6 +52,8 @@ Entorhinal cortex (EC) layer II → dentate gyrus (DG) → CA3 → CA1, a primar
 | **Rate remapping** | Firing rates change within a stable place map; new activity pattern largely orthogonal to old | Smaller input change (medial entorhinal input unchanged) |
 | **Global remapping** | Rate *and* place statistically independent — complete reorganization | Larger input change (different room) |
 
+**"Statistically independent" is a claim about place cells alone, and it does not survive conditioning on the grid code.** Simultaneously recorded grid and place cells in two cue-different environments retain their relationship across a global remap — grid rate at the place-field peak, and place-peak-to-grid-peak distance, are both correlated across environments (Whittington et al. 2018; [[wiki/empirical-tensions.md]] T39). So separation at the level of the hippocampal population is compatible with *no* separation at the level of the `g`↔`p` mapping, which is what lets a remapped map inherit structure instead of starting over ([[wiki/entities/tolman-eichenbaum-machine.md]]).
+
 Under global remapping the two subfields differ in *kind*: DG re-codes within the **same** active cells, CA3 recruits a **different population**. Whether these are two mechanisms or one continuum, and what selects between them, is stated as open.
 
 ---
@@ -172,6 +174,7 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 - **[[wiki/concepts/complementary-learning-systems.md]]** — supplies the mechanism behind the "sparse conjunctive code" that page asserts: separation is what makes the fast store's codes non-overlapping, and it is a tunable transfer curve rather than a fixed sparsity level.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — separation is de-aliasing (hardness source 3) and completion is retrieval; the transfer curve is the allocate-vs-reuse decision made by degree.
 - **[[wiki/concepts/contextual-inference.md]]** — the same allocate-vs-reuse question answered normatively (a responsibility posterior over a growing library) rather than mechanistically; the transfer curve is what that posterior looks like compiled into fixed circuitry.
+- **[[wiki/entities/tolman-eichenbaum-machine.md]]** — bounds what separation is allowed to do: whole-map separation must preserve the place-to-grid relationship, otherwise the structural code cannot be reused in the new map (T39).
 - **[[wiki/entities/hidden-state-inference-remapping.md]]** — states the how/why relation to this page explicitly, replaces the uncalibrated input-change axis with likelihood under a learned generative distribution, and offers `α` as a learnable and anatomically graded version of the separation knob (gap G38).
 - **[[wiki/concepts/continual-learning.md]]** — names catastrophic interference as the problem separation exists to prevent, and supplies the alternative solution family (gate the weights) to this one (orthogonalize the codes before writing).
 - **[[wiki/concepts/synaptic-plasticity.md]]** — separation and completion are both NMDA-receptor-dependent, and adult neurogenesis appears here as the capacity-adding mechanism whose learning role that page lists as unestablished.
