@@ -64,6 +64,27 @@ The last two rows are the ones this wiki has least of: composition at the level 
 
 ---
 
+## Bases that come pre-credit-assigned, and when factorisation stops paying
+
+The hippocampal-formation models supply a vocabulary of *spatial* bases and one strong claim about what composition is for (Whittington et al. 2022).
+
+| Basis type | Cells | Property |
+|---|---|---|
+| **Local bases** | Object-vector, border-vector, reward and goal-vector cells | Code *any* object/border/goal, irrespective of where it is — a slot with a free filler |
+| **Global bases** | Grid cells | Describe information equally across the whole space |
+
+Two exports:
+
+**1. Composition can carry value, not just structure.** If a goal-vector basis is learned with a policy or value already attached, then a new goal configuration is handled by composing bases rather than by learning — the only online work is *inferring which bases apply*. Credit assignment becomes a retrieval-and-compose problem ([[wiki/concepts/cognitive-map.md]]). What makes this possible is that the bases path-integrate: one instance at the goal generates the rest for free ([[wiki/concepts/path-integration.md]]).
+
+**2. Factorisation is a trade-off with a predicted switch.** Grid cells were thought factorised from everything non-spatial, but they *warp* toward consistently rewarded locations — and a warped code is by definition environment-specific, so it does not transfer. The proposed rule:
+
+> When the set of tasks an animal faces is itself factorised, the representations for those tasks will be factorised; when task components always co-occur in the same combination, a bespoke entangled code is cheaper.
+
+Storing one warped representation beats storing and combining many bases *if you never switch tasks*. This is the first statement in the wiki that compositional representation has a **cost** and that a non-compositional code can be the correct answer — and it makes a falsifiable prediction (vary how often reward configurations change; watch grid warping appear and disappear). Nothing controls this knob in a machine (gap G40).
+
+---
+
 ## Open problems
 
 - **Coherence has no operational definition.** "Causality is the glue" names the requirement without saying what computes it. The wiki's only mechanised candidate is composition-as-relaxation to a joint free-energy minimum, where a composition that has no low-energy state is simply never built ([[wiki/concepts/predictive-coding-free-energy.md]], gap G22).
@@ -91,3 +112,6 @@ The last two rows are the ones this wiki has least of: composition at the level 
 - **[[wiki/concepts/intelligence-density.md]]** — makes composition constitutive rather than instrumental: meaning over a domain *is* the correct selection and ordering of primitive functions, so a system that generalizes necessarily holds a compositional arrangement, and syntax fails to be semantics exactly when the arrangement does not generalize.
 - **[[wiki/concepts/subgraph-matching.md]]** — composition dictating a training schedule: subgraph containment composes across message-passing layers, so a matcher must be trained on monotonically growing queries (+6% AUROC, lower variance) rather than on the full distribution at once (Ying et al. 2020).
 - **[[wiki/concepts/contextual-inference.md]]** — the counterexample that shows retrieval and composition are separable: it gets allocation and graded retrieval over an unbounded memory library right while the memories remain exchangeable atoms with no internal structure to compose (Heald et al. 2021).
+- **[[wiki/concepts/path-integration.md]]** — a second, algebraic kind of composition: actions compose by addition with closure enforced by the update rule, which is the only case in the wiki where a composition's coherence is guaranteed rather than checked.
+- **[[wiki/concepts/successor-representation.md]]** — the default-representation variant composes at the level of cell types (grid × border to represent an inserted barrier) with no retraining, which is composition of *state-space bases* rather than of concepts.
+- **[[wiki/entities/tolman-eichenbaum-machine.md]]** — learns factorised entorhinal bases from next-observation prediction, and marks the boundary: space and task were learned in one fixed pairing, so a T-maze-to-W-maze change breaks it.

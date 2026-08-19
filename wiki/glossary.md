@@ -60,6 +60,14 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | VAE / VQ-VAE | Variational / Vector-Quantized Auto-Encoder | Noise- and quantisation-based latent-capacity regularisers |
 | VICReg | Variance-Invariance-Covariance Regularization | Non-contrastive JEPA criterion: variance hinge per component + covariance decorrelation |
 | ξ | Universal semimeasure | `Σ_p 2^-l(p)` over programs producing the observed string; dominates every enumerable semimeasure |
+| SR | Successor Representation | Discounted expected future state occupancy, `S = ΣγⁿTⁿ`; value is `Sr` ([[wiki/concepts/successor-representation.md]]) |
+| DR | Default Representation | SR-like representation built for default behaviour and linearly updatable when rewards change; from linear RL |
+| CSCG | Clone-Structured Cognitive Graph | Hidden Markov model with a frozen clone pool per observation ([[wiki/entities/cscg.md]]) |
+| TEM | Tolman-Eichenbaum Machine | Path-integrating structural code plus relational memory ([[wiki/entities/tolman-eichenbaum-machine.md]]) |
+| SMP | Spatial Memory Pipeline | TEM's sibling, trained from egocentric pixels with a machine-learning memory network |
+| CANN | Continuous Attractor Neural Network | Recurrent network whose weights support a continuum of stable states; the classical path-integration substrate |
+| VCO | Velocity-Coupled Oscillator | Path integration by phase interference between theta and velocity-modulated dendritic oscillations |
+| EM | Expectation-Maximisation | Alternating latent-inference / parameter-update algorithm; how CSCG is trained |
 
 ## Neuroscience
 
@@ -88,6 +96,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MVPA / RSA | Multi-Voxel Pattern Analysis / Representational Similarity Analysis | Decoding from distributed fMRI patterns; RSA compares pattern similarity structure to a hypothesised representational geometry |
 | STDP | Spike-Timing-Dependent Plasticity | Hebbian rule whose sign depends on pre/post spike order |
 | V1 | Primary Visual Cortex | Simple/complex cells; origin of convolutional architecture |
+| MEC / LEC | Medial / Lateral Entorhinal Cortex | Structural (grid-like, path-integrating) and sensory input streams to hippocampus respectively |
+| OVC / BVC / GVC | Object-Vector / Border-Vector / Goal-Vector Cell | Local bases: fire at a given distance and direction from any object, border or goal ([[wiki/concepts/compositionality.md]]) |
+| Splitter cell | — | Fires at the same location differently depending on the trajectory through it; a latent-state code |
 
 ## Benchmarks
 

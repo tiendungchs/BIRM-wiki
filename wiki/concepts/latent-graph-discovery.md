@@ -95,7 +95,7 @@ Mapping to the two-timescale factorization (W = slow **w**eights, gradient-updat
 |---|---|---|
 | **1. Two-level entanglement** | Meta-graph rules and instance quirks co-occur in every observation | Factorized latent space + two learning rates |
 | **2. Unknown vocabulary** | Action set and/or node types not given; inferred alongside structure | Learnable observation and transformation embeddings. **A knob, from the energy reading:** if an edge label is a latent variable, the vocabulary's size is that latent's *information capacity*, controllable by discretisation, rank, sparsity or noise ([[wiki/concepts/energy-based-models.md]]) — `k` discrete values give at most `k` labels, a `d`-dimensional latent gives a `d`-dimensional family. The vocabulary question becomes a regularisation question |
-| **3. Observation aliasing** | The same observation occurs at structurally distinct positions | Clone cells or path-integrated identity |
+| **3. Observation aliasing** | The same observation occurs at structurally distinct positions | Clone cells or path-integrated identity — both now built: a frozen per-observation clone pool learned by expectation-maximisation ([[wiki/entities/cscg.md]]) and an action-accumulated code ([[wiki/concepts/path-integration.md]]). Sequences are what make it soluble at all: identical observations do not have identical futures |
 | **4. Simultaneity** | Structure must be inferred *while* navigating — no discovery-then-use separation | Joint loop: update graph estimate and navigate concurrently. Butz 2016's predictive processing loop (predict → fuse sensory evidence → relax to mutual consistency, every cycle, while acting) is joint at the *instance* level; its weights still adapt slowly, so the meta level keeps the separation |
 | **5. Spurious edges** | Training correlations produce false edges that work in-distribution and fail out of it — the *default* outcome, not a corner case (Geirhos et al. 2020) | Force invariant causal edge discovery across environments; explicit intermediate-node traversal |
 | **6. Non-stationary topology** | The edge set rewrites *within a single episode*, violating the fixed-but-hidden assumption shared by 1–5 | Discover the stationary generator of the rewrites; re-infer the instance-graph online |
@@ -126,7 +126,7 @@ And the shift must be one the *architecture's developer* did not see either: Cho
 | Meta-graph learning | Slow W update over many episodes |
 | Instance-graph binding | Fast Hebbian M within episode |
 | De-aliasing | Path-context-sensitive identity (clone cells or path-integrated g) |
-| Path-consistency | g must commute: same meta-graph position via any path |
+| Path-consistency | g must commute: same meta-graph position via any path — supplied by an additive update over composing actions ([[wiki/concepts/path-integration.md]]), where it holds by construction, on domains whose actions compose (G41) |
 | Vocabulary learning | Observation + action embeddings learnable, not fixed |
 | Causal edge invariance | Edges learned from invariant causal structure, not i.i.d. correlations |
 | Multi-level hierarchy | W itself structured as a discoverable graph (open problem) |
@@ -198,3 +198,7 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 - **[[wiki/entities/maze-solving-transformers.md]]** — the cleanest available separation of discovery from use: the whole maze is linearly decodable from one token's residual stream at layer 2, and the rollouts it supports still cross walls (Ivanitskiy et al. 2023).
 - **[[wiki/concepts/pattern-separation-completion.md]]** — the biological form of the allocate-vs-reuse decision: de-aliasing (hardness 3) and retrieval are the two ends of one transfer curve mapping input similarity to output similarity, tuned rather than switched (Yassa & Stark 2011).
 - **[[wiki/concepts/cognitive-map.md]]** — this framing in its home domain, and the source of a third operation beside discovery and navigation: *anchoring*, fixing which stored structure applies and where the agent currently sits on it, with boundaries and geometry as the cues that do the fixing (Epstein et al. 2017, gap G39).
+- **[[wiki/concepts/path-integration.md]]** — the compressed alternative to storing a graph, and the wiki's first mechanism (rather than brainstorm) for path-consistency of `g`: identity accumulated from actions, so new nodes cost nothing and generalisation needs no graph matching (Whittington et al. 2022).
+- **[[wiki/concepts/successor-representation.md]]** — what a state-space is *for*, once discovered: a discounted future-occupancy matrix that makes value a linear read-out and multi-step planning a spectral operation.
+- **[[wiki/entities/cscg.md]]** — hardness source 3's clone-cell answer built: a frozen 0/1 emission per observation converts state-space discovery into transition learning, fast and local, with zero transfer.
+- **[[wiki/entities/tolman-eichenbaum-machine.md]]** — the two-level hierarchy realised end-to-end: a shared path-integrating meta-graph plus a one-shot relational memory binding this instance's contents, trained only to predict the next observation.
