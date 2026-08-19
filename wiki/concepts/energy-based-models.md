@@ -98,6 +98,19 @@ The last row qualifies the standard statement (carried on [[wiki/entities/dense-
 
 ---
 
+## Equilibrium propagation: the energy determines the learning rule
+
+If a network's *dynamics* are the minimisation of `F_w`, then its *plasticity* is fixed by the same scalar (Scellier & Bengio 2017; Whittington & Bogacz 2019). Relax to equilibrium with only the input given and take a step **up** the energy in weight space; clamp the output nearer the target, relax again, take a step **down**. The two-term update is `∂F/∂W` evaluated at two equilibria — local, no weight transport, no backward pass — and it is what the contrastive Hebbian rule of [[wiki/entities/boltzmann-machine.md]] already was.
+
+| Energy | Instance | Phases |
+|---|---|---|
+| Hopfield energy (dissimilarity between strongly connected nodes) | continuous Hopfield nets, contrastive learning | Two |
+| Free energy (bounds `log p(target \| input)`) | predictive coding, dendritic error | **One** — the free phase already sits at the global minimum, so the first term vanishes |
+
+Two things this is worth to a builder. (i) It removes a design choice: **specify architecture + energy, and the local learning rule is derived rather than invented** — the pitch of this page's formalism extended from inference to learning. (ii) It supplies a *reason* to prefer a probabilistically interpretable energy over an arbitrary one: the biologically plausible networks that perform best minimise free energy, which is exactly the case where `F` is not merely a compatibility score but a likelihood bound. That cuts against this page's own "not a log-probability" stance and is logged as such.
+
+---
+
 ## Connections
 
 - **[[wiki/entities/vector-hash.md]]** — the landscape *designed* rather than fitted: minima are positioned, sized and shaped by a frozen code before any data arrives, which is why they come out convex, uniform and spurious-free, and content is attached by a separate feedforward layer that never touches the energy function.
@@ -126,3 +139,4 @@ The last row qualifies the standard statement (carried on [[wiki/entities/dense-
 - **[[wiki/entities/hopfield-network.md]]** — the minimal complete instance of this page's formalism: a quadratic energy `F(s) = −½ sᵀWs` whose inference is literally descent to a minimum, and the Hebbian write that produces the overlapping basins and spurious minima the "landscape geometry" section contrasts with orthogonal storage.
 - **[[wiki/entities/boltzmann-machine.md]]** — the mechanism behind this page's central asymmetry (pushing data energy down is trivial, pushing everything else up is the whole problem): `−log Z` is the "everything else", and its gradient is estimated by free-running the network, which is the MCMC/contrastive-divergence row of the table above written out as an update rule.
 - **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the closest biological reading of relaxation-as-inference: superficial cortical layers settling under mutual perisomatic inhibition toward an interpretation consistent with feedforward, lateral and feedback input, with the deep layers acting as the read-out that commits and then constrains the input stream (Douglas & Martin 2004).
+- **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — the biological payoff of the energy formalism: equilibrium propagation turns `∂F/∂W` at two equilibria into a local Hebbian/anti-Hebbian rule, so an energy-based net is trainable without weight transport or a backward pass.

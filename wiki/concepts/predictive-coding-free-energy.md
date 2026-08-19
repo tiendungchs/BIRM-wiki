@@ -30,6 +30,16 @@ e^{S_{i−1}} = y^{S_{i−1}} − (W^{S_i})^T·y^{S_i}                          
 
 The last row is the operational point: **the same circuit becomes a simulator by turning two scalars**, with no separate imagination machinery. See [[wiki/concepts/simulation-based-planning.md]].
 
+**Run the same circuit supervised and it becomes backpropagation.** Predictive coding was formulated for unsupervised learning (Rao & Ballard 1999), but clamping *both* the input and the output layer turns it into a credit-assignment algorithm: the error nodes can no longer relax to zero, and the values they settle on are the backpropagated `δ_l` of Equation 1.5, to a close approximation (Whittington & Bogacz 2017, 2019). Three consequences the wiki should carry:
+
+| | Statement |
+|---|---|
+| **Autonomy** | The dynamics and the plasticity rule are the *same* whether or not a target is supplied. With the output unclamped the errors go to zero, so the Hebbian update is zero — no phase signal, no wake/sleep switch, no supervisor telling the circuit which mode it is in |
+| **Cost** | Information must pass *through* an error node at every hop, so a prediction in an `L`-layer network costs `2L−1` synaptic delays against `L−1` for a feedforward net. Fast to train, permanently slow to run |
+| **Anatomical debt** | Each error node needs a one-to-one connection to its value node, which cortex does not show. Recasting the error into the **apical dendrite** of the value neuron itself (the dendritic-error model) removes the extra cell but re-incurs the same one-to-one debt on pyramidal→interneuron connections |
+
+The last row matters because it means "predictive coding" and "dendritic error learning" are not competing hypotheses: substituting `ε_l = y_l − W_{l−1}y_{l−1}` into the value-node dynamics *is* the pyramidal-neuron equation, with the error node's inhibition reappearing as a within-layer interneuron. See [[wiki/concepts/biologically-plausible-credit-assignment.md]].
+
 ---
 
 ## Three structural priors (the paper's central proposal)
@@ -118,7 +128,7 @@ Step 3 is the expensive one and is explicitly acknowledged as intractable in gen
 - **[[wiki/concepts/abstract-structural-codes.md]]** — spatial predictive encodings are a second, learned candidate for `g`: content-invariant frame-of-reference mappings acquired from multimodal correlation, where grid codes are periodic and given.
 - **[[wiki/concepts/attention.md]]** — attention here is *action abstracted from execution*: the same active-inference machinery pointed at internal encodings, which is what makes thought and behaviour one mechanism.
 - **[[wiki/concepts/working-memory.md]]** — `α = β = γ = 0` is maintenance in the absence of evidence, i.e. active maintenance recovered as a limiting case of the inference update rather than as a dedicated store.
-- **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — predictive coding is the local rule this page runs on; the error `e` is computed within a layer, so no weight transport is needed.
+- **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — predictive coding is the local rule this page runs on; the error `e` is computed within a layer, so no weight transport is needed — and clamping the output layer turns the same circuit into a close approximation of backpropagation, at a cost of `2L−1` synaptic delays per forward pass and a one-to-one error↔value wiring the cortex does not show (Whittington & Bogacz 2019).
 - **[[wiki/concepts/core-knowledge.md]]** — the direct rival on origins: this page derives "innate" conceptual primitives from very early sensorimotor prediction (tension T12), while supplying the same *kind* of thing — a small set of installed structural biases.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the slow half of the update (`W` adaptation to minimise residual error) is a local, error-driven write rule, and the precision gates are a metaplasticity-like control over how much it writes.
 - **[[wiki/concepts/shortcut-learning.md]]** — the three typed prediction channels are an architecture-lever bet against shortcuts: a spatial or temporal channel cannot express a purely appearance-based rule.
