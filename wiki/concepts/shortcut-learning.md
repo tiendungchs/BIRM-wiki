@@ -127,6 +127,7 @@ The last family is the instrument the wiki actually needs: a *controlled* shortc
 
 ## Connections
 
+- **[[wiki/entities/hag-reservoir.md]]** — the objection transposed onto architecture search: a purely unsupervised structural rule wires together whatever co-fluctuates in the input, so a high-variance nuisance regularity gets an edge as readily as a task-relevant one — "task-specific" there means specific to the input distribution, never to the task.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — a shortcut *is* hardness source 5 realized: an edge that fits in-distribution and breaks out of it; this page supplies the evidence that it is the default outcome and that i.i.d. evaluation cannot detect it.
 - **[[wiki/concepts/meta-learning.md]]** — the environment family the outer loop samples is the multi-environment signal that makes invariant (causal) edges identifiable, so fast adaptation and shortcut resistance are the same property viewed twice.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — Morgan's Canon is the discipline this transfer channel needs in reverse: matched behaviour licenses no inference about the algorithm, and biological learners take shortcuts too, so the brain supplies better priors rather than immunity.

@@ -60,6 +60,7 @@ The wiki's stake in SNNs is not efficiency. It is [[wiki/empirical-tensions.md]]
 
 ## Connections
 
+- **[[wiki/entities/hag-reservoir.md]]** — why a non-negative-weight constraint is worth accepting on this substrate: hardware realising only positive weights otherwise needs `w = w⁺ − w⁻` differential pairs (double the devices), and grown excitatory-only connectivity recovers the decorrelation the missing sign would have supplied.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — STDP is defined on spike times, so the rule family and this substrate presuppose each other; the substrate is what makes the timing term meaningful.
 - **[[wiki/concepts/temporal-coding.md]]** — the quantitative case for this page's central claim, plus its ceiling: 20–25 µs single-unit precision from a 250 µs postsynaptic potential, but behaviour-level 5 µs only after population-vector decoding over ~100 units and 100 ms, so the single spike time is not the message even here.
 - **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — SNNs are the hard case that forces the issue: backpropagation does not merely lack a biological story here, it fails outright on the discrete nonlinearity, so local rules are mandatory rather than optional.

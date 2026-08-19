@@ -183,6 +183,7 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 
 ## Connections
 
+- **[[wiki/entities/hag-reservoir.md]]** — this page's problem run one level down, on the network's own wiring rather than on the environment's states: a local unsupervised rule grows the edge set from co-fluctuation statistics, and inherits both limitations verbatim — correlation is symmetric, so no edge is directed, and nothing carries the discovered structure from one environment to the next.
 - **[[wiki/entities/vector-hash.md]]** — the same storage-and-retrieval layer at exponential capacity and with the discovery layer removed by construction: `g` is installed and frozen, the assignment of content to a position in `g` is *random*, and the traversal order for a non-spatial episode is supplied by the modeller.
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — a fully worked storage-and-retrieval layer with the discovery layer absent: arbitrary one-trial bindings, exact completion from any fragment, closed-form capacity, and no mechanism that notices two episodes share a relational form.
 

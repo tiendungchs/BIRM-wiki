@@ -85,6 +85,7 @@ For [[wiki/concepts/latent-graph-discovery.md]] the relevant operation is **node
 
 ## Connections
 
+- **[[wiki/entities/hag-reservoir.md]]** — an empirical ceiling on the expansion-recoding premise this page shares with Cover's theorem: in grown reservoirs, effective dimensionality and class separability come apart, and past a dataset-dependent point extra principal components add noise rather than linear separability (Cazalets et al. 2025).
 - **[[wiki/entities/sparse-distributed-memory.md]]** — the same statistics reached from the storage side rather than the recognition side: Kanerva's `pM` signal against `p²M` cross-talk is this page's overlap arithmetic with the roles of address and content swapped, and the two agree that high dimension plus sparsity, not plasticity, is what does the separating.
 - **[[wiki/concepts/dendritic-computation.md]]** — the biological instantiation this theory was written for: each dendritic segment *is* one `θ`-threshold overlap detector, which is what turns these scaling laws into a prediction about a measurable constant.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — the transfer curve for a subsampling detector, derived: `θ/s` sets the position on it (low `θ` completes and risks false positives, high `θ` separates and risks misses), and this page adds the constraint that *no* setting works at 50% density — separation is a property of the code's sparsity before it is a property of any threshold.

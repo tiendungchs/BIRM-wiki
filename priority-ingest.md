@@ -18,7 +18,7 @@ One INGEST each:
 - [x] `shervanitabar-2023-meta-learning-plasticity-rules.md` — plasticity · M · 2023
 - [x] `lindsey-2024-recall-gated-plasticity.md` — plasticity · M · 2024
 - [x] `wu-2025-btsp-content-addressable-memory.md` — plasticity · M · 2025
-- [ ] `cazalets-2025-hebbian-reservoir-adaptation.md` — plasticity · M · 2025
+- [x] `cazalets-2025-hebbian-reservoir-adaptation.md` — plasticity · M · 2025
 - [ ] `bi-1998-spike-timing-dependent-plasticity.md` — plasticity · R · 1998
 - [ ] `sadtler-2014-neural-constraints-learning.md` — plasticity · R · 2014
 - [ ] `bartunov-2018-biologically-motivated-dl-scalability.md` — plasticity · R · 2018

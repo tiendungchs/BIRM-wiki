@@ -47,6 +47,13 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | K(x) | Kolmogorov complexity | Length of the shortest program printing `x` |
 | LGD | Latent Graph Discovery | The wiki's core problem framing |
 | LSTM | Long Short-Term Memory | Gated recurrent architecture |
+| GRU | Gated Recurrent Unit | Gated recurrent architecture with one fewer gate than LSTM; the gradient-trained baseline in [[wiki/entities/hag-reservoir.md]] |
+| RC | Reservoir Computing | Map an input stream through a fixed random recurrent network and train only a linear readout ([[wiki/entities/hag-reservoir.md]]) |
+| ESN | Echo State Network | The discrete-time rate-based instance of RC; `x[t+1] = σ(Wx[t] + W_in u[t] + b)` with only `W_out` trained |
+| HAG | Hebbian Architecture Generation | Grows an ESN's recurrent edges from an empty matrix by homeostasis-gated long-window correlation (Cazalets et al. 2025) |
+| IP | Intrinsic Plasticity | Per-neuron gain/bias adaptation toward a target output distribution; the standard plastic-reservoir baseline |
+| CEVD | Cumulative Explained Variance Dimensionality | Fewest principal components reaching a variance threshold (0.9); a *linear* effective-dimensionality estimate, subject to the curvature caveat in [[wiki/concepts/population-geometry.md]] |
+| NRMSE | Normalized Root Mean Square Error | Forecasting error metric |
 | LVEBM | Latent-Variable Energy-Based Model | `F(x,y) = min_z E(x,y,z)`; the latent parameterises which relationship holds |
 | MCTS | Monte Carlo Tree Search | Forward search used to improve a value function or policy |
 | BIC | Bayesian Information Criterion | Model comparison score penalising parameter count; the COIN-vs-dual-rate comparison is reported as ΔBIC in nats ([[wiki/entities/coin-model.md]]) |

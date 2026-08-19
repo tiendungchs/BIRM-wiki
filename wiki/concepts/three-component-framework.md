@@ -175,6 +175,7 @@ The worked prediction: a hierarchical network trained with a reward objective on
 
 ## Connections
 
+- **[[wiki/entities/hag-reservoir.md]]** — a rule that changes the *architecture* slot instead of the learning-rule or objective slot, and a clean instance of this page's demand going unmet: connectivity grown by homeostasis-gated correlation measurably decorrelates the code and improves class separation, but no quantity is named that the growth ascends, so the gain is observed rather than derived.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the specification language for every candidate answer on that page: a mechanism counts as a design only once it is stated as an objective, a learning rule, or a connectivity constraint, and the `g`/`x` factorization currently has no objective.
 - **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — that page's families are all *learning-rule* proposals, and this page adds the bias/variance axis on which they are scored against backpropagation. The equilibrium-propagation result cuts the other way across the three slots: fix an architecture and an energy function and the learning rule is *derived*, so two of the three slots collapse into one choice.
 - **[[wiki/concepts/shortcut-learning.md]]** — the same control surface counted differently: four levers including training data versus three components excluding it, which is the substantive disagreement recorded as tension T15.
