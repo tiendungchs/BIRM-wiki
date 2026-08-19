@@ -7,6 +7,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | Abbrev. | Expansion | Note |
 |---|---|---|
 | AIT | Algorithmic Information Theory | Kolmogorov complexity and its relatives; the formal language of both [[wiki/concepts/universal-induction.md]] and [[wiki/concepts/skill-acquisition-efficiency.md]] |
+| LSA | Latent Semantic Analysis | Word meaning from a factorised document co-occurrence matrix; read here as a retrieved-context model of semantic learning |
 | DSL | Domain-Specific Language | A restricted program space to search over; ARC's proposed solver hard-codes core-knowledge priors as one |
 | GD | Generalization Difficulty | `H(Sol^θ_T \| TrainSol^opt_{T,C}) / H(Sol^θ_T)` — how far the shortest curriculum-optimal program must be edited to work at evaluation |
 | AIXI | AI with (X) Induction (I) | Hutter's uncomputable universal agent; the formal ceiling ([[wiki/entities/aixi.md]]) |
@@ -88,6 +89,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | LTP / LTD | Long-Term Potentiation / Depression | Lasting strengthening / weakening of a synapse |
 | MEG | Magnetoencephalography | |
 | MTL | Medial Temporal Lobe | Hippocampus and surrounding cortex |
+| TCM | Temporal Context Model | Howard & Kahana's drifting-context model of episodic recall, extended to the entorhinal place code ([[wiki/entities/temporal-context-model.md]]) |
+| CRP | Conditional Response Probability | Probability of recalling an item at lag `+k`/`−k` from the one just recalled; the standard measure of temporal contiguity in free recall |
+| DMS / DNMS | Delayed (Non-)Match to Sample | Recognition tasks over a delay; the animal analogue of a recency test |
 | PFC | Prefrontal Cortex | |
 | HD cell | Head Direction cell | Fires as a function of head orientation in the navigational plane; the heading half of a cognitive map ([[wiki/concepts/cognitive-map.md]]) |
 | PPA | Parahippocampal Place Area | Scene/landmark-selective region; perceptual identification of the local place or context |
