@@ -6,6 +6,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 
 | Abbrev. | Expansion | Note |
 |---|---|---|
+| BHN | Binary Hopfield Network | The classical bipolar-state network with symmetric weights and asynchronous threshold updates ([[wiki/entities/hopfield-network.md]]) |
+| CHN | Continuous Hopfield Network | Float-valued states; exponential capacity and one-step convergence, and the update is transformer self-attention (Ramsauer et al. 2020) |
 | MHN | Modern Hopfield Network (Dense Associative Memory) | Hopfield network with a steep nonlinearity applied to the state–pattern overlap, giving polynomial or exponential item capacity ([[wiki/entities/dense-sequence-memory.md]]) |
 | GPI | Generalized PseudoInverse rule | Decorrelates stored patterns inside the separation function, `Σ_ν O⁺_{μν} m^ν`; perfect sequence recall for linearly independent patterns ([[wiki/entities/dense-sequence-memory.md]]) |
 | TAN | Temporal Association Network | Sompolinsky & Kanter 1986: symmetric "fast synapse" hold term plus asymmetric "slow synapse" transition term, capacity `≈0.1N`; the linear special case of the `MixedNet` |

@@ -1,0 +1,89 @@
+# Hopfield Network (classical binary/bipolar)
+
+**`N` bipolar units, all-to-all *symmetric* weights with zero diagonal, asynchronous threshold updates, and one-shot Hebbian outer-product storage. The dynamics monotonically decrease a scalar `E = −½ Σ_{i≠j} w_ij s_i s_j`, so the state descends into a stored pattern: memory is content-addressable because retrieval *is* relaxation, and the address of a memory is any state inside its basin.** Hopfield 1982, *PNAS* 79:2554.
+
+This page exists as the wiki's **baseline**. Nine other pages quote "≈`0.14N`", "spurious minima", "Hebbian outer product" or "energy landscape" as the thing they improve on ([[wiki/entities/vector-hash.md]], [[wiki/entities/sparse-distributed-memory.md]], [[wiki/entities/dense-sequence-memory.md]], [[wiki/entities/context-modular-memory-network.md]], [[wiki/entities/fcann.md]], [[wiki/entities/rolls-treves-hippocampal-model.md]], [[wiki/entities/tolman-eichenbaum-machine.md]], [[wiki/entities/tem-transformer.md]], [[wiki/concepts/energy-based-models.md]]); the object being improved on had no page.
+
+> **Provenance.** `raw/crouse-2022-hopfield-networks-memory-machines.md` — Crouse, *Hopfield Networks: Neural Memory Machines*, Towards Data Science, 2022-05-18. A **tutorial exposition**, not a primary source: the mathematics is textbook (Hopfield 1982; Amit–Gutfreund–Sompolinsky 1985; the energy-decrease argument is the author's write-up of a Carnegie Mellon lecture), and the demonstrations are the author's own MNIST/64×64-image simulations. Claims sourced *only* here are marked `(tentative)`.
+
+---
+
+## Architecture
+
+| Component | Statement | Constraint that does the work |
+|---|---|---|
+| State | `s ∈ {−1, +1}^N`; the pattern **is** the population state, one bit per unit | Information is stored *directly* in activity, not in a code — hence the representation cost below |
+| Weights | `W` (`N × N`), `w_ij = w_ji`, `w_ii = 0` | **Symmetry** is what guarantees a Lyapunov function; **zero diagonal** stops a unit from holding itself in place |
+| Activation | `y_i = Σ_j w_ij s_j` | Purely local: a unit sees only its own weighted input field |
+| Update | `s_i ← sgn(y_i)`, **asynchronously** (one unit, or a random subset, per generation) | Synchronous update of all units can enter a 2-cycle; the descent argument is per-flip |
+| Write (Hebbian) | `w_ij = (1/n) Σ_{p=1}^{n} ξ_i^p ξ_j^p`, `i ≠ j`; matrix form `W = (1/n)(YᵀY − n·I)` | **One shot**: the whole weight matrix is computed in one operation from one exposure per pattern. No error signal, no iteration, no gradient |
+| Energy | `E = −½ Σ_{i≠j} w_ij s_i s_j = −½ Σ_i s_i y_i` | Not thermodynamic — a Lyapunov function the update rule is constructed to descend |
+
+**Why the energy falls (the whole proof in one line).** A unit flips only when `s_i y_i < 0`; a flip sets `s_i^{new} = −s_i^{old}`, so the term `s_i y_i` changes by `−2 s_i^{old} y_i > 0`, and `E = −½ Σ_i s_i y_i` therefore strictly decreases. `y_i` is unaffected by `s_i` itself precisely because `w_ii = 0`. Bounded below and strictly decreasing ⟹ convergence to a fixed point in finite time.
+
+**The Ising ancestry is load-bearing, not decorative.** Units are spins, weights are couplings, the update is alignment to the local field, and retrieval is a quench. Everything the wiki says about attractor memory — basins, landscape, capacity as a signal-to-noise ratio, spurious states as glassy minima — is imported from that physics with the couplings made *learnable*, which is the single move Hopfield 1982 contributes.
+
+---
+
+## What the design buys, and the price of each
+
+| Property | Mechanism | Price paid elsewhere in the wiki |
+|---|---|---|
+| **Content-addressable retrieval** | The cue is an *initial condition*, not a key; any state in a basin retrieves the whole pattern | Nothing indexes the store — you cannot ask *which* memory is nearest without running the dynamics ([[wiki/concepts/subgraph-matching.md]] G37) |
+| **Pattern completion from a partial or noisy cue** | Descent from a corrupted state; the author's 4096-unit net restores 64×64 images from heavy distortion, updating 7.2% of units per generation `(tentative)` | Completion is unconditional — a store biased this way returns a neighbour instead of reporting a miss (G38, [[wiki/concepts/pattern-separation-completion.md]]) |
+| **One-shot learning** | `W` is closed-form in the patterns | The rule is *only* correct for near-orthogonal patterns; correlated data breaks it (below) |
+| **Fully local computation** | Each unit knows its own state and its input field | No global signal is available either — so no capacity estimate, no fullness test, no confidence read-out (G42) |
+| **Distributed storage** | Every pattern lives in every synapse | Erasing or hiding one memory is not an operation the architecture has ([[wiki/entities/context-modular-memory-network.md]] adds a mask to get it) |
+
+---
+
+## The three classical failures — the wiki's entire attractor-memory research programme is these three
+
+| Failure | Statement | Where the wiki answers it |
+|---|---|---|
+| **Capacity `≈0.138N`, then a cliff** | Random patterns are stable up to `p_max ≈ 0.14N`; past it, retrieval fails for *most* stored patterns, not just the marginal one. Storage is `0.14N` patterns of `N` bits over `N²/2` synapses — **≈0.14 bits per synapse**, and capacity is capped by the *word size* because the pattern and the network are the same object | Decouple pattern size from capacity ([[wiki/entities/sparse-distributed-memory.md]]: `τ ≈ 0.10M`, `M` free); prestructure the fixed points ([[wiki/entities/vector-hash.md]]: exponential, graceful overload); gate by context ([[wiki/entities/context-modular-memory-network.md]]: ≈7–40×); steepen the read-out nonlinearity ([[wiki/entities/dense-sequence-memory.md]]: polynomial/exponential); orthogonalise the write ([[wiki/entities/fcann.md]], Kanter–Sompolinsky) |
+| **Spurious minima** | Correlated or overloaded patterns produce basins for *mixtures* nobody stored; the net converges confidently to an in-between state | Randomise the address before writing (mossy-fibre hash, [[wiki/entities/rolls-treves-hippocampal-model.md]]); fix the landscape with content-free states so content never touches the recurrent dynamics ([[wiki/entities/vector-hash.md]]) |
+| **Binary states waste units** | One unit per bit: a 28×28 8-bit greyscale image needs **6,272 units**; 1024×1024 needs **>8×10⁶** — and capacity is `0.14N` *patterns*, so the store is exponentially outmatched by the data it must hold | Continuous/Modern Hopfield networks (Ramsauer et al. 2020, *Hopfield Networks is All You Need*): float states, exponential capacity, **one-step** convergence, and the update *is* transformer self-attention — the identity [[wiki/entities/tem-transformer.md]] runs on |
+
+**Reconciling the two capacity numbers already in the wiki.** `0.138N` (Amit et al., "essentially all patterns recalled") and Kanerva's `0.15N` ([[wiki/entities/sparse-distributed-memory.md]], quoted at bit-fidelity `φ = 0.995`) are the same curve read at two error criteria, not a disagreement. Capacity in an associative store is never a number without a fidelity target attached — which is the form in which every later capacity claim on this wiki should be read.
+
+---
+
+## Why it stays in the wiki after all of it is superseded
+
+| Claim | Content |
+|---|---|
+| **It is the minimal existence proof of the wiki's core memory move** | Distributed, one-shot, content-addressable recall from local rules and no supervisor. Every later store adds structure; none removes a requirement from this list |
+| **Retrieval as *dynamics* rather than lookup** | The strongest architectural export: the read operation is the same operation as the write substrate running forward. [[wiki/concepts/energy-based-models.md]]'s "reasoning is relaxation" and [[wiki/concepts/predictive-coding-free-energy.md]]'s "thinking is settling" are both this mechanism at a higher level of abstraction |
+| **It sets the biological anchor** | The CA3 recurrent collateral system is standardly modelled as exactly this network with sparse coding and diluted connectivity ([[wiki/entities/rolls-treves-hippocampal-model.md]]); Hebbian LTP is the write rule as measured ([[wiki/concepts/synaptic-plasticity.md]]) |
+| **One-shot storage is the right shape for episodic memory, and backpropagation is the wrong one** | The source's sharpest framing: an episodic memory is by definition acquired in one episode, so a rule needing 10⁴–10⁶ exposures cannot be the mechanism — and the hippocampus, the structure with attractor-like recurrence, is the structure recruited during one-shot learning | 
+
+**(brainstorm) The bits-per-synapse figure is the number to carry forward, not the pattern count.** At `0.14` bits/synapse the classical net is ~2 orders below the ~1 bit/synapse ceiling that sparse-coded and prestructured stores approach. Read that way, the whole sequence of successors on this wiki is a single optimisation — *raise the information per synapse without giving up one-shot, local writes* — and the three tactics that work (sparsify the code, randomise the address, sharpen the read-out) are all ways of reducing the *overlap* between stored patterns' active sets. That reframes G42 as one quantity rather than a family of unrelated capacity theorems.
+
+**(brainstorm) Symmetry is the axis, and it is a two-sided trade.** `W = Wᵀ` buys the Lyapunov function and therefore the guarantee of convergence; it also makes the network incapable of going anywhere. Every mechanism the wiki wants on top of memory — sequences, replay, simulation, search — is motion, and motion requires either an asymmetric term ([[wiki/entities/dense-sequence-memory.md]]), a slow adaptation current ([[wiki/entities/adaptive-cann.md]]), short-term depression ([[wiki/entities/stp-flickering-cann.md]]) or noise. The classical Hopfield network is best read as the *stability* half of an architecture whose other half has to be added back, and the wiki now holds four different ways of adding it.
+
+---
+
+## Open problems it leaves (all inherited by its successors)
+
+- **Nothing sets the number of stored patterns.** The write rule cannot refuse, so overload is silent and catastrophic (G42).
+- **No similarity structure among memories.** Basins are shaped by pattern correlations, which is exactly the wrong dependence: similar memories should be *distinguishable*, and here they merge.
+- **No mechanism for *which* memory to seek.** Retrieval is decided by whatever the initial state happens to be near; there is no query, no bias, no top-down control (until [[wiki/entities/context-modular-memory-network.md]]'s mask).
+- **The stored patterns must be supplied.** As with every store on this wiki, what gets written is another system's problem ([[wiki/concepts/latent-graph-discovery.md]] G1).
+
+---
+
+## Connections
+
+- **[[wiki/concepts/energy-based-models.md]]** — the classical network is the simplest complete instance of the formalism: a quadratic `F(s) = −½ sᵀWs` with inference as descent to a minimum, and its Hebbian write is the source of the "overlapping basins and spurious minima" row that page contrasts with orthogonal (Kanter–Sompolinsky) storage.
+- **[[wiki/entities/fcann.md]]** — the same equations with the couplings *measured* rather than learned (`J = −Σ⁻¹` from resting-state fMRI) and the states made continuous, which is what lets a whole brain be treated as one Hopfield landscape; `β → ∞` there recovers exactly this page's binary network.
+- **[[wiki/entities/dense-sequence-memory.md]]** — drops the symmetry constraint (`J_ij = Σ_μ ξ_i^{μ+1} ξ_j^μ`) so the fixed points become transitions, and then attacks this page's `0.14N` by steepening the overlap nonlinearity rather than changing the code.
+- **[[wiki/entities/context-modular-memory-network.md]]** — keeps this page's weight matrix intact and multiplies it by a context mask, converting one fixed landscape into one landscape per context and making *accessibility* a controllable variable this architecture has no notion of.
+- **[[wiki/entities/vector-hash.md]]** — the direct rebuttal of the Hebbian write: here content decides where the minima sit, how deep and how wide, which is the cause of both uneven basins and spurious states; prestructuring the fixed points from a frozen grid code makes them convex, uniform and spurious-free before any data arrives.
+- **[[wiki/entities/sparse-distributed-memory.md]]** — the same capacity *per storage element* (Keeler 1988) reached by a different architecture, with the storage elements decoupled from the pattern size, so capacity becomes a hardware choice instead of a property of the word being stored.
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — this network as biology: CA3 recurrent collaterals as the weight matrix, with sparse coding and dilution added, giving `p_max ≈ kC/(a ln(1/a))` in place of `0.14N` — capacity set by fan-in rather than by population size.
+- **[[wiki/entities/tem-transformer.md]]** — the modern continuation of the last row of this page's failure table: the Modern Hopfield update with a softmax *is* transformer self-attention, so the classical relaxation and the attention layer are one mechanism at two temperatures.
+- **[[wiki/concepts/pattern-separation-completion.md]]** — this page supplies the completion half in its purest form (descent from a corrupted state) and none of the separation half, which is why every biologically grounded successor bolts a separating stage onto its input.
+- **[[wiki/concepts/synaptic-plasticity.md]]** — the outer-product write is the Hebbian rule taken literally and applied once; the network is the clearest demonstration that a purely local, correlation-based rule can install a *global* computational structure (a landscape).
+- **[[wiki/concepts/complementary-learning-systems.md]]** — the one-shot write is the fast system's defining capability, and the argument that gradient-based learning cannot be the episodic mechanism (10⁴–10⁶ exposures vs. one episode) is the strongest form of this page's motivation for a two-system architecture.
+- **[[wiki/entities/adaptive-cann.md]]** — the continuous-state relative that adds the motion this page's symmetry forbids: a slow adaptation current destabilises the fixed point and turns a static memory into tracking, oscillation or a travelling wave.
