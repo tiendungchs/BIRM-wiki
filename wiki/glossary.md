@@ -147,6 +147,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SDR | Sparse Distributed Representation | High-dimensional binary code with 0.5–3% of bits active; the regime in which subsampled overlap detection has closed-form, near-zero error ([[wiki/concepts/sparse-distributed-representations.md]]) |
 | LIF | Leaky Integrate-and-Fire | Standard spiking-neuron model: membrane potential integrates input, spikes at threshold, resets |
 | EPSP | Excitatory PostSynaptic Potential | Depolarizing voltage transient evoked by one presynaptic spike; its half-width (250 µs in the barn-owl model, 500–800 µs in chicken) sets the coincidence window of the receiving cell ([[wiki/concepts/temporal-coding.md]]) |
+| EPSC | Excitatory PostSynaptic Current | The voltage-clamp counterpart of the EPSP; its amplitude in pA is the standard read-out of synaptic strength, and the variable spike-timing potentiation is measured to depend on — significant LTP essentially only below 500 pA ([[wiki/concepts/synaptic-plasticity.md]]) |
+| d-AP-5 | d-2-Amino-5-PhosphonoValerate | NMDA-receptor antagonist; the standard pharmacological test that a plasticity effect is NMDA-dependent |
 | ITD | Interaural Time Difference | Arrival-time difference of a sound at the two ears; the latent variable a coincidence detector over tuned delays recovers, and the barn owl's cue for azimuth |
 | LTP / LTD | Long-Term Potentiation / Depression | Lasting strengthening / weakening of a synapse |
 | MEG | Magnetoencephalography | |

@@ -52,7 +52,7 @@ The wiki's stake in SNNs is not efficiency. It is [[wiki/empirical-tensions.md]]
 | Learning after training | None | Native, via local plasticity |
 | Credit assignment | Backpropagation | Surrogate gradients / e-prop / plasticity / evolution |
 | Energy | High; a practical barrier at scale and on edge devices | Low on matched hardware |
-| Directional edge detection | Requires an architectural mechanism | Free — the STDP sign flip at `Δt = 0` |
+| Directional edge detection | Requires an architectural mechanism | Free — the STDP sign flip at `Δt = 0`, over a measured ±20 ms with a ~5 ms transition zone. Stronger than a timing lookup: on a synapse strong enough to drive the postsynaptic spike, the *caused* spike sets the sign and an injected anti-causal spike 10 ms earlier is overridden (+31.9 ± 9.3%; Bi & Poo 1998) |
 
 **(brainstorm)** The last row is the one that should interest this wiki most. A latent graph's edges are *directed*, and the cheapest known detector of "A caused B" rather than "A correlates with B" is a temporal asymmetry. A rate-coded network has to learn directionality as content; a spiking network gets it from the substrate. That is a candidate answer to the T1 question about what the implementation level buys — and it is an argument nobody in the reviewed literature appears to make.
 
@@ -61,7 +61,7 @@ The wiki's stake in SNNs is not efficiency. It is [[wiki/empirical-tensions.md]]
 ## Connections
 
 - **[[wiki/entities/hag-reservoir.md]]** — why a non-negative-weight constraint is worth accepting on this substrate: hardware realising only positive weights otherwise needs `w = w⁺ − w⁻` differential pairs (double the devices), and grown excitatory-only connectivity recovers the decorrelation the missing sign would have supplied.
-- **[[wiki/concepts/synaptic-plasticity.md]]** — STDP is defined on spike times, so the rule family and this substrate presuppose each other; the substrate is what makes the timing term meaningful.
+- **[[wiki/concepts/synaptic-plasticity.md]]** — STDP is defined on spike times, so the rule family and this substrate presuppose each other; the substrate is what makes the timing term meaningful. It also holds the measured curve (Bi & Poo 1998) and the three dependencies the `Δw(Δt)` equation omits — current weight, postsynaptic cell type, and whether the synapse actually caused the spike — each of which changes what a spiking implementation gets for free.
 - **[[wiki/concepts/temporal-coding.md]]** — the quantitative case for this page's central claim, plus its ceiling: 20–25 µs single-unit precision from a 250 µs postsynaptic potential, but behaviour-level 5 µs only after population-vector decoding over ~100 units and 100 ms, so the single spike time is not the message even here.
 - **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — SNNs are the hard case that forces the issue: backpropagation does not merely lack a biological story here, it fails outright on the discrete nonlinearity, so local rules are mandatory rather than optional.
 - **[[wiki/concepts/meta-optimized-plasticity.md]]** — surrogate gradients let the outer loop reach into a spiking inner loop, producing this substrate's strongest result (online one-shot learning).
