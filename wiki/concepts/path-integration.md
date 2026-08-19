@@ -59,6 +59,10 @@ Two consequences the wiki did not previously have:
 
 **A dissent on the site.** Rolls 2013 argues the *bumpiness* of the CA3 spatial representation fits episodic storage better than path integration, and assigns integration to entorhinal cortex — so the CANN row above describes the formalism CA3 shares, not a claim that CA3 integrates ([[wiki/entities/rolls-treves-hippocampal-model.md]]).
 
+**One rule, many velocity sources.** Chen et al. 2022 propose that the grid, place and head-direction cells recorded in rat primary somatosensory (S1) and secondary visual (V2M) cortex arise from *the same* integration principle running on each area's own self-motion signal — optic flow in visual cortex, proprioceptive and locomotor feedback in somatosensory cortex, head movement in auditory cortex — and are complementary yet functionally *independent* of the entorhinal integrator. Two things follow for this page: the update rule is the shared primitive and the modality only supplies `a_t`; and a brain runs several integrators concurrently, which is G40's composition question posed by anatomy rather than by task design ([[wiki/concepts/distributed-reference-frames.md]]).
+
+**And at least two of them already integrate different quantities.** With visual and physical motion decoupled in mouse virtual reality, mEC grid cells predominantly follow *physical motion* while hippocampal place cells predominantly follow *visual input* (Chen et al. 2019). Mouse mEC grid firing also survives complete darkness on non-visual self-motion alone (Dannenberg et al. 2020) — the integrator is genuinely action-driven, as the defining equation requires.
+
 **Why grids and not place fields for this job:** periodic codes extend to unvisited space; periodicity is inherently error-correcting; the same spatial precision costs far fewer cells; and grid cells are experimentally driven more by path-integration signals than place cells are.
 
 ---
@@ -80,7 +84,7 @@ The second is the important one architecturally: it makes sensory prediction a t
 
 - **Which domains admit it?** No test decides whether a set of observed actions composes (G41). "Social networks merely describe generic relationships" is the paper's own counterexample and it has no diagnostic.
 - **Where do the actions come from in an abstract domain?** In space, self-motion is measured. In a kinship graph or a task, the action labels are supplied by the modeller — this is hardness source 2 ([[wiki/concepts/latent-graph-discovery.md]]) untouched.
-- **Composition of integrators.** A recipe is transferable across kitchens only if task-position and space are path-integrated *separately* and combined per instance; nothing specifies how many integrators to run or how they factorise (G40).
+- **Composition of integrators.** A recipe is transferable across kitchens only if task-position and space are path-integrated *separately* and combined per instance; nothing specifies how many integrators to run or how they factorise (G40) — and the sensory-cortex results make this concrete rather than hypothetical, since several integrators demonstrably run at once with no known arbitration (G43).
 - **Non-sequential domains.** The extension offered is analogical only: {size, shape, colour} of an object admit "actions" (add-red, bigger, remove-red, smaller) that return you to the same object, so a manifold with composition exists — but nothing learns it from unordered data here.
 - **Precision under noise.** Periodicity is error-correcting for accumulated noise; nothing states the bound, or what happens at a module boundary.
 
@@ -99,4 +103,5 @@ The second is the important one architecturally: it makes sensory prediction a t
 - **[[wiki/concepts/simulation-based-planning.md]]** — planning by vector arithmetic rather than by rollout: with a path-integrated code, "where is the goal from here" is a subtraction, which is the cheapest planner in the wiki and the one that needs no search.
 - **[[wiki/concepts/compositionality.md]]** — composition here is *algebraic on actions* rather than part-whole on content, and it is the one form the wiki has whose closure is enforced by construction.
 - **[[wiki/concepts/core-knowledge.md]]** — a plausible instance of an installed format: what would be innate is the composition rule set, with the resolution of the code trained afterwards.
+- **[[wiki/concepts/distributed-reference-frames.md]]** — generalises this page's update rule across cortex: the same integration run once per modality on that modality's own velocity signal (optic flow, proprioception, head movement), which makes path integration the shared primitive and the input merely the supplier of `a_t`.
 - **[[wiki/entities/temporal-context-model.md]]** — the leaky counter-proposal: with `ρ < 1` the same accumulation is a weighted sum over *recent* movements rather than a position, which bounds accumulated error without any error-correction machinery and is the only version that reproduces retrospective coding — at the cost of the exact metric this page trades on (tension T31).

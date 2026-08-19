@@ -102,6 +102,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MVPA / RSA | Multi-Voxel Pattern Analysis / Representational Similarity Analysis | Decoding from distributed fMRI patterns; RSA compares pattern similarity structure to a hypothesised representational geometry |
 | STDP | Spike-Timing-Dependent Plasticity | Hebbian rule whose sign depends on pre/post spike order |
 | V1 | Primary Visual Cortex | Simple/complex cells; origin of convolutional architecture |
+| V2 / V2M | Secondary Visual Cortex / its Medial subdivision | Site of reported rat grid, place and head-direction cells that persist in darkness ([[wiki/concepts/distributed-reference-frames.md]]) |
+| S1 / S1HL | Primary Somatosensory Cortex / its HindLimb area | Site of reported rat grid, place and head-direction cells that persist after whisker trimming |
+| PPC | Posterior Parietal Cortex | Bridges perception, action and cognition; the candidate site of the egocentric→allocentric transform |
+| OFC | OrbitoFrontal Cortex | Value and goal coding; shows grid-like fMRI modulation in conceptual tasks and location-selective tuning in rat |
+| vmPFC / dmPFC | ventromedial / dorsomedial PreFrontal Cortex | Carry the hexadirectional signal in conceptual and social-hierarchy tasks |
+| ACC / PCC | Anterior / Posterior Cingulate Cortex | Also report grid-like modulation; PCC carries the magnitude half of the social-space vector code |
 | MEC / LEC | Medial / Lateral Entorhinal Cortex | Structural (grid-like, path-integrating) and sensory input streams to hippocampus respectively |
 | OVC / BVC / GVC | Object-Vector / Border-Vector / Goal-Vector Cell | Local bases: fire at a given distance and direction from any object, border or goal ([[wiki/concepts/compositionality.md]]) |
 | Splitter cell | — | Fires at the same location differently depending on the trajectory through it; a latent-state code |
