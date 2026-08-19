@@ -107,6 +107,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | RSC | Retrosplenial Complex | Parieto-occipital-sulcus region (partly overlapping Brodmann area 29/30) that anchors the map: heading codes in local and global reference frames |
 | OPA | Occipital Place Area | Scene region near the transverse occipital sulcus; boundaries and local navigational affordances |
 | MVPA / RSA | Multi-Voxel Pattern Analysis / Representational Similarity Analysis | Decoding from distributed fMRI patterns; RSA compares pattern similarity structure to a hypothesised representational geometry |
+| MDS | MultiDimensional Scaling | Embeds a distance matrix in low dimensions for visualisation; used to read a graph back out of a neural similarity matrix (Garvert et al. 2017) |
+| ROI / SVC | Region Of Interest / Small-Volume Correction | An anatomically or independently defined set of voxels, and multiple-comparison correction restricted to it — the standard way an fMRI claim about a small structure such as entorhinal cortex is made |
+| FWE | Family-Wise Error | Correction controlling the probability of *any* false positive across the tested voxels; stricter than false-discovery-rate control |
+| fMRI adaptation | (repetition suppression) | Reduced response to a stimulus similar to its predecessor; recovery from it is used as a proxy for representational distance between the two |
 | STDP | Spike-Timing-Dependent Plasticity | Hebbian rule whose sign depends on pre/post spike order |
 | V1 | Primary Visual Cortex | Simple/complex cells; origin of convolutional architecture |
 | V2 / V2M | Secondary Visual Cortex / its Medial subdivision | Site of reported rat grid, place and head-direction cells that persist in darkness ([[wiki/concepts/distributed-reference-frames.md]]) |

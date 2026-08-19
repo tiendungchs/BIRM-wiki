@@ -32,6 +32,40 @@ This is the wiki's second derivation of grid-like coding from first principles, 
 
 ---
 
+## The human evidence: a discrete non-spatial graph read out as a predictive map
+
+Everything above is theory plus rodent place/grid data. Garvert, Dolan & Behrens 2017 is the wiki's one demonstration that a **human** hippocampal–entorhinal signal carries a weighted-sum-of-future-states metric over a graph with **no continuous dimension at all**.
+
+| Element | Detail | Why it matters here |
+|---|---|---|
+| Structure | 12-node graph; objects randomly assigned to nodes; day-1 stimulus sequence = random walk on the graph | The only relational information available is transition statistics — nothing to embed a continuum into |
+| Task | Report each object's mirror/normal orientation. Structure never mentioned, never useful | The map is built with no reward, no goal, and no use for it |
+| Awareness | 0 / 23 subjects reported any structure at debrief | A predictive map can be present, and behaviourally effective, while non-reportable |
+| Readout | Day-2 fMRI while viewing a 7-node subgraph in *randomised* order (each of the 42 transitions 10× per block); response to object `i` given predecessor `j` = repetition-suppression → a 7 × 7 similarity matrix | The representational distance matrix is read off directly, not inferred from a decoder |
+
+| Result | Numbers |
+|---|---|
+| Entorhinal BOLD increases linearly with graph link distance, bilaterally | FWE-corrected within an entorhinal/subiculum mask (left p = 0.014, right p = 0.006); replicated at an ROI coordinate taken from an unrelated **spatial** study (Chadwick et al. 2015), `F₂,₄₄ = 10.04` — the same voxels that measure physical distance measure graph distance |
+| Graph distance, not elapsed time | Joint regression: links `t₂₂ = 3.29, p = 0.003`; mean temporal lag `t = 1.27, p = 0.22` |
+| The metric is **non-directional** | Experience-frequency-weighted shortest path vs. its symmetrized self: only the symmetrized version predicts (`t = 2.78, p = 0.01` vs. `t = −1.64`) |
+| The graph is recoverable | MDS on the 7 × 7 adaptation matrix reproduces the experimental graph (`r = 0.65`, `p = 0.003` against all other 7-link graphs; no crossing links, true of only 13.17% of the null) |
+| **Not** Euclidean | Communicability survives with Euclidean distance as a competing regressor (left hippocampal formation, `p = 0.006` SVC) |
+| Behaviour agrees, in a separate cohort (n = 26) | log RT scales with communicability (`t₂₅ = 2.77, p = 0.01`), *not* with link distance (`p = 0.69`) or Euclidean distance (`p = 0.40`) |
+
+**Communicability — the parameter-free sibling of `S`.** Graph theory calls `(I − γA)⁻¹` the *matrix resolvent*; the SR is exactly that object built from the adjacency matrix `A`. Its close relative is the matrix exponential (Estrada & Hatano 2008):
+
+`e^A = Σ_n Aⁿ / n!`   vs.   `S = Σ_n γⁿ Aⁿ = (I − γA)⁻¹`
+
+Both are weighted sums over all paths, with `Aⁿ_ij` counting paths of length `n`; they differ only in the decay applied to long paths (`1/n!` vs. `γⁿ`). The exponential **has no free parameter**, which is why the paper regressed on it; the SR with the conventional `γ = 0.85/λ_max` fits the same voxels. The data therefore support "a predictive weighting over future states" and do **not** dissociate the two functional forms.
+
+**(brainstorm)** Two exportable consequences. (i) *A cheap probe for models*: to ask whether a trained network has learned a domain's graph, regress its representational similarity matrix on `e^A` — a parameter-free target that needs no discount to fit and no assumption that the model's latent space is Euclidean. (ii) *The warp is the signature, not noise.* Communicability shortens edges lying on many paths and lengthens edges a random walker rarely uses, so the recovered metric is **traffic-weighted rather than topological** — a model whose latent distances match the adjacency matrix exactly would be *less* brain-like than one whose distances are distorted this way. That is a falsifiable target for [[wiki/concepts/representation-probing.md]] and a warning against scoring structure learning by adjacency reconstruction error.
+
+**It is also the human datum the symmetrization result predicts.** Subjects' experience was directional (transitions were not equally frequent in both directions), yet only the *symmetrized* distance predicted the signal — exactly the `α ≈ β` write rule of Keck et al. 2025 below, and evidence that the brain's stored transition matrix is pulled toward reversibility rather than tracking the behavioural policy.
+
+**Where it is thin.** Seven nodes, one undirected graph, BOLD adaptation rather than spikes; the SR/communicability distinction is untested; and because objects were distinct and never aliased, the subject's discovery problem was *edges only* — node identity was given ([[wiki/concepts/latent-graph-discovery.md]]'s hardness source 3 was switched off).
+
+---
+
 ## Eigenspaces: one basis for every horizon
 
 Diagonalise `T = V Λ Vᵀ`. Then `Tⁿ s = V Λⁿ Vᵀ s`: **all multi-step transition matrices share the same eigenvectors**, local and non-local alike. Only the eigenvalue matrix changes. Four things drop out of that one fact:
@@ -114,4 +148,6 @@ This is the wiki's cheapest answer to gap G28: the correction to policy contamin
 - **[[wiki/concepts/distributed-reference-frames.md]]** — supplies the cheapest explanation for why grid-like codes turn up in areas with no entorhinal circuitry: any area running this page's spectral decomposition over its *own* transition statistics gets them, so replication needs no shared circuit motif (Chen et al. 2022).
 - **[[wiki/concepts/synaptic-plasticity.md]]** — supplies the write rule whose temporal-symmetry coefficients `α, β` decide which transition matrix this page's `S` is built from, and receives back the rare case of a local rule whose fixed point is a *named* computational object.
 - **[[wiki/concepts/offline-replay.md]]** — a second route to the same symmetrization: applying the classical asymmetric rule to forward *and* reverse replayed trajectories in equal proportion yields the reversible SR, making the forward/reverse replay ratio a control on how policy-contaminated the stored map is (Keck et al. 2025).
+- **[[wiki/concepts/representation-probing.md]]** — supplies this page's cheapest empirical test and takes back a target: regress a representational similarity matrix on the parameter-free matrix exponential `e^A` of the task graph, which asks for a *traffic-weighted* rather than topological metric and so discriminates a predictive map from a plain adjacency reconstruction (Garvert et al. 2017).
+- **[[wiki/concepts/latent-graph-discovery.md]]** — the measured biological graph estimate is this page's object, not the topology: what a human reads out of an implicitly learned object graph is a symmetric, non-Euclidean weighted sum over paths, so discovery in the brain terminates in a predictive metric rather than an edge set.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — the recurrent layer's read-out `p₁ = SF_{ϕ₁}(ϕ̃₁)` on a novel input is pattern completion with a predictive component: the attractor returns not the stored pattern but its discounted future.
