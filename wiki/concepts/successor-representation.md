@@ -49,9 +49,48 @@ So the last row unifies three model families the wiki was carrying as alternativ
 
 ---
 
+## The temporal symmetry of the write rule selects *which* transition matrix gets stored
+
+Keck et al. 2025 make the local write rule's sensitivity to temporal order an explicit parameter and derive what each setting stores. One rule, two coefficients:
+
+```
+ΔW = α (p_post(t+1) − W p_pre(t)) p_pre(t)ᵀ  +  β (p_post(t) − W p_pre(t+1)) p_pre(t+1)ᵀ
+```
+
+The first term is the standard predictive/decorrelative rule (Hebbian outer product minus the synapse's own predicted input); the second is the same rule run on the time-reversed pair. `α = β` makes the update invariant under reversing the order of pre/post activity. At convergence the network encodes the SR **of a mixed transition matrix**:
+
+`P_{α,β} = (α/(α+β)) P_forward + (β/(α+β)) P_backward` ·  `S = Σ_k γᵏ (P_{α,β})ᵏ`
+
+| `(α, β)` | Stored object | Property |
+|---|---|---|
+| `(1, 0)` | Classical SR under the behavioural policy | Policy-dependent (the break point above) |
+| `(0, 1)` | **Predecessor representation** | Postdictive; proposed for exploration |
+| `(½, ½)` | SR under the **time-reversible** symmetrization `½(P_f + P_b)` | Policy-*insensitive*: a clockwise and an anticlockwise walk on a ring give the same matrix |
+| `α = −β` | — | Unstable; no convergence (stability requires `\|α\| > \|β\|`) |
+
+So a continuum, not two mechanisms: `α = 1/(1+s), β = s/(1+s)` sweeps predecessor↔successor, and generalisation improved monotonically in `s`. Results survive per-transition heterogeneous `α, β` and per-timestep noise on them — the bias does not require the rule to be exactly symmetric anywhere.
+
+**Why symmetrization repairs policy dependence.** `P_{½,½}` is provably closer to the *uniform*-policy transition matrix than the observed `P` is, and the uniform-policy SR is closely related to shortest-path distance. That is the property re-goaling needs: in a reversible state space the optimal policy to *any* target is a function of the metric alone. Empirically (tabular TD agent, SR frozen after the goal moves, only the reward vector `r` relearned) the symmetric agent reaches new targets in fewer steps than the classical one — in open grids and in mazes whose corridors were blocked between train and test. Controls: the effect persists when the symmetric SR is learned from the *asymmetric* agent's own trajectories and when update norms are matched, so it is the representation and not the exploration that carries it.
+
+| | Classical SR (Stachenfeld et al. 2017) | **Symmetrized SR** (Keck et al. 2025) | Default representation / linear RL |
+|---|---|---|---|
+| Whose policy | Current | Current, pulled toward uniform | A *default* policy, stored separately |
+| Needs an exploration phase | No | **No** — the map is acquired while solving the current task | Yes, in effect: the default must be learned |
+| Re-goaling | Poor | Better (symmetric spaces) | Good, under linear-RL assumptions |
+
+This is the wiki's cheapest answer to gap G28: the correction to policy contamination is **one coefficient in a local plasticity rule**, not a second stored representation.
+
+**The bias is an assumption, and it is falsifiable in the same experiment.** On a directed graph (tree with one-way returns from leaves to the root, `d(s,s′) ≠ d(s′,s)`) the ordering *reverses* — the classical asymmetric rule generalises better. Symmetry of the write rule is an inductive bias asserting symmetry of the state space; it pays where the world is metric and costs where it is not. The symmetric agent also has higher policy entropy while learning the first target (the source of its slower, higher-variance acquisition) and is more sensitive to small learning rates.
+
+**Two synapses, two rules (the anatomical claim).** A two-population rate model — `p₁` recurrent (CA3), `p₂` feedforward-only (CA1) — trained with the same rule at both sites learns successor features of each population's *own* input: `p₁ = (1−γ₁)SF_{ϕ₁}`, `p₂ = (1−γ₂)SF_{ϕ₂}`, with CA1's predictions conditioned on CA3's already-predictive output. The `γᵢ` in the dynamics `ṗ = −p + σ(γ W p + (1−γ)ϕ)` *are* the SR discounts, and are read as an encoding/retrieval gain (low `γ`: externally driven, learn; high `γ`: recurrently driven, retrieve) — acetylcholine is the proposed controller. Setting CA3 symmetric and CA1 asymmetric reproduces the recorded dissociation in backward place-field shift on a linear track: CA1 fields drift opposite the direction of travel, CA3 fields much less (Dong, Madar & Sheffield 2021). The mechanism is direct — a field shifts toward its predecessors only if the policy is directional, and symmetrization removes directionality — and it fails to appear if CA3 is given the asymmetric rule. Both rules present at once would give the brain a **predictive and a geometric map of the same space, side by side** ([[wiki/empirical-tensions.md]] T43 records the environment-dependence this account does not cover).
+
+**(brainstorm)** Read as an engineering primitive this is a *symmetry dial on a replay/plasticity kernel*, and it generalises past navigation: whenever a domain's relations are known to be invertible (kinship, spatial layout, physical rearrangement) symmetrize the write rule and get metric structure for free; where they are not (causation, syntax, time, one-way state machines) leave it asymmetric. That makes G12's routing question answerable by a cheap online test — compare `P_f` and `P_b` empirically and set `β` to their agreement, per-edge if necessary, since the paper shows heterogeneous per-transition coefficients still work.
+
+---
+
 ## Limits
 
-- **Policy dependence** (above), only partly repaired by the DR, and DR's optimality holds under linear-RL assumptions.
+- **Policy dependence** (above), only partly repaired by the DR (whose optimality holds under linear-RL assumptions) and partly by symmetrizing the write rule (Keck et al. 2025) — which moves `P` toward uniform without ever reaching it, and inverts into a *cost* on non-reversible state spaces.
 - **Precision.** The paper's own footnote: it is unclear whether hippocampal neurons could represent the vanishingly small SR differences between sometimes-adjacent states that accurate reward-guided behaviour requires. A quantity that is mathematically a distance may not be a *readable* distance in spikes ([[wiki/empirical-tensions.md]] T29).
 - **It presupposes the state space.** `T` is over states someone already supplied. SR is a *representation* choice made after [[wiki/concepts/latent-graph-discovery.md]]'s discovery problem is solved — which is also the opening: any model that builds a de-aliased state space ([[wiki/entities/cscg.md]], [[wiki/entities/tolman-eichenbaum-machine.md]]) can be fed to it.
 - **No generalisation across environments.** `S` is per-graph; nothing carries to a structurally similar world.
@@ -73,3 +112,6 @@ So the last row unifies three model families the wiki was carrying as alternativ
 - **[[wiki/entities/temporal-context-model.md]]** — the backward-looking twin: retrieved temporal context builds a distance-like inner product out of *past* co-occurrence rather than discounted future occupancy, so it recovers a graph metric with no policy, no reward and no prediction objective.
 - **[[wiki/concepts/objective-identifiability.md]]** — the derivation that survives the emergence critique differently: eigenvectors of a transition operator need no hand-chosen centre–surround readout, but they are a *population*-level claim, which is the only level that page says a task-trained model may legitimately predict.
 - **[[wiki/concepts/distributed-reference-frames.md]]** — supplies the cheapest explanation for why grid-like codes turn up in areas with no entorhinal circuitry: any area running this page's spectral decomposition over its *own* transition statistics gets them, so replication needs no shared circuit motif (Chen et al. 2022).
+- **[[wiki/concepts/synaptic-plasticity.md]]** — supplies the write rule whose temporal-symmetry coefficients `α, β` decide which transition matrix this page's `S` is built from, and receives back the rare case of a local rule whose fixed point is a *named* computational object.
+- **[[wiki/concepts/offline-replay.md]]** — a second route to the same symmetrization: applying the classical asymmetric rule to forward *and* reverse replayed trajectories in equal proportion yields the reversible SR, making the forward/reverse replay ratio a control on how policy-contaminated the stored map is (Keck et al. 2025).
+- **[[wiki/concepts/pattern-separation-completion.md]]** — the recurrent layer's read-out `p₁ = SF_{ϕ₁}(ϕ̃₁)` on a novel input is pattern completion with a predictive component: the attractor returns not the stored pattern but its discounted future.

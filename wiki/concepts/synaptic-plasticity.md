@@ -81,6 +81,16 @@ The `x_i·Δx_j` increment pushes future `x_j` responses toward the perturbation
 
 **The dendritic basis is load-bearing.** Distinct dendrites of one CA1 pyramidal cell carry heterogeneous, partly decorrelated tuning; soma–dendrite coupling varies with brain state, so dendrites can act semi-independently (Rolotti et al. 2022b; O'Hare et al. 2022). Read functionally: **the dendrites are a high-dimensional random-feature basis and BTSP chooses a weighting on it.** A place field is then a readout direction, and "which field" is "which weights", which is why place-cell-like tuning also appears for sound frequency, faces, conspecifics and stimulus×choice conjunctions — the rule is not spatial, the basis is whatever the cell receives. The implication the review draws is strong: a tuned hippocampal cell may just be a **memory cell**, place coding a byproduct of compressing inputs under a sparsity penalty (Benna & Fusi 2021).
 
+**7. Predictive/decorrelative rule with a symmetry dial — the rule whose fixed point is a named object.** Subtract the synapse's own predicted input from the post-synaptic activity, and run the same term on the time-reversed pair with weight `β`:
+
+```
+ΔW = α (p_post(t+1) − W p_pre(t)) p_pre(t)ᵀ  +  β (p_post(t) − W p_pre(t+1)) p_pre(t+1)ᵀ
+```
+
+The single-term version (`β = 0`) has `E[ΔW | p_pre] = 0` exactly when `W p_pre = E[p_post | p_pre]`, so the rule is a regression onto the *next* activity — which is why its fixed point is a successor representation rather than a correlation matrix. The `β` term is the same regression run backwards, and at convergence the network stores the SR of `P_{α,β} = (αP_forward + βP_backward)/(α+β)`: asymmetric → successor, symmetric → time-reversible (policy-insensitive) map, `β`-only → predecessor representation (Keck et al. 2025; see [[wiki/concepts/successor-representation.md]] for the functional consequences). Stability requires `|α| > |β|`; `α = −β` diverges.
+
+**Why this rule matters here.** It is the wiki's clearest case of the demand made in the vector-field section below being *met*: the quantity that improves is named, and the coefficient controlling the shape of the plasticity kernel maps onto a defined change in the represented transition structure. The rule is also robust to the biological messiness the page's other rules assume away — heterogeneous per-synapse `α, β` drawn at random, and per-timestep noise on them, leave the behaviour qualitatively unchanged, so a symmetry *bias* rather than exact symmetry is sufficient. Empirically CA3 recurrent synapses show a temporally symmetric potentiation window while CA1 Schaffer-collateral synapses show classical asymmetric STDP, which under this rule assigns the two subfields different representations of the same experience.
+
 ### The two rules divide the graph between them
 
 | | BTSP | STDP |
@@ -163,3 +173,4 @@ So the standing worry that Hebbian-family rules approximate no gradient is not d
 - **[[wiki/concepts/offline-replay.md]]** — supplies the temporal re-clocking these rules need (a theta cycle compresses a seconds-long trajectory into one STDP window) and the arena where the inhibitory and offline plasticity rows would do their work.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — BTSP is the synapse-level mechanism of the "fast, one exposure" column: a single plateau writes a new unit, which is what one-shot encoding means at the level of a rule.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — where this page's neurogenesis row acquires a demonstrated function: ablating adult dentate neurogenesis impairs discrimination only at *low* sample-target separation, so added capacity is spent specifically on pushing similar inputs apart (Yassa & Stark 2011).
+- **[[wiki/concepts/successor-representation.md]]** — what rule 7's fixed point computes: the temporal symmetry of the plasticity kernel selects whether the stored matrix is the successor, the predecessor, or the policy-insensitive reversible map, so a plasticity coefficient becomes a representational design choice (Keck et al. 2025).
