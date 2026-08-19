@@ -16,7 +16,7 @@ One INGEST each:
 - [x] `crouse-2022-hopfield-networks-memory-machines.md` — attractor-dynamics · X · 2022
 - [x] `talk-nd-boltzmann-machines.txt` — attractor-dynamics · X · nd
 - [x] `ahmad-2016-sparse-representations-active-dendrites.md` — neuron-models · F · 2016
-- [ ] `chavlis-2025-dendritic-anns.md` — neuron-models · M · 2025
+- [x] `chavlis-2025-dendritic-anns.md` — neuron-models · M · 2025
 - [ ] `talk-nd-hodgkin-huxley-model.txt` — neuron-models · X · nd
 - [ ] `douglas-2004-neocortical-circuits.md` — cortical-columns · S · 2004
 - [ ] `talk-nd-thousand-brains-theory.txt` — cortical-columns · X · nd

@@ -94,6 +94,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MCMC | Markov-Chain Monte Carlo | Sampling from a distribution by a stochastic transition chain; stochastic attractor relaxation is read as MCMC over the posterior ([[wiki/entities/fcann.md]]) |
 | NESS | Non-Equilibrium Steady State | Stationary distribution maintained by circulating (solenoidal) probability flow; what asymmetric couplings produce |
 | SLAM | Simultaneous Localization And Mapping | Building a map while self-localizing in it; solved by trained recurrent networks without grid units emerging |
+| dANN | dendritic Artificial Neural Network | Feedforward net with a fixed dendrite→soma tree mask and restricted input sampling ([[wiki/entities/dendritic-ann.md]]) |
+| vANN / sANN / pdANN | vanilla / sparse / partly-dendritic ANN | dANN's controls: fully connected, randomly sparse, and tree-structured-but-fully-sampled-input |
+| LRF / GRF | Local / Global Receptive Field | dANN input-sampling rules: receptive-field centre drawn per dendrite (LRF, best-performing) or per soma (GRF) |
 
 ## Neuroscience
 
@@ -172,3 +175,4 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 |---|---|---|
 | ARC / ARC-AGI | Abstraction and Reasoning Corpus (for Artificial General Intelligence) | Chollet's grid-transformation benchmark; the wiki page describes the 2019 original ([[wiki/entities/arc-agi.md]]) |
 | GLUE / SuperGLUE | General Language Understanding Evaluation | Multi-task NLP benchmarks; tasks are known to developers, so they measure skill breadth, not developer-aware generalization |
+| FMNIST / KMNIST / EMNIST | Fashion / Kuzushiji / Extended MNIST | MNIST drop-in replacements of increasing difficulty (clothing, Hiragana, 47 balanced letter+digit classes); the dANN benchmark suite with MNIST and CIFAR-10 |
