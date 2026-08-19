@@ -109,6 +109,26 @@ Every row above concerns *which* experienced sequence is resampled. Barron et al
 
 ---
 
+## What replay costs in wiring: `c · M ≈ const`
+
+Sammons et al. 2023 asks the quantitative version of the mechanism question — *how much recurrence does a sequence need to replay at all?* — in a spiking network built to the measured CA3 statistics.
+
+| Model element | Setting |
+|---|---|
+| Population | `N` excitatory adaptive integrate-and-fire + `N/4` inhibitory; random E→E with probability `c` |
+| Weights | Log-normal, SD = 4× mean (median set 50× below the 99th percentile) — the measured EPSP distribution, many negligible synapses and a few dominant ones |
+| Memory | 10 assemblies of `M` cells, chained into a sequence by raising **<1%** of E→E weights to the 99th percentile — the sequence is embedded *in* the background distribution, not on top of it |
+| Balance | Inhibitory STDP on I→E (Vogels-type, target rate 5 spikes/s) run until the net reaches an asynchronous-irregular state, then frozen |
+| Probe | 150 pA / 5 ms to half of assembly 1; success = each assembly peaks at 60–360 spikes/s with consecutive peaks 1–20 ms apart |
+
+**The result is a boundary, not a point.** Successful replay requires a minimum connectivity, and that minimum is set almost entirely by assembly size: the success frontier fits **`c · M = const`**. Network size `N` enters only weakly (bigger nets need slightly more of either), and raising the sequence weight lowers the minimum `M`. At the measured `c ≈ 8.8%` replay succeeds over a wide parameter range **with purely random connectivity** — no enrichment of disynaptic motifs, which is what the low-connectivity (0.9%) account needed to make completion work at all ([[wiki/empirical-tensions.md]] T49).
+
+**Read as an exchange rate for a builder (brainstorm).** `c · M = const` says wiring density and representational redundancy are *substitutes* at fixed replay reliability: halve the connection probability and each memory must recruit twice the cells. With disjoint assemblies the number of storable sequences goes as `~N/M ∝ N · c`, so the product that matters is total recurrent synapse count — the same conclusion the capacity equation `p_max ≈ kC/(a ln(1/a))` reaches from the attractor side ([[wiki/entities/rolls-treves-hippocampal-model.md]]), now derived from *sequence propagation* rather than from fixed-point storage. Two design corollaries the wiki's replay buffers ignore: **(i)** the sparser the recurrence, the larger the minimum item — there is a floor below which a memory simply cannot be reactivated, and it is a wiring property, not a learning-rate property; **(ii)** the balancing step is load-bearing and separate from the memory — inhibitory plasticity is what keeps the network in the regime where an injected pulse propagates instead of igniting or dying, which is a second, so-far-unnamed job for the inhibitory-plasticity mechanism this page already credits with *filtering* replay.
+
+**And the embedding is nearly free.** Strengthening <1% of synapses to a value already inside the tail of the natural weight distribution is enough to encode a ten-step sequence, leaving the weight histogram essentially unchanged. A stored memory is therefore not detectable as an anomaly in the weight statistics — which is why connectomics alone cannot read out content, and why a machine store using a heavy-tailed weight prior can write sequences without perturbing its own initialization **(brainstorm)**.
+
+---
+
 ## Why this matters for a reasoning model
 
 - **Replay is the only mechanism in the wiki that edits the training distribution from inside the agent.** Everything else on the control surface ([[wiki/concepts/three-component-framework.md]]) — architecture, objective, learning rule, data — is set by the builder. Replay is a *learned curriculum generator*, and gap G32 (nothing designs the experience stream) is exactly the slot it fills.
@@ -145,7 +165,7 @@ The third point is the one with teeth for a machine: it makes **use frequency th
 ## Connections
 
 - **[[wiki/entities/vector-hash.md]]** — narrows this page's remit: 11 environments learned in sequence with zero forgetting and *no replay of any kind*, because separation in a large prestructured address space already prevents interference. If that holds, replay's job is consolidation and generalisation, not protection of what is already stored.
-- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the dissenting schedule above, plus the mechanism replay must operate through: completion in a diluted CA3 attractor within a single theta cycle (~120 ms), and a polysynaptic reverse hierarchy to get the reinstated pattern back to cortex.
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the dissenting schedule above, plus the mechanism replay must operate through: completion in a diluted CA3 attractor within a single theta cycle (~120 ms), and a polysynaptic reverse hierarchy to get the reinstated pattern back to cortex; and the two pages now price the same wiring from opposite ends — its `p_max ≈ kC/(a ln(1/a))` counts fixed points storable at a given fan-in, while `c · M ≈ const` counts what fan-in a *sequence* needs to propagate, both landing on total recurrent synapse count as the budget.
 
 - **[[wiki/concepts/complementary-learning-systems.md]]** — this page is the content of that page's coupling channel: CLS says replay transports episodes to cortex, and the transport turns out to be lossy *by design*, suppressing non-generalisable items rather than sampling experience faithfully.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — supplies the write rules replay operates on (symmetric CA3 STDP for bidirectional sequences, inhibitory plasticity for the filter), and receives from this page the theta-cycle compression that lets a millisecond plasticity window see second-scale behavioural transitions.

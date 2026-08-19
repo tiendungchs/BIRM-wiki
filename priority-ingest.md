@@ -31,7 +31,7 @@ One INGEST each:
 - [x] `barron-2020-inferential-reasoning-humans-mice.md` — hippocampal-entorhinal · R · 2020
 - [x] `nieh-2021-hippocampus-abstract-knowledge-geometry.md` — hippocampal-entorhinal · R · 2021
 - [x] `park-2021-social-hierarchy-grid-like-code.md` — hippocampal-entorhinal · R · 2021
-- [ ] `sammons-2023-ca3-module-structure-function.md` — hippocampal-entorhinal · R · 2023
+- [x] `sammons-2023-ca3-module-structure-function.md` — hippocampal-entorhinal · R · 2023
 - [ ] `courellis-2024-abstract-representations-hippocampus.md` — hippocampal-entorhinal · R · 2024
 - [ ] `mishchanchuk-2024-ventral-hippocampus-hidden-state.md` — hippocampal-entorhinal · R · 2024
 - [ ] `zheng-2024-parallel-cognitive-maps.md` — hippocampal-entorhinal · R · 2024
