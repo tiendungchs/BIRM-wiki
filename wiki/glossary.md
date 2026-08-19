@@ -204,6 +204,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CEBRA | Consistent Embedding of high-dimensional Recordings using Auxiliary variables | Contrastive latent-embedding method used to decode position from neural populations |
 
 | CCGP | Cross-Condition Generalization Performance | Train a linear decoder on one set of conditions, test on held-out ones: the standard score for whether a population code is *abstract* ([[wiki/concepts/population-geometry.md]]) |
+| BCI | Brain–Computer Interface | Closed-loop cursor control from recorded population activity; the experimenter owns the whole activity→behaviour map, which is what makes learnability testable ([[wiki/concepts/manifold-constrained-learning.md]]) |
+| IM | Intrinsic Manifold | The subspace spanned by a population's natural co-modulation patterns, estimated as the column space of the factor-analysis loading matrix; predicts which new activity patterns are learnable ([[wiki/concepts/manifold-constrained-learning.md]]) |
+| PD | Preferred Direction | The movement direction eliciting a motor unit's maximal firing; changes in PD are the classical single-cell signature of sensorimotor learning |
 | BTSP | Behavioral Timescale Synaptic Plasticity | Seconds-wide eligibility window gated by a dendritic plateau; produces a place field from one traversal, and a binary-weight content-addressable memory at the population level ([[wiki/concepts/synaptic-plasticity.md]], [[wiki/entities/btsp-cam.md]], [[wiki/empirical-tensions.md]] T13) |
 
 ## Benchmarks
