@@ -22,7 +22,7 @@ One INGEST each:
 - [x] `bi-1998-spike-timing-dependent-plasticity.md` — plasticity · R · 1998
 - [x] `sadtler-2014-neural-constraints-learning.md` — plasticity · R · 2014
 - [x] `bartunov-2018-biologically-motivated-dl-scalability.md` — plasticity · R · 2018
-- [ ] `golub-2018-neural-reassociation-learning.md` — plasticity · R · 2018
+- [x] `golub-2018-neural-reassociation-learning.md` — plasticity · R · 2018
 - [ ] `talk-nd-brain-learning-algorithm.txt` — plasticity · X · nd
 - [ ] `talk-nd-brain-learning-limits.txt` — plasticity · X · nd
 - [ ] `sun-2023-systems-consolidation-generalization.md` — memory-consolidation · M · 2023
