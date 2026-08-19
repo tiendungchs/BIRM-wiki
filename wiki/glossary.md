@@ -116,6 +116,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SO(d) | Special Orthogonal group of degree `d` | Rotations of a `d`-dimensional embedding; `SO(5)` has 10 generators, and one element of it is what aligns two animals' neural manifolds — the "pose" parameter against a reusable geometry |
 | MDS | MultiDimensional Scaling | Embeds a distance matrix in low dimensions for visualisation; used to read a graph back out of a neural similarity matrix (Garvert et al. 2017) |
 | ROI / SVC | Region Of Interest / Small-Volume Correction | An anatomically or independently defined set of voxels, and multiple-comparison correction restricted to it — the standard way an fMRI claim about a small structure such as entorhinal cortex is made |
+| GMV | Grey-Matter Volume | Structural-MRI morphometric measure; declines across most of cortex from childhood to adulthood, but *rises* in entorhinal cortex over ages 8–25 (Qu et al. 2026) |
+| FA / SC | Fractional Anisotropy / Structural Connectivity | Diffusion-MRI measure of directional water diffusion in white matter, used as a proxy for tract integrity; "structural connectivity" between two regions here means mean FA in the tracts joining them |
+| CCA | Canonical Correlation Analysis | Finds paired linear combinations of two variable sets that maximally correlate; used to relate a set of neural cognitive-map measures to a set of IQ subtest scores |
+| SPM (Raven's) | Standard Progressive Matrices | Non-verbal matrix-completion test, the standard psychometric measure of fluid reasoning; distinct from Statistical Parametric Mapping, the fMRI software |
+| WISC | Wechsler Intelligence Scale for Children | Multi-subtest IQ battery (digit span, block design, similarities, coding, comprehension) |
 | FWE | Family-Wise Error | Correction controlling the probability of *any* false positive across the tested voxels; stricter than false-discovery-rate control |
 | fMRI adaptation | (repetition suppression) | Reduced response to a stimulus similar to its predecessor; recovery from it is used as a proxy for representational distance between the two |
 | STDP | Spike-Timing-Dependent Plasticity | Hebbian rule whose sign depends on pre/post spike order |

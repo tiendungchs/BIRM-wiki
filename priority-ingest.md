@@ -37,6 +37,6 @@ One INGEST each:
 - [x] `zheng-2024-parallel-cognitive-maps.md` — hippocampal-entorhinal · R · 2024
 - [x] `valero-2025-interneurons-hippocampal-spatial-code.md` — hippocampal-entorhinal · R · 2025
 - [x] `sun-2025-orthogonalized-state-machine-hippocampus.md` — hippocampal-entorhinal · R · 2025
-- [ ] `qu-2026-grid-codes-inference-intelligence.md` — hippocampal-entorhinal · R · 2026
+- [x] `qu-2026-grid-codes-inference-intelligence.md` — hippocampal-entorhinal · R · 2026
 - [ ] `talk-nd-brain-organizes-information.txt` — hippocampal-entorhinal · X · nd
 
