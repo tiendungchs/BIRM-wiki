@@ -2,7 +2,7 @@
 
 **Two implementations of one idea: a reusable path-integrating structural code, plus a fast relational memory that ties that code to whatever this environment happens to contain — trained only to predict the next sensory observation, across many environments.**
 
-This is the wiki's `p = f(g, x)` factorization built rather than posited (Whittington et al. 2020 and Uria et al. 2020, as reviewed and extended by Whittington et al. 2022; the primary TEM source is a separate ingest). The line starts with Whittington et al. 2018, whose distinct contributions — hierarchical frequency bands, the entorhinal cell zoo as transition-statistic basis functions, and the neural evidence that place-cell remapping is *not* random — are in their own section below.
+This is the wiki's `p = f(g, x)` factorization built rather than posited. Three sources, in order of arrival: Whittington et al. **2018** (NeurIPS proto-TEM — hierarchical frequency bands, the entorhinal cell zoo as transition-statistic basis functions, first neural evidence that remapping is *not* random); Whittington et al. **2020** (*Cell* 183:1249–1263 — the primary TEM paper: full generative/inference model, non-spatial task results, remapping replication, prediction list); Whittington et al. **2022** (review, and the SMP comparison, Uria et al. 2020). Each has its own section below.
 
 ---
 
@@ -63,7 +63,88 @@ The model's own rate maps give across-environment gridAtPlace correlations of 0.
 
 ---
 
-## Results
+## The 2020 primary source
+
+Whittington, Muller, Mark, Chen, Barry, Burgess & Behrens 2020, *Cell*. Same factorisation as 2018, now with the full model written out, the non-spatial tasks run, and the remapping claim replicated in a second lab's data.
+
+### The computational chain
+
+Generative (predict), left column, and inference (observe), right column — one time-step each. `W` are backprop-learned network weights, `M` the Hebbian memory.
+
+| Generative step | Equation | Inference step | Equation |
+|---|---|---|---|
+| Path-integrate | `g_t ~ N(μ = f_g(g_{t-1} + W_a g_{t-1}), σ = f_σg(g_{t-1}))` | Compress + temporally filter `x` | `x^f_t = (1−α_f)x^f_{t−1} + α_f f_c(x_t)` |
+| Entorhinal → hippocampus | `g̃_t = W_repeat f_down(g_t)` | Sensory → hippocampus | `x̃_t = W_tile w_p f_n(x^f_t)` |
+| Retrieve memory | `p_t ~ N(μ = attractor(g̃_t, M_{t−1}), ·)` | Retrieve memory *by content* | `p^x_t = attractor(x̃_t, M_{t−1})` |
+| Predict observation | `x_t ~ Cat(softmax(f_d(w_x W_tileᵀ p_t + b_x)))` | Infer location | `g_t ~ q_φ(g_t ∣ p^x_t, g_{t−1}, a_t)` |
+| | | Infer conjunction | `p_t ~ N(μ = f_p(g̃_t ⊙ x̃_t), ·)` |
+| | | Write memory | `M_t = hebbian(M_{t−1}, p_t)` |
+
+Four things in that table the wiki did not previously have from a primary source:
+
+| Detail | Why it matters |
+|---|---|
+| **`p_t` is an elementwise product `g̃_t ⊙ x̃_t`** | Conjunction is literally multiplicative gating, not a learned MLP over the concatenation — a hippocampal cell fires only if *both* its structural and its sensory input are active. Every remapping result below is a corollary of this single line |
+| **Memory is read from *both* ends** | `attractor(g̃, M)` gives "what is here"; `attractor(x̃, M)` gives "where have I seen this" and feeds the location posterior. Path-integration drift is corrected by content-addressed recall, which is the loop the wiki usually draws one-way |
+| **Two learning timescales, explicitly separated** | `W` slow, by backprop-through-time, *shared across environments* (this is what generalises); `M` fast, Hebbian, every step, **reset on entering a new environment** (this is what individuates). Transition weights `W_a` are shared between generative and inference nets — atypical for a VAE, adopted "for biological considerations" |
+| **Sensory input is Laplace-transformed before binding** | The exponential filter `x^f` approximates a Laplace transform with real coefficients, matching reported LEC cells — so `x` entering the conjunction is a decaying *history*, not the instantaneous observation. This is the same primitive as [[wiki/entities/temporal-context-model.md]], embedded inside the rival architecture |
+
+`W_a` is a **separate weight matrix per action**, so relations compose by matrix product and are therefore **non-commutative by construction**: `uncle = father ∘ brother ≠ brother ∘ father`. Path integration on arbitrary graphs needs exactly this — see [[wiki/concepts/path-integration.md]].
+
+### The derivation of the entorhinal codes
+
+The paper's central theoretical move is that two requirements on `g`, both imposed purely by its use as a *memory address*, are claimed **sufficient** to produce grid and band codes:
+
+1. **Distinctness** — different states must get different `g`, or their memories collide.
+2. **Path-invariance** — the same state must get the same `g` however it is reached, or the memory cannot be retrieved.
+
+No spatial supervision, no periodicity prior, no `(x,y)` target; the only loss is a categorical cross-entropy over one-hot sensory identities. Grid modules at multiple frequencies, within-module phase offsets, and band cells all emerge, and their *second-order* structure (which grid cells fire next to which) is preserved across environments of different sizes — a representation of 2D-ness rather than of any one arena.
+
+### Results specific to 2020
+
+| Result | Detail |
+|---|---|
+| **Data efficiency tracks nodes, not edges** | Performance follows the fraction of *nodes visited*, not edges traversed. On the illustrative graph, 18 steps suffice to infer all 42 links. The contrast is formalised as a "node agent" vs an "edge agent" — structural knowledge converts `O(E)` experience into `O(V)` |
+| **First-presentation transitive inference** | After training on line graphs (lengths 4–6, fully connected, edges labelled by ordinal offset), TEM answers "what is 3 more than E" with "B" in a *new* task with new stimuli, zero additional experience |
+| **First-presentation social-hierarchy inference** | Family-tree graphs, 10 relation types (sibling, parent, grandparent, child 1/2, aunt-uncle, niece-nephew 1/2, cousin 1/2), 3–4 levels (15 or 31 states). "Bob is Cat's brother, Cat is Fran's mother" → "who is Bob's niece?" → "Fran" |
+| **Learning-to-learn curve** | Early in training TEM needs many visits per node; after many environments it predicts a node correctly on the *second* visit regardless of the edge taken. The structure and the memory policy are learned together |
+| **Remapping non-randomness replicated** | Second dataset (Chen et al. 2018, 4 mice, real + VR arenas 60×60 cm): gridAtPlace correlates across environments, `r = 0.273`, `p < 0.05` (64 conservative pairs); `r = 0.544`, `p < 0.05` (148 liberal pairs). Dataset 1 (Barry et al. 2012, 7 rats): `r = 0.322`, `p < 0.01` (115 conservative); `r = 0.63`, `p < 0.05` (255 liberal). Model gives `r = 0.31` against data `r = 0.27–0.32` |
+| **Four-lap task, three cell types** | Reward every 4 laps of a circular track (Sun et al. 2020). TEM's hippocampal layer reproduces all three recorded populations: pure place cells, lap-specific place cells, and lap-*counting* cells with graded firing. "Reward" is nothing but a sensory symbol that repeats every 4 laps |
+| **Non-spatial remapping — a confirmed prediction** | Across two sensorially different versions of the 4-lap task, TEM predicts hippocampal cells *spatially* remap while *retaining lap specificity*, because sensory observations repeat each lap so lap selectivity is driven by MEC alone. Measured by event-specific-rate (ESR) correlation across environments, this holds in TEM and in Sun et al.'s mice: ESR correlations concentrated high and significantly above shuffle, while spatial correlations are near-uniform |
+| **Which cells are active where** | The same `g̃ ⊙ x̃` gate explains why a cell active in one environment is silent in another (structural and sensory input fail to align), for non-spatial cells as well as spatial ones — approximate independence of recruitment, in model and data |
+
+**The interpretive payoff of the non-spatial remapping result.** One mechanism produces *both* a scrambled and a preserved dimension in the same cells at the same time. Remapping is therefore not a property of a cell or of a map; it is a property of each *factor* of the conjunction independently. Whatever the structural code holds constant survives the remap; whatever the sensory code re-shuffles does not. **(brainstorm)** This is the sharpest available operational definition of the `g`/`x` split: run the same task twice with different surface features and ask, dimension by dimension, which survives — no model fitting, no cell typing, and it applies to any conjunctive representation, artificial included.
+
+### Predictions still open
+
+| Prediction | Test |
+|---|---|
+| LEC↔hippocampus relationship also preserved across maps | Simultaneous LEC + hippocampus recording in a remapping experiment |
+| **Multiple place fields within one environment are the same phenomenon as remapping** | The grid–place correlation of the remapping analysis should hold *between the several fields of one cell in one arena* |
+| MEC contains lap-specific and lap-counting cells | Not recorded — Sun et al. 2020 recorded hippocampus only; entorhinal inactivation disrupting lap cells is the only current support |
+| Latent-state cells (splitter, inbound, outbound) generalise across sensory versions of a task in **MEC but not hippocampus** | Factorial design varying stimuli and structure independently |
+| **Structural remapping**: MEC cell–cell correlation structure changes when *transition statistics* change, gradually and parametrically | Early fMRI support (Baram et al. 2019); easiest in primates where tasks need not be spatial |
+| In VR where a track section looks different on each lap, **all** hippocampal cells in that section become lap-specific (no place or counting cells) | The paper flags this as "particularly stark" and as a test of its simplification that the hippocampus does *only* binding |
+
+### Framing claims
+
+- **Wake-sleep, not just VAE.** Inference net = awake, observing; generative net = asleep, checking whether what was inferred is what it would have predicted. Errors at all three levels `[g, p, x]` per step, accumulated over a sequence, BPTT.
+- **Replay's job is structural organisation.** Because TEM's learning scheme is Helmholtz-machine-shaped and hippocampal replay appears to sample from a generative model, the paper's proposal is that replay exists to *organise sequences into structures* rather than to rehearse episodes ([[wiki/concepts/offline-replay.md]]).
+- **Remapping and transitive inference are the same coin.** The structural knowledge transferred during remapping *is* what supports transitive generalisation — one mechanism, two literatures that had never been connected.
+- **Cortex→hippocampus, not only hippocampus→cortex.** Standard consolidation has the hippocampus teaching cortex; TEM adds the return path — cortical structural representations feed back to *organise* new hippocampal experience ([[wiki/concepts/complementary-learning-systems.md]]).
+
+### Limitations stated by the paper
+
+| Limit | Consequence |
+|---|---|
+| **Sensory observations are i.i.d. across nodes by design** | Real worlds have sensory correlations between adjacent locations; these were deliberately removed so that transition structure is the *sole* cause of the learned representations. Clean attribution, but the model has never been asked to handle the correlated case, where much cheaper non-structural solutions exist |
+| **Not biophysically realistic** | Explicitly a computational-level model; anatomy is used only to constrain which population computes what |
+| **Hippocampus does binding and nothing else** | Acknowledged as a simplification; the VR prediction above is its stress test |
+| **Actions/relations are supplied and labelled** | Every task hands the model an action vocabulary (`north`, `uncle`, `+3`) — hardness source 2 untouched, and the non-commutative composition result presupposes the labels are already correct |
+
+---
+
+## Results from the 2022 review (TEM and SMP together)
 
 | Result | Detail |
 |---|---|
@@ -98,9 +179,9 @@ The model's own rate maps give across-environment gridAtPlace correlations of 0.
 
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the same anatomy optimised for the opposite quantity: capacity and one-trial arbitrary binding there, transfer and structural generalisation here, with no model in the wiki supplying both.
 
-- **[[wiki/concepts/latent-graph-discovery.md]]** — the two-level hierarchy built rather than argued: a slow, shared path-integrating meta-graph plus a one-shot memory binding this environment's contents, trained by nothing but next-observation prediction.
-- **[[wiki/concepts/path-integration.md]]** — supplies this architecture's `g` and the reason it transfers; conversely this architecture is what makes path integration trainable from raw observations instead of from supplied spatial targets.
-- **[[wiki/concepts/abstract-structural-codes.md]]** — the strongest existing demonstration that `g` can be *learned*: content-invariant, reused across environments, and yielding grid-like codes in space and non-spatial latent structure elsewhere.
+- **[[wiki/concepts/latent-graph-discovery.md]]** — the two-level hierarchy built rather than argued: a slow, shared path-integrating meta-graph plus a one-shot memory binding this environment's contents, trained by nothing but next-observation prediction — and it supplies that page's measure of how much meta-graph a system has, since knowing the structure converts `O(edges)` experience into `O(nodes)`.
+- **[[wiki/concepts/path-integration.md]]** — supplies this architecture's `g` and the reason it transfers; conversely this architecture is what makes path integration trainable from raw observations instead of from supplied spatial targets, and it forces the non-commutative case, since one weight matrix per action makes `uncle = father ∘ brother ≠ brother ∘ father` expressible and required.
+- **[[wiki/concepts/abstract-structural-codes.md]]** — the strongest existing demonstration that `g` can be *learned*: content-invariant, reused across environments, and yielding grid-like codes in space and non-spatial latent structure elsewhere; it also *derives* that page's requirement list from one role, since distinctness, path-invariance and content-invariance are all forced by `g` being a memory address.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — hippocampal indexing theory implemented: the fast store holds only pointers binding two cortical codes, so consolidation is cortex learning the structure that makes those pointers predictable.
 - **[[wiki/entities/cscg.md]]** — the complementary architecture, and the proposed merge (a TEM whose hippocampus also predicts future hippocampal states) that would give fast novel-map construction and transfer at once.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — conjunctive hippocampal codes are the separation mechanism here, and remapping is separation applied to whole maps in the service of transfer rather than to episodes.
@@ -108,7 +189,7 @@ The model's own rate maps give across-environment gridAtPlace correlations of 0.
 - **[[wiki/concepts/meta-learning.md]]** — an outer loop over an environment family shaping a fast inner binder, with the inner loop being a memory write rather than a gradient step.
 - **[[wiki/concepts/compositionality.md]]** — learns factorised bases (object-vector, border, grid) that recombine to describe new configurations, and shows where the factorisation stops: a fixed task × space pairing does not survive a change of maze topology.
 - **[[wiki/concepts/offline-replay.md]]** — the model contributes replay's fourth job (offline path integration binding a goal-vector cell to every location) and in return inherits that page's problem: measured replay content is filtered for generalisability, not for coverage.
-- **[[wiki/entities/temporal-context-model.md]]** — the same anatomical division of labour reached 15 years earlier with the opposite codes: entorhinal cortex carries a decaying trace of *content* rather than a content-blind path-integrated `g`, and the hippocampus reinstates past entorhinal states rather than binding structure to sensation.
+- **[[wiki/entities/temporal-context-model.md]]** — the same anatomical division of labour reached 15 years earlier with the opposite codes: entorhinal cortex carries a decaying trace of *content* rather than a content-blind path-integrated `g`, and the hippocampus reinstates past entorhinal states rather than binding structure to sensation. The 2020 model narrows the gap by adopting the other side's primitive: `x` is exponentially filtered (an approximate Laplace transform) before entering the conjunction, so a decaying content trace is *inside* this architecture and the residual dispute is whether a content-blind `g` runs alongside it.
 - **[[wiki/concepts/objective-identifiability.md]]** — the standard this model's grid-like units have to meet, and the reason it partly does: its structural code is trained on raw-observation prediction across worlds rather than on a hand-shaped centre–surround spatial readout, which is the ingredient shown to be doing the work elsewhere.
 - **[[wiki/entities/hidden-state-inference-remapping.md]]** — the rival account of the same phenomenon, and now constrained by it: any allocate-vs-reuse posterior must produce a *new* map whose place-to-grid relationship is preserved, which a state-identity prior alone does not specify.
 - **[[wiki/concepts/distributed-reference-frames.md]]** — the architectural contrast: this model runs one structural code rebound per environment, that page's proposal runs many concurrent codes anchored to different objects, which trades TEM's single arbitration-free `g` for redundancy plus an unsolved consensus problem.

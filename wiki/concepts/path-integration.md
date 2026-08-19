@@ -35,6 +35,13 @@ A path-integrable domain is one whose actions satisfy closure relations — the 
 | Arithmetic on a line | `+n` then `−n` = identity |
 | Social network ("knows") | **None** — no consistent action labelling exists |
 
+**Composition is a monoid, not a group — order matters.** The requirement is *path-invariance*, not commutativity, and the two come apart as soon as the domain is not Euclidean. TEM implements each action as its own weight matrix `W_a` and composes by matrix product, so `uncle = father ∘ brother ≠ brother ∘ father` is expressible and is explicitly demanded of the learned code (Whittington et al. 2020). Two corrections to this page's earlier framing follow:
+
+- The "displacement added to a phase" intuition inherited from [[wiki/concepts/abstract-structural-codes.md]] describes the *abelian* special case. Kinship, transitive orders and task-cycle structure are non-abelian or at least order-sensitive, and a phase-addition code cannot represent them.
+- What G3 actually needs is that every route reaching a given state produce the same `g` — a statement about the *relations that hold* in the domain, which a learned per-action operator can satisfy without commuting in general.
+
+**The two constraints that generate the code.** Stated at their sharpest, `g` needs only: (1) **distinctness** — different states get different codes, or memories written at them collide; (2) **path-invariance** — the same state gets the same code from any direction, or the memory cannot be found. Both are consequences of `g` being used as a *memory address*, not of anything spatial. Whittington et al. 2020 claim these two are sufficient to produce grid and band codes, with no spatial target anywhere in the loss ([[wiki/concepts/objective-identifiability.md]], [[wiki/empirical-tensions.md]] T38).
+
 Two consequences the wiki did not previously have:
 
 - **Gap G3 gets a mechanism, not a brainstorm.** [[wiki/concepts/abstract-structural-codes.md]] proposed that a periodic code commutes because displacement is added to a phase, and marked it speculative. Path integration is that proposal implemented in four model families and observed in three animal phyla. Path-consistency is a property of the *update rule*; no loss term enforces it.
@@ -77,6 +84,8 @@ Path integration alone drifts and cannot say *what is here*. Two couplings, and 
 |---|---|---|
 | **Correct the code from the world** | Anchoring: boundaries and geometry reset position and heading | [[wiki/concepts/cognitive-map.md]] (G39) |
 | **Read content off the code** | Bind observation to position in a fast memory, then predict by *integrate-then-retrieve* | [[wiki/entities/tolman-eichenbaum-machine.md]] |
+
+**And a third that is really the first run backwards.** The same memory read content-addressed by the *sensorium* — `p^x_t = attractor(x̃_t, M_{t−1})` — returns the set of previously visited places carrying a similar observation, and that set is fed into the posterior over `g_t` alongside the path-integrated estimate (Whittington et al. 2020). So drift correction needs no boundary, no landmark and no anchoring machinery: recognising *what* you are seeing partially tells you *where* you are, using the same store that the forward direction writes. This is anchoring implemented as memory recall rather than as a reset (G39).
 
 The second is the important one architecturally: it makes sensory prediction a two-step operation — imagine the transition in `g`, then retrieve "what did I see the last time I was *here*" from `M`. The structural code never has to carry content, which is exactly the `g`/`x` factorization the wiki asks for, arrived at from an efficiency argument.
 

@@ -17,6 +17,8 @@ If far transfer means reusing structure across domains that share no surface fea
 
 Requirement 4 is what makes structural codes an efficiency claim and not just a representational one.
 
+**A derivation of requirements 1–3 from a single role.** Whittington et al. 2020 argue that if `g` is used as the *address* of a fast memory, then only two constraints are needed and both are forced: **distinctness** (different states must get different codes or their memories collide) and **path-invariance** (the same state must get the same code from any direction or the memory cannot be retrieved). Content-invariance then follows for free, because the address must not depend on what happens to be stored at it. This converts three stipulated requirements into consequences of one architectural decision — bind content into a separately-addressed store — and it is the wiki's only account of *why* `g` should have these properties rather than a list saying that it must.
+
 ---
 
 ## Grid codes as the leading biological candidate
@@ -28,6 +30,7 @@ Requirement 4 is what makes structural codes an efficiency claim and not just a 
 | Functional neuroimaging shows grid-*like* codes in humans performing an **abstract categorization** task — periodic coding as a general hallmark of knowledge organization, not a spatial specialization | One report, explicitly flagged as requiring much further work |
 | Direct evidence for object-invariant relational codes in the mammalian brain | **Absent** — the paper states we currently lack it |
 | The `g`/`x` invariance split is measurable cell by cell: object-vector cells in the structural layer generalise over object identity within and across environments, while landmark cells in the conjunctive layer stay object-specific — same architecture, same training, opposite invariance, matching recordings | Model plus supporting recordings (Whittington et al. 2018) |
+| The split is also measurable *within one cell, across two dimensions at once*: on two sensorially different versions of a reward-every-4-laps task, hippocampal cells remap spatially while **retaining their lap preference**, because lap identity is carried by the structural input and space by the sensory conjunction. Predicted by the model, then confirmed in mouse recordings (Whittington et al. 2020, data from Sun et al. 2020) | Model prediction confirmed in data |
 
 The tension between rows 3 and 4 is recorded as T4 in [[wiki/empirical-tensions.md]]: the same review both advances periodic conceptual coding and states that codes of this kind have no direct evidence.
 

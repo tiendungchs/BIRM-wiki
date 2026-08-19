@@ -87,6 +87,8 @@ Mapping to the two-timescale factorization (W = slow **w**eights, gradient-updat
 | **g** — structural code, position in the meta-graph | **x** — sensory code, node content |
 | — | **p = f(g, x)** — conjunction anchoring content to graph position |
 
+**The measurable payoff of the split: `O(E)` experience becomes `O(V)`.** An agent without the meta-graph must traverse every *edge* to know the graph; an agent that has it needs only to visit every *node*, because the edges are implied by structure it already has. TEM's prediction accuracy tracks the fraction of nodes visited rather than edges taken, and on the paper's illustrative graph 18 steps suffice to infer all 42 links (Whittington et al. 2020, [[wiki/entities/tolman-eichenbaum-machine.md]]). This is the wiki's cleanest quantitative statement of what the two-level hierarchy buys, and it is the right benchmark axis for any candidate: plot performance against *nodes visited* and against *edges taken*, and the gap between the curves is how much meta-graph the system actually has.
+
 ---
 
 ## Sources of Hardness
@@ -204,7 +206,7 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 - **[[wiki/concepts/path-integration.md]]** — the compressed alternative to storing a graph, and the wiki's first mechanism (rather than brainstorm) for path-consistency of `g`: identity accumulated from actions, so new nodes cost nothing and generalisation needs no graph matching (Whittington et al. 2022).
 - **[[wiki/concepts/successor-representation.md]]** — what a state-space is *for*, once discovered: a discounted future-occupancy matrix that makes value a linear read-out and multi-step planning a spectral operation.
 - **[[wiki/entities/cscg.md]]** — hardness source 3's clone-cell answer built: a frozen 0/1 emission per observation converts state-space discovery into transition learning, fast and local, with zero transfer.
-- **[[wiki/entities/tolman-eichenbaum-machine.md]]** — the two-level hierarchy realised end-to-end: a shared path-integrating meta-graph plus a one-shot relational memory binding this instance's contents, trained only to predict the next observation.
+- **[[wiki/entities/tolman-eichenbaum-machine.md]]** — the two-level hierarchy realised end-to-end: a shared path-integrating meta-graph plus a one-shot relational memory binding this instance's contents, trained only to predict the next observation, and the source of this page's node-vs-edge measure of how much meta-graph a system has.
 - **[[wiki/entities/temporal-context-model.md]]** — the cheapest graph-metric recovery in the wiki: edges presented in random order produce an embedding whose inner products fall off with graph distance, from one normalised leaky integrator plus a Hebbian outer product, with no objective, no search and no supplied node ordering.
 - **[[wiki/entities/hidden-state-inference-remapping.md]]** — the map-selection step the framing presupposes: a nonparametric posterior deciding which stored graph generated the current observations and when to allocate a new one, with the correspondence (orientation) of each candidate graph maximised before the comparison.
 - **[[wiki/concepts/distributed-reference-frames.md]]** — the parallel-discovery reading of this framing: instead of one posterior over one graph, many partial estimates built redundantly over different input spaces and integrated by consensus, which relocates the hard step from inference to arbitration (G43).

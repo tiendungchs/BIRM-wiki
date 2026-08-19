@@ -116,6 +116,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | ACC / PCC | Anterior / Posterior Cingulate Cortex | Also report grid-like modulation; PCC carries the magnitude half of the social-space vector code |
 | MEC / LEC | Medial / Lateral Entorhinal Cortex | Structural (grid-like, path-integrating) and sensory input streams to hippocampus respectively |
 | OVC / BVC / GVC | Object-Vector / Border-Vector / Goal-Vector Cell | Local bases: fire at a given distance and direction from any object, border or goal ([[wiki/concepts/compositionality.md]]) |
+| ESR | Event-Specific Rate | Per-lap deviation from the mean firing at a cell's peak location; measures non-spatial (which-lap) selectivity while ignoring spatial selectivity ([[wiki/entities/tolman-eichenbaum-machine.md]]) |
 | Splitter cell | — | Fires at the same location differently depending on the trajectory through it; a latent-state code |
 
 ## Benchmarks
