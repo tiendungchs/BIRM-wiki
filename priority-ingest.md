@@ -23,7 +23,7 @@ One INGEST each:
 - [x] `kawahara-2025-spiking-tolman-eichenbaum-machine.md` — hippocampal-entorhinal · M · 2025
 - [x] `keck-2025-symmetry-local-rules-navigation.md` — hippocampal-entorhinal · M · 2025
 - [x] `li-2026-hippoformer-spatial-memory-transformer.md` — hippocampal-entorhinal · M · 2026
-- [ ] `kumaran-2005-cognitive-maps-vs-relational-memory.md` — hippocampal-entorhinal · R · 2005
+- [x] `kumaran-2005-cognitive-maps-vs-relational-memory.md` — hippocampal-entorhinal · R · 2005
 - [ ] `bakker-2008-pattern-separation-ca3-dentate.md` — hippocampal-entorhinal · R · 2008
 - [ ] `seelig-2015-landmark-orientation-path-integration.md` — hippocampal-entorhinal · R · 2015
 - [ ] `constantinescu-2016-gridlike-code-concepts.md` — hippocampal-entorhinal · R · 2016
