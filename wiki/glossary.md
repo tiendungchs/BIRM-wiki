@@ -6,6 +6,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 
 | Abbrev. | Expansion | Note |
 |---|---|---|
+| PCA | Principal Component Analysis | Projection onto the leading eigenvectors of the input correlation matrix; the fixed point of plain Hebbian learning on a linear unit, and of a Hebbian layer with lateral inhibition ([[wiki/concepts/synaptic-plasticity.md]]) |
 | BHN | Binary Hopfield Network | The classical bipolar-state network with symmetric weights and asynchronous threshold updates ([[wiki/entities/hopfield-network.md]]) |
 | CHN | Continuous Hopfield Network | Float-valued states; exponential capacity and one-step convergence, and the update is transformer self-attention (Ramsauer et al. 2020) |
 | MHN | Modern Hopfield Network (Dense Associative Memory) | Hopfield network with a steep nonlinearity applied to the state–pattern overlap, giving polynomial or exponential item capacity ([[wiki/entities/dense-sequence-memory.md]]) |
@@ -145,6 +146,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | FWE | Family-Wise Error | Correction controlling the probability of *any* false positive across the tested voxels; stricter than false-discovery-rate control |
 | fMRI adaptation | (repetition suppression) | Reduced response to a stimulus similar to its predecessor; recovery from it is used as a proxy for representational distance between the two |
 | STDP | Spike-Timing-Dependent Plasticity | Hebbian rule whose sign depends on pre/post spike order |
+| BCM | Bienenstock–Cooper–Munro theory | Stabilised Hebbian rule with a *sliding* modification threshold on postsynaptic activity — potentiation above it, depression below — so the rule is metaplastic by construction ([[wiki/concepts/synaptic-plasticity.md]]) |
+| GHA | Generalized Hebbian Algorithm | Deflation-based extension of Oja's rule that extracts successive principal components rather than only the first |
 | V1 | Primary Visual Cortex | Simple/complex cells; origin of convolutional architecture |
 | V2 / V2M | Secondary Visual Cortex / its Medial subdivision | Site of reported rat grid, place and head-direction cells that persist in darkness ([[wiki/concepts/distributed-reference-frames.md]]) |
 | S1 / S1HL | Primary Somatosensory Cortex / its HindLimb area | Site of reported rat grid, place and head-direction cells that persist after whisker trimming |
