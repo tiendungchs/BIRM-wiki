@@ -115,6 +115,19 @@ This is direct evidence against winner-take-all retrieval: **all** stored struct
 
 ---
 
+## The posterior has a measured format, and the format is what predicts the behaviour
+
+Courellis et al. 2024 record human hippocampal single units during an uncued serial reversal task whose two stimulus–response–outcome maps are exact inversions, so one negative feedback licenses a full one-shot flip — the discrete-context case this page formalises, with the posterior collapsing on a single observation.
+
+| Finding | Consequence for this page |
+|---|---|
+| The latent context becomes a **coding direction in population space that is parallel across stimuli** (rising CCGP and parallelism score), only in sessions where participants actually perform the inference | The posterior over `c_t` is not merely decodable — it is *disentangled from content*, which is what allows one readout learned on some stimuli to apply to the rest. The one-shot flip needs precisely that: the evidence arrives at one stimulus and must move the response for the three not yet seen |
+| Context decodability itself barely moved (0.63 → 0.67, n.s.) between inference-absent and inference-present sessions | **A context signal can be present and useless.** The wiki's reading of remapping ([[wiki/entities/hidden-state-inference-remapping.md]]) has been that expressing the posterior is the operation; this says expression is necessary and not sufficient, and the sufficient condition is a geometric one |
+| Error trials inside inference-present sessions look like inference-absent sessions | The posterior's format tracks behaviour at single-trial resolution, which is the tightest coupling available short of intervention |
+| A ~4-minute **verbal description** of the latent structure produced, in patients who then began performing inference, a context geometry indistinguishable in parallelism from that of patients who discovered it themselves — while a third of patients received the same instruction and changed neither behaviour nor code | Two routes into the same posterior representation: sequential evidence accumulation, and being *told the partition*. Neither COIN nor the remapping account has any channel for the second (gap G45) |
+
+**(brainstorm) The exportable claim: a responsibility vector is not enough — it must be a *reusable* one.** A mixture-of-experts router that emits `p(c)` per situation satisfies this page's formalism and would fail the geometric test if its context direction is entangled with input content, because the routing learned on one input family would not transfer to another. The measurement is available: enumerate a condition grid, train the router's context readout on one slice, test on the others. That converts "does the system infer context" from a fit statistic into a generalization test, and it is the only test here that a well-fit but content-entangled router fails.
+
 ## Open problems
 
 - **The contexts are atoms — in both instantiations.** Sanders et al. state the same gap independently (no hierarchical inference; nothing lets one map be another map with one feature changed) and point at two places a hierarchy would live in the hippocampus: McKenzie et al. 2014's nested representational similarity within one population, and the dorsoventral gradient of place-field size, which they suggest could be the *same* inference run at several values of `α` in parallel — so two observations share a state at one end of the axis and not at the other, giving partial sharing of learning. Nothing implements it.
@@ -143,4 +156,5 @@ This is direct evidence against winner-take-all retrieval: **all** stored struct
 - **[[wiki/concepts/skill-acquisition-efficiency.md]]** — sharpens the measurement problem: an adaptation curve conflates acquiring structure with re-weighting stored structure, so a conversion-rate score computed from a learning curve is only valid if apparent learning has been ruled out (gap G17).
 - **[[wiki/concepts/intelligence-density.md]]** — the cost of the atomic repertoire: a system that answers novelty by allocating a new context grows description length with the world, which is the `ℐ(n) → 0` memorising asymptote.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — the mechanistic form of the same allocate-vs-reuse decision: a tunable input-similarity transfer curve whose steepness and offset play the role this page assigns to `α` and the new-context prior, with named neuromodulatory controllers for setting them online.
+- **[[wiki/concepts/population-geometry.md]]** — supplies the format criterion this page's posterior has to meet: the latent context must be a coding direction parallel across content, and human hippocampal recordings show context decodability rising negligibly while that parallelism (and inference behaviour) appears (Courellis et al. 2024).
 - **[[wiki/concepts/cognitive-map.md]]** — splits what this page computes into two: the responsibility posterior answers *which* map (context retrieval), and a retrieved map still has to be oriented — coordinates and heading recovered from present cues — before anything can be read off it (gap G39).
