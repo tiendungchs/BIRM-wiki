@@ -6,6 +6,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 
 | Abbrev. | Expansion | Note |
 |---|---|---|
+| MHN | Modern Hopfield Network (Dense Associative Memory) | Hopfield network with a steep nonlinearity applied to the state–pattern overlap, giving polynomial or exponential item capacity ([[wiki/entities/dense-sequence-memory.md]]) |
+| GPI | Generalized PseudoInverse rule | Decorrelates stored patterns inside the separation function, `Σ_ν O⁺_{μν} m^ν`; perfect sequence recall for linearly independent patterns ([[wiki/entities/dense-sequence-memory.md]]) |
+| TAN | Temporal Association Network | Sompolinsky & Kanter 1986: symmetric "fast synapse" hold term plus asymmetric "slow synapse" transition term, capacity `≈0.1N`; the linear special case of the `MixedNet` |
 | AIT | Algorithmic Information Theory | Kolmogorov complexity and its relatives; the formal language of both [[wiki/concepts/universal-induction.md]] and [[wiki/concepts/skill-acquisition-efficiency.md]] |
 | LSA | Latent Semantic Analysis | Word meaning from a factorised document co-occurrence matrix; read here as a retrieved-context model of semantic learning |
 | DSL | Domain-Specific Language | A restricted program space to search over; ARC's proposed solver hard-codes core-knowledge priors as one |

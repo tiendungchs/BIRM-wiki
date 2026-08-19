@@ -9,7 +9,7 @@ One INGEST each:
 
 - [x] `kanerva-1993-sparse-distributed-memory.md` — attractor-dynamics · F · 1993
 - [x] `mark-2017-theta-flickering-place-cell-maps.md` — attractor-dynamics · M · 2017
-- [ ] `chaudhry-2023-long-sequence-hopfield-memory.md` — attractor-dynamics · M · 2023
+- [x] `chaudhry-2023-long-sequence-hopfield-memory.md` — attractor-dynamics · M · 2023
 - [ ] `li-2024-adaptive-cann-dynamics.md` — attractor-dynamics · M · 2024
 - [ ] `podlaski-2025-gated-associative-memory-capacity.md` — attractor-dynamics · M · 2025
 - [ ] `englert-2026-brain-attractor-dynamics.md` — attractor-dynamics · R · 2026
