@@ -14,7 +14,7 @@ One INGEST each:
 - [x] `litman-2025-eqprop-without-limits.md` — plasticity · F · 2025
 - [x] `gerstner-1996-submillisecond-temporal-coding.md` — plasticity · M · 1996
 - [x] `scellier-2017-equilibrium-propagation.md` — plasticity · M · 2017
-- [ ] `millidge-2020-activation-relaxation.md` — plasticity · M · 2020
+- [x] `millidge-2020-activation-relaxation.md` — plasticity · M · 2020
 - [ ] `shervanitabar-2023-meta-learning-plasticity-rules.md` — plasticity · M · 2023
 - [ ] `lindsey-2024-recall-gated-plasticity.md` — plasticity · M · 2024
 - [ ] `wu-2025-btsp-content-addressable-memory.md` — plasticity · M · 2025

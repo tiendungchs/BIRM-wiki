@@ -22,6 +22,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | AIµ | The same agent with the *true* environment prior `µ` | Plain expectimax; optimal by construction, and the reference AIXI is measured against |
 | CLS | Complementary Learning Systems | Fast hippocampal / slow cortical memory pair; also the name of the theory |
 | CNN | Convolutional Neural Network | |
+| AR | Activation Relaxation | Credit-assignment scheme whose equilibrium activations *are* the backpropagation gradients ([[wiki/concepts/biologically-plausible-credit-assignment.md]]) |
 | DFA | Direct Feedback Alignment | Output error wired straight to every hidden layer |
 | DNC | Differentiable Neural Computer | Controller + external memory matrix, trained end to end |
 | DNN | Deep Neural Network | |
@@ -33,6 +34,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | EBM | Energy-Based Model | A scalar compatibility function `F(x,y)` treated as fundamental, with no normalisation ([[wiki/concepts/energy-based-models.md]]) |
 | EWC | Elastic Weight Consolidation | Fisher-weighted quadratic penalty protecting important weights |
 | FA | Feedback Alignment | Fixed random backward weights in place of the forward transpose |
+| NGRAD | Neural Gradient Representation by Activity Differences | Lillicrap et al. 2020's claim that every local approximation to backpropagation encodes gradients as activity differences; disputed in [[wiki/empirical-tensions.md]] T70 |
 | GAN | Generative Adversarial Network | Contrastive EBM in which the contrastive samples come from a trainable generator |
 | H-JEPA | Hierarchical JEPA | JEPAs stacked so higher levels predict further ahead on coarser representations ([[wiki/entities/h-jepa.md]]) |
 | IC / TC | Intrinsic Cost / Trainable Critic | The immutable and learned halves of LeCun 2022's cost module |

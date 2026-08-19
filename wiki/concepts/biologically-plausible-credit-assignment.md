@@ -41,15 +41,16 @@ All three of the original objections are constraints on *implementation*, and 1�
 | **Predictive-coding networks** | Hierarchy minimizing prediction error locally at each level; the local updates **approximate backpropagation** | 1, 2 | Equivalence results; ties credit assignment to a normative theory of cortex |
 | **Energy-based nets** (continuous Hopfield, equilibrium propagation) | Settle to an energy minimum, nudge the output, and use the change in local activity between phases as the gradient | 1, 2 | Local updates approximating backpropagation — and, at finite nudging strength, *exact* gradient descent on a free-energy difference rather than an approximation of anything (Litman 2025, below) |
 | **Target propagation (targetprop)** | Replace the backward gradient with a **target** for each layer, computed by the *inverse* mapping: layer `k` is told what activity would have satisfied layer `k−1`, and moves toward it. Backprop through one layer is estimated by `∂log p(x\|h)/∂h ≈ (f(x) − f(g(h)))/σ_h²` — encoder `f`, decoder `g`, ordinary forward passes only, no derivatives computed anywhere (Bengio et al. 2015; Lee et al. 2014) | 1, 2, 4, 5 | MNIST generative model; the update provably climbs `log p(x,h)`. Removes the derivative-transport objection outright, since no `f'(·)` is ever evaluated |
+| **Activation relaxation (AR)** | Design a dynamical system whose *equilibrium activations are the backpropagation gradients* rather than a loss minimum: `dx^l/dt = −x^l + x^{l+1}·∂x̄^{l+1}/∂x̄^l`, one parallel backward relaxation, one neuron type, arbitrary DAGs. Simplified form `dx^l/dt = −x^l + ψ x^{l+1}` with Hebbian-learned backward weights `ψ` (Millidge et al. 2020) | 1, 2, 4, 5 | Converges to the *exact* numerical gradients; matches backpropagation on MNIST / Fashion-MNIST. Cost is objection 6 in a new form — the same units carry values then gradients, so the forward activation must be stored across the switch |
 | **Local rules producing invariance** | Hebbian-family rules that yield high-level invariances characteristic of biological systems — e.g. mirror-symmetric tuning to physically symmetric stimuli such as faces | 2 | Shows structure attributed to end-to-end optimization is partly reachable locally |
 
-Rows 1–5 are what Schmidgall et al. 2023 call **backpropagation-derived local learning**: they compute an explicit approximation of the backpropagation gradient using locally available quantities, and they are the class the generalization result below is measured on. Rows 6–7 also land near backpropagation but arrive from a *local objective* (prediction error, energy) rather than by approximating the global one; rows 8–9 do not approximate it at all — targetprop is the interesting case, since it targets the same *fixed point* as backpropagation while computing nothing resembling a gradient. The rules that were never trying to approximate a gradient are on [[wiki/concepts/synaptic-plasticity.md]].
+Rows 1–5 are what Schmidgall et al. 2023 call **backpropagation-derived local learning**: they compute an explicit approximation of the backpropagation gradient using locally available quantities, and they are the class the generalization result below is measured on. Rows 6–7 also land near backpropagation but arrive from a *local objective* (prediction error, energy) rather than by approximating the global one; row 8 does not approximate it at all — targetprop is the interesting case, since it targets the same *fixed point* as backpropagation while computing nothing resembling a gradient. Row 9 (AR) crosses the divide: in full form it converges to the exact gradient, and in its simplified form it deliberately stops doing so; row 10 never tried. The rules that were never trying to approximate a gradient are on [[wiki/concepts/synaptic-plasticity.md]].
 
 ---
 
 ## Where the error lives: temporal vs. explicit (Whittington & Bogacz 2019)
 
-The families above are sorted by *what they do about weight transport*. The sharper cut for a builder is **how the network represents `δ` at all**, and it has exactly two answers.
+The families above are sorted by *what they do about weight transport*. The sharper cut for a builder is **how the network represents `δ` at all**, and it has two answers — plus a third, added below, that the dichotomy misses.
 
 | Class | Error is | Consequence |
 |---|---|---|
@@ -74,6 +75,40 @@ Three things this buys the wiki:
 - **The "two phases" complaint is not generic — it is a property of the temporal class only.** [[wiki/entities/boltzmann-machine.md]] and [[wiki/entities/fcann.md]] frame single-phase vs. two-phase as the biological weak point of contrastive rules. Predictive coding *already is* the single-phase answer, and for a stated reason (below), not by luck.
 - **A cost axis the wiki was not tracking: inference latency.** Predictive coding pays `2L−1` synaptic delays per forward pass *forever*, in exchange for training fast; the dendritic model runs at `L−1` but must pre-train its interneurons. Neither cost shows up in an accuracy table.
 - **The two explicit models are the same equations.** Substituting the error-node definition `ε_l = x_l − W_{l−1}x_{l−1}` into the value-node dynamics yields the dendritic model's pyramidal dynamics directly: decay + feedforward + feedback + a *negative* within-layer recurrent term, which — since pyramidal cells are excitatory — must be supplied by interneurons. **Predictive coding's error node and the pyramidal apical dendrite are one mechanism at two levels of description**; the interneuron is what the wiring costs when you refuse to spend a separate cell on the error.
+
+### A third class: the activations *are* the gradients (Millidge et al. 2020)
+
+Both classes above encode `δ` as a **difference** — across time (temporal) or across populations/compartments (explicit). Lillicrap et al. 2020 elevate that to a claim about the whole field, the **NGRAD hypothesis** (Neural Gradient Representation by Activity Differences): every local approximation to backpropagation represents gradients as differences in neural activity. **Activation Relaxation (AR) is a counterexample.**
+
+The move is to stop designing dynamics that minimise a loss and instead design dynamics whose **equilibrium point is the gradient you want**. A leaky integrator driven by top-down feedback does it:
+
+```
+dx^l/dt = −x^l + x^{l+1}·(∂x̄^{l+1}/∂x̄^l)          →  at equilibrium  x^l = ∂L/∂x^l
+ΔW^l   ∝  x^l · (∂x̄^l/∂W^l)                        (Hebbian: relaxed activity × forward-pass input)
+```
+
+`x̄` is the value stored from the feedforward sweep, so the Jacobian term is held **constant** through the relaxation. That decouples each layer from bottom-up influence, makes the dynamics linear with an everywhere-negative-definite Jacobian, and lets all layers relax **in parallel** rather than waiting for the layer above to converge: the top layer is handed the true `ϵ^L = x^L − T` and correctness recurses downward.
+
+| Property | AR | What it drops relative to the four-model table |
+|---|---|---|
+| Neuron types | **One** | No error population (predictive coding), no interneuron, no apical/basal split (dendritic error) |
+| Phases | Feedforward sweep + **one** parallel relaxation | No free/clamped pair, no information stored across backward phases (contrastive Hebbian) |
+| Connectivity | Identical to a plain MLP | No one-to-one error↔value wiring — the anatomical debt both explicit models owe |
+| Architecture scope | Arbitrary DAGs (CNNs, LSTMs, ResNets, transformers) | The four models are stated for strict layered hierarchies |
+| Accuracy | Matches backpropagation on MNIST and Fashion-MNIST (4-layer MLP, 100 relaxation steps), and the relaxed activations converge to the *exact* numerical gradients | — |
+
+**Two implausibilities are then removed empirically, and this is the part that transfers.**
+
+| Removed | Substitution | Result |
+|---|---|---|
+| Weight transport (`Wᵀ` in the relaxation) | Separate backward weights `ψ`, trained by a purely Hebbian rule `Δψ ∝ x^l x^{l+1}` | Stable, comparable to exact transposes. **Fixed random feedback (feedback alignment proper) converged lower and tended to diverge** — the backward weights had to be *learned* |
+| The non-linearity derivative `f'(·)` | Delete the term: `dx^l/dt = −x^l + ψ x^{l+1}` | Gradients no longer match backpropagation; accuracy essentially unchanged. Interpretation offered: the update is projected onto the nearest linear subspace, still within a useful angle of the true gradient |
+
+Combined, the final rule is `dx^l/dt = −x^l + ψ x^{l+1}` with `ψ` learned Hebbian — objections 1, 2, 4 and 5 gone in one line, with no extra cells and no phase pair. That it *stops* being a backpropagation approximation at exactly the point it becomes plausible is the same pattern the generalization-deficit section below describes, and the paper does not test it beyond Fashion-MNIST.
+
+**What it costs instead.** The activations are reused for two jobs — values during the sweep, gradients during the relaxation — so (i) the original activation `x̄^l` must be *stored* somewhere while the same units carry gradients, and (ii) the network must know which phase it is in. Objection 6 returns, harder: AR trades the *storage across backward phases* that contrastive rules need for storage across the value/gradient switch. The paper's proposed outs are the wiki's existing machinery: segregated apical dendrites holding one quantity while the soma carries the other ([[wiki/concepts/dendritic-computation.md]]), or oscillatory multiplexing of the two phases into alpha/gamma cycles ([[wiki/concepts/temporal-coding.md]]).
+
+**(brainstorm)** The three classes now line up as a single trade over *where the second quantity lives*: a second population (predictive coding), a second compartment (dendritic error), a second time-slice of the same units (contrastive), or — AR — a second *use* of the same units with the first value parked. Nothing is free; the design question is only which of those four storage sites is cheapest in the target substrate. For a neuromorphic build with no dendritic compartments and expensive extra neurons, AR's answer is the cheap one, and its final update rule is the least machinery any scheme on this page asks for.
 
 ### Equilibrium propagation is the frame that contains all four
 
@@ -134,7 +169,7 @@ The review's own conclusion, and the most useful stance for a builder: cortical 
 - Predictive coding is fast to train and slow to run; dendritic error is slow to train and fast to run. **(brainstorm)** A network could beat the trade-off by running predictive-coding motifs early and letting dendritic motifs take over as the interneurons converge — a learned handoff from a slow-inference/fast-learning circuit to a fast-inference/slow-learning one. This is a curriculum over *mechanisms* rather than over data, and the wiki has no other instance of one.
 - Predictive coding may also cover circuits with no pyramidal cells at all — cerebellum (Friston & Herreros 2016) and basal ganglia, where dopaminergic reward prediction error is an explicit error node in the literal sense (Schultz et al. 1997).
 
-**Evidence that errors are explicit at all:** V1 responses increase in the brief intervals where visual input mismatches the expectation generated by self-motion (Attinger et al. 2017), and expectation violation raises the fMRI signal (Summerfield et al. 2008). Whether *separate populations* carry errors and values is unsettled — Kok & de Lange 2015 find "no direct unequivocal evidence", with the suggestive datum that inferotemporal inhibitory neurons respond most to novel stimuli while excitatory neurons respond most to preferred familiar ones.
+**Evidence that errors are explicit at all:** V1 responses increase in the brief intervals where visual input mismatches the expectation generated by self-motion (Attinger et al. 2017), and expectation violation raises the fMRI signal (Summerfield et al. 2008). Whether *separate populations* carry errors and values is unsettled — Kok & de Lange 2015 find "no direct unequivocal evidence", with the suggestive datum that inferotemporal inhibitory neurons respond most to novel stimuli while excitatory neurons respond most to preferred familiar ones. Millidge et al. 2020 read the same literature harder: there is "little evidence for the presence of specialised prediction-error neurons throughout cortex" (Walsh et al. 2020), with the midbrain dopaminergic reward-prediction-error system the clear exception — which is a reason to prefer schemes needing only one cell type, and their motivation for AR.
 
 ---
 
@@ -216,6 +251,8 @@ The motivation is not only biological fidelity. Very deep networks (>20 layers) 
 - **Does targetprop's inverse assumption survive depth?** The estimator `(f(x) − f(g(h)))/σ_h²` is exact only if encoder and decoder are mutual inverses and the moves are small; the demonstration is two hidden layers on MNIST, and no result characterises how the approximation error compounds with depth or off-manifold distance (Bengio et al. 2015).
 - **Nothing says what fraction of the work the relaxation does.** In the variational-EM scheme, quality depends jointly on the number of inference steps `T` and on how good the amortized initializer `q(h|x)` is; the trade-off between the two is unmeasured, and it is the same knob as the wiki's fast-inference/slow-learning axis.
 - **The iteration count does not scale.** Explicit- and temporal-error models both reach their answer by relaxing network dynamics to equilibrium, and the number of iterations required grows with network size. Depth is bought in wall-clock, which is why the demonstrations stop at MNIST (see also Bartunov et al. 2018).
+- **Does dropping `f'(·)` survive depth or difficulty?** AR's simplified rule loses the derivative term and the learned-`ψ` backward weights, keeps Fashion-MNIST accuracy, and stops matching backpropagation gradients — but nobody has measured the update-to-gradient angle as a function of depth, or tested it past a 4-layer MLP (Millidge et al. 2020). The same untested claim appears in [[wiki/concepts/predictive-coding-free-energy.md]] and in feedback-alignment results, so one experiment would settle it for the family.
+- **Who stores the forward activation during a relaxation?** Every relaxation-based scheme reuses the value units to carry gradients, so the pre-relaxation activation must be parked for the duration of the weight update. Apical dendrites and oscillatory multiplexing are the standing proposals; neither has been implemented inside a working credit-assignment model.
 - **Every model is stated for static input patterns.** No local scheme here handles sequences; the recurrent-hidden-state extension that backpropagation got is missing, and a reasoning agent's credit problem is temporal.
 - **There is no evidence for the one-to-one connectivity** both explicit-error models require — error node ↔ value node, and higher pyramidal cell → the interneuron that must mimic it. This is the price paid for dropping the control signal, and it is currently unpaid.
 
