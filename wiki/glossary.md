@@ -25,6 +25,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CNN | Convolutional Neural Network | |
 | AR | Activation Relaxation | Credit-assignment scheme whose equilibrium activations *are* the backpropagation gradients ([[wiki/concepts/biologically-plausible-credit-assignment.md]]) |
 | DFA | Direct Feedback Alignment | Output error wired straight to every hidden layer |
+| TP | Target Propagation | Credit assignment by propagating layerwise *targets* through learned inverses instead of gradients ([[wiki/concepts/biologically-plausible-credit-assignment.md]]) |
+| DTP | Difference Target Propagation | TP plus a linear reconstruction-error correction; the published version still backpropagates through the penultimate layer |
+| SDTP | Simplified Difference Target Propagation | DTP with that last gradient removed — fully gradient-free and weight-transport-free (Bartunov et al. 2018) |
+| AO-SDTP | Auxiliary-Output SDTP | SDTP whose output layer carries extra random features of the penultimate layer, to raise target diversity |
+| LC | Locally-Connected (layer) | Convolution-style receptive fields **without** weight sharing; the biologically defensible version of a convnet |
 | DNC | Differentiable Neural Computer | Controller + external memory matrix, trained end to end |
 | DNN | Deep Neural Network | |
 | DQN | Deep Q-Network | Deep RL agent for Atari; origin of experience replay in deep RL |
