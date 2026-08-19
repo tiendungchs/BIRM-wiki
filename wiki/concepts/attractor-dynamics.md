@@ -109,3 +109,4 @@ That converts two of the wiki's mode-switch questions into continuous knobs: *wh
 - **[[wiki/concepts/sparse-distributed-representations.md]]** — sparsity is what makes stored states near-orthogonal, and therefore what sets basin separation at write time.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — attractors supply the node set the framing presupposes, and supply no edges.
 - **[[wiki/concepts/population-geometry.md]]** — the measurement side: a manifold of stable states is what population geometry reads out, and intrinsic dimensionality is the only available handle on a topology this page always imposes by hand (G47).
+- **[[wiki/concepts/recall-gated-consolidation.md]]** — uses relaxation as a *signal* rather than as a computation: agreement between feedforward and recurrent input, `x·(Wx)`, is high exactly when the input sits in a stored basin, which makes attractor depth the familiarity scalar that licenses a long-term write.
