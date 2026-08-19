@@ -113,6 +113,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | EC | Entorhinal Cortex | The hippocampus's main cortical input/output; layer II projects to both DG and CA3, and carries the grid code ([[wiki/concepts/abstract-structural-codes.md]]) |
 | IEG | Immediate-Early Gene | Activity-dependent genes (e.g. Arc) whose expression maps which neurons were recently active — a population-level imaging method |
 | NMDAR | N-methyl-D-aspartate Receptor | Coincidence-detecting glutamate receptor; its NR1 subunit is the standard knockout target for testing plasticity-dependence of a computation |
+| NMDA spike | N-methyl-D-aspartate spike | Regenerative dendritic event triggered by 8–20 co-active synapses clustered within 20–300 µm and 1–5 ms; depolarizes the cell for 50–200 ms without necessarily firing it ([[wiki/concepts/dendritic-computation.md]]) |
+| SDR | Sparse Distributed Representation | High-dimensional binary code with 0.5–3% of bits active; the regime in which subsampled overlap detection has closed-form, near-zero error ([[wiki/concepts/sparse-distributed-representations.md]]) |
 | LIF | Leaky Integrate-and-Fire | Standard spiking-neuron model: membrane potential integrates input, spikes at threshold, resets |
 | LTP / LTD | Long-Term Potentiation / Depression | Lasting strengthening / weakening of a synapse |
 | MEG | Magnetoencephalography | |
