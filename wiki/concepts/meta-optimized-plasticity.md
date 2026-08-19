@@ -37,6 +37,45 @@ This is direct evidence for position B of [[wiki/empirical-tensions.md]] T2 (fas
 
 ---
 
+## Sparse selection over a candidate basis — the one setup that yields a *readable* rule (Shervani-Tabar & Rosenbaum 2023)
+
+The four families above all return a rule you cannot read: per-synapse coefficients, or an evolved expression tree. A fifth setup returns an equation in three terms, and it does so by three restrictions stacked deliberately:
+
+| Restriction | Form | What it buys |
+|---|---|---|
+| **Linear combination of a fixed candidate pool** | `F(Θ) = Σ_{r=0}^{R−1} θ_r F^r`, `R = 10` quadratic-and-higher combinations of `y_ℓ`, `y_{ℓ−1}`, `e_ℓ`, `e_{ℓ−1}`, `W_{ℓ−1,ℓ}` | Search is over `R` scalars, not over expressions; every survivor is already a named rule |
+| **L1 penalty on Θ** | `L_meta(Θ) = L(f_W(X_query), Y_query) + λ‖Θ‖₁` | Occam pressure inside the outer loop: 7 of 10 coefficients go to zero by ~600 episodes |
+| **Meta-parameter sharing across all layers and synapses** | One `Θ` for the whole network | The output is a *global* learning rule, comparable to backpropagation, rather than a weight-shaped blob |
+
+**And one restriction on the inner loop that removes the field's standing confound.** Weights `W` are **reinitialized randomly every episode** and the inner loop is **online (batch size 1) on 250 data points total** (5-way EMNIST, `K = 50` per class). Nothing is meta-learned except `Θ`. This is stated against Lindsey et al. 2024, Miconi et al. and MAML-descended work, which meta-learn an initialization *alongside* the rule: when both are learned, no experiment separates how much of the gain came from the rule. Here the rule must train a naive network from scratch, so the measured gain is attributable.
+
+**The discovered rule.** Meta-learning over the pool converges to three surviving terms — the pseudo-gradient, an error-based Hebbian term, and Oja's rule:
+
+```
+F^bio(Θ) = −θ₀ · e_ℓ y_{ℓ−1}ᵀ                                  (pseudo-gradient, F⁰)
+           −θ₂ · e_ℓ e_{ℓ−1}ᵀ                                  (eHebb, F²)
+           +θ₉ · ( y_ℓ y_{ℓ−1}ᵀ − (y_ℓ y_ℓᵀ) W_{ℓ−1,ℓ} )       (Oja, F⁹)
+```
+
+`e_ℓ` is transmitted through **fixed random** feedback `B` (feedback alignment), never `Wᵀ`. Pure Hebb `y_ℓ y_{ℓ−1}ᵀ` was excluded from the pool by hand because it blew up the activations — the instability of [[wiki/concepts/synaptic-plasticity.md]] rule 1, hit empirically — and replaced by its stabilised descendant `F⁹`.
+
+**Result:** feedback alignment in this regime reaches ~25% on 5-way classification where backpropagation reaches ~70%; the meta-learned pool starts at feedback-alignment accuracy and climbs to backpropagation's by ~300 episodes. The three-term `F^bio` matches the full ten-term pool.
+
+### The two survivors work by *different* mechanisms, and only one has backpropagation as its ceiling
+
+| Term | Mechanism | Ceiling |
+|---|---|---|
+| **eHebb** `−e_ℓ e_{ℓ−1}ᵀ` | In a linear network, `E[e_ℓ e_{ℓ−1}ᵀ ∣ B_{ℓ,ℓ−1}] ∝ B_{ℓ,ℓ−1}ᵀ`, so the term drives **`W → Bᵀ`**. Alignment is achieved by moving the *forward* weights onto the random feedback, not by moving feedback onto forward. It also opens a **same-iteration** channel from `B_{ℓ+1,ℓ}` into `W_{ℓ,ℓ+1}`, where plain feedback alignment needs two iterations (the information reaches `W_{ℓ,ℓ+1}` only after a forward pass through the updated `W_{ℓ−1,ℓ}`) | **Backpropagation.** Its whole job is to make the pseudo-gradient into the gradient; it cannot exceed the thing it imitates |
+| **Oja** `y_ℓ y_{ℓ−1}ᵀ − (y_ℓ y_ℓᵀ) W` | Touches the backward path not at all. Purely unsupervised, label- and loss-independent: it drives weight rows toward an **orthonormal basis** of the PCA subspace of the presynaptic activations, measured directly as rising orthonormality of `W`. Alignment angles are *not* improved — the gain is better-separated hidden features for the predictor layer to read | **None.** It is not imitating backpropagation, so it can be added *to* backpropagation; the authors report it accelerating learning for poorly initialized symmetric-feedback networks too |
+
+**This is the sharpest instance in the wiki of the T7 escape route.** eHebb is a backpropagation-derived local rule and inherits the ceiling that argument predicts. Oja is not, and does not. A discovered rule that beats backpropagation will come from the second column, and meta-learning's real contribution here is that it *found the mixture* — hand-tuning three coefficients spanning two incompatible mechanisms is exactly the search a human does badly.
+
+### What this settles about restriction
+
+The page's open problem — *which restrictions buy generalization and which merely shrink the space* — gets one clean data point. Restriction by **candidate basis + L1 + parameter sharing** does not degrade the discovered rule (three terms match ten) and yields the only interpretable output in the five families. What it does *not* test is out-of-distribution transfer: the rule is meta-trained and evaluated on EMNIST 5-way tasks, so the knowledge-boundedness limit is untouched.
+
+---
+
 ## Generalization: the binding constraint
 
 | Finding | Consequence |
@@ -63,7 +102,8 @@ The open question the review states plainly: **when should a discovered rule rep
 - **The knowledge-boundedness limit recurses.** A discovered rule is bounded by the task distribution it was discovered on, exactly as a meta-learned initialization is — and a rule that fails outside `p(T)` is worse than backpropagation, which at least fails predictably.
 - **No discovered rule has been shown to acquire *structure*.** Every result above is adaptation (associative recall, motor gain, damage, familiarity), not acquisition of new transition rules.
 - **Self-referential stability.** Nothing bounds what a network that edits its own update rule converges to; the reported cases restrict the search space until self-improvement becomes tractable, which is the same restriction that generalization requires — possibly not a coincidence.
-- **Restriction is doing the work, and nobody has characterized it.** Variable-shared meta-learning generalizes because of sharing and locality. Which restrictions buy generalization, and which merely shrink the space, is unstated.
+- **Restriction is doing the work, and nobody has characterized it.** Variable-shared meta-learning generalizes because of sharing and locality. Which restrictions buy generalization, and which merely shrink the space, is unstated. Shervani-Tabar & Rosenbaum 2023 supply the one controlled data point — candidate basis + L1 + full parameter sharing costs nothing in-distribution — but never test the rule off its meta-training distribution, which is where restriction was supposed to pay.
+- **The locality of a discovered rule is a claim about neurons, not about the rule.** Every term in the pool except Oja's uses both `y_ℓ` and `e_ℓ`, so it is local *iff* the same population encodes activations and errors — by time-multiplexing, by apical/basal compartments, or by the burst-vs-single-spike distinction. Nothing in the meta-learning setup checks which; the rule is written as local and the biology is asked to supply the multiplexing afterwards ([[wiki/concepts/dendritic-computation.md]]).
 - **Memory cost scales per-synapse.** Differentiable plasticity at the scale of a large model is currently out of reach without parameter sharing that may itself remove the expressiveness being paid for.
 
 ---
@@ -79,3 +119,6 @@ The open question the review states plainly: **when should a discovered rule rep
 - **[[wiki/concepts/continual-learning.md]]** — online one-shot continual learning is the headline demonstration of discovered plasticity, and a discovered rule can encode its own consolidation schedule rather than receiving one as a penalty.
 - **[[wiki/concepts/three-component-framework.md]]** — the framework turned on itself: if learning rules are searched and some objectives are themselves learned, two of its three components become optimization targets, and the regress it leaves open is gap G9.
 - **[[wiki/entities/mm-tem-hippoformer.md]]** — this page's outer/inner split applied to a *relational* store: an outer loop learns the key/value/query projections and three gate networks, the inner loop is online gradient descent on a reconstruction loss with data-dependent forgetting `α_t`, momentum `η_t` and rate `β_t`, and it keeps running at test time — so surprise-gated writing and learned forgetting become the memory's update rule rather than a hand-set decay constant.
+- **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — where the discovered rule lands: eHebb is a *repair* for feedback alignment that drives `W → Bᵀ`, i.e. it fixes objection 1 from the forward side while leaving the random feedback untouched, and its backpropagation ceiling is the T7 argument reappearing inside a discovered rule.
+- **[[wiki/concepts/objective-identifiability.md]]** — the outer loop is an objective-selection device: L1 on `Θ` plus a fixed candidate basis makes the meta-loss identify *which mechanism* is doing the work, which is why the three-term rule can be read at all where per-synapse rules cannot.
+- **[[wiki/concepts/dendritic-computation.md]]** — decides whether a discovered rule is local at all: every candidate term mixing activations `y_ℓ` with errors `e_ℓ` needs one population to carry both, which the basal/apical compartment split is proposed to supply.

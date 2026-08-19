@@ -35,6 +35,7 @@ All three of the original objections are constraints on *implementation*, and 1�
 |---|---|---|---|
 | **Feedback alignment (FA)** | Use **fixed random** backward weights `B` in place of `(w^out)ᵀ`; forward weights adapt until the random backward projections carry useful teaching signals — alignment is learned, not assumed. Update: `Δw^in = −η·x·z`, `z` the error propagated through `B` | 1 | Demonstrated on MNIST and CIFAR; **suboptimal on ImageNet-scale data** (Schmidgall et al. 2023) |
 | **Direct feedback alignment (DFA)** | Connect the output-layer error *directly* to every hidden layer, shortening the weight-transport chain further | 1 | Same family, fewer assumptions |
+| **eHebb — align the forward weights to the feedback** | Keep `B` fixed and random; add `−θ₂ · e_ℓ e_{ℓ−1}ᵀ` to the pseudo-gradient update. In a linear network `E[e_ℓ e_{ℓ−1}ᵀ ∣ B] ∝ Bᵀ`, so the term drives `W → Bᵀ` — the transport problem solved from the *forward* side (Shervani-Tabar & Rosenbaum 2023) | 1 | Recovers most of the feedback-alignment/backpropagation gap in the online, low-data, deep regime where feedback alignment fails (~25% → backpropagation's ~70%, 5-way EMNIST, 250 samples). Discovered by meta-learning, not derived ([[wiki/concepts/meta-optimized-plasticity.md]]) |
 | **Sign-symmetry (SS)** | Feedback weights are random in magnitude but **share signs** with the forward weights | 1 (partially — sign information is still transported) | Comparable to backpropagation *even on large-scale datasets* — the strongest result in the family |
 | **Eligibility propagation (e-prop)** | Extends FA to spiking networks. Maintain a forward-computable eligibility trace `e_ji(t) = dz_j(t)/dW_ji` (this synapse's total contribution to the neuron's output over all past inputs), then multiply by an error estimate `L_j(t) = dE(t)/dz_j(t)` obtained from output error via symmetric or fixed random feedback | 1, 2 | Purely forward — no backward pass. **Blind to the future:** needs a real-time error at each step, so it cannot learn from delayed errors beyond individual-neuron timescales, unlike REINFORCE / node perturbation ([[wiki/concepts/synaptic-plasticity.md]]) |
 | **Cell-type-specific local neuromodulation** | Neurons broadcast their contribution to the learning outcome to *nearby* neurons via neuron-type-specific modulation; a computational model combines dopamine-like temporal-difference signalling with neuropeptide-like local modulation | 1, 2 | Built on e-prop; **improves over both e-prop and feedback alignment**. Proposes neuron-type diversity as a missing piece of the credit-assignment puzzle |
@@ -209,6 +210,22 @@ Three steps, each independently reusable:
 
 ---
 
+## Which way should alignment run? (Shervani-Tabar & Rosenbaum 2023)
+
+Feedback alignment's promise is that forward weights adapt until random `B` carries a useful signal. Its measured failure is *when*: with a deep model, batch size 1 and 250 training samples, it does not begin to learn for ~2000 iterations and plateaus near chance, while backpropagation is already converged. The teaching signals `e^FA_ℓ` are simply not aligned with `e^BP_ℓ` at that stage. Three repairs exist and they differ in **which side of the pair is made to move**:
+
+| Repair | What moves | Cost |
+|---|---|---|
+| Hebbian update on `B` toward `Wᵀ` (Akrout et al. 2019) | The **feedback** weights | Highly sensitive to hyperparameter tuning (Kunin et al. 2020); needs plastic feedback |
+| Learned backward weights `ψ` under a Hebbian rule in Activation Relaxation (Millidge et al. 2020) | The **feedback** weights | Necessary there — *fixed random* feedback converged lower and tended to diverge in that framework |
+| **eHebb**: add `−e_ℓ e_{ℓ−1}ᵀ` to the forward update | The **forward** weights, toward `Bᵀ` | Requires a presynaptic error term at every layer (a synthetic `e₀` is defined for the input layer), and the ceiling is backpropagation by construction |
+
+Two things follow for a builder. First, **alignment is a symmetric requirement and the cheaper side may be the forward one** — feedback plasticity buys nothing that forward plasticity toward a *fixed* target cannot, and a fixed `B` is the more defensible anatomy. Second, eHebb also fixes a **latency** defect nobody had named: under plain feedback alignment, information in `B_{ℓ+1,ℓ}` reaches `W_{ℓ,ℓ+1}` only on the *next* iteration, because it must first change `W_{ℓ−1,ℓ}` and then propagate through a forward pass. eHebb opens a direct same-iteration channel. In the online, one-sample-at-a-time regime the brain operates in, a two-iteration transport delay per layer is a depth-multiplied cost, which is a candidate explanation for why feedback alignment degrades specifically with depth *and* small batches rather than with either alone **(brainstorm)**.
+
+**Not every fix is an alignment fix.** The same search returned Oja's rule as a second surviving term, and its alignment angles are *unimproved* — it works entirely on the forward path, orthonormalizing the weight rows so the hidden layers hand the predictor better-separated features ([[wiki/concepts/synaptic-plasticity.md]]). So the feedback-alignment deficit has two independent components: a **misdirected teaching signal**, repaired by eHebb, and a **poor representation**, repaired by an unsupervised rule that never looks at the error. Only the first has backpropagation as its ceiling.
+
+---
+
 ## The generalization deficit of backpropagation-derived local rules
 
 The yardstick: **flat minima generalize better** — for a perturbation `ε` in weight space, performance degrades more sharply around *narrow* minima, so a rule that finds flatter minima generalizes better.
@@ -242,7 +259,8 @@ The motivation is not only biological fidelity. Very deep networks (>20 layers) 
 ## Open problems
 
 - Do the approximations hold at scale, or only in small networks and shallow hierarchies? (Partly answered: feedback alignment does not reach ImageNet; sign-symmetry does — so **what sign-symmetry transports is apparently the load-bearing part**, and it is the part that is least biologically defensible.)
-- How far does feedback alignment actually reach in deep and convolutional settings?
+- How far does feedback alignment actually reach in deep and convolutional settings? (Lower bound sharpened: in the *online, low-data* regime it barely learns at all before ~2000 iterations, so the batch size used in a demonstration is a load-bearing detail that most reports do not vary — Shervani-Tabar & Rosenbaum 2023.)
+- **Which direction alignment should be driven is unresolved and the two answers have never been run against each other.** Learned feedback (Akrout et al. 2019; Millidge et al. 2020) and forward-weights-toward-fixed-feedback (eHebb) both work in their own frameworks; no experiment holds architecture and task fixed and compares them, and no result says whether the two compose or fight.
 - Is the generalization deficit intrinsic to gradient *approximation*, or an artefact of the specific approximations tested? No result separates these.
 - None of these families addresses credit assignment across *time* at behavioural timescales (seconds to days) — where a reasoning agent actually needs it.
 - Does local credit assignment survive when the same synapses must also support fast one-shot binding?
@@ -265,7 +283,7 @@ The motivation is not only biological fidelity. Very deep networks (>20 layers) 
 - **[[wiki/concepts/continual-learning.md]]** — both concern *which* synapses change: credit assignment sets direction and magnitude, plasticity gating sets eligibility.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the complementary family: rules that never approximated a gradient, and therefore do not inherit the generalization deficit measured here; node perturbation reaches the delayed-reward case e-prop cannot.
 - **[[wiki/entities/spiking-neural-networks.md]]** — the substrate where local credit assignment stops being optional, because backpropagation fails outright on the discrete spiking nonlinearity rather than merely lacking a biological story.
-- **[[wiki/concepts/meta-optimized-plasticity.md]]** — the alternative to approximating backpropagation: instead of deriving a local rule from the gradient, search rule-space directly and let the outer loop decide what the local rule should compute.
+- **[[wiki/concepts/meta-optimized-plasticity.md]]** — the alternative to approximating backpropagation: instead of deriving a local rule from the gradient, search rule-space directly and let the outer loop decide what the local rule should compute. It is the route by which eHebb arrived, and the selection is itself the finding — the surviving terms split into an *alignment* mechanism (backpropagation-ceilinged) and a *representation* mechanism (not), which no single derivation would have produced together.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the local rule taken as the substrate rather than as an approximation target: the error `e^{S_i} = y^{S_i} − (W^{S_{i+1}})^T y^{S_{i+1}}` is computed inside a layer from quantities present there, so activity relaxation and weight update are the same descent with no weight transport (Butz 2016).
 - **[[wiki/concepts/three-component-framework.md]]** — places every family on this page in the *learning-rule* slot and scores them on a second axis, bias vs. variance of the gradient estimate (perturbation high-variance, feedback alignment high-bias), which splits this page's generalization deficit into two failure modes with different repairs.
 - **[[wiki/entities/spiking-tem.md]]** — where the biological-plausibility argument currently stops: neuron model, memory write and oscillatory gating are all biological, while the weights are still set by surrogate-gradient backpropagation through time, which the paper names as its outstanding problem and points at replay-based one-shot alternatives.

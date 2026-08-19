@@ -100,6 +100,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | dANN | dendritic Artificial Neural Network | Feedforward net with a fixed dendrite→soma tree mask and restricted input sampling ([[wiki/entities/dendritic-ann.md]]) |
 | vANN / sANN / pdANN | vanilla / sparse / partly-dendritic ANN | dANN's controls: fully connected, randomly sparse, and tree-structured-but-fully-sampled-input |
 | LRF / GRF | Local / Global Receptive Field | dANN input-sampling rules: receptive-field centre drawn per dendrite (LRF, best-performing) or per soma (GRF) |
+| eHebb | error-based Hebbian plasticity | `ΔW_{ℓ−1,ℓ} ∝ −e_ℓ e_{ℓ−1}ᵀ` — outer product of post- and pre-synaptic *error* signals rather than activations; drives forward weights toward the transpose of fixed random feedback (Shervani-Tabar & Rosenbaum 2023) |
 
 ## Neuroscience
 
