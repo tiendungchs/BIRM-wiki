@@ -134,6 +134,13 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | EB | Ellipsoid Body | Toroidal neuropil of the CX whose columnar (EBw.s) neurons tile a ring and carry a single heading bump |
 | PVA | Population Vector Average | Circular mean of a ring population's activity, weighted by rate; the decoder that reads heading off the EB bump |
 | GCaMP | Genetically encoded Calcium indicator (GFP + Calmodulin + M13) | Fluorescent activity reporter; GCaMP6f is the fast variant used for two-photon population imaging |
+| GABA | γ-aminobutyric acid | The principal inhibitory transmitter; "GABAergic" = inhibitory interneuron ([[wiki/concepts/inhibitory-control-of-coding.md]]) |
+| ACG | Autocorrelogram | Spike-train autocorrelation; its *rise time* is one of the six features that separate interneuron families physiologically |
+| CV2 | Second coefficient of variation of interspike intervals | `2|ISI_{i+1} − ISI_i|/(ISI_{i+1} + ISI_i)`, averaged over spikes — a local firing-irregularity measure, the single most informative cell-class feature |
+| SPW-R | Sharp-Wave Ripple | 100–250 Hz hippocampal population burst; the replay carrier ([[wiki/concepts/offline-replay.md]]) |
+| ChR2 | Channelrhodopsin-2 | Light-gated cation channel used to activate (and thereby "opto-tag") a genetically defined cell population |
+| CCK | Cholecystokinin | Peptide marking a basket-cell type inside the *Id2* interneuron family (the *Sncg* subfamily) |
+| CEBRA | Consistent Embedding of high-dimensional Recordings using Auxiliary variables | Contrastive latent-embedding method used to decode position from neural populations |
 
 ## Benchmarks
 
