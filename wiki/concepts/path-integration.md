@@ -55,6 +55,10 @@ Two consequences the wiki did not previously have:
 
 **The 4-fold → 6-fold transition has a single cause.** An analytic result attributes hexagonal symmetry to a third-order regularisation term on grid activity — implementable by the biological constraint that firing rates are non-negative. So the most-cited signature of an abstract structural code is a consequence of a non-negativity constraint, not of the task.
 
+**Many maps in one CANN.** Because place codes for different environments are near-uncorrelated, a single continuous attractor stores many "charts" simultaneously (Battaglia & Treves, via Rolls 2013) — so map selection is attractor selection and needs no separate index. The same network can also hold **mixed** continuous and discrete patterns, retrieving a position from an associated object or the object from the position, which is the network-level mechanism for object-place binding.
+
+**A dissent on the site.** Rolls 2013 argues the *bumpiness* of the CA3 spatial representation fits episodic storage better than path integration, and assigns integration to entorhinal cortex — so the CANN row above describes the formalism CA3 shares, not a claim that CA3 integrates ([[wiki/entities/rolls-treves-hippocampal-model.md]]).
+
 **Why grids and not place fields for this job:** periodic codes extend to unvisited space; periodicity is inherently error-correcting; the same spatial precision costs far fewer cells; and grid cells are experimentally driven more by path-integration signals than place cells are.
 
 ---
@@ -83,6 +87,8 @@ The second is the important one architecturally: it makes sensory prediction a t
 ---
 
 ## Connections
+
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — shares the continuous-attractor formalism while declining to place path integration in CA3, and adds two properties of the same network type: many uncorrelated charts coexist, and continuous and discrete patterns can be stored together and retrieved from each other.
 
 - **[[wiki/concepts/abstract-structural-codes.md]]** — supplies the mechanism behind that page's central speculation: `g` is path-consistent because it is *built* by composing displacements, so gap G3 is answered by the update rule rather than by a training signal — at the price of a precondition (the actions must compose) that page did not state.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the compressed alternative to storing the graph: path integration represents a node's position by the actions that reach it, which makes new nodes free and de-aliases (hardness source 3) without a sparse code.

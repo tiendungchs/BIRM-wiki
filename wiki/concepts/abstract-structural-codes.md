@@ -78,6 +78,8 @@ The wiki's first *training signal* for abstraction, as opposed to an architectur
 
 ## Connections
 
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the dissenting use of the same code: grid firing is argued to be the wrong format for episodic binding, and a competitive-learning stage in dentate gyrus converts it into place-like conjunctions — with simulations showing untrained sparse projection is *not* enough, Hebbian training in the perforant path is required.
+
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the biological candidate for `g`, the structural half of the factorized code, and the only concrete proposal for making it path-consistent.
 - **[[wiki/concepts/simulation-based-planning.md]]** — the state-space decomposition claimed for grid codes is exactly what jumpy, multi-scale planning needs to plan over.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the hippocampal-entorhinal system is one anatomy: the sparse instance store and the structural code are neighbours, which is why binding content to position is cheap there.

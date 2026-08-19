@@ -62,6 +62,8 @@ The whole trick is in the emission. Because `p(x|z)` is frozen at 0/1, no capaci
 
 ## Connections
 
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the same write-side problem solved without a decision: clone allocation is explicit bookkeeping, mossy-fibre projection gets orthogonality by random hashing and pays for it by not recognising repeats.
+
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the concrete instantiation of "clone cells" that hardness source 3 and gap G2 had been naming without a mechanism: a frozen 0/1 emission turns state-space discovery into transition learning.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — the same operation with the biology stripped out: allocating a fresh clone *is* separation, and the clone-pool size is the separation/completion bias set by hand rather than tuned (G38).
 - **[[wiki/entities/tolman-eichenbaum-machine.md]]** — the complementary failure: CSCG learns any single map fast and transfers nothing; TEM transfers and cannot build a novel map quickly. Both use per-observation clones, which is what makes the proposed merge trivial to state.

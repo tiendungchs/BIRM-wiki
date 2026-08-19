@@ -147,6 +147,8 @@ So the standing worry that Hebbian-family rules approximate no gradient is not d
 
 ## Connections
 
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — states a requirement most Hebbian accounts omit: heterosynaptic LTD is *necessary* alongside LTP for efficient associative storage, and doubles as the forgetting mechanism that keeps a capacity-limited store from overloading; also names non-associative mossy-fibre plasticity as a signal-to-noise device favouring consistently-firing inputs.
+
 - **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — the same locality constraint approached from the other end: that page asks how much of backpropagation survives locality, this one covers the rules that never approximated it and are dynamical systems in their own right.
 - **[[wiki/concepts/meta-optimized-plasticity.md]]** — takes the hand-set coefficients of these rules (`η`, `A₊`, `τ₊`) as the parameters of an outer loop, converting a fixed rule into a discovered one.
 - **[[wiki/concepts/continual-learning.md]]** — metaplasticity is the biological mechanism elastic weight consolidation reimplements as a loss penalty; the mechanism version needs no task boundaries.

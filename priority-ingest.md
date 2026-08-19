@@ -12,7 +12,7 @@ One INGEST each:
 - [x] `whittington-2022-how-to-build-a-cognitive-map.md` — hippocampal-entorhinal · S · 2022
 - [x] `liao-2024-single-shot-many-shot-hippocampus.md` — hippocampal-entorhinal · S · 2024
 - [x] `howard-2005-temporal-context-model-navigation.md` — hippocampal-entorhinal · F · 2005
-- [ ] `rolls-2013-pattern-completion-separation.md` — hippocampal-entorhinal · F · 2013
+- [x] `rolls-2013-pattern-completion-separation.md` — hippocampal-entorhinal · F · 2013
 - [ ] `sanders-2020-remapping-hidden-state-inference.md` — hippocampal-entorhinal · F · 2020
 - [ ] `chen-2022-grid-like-representations-cognition.md` — hippocampal-entorhinal · F · 2022
 - [ ] `schaeffer-2022-no-free-lunch-hippocampal-models.md` — hippocampal-entorhinal · F · 2022

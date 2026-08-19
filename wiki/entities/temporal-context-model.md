@@ -117,6 +117,8 @@ Both extremes fail: the pure place code cannot distinguish two visits to the sam
 
 ## Connections
 
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the rival account of hippocampal time: discrete time-encoding cell populations traversed by noise-driven attractor transitions (span `7 ± 2`) versus one graded leaky context integrator, both binding items to time by the same associative rule.
+
 - **[[wiki/concepts/path-integration.md]]** — the same update rule with the leak turned on: this page's `ρ < 1` claims that the biological integrator is deliberately imperfect, which buys bounded error and history-dependent (retrospective) coding at the cost of a metric, and directly contradicts the error-corrected perfect integrator that page's model families assume ([[wiki/empirical-tensions.md]] T31).
 - **[[wiki/concepts/successor-representation.md]]** — the temporal mirror image: both turn co-occurrence into a distance-like inner product, but the SR sums *future* occupancy under a policy while retrieved context sums *past* context, so the SR's policy-dependence is replaced here by trajectory-dependence.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the cheapest recovery of a graph metric in the wiki: pairwise edges presented in random order produce an embedding whose inner products decay with graph distance, using one leaky integrator and one Hebbian matrix, with no objective and no search.

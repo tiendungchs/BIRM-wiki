@@ -84,6 +84,8 @@ The strongest architectural claim in the source, and the one that engages the co
 
 ## Connections
 
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — a biological energy landscape with its capacity computed: `p_max ≈ kC/(a ln(1/a))` counts how many minima it can hold, and *diluted* connectivity is justified as landscape hygiene — duplicate synapses between a neuron pair distort the basins and dominate which states are stable.
+
 - **[[wiki/entities/h-jepa.md]]** — the architecture this formalism is built for: a joint-embedding predictive architecture is an EBM whose energy is prediction error *in representation space*, trained by the regularised branch of the table above.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies an alternative statement of the whole framing: a graph is an energy landscape, an edge label is a latent variable, and path search is `argmin` over a latent sequence — which attaches a capacity knob to the edge-vocabulary problem (hardness 2).
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the near-identity: both make inference a scalar minimisation over activity and learning a minimisation over weights, differing on whether the scalar is a probability in disguise and on whether collapse is a live threat.

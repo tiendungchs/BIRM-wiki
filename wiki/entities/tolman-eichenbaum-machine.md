@@ -57,6 +57,8 @@ This is the wiki's `p = f(g, x)` factorization built rather than posited (Whitti
 
 ## Connections
 
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the same anatomy optimised for the opposite quantity: capacity and one-trial arbitrary binding there, transfer and structural generalisation here, with no model in the wiki supplying both.
+
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the two-level hierarchy built rather than argued: a slow, shared path-integrating meta-graph plus a one-shot memory binding this environment's contents, trained by nothing but next-observation prediction.
 - **[[wiki/concepts/path-integration.md]]** — supplies this architecture's `g` and the reason it transfers; conversely this architecture is what makes path integration trainable from raw observations instead of from supplied spatial targets.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — the strongest existing demonstration that `g` can be *learned*: content-invariant, reused across environments, and yielding grid-like codes in space and non-spatial latent structure elsewhere.

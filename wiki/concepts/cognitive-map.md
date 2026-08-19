@@ -129,6 +129,8 @@ Whittington et al. 2022 bring the hippocampal-formation models into one language
 
 ## Connections
 
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the storage side of the same anatomy: mixed continuous/discrete attractors bind an object to a place, many charts coexist in one network so map selection is attractor selection, and grid codes are treated as *unsuitable* for binding until dentate competitive learning converts them into place-like conjunctions.
+
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the cognitive map is this page's framing instantiated in its home domain, and it contributes the operation the framing lacked: anchoring a recovered structure to the present observation (G39), distinct from both discovery and navigation.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — supplies the code this page's element 1 is made of; conversely this page supplies the second and third demonstrations of grid-like coding outside space (concept morphs, social vectors) that the "is periodic coding general?" question needed.
 - **[[wiki/concepts/simulation-based-planning.md]]** — element 3 is that page's path search with the neural read-outs attached: a Euclidean heuristic, graph centrality features for pruning, breadth-first search cost in lateral prefrontal cortex, and goal direction represented by re-pointing the heading system rather than by a goal-direction vector.

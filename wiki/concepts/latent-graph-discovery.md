@@ -161,6 +161,8 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 
 ## Connections
 
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — a fully worked storage-and-retrieval layer with the discovery layer absent: arbitrary one-trial bindings, exact completion from any fragment, closed-form capacity, and no mechanism that notices two episodes share a relational form.
+
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the methodological licence for treating brain mechanisms as candidate answers to this problem; its track record shows every past transfer moved a representation or a gating policy, never a factorization.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the biological derivation of the slow-W / fast-M split from interference alone, independent of this page's sample-complexity argument; hippocampal sparse coding is the de-aliasing mechanism (hardness 3).
 - **[[wiki/concepts/meta-learning.md]]** — the optimization statement of the two-level hierarchy: outer loop over `p(T)` learns the meta-graph, inner loop binds the instance-graph.

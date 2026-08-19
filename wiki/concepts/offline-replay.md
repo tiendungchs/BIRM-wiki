@@ -87,7 +87,23 @@ The specific-experience model predicts replay resembles individual experiences. 
 
 ---
 
+## A dissent: consolidation should happen awake
+
+Rolls 2013 rejects the sleep-transfer premise this page and [[wiki/concepts/complementary-learning-systems.md]] assume, on three grounds:
+
+| Argument | Claim |
+|---|---|
+| **Relevance filtering** | Waking recall retrieves memories that are *currently useful*; only those seed semantic structure. Sleep replay has no access to current relevance, so it consolidates where one parked one's bicycle two weeks ago |
+| **The dream argument** | Semantic construction during unguided noise-driven stochastic firing risks building the bizarre representations we in fact dream about; rational thought during waking is what organises retrieved episodes into useful semantics |
+| **Non-retrieval as forgetting** | Memories *not* retrieved during waking are the ones left to be overwritten by fresh random CA3 allocations — so the retrieval schedule and the forgetting policy are one mechanism |
+
+The third point is the one with teeth for a machine: it makes **use frequency the consolidation criterion**, which is neither reward-prioritisation (position A of [[wiki/empirical-tensions.md]] T30) nor the transferability bias (position B). It is also the only criterion of the three that a deployed system can compute without labels or an offline pass. Note that Rolls offers no data — the argument is normative, and the direct recordings all favour ripple-driven offline replay ([[wiki/empirical-tensions.md]] T34).
+
+---
+
 ## Connections
+
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the dissenting schedule above, plus the mechanism replay must operate through: completion in a diluted CA3 attractor within a single theta cycle (~120 ms), and a polysynaptic reverse hierarchy to get the reinstated pattern back to cortex.
 
 - **[[wiki/concepts/complementary-learning-systems.md]]** — this page is the content of that page's coupling channel: CLS says replay transports episodes to cortex, and the transport turns out to be lossy *by design*, suppressing non-generalisable items rather than sampling experience faithfully.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — supplies the write rules replay operates on (symmetric CA3 STDP for bidirectional sequences, inhibitory plasticity for the filter), and receives from this page the theta-cycle compression that lets a millisecond plasticity window see second-scale behavioural transitions.

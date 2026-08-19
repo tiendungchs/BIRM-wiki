@@ -66,6 +66,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CSCG | Clone-Structured Cognitive Graph | Hidden Markov model with a frozen clone pool per observation ([[wiki/entities/cscg.md]]) |
 | TEM | Tolman-Eichenbaum Machine | Path-integrating structural code plus relational memory ([[wiki/entities/tolman-eichenbaum-machine.md]]) |
 | SMP | Spatial Memory Pipeline | TEM's sibling, trained from egocentric pixels with a machine-learning memory network |
+| RC | Recurrent Collateral | The CA3→CA3 axon collaterals, ~1.2×10⁴ per neuron in rat, the substrate of the autoassociative attractor ([[wiki/entities/rolls-treves-hippocampal-model.md]]) |
+| mf / pp | Mossy Fibre / Perforant Path | Dentate→CA3 write path (~46 per CA3 cell, strong, randomizing) and entorhinal→CA3 read path (~3,600, weak, generalizing) |
 | CANN | Continuous Attractor Neural Network | Recurrent network whose weights support a continuum of stable states; the classical path-integration substrate |
 | VCO | Velocity-Coupled Oscillator | Path integration by phase interference between theta and velocity-modulated dendritic oscillations |
 | EM | Expectation-Maximisation | Alternating latent-inference / parameter-update algorithm; how CSCG is trained |
@@ -81,7 +83,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | fMRI | functional Magnetic Resonance Imaging | |
 | BOLD | Blood-Oxygen-Level-Dependent | The fMRI contrast; driven more by perisynaptic activity than by spiking, which is why it cannot resolve dentate gyrus from CA3 ([[wiki/concepts/pattern-separation-completion.md]]) |
 | DG | Dentate Gyrus | Sparse-firing granule-cell layer receiving entorhinal input; the hippocampus's pattern separator, and the only site of adult neurogenesis in the hippocampus |
-| CA1 / CA3 | Cornu Ammonis fields 1 and 3 | CA3 is the recurrent auto-associative field (pattern completion); CA1 relays hippocampal output and transforms input linearly |
+| CA1 / CA3 | Cornu Ammonis fields 1 and 3 | CA3 is the recurrent auto-associative field (pattern completion), with *diluted* recurrence (~2–4%); CA1 carries hippocampal output — as a linear relay (Yassa & Stark 2011) or as a competitive recombination stage (Rolls 2013), [[wiki/empirical-tensions.md]] T33 |
 | EC | Entorhinal Cortex | The hippocampus's main cortical input/output; layer II projects to both DG and CA3, and carries the grid code ([[wiki/concepts/abstract-structural-codes.md]]) |
 | IEG | Immediate-Early Gene | Activity-dependent genes (e.g. Arc) whose expression maps which neurons were recently active — a population-level imaging method |
 | NMDAR | N-methyl-D-aspartate Receptor | Coincidence-detecting glutamate receptor; its NR1 subunit is the standard knockout target for testing plasticity-dependence of a computation |

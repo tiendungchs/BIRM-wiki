@@ -30,6 +30,27 @@ CLS was proposed as the solution to this problem, which makes it a *derived* arc
 
 ---
 
+## The return path has a wiring constraint
+
+CLS names replay as the channel and stops. Rolls 2013 derives what the *retrieval* channel must look like, and the derivation is unusually strong for a biological argument because it is arithmetic.
+
+Recall to cortex is a **reverse hierarchy of pattern associators**: CA3 → CA1 → deep entorhinal layers → parahippocampal/perirhinal → association cortex, each stage a heteroassociative net whose backprojecting synapses were modified during encoding (when forward-driven cortical firing coincided with backprojected hippocampal activity). Retrieval therefore *reinstates the cortical activity pattern present at encoding*, in every area that participated — the face in temporal cortex, the place in parietal, the reward in orbitofrontal.
+
+| Constraint | Statement | Consequence |
+|---|---|---|
+| Per-stage capacity | Same form as the CA3 bound: `p ≈ k'C/(a ln(1/a))`, with `a` the local sparseness and `C` the backprojections received per cell | Every stage must carry at least as many memories as CA3 stores |
+| Fan-out requirement | `C^HBP = C^RC · a_nc / a_CA3` — ≥ 12,000 hippocampally-originating afferents per cortical cell even in the best case | **A monosynaptic CA3→cortex readout is impossible**; each CA3 cell would need `C^HBP ×` (cortical cells / CA3 cells) synapses |
+| Therefore | The backprojection must be **polysynaptic with gradual fan-out per stage** | Quantitative account of why cortex has as many backward as forward connections |
+
+**(brainstorm) The machine reading is a cost model nobody applies.** Every retrieval-augmented architecture in the wiki treats the read-out from the fast store as free — one attention operation from a memory matrix into the model's residual stream. This says the *decompression* side of consolidation is the expensive half, that its cost scales with the ratio of cortical sparseness to store sparseness, and that the only affordable implementation is a staged expansion. A fast store that is very sparse (good for capacity) is *harder* to read back out, which is a trade-off the sparse-memory literature does not price.
+
+**Two further CLS commitments the source revises:**
+
+- **Forgetting is required, and it is reallocation.** The store has a hard capacity; exceeding it loses most of what is retrievable, not the marginal item. Heterosynaptic LTD overwriting old memories, plus fresh random CA3 sets for new episodes, is the proposed mechanism — so the retention window is set by *the acquisition rate of new episodes*, not by a clock. Testable and untested: in a constant restricted environment, hippocampal representations should remain stable indefinitely and no retrograde-amnesia gradient should be demonstrable.
+- **"Neocortical representations changed after learning" is not evidence of transfer.** If the CA1 code changes, downstream cortical firing changes through *fixed* connections. Any consolidation claim needs to separate a changed input from a changed weight — a confound the machine analogue (frozen encoder, changed memory contents) has exactly.
+
+---
+
 ## Machine instantiations
 
 | System | Mechanism | What it borrows | What it drops |
@@ -64,6 +85,8 @@ CLS was proposed as the solution to this problem, which makes it a *derived* arc
 - **What gets replayed** — **partly answered, and against the machine version.** Reward-prioritisation is what machine replay copies; biology's demonstrated criteria run the other way (upsample the under-visited, suppress the non-recurring, prefer remote to imminent), and the proposed principle is an inductive bias toward *transferable* content rather than toward valuable content (Liao & Losonczy 2024; [[wiki/concepts/offline-replay.md]]). What remains open is the mechanism — inhibitory plasticity is predicted by modelling and not established — and whether the criterion is structural in the graph-disambiguating sense.
 - **One mechanism, five sampling policies.** Interleaving, consolidation, planning, offline state-space construction and amortization each imply a different replay distribution, and nothing arbitrates between them ([[wiki/concepts/offline-replay.md]]).
 - **When to trust the fast system.** Episodic control wins early and loses late; nothing arbitrates the handover.
+- **When does transport happen?** The standard answer is sleep. Rolls 2013 argues for *waking*: recall during waking retrieves the relevant memories under rational guidance, so only useful episodes seed semantic structure, whereas noise-driven stochastic firing in sleep risks consolidating confabulation — the dream argument. [[wiki/empirical-tensions.md]] T34.
+- **Capacity and generalisation are optimised by different models of the same tissue.** The most quantitative hippocampal model in the wiki ([[wiki/entities/rolls-treves-hippocampal-model.md]]) has no transfer story at all; the models with a transfer story state no capacity. Nothing has both.
 
 ---
 
@@ -88,4 +111,5 @@ CLS was proposed as the solution to this problem, which makes it a *derived* arc
 - **[[wiki/entities/cscg.md]]** — the opposite assignment of the same anatomy: the *map itself* lives in the fast store, so cortex consolidates already-de-aliased state spaces rather than raw experience ([[wiki/empirical-tensions.md]] T28).
 - **[[wiki/concepts/successor-representation.md]]** — makes "what gets replayed" a parameter: every multi-step transition shares one eigenbasis, so diffusive, super-diffusive (Lévy) and successor-distance sampling differ only in a diagonal reweighting.
 - **[[wiki/concepts/offline-replay.md]]** — the contents of this page's coupling channel: replay is filtered rather than veridical, which turns "transport episodes to cortex" into "decide which episodes deserve to become structure".
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — supplies the missing return path with a wiring constraint (`C^HBP = C^RC a_nc/a_CA3`, hence a polysynaptic reverse hierarchy), a capacity bound on the fast store, and forgetting-as-random-reallocation instead of decay.
 - **[[wiki/entities/temporal-context-model.md]]** — the limiting case of a contentless fast store: the hippocampus only reinstates entorhinal states, so cortex does all the remembering, and the abolition of pair-coding in area TE by rhinal lesion shows the similarity structure being *imposed* on cortex by medial temporal feedback.

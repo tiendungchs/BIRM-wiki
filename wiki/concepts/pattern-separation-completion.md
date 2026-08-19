@@ -32,8 +32,8 @@ Entorhinal cortex (EC) layer II → dentate gyrus (DG) → CA3 → CA1, a primar
 | **Perforant path**, EC II → DG | Distributed EC codes onto a far larger, sparsely firing granule-cell population | Expansion recoding — the substrate of strong, domain-agnostic separation |
 | **Mossy fibers**, DG → CA3 | Few, very large "detonator" synapses on proximal apical dendrites; strongly depolarizing | *Forces* a separated code onto CA3 — the write path |
 | **Perforant path**, EC II → CA3 (bypassing DG) | Weak, direct | Supplies the retrieval *cue* — the read path |
-| **Recurrent collaterals**, CA3 → CA3 | Dense auto-association | Attractor dynamics → completion |
-| **Schaffer collaterals**, CA3 → CA1 | — | CA1 relays linearly; hippocampal output is not the DG/CA3 signal |
+| **Recurrent collaterals**, CA3 → CA3 | Auto-association — and *diluted*, not dense: ~1.2×10⁴ synapses over 3×10⁵ cells = 0.04 (≈2% bilateral), *more* diluted than local neocortex (~0.1) | Attractor dynamics → completion; dilution is functional, keeping multi-synapse pairs rare so the basins are not distorted (Rolls 2013) |
+| **Schaffer collaterals**, CA3 → CA1 | Contested. Yassa & Stark 2011: CA1 relays linearly, and hippocampal output is not the DG/CA3 signal. Rolls 2013: CA1 recombines the separately-stored sub-parts of an episode by competitive learning and generalizes to the nearest CA1 pattern when CA3 completion was imperfect | Either a linear relay or a second completion stage — [[wiki/empirical-tensions.md]] T33 |
 
 **The write/read dissociation is anatomical, and it is causal.** Inactivating mossy fibers impairs new learning and spares recall; lesioning the direct EC→CA3 perforant path impairs retrieval and spares encoding. So the same recurrent network is addressed by two different inputs depending on whether it is being written to or read from — which is the wiki's first concrete mechanism for a store that does not have to *choose* between separation and completion globally.
 
@@ -53,6 +53,28 @@ Entorhinal cortex (EC) layer II → dentate gyrus (DG) → CA3 → CA1, a primar
 | **Global remapping** | Rate *and* place statistically independent — complete reorganization | Larger input change (different room) |
 
 Under global remapping the two subfields differ in *kind*: DG re-codes within the **same** active cells, CA3 recruits a **different population**. Whether these are two mechanisms or one continuum, and what selects between them, is stated as open.
+
+---
+
+## What the curve is worth: the capacity account
+
+Rolls 2013 prices the same two operations in synapses per neuron. The whole point of separation is that correlated patterns *cost capacity*, and the whole point of dilution is that the capacity is spent well.
+
+| Quantity | Form | At biological parameters (rat) |
+|---|---|---|
+| Population sparseness | `a = (Σr_i/N)² / (Σr_i²/N)` | macaque hippocampal pyramidal `a ≈ 0.33`, against 0.61–0.81 in orbitofrontal/inferior-temporal/amygdala — the hippocampus really is the sparse one |
+| CA3 attractor capacity | `p_max ≈ k · C^RC / (a ln(1/a))`, `k ≈ 0.2–0.3` | `C^RC = 12,000`, `a = 0.02` → ~36,000 memories |
+| Feedforward (perforant-path) capacity | `p_max ≈ k · C^PA / (a_o ln(1/a_o))` | `C^PA = 3,600` → ~30% of the recurrent route, which is the argument against CA3-as-pattern-associator |
+
+Three consequences for a builder:
+
+1. **Capacity scales with fan-in, not with population size** — so the design move is *more units at lower connection probability*, holding synapses-per-unit fixed. Diluted integrate-and-fire attractors are additionally measured to be *more* stable and more accurate than fully connected ones with the same fan-in.
+2. **Sparsity enters as `1/(a ln(1/a))`**, so the separation knob and the capacity budget are the *same* parameter viewed from two ends. Graded (exponential/gamma) firing rates passed through a non-linearity raise effective sparseness — Rolls counts that as a pattern-separation mechanism in its own right.
+3. **Heterosynaptic LTD is not optional.** Efficient storage in an associative network requires depression alongside potentiation, and it is also the proposed forgetting mechanism — the store must overwrite or it overloads, and overload loses *all* retrievable memories, not the marginal one.
+
+**Separation is five mechanisms, not one** (Rolls 2013): sparse mossy-fibre connectivity (~46 per CA3 cell, the *randomizing* effect), sparse DG firing, the large DG population (expansion recoding by competitive learning), sparse CA3 coding, and neurogenesis supplying new random connections. See [[wiki/entities/rolls-treves-hippocampal-model.md]] for the ranked table.
+
+**The randomization mechanism is a different kind of thing from a transfer curve.** A steep transfer function still *computes with* input similarity; mossy-fibre hashing destroys it, handing CA3 an address drawn effectively at random. That is why the mechanism is confined to the write path (strong, proximal, mV-scale synapses that dominate during storage) and switched out of the read path (a numerically large but weak perforant-path input whose job is to *generalize* enough that a fragment lands in the right basin, with recall signal `∝ √C^PA`). **(brainstorm)** For a machine store the prescription is unusual and cheap: **hash on write, embed on read.** Every learned-index retrieval system in use does the opposite — one embedding serving both — and thereby inherits the interference that the write-side randomization exists to remove.
 
 ---
 
@@ -79,7 +101,7 @@ Unregulated separation destroys recall — nothing would ever be recognised as a
 |---|---|---|
 | Hilar **mossy cells** (excitatory) | ↑ separation | Under direct CA3→DG backprojection — i.e. the *output* stage sets the *input* stage's bias |
 | **HIPP** interneurons targeting the perforant path (inhibitory) | ↓ separation | Same backprojection |
-| **Cholinergic** input from medial septum | Switches storage (separation) vs. recall (completion) modes | The closest biological analogue of an explicit write/read mode bit |
+| **Cholinergic** input from medial septum | Switches storage (separation) vs. recall (completion) modes | The closest biological analogue of an explicit write/read mode bit. **Rolls 2013 gives it a functional form:** acetylcholine *reduces the efficacy of the CA3→CA3 recurrent synapses* (Hasselmo) while facilitating LTP in them, so one scalar simultaneously lets the mossy-fibre write dominate firing and licenses the recurrent write. In machine terms: scale recurrent read-out gain **down** and recurrent learning rate **up**, together |
 | **Noradrenergic** input from locus coeruleus | Unknown | Innervation of the DG polymorphic layer is orders of magnitude denser than elsewhere in the hippocampus |
 
 **(brainstorm)** The cholinergic switch and the CA3→DG backprojection are two different control architectures for the same knob: one *external and global* (a neuromodulator sets the mode for the whole structure), one *internal and closed-loop* (how well CA3 completed the current cue sets how hard DG separates the next input). The second is the interesting one for a machine, because it is a **self-supervised** setting rule — completion error is measurable at runtime without labels, and it is exactly the signal that says "this is a new situation, write it separately" versus "I have this one, retrieve it". Nothing in the wiki implements it (gap G38).
@@ -130,11 +152,14 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 
 - **What sets the knob?** The controllers are named, none is characterised as a function. See gap G38.
 - **Rate vs. global remapping.** What selects the code, and are they combined?
-- **Attractor dynamics in CA3 is a hypothesis with one supporting demonstration**, despite being the standard account of completion.
+- ~~**Attractor dynamics in CA3 is a hypothesis with one supporting demonstration**~~ — **closed by Rolls 2013**, which assembles four independent lines: voltage-sensitive-dye imaging in slice (LTP from two sites, then either site alone evokes the full pattern; Jackson 2013), all-or-none selection of one learned environment under a square/circle morph (Wills 2005), within-theta-cycle flickering between two maps implying completion inside ~120 ms (Jezek 2011), and the CA3 NMDA-receptor-knockout completion deficits already listed above.
 - **Newborn vs. mature granule cells.** Loss/gain-of-function says newborn cells enable separation; a computational account says immature cells are too broadly tuned to separate and instead *integrate* patterns; a reactivation study suggests mature cells may be functionally retired. Unresolved — [[wiki/empirical-tensions.md]] T26.
 - **Only mammals evolved a DG.** Birds solve the same computational problem another way, which means the anatomy is one solution rather than the solution — relevant to whether a machine should copy the circuit or the transfer curve.
 - **Non-visual and temporal separation are untested** at the subfield level; lesion work suggests spatial and temporal separation dissociate across subfields.
 - **Does reward or prediction error regulate separation?** Suggested, not established.
+- **Is CA1 a relay or a second completion stage?** [[wiki/empirical-tensions.md]] T33.
+- **Every confirming experiment runs the store far below capacity.** Rolls 2013 states the predictions only bite at thousands of stored memories and that behavioural work loads it with a handful — so the separation literature is testing the mechanism outside the regime its theory is about.
+- **Temporal pattern separation** has a proposed mechanism now (noise-driven transitions between attractors of rate-coded time cells) that predicts a span of ~7 ± 2 and sits in CA3, while part of the lesion evidence points at CA1 — unresolved in the source.
 
 ---
 
@@ -155,4 +180,5 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 - **[[wiki/entities/cscg.md]]** — separation reduced to bookkeeping: allocating a fresh clone of an observation *is* the separation operation, with the clone-pool size standing in for the separation/completion bias as a hand-set hyperparameter (gap G38).
 - **[[wiki/entities/tolman-eichenbaum-machine.md]]** — separation in the service of transfer: conjunctive structure × sensory codes are what makes hippocampal remapping the mechanism of generalisation rather than a source of instability.
 - **[[wiki/concepts/offline-replay.md]]** — completion is what makes replay possible (a ripple-triggered partial cue reinstates a whole stored sequence); the replay filter is the first mechanism that decides *which* completions are worth running, and inhibitory plasticity is its candidate substrate.
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the quantitative version of this page: separation decomposed into five mechanisms with a capacity payoff `p_max ≈ kC/(a ln(1/a))`, completion as relaxation in a *diluted* attractor, and the write/read split given synapse counts and a neuromodulatory control law.
 - **[[wiki/entities/temporal-context-model.md]]** — completion reduced to a single scalar: `α_N` is an operator that takes a repeated item and reinstates the whole entorhinal state it was first experienced in, and the resulting overlap between context inputs is the anti-separation direction of this page's transfer curve.

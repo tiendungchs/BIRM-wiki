@@ -33,6 +33,20 @@ The differentiable neural computer (DNC) — a neural controller reading and wri
 
 **What this establishes:** an externalized, content-addressable, writable store is sufficient to make a differentiable network do explicit graph traversal. **What it does not establish:** discovery — in both tasks the graph is *given to the network as input*, so the hard part of LGD (inferring edges and vocabulary from observation) is not tested. Memory-augmented networks are evidence about the *navigate* half only.
 
+## Order for free: noise-driven attractor transitions
+
+A third design, and the only one in the wiki that derives the *capacity number* rather than stipulating it (Rolls 2013, [[wiki/entities/rolls-treves-hippocampal-model.md]]). Hippocampal and prefrontal neurons fire at different points within a delay period — a **rate code for time** — and a recurrent network reproduces this without any oscillatory clock:
+
+| Ingredient | Effect |
+|---|---|
+| Several attractors with slightly stronger forward than reverse weights | The state walks the chain in order |
+| Spiking noise | Drives each transition; nothing schedules it |
+| Adaptation | Kills the current attractor and biases the next toward the least-recently-active one |
+
+Two payoffs. **Order comes free with storage** — items bound to time-encoding populations by the same associative rule that binds them to places, so recall in the presented order needs no extra mechanism. And **the span is derived**: noise limits the chain to perhaps `7 ± 2` sequential states, offered as the origin of the classic capacity limit and of why recency items are naturally recalled in order. Under this account working-memory capacity is a *dynamical* property (how many noisy transitions stay distinguishable) rather than a slot count — which predicts capacity should vary with adaptation and noise level, not with unit count.
+
+Rolls contrasts this directly with theta/gamma phase-coding accounts of serial order ([[wiki/empirical-tensions.md]] T32), and concedes the site is unsettled: the natural substrate is the CA3 recurrent network, while part of the temporal-order lesion evidence implicates CA1.
+
 **Duration.** Nothing restricts these mechanisms to seconds: LSTMs and DNCs can maintain information across many thousands of training cycles, so the same machinery may serve longer-term memory (e.g. retaining the contents of a book). The functional distinction "working vs. long-term" does not map onto an architectural one here.
 
 ---
@@ -76,6 +90,8 @@ All differentiable, so gradients pass through the store. Two readings this wiki 
 ---
 
 ## Connections
+
+- **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — derives the `7 ± 2` span from noise-driven transitions between asymmetrically coupled attractors, making capacity a dynamical rather than a slot limit, and puts serial order in the same recurrent network that stores episodes.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the only architecture in this ingest that performs explicit multi-hop graph traversal, and marks the boundary: it navigates a *given* graph, it does not discover one.
 - **[[wiki/concepts/attention.md]]** — attention is the read mechanism of an external memory; internal attention and content-addressable retrieval are the same operation.
