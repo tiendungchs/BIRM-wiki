@@ -71,6 +71,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CANN | Continuous Attractor Neural Network | Recurrent network whose weights support a continuum of stable states; the classical path-integration substrate |
 | VCO | Velocity-Coupled Oscillator | Path integration by phase interference between theta and velocity-modulated dendritic oscillations |
 | EM | Expectation-Maximisation | Alternating latent-inference / parameter-update algorithm; how CSCG is trained |
+| DoG / DoS | Difference-of-Gaussians / Difference-of-Softmaxes | Centre–surround readout target functions in deep grid-cell models; DoS (used in code, DoG in text) is what actually produces lattices, because the readout correlation matrix plays the role of the attractor interaction kernel ([[wiki/concepts/objective-identifiability.md]]) |
+| PI | Path Integration | Updating a position estimate by integrating self-motion ([[wiki/concepts/path-integration.md]]) |
+| PR | Participation Ratio | Linear measure of a representation's intrinsic dimensionality; correlates with linear "neural predictivity" of neural data, which may confound model-brain comparisons |
+| SLAM | Simultaneous Localization And Mapping | Building a map while self-localizing in it; solved by trained recurrent networks without grid units emerging |
 
 ## Neuroscience
 
