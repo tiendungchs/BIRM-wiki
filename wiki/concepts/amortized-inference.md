@@ -25,6 +25,17 @@ The source treats these as one idea appearing at two levels. They share a shape:
 - **The amortized latent distribution is a learned prior over what happens next**, so conditioning it on previous states biases trajectory sampling toward plausible futures — amortization doing *pruning*, not just speed.
 - **It restates the wiki's plan/policy distinction in one vocabulary.** Amortizing the action variable gives a policy; amortizing the latent variable gives a proposal distribution; both are the same operation because "there is no conceptual difference between an action and a latent variable" ([[wiki/concepts/energy-based-models.md]]). The Mode-2 → Mode-1 distillation `min_θ D(ǎ[t], A_θ(s[t]))` is then not a special mechanism but the action-shaped instance of it.
 
+**A fourth mode: amortize the *initialization*, not the answer** (Bengio et al. 2015). Decompose the approximate posterior into a parametric guess plus iterative refinement — `q₀(H|x) = q(H|x)`, then `q_t(H|x) = A(x) q_{t−1}(H|x)` for `t = 1…T` — and train with
+
+`J = log p(x|h) + log p(h) + α log q(h|x)`
+
+where `h` is a free variable initialized from `q` and then updated to increase `J`. The third term is the amortization: it is a pressure on the feed-forward net to land where the relaxation would have gone, so that *few steps suffice*. Two consequences the other three modes do not have:
+
+- **The cached mapping and the expensive process run in series, not in competition.** The arbitration question above ("when to fall back") does not arise, because the fast path is always the first step of the slow path. What is tuned is `T`, not a switch.
+- **The model is also pushed toward being easy to invert.** One may add a term encouraging `p(x,h)` to favour posteriors that `q_t` can approximate for small `t` — amortization feeding back into *model selection*, which is the reverse of the usual dependency and a direct answer to the open problem that a recognition net is only as good as what it was trained on.
+
+**(brainstorm)** This is the same relation as H-JEPA's distilled policy *initializing* rather than replacing the optimization, and as predictive coding's relaxation — three sources converging on **guess-then-relax** over guess-or-relax. If that is the right shape, the wiki's fast/slow arbitration debate is partly mis-framed: the interesting quantity is not *which* system runs but how many refinement steps the cached guess buys you, which is measurable on any model with an iterative inference loop.
+
 **The prediction that makes amortization falsifiable:** because different problems share amortized computations, their solutions become *correlated* in ways the exact posterior would not predict. That is a signature of the mechanism rather than of its output — the same kind of evidence as a signature limit ([[wiki/concepts/core-knowledge.md]]), and directly runnable on a model.
 
 ---
@@ -89,6 +100,7 @@ For this wiki that is a **type system over the hypothesis space**: a cheap class
 | Variational optimization | DRAW, variational autoencoders, neural variational inference (Mnih & Gregor 2014; Rezende et al. 2014) |
 | Nearest-neighbour density estimation | Stuhlmüller et al. 2013; Kulkarni et al. 2015 |
 | Neural network as **bottom-up proposer** inside a structured generative model | The integration route the source favours: the deep net makes probabilistic inference tractable, the program supplies the causal structure (Eslami et al. 2016; Yildirim et al. 2015) |
+| **Learned initializer for an iterative relaxation** | `q(h|x)` supplies `h⁰`, then `T` local updates increase a variational bound; a regularizer in the training objective ties the two together so the feed-forward guess stays close to the relaxed answer (Bengio et al. 2015) |
 | Differentiable programming | Make the program-like hypotheses themselves differentiable, so they are learnable by gradient descent |
 
 The fourth row is the architectural proposal: **the neural network is the inference engine, the program is the model.** The alternative reading — the network *is* the causal generative model, if imbued with the right ingredients — is left open by the source as the second of two ways deep learning could play a role.
@@ -111,7 +123,8 @@ The fourth row is the architectural proposal: **the neural network is the infere
 - **[[wiki/concepts/complementary-learning-systems.md]]** — offline amortization (dreaming, quiet wakefulness) is the same replay machinery in a third role: not stabilizing a training stream and not consolidating episodes, but compiling plans into values.
 - **[[wiki/concepts/meta-learning.md]]** — an amortized recognition network is an outer loop over an inference problem rather than over a task distribution, and it inherits the same hard boundary at the edge of what was sampled.
 - **[[wiki/concepts/attention.md]]** — the amortized mapping is what makes a fast feed-forward pass a *proposal* rather than an answer; attention is how such a proposer is decomposed into sequential sub-queries instead of one shot.
-- **[[wiki/concepts/predictive-coding-free-energy.md]]** — a rival account of fast inference: instead of compiling the posterior into a feed-forward net, run a fast recurrent relaxation to a consistent state; the two differ in whether speed comes from caching or from convergence.
+- **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — where amortisation stops being an efficiency device and becomes load-bearing for *learning*: if the relaxed latent state is the error signal, then the quality of the amortized initializer sets how many synaptic-timescale iterations credit assignment costs (Bengio et al. 2015).
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — a rival account of fast inference: instead of compiling the posterior into a feed-forward net, run a fast recurrent relaxation to a consistent state; the two differ in whether speed comes from caching or from convergence — and the variational-EM route above refuses the choice, using the cache as the relaxation's starting point.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the *speed* constraint the framing otherwise ignores: a graph estimate that cannot be queried in real time is not usable for navigation, however well it is recovered.
 - **[[wiki/concepts/core-knowledge.md]]** — abstract-feature-guided hypothesis selection is an entry condition over the hypothesis space rather than over entities: restrict the domain before paying for search.
 - **[[wiki/entities/h-jepa.md]]** — the architecture that runs both amortizations at once: a distilled Mode-1 policy for actions and an amortized latent-inference module for uncertainty, with the distilled policy also used to *initialize* the expensive optimization rather than replace it.
