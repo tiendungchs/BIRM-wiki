@@ -16,11 +16,20 @@ This is an opinion/prediction paper. Its evidence is a literature roundup plus p
 | Rat secondary visual cortex (V2M, superficial and deep layers) | Same three cell types | (Long et al. 2021a) |
 | Both | Spatial modulation **persists under whisker trimming and in darkness**; theta oscillations present in both areas, supplying speed/acceleration input | Sensory-deprivation controls |
 | Human medial entorhinal + cingulate | Grid-like units during virtual-reality exploration | Intracranial (Jacobs et al. 2013; Nadasdy et al. 2017) |
-| Human orbitofrontal, ventromedial prefrontal, anterior and posterior cingulate | Hexadirectional BOLD modulation during conceptual tasks | fMRI (Constantinescu et al. 2016; Bao et al. 2019) |
+| Human orbitofrontal, ventromedial prefrontal, anterior and posterior cingulate | Hexadirectional BOLD modulation during conceptual tasks — and the entorhinal and ventromedial-prefrontal grid *angles are aligned to each other* (`t21 = 2.18`), stable within a day and across a week | fMRI (Constantinescu et al. 2016; Bao et al. 2019) |
 | Human entorhinal + dorsal medial prefrontal | Grid-like code over a *discrete* social-hierarchy decision space | fMRI (Park et al. 2021) |
 | Human entorhinal (grid) + prefrontal/orbitofrontal/cingulate (distance) | Grid code over relative angular positions of newly learned words in a "word space" | fMRI (Viganò et al. 2021) |
 | Monkey medial entorhinal | Grid-like coding of *gaze* position during free viewing, no locomotion | Head-fixed electrophysiology (Killian et al. 2012) |
 | Rat orbitofrontal, piriform cortex | Up to 80% location-selective tuning conjoined with future-goal coding (orbitofrontal); spatial map carried alongside odour identity (piriform) | (Basu et al. 2021; Poo et al. 2022) |
+
+**The one measured relation *between* two frames points the other way from independence.** This source's mechanistic proposal is that each area's integrator is "complementary yet functionally independent" of the entorhinal one. But in the only case where two frames' orientations have been estimated in the same task, they agree: entorhinal and ventromedial-prefrontal hexagonal codes over the same conceptual space share a grid angle, and each region's angle is itself stable across sessions a week apart (Constantinescu et al. 2016). Two readings, both useful:
+
+| Reading | Consequence for G43 |
+|---|---|
+| **Registered, not independent** | Concurrent frames are held in a common orientation, so their outputs are already commensurate and arbitration reduces to weighting rather than to coordinate conversion — the cheapest possible answer to the arbitration gap |
+| **One frame, read out in many places** | vmPFC modulation is entorhinal output propagated, and there is only one code — which would shrink the replication claim to the single-unit S1/V2 rows and remove every fMRI row from the evidence for it |
+
+Nothing in the data separates these, since BOLD cannot say where the code is computed ([[wiki/empirical-tensions.md]] T47). The discriminating experiment is a *conflict* design: put the two regions' preferred structures in disagreement (two spaces navigated at once, or a space whose conceptual axes rotate relative to its spatial ones) and see whether the angles dissociate.
 
 The darkness/whisker-trim controls are the load-bearing ones: they make the S1 and V2 grids *not* a read-out of the sensory input those areas process, which is what licenses calling them a second reference frame rather than a sensory response.
 

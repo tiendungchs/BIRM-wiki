@@ -123,7 +123,7 @@ The review's reason for taking the map seriously as a general reasoning substrat
 
 | Domain | Finding |
 |---|---|
-| **Concept space** | Hexadirectional entorhinal modulation while viewing sequences of morphed birds (neck × leg lengths) aligned vs. misaligned to a sixfold axis; also in ventromedial prefrontal cortex, where signal strength correlates with task performance (Constantinescu et al. 2016) |
+| **Concept space** | Hexadirectional entorhinal modulation while viewing sequences of morphed birds (neck × leg lengths) aligned vs. misaligned to a sixfold axis; also in ventromedial prefrontal cortex, orbitofrontal, posterior cingulate, retrosplenial, lateral parietal and temporoparietal cortex — the spatial-navigation network and the default-mode network — with modulation strength and grid-angle stability both correlating with task accuracy, and entorhinal and prefrontal grid angles aligned to *each other* (Constantinescu et al. 2016) |
 | **Social space** | Hippocampal response scales with the *angle* of the vector to a character in a power × affiliation space, posterior cingulate with its *magnitude* (Tavares et al. 2015) — a polar decomposition across two regions |
 | **Discrete spaces** | Hippocampal-entorhinal coding of spaces defined by transitions between discrete items, with no underlying continuum |
 | **Time / context** | Episodic memory is cut by temporal boundaries the way it is cut by spatial ones — [[wiki/concepts/event-segmentation.md]] |
@@ -131,6 +131,15 @@ The review's reason for taking the map seriously as a general reasoning substrat
 | **Word space** | Entorhinal grid-like code over the relative *angular* positions of newly learned audiovisual-object words, with a distance code in prefrontal/orbitofrontal/cingulate cortex (Viganò et al. 2021, via Chen et al. 2022) |
 | **Discrete decision space** | Hexagonal entorhinal and dorsal-medial-prefrontal modulation while making *discrete* choices in a reconstructed social-hierarchy space — the first extension from continuous stimulus dimensions to discrete inference (Park et al. 2021) |
 | **Gaze** | Grid-like coding of eye position in monkey entorhinal cortex during free viewing, with no locomotion at all (Killian et al. 2012) |
+
+**What the concept-space row actually required of the subject.** Constantinescu et al. 2016 is the wiki's only case where the map is demonstrably *built* rather than shown, and the construction is the interesting part for a model:
+
+| Element | Detail | Why it matters here |
+|---|---|---|
+| **Dimensions were never displayed as a space** | Stimuli were single birds morphing on screen; the two dimensions (neck length, leg length) had to be extracted from one-dimensional visual features and assembled into a plane | The map is inferred from experience, not perceived — the discovery half of LGD, in a human, with the code as the readout |
+| **"Movement" was a rate ratio** | Trajectory direction `θ` = ratio of the rates of change of legs to neck; the same stimulus lies on trajectories of different orientations and the same orientation is formed by different stimuli | Displacement in a concept space is defined by *relative rates of attribute change* — a concrete `a_t` for [[wiki/concepts/path-integration.md]] where the wiki previously only had "movement along attribute dimensions" |
+| **Training was association, not mapping** | Subjects learned stimulus→outcome pairs by freely morphing until an outcome appeared, then were tested by ballistic morphs to a remembered target | The plane was never the task; it fell out of navigating it |
+| **The map was not reportable** | 0 of 28 subjects conceived of the bird or outcome relationships as lying in a spatial map | A structural code can be present and behaviourally effective while unavailable to report — so the absence of an explicit map in a model is not evidence against one |
 
 **A caveat that travels with all of these rows.** Every entry above except the single-unit ones is fMRI, and hexadirectional BOLD modulation is not a measurement of a grid population; the detection procedure for grid patterns is threshold-arbitrary and its standard autocorrelation form produces false positives without spike-shuffle controls; and no single-unit grid code in a conceptual space has ever been recorded in any species (Chen et al. 2022, [[wiki/empirical-tensions.md]] T37).
 
