@@ -16,8 +16,12 @@ This is the brain's actual write mechanism. Where [[wiki/concepts/biologically-p
 | **Metaplasticity** | — | "Plasticity of plasticity": changes the *ability* of a synapse to change, by shifting the physiological state of the neuron or synapse. Protects the network from its own saturation |
 | **Neurogenesis** | developmental, and adult (subventricular zone, amygdala, dentate gyrus) | Capacity added rather than reallocated; rate is environment-sensitive (enrichment, exercise, stress in rodents). Role in learning not established |
 | **Glial modulation** | — | Astrocytes release, reuptake and metabolize neurotransmitters, regulating availability; structural changes in synaptic strength require glial involvement. Not represented in any learning rule below |
+| **Behavioral timescale synaptic plasticity** (BTSP) | **seconds** | A dendritic plateau potential potentiates *every* input active in a ~seconds-wide window around it. One event, one new receptive field — single-shot learning at the timescale behaviour actually runs at (Bittner et al. 2017; Liao & Losonczy 2024) |
+| **Inhibitory (GABAergic) plasticity** | minutes → longer | Long-term potentiation and depression at inhibitory synapses, with a symmetric spike-timing rule reported in auditory cortex (D'amour & Froemke 2015). Candidate mechanism for a *learned suppression mask* — see [[wiki/concepts/offline-replay.md]] |
 
 **The timescale objection.** Long-term potentiation is routinely cited as the biological warrant for Hebbian learning, and Gallistel & Matzel 2013 argue the cognitive significance of that warrant is unclear on three counts (reported in Lake et al. 2017): (i) LTP's critical interstimulus interval is *orders of magnitude smaller* than the intervals that matter behaviourally, and experiments varying interstimulus and intertrial intervals together show **no critical interval exists**; (ii) behaviour persists for weeks or months while LTP decays to baseline in days (Power et al. 1997); (iii) learned behaviour is rapidly reacquired after extinction (Bouton 2004) with no corresponding facilitation in LTP (de Jonge & Racine 1985). Their conclusion — that it would be "especially challenging" to implement structured model building with purely Hebbian mechanisms — is logged as [[wiki/empirical-tensions.md]] T13. It does not touch the rules below as *engineering*; it removes the biological argument for preferring them.
+
+**BTSP is the direct answer to objection (i).** The critical-interval complaint is that Hebbian plasticity's window is orders of magnitude shorter than behaviourally relevant intervals. Behavioral timescale synaptic plasticity has a window of **seconds**, set by an eligibility trace rather than by spike coincidence, and it produces a reproducible place field from a single traversal (Bittner et al. 2017; Liao & Losonczy 2024). So the family is no longer forced to explain behaviour with a 20 ms kernel: rule 6 below runs at the behavioural timescale by construction. Objections (ii) persistence and (iii) reacquisition-after-extinction are untouched.
 
 **Metaplasticity is the important one for this wiki.** It is elastic weight consolidation's biological ancestor stated as a *mechanism* rather than as a penalty term — the gate on writability is intrinsic to the synapse and stateful, not computed by an outer loop from a Fisher matrix ([[wiki/concepts/continual-learning.md]]). It is distinguishable from neuromodulation, though the two overlap in time at a modified synapse.
 
@@ -60,6 +64,40 @@ The `x_i·Δx_j` increment pushes future `x_j` responses toward the perturbation
 
 **5. Eligibility traces — the bridge across time.** Keep a per-synapse trace of which synapses contributed to recent activity; a dopamine-like signal arriving later converts the trace into an actual weight change. This is the mechanism that makes a *retroactive* third factor possible, and it is what e-prop and neuromodulated differentiable plasticity are both built on ([[wiki/concepts/meta-optimized-plasticity.md]]).
 
+**6. Behavioral timescale synaptic plasticity (BTSP) — the single-shot rule.** A three-factor rule whose third factor is a **dendritic plateau potential** and whose eligibility window is seconds wide:
+
+```
+Δw_i = η · e_i(t) · P(t) ,   e_i(t) = ∫ K(t − s) · x_i(s) ds ,   K spanning ≈ ±2–4 s
+```
+
+`P(t)` is the instructive plateau, evoked by endogenous input — entorhinal cortex is the proposed source (Grienberger & Magee 2022) — or by optogenetic stimulation (Rolotti et al. 2022a). Every input whose trace `e_i` is non-zero when the plateau arrives is potentiated, so the cell acquires a whole receptive field in one event. Established in CA1 (Bittner et al. 2017), extended to CA3 (Li et al. 2023), more strongly expressed in **novel** environments (Priestley et al. 2022), and the plasticity kernel has been measured in vivo at synaptic resolution (Gonzalez et al. 2023).
+
+| Property | Why it makes single-shot learning work |
+|---|---|
+| **Integration over seconds** | Averages over many noisy spikes, so one large weight change is driven by a reliable signal rather than by a coincidence |
+| **Many synapses potentiated at once** | Robustness by the law of large numbers: even if some potentiated synapses are spuriously associated with the field, it is very unlikely that enough are to flip the output |
+| **Population-driven, not pairwise** | Computationally it is the supervised fitting of a **binary classifier by one cell**, over a rich dendritic input basis, rather than a correlation detector (Milstein et al. 2021) |
+| **Gated by an instructive signal** | The cell writes only when a plateau arrives — the first rule on this page whose writes are *licensed* rather than automatic |
+
+**The dendritic basis is load-bearing.** Distinct dendrites of one CA1 pyramidal cell carry heterogeneous, partly decorrelated tuning; soma–dendrite coupling varies with brain state, so dendrites can act semi-independently (Rolotti et al. 2022b; O'Hare et al. 2022). Read functionally: **the dendrites are a high-dimensional random-feature basis and BTSP chooses a weighting on it.** A place field is then a readout direction, and "which field" is "which weights", which is why place-cell-like tuning also appears for sound frequency, faces, conspecifics and stimulus×choice conjunctions — the rule is not spatial, the basis is whatever the cell receives. The implication the review draws is strong: a tuned hippocampal cell may just be a **memory cell**, place coding a byproduct of compressing inputs under a sparsity penalty (Benna & Fusi 2021).
+
+### The two rules divide the graph between them
+
+| | BTSP | STDP |
+|---|---|---|
+| Learns | **Nodes** — a new discrete concept / receptive field | **Edges** — ordered pairwise transitions between existing concepts |
+| Shots | One | Many |
+| Window | Seconds | Tens of ms (needs theta compression to see behavioural pairs — [[wiki/concepts/offline-replay.md]]) |
+| Weight change per event | Large | Small |
+| Fails at | Order *within* the window is indiscriminable; sequences longer than the biophysical window are unlearnable | Single events; each pairing is dominated by noise |
+| Why the failure is a feature | Discrete concepts have no internal order to preserve | Most observed pairings are spurious; requiring many exposures *is* the spuriousness filter |
+
+**Speed–amplitude trade-off (the review's unifying proposal):** the magnitude of the weight change in a plasticity event is proportional to the **expected information gained** in that event. BTSP integrates seconds of population activity → large change → one shot. STDP integrates one spike pair → small change → many shots. This is one principle generating both rules from their integration windows, and it is directly implementable: make a learning rate a function of the evidence integrated by the update.
+
+**And this pair is expressive enough for the wiki's whole target.** A system that can encode concepts *and* the pairwise sequential relationships between them can in principle represent **any graph** (Liao & Losonczy 2024) — which is [[wiki/concepts/latent-graph-discovery.md]] reached from the synapse rather than from the task. The caveat the review adds is the one the wiki tracks as G27: unlike graph learning in the machine setting, **the concepts themselves are also learned, from a continuous input stream.**
+
+**The distinction is not clean.** Place fields are also gradually refined and stabilised by Hebbian plasticity (Mehta et al. 1997), and BTSP may participate in that refinement too — a higher BTSP rate is associated with a more stable code (Vaidya et al. 2023; Madar et al. 2023). Read the table as two ends of a continuum indexed by integration window, not as two systems.
+
 ---
 
 ## Why this matters for a reasoning model
@@ -71,8 +109,10 @@ The `x_i·Δx_j` increment pushes future `x_j` responses toward the perturbation
 | **Delayed sparse reward is reachable** | Node perturbation + eligibility traces learn from a reward arriving long after the responsible activity — the credit structure a multi-hop traversal actually has |
 | **The rule is a hyperparameter** | `η`, `A₊`, `τ₊` are hand-set. This is the opening that [[wiki/concepts/meta-optimized-plasticity.md]] exploits: make them differentiable and the *rule* becomes learnable |
 | **Metaplasticity is stateful gating** | A continual-learning mechanism that needs no task boundaries, unlike elastic weight consolidation — the synapse's own history sets its writability |
+| **Single-shot writes are licensed, not automatic** | BTSP writes only when an instructive plateau arrives, so *when to allocate a new unit* is a separate signal carried on a separate anatomical pathway (entorhinal → CA1 distal dendrites). That is the allocate-vs-reuse decision of [[wiki/concepts/pattern-separation-completion.md]] implemented as a gate, and it is what gap G19 was asking for |
+| **Learning rate scales with evidence integrated** | The speed–amplitude trade-off is a one-line change to any optimizer: weight the step by how much independent evidence the update averaged over, and single-shot and incremental learning become two operating points of one rule rather than two mechanisms |
 
-**(brainstorm)** The four rules above form a ladder where each rung buys one missing ingredient: order (STDP), reward (three-factor), an unbiased estimator (node perturbation), time (eligibility traces). Nothing on the ladder buys *structure* — no rule here has any notion of a node identity or a path. That is the shape of the gap: plasticity supplies a write mechanism for fast **M** and says nothing about what **M** should hold.
+**(brainstorm)** The rules above form a ladder where each rung buys one missing ingredient: order (STDP), reward (three-factor), an unbiased estimator (node perturbation), time (eligibility traces), and — with rule 6 — **a node**. BTSP is the first rule on this page with a claim on structure: one event creates one reusable discrete unit, and STDP then links the units. What is still missing is *identity across contexts*: neither rule says whether the field created in environment A is the same node as a field created in environment B, so the pair can build a graph per environment and cannot say two graphs share a shape. Plasticity now supplies the instance-graph write mechanism ([[wiki/concepts/latent-graph-discovery.md]]) and still says nothing about the meta-graph.
 
 ---
 
@@ -98,6 +138,10 @@ So the standing worry that Hebbian-family rules approximate no gradient is not d
 - **What does metaplasticity compute?** It is described as protecting against saturation; no computational account states what objective its state machine is optimizing.
 - **The behavioural timescales do not line up.** If LTP has no critical interstimulus interval, decays in days where behaviour persists for months, and shows no reacquisition-after-extinction effect, then the mechanism cited as the biological warrant for the whole family is not obviously the mechanism behind behavioural learning (T13). No rule here is stated at a timescale that would fix this.
 - **Sparse-reward credit still needs an exploration policy.** Node perturbation is unbiased but its variance grows with network size; nothing says where the perturbations should be injected.
+- **Where does the instructive signal come from?** BTSP's whole selectivity rests on the plateau, and what generates a plateau at the right moment is unknown — entorhinal cortex is a proposal (Grienberger & Magee 2022), not a result. A single-shot rule with an unexplained teacher has relocated the credit-assignment problem, not solved it.
+- **The molecular substrate of the seconds-long eligibility trace is unidentified.** αCaMKII is the leading candidate (Xiao et al. 2023). Until it is pinned down, the seconds-wide kernel is a fitted phenomenology, and its shape — which sets what counts as "one event" — is not derived from anything.
+- **Does plasticity run offline?** Whether weights change within hippocampus during rest is unstudied, though SWR-paired spiking potentiates in vitro and disrupting awake ripples impairs learning with online representations intact ([[wiki/concepts/offline-replay.md]]).
+- **Inhibitory plasticity has no agreed rule.** Reports are variously potentiating, depressing and rate-dependent; models both require it (Liao et al. 2022) and reproduce replay phenomena without it (Ecker et al. 2022; Nicola & Clopath 2017).
 
 ---
 
@@ -108,9 +152,11 @@ So the standing worry that Hebbian-family rules approximate no gradient is not d
 - **[[wiki/concepts/continual-learning.md]]** — metaplasticity is the biological mechanism elastic weight consolidation reimplements as a loss penalty; the mechanism version needs no task boundaries.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — short- and long-term plasticity are the synaptic-level version of the fast/slow split that CLS states at the systems level; the timescale separation is present in a single synapse before any second anatomical system is invoked.
 - **[[wiki/entities/spiking-neural-networks.md]]** — STDP is defined on spike times, so it presupposes a spiking substrate; the rules on this page are what a spiking network is optimized *by* when gradients are unavailable.
-- **[[wiki/concepts/latent-graph-discovery.md]]** — supplies a write rule for fast **M** that operates during the episode, but no notion of node identity or path, so it can bind an instance-graph's weights without representing its structure.
+- **[[wiki/concepts/latent-graph-discovery.md]]** — supplies a write rule for fast **M** that operates during the episode; with BTSP for nodes and STDP for edges the pair is expressive enough to build *any* instance-graph, and still has no notion of node identity *across* graphs, so the meta-level stays unwritten.
 - **[[wiki/concepts/shortcut-learning.md]]** — a purely local correlation detector has no lever by which to prefer a causal edge, so plasticity rules inherit the shortcut problem rather than solving it.
 - **[[wiki/concepts/universal-induction.md]]** — the ideal these rules approximate under locality and compute budgets: Bayesian conditioning of a universal mixture needs no update rule at all, so every local rule is a bounded stand-in for it.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — supplies an error-driven local write rule where this page's rules are coactivity-driven, and makes the precision gates `α, β, γ` a metaplasticity-like control over how much the fast level writes (Butz 2016).
 - **[[wiki/concepts/three-component-framework.md]]** — rehabilitates non-gradient rules by the vector-field decomposition (only a rule *orthogonal* to `∇F` fails to learn), while imposing the counter-demand that every rule name the objective it improves, or be classed as change rather than learning.
+- **[[wiki/concepts/offline-replay.md]]** — supplies the temporal re-clocking these rules need (a theta cycle compresses a seconds-long trajectory into one STDP window) and the arena where the inhibitory and offline plasticity rows would do their work.
+- **[[wiki/concepts/complementary-learning-systems.md]]** — BTSP is the synapse-level mechanism of the "fast, one exposure" column: a single plateau writes a new unit, which is what one-shot encoding means at the level of a rule.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — where this page's neurogenesis row acquires a demonstrated function: ablating adult dentate neurogenesis impairs discrimination only at *low* sample-target separation, so added capacity is spent specifically on pushing similar inputs apart (Yassa & Stark 2011).

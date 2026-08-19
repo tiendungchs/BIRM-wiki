@@ -68,3 +68,4 @@ So the last row unifies three model families the wiki was carrying as alternativ
 - **[[wiki/entities/cscg.md]]** — supplies the state space this page assumes: learn a de-aliased discrete graph first, then run the SR over its clone states.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — replay sampling statistics are the `ϒ` knob of this page's eigen-decomposition, which makes "what gets replayed" a design parameter rather than an unexplained phenomenon.
 - **[[wiki/concepts/compositionality.md]]** — the DR variant is the wiki's one case of representations that compose *at the level of cell types*: grid × border to represent a barrier, without retraining either.
+- **[[wiki/concepts/offline-replay.md]]** — where the `ϒ` reweighting earns its keep: replay serves five jobs with five incompatible sampling policies, and one eigenbasis under different diagonal reweightings is the only unification currently available.

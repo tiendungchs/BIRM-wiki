@@ -26,7 +26,7 @@ CLS was proposed as the solution to this problem, which makes it a *derived* arc
 | Failure if used alone | No generalization, no compression | Catastrophic interference |
 | Role in [[wiki/concepts/latent-graph-discovery.md]] | **Instance-graph** — this episode's topology, bound once | **Meta-graph** — structure shared across episodes |
 
-**Replay** is the coupling: reinstatement, during sleep and quiet rest, of the structured activity patterns that accompanied the original event, driving consolidation into cortex. Replay is biased toward events that led to high reinforcement.
+**Replay** is the coupling: reinstatement, during sleep and quiet rest, of the structured activity patterns that accompanied the original event, driving consolidation into cortex. Replay is biased toward events that led to high reinforcement — but reward is **not** the criterion, and may not even be the main one. Replay upsamples rarely-visited space, prefers remote over imminent trajectories, and actively suppresses salient-but-idiosyncratic stimuli; consolidating everything overfits, so the channel is a *filter* rather than a pipe. Full account: [[wiki/concepts/offline-replay.md]] (Liao & Losonczy 2024).
 
 ---
 
@@ -61,7 +61,8 @@ CLS was proposed as the solution to this problem, which makes it a *derived* arc
 
 - **Consolidation is missing in silico.** Machine replay serves *stabilization of one learner*, not *transport between two*. The direction hippocampus→cortex — instance structure becoming meta structure — has no machine analogue here.
 - **Fast level: separate system or recurrent state?** CLS says a second anatomical store; meta-RL says activity dynamics of one network ([[wiki/concepts/meta-learning.md]]). Unresolved — see [[wiki/empirical-tensions.md]] T2.
-- **What gets replayed.** Reward-prioritization is the only selection criterion demonstrated; a structural criterion (replay what disambiguates the graph) is unexplored.
+- **What gets replayed** — **partly answered, and against the machine version.** Reward-prioritisation is what machine replay copies; biology's demonstrated criteria run the other way (upsample the under-visited, suppress the non-recurring, prefer remote to imminent), and the proposed principle is an inductive bias toward *transferable* content rather than toward valuable content (Liao & Losonczy 2024; [[wiki/concepts/offline-replay.md]]). What remains open is the mechanism — inhibitory plasticity is predicted by modelling and not established — and whether the criterion is structural in the graph-disambiguating sense.
+- **One mechanism, five sampling policies.** Interleaving, consolidation, planning, offline state-space construction and amortization each imply a different replay distribution, and nothing arbitrates between them ([[wiki/concepts/offline-replay.md]]).
 - **When to trust the fast system.** Episodic control wins early and loses late; nothing arbitrates the handover.
 
 ---
@@ -86,3 +87,4 @@ CLS was proposed as the solution to this problem, which makes it a *derived* arc
 - **[[wiki/entities/tolman-eichenbaum-machine.md]]** — hippocampal indexing theory implemented: the fast store holds only bindings between two cortical codes (structure and sensory), which makes consolidation the learning of what makes those bindings predictable rather than the transport of episodes.
 - **[[wiki/entities/cscg.md]]** — the opposite assignment of the same anatomy: the *map itself* lives in the fast store, so cortex consolidates already-de-aliased state spaces rather than raw experience ([[wiki/empirical-tensions.md]] T28).
 - **[[wiki/concepts/successor-representation.md]]** — makes "what gets replayed" a parameter: every multi-step transition shares one eigenbasis, so diffusive, super-diffusive (Lévy) and successor-distance sampling differ only in a diagonal reweighting.
+- **[[wiki/concepts/offline-replay.md]]** — the contents of this page's coupling channel: replay is filtered rather than veridical, which turns "transport episodes to cortex" into "decide which episodes deserve to become structure".

@@ -35,7 +35,7 @@ Artefacts named on existing pages that have no page of their own. Listed so the 
 
 | Artefact | Referenced from | Queued source |
 |---|---|---|
-| Hippocampus / medial temporal lobe | [[wiki/concepts/complementary-learning-systems.md]], [[wiki/concepts/simulation-based-planning.md]] | `raw/liao-2024-single-shot-many-shot-hippocampus.md`, `raw/yassa-2011-pattern-separation-hippocampus.md` |
+| Hippocampus / medial temporal lobe | [[wiki/concepts/complementary-learning-systems.md]], [[wiki/concepts/simulation-based-planning.md]], [[wiki/concepts/offline-replay.md]], [[wiki/concepts/pattern-separation-completion.md]], [[wiki/concepts/cognitive-map.md]] | `raw/liao-2024-single-shot-many-shot-hippocampus.md`, `raw/yassa-2011-pattern-separation-hippocampus.md` |
 | Prefrontal cortex | [[wiki/concepts/working-memory.md]], [[wiki/concepts/meta-learning.md]] | `raw/wang-2018-pfc-meta-rl-system.md`, `raw/friedman-2021-prefrontal-cognitive-control.md` |
 | Entorhinal grid cells | [[wiki/concepts/abstract-structural-codes.md]] | `raw/constantinescu-2016-gridlike-code-concepts.md` |
 | Differentiable neural computer | [[wiki/concepts/working-memory.md]] | `raw/graves-2016-differentiable-neural-computer.md` |
@@ -59,6 +59,8 @@ Artefacts named on existing pages that have no page of their own. Listed so the 
 | BERT | [[wiki/concepts/shortcut-learning.md]] | *(no source in `raw/` — cue-word shortcut, above chance from "not" alone)* |
 | Predictive-coding networks | [[wiki/concepts/biologically-plausible-credit-assignment.md]] | `raw/whittington-2017-predictive-coding-approximates-backprop.md` |
 | Spike-timing-dependent plasticity | [[wiki/concepts/biologically-plausible-credit-assignment.md]], [[wiki/concepts/synaptic-plasticity.md]] | `raw/bi-1998-spike-timing-dependent-plasticity.md` |
+| Behavioral timescale synaptic plasticity | [[wiki/concepts/synaptic-plasticity.md]] | `raw/liao-2024-single-shot-many-shot-hippocampus.md` (review; primary source Bittner et al. 2017 not in `raw/`) |
+| Sharp-wave ripple / replay | [[wiki/concepts/offline-replay.md]], [[wiki/concepts/complementary-learning-systems.md]] | `raw/liao-2024-single-shot-many-shot-hippocampus.md` |
 | Hopfield network | [[wiki/concepts/synaptic-plasticity.md]], [[wiki/concepts/biologically-plausible-credit-assignment.md]] | *(no source in `raw/` — Hebbian storage of binary patterns in a symmetric recurrent net; the continuous version is an energy-based credit-assignment route)* |
 | REINFORCE / node perturbation | [[wiki/concepts/synaptic-plasticity.md]] | *(no source in `raw/` — the policy-gradient estimator a biologically plausible three-factor rule turns out to implement)* |
 | Eligibility propagation (e-prop) | [[wiki/concepts/biologically-plausible-credit-assignment.md]], [[wiki/entities/spiking-neural-networks.md]] | *(no source in `raw/` — forward-only local credit assignment for spiking nets)* |

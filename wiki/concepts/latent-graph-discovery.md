@@ -124,7 +124,7 @@ And the shift must be one the *architecture's developer* did not see either: Cho
 |---|---|
 | Two-level separation | Factorized latent space: g (meta-graph position) ≠ x (node content) |
 | Meta-graph learning | Slow W update over many episodes |
-| Instance-graph binding | Fast Hebbian M within episode |
+| Instance-graph binding | Fast Hebbian M within episode. Biology splits this into **two rules with different integration windows**: behavioral timescale synaptic plasticity writes a *node* in one shot, spike-timing-dependent plasticity accumulates *edges* over many; the pair is in principle expressive enough for any graph (Liao & Losonczy 2024; [[wiki/concepts/synaptic-plasticity.md]]) |
 | De-aliasing | Path-context-sensitive identity (clone cells or path-integrated g) |
 | Path-consistency | g must commute: same meta-graph position via any path — supplied by an additive update over composing actions ([[wiki/concepts/path-integration.md]]), where it holds by construction, on domains whose actions compose (G41) |
 | Vocabulary learning | Observation + action embeddings learnable, not fixed |
@@ -171,6 +171,7 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 - **[[wiki/concepts/abstract-structural-codes.md]]** — the candidate implementation of `g`; periodic (grid-like) codes are the only concrete proposal so far for making it path-consistent.
 - **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — decides whether a slow-W meta-graph learner is trainable in a neural substrate at all, and locality constrains which architectures can carry it.
 - **[[wiki/concepts/shortcut-learning.md]]** — the empirical account of hardness source 5: spurious edges are the *default* learned solution across every subfield, and i.i.d. evaluation cannot distinguish them from the intended structure.
+- **[[wiki/concepts/offline-replay.md]]** — where the edges are actually written and filtered: an internally generated curriculum that resamples experience toward what recurs across episodes, which is a mechanism preferring structural over spurious edges without any objective that distinguishes them.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the candidate write rule for fast **M** during the episode; it can bind an instance-graph's weights but carries no notion of node identity or path, so it supplies the mechanism without the representation.
 - **[[wiki/concepts/meta-optimized-plasticity.md]]** — instantiates the hierarchy literally (slow **W** = plasticity coefficients, fast **M** = the weights they write), and its self-referential variants are the first named candidate for the third tier gap G9 demands.
 - **[[wiki/entities/spiking-neural-networks.md]]** — offers a substrate-level primitive for *directed* edges via the spike-timing asymmetry, which a rate-coded architecture has to learn as content instead.

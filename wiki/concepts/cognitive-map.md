@@ -145,3 +145,4 @@ Whittington et al. 2022 bring the hippocampal-formation models into one language
 - **[[wiki/concepts/path-integration.md]]** — the mechanism under element 1 and the reason element 2 exists at all: an integrator has no absolute reference, so it must be reset by anchoring or it drifts.
 - **[[wiki/concepts/successor-representation.md]]** — the predictive-map reading of the same cells: place fields as rows of a discounted future-occupancy matrix, which explains their policy-dependent skew and barrier deformation.
 - **[[wiki/entities/cscg.md]]** — the opposite of the index view: hippocampal edges *are* the map, learned de novo per environment, fast and local but with no transfer.
+- **[[wiki/concepts/offline-replay.md]]** — the map's offline maintenance: replayed sequences respect the current barrier configuration and preserve topology rather than metric proximity, which is evidence that what is reinstated is the graph rather than the trajectory.

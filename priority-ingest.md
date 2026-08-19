@@ -10,7 +10,7 @@ One INGEST each:
 - [x] `yassa-2011-pattern-separation-hippocampus.md` — hippocampal-entorhinal · S · 2011
 - [x] `epstein-2017-cognitive-map-in-humans.md` — hippocampal-entorhinal · S · 2017
 - [x] `whittington-2022-how-to-build-a-cognitive-map.md` — hippocampal-entorhinal · S · 2022
-- [ ] `liao-2024-single-shot-many-shot-hippocampus.md` — hippocampal-entorhinal · S · 2024
+- [x] `liao-2024-single-shot-many-shot-hippocampus.md` — hippocampal-entorhinal · S · 2024
 - [ ] `howard-2005-temporal-context-model-navigation.md` — hippocampal-entorhinal · F · 2005
 - [ ] `rolls-2013-pattern-completion-separation.md` — hippocampal-entorhinal · F · 2013
 - [ ] `sanders-2020-remapping-hidden-state-inference.md` — hippocampal-entorhinal · F · 2020

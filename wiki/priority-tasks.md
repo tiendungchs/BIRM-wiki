@@ -26,6 +26,9 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 | P12 | Acquire a source with a **causal intervention** on a probed representation — Li et al. 2022 / Nanda et al. 2023 on Othello-GPT are the named precedents | [[wiki/concepts/representation-probing.md]] arrives with its acceptance test unmet: the maze work stops at correlation, so "the model uses the world model it contains" is unestablished, and T25 turns on exactly this evidence | Human curation (or a web search pass) — nothing in `raw/` covers it |
 | P11 | Ingest a source with an actual **JEPA-family empirical result** — `raw/bardes-2022-vicreg.md`, `raw/assran-2023-i-jepa.md`, `raw/assran-2025-v-jepa-2.md`, `raw/balestriero-2025-lejepa.md` are all in `raw/` | [[wiki/entities/h-jepa.md]] is the wiki's most complete design and carries zero evidence. Every claim on it — that non-contrastive training scales, that stacking produces an abstraction hierarchy, that planning works on the result — is currently the author's expectation | Wave order; these sit later in `_work/ingest-queue.md` |
 
+| P13 | Acquire the primary sources behind [[wiki/concepts/synaptic-plasticity.md]]'s BTSP section — Bittner et al. 2017 (the discovery), Milstein et al. 2021 (the computational analysis), Gonzalez et al. 2023 (the in vivo kernel measurement) | The whole single-shot rule currently rests on one review; the kernel shape sets what counts as "one event" and no page states it quantitatively | — |
+| P14 | Acquire Liao et al. 2022 and Sun et al. 2023 — the models that predict the replay filter | [[wiki/concepts/offline-replay.md]] asserts inhibitory plasticity as the filter's substrate on modelling grounds, with rival models reproducing replay without it; the wiki cannot adjudicate T30 from a review alone | — |
+
 ## Standing
 
 | # | Task | Why |
