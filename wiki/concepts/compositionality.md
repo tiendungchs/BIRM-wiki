@@ -83,6 +83,15 @@ Two exports:
 
 Storing one warped representation beats storing and combining many bases *if you never switch tasks*. This is the first statement in the wiki that compositional representation has a **cost** and that a non-compositional code can be the correct answer — and it makes a falsifiable prediction (vary how often reward configurations change; watch grid warping appear and disappear). Nothing controls this knob in a machine (gap G40).
 
+**3. Where the knob has been read off a brain, it is set to *factorise*.** Zheng et al. 2024 put two relational structures over one set of objects — a transition graph learned the previous day, and lifetime semantic taxonomy — and found both mapped in the hippocampal formation with **non-overlapping** clusters (semantic posterior, transition anterior; each effect ≈ 0 in the other's region of interest), with no conjunctive code detectable ([[wiki/concepts/cognitive-map.md]]). The conditions are the ones rule 2 says should favour *entangling*: the two structures always co-occur (they are carried by the very same items, on every trial), and no task ever required either. The brain factorises anyway. Two readings, and they price the rule differently:
+
+| Reading | Statement | What it would mean for a builder |
+|---|---|---|
+| **Factorisation is the default, entangling is the exception** | Rule 2's switch fires only for a specific pressure (a reward configuration held constant), and absent that pressure separate structures stay separate | Cheap: default to factored, and warp only under a detected constant | 
+| **The rule's argument is acquisition, not co-occurrence** | The two structures differ in *mode and timescale of acquisition* (implicit/one day vs explicit/a lifetime) — the source's own framing — so what recombines across episodes is the acquisition process, not the content | Expensive: the controller must key on *how* a structure was learned, a variable no machine architecture records |
+
+Neither is testable in the design, because the confounds are total (recency, explicitness, relation type and consolidation stage all covary). What the result does settle is the direction of the null hypothesis: a single embedding whose metric mixes all available relations over an item is not what the biological system builds, so an architecture that learns one distance function per entity is not the conservative choice.
+
 ---
 
 ## Open problems
@@ -115,4 +124,5 @@ Storing one warped representation beats storing and combining many bases *if you
 - **[[wiki/concepts/path-integration.md]]** — a second, algebraic kind of composition: actions compose by addition with closure enforced by the update rule, which is the only case in the wiki where a composition's coherence is guaranteed rather than checked.
 - **[[wiki/concepts/successor-representation.md]]** — the default-representation variant composes at the level of cell types (grid × border to represent an inserted barrier) with no retraining, which is composition of *state-space bases* rather than of concepts.
 - **[[wiki/entities/tolman-eichenbaum-machine.md]]** — learns factorised entorhinal bases from next-observation prediction, and marks the boundary: space and task were learned in one fixed pairing, so a T-maze-to-W-maze change breaks it.
+- **[[wiki/concepts/cognitive-map.md]]** — the one measurement of this page's factorise-vs-entangle knob in a brain: two relational structures over the same objects are held in separate hippocampal territory rather than fused, which sets the default to factored and leaves *what selects between them* unaccounted for (Zheng et al. 2024).
 - **[[wiki/concepts/distributed-reference-frames.md]]** — a third kind: an object-anchored frame makes a feature's position *relative to the object* the reusable unit, so a part-whole description carries a metric with it, and recognition is a consensus rule over many such descriptions rather than a single parse.

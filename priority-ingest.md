@@ -34,7 +34,7 @@ One INGEST each:
 - [x] `sammons-2023-ca3-module-structure-function.md` — hippocampal-entorhinal · R · 2023
 - [x] `courellis-2024-abstract-representations-hippocampus.md` — hippocampal-entorhinal · R · 2024
 - [x] `mishchanchuk-2024-ventral-hippocampus-hidden-state.md` — hippocampal-entorhinal · R · 2024
-- [ ] `zheng-2024-parallel-cognitive-maps.md` — hippocampal-entorhinal · R · 2024
+- [x] `zheng-2024-parallel-cognitive-maps.md` — hippocampal-entorhinal · R · 2024
 - [ ] `valero-2025-interneurons-hippocampal-spatial-code.md` — hippocampal-entorhinal · R · 2025
 - [ ] `sun-2025-orthogonalized-state-machine-hippocampus.md` — hippocampal-entorhinal · R · 2025
 - [ ] `qu-2026-grid-codes-inference-intelligence.md` — hippocampal-entorhinal · R · 2026
