@@ -67,6 +67,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | DR | Default Representation | SR-like representation built for default behaviour and linearly updatable when rewards change; from linear RL |
 | CSCG | Clone-Structured Cognitive Graph | Hidden Markov model with a frozen clone pool per observation ([[wiki/entities/cscg.md]]) |
 | TEM | Tolman-Eichenbaum Machine | Path-integrating structural code plus relational memory ([[wiki/entities/tolman-eichenbaum-machine.md]]) |
+| TEM-t | TEM-transformer | TEM rewritten as a transformer with recurrent, action-generated position encodings ([[wiki/entities/tem-transformer.md]]) |
 | SMP | Spatial Memory Pipeline | TEM's sibling, trained from egocentric pixels with a machine-learning memory network |
 | RC | Recurrent Collateral | The CA3→CA3 axon collaterals, ~1.2×10⁴ per neuron in rat, the substrate of the autoassociative attractor ([[wiki/entities/rolls-treves-hippocampal-model.md]]) |
 | mf / pp | Mossy Fibre / Perforant Path | Dentate→CA3 write path (~46 per CA3 cell, strong, randomizing) and entorhinal→CA3 read path (~3,600, weak, generalizing) |

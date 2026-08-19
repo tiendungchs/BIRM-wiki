@@ -18,7 +18,7 @@ One INGEST each:
 - [x] `schaeffer-2022-no-free-lunch-hippocampal-models.md` — hippocampal-entorhinal · F · 2022
 - [x] `whittington-2018-structural-knowledge-generalisation.md` — hippocampal-entorhinal · M · 2018
 - [x] `whittington-2020-tolman-eichenbaum-machine.md` — hippocampal-entorhinal · M · 2020
-- [ ] `whittington-2022-transformers-hippocampal-formation.md` — hippocampal-entorhinal · M · 2022
+- [x] `whittington-2022-transformers-hippocampal-formation.md` — hippocampal-entorhinal · M · 2022
 - [ ] `chandra-2023-prestructured-hippocampal-memory.md` — hippocampal-entorhinal · M · 2023
 - [ ] `kawahara-2025-spiking-tolman-eichenbaum-machine.md` — hippocampal-entorhinal · M · 2025
 - [ ] `keck-2025-symmetry-local-rules-navigation.md` — hippocampal-entorhinal · M · 2025
