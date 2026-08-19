@@ -8,6 +8,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 |---|---|---|
 | PCA | Principal Component Analysis | Projection onto the leading eigenvectors of the input correlation matrix; the fixed point of plain Hebbian learning on a linear unit, and of a Hebbian layer with lateral inhibition ([[wiki/concepts/synaptic-plasticity.md]]) |
 | BHN | Binary Hopfield Network | The classical bipolar-state network with symmetric weights and asynchronous threshold updates ([[wiki/entities/hopfield-network.md]]) |
+| CAM | Content-Addressable Memory | A store retrieved by (part of) its contents rather than by an address; the Hopfield network is the standard model and [[wiki/entities/btsp-cam.md]] the binary-weight, non-recurrent alternative |
 | CHN | Continuous Hopfield Network | Float-valued states; exponential capacity and one-step convergence, and the update is transformer self-attention (Ramsauer et al. 2020) |
 | MHN | Modern Hopfield Network (Dense Associative Memory) | Hopfield network with a steep nonlinearity applied to the state–pattern overlap, giving polynomial or exponential item capacity ([[wiki/entities/dense-sequence-memory.md]]) |
 | BM / RBM | Boltzmann Machine / Restricted Boltzmann Machine | Stochastic Hopfield network with hidden units, trained contrastively; *restricted* = bipartite visible↔hidden only, which makes whole layers updatable in parallel ([[wiki/entities/boltzmann-machine.md]]) |
@@ -194,7 +195,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CEBRA | Consistent Embedding of high-dimensional Recordings using Auxiliary variables | Contrastive latent-embedding method used to decode position from neural populations |
 
 | CCGP | Cross-Condition Generalization Performance | Train a linear decoder on one set of conditions, test on held-out ones: the standard score for whether a population code is *abstract* ([[wiki/concepts/population-geometry.md]]) |
-| BTSP | Behavioral Timescale Synaptic Plasticity | Seconds-wide eligibility window gated by a dendritic plateau; produces a place field from one traversal ([[wiki/concepts/synaptic-plasticity.md]], [[wiki/empirical-tensions.md]] T13) |
+| BTSP | Behavioral Timescale Synaptic Plasticity | Seconds-wide eligibility window gated by a dendritic plateau; produces a place field from one traversal, and a binary-weight content-addressable memory at the population level ([[wiki/concepts/synaptic-plasticity.md]], [[wiki/entities/btsp-cam.md]], [[wiki/empirical-tensions.md]] T13) |
 
 ## Benchmarks
 
