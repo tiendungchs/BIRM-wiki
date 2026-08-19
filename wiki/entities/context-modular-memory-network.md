@@ -158,3 +158,4 @@ The last row is the shared limitation and the reason this model does not close G
 - **[[wiki/entities/hopfield-network.md]]** — the unmasked baseline: this page keeps its weight matrix and update rule unchanged and multiplies by a binary context mask, turning one fixed landscape into one landscape per context and making accessibility a variable the classical network has no notion of.
 
 - **[[wiki/concepts/memory-allocation-excitability.md]]** — the biological counterpart of this page's per-context mask: which cells are available to store the next memory is set by a decaying CREB-dependent excitability scalar rather than by a chosen mask density `c`, so the mask is inherited from *when* the previous memory was encoded instead of being a free parameter.
+- **[[wiki/concepts/attractor-dynamics.md]]** — the masked regime, in which non-applicable fixed points are deleted from the dynamics rather than out-competed within them.

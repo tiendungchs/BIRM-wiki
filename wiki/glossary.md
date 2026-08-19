@@ -80,7 +80,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SMP | Spatial Memory Pipeline | TEM's sibling, trained from egocentric pixels with a machine-learning memory network |
 | RC | Recurrent Collateral | The CA3→CA3 axon collaterals, ~1.2×10⁴ per neuron in rat, the substrate of the autoassociative attractor ([[wiki/entities/rolls-treves-hippocampal-model.md]]) |
 | mf / pp | Mossy Fibre / Perforant Path | Dentate→CA3 write path (~46 per CA3 cell, strong, randomizing) and entorhinal→CA3 read path (~3,600, weak, generalizing) |
-| CANN | Continuous Attractor Neural Network | Recurrent network whose weights support a continuum of stable states; the classical path-integration substrate |
+| CANN | Continuous Attractor Neural Network | Recurrent network whose weights support a continuum of stable states; the classical path-integration substrate ([[wiki/concepts/attractor-dynamics.md]]) |
 | A-CANN | Adaptive Continuous Attractor Neural Network | CANN plus a slow negative-feedback adaptation current `τ_v dV/dt = −V + mU`; `m > τ/τ_v` destabilises the bump into a travelling wave ([[wiki/entities/adaptive-cann.md]]) |
 | SFA | Spike-Frequency Adaptation | Slow activity-dependent hyperpolarising current that suppresses a neuron's own sustained firing; the adaptation substrate in A-CANN |
 | STD | Short-Term Depression | Activity-dependent depletion of releasable synaptic resources; the presynaptic alternative to SFA as an adaptation mechanism |
@@ -101,6 +101,17 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | vANN / sANN / pdANN | vanilla / sparse / partly-dendritic ANN | dANN's controls: fully connected, randomly sparse, and tree-structured-but-fully-sampled-input |
 | LRF / GRF | Local / Global Receptive Field | dANN input-sampling rules: receptive-field centre drawn per dendrite (LRF, best-performing) or per soma (GRF) |
 | eHebb | error-based Hebbian plasticity | `ΔW_{ℓ−1,ℓ} ∝ −e_ℓ e_{ℓ−1}ᵀ` — outer product of post- and pre-synaptic *error* signals rather than activations; drives forward weights toward the transpose of fixed random feedback (Shervani-Tabar & Rosenbaum 2023) |
+
+| MLP | Multi-Layer Perceptron | Plain fully-connected feedforward stack; the default comparator or head in most architectures here |
+| GNN | Graph Neural Network | Message-passing network over an explicit node/edge set; the backbone of [[wiki/entities/neuromatch.md]] |
+| GIN | Graph Isomorphism Network | The maximally expressive message-passing GNN under the Weisfeiler-Lehman test; the ceiling NeuroMatch's identity injection is designed to exceed |
+| MDP / POMDP | (Partially Observable) Markov Decision Process | State–action–reward formalism, with *partially observable* meaning the agent sees an observation rather than the state — the setting every navigation task in the wiki actually sits in |
+| PDDL | Planning Domain Definition Language | Hand-written symbolic action schemas (preconditions, effects); the form in which [[wiki/entities/hbtom.md]]'s environment dynamics are *supplied* rather than learned ([[wiki/empirical-tensions.md]] T21) |
+| AUROC | Area Under the Receiver Operating Characteristic curve | Ranking metric on balanced samples; disputed as a retrieval measure because it hides class skew ([[wiki/empirical-tensions.md]] T22) |
+| TPR / FPR | True / False Positive Rate | Detection rates; the pair AUROC summarises and precision does not follow from |
+| BFS | Breadth-First Search | Uninformed shortest-path search; the query-generation procedure in NeuroMatch's training set and a cost signal read out of lateral prefrontal cortex ([[wiki/concepts/cognitive-map.md]]) |
+| CMAC | Cerebellar Model Articulation Controller | Albus 1971: a sparse-distributed store with *error-gated* writing, `ΔC = g(p̂_u − s_u)/K` applied only when the retrieval error exceeds tolerance ([[wiki/entities/sparse-distributed-memory.md]]) |
+| SDM | Sparse Distributed Memory | Kanerva's random-address store; capacity `τ ≈ 0.10·M`, per-read confidence `|s_u|` ([[wiki/entities/sparse-distributed-memory.md]]) |
 
 ## Neuroscience
 
@@ -181,6 +192,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CCK | Cholecystokinin | Peptide marking a basket-cell type inside the *Id2* interneuron family (the *Sncg* subfamily) |
 | ASD / TDC | Autism Spectrum Disorder / Typically Developing Control | Group labels in the ABIDE resting-state dataset used to test whether a connectome-derived attractor model predicts altered dynamics ([[wiki/entities/fcann.md]]) |
 | CEBRA | Consistent Embedding of high-dimensional Recordings using Auxiliary variables | Contrastive latent-embedding method used to decode position from neural populations |
+
+| CCGP | Cross-Condition Generalization Performance | Train a linear decoder on one set of conditions, test on held-out ones: the standard score for whether a population code is *abstract* ([[wiki/concepts/population-geometry.md]]) |
+| BTSP | Behavioral Timescale Synaptic Plasticity | Seconds-wide eligibility window gated by a dendritic plateau; produces a place field from one traversal ([[wiki/concepts/synaptic-plasticity.md]], [[wiki/empirical-tensions.md]] T13) |
 
 ## Benchmarks
 
