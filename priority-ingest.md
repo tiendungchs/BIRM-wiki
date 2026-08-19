@@ -20,7 +20,7 @@ One INGEST each:
 - [x] `whittington-2020-tolman-eichenbaum-machine.md` — hippocampal-entorhinal · M · 2020
 - [x] `whittington-2022-transformers-hippocampal-formation.md` — hippocampal-entorhinal · M · 2022
 - [x] `chandra-2023-prestructured-hippocampal-memory.md` — hippocampal-entorhinal · M · 2023
-- [ ] `kawahara-2025-spiking-tolman-eichenbaum-machine.md` — hippocampal-entorhinal · M · 2025
+- [x] `kawahara-2025-spiking-tolman-eichenbaum-machine.md` — hippocampal-entorhinal · M · 2025
 - [ ] `keck-2025-symmetry-local-rules-navigation.md` — hippocampal-entorhinal · M · 2025
 - [ ] `li-2026-hippoformer-spatial-memory-transformer.md` — hippocampal-entorhinal · M · 2026
 - [ ] `kumaran-2005-cognitive-maps-vs-relational-memory.md` — hippocampal-entorhinal · R · 2005
