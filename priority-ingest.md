@@ -10,7 +10,7 @@ One INGEST each:
 - [x] `whittington-2019-error-backpropagation-in-brain.md` — plasticity · S · 2019
 - [x] `wikipedia-nd-hebbian-theory.md` — plasticity · S · nd
 - [x] `bengio-2015-biologically-plausible-deep-learning.md` — plasticity · F · 2015
-- [ ] `lisman-2018-synaptic-strength-excitability.md` — plasticity · F · 2018
+- [x] `lisman-2018-synaptic-strength-excitability.md` — plasticity · F · 2018
 - [ ] `litman-2025-eqprop-without-limits.md` — plasticity · F · 2025
 - [ ] `gerstner-1996-submillisecond-temporal-coding.md` — plasticity · M · 1996
 - [ ] `scellier-2017-equilibrium-propagation.md` — plasticity · M · 2017

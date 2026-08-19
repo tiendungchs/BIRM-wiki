@@ -115,6 +115,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | dCA1 | dorsal CA1 | The dorsal (septal) portion of hippocampal field CA1 — the standard rodent recording and optogenetic target for spatial and relational tasks |
 | mPFC | medial PreFrontal Cortex | Frontal region carrying abstract task models; represents the inferred outcome in the sensory-preconditioning task (Barron et al. 2020) |
 | EC | Entorhinal Cortex | The hippocampus's main cortical input/output; layer II projects to both DG and CA3, and carries the grid code ([[wiki/concepts/abstract-structural-codes.md]]) |
+| CREB | cAMP-Responsive Element-Binding protein | Transcription factor phosphorylated for hours after learning or LTP; raises cell-wide excitability by reducing K⁺ conductance and thereby biases which neurons are allocated to a memory ([[wiki/concepts/memory-allocation-excitability.md]]) |
+| AHP | After-HyperPolarization | K⁺-mediated dip in membrane potential following a spike train; its size sets spike-frequency adaptation, and shrinking it is how CREB raises excitability |
+| ERK | Extracellular signal-Regulated Kinase | Kinase activated at a potentiated synapse (via synGAP/Ras downstream of CaMKII) that diffuses from dendrite to soma — the dendritic arm of the two-pathway CREB gate |
+| CaMKII / CaMKIV | Ca²⁺/calmodulin-dependent protein Kinase II / IV | II sustains the LTP cascade at the synapse; IV phosphorylates CREB in the nucleus downstream of somatic action potentials — the somatic arm of the same gate |
 | IEG | Immediate-Early Gene | Activity-dependent genes (e.g. Arc) whose expression maps which neurons were recently active — a population-level imaging method |
 | NMDAR | N-methyl-D-aspartate Receptor | Coincidence-detecting glutamate receptor; its NR1 subunit is the standard knockout target for testing plasticity-dependence of a computation |
 | NMDA spike | N-methyl-D-aspartate spike | Regenerative dendritic event triggered by 8–20 co-active synapses clustered within 20–300 µm and 1–5 ms; depolarizes the cell for 50–200 ms without necessarily firing it ([[wiki/concepts/dendritic-computation.md]]) |
