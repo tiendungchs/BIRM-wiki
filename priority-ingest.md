@@ -38,5 +38,5 @@ One INGEST each:
 - [x] `valero-2025-interneurons-hippocampal-spatial-code.md` — hippocampal-entorhinal · R · 2025
 - [x] `sun-2025-orthogonalized-state-machine-hippocampus.md` — hippocampal-entorhinal · R · 2025
 - [x] `qu-2026-grid-codes-inference-intelligence.md` — hippocampal-entorhinal · R · 2026
-- [ ] `talk-nd-brain-organizes-information.txt` — hippocampal-entorhinal · X · nd
+- [-] `talk-nd-brain-organizes-information.txt` — hippocampal-entorhinal · X · nd — **skipped at gate**: tertiary explainer (popular-science video, no primary data); every claim already carried at higher resolution by wave-2 primary sources — cognitive map / graph formalism ([[wiki/concepts/cognitive-map.md]], [[wiki/concepts/latent-graph-discovery.md]]), cell zoo and structural code ([[wiki/concepts/abstract-structural-codes.md]]), non-spatial grid codes (Constantinescu 2016), evidence place fields (Nieh 2021), splitter/state cells (Sun 2025), structural×sensory factorisation and MEC/LEC streams ([[wiki/entities/tolman-eichenbaum-machine.md]])
 
