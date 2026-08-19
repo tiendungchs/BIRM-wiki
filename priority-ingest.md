@@ -11,7 +11,7 @@ One INGEST each:
 - [x] `wikipedia-nd-hebbian-theory.md` — plasticity · S · nd
 - [x] `bengio-2015-biologically-plausible-deep-learning.md` — plasticity · F · 2015
 - [x] `lisman-2018-synaptic-strength-excitability.md` — plasticity · F · 2018
-- [ ] `litman-2025-eqprop-without-limits.md` — plasticity · F · 2025
+- [x] `litman-2025-eqprop-without-limits.md` — plasticity · F · 2025
 - [ ] `gerstner-1996-submillisecond-temporal-coding.md` — plasticity · M · 1996
 - [ ] `scellier-2017-equilibrium-propagation.md` — plasticity · M · 2017
 - [ ] `millidge-2020-activation-relaxation.md` — plasticity · M · 2020

@@ -95,6 +95,9 @@ The last row qualifies the standard statement (carried on [[wiki/entities/dense-
 - **Gradient-based inference may fail exactly where reasoning starts.** Where the action-to-cost map is discontinuous — high abstraction levels, qualitative choices — the differentiability that motivated the whole design buys nothing, and the fallbacks (dynamic programming, MCTS, SAT, beam search) are the classical methods the design was meant to replace.
 - **Multi-modal exploration is unmechanised.** The formalism represents alternative interpretations as alternative `z`; nothing systematically *cycles* through them. The source names the Necker cube as the human capability that has no counterpart here.
 - **No implementation of the reasoning claim.** Energy minimisation as reasoning is asserted; the paper reports no system doing it.
+- **The finite-nudge result buys exactness and pays in sampling.** Both gradient representations are expectations under `ρ_β`; nothing bounds the mixing time of the sampler that estimates them, and the ruggedness that makes the landscape a memory is what makes the sampler slow. The theory removed the convexity assumption and moved the difficulty into the estimator.
+- **The path-integral representation is a free hyperparameter in disguise.** How many `β` quadrature points, and where, is unspecified; the demonstration uses a "discrete path-integral variant" without a rule for choosing the discretisation.
+- **`T` is the regularisation coefficient and nobody sets it.** It multiplies `KL(ρ_1‖ρ_0)` in the decomposition, so temperature trades supervised fit against how far the free phase may sit from the nudged one — the same untuned knob [[wiki/entities/boltzmann-machine.md]] flags, now with a stated role.
 
 ---
 
@@ -108,6 +111,45 @@ If a network's *dynamics* are the minimisation of `F_w`, then its *plasticity* i
 | Free energy (bounds `log p(target \| input)`) | predictive coding, dendritic error | **One** — the free phase already sits at the global minimum, so the first term vanishes |
 
 Two things this is worth to a builder. (i) It removes a design choice: **specify architecture + energy, and the local learning rule is derived rather than invented** — the pitch of this page's formalism extended from inference to learning. (ii) It supplies a *reason* to prefer a probabilistically interpretable energy over an arbitrary one: the biologically plausible networks that perform best minimise free energy, which is exactly the case where `F` is not merely a compatibility score but a likelihood bound. That cuts against this page's own "not a log-probability" stance and is logged as such.
+
+### Finite nudging: the contrastive update is exact, not approximate (Litman 2025)
+
+The frame above inherits two assumptions that never held: the nudge `β` must be **infinitesimal** for the update to be a gradient, and the state is a **single energy minimum**. Both are dropped by replacing the deterministic minimiser with a Gibbs–Boltzmann distribution over states.
+
+| Object | Statement |
+|---|---|
+| **Objective kernel** | `F(θ,β,s) = E(θ,s) + β·ℓ(s)` — energy plus loss weighted by nudging strength `β ∈ [0,1]`; `ℓ` does not depend on `θ` |
+| **State distribution** | `ρ_β(s;θ) = exp(−F(θ,β,s)/T) / Z_β(θ)`. `ρ_0` = **free** phase, `ρ_1` = **nudged** phase. `T → 0` recovers the deterministic minimiser |
+| **Helmholtz free energy** | `A(θ,β) = −T log Z_β(θ)` — the statistical generalisation of `min_s F(s)`, i.e. of this page's `F_w(x,y) = min_z E_w(x,y,z)` |
+| **Objective** | `J(θ) = A(θ,1) − A(θ,0)` — the thermodynamic work of moving the ensemble from free to target-aware. **This is what a contrastive rule actually descends** |
+
+Two exact gradient representations, both proved with nothing but the Leibniz rule (no convexity, no unique minimum, no symmetric weights, no small `β`):
+
+| # | Representation | Reads as |
+|---|---|---|
+| 1 | `∇_θ J = E_{ρ_1}[∇_θ E(θ,s)] − E_{ρ_0}[∇_θ E(θ,s)]` | **The classic contrastive Hebbian update, certified.** Two phases, local statistics, difference of expectations — and it is the *exact* gradient of `J`, for **arbitrary finite `β`**, not an approximation to anything |
+| 2 | `∇_θ J = −(1/T) ∫₀¹ Cov_{ρ_β}[ℓ(s), ∇_θ E(θ,s)] dβ` | The same gradient as a **path integral of loss–energy covariance** along the nudging path. Classical equilibrium propagation is the first-order Taylor expansion of this integral around `β = 0`; learning means making high-loss states anti-correlate with `θ`-sensitive states |
+
+What the "bias" of a large nudge actually is (Theorem 5.1):
+
+```
+J(θ) = E_{ρ_1}[ℓ(s)]  +  T · KL(ρ_1 ‖ ρ_0)
+```
+
+— residual loss in the nudged phase **plus** a divergence penalty between the two phases, with `J(θ) ≤ E_{ρ_0}[ℓ(s)]` (a lower bound on the supervised loss, tight, and zero exactly when the supervised loss is zero for non-negative `ℓ`). So finite nudging is not a corrupted gradient of the supervised loss; it is a clean gradient of a **regularised** one, whose regulariser forces the free dynamics to emulate the nudged phase — supervision distilled into the network's spontaneous behaviour rather than transported into it. The temperature `T` is the regularisation coefficient.
+
+**The empirical inversion.** Fashion-MNIST, one hidden layer of `tanh` units, only the learning rule and `β` varied:
+
+| Rule | Test accuracy | Note |
+|---|---|---|
+| Infinitesimal equilibrium propagation (`β = 0.01`) | **20–30% — fails, near chance** | The regime the theory was built for |
+| Finite-nudge (`β = 1.0`) | ~80% | Tracks the baseline |
+| Discrete path-integral variant (representation 2) | ~80% | Tracks the baseline |
+| Backpropagation | ~80% | Reference |
+
+Mechanism: the signal-to-noise ratio of the state perturbation `Δs = s_β − s_0` is **indistinguishable from sampling noise for `β ≲ 10⁻²`** and improves by an order of magnitude as `β → 1`; cosine similarity of the update with both `∇L_sup` and the Monte-Carlo `∇J_β` rises monotonically from ~0 at `β ≈ 10⁻³` to ~0.5 at `β = 1`. **The infinitesimal limit is not a safer approximation, it is an unusable one** — the quantity being differenced is smaller than the noise floor of the sampler that measures it.
+
+Three consequences for this page. (i) The zero-temperature `min_z` elimination in the formalism table is a *limit*, not the definition; at finite `T` the free energy is the right object and the contrastive rule is its exact gradient. (ii) This is a sample-contrastive method whose second term is nevertheless not a sample-placement problem in the usual sense — the "contrastive sample" is the model's own nudged equilibrium, so the exponential-in-`dim(y)` cost of the table above is replaced by the cost of sampling `ρ_β`. (iii) It supplies a second, independent argument for a probabilistically interpretable energy: `A` is a log-partition function, so the free-energy preference recorded above stops being an empirical observation and becomes a definition.
 
 ---
 
@@ -126,7 +168,7 @@ Two things this is worth to a builder. (i) It removes a design choice: **specify
 - **[[wiki/concepts/compositionality.md]]** — constraint satisfaction is a composition operator: several cost terms are combined by *addition* of energies, so composing goals is free where composing modules is not.
 - **[[wiki/concepts/universal-induction.md]]** — the volume-minimising regulariser is a description-length argument in continuous clothing: restricting a latent's information content is bounding the bits available to name a hypothesis.
 - **[[wiki/concepts/prediction-compression-equivalence.md]]** — the discrete form of the same description-length move: charging a model for its own parameters (two-part code) and bounding a latent's information content are one regulariser in two representations.
-- **[[wiki/concepts/divergence-objectives.md]]** — states what refusing to normalise buys: a forward-KL-trained predictor's specified optimum on a one-to-many transition is mass *between* the branches, and an unnormalised `F(x,y)` is subject to neither direction of the divergence.
+- **[[wiki/concepts/divergence-objectives.md]]** — states what refusing to normalise buys: a forward-KL-trained predictor's specified optimum on a one-to-many transition is mass *between* the branches, and an unnormalised `F(x,y)` is subject to neither direction of the divergence. The finite-nudge decomposition adds the case that page's table lacks — a divergence between two phases of *one* model, `T·KL(ρ_1‖ρ_0)`, with the data in neither argument.
 - **[[wiki/concepts/subgraph-matching.md]]** — a contrastive energy whose *shape* encodes an algebra: `E = ‖max{0, z_q − z_u}‖²₂` enforces transitivity, anti-symmetry and closure under intersection by construction, and its asymmetry makes collapse self-punishing rather than needing a fourth criterion (gap G34).
 - **[[wiki/concepts/representation-probing.md]]** — the same property from the other direction: where a latent is deliberately low-capacity and discrete, linear decodability is stipulated by construction rather than discovered by an instrument.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — the biological instance of relaxation as retrieval: CA3 completion is energy minimisation over the free variables of a partial cue, and pattern separation is the constraint keeping two stored patterns in distinct basins.
