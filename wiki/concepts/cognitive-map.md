@@ -27,6 +27,12 @@ The claim needing evidence is not "the hippocampus is active during navigation" 
 
 **Multiple maps in one store.** Global remapping (different cell set per context) and rate remapping (same cells, different rates) let one hippocampus hold many environments. During learning, similar contexts are *not* distinguished for a while and then abruptly are; at retrieval the response is all-or-nothing under ambiguous cues, the signature of attractor dynamics — and human multivoxel patterns show the same attractor-like behaviour under environmental ambiguity. This is [[wiki/concepts/pattern-separation-completion.md]] operating at the level of whole maps rather than single episodes: **the unit that gets separated is a graph, not a node.**
 
+**And the selection between them is an inference, not a response to the environment.** Sanders et al. 2020 ([[wiki/entities/hidden-state-inference-remapping.md]]) make map identity a *hidden state* inferred under a Chinese Restaurant Process prior, which changes what the four remapping categories are: not kinds, but points on one axis of log posterior odds, with partial and rate remapping sitting at the uncertain middle. Three consequences for this page:
+
+- The "not distinguished for a while and then abruptly are" schedule above is the simplicity bias being overcome by accumulating evidence — the same simulation with the opposite ground truth yields map *stabilisation*, and early in training the two are indistinguishable to the learner.
+- **Remapping is not controlled by the experimenter's variables.** Morph experiments give opposite answers in different labs, and an attempted exact replication (Colgin et al. 2010 of Wills et al. 2005) reversed the original result. Under this account that is expected: remapping tracks the animal's inferred partition of its entire experiential history, of which the experimenter manipulates a subset ([[wiki/empirical-tensions.md]] T35).
+- **There is no causal evidence that map selection drives context-dependent behaviour** — and one report of task-performance transfer *across* near-global remapping ([[wiki/empirical-tensions.md]] T36).
+
 **The map is not all in the hippocampus.** Premorbidly learned maps survive medial temporal damage but in *schematized* form, and retrosplenial/medial parietal cortex is the candidate cortical store — the [[wiki/concepts/complementary-learning-systems.md]] consolidation gradient applied to structure, with detail as the part that stays hippocampus-dependent.
 
 ---
@@ -60,6 +66,19 @@ Epstein et al.'s cleanest export, and it splits an operation the wiki treats as 
 | **Orientation** | *Where and facing where* on it? | Recover coordinates and heading | Responses to geometric cues; metric sensitivity of place cells; proposed to run on retrosplenial computation | **G39 — no page had this** |
 
 Retrieval without orientation is a schema with no binding to the present situation; the wiki's subgraph-matching account ([[wiki/concepts/subgraph-matching.md]]) delivers *which stored structure occurs here* and stops exactly where orientation begins.
+
+**Orientation now has a formal statement, and it is nested inside retrieval rather than following it.** Sanders et al. 2020's treatment of cue-rotation experiments has to insert an alignment stage before any likelihood can be evaluated, because feature vectors of cue *angles* are equivalent up to a common offset:
+
+```
+for each candidate map k:   φ_k = argmax_φ  P(y_new − φ ∣ Y_k)      # orient this map
+then:                        compare maps using each map's own best φ_k   # retrieve
+```
+
+Three things follow that the two-stage reading above does not give:
+
+1. **Every candidate map is oriented separately, and orientation happens *first*.** You cannot pick the map and then align it; the alignment is part of what makes the map fit. Retrieval is a maximisation nested inside a marginalisation.
+2. **A map whose best alignment is still a poor fit is evidence for a new map.** The offset search is what converts "this looks wrong" into "this is somewhere else" — so failed orientation is the trigger for allocation, which is the one link between the two operations of the table above.
+3. **The offset is exactly the small per-instance parameter the brainstorm above asked for.** `φ_k` is a stored map's pose in the current frame — one cheap number against a large reusable structural code. Reference-direction inference is the concrete, sourced version of the local→global transform, in the one domain (angles) where the transform group is known. What the transform group *is* in an abstract space remains unsaid, which is the residue of G39.
 
 ---
 
@@ -121,7 +140,7 @@ Whittington et al. 2022 bring the hippocampal-formation models into one language
 
 - **What supplies the metric in a non-spatial domain?** The discrete-transition result says a continuum is not required, but nothing says what distance *is* when items are related only by observed transitions.
 - **How do metric and topological codes combine?** Explicitly unresolved ([[wiki/empirical-tensions.md]] T27).
-- **Anchoring in abstract spaces** — no landmark, boundary or geometry analogue exists (G39).
+- **Anchoring in abstract spaces** — no landmark, boundary or geometry analogue exists, and while the argmax-over-offset formulation gives anchoring a general shape (maximise the posterior predictive over the symmetry group relating stored frame to present frame), nothing says what that group is when the space is not spatial (G39).
 - **What computes the local→global transform?** Named as the key question for future work on the perceptual side too: how landmark information *selects, aligns and positions* a map is unspecified.
 - **What happens in over-familiar environments?** Hippocampal involvement drops once a route is known; whether the map is bypassed or merely quiet decides whether the map is the substrate of skilled behaviour or a scaffold for acquiring it — the [[wiki/concepts/amortized-inference.md]] question in navigational form.
 
@@ -136,6 +155,7 @@ Whittington et al. 2022 bring the hippocampal-formation models into one language
 - **[[wiki/concepts/simulation-based-planning.md]]** — element 3 is that page's path search with the neural read-outs attached: a Euclidean heuristic, graph centrality features for pruning, breadth-first search cost in lateral prefrontal cortex, and goal direction represented by re-pointing the heading system rather than by a goal-direction vector.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — remapping is that page's transfer curve applied to whole maps: attractor-like all-or-nothing selection under ambiguous cues is completion at the level of a graph, and the abrupt appearance of distinct codes for similar environments is separation at the same level.
 - **[[wiki/concepts/contextual-inference.md]]** — context retrieval is that page's responsibility posterior; this page adds that retrieval alone is insufficient, because a retrieved map still has to be oriented before it can be read.
+- **[[wiki/entities/hidden-state-inference-remapping.md]]** — makes map selection an explicit posterior over hidden states and, in doing so, supplies this page's missing orientation operation as an argmax over rotational offsets computed per candidate map, nested inside retrieval rather than following it.
 - **[[wiki/concepts/subgraph-matching.md]]** — matching decides *which* stored structure is present and stops there; anchoring is the next step, fixing the correspondence's orientation and offset so coordinates can be read off.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — maps consolidate: premorbidly learned environments survive medial temporal damage in schematized form, with retrosplenial/medial parietal cortex the cortical store and the hippocampus retained for fine detail.
 - **[[wiki/concepts/core-knowledge.md]]** — the reorientation literature's geometric module is this page's anchoring element seen as an installed prior; boundary-primacy after disorientation is the same experiment read from the developmental side.

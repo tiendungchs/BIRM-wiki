@@ -4,6 +4,8 @@
 
 Source: Heald, Lengyel & Wolpert 2021 (Nature), which formalises the principle as the COIN model ([[wiki/entities/coin-model.md]]) and tests it on human sensorimotor adaptation. The claim is explicitly domain-general — the authors close by saying the proper/apparent distinction "is likely to be relevant to all forms of learning in which experience can be usefully broken down into discrete contexts".
 
+**Two independent instantiations, two domains, two read-outs.** Heald et al. 2021 read the posterior off *behaviour* (motor output as a mixture); Sanders, Wilson & Gershman 2020 read it off *neural population code* — hippocampal place-field remapping as the expression of a posterior over which hidden state generated the current observations ([[wiki/entities/hidden-state-inference-remapping.md]]). Same nonparametric prior family, same allocate-vs-reuse logic, arrived at independently in sensorimotor adaptation and in place-cell physiology. That convergence is the strongest evidence the wiki has that contextual inference is a general operation rather than a fit to one paradigm.
+
 For the wiki this is the **retrieval-and-allocation policy** the graph framing has been missing: contexts are nodes of a rule-graph, the posterior over them says which stored meta-graph fragment is live, and a nonparametric prior says when to allocate a new one.
 
 ---
@@ -63,6 +65,30 @@ They are not rivals so much as the same idea at opposite ends of the expressiven
 
 ---
 
+## Uncertainty is the observable, not the winner
+
+The hippocampal instantiation adds something the motor one could not: a *population* of units expressing the same posterior, so posterior **uncertainty** becomes directly measurable rather than inferred from a fitted model.
+
+| Log posterior odds between "same state" and "new state" | Neural signature (Sanders et al. 2020) |
+|---|---|
+| strongly positive | no remapping |
+| weakly positive | rate remapping |
+| **≈ 0** | **partial remapping, and maximal heterogeneity across cells** |
+| strongly negative | global remapping |
+
+The field's four categories of remapping are therefore one axis. Two consequences the wiki should carry:
+
+1. **A graded population response is not a failure to decide — it is the decision.** Where a winner-take-all account reads heterogeneity as noise or as incomplete convergence, this reads the *spread* across units as the width of the posterior. Sanders et al. formalise it with a Beta distribution over per-unit modulation whose parameters are set by the evidence ratio, which predicts (and matches the literature's rank-orderings) that extent of rate remapping and fraction of fully-remapped units move together, and that heterogeneity peaks at the point of maximal uncertainty.
+2. **(brainstorm) The machine analogue is a mixture-of-experts router that is scored on its entropy, not its argmax.** If a library of stored structures is queried by responsibility, then the *dispersion* of the routing weights across a population of read-out heads is an unlabelled runtime estimate of "am I in a situation my library covers?" — the same self-supervised signal [[wiki/concepts/pattern-separation-completion.md]] wants for gap G38, obtained without a completion-error measurement.
+
+**A learning curve cannot tell you which regime generated it.** Sanders et al.'s cleanest simulation: observations drawn from *one* Gaussian and observations drawn from *two* well-separated Gaussians produce indistinguishable early evidence ratios, and only extended experience separates them. Early in training the learner does not know which world it is in — so map *stabilisation* (Law et al. 2016) and map *divergence* (Lever et al. 2002) are the same computation run against opposite ground truths. This is the neural counterpart of the proper/apparent warning above: the early portion of any adaptation curve is uninformative about the structure being acquired.
+
+## Tolerance is set by past variance, not by similarity
+
+The posterior predictive of a state widens along whatever feature has *varied* within that state. Hence Sanders et al.'s novel prediction: an agent trained with high variability in feature 1 will **not** allocate a new context when feature 1 takes a novel value, while an agent trained with low variability in the same feature will. Independently confirmed in a contemporaneous preprint (Plitt & Giocomo 2019).
+
+This is the sharpest available discriminator between a generative-model account of retrieval and any similarity-threshold or similarity-recall account ([[wiki/entities/temporal-context-model.md]]): similarity is symmetric in the features, a learned generative model is not. **(brainstorm)** For a machine store it prescribes per-feature, per-context tolerance learned from within-context variance — the retrieval analogue of a Mahalanobis rather than Euclidean metric, and a cheap defence against the anchoring-side shortcut failure named on [[wiki/concepts/cognitive-map.md]]: a feature that has historically moved around should not be allowed to trigger a new allocation.
+
 ## Two evidence channels, fused
 
 Context evidence arrives in two forms with different timing and different reliability:
@@ -91,9 +117,10 @@ This is direct evidence against winner-take-all retrieval: **all** stored struct
 
 ## Open problems
 
+- **The contexts are atoms — in both instantiations.** Sanders et al. state the same gap independently (no hierarchical inference; nothing lets one map be another map with one feature changed) and point at two places a hierarchy would live in the hippocampus: McKenzie et al. 2014's nested representational similarity within one population, and the dorsoventral gradient of place-field size, which they suggest could be the *same* inference run at several values of `α` in parallel — so two observations share a state at one end of the axis and not at the other, giving partial sharing of learning. Nothing implements it.
 - **The contexts are atoms.** Nothing is shared *between* contexts except the transition prior: context 5 cannot be "context 3 with one edge flipped". There is no `g`/`x` factorization inside the library, so the model gets retrieval and allocation right while giving up compositionality ([[wiki/concepts/compositionality.md]]). A repertoire that grows one atom per novel situation is exactly the memorising regime [[wiki/concepts/intelligence-density.md]] scores at `ℐ → 0`.
 - **Scalar states.** Each memory holds one number (force-field strength). The whole apparatus is untested where a context's content is a graph, a program, or an image.
-- **Exact inference is infeasible**; the fit uses particle learning (sequential Monte Carlo). No neural implementation is proposed, and it is not known which of the operations a plausible substrate could carry.
+- **Exact inference is infeasible**; the COIN fit uses particle learning (sequential Monte Carlo), and Sanders et al. compare only a handful of hand-picked partitions, calling their account "an analytical heuristic rather than an algorithmic theory". **Where the candidate partitions come from is the unsolved step in both.** One concrete neural proposal now exists: represent the posterior by *sampling*, one hidden state per theta cycle, which turns the observed rapid flickering between hippocampal maps into the inference algorithm and predicts that switching rate declines as evidence accumulates ([[wiki/entities/hidden-state-inference-remapping.md]]).
 - **Cue vocabulary is given.** `q_t` is a discrete observation from a known alphabet; discovering *what counts as a cue* is the vocabulary problem (hardness 2) and is not addressed.
 - **How much is prior, how much is inferred?** `γ`, `κ`, `α`, the state-dynamics prior and the noise variances are fit per participant (7–8 free parameters). The granularity knob is real, but here it is turned by the experimenter's optimiser, not by the learner.
 
@@ -102,6 +129,7 @@ This is direct evidence against winner-take-all retrieval: **all** stored struct
 ## Connections
 
 - **[[wiki/entities/coin-model.md]]** — the model this page abstracts: full generative model, inference scheme, experiments and model comparison.
+- **[[wiki/entities/hidden-state-inference-remapping.md]]** — the same principle in hippocampal physiology: hidden states are maps, remapping is the posterior's expression, and posterior uncertainty is read directly off population heterogeneity rather than fitted.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the retrieval-and-allocation policy the framing assumes: a posterior over which stored structure is live, and a nonparametric prior deciding when to create a new one; the context variable is hardness source 6's rule-config lifted into an explicit latent.
 - **[[wiki/concepts/event-segmentation.md]]** — the rival account of where node boundaries come from: a lasting change in active predictive encodings versus a shift of posterior mass under a sticky nonparametric prior, which supplies exactly the clustering objective and stopping rule that account lacks (tension T23).
 - **[[wiki/concepts/continual-learning.md]]** — dissolves the task-boundary assumption and replaces importance-gated plasticity with relevance-gated plasticity: a memory is protected by having low responsibility for the current observation, so no Fisher matrix or task label is needed.

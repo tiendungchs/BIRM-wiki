@@ -90,6 +90,7 @@ Reaching movements against a robotic manipulandum; velocity-dependent curl field
 ## Connections
 
 - **[[wiki/concepts/contextual-inference.md]]** — the principle this model formalises, and where its consequences for the wiki's gaps are worked out.
+- **[[wiki/entities/hidden-state-inference-remapping.md]]** — the independently-derived hippocampal twin: same nonparametric allocate-vs-reuse logic with a simpler prior (plain Chinese Restaurant Process, no transitions or cues), but with a population read-out that makes posterior *uncertainty* directly observable as partial and rate remapping — the one thing this model can only infer through a fit.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — implements the rule-config lifting for hardness source 6: the context variable is a rule reified as a first-class latent with its own Markov dynamics, so a rule change is an ordinary edge in a rule-graph.
 - **[[wiki/concepts/event-segmentation.md]]** — supplies the missing granularity control and stopping rule for node creation (`γ`, `κ`, `α` under a sticky hierarchical Dirichlet process) in exchange for a scalar node content (tension T23).
 - **[[wiki/concepts/continual-learning.md]]** — responsibility-scaled updating is relevance-gated plasticity: every memory updates in proportion to how much it explains the current observation, with no task boundary and no importance estimate.
