@@ -75,6 +75,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | RC | Recurrent Collateral | The CA3→CA3 axon collaterals, ~1.2×10⁴ per neuron in rat, the substrate of the autoassociative attractor ([[wiki/entities/rolls-treves-hippocampal-model.md]]) |
 | mf / pp | Mossy Fibre / Perforant Path | Dentate→CA3 write path (~46 per CA3 cell, strong, randomizing) and entorhinal→CA3 read path (~3,600, weak, generalizing) |
 | CANN | Continuous Attractor Neural Network | Recurrent network whose weights support a continuum of stable states; the classical path-integration substrate |
+| A-CANN | Adaptive Continuous Attractor Neural Network | CANN plus a slow negative-feedback adaptation current `τ_v dV/dt = −V + mU`; `m > τ/τ_v` destabilises the bump into a travelling wave ([[wiki/entities/adaptive-cann.md]]) |
+| SFA | Spike-Frequency Adaptation | Slow activity-dependent hyperpolarising current that suppresses a neuron's own sustained firing; the adaptation substrate in A-CANN |
+| STD | Short-Term Depression | Activity-dependent depletion of releasable synaptic resources; the presynaptic alternative to SFA as an adaptation mechanism |
 | STP | Short-Term Plasticity | Activity-dependent, seconds-scale modulation of synaptic efficacy `u·x` (Tsodyks–Markram); facilitation `τ_f` and depression-recovery `τ_r`, with `τ_f > τ_r` producing a post-activity rebound ([[wiki/entities/stp-flickering-cann.md]]) |
 | LFP | Local Field Potential | The low-frequency extracellular signal from which theta phase and power are estimated |
 | VCO | Velocity-Coupled Oscillator | Path integration by phase interference between theta and velocity-modulated dendritic oscillations |

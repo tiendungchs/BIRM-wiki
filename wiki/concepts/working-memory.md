@@ -111,6 +111,21 @@ All differentiable, so gradients pass through the store. Two readings this wiki 
 
 ---
 
+## Maintenance has a price, and it is a threshold
+
+The designs above treat holding and updating as separate problems. In a continuous attractor they are the *same* parameter (Li, Chu & Wu 2024, [[wiki/entities/adaptive-cann.md]]): a stored value is stable precisely because it resists being moved, which is what makes it slow to update and impossible to search. Adding a slow negative feedback `τ_v dV/dt = −V + mU` and raising its gain buys mobility at the exact cost of maintenance, with the exchange rate in closed form:
+
+| Adaptation gain | What the store does |
+|---|---|
+| `m < τ/τ_v` | Holds — a genuinely persistent value |
+| `m ≳ τ/τ_v`, weak input | Value drifts on its own; maintenance has failed |
+| `m` intermediate, driven | Value oscillates around the input — samples rather than holds |
+| `m` large | Value ignores the input entirely — search |
+
+Two consequences. **Persistence is not free and not binary**: how long a value survives is set by a gain that also determines how quickly it can be replaced, so a system that needs both must modulate the gain rather than pick a design. And **the failure mode of an over-mobile store is not decay but drift** — the value is still there, fully sharp, in the wrong place, which no read-out can detect from the state alone.
+
+---
+
 ## Open problems
 
 - **Binding and variables.** The DNC demonstrates variable-binding-like behaviour without showing that a reusable variable *representation* exists; whether the binding generalizes to novel structures is untested here.
@@ -148,3 +163,4 @@ All differentiable, so gradients pass through the store. Two readings this wiki 
 - **[[wiki/entities/fly-central-complex.md]]** — the wiki's one fully observed case of activity-based maintenance: a heading code held for >30 s with no sensory or self-motion input, in a completely imaged population, and maintaining a *reference frame* rather than a content buffer.
 - **[[wiki/entities/stp-flickering-cann.md]]** — the activity-silent design: a hippocampal short-term memory that survives seconds with no reverberatory trace of its contents, held as a gain bias in synaptic release variables and expressed only when a probe (a theta trough releasing global inhibition) recruits the facilitated population.
 - **[[wiki/entities/dense-sequence-memory.md]]** — maintenance and transition built from one weight matrix: the `MixedNet`'s symmetric term holds the current pattern for `τ` steps while its asymmetric term (driven by a low-pass filtered state) releases it, so the gate and the dwell timer are properties of the store rather than of a separate controller — and holding the *timing* needs a stronger nonlinearity than getting the order right.
+- **[[wiki/entities/adaptive-cann.md]]** — prices maintenance exactly: the same slow negative feedback that makes a held state quick to update is what ends the holding, and `m = τ/τ_v` is the closed-form point at which a maintained value starts moving on its own — the continuous-manifold counterpart of the adaptation term in this page's noise-driven attractor chain.
