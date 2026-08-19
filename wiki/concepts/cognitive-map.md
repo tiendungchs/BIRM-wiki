@@ -82,6 +82,17 @@ Three things follow that the two-stage reading above does not give:
 2. **A map whose best alignment is still a poor fit is evidence for a new map.** The offset search is what converts "this looks wrong" into "this is somewhere else" — so failed orientation is the trigger for allocation, which is the one link between the two operations of the table above.
 3. **The offset is exactly the small per-instance parameter the brainstorm above asked for.** `φ_k` is a stored map's pose in the current frame — one cheap number against a large reusable structural code. Reference-direction inference is the concrete, sourced version of the local→global transform, in the one domain (angles) where the transform group is known. What the transform group *is* in an abstract space remains unsaid, which is the residue of G39.
 
+**And the whole operation has been watched running, in a fly.** Seelig & Jayaraman 2015 image the complete ellipsoid-body compass population ([[wiki/entities/fly-central-complex.md]]) and get the three-part decomposition of this table in a circuit of a few dozen identified neurons:
+
+| This page's element | Fly observation |
+|---|---|
+| Reusable structural code | One bump on an anatomical ring; a 270° arena is mapped onto the ring's full 360°, so the code rescales to the environment instead of inheriting its geometry |
+| **Orientation (`φ_k`)** | The bump-to-landmark offset is arbitrary, fly-specific, stable within a trial and re-assigned between trials — the pose parameter and the reusable code are *physically* separable |
+| **Context retrieval / landmark selection** | With two indistinguishable stripes the bump commits to one (winner-take-all) rather than splitting or averaging, and occasionally transitions between the two offsets |
+| Anchoring under conflict | Landmark beats self-motion: displace the cue and the bump follows it *preserving the offset*; change the closed-loop gain and the bump tracks the cue, not the animal's turning |
+
+Two things this adds that the mammalian literature above does not. First, **failed disambiguation produces a coherent wrong frame, not a degraded one** — the aliased-landmark case is exactly the "map whose best alignment is still a poor fit" of the argmax formulation, but here the system commits anyway and behaves confidently on a wrong offset. Second, **the reset has a time constant**: successive landmark jumps in the same trial were followed once quickly and once slowly, as if the current binding is defended before being overwritten. **(brainstorm)** That is the stability-ranking bias of the row above implemented dynamically rather than as a prior — a landmark earns the right to move the frame in proportion to how well it has predicted so far.
+
 ---
 
 ## Element 3 — route planning, and what the brain measures
@@ -194,3 +205,4 @@ Whittington et al. 2022 bring the hippocampal-formation models into one language
 - **[[wiki/concepts/offline-replay.md]]** — the map's offline maintenance: replayed sequences respect the current barrier configuration and preserve topology rather than metric proximity, which is evidence that what is reinstated is the graph rather than the trajectory.
 - **[[wiki/concepts/distributed-reference-frames.md]]** — the rival architecture to this page's single anchored-and-searched map: grid coding replicated per cortical area and anchored to *objects* rather than to the world, with recognition as consensus across frames. It also supplies this page's first candidate machinery for the anchoring operation (a universal egocentric→allocentric transform in posterior parietal cortex, multiplexed by thalamus) and the detector caveat that qualifies the "beyond space" table.
 - **[[wiki/entities/temporal-context-model.md]]** — the strongest form of "the map is a memory mechanism run on a spatial task": one drift equation given velocity inputs yields the entorhinal place code and given word inputs yields free-recall contiguity, which is this page's domain-generality argument made from the mechanism side.
+- **[[wiki/entities/fly-central-complex.md]]** — element 2 observed end-to-end in a complete population: a reusable ring code plus one arbitrary, re-assignable landmark offset, winner-take-all selection between aliased landmarks, and landmark-over-self-motion arbitration implemented as an offset-preserving reset with its own time constant.

@@ -25,7 +25,7 @@ One INGEST each:
 - [x] `li-2026-hippoformer-spatial-memory-transformer.md` — hippocampal-entorhinal · M · 2026
 - [x] `kumaran-2005-cognitive-maps-vs-relational-memory.md` — hippocampal-entorhinal · R · 2005
 - [x] `bakker-2008-pattern-separation-ca3-dentate.md` — hippocampal-entorhinal · R · 2008
-- [ ] `seelig-2015-landmark-orientation-path-integration.md` — hippocampal-entorhinal · R · 2015
+- [x] `seelig-2015-landmark-orientation-path-integration.md` — hippocampal-entorhinal · R · 2015
 - [ ] `constantinescu-2016-gridlike-code-concepts.md` — hippocampal-entorhinal · R · 2016
 - [ ] `garvert-2017-abstract-relational-knowledge-map.md` — hippocampal-entorhinal · R · 2017
 - [ ] `barron-2020-inferential-reasoning-humans-mice.md` — hippocampal-entorhinal · R · 2020

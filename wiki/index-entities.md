@@ -32,7 +32,9 @@ Models, frameworks, benchmarks, and biological systems. One page per artefact. N
 
 ## Biological systems
 
-*(none yet)*
+| Page | What it is | Load-bearing for |
+|---|---|---|
+| [[wiki/entities/fly-central-complex.md]] | The *Drosophila* ellipsoid body: a toroidal neuropil whose columnar (EBw.s) neurons tile a ring and carry one heading bump, imaged as a complete population in a walking fly under closed-loop virtual reality | The wiki's only structural code observed in a *complete, identified* population, and its only direct measurement of the three regimes an integrator needs — landmark-driven anchoring (offset-preserving reset, winner-take-all between aliased landmarks), angular path integration with visible drift in darkness, and >30 s persistence with no input at all ([[wiki/empirical-tensions.md]] T46) |
 
 ---
 

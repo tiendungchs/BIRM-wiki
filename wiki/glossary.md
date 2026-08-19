@@ -119,6 +119,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | OVC / BVC / GVC | Object-Vector / Border-Vector / Goal-Vector Cell | Local bases: fire at a given distance and direction from any object, border or goal ([[wiki/concepts/compositionality.md]]) |
 | ESR | Event-Specific Rate | Per-lap deviation from the mean firing at a cell's peak location; measures non-spatial (which-lap) selectivity while ignoring spatial selectivity ([[wiki/entities/tolman-eichenbaum-machine.md]]) |
 | Splitter cell | — | Fires at the same location differently depending on the trajectory through it; a latent-state code |
+| CX | Central Complex | Midline insect brain region containing the ellipsoid body; site of the fly heading compass ([[wiki/entities/fly-central-complex.md]]) |
+| EB | Ellipsoid Body | Toroidal neuropil of the CX whose columnar (EBw.s) neurons tile a ring and carry a single heading bump |
+| PVA | Population Vector Average | Circular mean of a ring population's activity, weighted by rate; the decoder that reads heading off the EB bump |
+| GCaMP | Genetically encoded Calcium indicator (GFP + Calmodulin + M13) | Fluorescent activity reporter; GCaMP6f is the fast variant used for two-photon population imaging |
 
 ## Benchmarks
 

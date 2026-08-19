@@ -49,6 +49,17 @@ Rolls contrasts this directly with theta/gamma phase-coding accounts of serial o
 
 **Duration.** Nothing restricts these mechanisms to seconds: LSTMs and DNCs can maintain information across many thousands of training cycles, so the same machinery may serve longer-term memory (e.g. retaining the contents of a book). The functional distinction "working vs. long-term" does not map onto an architectural one here.
 
+
+## Persistence with nothing to persist on
+
+The wiki's designs above all hold information in *contents* — a buffer, a memory matrix, a chain of attractors. The fly ellipsoid-body compass holds a **reference frame** instead ([[wiki/entities/fly-central-complex.md]], Seelig & Jayaraman 2015): with the animal standing still in darkness — no landmark, no self-motion signal — the population keeps its heading bump for **>30 s**, two orders of magnitude beyond the calcium indicator's decay, and when walking resumes the bump reappears in exactly the wedges predicted by the last orientation. Persistence in the same population is also seen while standing in a lit scene, beyond the durations that adapt early visual circuits, so it is not a stimulus after-effect.
+
+Three things follow for this page:
+
+- **It is the cleanest instance of activity-based maintenance in the wiki**, and it is in a circuit small enough to be imaged whole — so "the fast level is recurrent activity rather than a second store" ([[wiki/empirical-tensions.md]] T2) has one fully observed existence proof, on one variable.
+- **What is maintained is `g`, not `x`.** **(brainstorm)** Holding the pose and re-reading the content from the world on resumption costs `O(dim g)` instead of the scene, and it is the maintenance policy that degrades most gracefully: a stale heading is still usable, a stale scene is a hallucination. A reasoning system that must survive interruptions should be asked which of its state is pose and which is content.
+- **The mechanism is undetermined.** Ring-attractor recurrence and cell-intrinsic persistence both predict this; the paper cannot separate them, which is the same ambiguity the attractor-chain account of span above rests on.
+
 ---
 
 ## Mapping to the core framing
@@ -114,3 +125,4 @@ All differentiable, so gradients pass through the store. Two readings this wiki 
 - **[[wiki/entities/temporal-context-model.md]]** — recency without a buffer and without prefrontal cortex: a unit-norm leaky integrator that advances only when input arrives gives short- and long-term recency from one mechanism, with maintenance placed in entorhinal cortex.
 - **[[wiki/entities/tem-transformer.md]]** — a fully specified store discipline: the key/value cache is the memory, the query is a structural address, and the *write* policy is stated rather than assumed — store a conjunction only if it is not already there, else attention is biased toward whatever was revisited most.
 - **[[wiki/entities/mm-tem-hippoformer.md]]** — splits the store by *horizon* instead of by type and measures the split: a 32-step attention window carries precise recent content and collapses beyond its training range, a fixed-size fast-weight memory addressed by a path-integrated code carries structure to 4,096 steps and is worse at one step, and running both in parallel beats either at both ends.
+- **[[wiki/entities/fly-central-complex.md]]** — the wiki's one fully observed case of activity-based maintenance: a heading code held for >30 s with no sensory or self-motion input, in a completely imaged population, and maintaining a *reference frame* rather than a content buffer.
