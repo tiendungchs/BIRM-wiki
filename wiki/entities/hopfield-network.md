@@ -66,6 +66,14 @@ This page exists as the wiki's **baseline**. Nine other pages quote "≈`0.14N`"
 
 ---
 
+## The continuous variant is *trainable*, not merely writable (Scellier & Bengio 2017)
+
+This page's network has no learning in the machine-learning sense: `W` is a closed-form function of the patterns to be stored, and there is no input–output mapping to fit. Make the units continuous — `E(u) = ½Σᵢuᵢ² − ½Σ_{i≠j}W_ijρ(uᵢ)ρ(u_j) − Σᵢbᵢρ(uᵢ)`, `ρ` a rate nonlinearity — clamp a subset of units as input, and the same energy becomes a supervised learner under **equilibrium propagation**: relax with the output free (`u⁰`), add an external potential `βC = ½β‖y − d‖²` and relax again (`u^β`), then update `ΔW_ij ∝ (1/β)(ρ(u_i^β)ρ(u_j^β) − ρ(u_i⁰)ρ(u_j⁰))`. That is the *gradient* of the squared output error, for any symmetric connectivity. Permutation-invariant MNIST with 1–3 hidden layers of 500 units: 0.00% training error, 2–3% test error.
+
+Two consequences for this page. **Symmetry is not purely a cost.** The `W = Wᵀ` constraint was scored above as buying the Lyapunov function at the price of immobility; it also buys trainability — the recurrence that forbids motion is exactly what lets a perturbation applied at the output travel backwards through the hidden units, so the error reaches every synapse with no backward pass and no weight transport. **The bill moves to inference.** The free-phase relaxation takes 20 / 100 / 500 iterations for 1 / 2 / 3 hidden layers, so what a feedforward net pays once per forward pass this network pays hundreds of times, and the cost grows ~×5 per layer with no accuracy gained ([[wiki/concepts/biologically-plausible-credit-assignment.md]]).
+
+---
+
 ## Open problems it leaves (all inherited by its successors)
 
 - **Nothing sets the number of stored patterns.** The write rule cannot refuse, so overload is silent and catastrophic (G42).
@@ -86,6 +94,7 @@ This page exists as the wiki's **baseline**. Nine other pages quote "≈`0.14N`"
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — this network as biology: CA3 recurrent collaterals as the weight matrix, with sparse coding and dilution added, giving `p_max ≈ kC/(a ln(1/a))` in place of `0.14N` — capacity set by fan-in rather than by population size.
 - **[[wiki/entities/tem-transformer.md]]** — the modern continuation of the last row of this page's failure table: the Modern Hopfield update with a softmax *is* transformer self-attention, so the classical relaxation and the attention layer are one mechanism at two temperatures.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — this page supplies the completion half in its purest form (descent from a corrupted state) and none of the separation half, which is why every biologically grounded successor bolts a separating stage onto its input.
+- **[[wiki/concepts/energy-based-models.md]]** — where the trainable continuous version is developed in full: `F = E + βC` makes the target a second potential energy, weak clamping (rather than full clamping) keeps both fixed points in one basin, and the resulting contrastive update is the time-integral of an STDP rule.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the outer-product write is the Hebbian rule taken literally and applied once; the network is the clearest demonstration that a purely local, correlation-based rule can install a *global* computational structure (a landscape). The verbal specification predates the formalism: Hebb's cell assembly plus Allport's auto-association already state the same write, including the negative weights for anti-correlated units.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the one-shot write is the fast system's defining capability, and the argument that gradient-based learning cannot be the episodic mechanism (10⁴–10⁶ exposures vs. one episode) is the strongest form of this page's motivation for a two-system architecture.
 - **[[wiki/entities/adaptive-cann.md]]** — the continuous-state relative that adds the motion this page's symmetry forbids: a slow adaptation current destabilises the fixed point and turns a static memory into tracking, oscillation or a travelling wave.

@@ -112,6 +112,50 @@ If a network's *dynamics* are the minimisation of `F_w`, then its *plasticity* i
 
 Two things this is worth to a builder. (i) It removes a design choice: **specify architecture + energy, and the local learning rule is derived rather than invented** — the pitch of this page's formalism extended from inference to learning. (ii) It supplies a *reason* to prefer a probabilistically interpretable energy over an arbitrary one: the biologically plausible networks that perform best minimise free energy, which is exactly the case where `F` is not merely a compatibility score but a likelihood bound. That cuts against this page's own "not a log-probability" stance and is logged as such.
 
+### The original statement (Scellier & Bengio 2017)
+
+| Object | Statement |
+|---|---|
+| Internal energy | `E(u) = ½Σᵢuᵢ² − ½Σ_{i≠j} W_ij ρ(uᵢ)ρ(u_j) − Σᵢ bᵢρ(uᵢ)` — the continuous Hopfield energy, `W_ij = W_ji`, `ρ` a rate nonlinearity ([[wiki/entities/hopfield-network.md]]) |
+| External potential | `βC` with `C = ½‖y − d‖²`. **The target enters as a second potential energy**, not as a signal on a separate wire — `β` ("influence parameter") sets how hard it pulls |
+| Total energy | `F = E + βC`; dynamics `ds/dt = −∂F/∂s`, so `dF/dt = −‖ds/dt‖² ≤ 0` and the state descends to a fixed point. The force on unit `i` is `ρ'(sᵢ)(Σ_j W_ij ρ(u_j) + bᵢ) − sᵢ` — a **leaky integrator**, i.e. the same neuron model in both phases |
+| Free phase | `β = 0`: input clamped, output free, relax to `u⁰`. The prediction is read out here (`argmax_i y_i⁰`; no softmax, no normalisation over outputs) |
+| Nudged phase | `β` small: the output feels `β(dᵢ − yᵢ)` and nothing else changes. The perturbation starts at the output and travels *backwards* through the hidden layers as they re-equilibrate — this propagation is what carries the error derivatives |
+| Update | `ΔW_ij ∝ (1/β)(ρ(u_i^β)ρ(u_j^β) − ρ(u_i⁰)ρ(u_j⁰))`, proved `= ∇_θ J` with `J = ½‖y⁰ − d‖²` as `β → 0`, for **arbitrary symmetric connectivity** — the layered case is an illustration, not an assumption |
+
+The general framework needs only `F`: set `E := F(β=0)` and `C := ∂F/∂β|_{β=0}`, and every other object (both fixed points, `J`, the gradient) is defined from it. **`F` is to this framework what the set of node functions is to a computational graph** — the whole model specification, with the difference that the prediction `s⁰` is defined *implicitly* by `∂E/∂s = 0` and must be found numerically, where a computational graph computes it analytically in one forward pass. That is the cost of the framework on digital hardware and the reason its authors point at analog circuits instead.
+
+**The cost function is a free design variable, and that is the property worth taking.** In contrastive Hebbian learning and the Boltzmann machine the objective is *determined* by the energy — you may not choose it. Splitting `F = E + βC` decouples them: `C` can be anything, including a `θ`-dependent regulariser `λΩ(θ)`. **(brainstorm)** For this wiki that is the opening — a relational or graph-structured objective ([[wiki/concepts/subgraph-matching.md]], [[wiki/concepts/latent-graph-discovery.md]]) can be hung on a fixed relaxation substrate as an external potential, without redesigning the energy that defines the network, and the local learning rule follows automatically.
+
+### Weak clamping is the whole algorithm
+
+Every neighbouring algorithm differs from equilibrium propagation in what its *second phase* does, and each difference is a defect:
+
+| Algorithm | Second phase | Objective | What weak clamping fixes |
+|---|---|---|---|
+| **Contrastive Hebbian learning** (Movellan 1990) | Output **fully** clamped — the `β → ∞` limit of the same equations | `J_CHL = E(u^∞) − E(u⁰)` | `J_CHL` can go **negative** when the free and clamped fixed points land in *different modes* of the energy landscape; the update is then inconsistent and learning deteriorates. A weakly clamped fixed point is a local perturbation of the free one, and the implicit-function theorem keeps them in the same mode |
+| **Boltzmann machine / CD₁** | An independent clamped Markov chain | Log-likelihood, fixed by `E` | Two separate chains rather than one perturbation, so no backward-pass reading; `CD₁` is a biased estimator and provably the gradient of *no* objective (may cycle indefinitely — Sutskever & Tieleman 2010) |
+| **Almeida–Pineda recurrent backpropagation** | Fixed-point iteration on a **linearised** copy of the network | The same `J` | The second phase is a different kind of computation from the first, so a biological substrate would need two circuits — exactly the objection that motivates the whole family |
+| **Xie & Seung 2000** | Fully clamped, with feedback weights scaled by `γ^j`, `γ → 0` | CHL objective | Requires infinitesimal feedback (so the net is only nominally recurrent, behaving almost feedforward) and per-layer learning rates spanning orders of magnitude to compensate. Equilibrium propagation keeps feedforward and feedback strong and uses one learning rate |
+
+**STDP is the mechanism, by integration rather than analogy.** Take the continuous rule `dW_ij/dt ∝ ρ(uᵢ)·dρ(u_j)/dt`, which reproduces the Bi & Poo 1998 window (see [[wiki/concepts/biologically-plausible-credit-assignment.md]]), and symmetrise it for tied weights: `dW_ij/dt ∝ d[ρ(uᵢ)ρ(u_j)]/dt`. Integrating along the second-phase trajectory from `u⁰` to `u^β` yields `ρ(u_i^β)ρ(u_j^β) − ρ(u_i⁰)ρ(u_j⁰)` — **the contrastive update is the time-integral of a spike-timing rule**, not a separate postulate that happens to resemble one. Two readings are offered and are experimentally distinguishable: either an anti-Hebbian update fires at the free fixed point and a Hebbian one at the nudged fixed point, or nothing happens in phase one and the synapse simply follows the derivative rule while the state moves.
+
+### What it costs: the relaxation numbers
+
+Permutation-invariant MNIST, `ε = 0.5`, `β = 1.0`, hard-sigmoid `ρ`, 0.00% training error throughout:
+
+| Architecture | Free-phase iterations | Nudged-phase iterations | Test error |
+|---|---|---|---|
+| 784-500-10 | **20** | 4 | 2–3% |
+| 784-500-500-10 | **100** | 6 | 2–3% |
+| 784-500-500-500-10 | **500** | 8 | 2–3% |
+
+Three things in that table. (i) **The free phase is the entire cost and it explodes with depth** — ×5 per added hidden layer, against a nudged phase growing by 2 — which is the concrete measurement behind the "iteration count does not scale" complaint on [[wiki/concepts/biologically-plausible-credit-assignment.md]] and the reason these demonstrations stop at MNIST. (ii) **The second phase is deliberately not run to equilibrium.** The leaky-integrator time constant is `τ = 1`, so `N` steps suffice for the perturbation to cross `N` layers; only the *onset* of the movement is needed, since the update integrates the path rather than reading its endpoint. (iii) Accuracy is flat in depth — extra layers buy nothing here.
+
+Three implementation facts that the theory does not predict and a builder pays anyway: **persistent particles** (cache each training example's free fixed point and restart next epoch from it — the PCD trick, and the only reason the 500-iteration case is trainable at all); **randomising the sign of `β`** each example, which regularises (the update is sign-consistent because of the `1/β` factor); and **per-layer learning rates chosen so `‖ΔW_k‖/‖W_k‖` matches across layers**, needed despite the theory demanding a single rate — attributed to finite precision in approaching the fixed points, i.e. the theory holds exactly *at* equilibrium and the simulation is never there.
+
+**The unpaid bill is weight symmetry.** `W_ij = W_ji` is used to derive the leaky-integrator dynamics itself, and nothing in the framework produces it. The offered hopes are all external: denoising autoencoders trained without tied weights tend to learn symmetric ones (Vincent et al. 2010); the symmetric solution minimises the reconstruction error between successive ReLU layers (Arora et al. 2015), suggesting symmetry could fall out of an *additional* autoencoder objective per layer; and feedback alignment shows forward weights can align to *random* fixed feedback (Lillicrap et al. 2016). None of these is inside the model. **(brainstorm)** The Arora route is the one to test, because it costs nothing structurally: add a per-layer reconstruction term to `E` and check whether the symmetry the dynamics assume is produced by the energy the dynamics minimise. That would make the framework self-consistent instead of self-referential.
+
 ### Finite nudging: the contrastive update is exact, not approximate (Litman 2025)
 
 The frame above inherits two assumptions that never held: the nudge `β` must be **infinitesimal** for the update to be a gradient, and the state is a **single energy minimum**. Both are dropped by replacing the deterministic minimiser with a Gibbs–Boltzmann distribution over states.

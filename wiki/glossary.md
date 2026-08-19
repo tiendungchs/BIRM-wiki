@@ -151,6 +151,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | WISC | Wechsler Intelligence Scale for Children | Multi-subtest IQ battery (digit span, block design, similarities, coding, comprehension) |
 | FWE | Family-Wise Error | Correction controlling the probability of *any* false positive across the tested voxels; stricter than false-discovery-rate control |
 | fMRI adaptation | (repetition suppression) | Reduced response to a stimulus similar to its predecessor; recovery from it is used as a proxy for representational distance between the two |
+| CHL | Contrastive Hebbian Learning | Two-phase rule `Δw ∝ ⟨ρρ⟩_clamped − ⟨ρρ⟩_free`; the fully clamped (`β → ∞`) limit of equilibrium propagation |
 | STDP | Spike-Timing-Dependent Plasticity | Hebbian rule whose sign depends on pre/post spike order |
 | BCM | Bienenstock–Cooper–Munro theory | Stabilised Hebbian rule with a *sliding* modification threshold on postsynaptic activity — potentiation above it, depression below — so the rule is metaplastic by construction ([[wiki/concepts/synaptic-plasticity.md]]) |
 | GHA | Generalized Hebbian Algorithm | Deflation-based extension of Oja's rule that extracts successive principal components rather than only the first |
