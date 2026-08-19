@@ -171,6 +171,7 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 
 ## Connections
 
+- **[[wiki/entities/vector-hash.md]]** — separation with no separator and no controller: a random fixed projection from a prestructured grid code yields attractors that are provably convex, equal-sized and free of spurious minima, so the transfer curve's steepness and offset are set once by the architecture instead of being tuned at runtime (G38) — and completion is one round-trip pass rather than a relaxation whose depth depends on what was stored.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — supplies the mechanism behind the "sparse conjunctive code" that page asserts: separation is what makes the fast store's codes non-overlapping, and it is a tunable transfer curve rather than a fixed sparsity level.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — separation is de-aliasing (hardness source 3) and completion is retrieval; the transfer curve is the allocate-vs-reuse decision made by degree.
 - **[[wiki/concepts/contextual-inference.md]]** — the same allocate-vs-reuse question answered normatively (a responsibility posterior over a growing library) rather than mechanistically; the transfer curve is what that posterior looks like compiled into fixed circuitry.

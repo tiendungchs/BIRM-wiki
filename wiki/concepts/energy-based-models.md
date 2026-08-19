@@ -84,6 +84,7 @@ The strongest architectural claim in the source, and the one that engages the co
 
 ## Connections
 
+- **[[wiki/entities/vector-hash.md]]** — the landscape *designed* rather than fitted: minima are positioned, sized and shaped by a frozen code before any data arrives, which is why they come out convex, uniform and spurious-free, and content is attached by a separate feedforward layer that never touches the energy function.
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — a biological energy landscape with its capacity computed: `p_max ≈ kC/(a ln(1/a))` counts how many minima it can hold, and *diluted* connectivity is justified as landscape hygiene — duplicate synapses between a neuron pair distort the basins and dominate which states are stable.
 
 - **[[wiki/entities/h-jepa.md]]** — the architecture this formalism is built for: a joint-embedding predictive architecture is an EBM whose energy is prediction error *in representation space*, trained by the regularised branch of the table above.

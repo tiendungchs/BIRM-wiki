@@ -163,6 +163,7 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 
 ## Connections
 
+- **[[wiki/entities/vector-hash.md]]** — the same storage-and-retrieval layer at exponential capacity and with the discovery layer removed by construction: `g` is installed and frozen, the assignment of content to a position in `g` is *random*, and the traversal order for a non-spatial episode is supplied by the modeller.
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — a fully worked storage-and-retrieval layer with the discovery layer absent: arbitrary one-trial bindings, exact completion from any fragment, closed-form capacity, and no mechanism that notices two episodes share a relational form.
 
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the methodological licence for treating brain mechanisms as candidate answers to this problem; its track record shows every past transfer moved a representation or a gating policy, never a factorization.

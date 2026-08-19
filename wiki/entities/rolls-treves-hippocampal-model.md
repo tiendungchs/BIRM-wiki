@@ -152,7 +152,7 @@ This settles an item [[wiki/concepts/pattern-separation-completion.md]] listed a
 | Transfer across environments | **None** | The point of the model | None | Via context similarity |
 | Time | Rate-coded time cells + slow attractor transitions | Not modelled | Sequence states | The core variable |
 
-Read together, the row that matters is the last-but-one: this is the wiki's most quantitatively developed hippocampal model and it has *no* transfer story. Capacity and generalisation are being optimised by different models of the same tissue, and no source in the wiki has both ([[wiki/empirical-tensions.md]] T28).
+Read together, the row that matters is the last-but-one: this is the wiki's most quantitatively developed hippocampal model and it has *no* transfer story. Capacity and generalisation are being optimised by different models of the same tissue ([[wiki/empirical-tensions.md]] T28) — **and one source now has both**: [[wiki/entities/vector-hash.md]] keeps a closed-form (exponential) capacity while getting free transfer to a new environment, by making the attractors content-free and prestructured rather than content-defined. The price is that its content-to-address assignment is random, so it inherits this page's other shortfall — nothing notices that two episodes share a form — undiminished.
 
 ---
 
@@ -171,4 +171,5 @@ Read together, the row that matters is the last-but-one: this is the wiki's most
 - **[[wiki/entities/temporal-context-model.md]]** — the rival account of hippocampal time: a graded leaky context integrator versus discrete time-encoding cell populations traversed by noise-driven attractor transitions.
 - **[[wiki/entities/cscg.md]]** — the same write-side problem solved by explicit bookkeeping instead of randomization; clone allocation is a decision, mossy-fibre hashing is not.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — a fully worked *storage-and-retrieval* layer with the discovery layer absent: arbitrary bindings, exact completion, no mechanism that notices two episodes share a form.
+- **[[wiki/entities/vector-hash.md]]** — the rival answer to this page's own question, built on the opposite topology: fixed points prestructured by a frozen grid code instead of defined by stored content, which converts the cliff at `p_max ≈ kC/(a ln(1/a))` into a graceful `1/N_patts` continuum at exponential capacity — and which reports that place-like hippocampal tuning arises from an *untrained* random projection, against this page's simulation result that Hebbian perforant-path training is required ([[wiki/empirical-tensions.md]] T41).
 - **[[wiki/entities/hidden-state-inference-remapping.md]]** — the normative layer above this one: attractor dynamics say *how* a map is selected and completed, hidden-state inference says *why* the boundaries fall where they do, with a mixture of Boltzmann machines named as the bridge between basins and hidden states.

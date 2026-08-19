@@ -93,6 +93,7 @@ Recall to cortex is a **reverse hierarchy of pattern associators**: CA3 → CA1 
 
 ## Connections
 
+- **[[wiki/entities/vector-hash.md]]** — the fast store built and priced, with an explicit verdict against content compression: the hippocampal state is a content-independent *pointer* into cortex, and an autoencoder bottleneck that compresses the content instead loses capacity, forgetting-resistance and sequence memory at matched size (Chandra et al. 2023).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the biological derivation of the slow-W / fast-M split, and maps hippocampal sparse coding onto the de-aliasing requirement.
 - **[[wiki/concepts/continual-learning.md]]** — same interference problem, different solution: add a second fast system rather than gate plasticity within one; replay and weight protection are complementary, not rival.
 - **[[wiki/concepts/meta-learning.md]]** — the rival implementation of the same two-timescale factorization, with the fast level carried by recurrent activity instead of a separate store.

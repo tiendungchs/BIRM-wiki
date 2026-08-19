@@ -155,6 +155,7 @@ Whittington et al. 2022 bring the hippocampal-formation models into one language
 
 ## Connections
 
+- **[[wiki/entities/vector-hash.md]]** — the strongest argument in the wiki that the map machinery is not *for* space: spatial and episodic memory are co-localised because a low-dimensional vector-updatable code is what high-capacity sequence memory requires, whatever the episode contains — non-spatial sequences are stored on the same scaffold by choosing an arbitrary trajectory through it.
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the storage side of the same anatomy: mixed continuous/discrete attractors bind an object to a place, many charts coexist in one network so map selection is attractor selection, and grid codes are treated as *unsuitable* for binding until dentate competitive learning converts them into place-like conjunctions.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the cognitive map is this page's framing instantiated in its home domain, and it contributes the operation the framing lacked: anchoring a recovered structure to the present observation (G39), distinct from both discovery and navigation.
