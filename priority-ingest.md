@@ -18,5 +18,5 @@ One INGEST each:
 - [x] `ahmad-2016-sparse-representations-active-dendrites.md` — neuron-models · F · 2016
 - [x] `chavlis-2025-dendritic-anns.md` — neuron-models · M · 2025
 - [x] `talk-nd-hodgkin-huxley-model.txt` — neuron-models · X · nd
-- [ ] `douglas-2004-neocortical-circuits.md` — cortical-columns · S · 2004
+- [x] `douglas-2004-neocortical-circuits.md` — cortical-columns · S · 2004
 - [ ] `talk-nd-thousand-brains-theory.txt` — cortical-columns · X · nd
