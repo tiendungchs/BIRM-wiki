@@ -24,7 +24,7 @@ The lineage runs: neuroscience-inspired recurrent networks with attractor dynami
 
 ## Why control/storage separation matters for reasoning
 
-The differentiable neural computer (DNC) — a neural controller reading and writing an external memory matrix, trained end-to-end — solves tasks that were argued to require **symbol processing and variable binding**, and therefore to lie outside the reach of neural networks. Two of those tasks are literally latent-graph tasks:
+The differentiable neural computer (DNC, [[wiki/entities/differentiable-neural-computer.md]]) — a neural controller reading and writing an external memory matrix, trained end-to-end — solves tasks that were argued to require **symbol processing and variable binding**, and therefore to lie outside the reach of neural networks. Two of those tasks are literally latent-graph tasks:
 
 | Task | Latent-graph reading |
 |---|---|
@@ -32,6 +32,8 @@ The differentiable neural computer (DNC) — a neural controller reading and wri
 | Tower-of-Hanoi block manipulation | Path latent under constraints, with a goal node that must be matched exactly |
 
 **What this establishes:** an externalized, content-addressable, writable store is sufficient to make a differentiable network do explicit graph traversal. **What it does not establish:** discovery — in both tasks the graph is *given to the network as input*, so the hard part of LGD (inferring edges and vocabulary from observation) is not tested. Memory-augmented networks are evidence about the *navigate* half only.
+
+And "solves" needs a number attached (Graves et al. 2016): 98.8% on 7-step traversal of the London Underground but **55.3%** on its 4-step shortest paths, with curriculum learning essential and an expert planner mixed into training. The capability claim is safe; the reliability claim is not.
 
 ## Order for free: noise-driven attractor transitions
 
@@ -166,4 +168,5 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/entities/adaptive-cann.md]]** — prices maintenance exactly: the same slow negative feedback that makes a held state quick to update is what ends the holding, and `m = τ/τ_v` is the closed-form point at which a maintained value starts moving on its own — the continuous-manifold counterpart of the adaptation term in this page's noise-driven attractor chain.
 - **[[wiki/entities/context-modular-memory-network.md]]** — storage/control separation implemented at the connectivity rather than at the buffer: the control variable holds no content (`s` discrete states) yet determines the whole set of retrievable attractors, so the controller's state is a handful of bits and its effect is an entire energy landscape.
 - **[[wiki/concepts/attractor-dynamics.md]]** — maintenance is occupancy of a fixed point, and the noise-driven attractor chain is where sequence order comes from without a scheduler.
+- **[[wiki/entities/differentiable-neural-computer.md]]** — the primary source for this page's control/storage argument, and the store whose *addressing* is fully specified: content lookup, write-order links and a usage-based free list, with one learned gate choosing between allocating a fresh slot and editing a matched one.
 - **[[wiki/entities/pbwm.md]]** — the one design in this page where the *write policy itself* is learned: prefrontal stripes hold, basal-ganglia disinhibition enables the write, and which inputs deserve a write is trained by reinforcement — with the ablation (no dopamine modulation → 0% of networks learn any task) that shows a store without a trained gate is useless.

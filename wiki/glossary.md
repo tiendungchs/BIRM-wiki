@@ -32,7 +32,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SDTP | Simplified Difference Target Propagation | DTP with that last gradient removed — fully gradient-free and weight-transport-free (Bartunov et al. 2018) |
 | AO-SDTP | Auxiliary-Output SDTP | SDTP whose output layer carries extra random features of the penultimate layer, to raise target diversity |
 | LC | Locally-Connected (layer) | Convolution-style receptive fields **without** weight sharing; the biologically defensible version of a convnet |
-| DNC | Differentiable Neural Computer | Controller + external memory matrix, trained end to end |
+| DNC | Differentiable Neural Computer | Controller + external memory matrix addressed by content, write-order links and a usage-based free list, trained end to end ([[wiki/entities/differentiable-neural-computer.md]]) |
+| NTM | Neural Turing Machine | The DNC's predecessor: same controller/memory split, but addressing is content plus index-shift, with no de-allocation and no write-order record across address jumps |
+| bAbI | (not an abbreviation) | 20 synthetic question-answering tasks over short generated stories, each a set of constraints on an underlying graph; the DNC's language benchmark |
+| DAGGER | Dataset Aggregation | Imitation-learning scheme mixing the expert and the learner's own policy so training states match the states the learner will actually visit |
 | DNN | Deep Neural Network | |
 | DQN | Deep Q-Network | Deep RL agent for Atari; origin of experience replay in deep RL |
 | DRAW | Deep Recurrent Attentive Writer | Attentional generative model that builds an image incrementally |

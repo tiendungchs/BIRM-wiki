@@ -106,7 +106,7 @@ Two stripes act as slots; the control input decides which slot an item is bound 
 
 ## Comparison
 
-| | PBWM | LSTM | SRN | DNC ([[wiki/concepts/working-memory.md]]) |
+| | PBWM | LSTM | SRN | DNC ([[wiki/entities/differentiable-neural-computer.md]]) |
 |---|---|---|---|---|
 | Gate | Learned, per stripe, discrete | Learned, per cell, continuous | None (copy every step) | Learned write head |
 | Credit for gating | RL from an associative critic; no BPTT | Backpropagation through time | BPTT, one step | BPTT |
@@ -130,3 +130,4 @@ Two stripes act as slots; the control input decides which slot an item is bound 
 - **[[wiki/entities/tem-transformer.md]]** — the counterpart store discipline: there the write policy is a conditional (store a conjunction only if not already present) evaluated on content, here it is a learned action evaluated on consequences, and neither system can erase without also writing.
 - **[[wiki/entities/adaptive-cann.md]]** — the same maintain/update conflict resolved in continuous rather than discrete form: there the exchange rate between holding and moving is a single adaptation gain with a closed-form threshold, here it is a binary gate whose *timing* is what gets learned.
 - **[[wiki/entities/context-modular-memory-network.md]]** — control that carries no content, as here: a handful of control bits select which attractors are retrievable, while PBWM's control bits select which stripes may be overwritten.
+- **[[wiki/entities/differentiable-neural-computer.md]]** — the engineering counterpart of this page's gate, with the credit problem solved the other way: write, allocation and free gates all trained by backpropagation through time against task loss, and — unlike a Go, which writes and discards in one act — a separate erase vector and a free list that reclaims read locations.
