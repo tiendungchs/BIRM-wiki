@@ -12,7 +12,7 @@ One INGEST each:
 - [x] `zhang-2026-identifiability-controlled-world-models.md` — world-models · F · 2026
 - [x] `bortoletto-2023-irene-intuitive-reasoning-network.md` — world-models · M · 2023
 - [x] `koenig-2024-kan-odes-dynamical-systems.md` — world-models · M · 2024
-- [ ] `gao-2025-adaworld-latent-actions.md` — world-models · M · 2025
+- [x] `gao-2025-adaworld-latent-actions.md` — world-models · M · 2025
 - [ ] `assran-2025-v-jepa-2.md` — world-models · M · 2025
 - [ ] `peng-2025-grid-code-quantization-world-models.md` — world-models · M · 2025
 - [ ] `venkatesh-2025-spelke-segments.md` — world-models · M · 2025
