@@ -183,6 +183,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | Otsu's method | — | Threshold chosen to maximise between-class variance of an observed histogram; the one *derived* rather than hand-set threshold among the wiki's discretisation mechanisms |
 | RRAM / MRAM | Resistive / Magnetoresistive Random-Access Memory | Non-volatile in-memory-compute substrates; the hardware assumption behind the neuromorphic cost arguments ([[wiki/entities/spiking-neural-networks.md]], [[wiki/entities/hami.md]]) |
 
+| qrel | Query relevance judgments | The binary matrix `A ∈ {0,1}^{m×n}` saying which documents are relevant to which query; its sign-rank lower-bounds the embedding dimension needed to realize it |
+| sign-rank | — | The smallest rank of a real matrix whose entries match the signs of a given ±1 matrix; the no-margin version of the retrieval dimension bound |
+| BM25 | Best Matching 25 | The standard sparse lexical retrieval score; a very high-dimensional sparse vector, which is why it escapes the dense-embedding dimension bound and why it collapses under synonym substitution |
+| MaxSim | Maximum Similarity | The late-interaction operator of multi-vector retrievers (ColBERT): score a pair by summing, over query tokens, the max similarity to any document token |
+| MRL | Matryoshka Representation Learning | Training so that truncated prefixes of an embedding remain usable, which is how deployed vectors are shrunk below their native dimension |
+
 ## Neuroscience
 
 | Abbrev. | Expansion | Note |
@@ -366,3 +372,5 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | PUG | Photorealistic Unreal Graphics | Rendered scenes built one element at a time, so a single spatial relation can be varied with everything else fixed; VLMs score at chance on it |
 | DCI | Densely Captioned Images | 7,805 images segmented with Segment Anything and human-annotated at >1000 words each; supports crop–caption matching |
 | DataComp | — | Benchmark that fixes CLIP's architecture and hyperparameters and competes on the *dataset*, showing data pruning beats the scaling law |
+| LIMIT | — | 50k-document retrieval dataset built from the densest qrel matrix that fits ~1000 top-2 queries (all `C(46,2)` pairs), instantiated as *`Jon likes Apples`* / *`who likes Apples?`*; every single-vector embedding model fails it ([[wiki/concepts/retrieval-capacity.md]]) |
+| MTEB / BEIR | Massive Text Embedding Benchmark / Benchmarking IR | The field's standard embedding leaderboards; scores on them are uncorrelated with LIMIT |
