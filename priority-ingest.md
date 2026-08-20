@@ -34,7 +34,7 @@ One INGEST each:
 - [x] `collins-2013-task-set-structure-learning.md` — prefrontal-control · M · 2013
 - [x] `boettiger-2005-frontal-stimulus-response-learning.md` — prefrontal-control · R · 2005
 - [x] `badre-2010-frontal-abstract-action-rules.md` — prefrontal-control · R · 2010
-- [ ] `matsuzaka-2012-dmpfc-response-tactic-selection.md` — prefrontal-control · R · 2012
+- [x] `matsuzaka-2012-dmpfc-response-tactic-selection.md` — prefrontal-control · R · 2012
 - [ ] `bichot-2015-feature-based-attention-pfc.md` — prefrontal-control · R · 2015
 - [ ] `widge-2019-dbs-internal-capsule-cognitive-control.md` — prefrontal-control · R · 2019
 - [ ] `bichot-2019-prefrontal-feature-attention-v4.md` — prefrontal-control · R · 2019

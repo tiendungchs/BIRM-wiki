@@ -397,6 +397,28 @@ So both sides of the homogeneous-vs-partitioned argument are readable off one da
 
 ---
 
+## The monkey medial wall: a region defined by the demand it serves
+
+> **Provenance.** Matsuzaka, Akiyama, Tanji & Mushiake 2012, PNAS 109:4633–4638 (`raw/matsuzaka-2012-dmpfc-response-tactic-selection.md`). Two *Macaca fuscata*, chronic single units.
+
+A third species arm, and the only one here whose region is individuated **functionally rather than architectonically**. Rostral to pre-SMA on the medial surface, the authors identify a focus they call **posterior medial prefrontal cortex (pmPFC)** by four negatives and one positive:
+
+| Property | pmPFC | Distinguishes it from |
+|---|---|---|
+| Response to visual or tactile stimuli outside the task | **None** | pre-SMA (clear visual responses) |
+| Arm or eye movements evoked by microstimulation | **None** | pre-SMA, supplementary eye field |
+| Position | Rostral to pre-SMA | pre-SMA, SMA |
+| Selectivity for which *response tactic* is required (reach toward vs. away from the cue) | **51%** of 330 response-period neurons | pre-SMA 35%, SMA 26%, cingulate cortex **5 of 260** |
+| Presence of a task representation at all | Contingent on two tactics being live — falls under single-tactic retraining (`p < 0.01`) and returns when both are restored | pre-SMA and SMA, whose populations do not change |
+
+The full experimental logic and its controls are on [[wiki/concepts/policy-abstraction-hierarchy.md]]; three points belong to this page.
+
+- **This is a medial-wall control region that is neither motor nor limbic.** The rat two-tier scheme above sorts medial prefrontal cortex by *output port*; pmPFC has no evoked motor output and no sensory input, and its downstream target is stated as the secondary motor areas — so it is a controller that acts only by biasing other frontal areas, the medial counterpart of the lateral rule cells in [[wiki/concepts/cognitive-control.md]].
+- **The cingulate result is a negative worth carrying.** Rostral and caudal cingulate motor areas plus the cingulate cortex rostral to them were surveyed in the same animal: 5 of 260 task-related neurons carried the tactic distinction. Whatever the medial wall contributes to conflict, it is not this signal.
+- **Anatomical individuation failed here and functional individuation worked.** Previous recordings in the same territory found no forelimb-task representation, because their tasks required a single tactic. **(brainstorm)** That inverts the usual order of operations for building a modular controller: the module was found by choosing the demand first and looking for tissue that appeared, which for a machine architecture means a component is defined by the task manipulation that makes it necessary rather than by where it sits in the graph ([[wiki/concepts/representation-probing.md]], [[wiki/empirical-tensions.md]] T111).
+
+---
+
 ## Limitations
 
 - **Rat, and homology is asserted at one point only** — prelimbic ≈ Brodmann area 32. Everything else must be mapped by hand before it constrains a primate-derived control model.
@@ -417,6 +439,7 @@ So both sides of the homogeneous-vs-partitioned argument are readable off one da
 - **The 2016 review is a narrative review with no new data**, and its human arm is dominated by haemodynamic functional connectivity measured below 0.1 Hz, which is not the quantity any rodent result here reports ([[wiki/concepts/inter-areal-synchrony.md]]).
 - **The situational-processing proposal is an educated guess, and the authors say so.** No study manipulates situational information as an independent variable; the cluster is defined by a *negative* (it wins nothing) and the interpretation is assembled from adjacent scene-construction and schema literatures. The experiment that would test it — vary situational relevance within a mentalizing, valuation or emotion task and ask whether this cluster tracks the manipulation rather than the domain — is proposed, not run.
 - **Nothing localises the *content* on the channel.** The only positive characterisation is "context"; there is no decoding of what is transmitted, so the difference between the pathway carrying a context label, a gain signal, or an episodic sample is untested (gap G52).
+- **The monkey arm is two animals and one task, and its region has no independent anatomical definition.** pmPFC is delimited by where task-related neurons were found plus two negatives (no sensory response, no microstimulation effect); no cytoarchitecture, no tract tracing, and no homology to the rat tiers above or to the human medial wall below is offered. Its central manipulation is also confounded: the single-tactic blocks removed the choice *and* made the cue→target spatial relation constant, so habit formation is an alternative account of the withdrawal that the design cannot exclude ([[wiki/empirical-tensions.md]] T94).
 
 ---
 
@@ -433,6 +456,7 @@ So both sides of the homogeneous-vs-partitioned argument are readable off one da
 - **[[wiki/entities/pbwm.md]]** — the same cortico-striatal loop drawn with one tier: PBWM gates prefrontal maintenance through basal ganglia, this page shows the loop family is plural (one re-entrant circuit per subregion) with an extra ventral→shell→dorsal feed-forward link that PBWM has no analogue of.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — infralimbic cortex is a worked instance of addressed suppression: after extinction its cells fire to the tone and dampen basolateral amygdala output, and the size of that response predicts how little the animal freezes — and the hippocampal input arrives the same way, as excitation *of interneurons*: ventral-hippocampal inactivation lowers prelimbic interneuron firing and raises pyramidal firing, so the context channel withholds prefrontal output rather than supplying it (Spedding & Jay 2012, [[wiki/empirical-tensions.md]] T98).
 - **[[wiki/concepts/representation-probing.md]]** — the instrument that produced this page's human table, and the reason to trust it over the meta-analyses it contradicts: a forward-inference map says where a task lands, a *head-to-head posterior comparison between domains* says which domain an activation here is evidence for, and only the second is a statement about what the region computes.
+- **[[wiki/concepts/policy-abstraction-hierarchy.md]]** — supplies what this page's rat tiers are selecting *between*, one level up from an action: the monkey medial wall carries which **response tactic** is running (51% of posterior medial prefrontal response-period cells, against 5/260 in cingulate cortex), and carries it only while more than one tactic is live — so a control region's population is instantiated by the demand and vacated when the choice is removed (Matsuzaka et al. 2012).
 - **[[wiki/concepts/controller-knowledge-vs-process.md]]** — the same factorization argued from theory rather than tract tracing: this page's dorsal/ventral output-port split is the rat counterpart of a proposed dorsolateral (mechanistic plans) / ventromedial (social scripts) *storage* axis, so both say the controller is partitioned by what it connects to, not by what it computes.
 - **[[wiki/concepts/offline-replay.md]]** — the cortical end of the replay channel measured directly: mPFC and nucleus accumbens replay task patterns during post-task rest, time-compressed and selective for recently learned events, with reactivation strongest during low-voltage spindles that co-occur with hippocampal sharp waves within a few hundred milliseconds — and with the direction of the hippocampus↔cortex initiation still unresolved.
 - **[[wiki/concepts/generalization-optimized-consolidation.md]]** — a biological constraint on what the transport function may be: only the association is transported, not the representations it associates, so a self-distillation scheme that rewrites the slow learner's whole parameter vector is transporting more than the biology does.
