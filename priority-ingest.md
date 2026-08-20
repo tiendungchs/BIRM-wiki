@@ -24,7 +24,7 @@ One INGEST each:
 - [x] `helie-2013-basal-ganglia-cognitive-models.md` — rl-planning · S · 2013
 - [x] `doya-2002-metalearning-neuromodulation.md` — rl-planning · F · 2002
 - [x] `daw-2005-uncertainty-based-arbitration.md` — rl-planning · F · 2005
-- [ ] `botvinick-2008-hierarchical-rl-behavior.md` — rl-planning · F · 2008
+- [x] `botvinick-2008-hierarchical-rl-behavior.md` — rl-planning · F · 2008
 - [ ] `bogacz-2007-basal-ganglia-optimal-decisions.md` — rl-planning · M · 2007
 - [ ] `poursiami-2025-hippocampal-rl-framework.md` — rl-planning · M · 2025
 - [ ] `harvey-2026-hierarchical-skill-discovery.md` — rl-planning · M · 2026
