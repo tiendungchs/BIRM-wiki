@@ -16,7 +16,7 @@ One INGEST each:
 - [x] `friston-2009-free-energy-principle-rough-guide.md` — active-inference · S · 2009
 - [x] `cooper-2026-efe-belief-dependent-utility.md` — active-inference · F · 2026
 - [x] `nuijten-2026-what-inference-is-active-inference.md` — active-inference · F · 2026
-- [ ] `champion-2023-deconstructing-deep-active-inference.md` — active-inference · M · 2023
+- [x] `champion-2023-deconstructing-deep-active-inference.md` — active-inference · M · 2023
 - [ ] `nuijten-2026-efe-planning-variational-inference.md` — active-inference · M · 2026
 - [ ] `zhang-2025-novelty-variability-active-inference.md` — active-inference · R · 2025
 - [ ] `talk-nd-free-energy-principle.txt` — active-inference · X · nd
