@@ -209,7 +209,7 @@ One INGEST each:
 - [x] `oquab-2023-dinov2.md` — ssl-representation · M · 2023
 - [x] `assran-2023-i-jepa.md` — ssl-representation · M · 2023
 - [x] `simeoni-2025-dinov3.md` — ssl-representation · M · 2025
-- [ ] `li-2025-hit-jepa-trajectory-embedding.md` — ssl-representation · M · 2025
+- [x] `li-2025-hit-jepa-trajectory-embedding.md` — ssl-representation · M · 2025
 - [ ] `balestriero-2025-lejepa.md` — ssl-representation · M · 2025
 - [ ] `chen-2025-vl-jepa.md` — ssl-representation · M · 2025
 - [ ] `akbar-2026-weak-sigreg-covariance-regularization.md` — ssl-representation · M · 2026

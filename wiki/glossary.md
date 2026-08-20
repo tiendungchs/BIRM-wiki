@@ -50,6 +50,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | NGRAD | Neural Gradient Representation by Activity Differences | Lillicrap et al. 2020's claim that every local approximation to backpropagation encodes gradients as activity differences; disputed in [[wiki/empirical-tensions.md]] T70 |
 | GAN | Generative Adversarial Network | Contrastive EBM in which the contrastive samples come from a trainable generator |
 | H-JEPA | Hierarchical JEPA | JEPAs stacked so higher levels predict further ahead on coarser representations ([[wiki/entities/h-jepa.md]]) |
+| HiT-JEPA | Hierarchical Interactions of Trajectory Semantics via a JEPA | The first trained JEPA stack; levels differ in sequence *resolution* rather than prediction horizon ([[wiki/entities/hit-jepa.md]]) |
+| H3 | Hexagonal Hierarchical Geospatial Indexing System (Uber) | Multi-resolution hexagonal tiling of the globe; the input tokeniser in [[wiki/entities/hit-jepa.md]] |
 | IC / TC | Intrinsic Cost / Trainable Critic | The immutable and learned halves of LeCun 2022's cost module |
 | InfoNCE | Information Noise-Contrastive Estimation | The standard multi-sample contrastive loss |
 | i.i.d. | independent and identically distributed | Train and test drawn from the same distribution; the assumption behind standard benchmarking |
