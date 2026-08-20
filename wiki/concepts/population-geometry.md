@@ -206,6 +206,24 @@ Two things follow for this page. First, it is the wiki's cleanest case of geomet
 
 ---
 
+## A temporal property of the geometry: straightening, and whether it is a virtue
+
+Every measurement above is of the *state cloud*'s shape. The one geometric property that is about **trajectories** enters the wiki from the machine side (Maes et al. 2026, [[wiki/entities/lewm.md]]), against the neuroscience temporal-straightening hypothesis (Hénaff et al.): perceptual representations render temporally complex input as approximately straight paths, which makes prediction linear extrapolation.
+
+```
+v_t = z_{t+1} − z_t ,   S_straight = mean_{i,t} cos(v_t^(i), v_{t+1}^(i))     ∈ [−1, 1]
+```
+
+| Finding | Detail |
+|---|---|
+| It emerges unasked | A latent world model's trajectories straighten **monotonically over training** with no term encouraging it |
+| An explicit regulariser does worse | The comparison model (PLDM) has a dedicated temporal-smoothness term and ends up **less** straight |
+| The authors' own reading is *collapse* | Their anti-collapse regulariser constrains the marginal at each timestep and nothing across time, so the unconstrained temporal axis degenerates toward linear paths — a partial **temporal collapse** that happens to help |
+
+Three consequences for this page. (i) `S_straight` is a cheap, label-free geometric statistic computable on any recorded population or model latent, and it is not in the instrument table above. (ii) It is the first quantity here whose *good* and *bad* readings are the same measurement — maximal straightness is a one-dimensional trajectory, i.e. an informationless code, so the useful regime is an interior optimum nobody has located ([[wiki/empirical-tensions.md]] T153). (iii) It supplies the missing temporal complement to the anti-collapse literature: an objective that regularises only per-timestep marginals leaves the trajectory geometry free, which is exactly the degree of freedom this page's manifold estimators (fitted from transition probabilities) are sensitive to.
+
+---
+
 ## Open problems
 
 - **One manifold, one task.** Nothing here says how the manifolds for two tasks relate, whether they share dimensions, or what happens on the transition. That is G40's reuse question and this paper does not touch it.
@@ -226,6 +244,7 @@ Two things follow for this page. First, it is the wiki's cleanest case of geomet
 - **[[wiki/concepts/priority-map.md]]** — a mechanism left undetermined for want of this page's instrument: multi-unit recording cannot say whether object identity and location are conjunctive within cells or superposed across the population, and only the second lets a target–template similarity be read off a linear projection (Bichot et al. 2015).
 - **[[wiki/concepts/objective-identifiability.md]]** — supplies this page's reason to exist (population structure is a legitimate prediction target, single-unit tuning is not) and receives its instrument, plus the number that bounds its own dimensionality confound: a linear PC count can exceed the true latent dimension by 7–8×, so two systems differing in participation ratio may carry identical geometry.
 - **[[wiki/entities/cscg.md]]** — the model that predicts this page's one longitudinal result: the topological progression of the CA1 manifold *is* a state machine's states separating, and the clone model is the only one tested that reproduces the order in which they separate.
+- **[[wiki/entities/lewm.md]]** — supplies this page's only *trajectory* geometry statistic and the warning attached to it: a latent world model's paths straighten monotonically over training with nothing asking them to, and the straightening is as readable as a collapse of the unconstrained temporal axis as it is as a good perceptual code.
 - **[[wiki/concepts/representation-probing.md]]** — the same inside-the-system ambition with the labels removed: a probe asks whether a *named* structure is decodable, manifold inference asks what shape the activity has before naming anything, and cross-subject rotation alignment is the one comparison here that does not need ground truth. Both stop at decodability without intervention.
 - **[[wiki/concepts/cognitive-map.md]]** — supplies the single-unit case its "beyond space" table lacked (a learned, non-perceptual variable with firing fields, in mouse CA1) and the measured instance of its reusable-code-plus-pose decomposition, with the pose realised as a 10-parameter `SO(5)` rotation between brains.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — the opposite pole of the same architecture: `g` requires content-invariance, and this page's cells are ~90% conjunctive, so the invariance appears only after the population geometry is extracted — which says where in a model the factorisation is allowed to live.

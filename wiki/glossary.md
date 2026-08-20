@@ -352,3 +352,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MLLM | Multimodal Large Language Model | An LLM fed projected visual encoder outputs as input tokens (the LLaVA recipe); the setting of tension T149 |
 | VLA | Vision-Language-Action model | A vision-language backbone fine-tuned by behavioural cloning to emit actions directly, with no world model and no planning — Octo is the wiki's instance |
 | VidQA | Video Question Answering | Open-language QA over video clips; the benchmark family (PerceptionTest, MVP, TempCompass, TemporalBench, TOMATO, TVBench, MVBench) used to score encoders after LLM alignment |
+| SIGReg | Sketched-Isotropic-Gaussian Regularizer | Anti-collapse term: project embeddings onto `M` random unit directions and penalise each 1-D projection's Epps–Pulley distance from `N(0,1)`; by Cramér–Wold this matches the joint to `N(0, I)` ([[wiki/entities/lewm.md]]) |
+| LeWM | LeWorldModel | The 15M end-to-end pixel JEPA built on SIGReg ([[wiki/entities/lewm.md]]) |
+| PLDM | Predictive Latent Dynamics Model | The other end-to-end pixel JEPA, trained with a seven-term VICReg-derived objective; LeWM's closest baseline |
+| DINO-WM | DINO World Model | Latent world model built on a frozen DINOv2 encoder; the frozen-foundation-encoder branch of the JEPA control lineage |
+| AdaLN | Adaptive Layer Normalization | Conditioning by predicting a normalisation layer's scale and shift from a conditioning vector; zero-initialised in LeWM so action conditioning enters gradually |
