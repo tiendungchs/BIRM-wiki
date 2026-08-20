@@ -15,7 +15,7 @@ One INGEST each:
 - [x] `lundqvist-2018-gamma-beta-bursts-working-memory.md` — working-memory · R · 2018
 - [x] `derosa-2024-working-memory-removal-operations.md` — working-memory · R · 2024
 - [x] `gong-2024-self-attention-working-memory-limit.md` — working-memory · R · 2024
-- [ ] `wise-2000-arbitrary-antecedent-action-associations.md` — prefrontal-control · S · 2000
+- [x] `wise-2000-arbitrary-antecedent-action-associations.md` — prefrontal-control · S · 2000
 - [ ] `murray-2000-pfc-arbitrary-visuomotor-mapping.md` — prefrontal-control · S · 2000
 - [ ] `miller-2002-prefrontal-categories-concepts.md` — prefrontal-control · S · 2002
 - [ ] `heidbreder-2003-rat-medial-prefrontal-dorsoventral.md` — prefrontal-control · S · 2003
