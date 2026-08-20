@@ -129,8 +129,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | GIN | Graph Isomorphism Network | The maximally expressive message-passing GNN under the Weisfeiler-Lehman test; the ceiling NeuroMatch's identity injection is designed to exceed |
 | MDP / POMDP | (Partially Observable) Markov Decision Process | State–action–reward formalism, with *partially observable* meaning the agent sees an observation rather than the state — the setting every navigation task in the wiki actually sits in |
 | PDDL | Planning Domain Definition Language | Hand-written symbolic action schemas (preconditions, effects); the form in which [[wiki/entities/hbtom.md]]'s environment dynamics are *supplied* rather than learned ([[wiki/empirical-tensions.md]] T21) |
-| SSM / RSSM | (Recurrent) State-Space Model | A latent-dynamics world model: `p(z_t|z_{t-1},a_{t-1})` plus `p(x_t|z_t)`, trained on the ELBO; the recurrent variant (PlaNet, Dreamer) is what makes latent-space rollout possible without decoding each step
-| PPDDL | Probabilistic PDDL | PDDL with stochastic action effects; the target language DeepSym's distilled decision tree emits ([[wiki/concepts/affordance-grounded-symbols.md]])
+| SSM / RSSM | (Recurrent) State-Space Model | A latent-dynamics world model: `p(z_t\|z_{t-1},a_{t-1})` plus `p(x_t\|z_t)`, trained on the ELBO; the recurrent variant (PlaNet, Dreamer) is what makes latent-space rollout possible without decoding each step |
+| PPDDL | Probabilistic PDDL | PDDL with stochastic action effects; the target language DeepSym's distilled decision tree emits ([[wiki/concepts/affordance-grounded-symbols.md]]) |
 | AUROC | Area Under the Receiver Operating Characteristic curve | Ranking metric on balanced samples; disputed as a retrieval measure because it hides class skew ([[wiki/empirical-tensions.md]] T22) |
 | TPR / FPR | True / False Positive Rate | Detection rates; the pair AUROC summarises and precision does not follow from |
 | BFS | Breadth-First Search | Uninformed shortest-path search; the query-generation procedure in NeuroMatch's training set and a cost signal read out of lateral prefrontal cortex ([[wiki/concepts/cognitive-map.md]]) |
@@ -152,6 +152,14 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | Go / NoGo | (striatal pathway names) | The direct (Go) and indirect (NoGo) striatal pathways; in [[wiki/entities/pbwm.md]] they are the two learned votes on whether a stripe is updated |
 | PVLV | Primary Value, Learned Value | PBWM's dopamine model: two Rescorla–Wagner systems (`PVe/PVi`, `LVe/LVi`) that reproduce the dopamine firing record with no temporal-difference prediction chain |
 | 1-2-AX | (task name) | Hierarchical working-memory task: an outer digit cue selects which of two inner letter sequences (A→X or B→Y) is the target — the wiki's standard test that a store can hold two nested contexts ([[wiki/entities/pbwm.md]]) |
+| HRL | Hierarchical Reinforcement Learning | Reinforcement learning over temporally extended actions rather than primitive ones; the framework [[wiki/concepts/temporal-abstraction-options.md]] formalises as options |
+| PPO | Proximal Policy Optimization | The standard clipped-surrogate policy-gradient baseline; on this wiki it is the *flat, primitive-action* control that hierarchical agents are scored against |
+| CKA | Centered Kernel Alignment | A similarity measure between two representations that needs no unit correspondence, so it compares models with disjoint architectures ([[wiki/concepts/representation-probing.md]]) |
+| HMM | Hidden Markov Model | Discrete latent state with a stochastic transition matrix; the rung of the agent ladder between a plain autoencoder and a full transition model, and the generative form [[wiki/entities/cscg.md]] refines with cloning |
+| SVM | Support Vector Machine | Max-margin linear classifier; the standard decoder used as a probe when the question is whether a variable is *linearly* readable from a population |
+| SOM | Self-Organizing Map | Kohonen's topographic quantiser — neighbouring units come to code neighbouring inputs; the classical unsupervised route to a metric-preserving code. **Not** to be confused with `Sst`/somatostatin interneurons in the neuroscience section |
+| WL | Weisfeiler–Leman test | The graph-isomorphism colour-refinement heuristic that bounds the expressivity of message-passing graph networks; the ceiling [[wiki/concepts/subgraph-matching.md]] anchoring is claimed to lift |
+| RRAM / MRAM | Resistive / Magnetoresistive Random-Access Memory | Non-volatile in-memory-compute substrates; the hardware assumption behind the neuromorphic cost arguments ([[wiki/entities/spiking-neural-networks.md]], [[wiki/entities/hami.md]]) |
 
 ## Neuroscience
 
@@ -248,7 +256,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | WISC | Wechsler Intelligence Scale for Children | Multi-subtest IQ battery (digit span, block design, similarities, coding, comprehension) |
 | FWE | Family-Wise Error | Correction controlling the probability of *any* false positive across the tested voxels; stricter than false-discovery-rate control |
 | fMRI adaptation | (repetition suppression) | Reduced response to a stimulus similar to its predecessor; recovery from it is used as a proxy for representational distance between the two |
-| CHL | Contrastive Hebbian Learning | Two-phase rule `Δw ∝ ⟨ρρ⟩_clamped − ⟨ρρ⟩_free`; the fully clamped (`β → ∞`) limit of equilibrium propagation |
+| CHL | Contrastive Hebbian Learning | Two-phase rule `Δw ∝ ⟨ρρ⟩_clamped − ⟨ρρ⟩_free`; the fully clamped (`β → ∞`) limit of equilibrium propagation ([[wiki/concepts/equilibrium-propagation.md]]) |
 | STDP | Spike-Timing-Dependent Plasticity | Hebbian rule whose sign depends on pre/post spike order |
 | BCM | Bienenstock–Cooper–Munro theory | Stabilised Hebbian rule with a *sliding* modification threshold on postsynaptic activity — potentiation above it, depression below — so the rule is metaplastic by construction ([[wiki/concepts/synaptic-plasticity.md]]) |
 | GHA | Generalized Hebbian Algorithm | Deflation-based extension of Oja's rule that extracts successive principal components rather than only the first |
@@ -288,11 +296,17 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | BTSP | Behavioral Timescale Synaptic Plasticity | Seconds-wide eligibility window gated by a dendritic plateau; produces a place field from one traversal, and a binary-weight content-addressable memory at the population level ([[wiki/concepts/synaptic-plasticity.md]], [[wiki/entities/btsp-cam.md]], [[wiki/empirical-tensions.md]] T13) |
 | SMA / pre-SMA | Supplementary Motor Area / pre-Supplementary Motor Area | Medial premotor cortex on the dorsal medial wall; pre-SMA is the more rostral, more abstract of the pair and carries *response tactic* rather than movement ([[wiki/concepts/policy-abstraction-hierarchy.md]], [[wiki/entities/medial-prefrontal-cortex.md]]) |
 | PMd | Dorsal Premotor Cortex | Where an arbitrary cue→action mapping is stored once learned ([[wiki/concepts/arbitrary-sensorimotor-mapping.md]]) |
+| LEC II / LEC III | Lateral Entorhinal Cortex, layer II / layer III | The non-spatial entorhinal stream — object and item content — entering the hippocampus alongside the medial (grid) stream ([[wiki/entities/spiking-tem.md]]) |
 | MEC II / MEC III | Medial Entorhinal Cortex, layer II / layer III | Layer II grid cells phase-precess; layer III cells phase-lock and are trained to predict layer II one step ahead ([[wiki/entities/spiking-tem.md]], [[wiki/concepts/temporal-coding.md]]) |
 | NAc | Nucleus Accumbens | Ventral striatum; the second coincidence gate downstream of the control layer, where hippocampal and prefrontal input converge ([[wiki/entities/hippocampal-prefrontal-channel.md]]) |
 | VTC | Ventral Temporal Cortex | The object-selective end of the ventral visual stream |
 | SWR | Sharp-Wave Ripple | Hippocampal high-frequency burst during rest and slow-wave sleep; the event replay rides on ([[wiki/concepts/offline-replay.md]]) |
 | RPE | Reward Prediction Error | `r + γV(s′) − V(s)`; the quantity dopamine phasic firing is standardly read as reporting, and which [[wiki/entities/pbwm.md]]'s PVLV contests |
+| DLPFC | Dorsolateral Prefrontal Cortex | The lateral control tier: rule and task-set coding, and the region whose coupling — not activation — separates good from poor learners ([[wiki/concepts/arbitrary-sensorimotor-mapping.md]], [[wiki/concepts/cognitive-control.md]]) |
+| VTA | Ventral Tegmental Area | Midbrain dopamine source projecting to ventral striatum and cortex; paired with SNc as the origin of the broadcast scalar in [[wiki/concepts/reward-prediction-error.md]] |
+| OLM | Oriens–Lacunosum Moleculare interneuron | Somatostatin-expressing hippocampal interneuron innervating distal CA1 dendrites; the addressed target of the place-cell→interneuron potentiation in [[wiki/concepts/inhibitory-control-of-coding.md]] |
+| VIP | Vasoactive Intestinal Peptide interneuron | Disinhibitory interneuron class (VIP⁺ inhibits SOM⁺/PV⁺); one of the three marker-defined channels through which coding-level control is exerted |
+| MBON | Mushroom Body Output Neuron | *Drosophila* readout neuron whose synaptic weights carry the learned valence; the invertebrate case in the consolidation table ([[wiki/concepts/generalization-optimized-consolidation.md]]) |
 
 ## Benchmarks
 

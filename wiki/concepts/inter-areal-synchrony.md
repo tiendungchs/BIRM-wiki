@@ -4,6 +4,8 @@
 
 > **Provenance.** Sigurdsson & Duvarci 2016, *Hippocampal-prefrontal interactions in cognition, behavior and psychiatric disease*, Front Syst Neurosci 9:190 (`raw/sigurdsson-2016-hippocampal-prefrontal-interactions.md`). A review organized around the *measurement* of an inter-areal interaction rather than around either endpoint. The hippocampus↔prefrontal circuit is the worked case; the argument is about inter-areal coupling generally.
 
+**Canonical home for band claims.** Theta, gamma, alpha/beta and their couplings appear on 24 pages; this is the page that says what a band *licenses*, and any page asserting a band effect should link here rather than restate the rule. Theta in particular is treated here as a **measurement variable, not a concept** — it has no page of its own by decision, because every load-bearing claim about it in this wiki is a claim about what a theta-band correlation does or does not license (lint pass, 128 ingests).
+
 Why this earns a page. The wiki has been treating "module A talks to module B" as a single primitive — one arrow, one wire, one weight matrix ([[wiki/entities/medial-prefrontal-cortex.md]], [[wiki/entities/nucleus-reuniens.md]], gaps G52/G53). The measurements the arrow rests on are correlations, and they decompose. A builder who imports "synchrony coordinates modules" without the decomposition imports two different claims fused into one.
 
 ---

@@ -113,6 +113,8 @@ Combined, the final rule is `dx^l/dt = −x^l + ψ x^{l+1}` with `ψ` learned He
 
 ### Equilibrium propagation is the frame that contains all four
 
+> Full treatment, including the finite-nudge and ImageNet results, on [[wiki/concepts/equilibrium-propagation.md]].
+
 Every model here has dynamics that minimise a scalar energy, and every learning rule here is the gradient of that same energy w.r.t. the weights (Scellier & Bengio 2017):
 
 | Model class | Energy minimised | Phases needed |
@@ -359,3 +361,4 @@ The motivation is not only biological fidelity. Very deep networks (>20 layers) 
 - **[[wiki/concepts/temporal-coding.md]]** — the baseline this page's machinery must beat: sub-millisecond temporal tuning, unsupervised latent recovery and self-normalizing synaptic competition are all obtained with no error signal at all, so credit assignment is needed only for what a timing-driven local rule cannot reach — which here is everything relational.
 - **[[wiki/entities/pbwm.md]]** — delayed credit without approximating backpropagation at all: an associative critic learns the value of *maintained internal states* at reward time, and the global dopamine scalar is multiplied by each stripe's own gating action (`δ_j = snr_j·δ`) so that only units that acted are trained — structural credit assignment as an anatomical multiplication rather than a backward pass.
 - **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — supplies the wiring the dendritic-error family needs: feedback onto distal apical tufts plus a vertically-projecting Martinotti-like interneuron trained to cancel it, so an apical error term exists with no dedicated error cell.
+- **[[wiki/concepts/equilibrium-propagation.md]]** — the member of this page's family with the strongest evidence and the sharpest cost accounting: no weight transport and no separate backward circuit, an iteration count measured layer by layer, and the only full-ImageNet result any rule here has produced — with the caveat that it tracks backpropagation closely enough to be non-identifiable from it.

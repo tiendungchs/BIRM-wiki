@@ -47,8 +47,8 @@ The survey's Fig. 24 states the trichotomy that every latent-dynamics architectu
 | Transition | Form | Failure |
 |---|---|---|
 | **Deterministic** (RNN/GRU/LSTM) | `z' = f(z, a)` | Cannot represent multi-modal futures; and because the rollout is a differentiable deterministic map, **the planner exploits it** — the optimiser finds action sequences whose imagined return comes from model error |
-| **Stochastic** (state-space model) | `z' ~ p(· | z, a)` | Long-term memory is not retained: information has to survive repeated sampling |
-| **Hybrid** (RSSM) | deterministic carrier `h' = f(h,z,a)` **plus** stochastic `z' ~ p(·|h')` | The compromise: multi-modal futures on the stochastic channel, temporal coherence on the deterministic one |
+| **Stochastic** (state-space model) | `z' ~ p(· \| z, a)` | Long-term memory is not retained: information has to survive repeated sampling |
+| **Hybrid** (RSSM) | deterministic carrier `h' = f(h,z,a)` **plus** stochastic `z' ~ p(·\|h')` | The compromise: multi-modal futures on the stochastic channel, temporal coherence on the deterministic one |
 
 **Planner exploitation is the entry that matters.** It is [[wiki/concepts/shortcut-learning.md]] pointed inward: the search procedure is an adversary against its own model, and the defence is not a better model but *stochasticity in the transition* — noise makes exploitable ridges disappear under expectation. Every wiki architecture that plans by gradient descent on a deterministic learned map inherits this and none of them says so.
 
