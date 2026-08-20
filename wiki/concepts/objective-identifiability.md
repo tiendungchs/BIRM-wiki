@@ -118,6 +118,20 @@ Three of the five are *general properties of neural codes* rather than grid-spec
 
 ---
 
+---
+
+## A third direction: the objective is not even fixed by the architecture
+
+The two directions above assume the system *has* an objective and ask what an observer can recover. A predictive-coding network shows the weaker case: **the same architecture, the same weights and the same Hebbian update rule optimise different objectives depending on one scalar per layer.** With the input and output arms both at level 0 and an unconstrained apex, the ratio of the generative model's variance parameters `Σ^in : Σ^out` moves the learned solution continuously between forward regression (the backpropagation limit), the first principal component (equal precisions), and inverse regression — three standard algorithms, one network, one number (Whittington & Bogacz 2017, [[wiki/concepts/predictive-coding-free-energy.md]]).
+
+| Consequence | For this page |
+|---|---|
+| The objective is a **parameter**, not a design choice | An audit that asks "which loss produced this representation?" can be answered "all of them, at different precisions" — the many-to-one direction with the many made explicit and continuous |
+| The parameter is **physiologically ordinary** | Precision maps to synaptic gain / neuromodulatory state, so the same tissue under two neuromodulatory regimes is optimising two objectives. Nothing in the anatomy identifies which |
+| It cuts the other way too **(brainstorm)** | If the precision *is* the objective, then measuring precision — not fitting tuning curves — is the identifiable experiment. This is the only route in the wiki where an objective claim reduces to a measurable circuit parameter rather than a model comparison |
+
+---
+
 ## Connections
 
 - **[[wiki/entities/cscg.md]]** — the one instance in the wiki where this page's degeneracy is broken empirically: three architectures reach the same orthogonalized endpoint and only one reproduces the order in which a brain reaches it — bought at the cost of a symbol-encoding choice that flips the result.
@@ -136,3 +150,4 @@ Three of the five are *general properties of neural codes* rather than grid-spec
 - **[[wiki/entities/mm-tem-hippoformer.md]]** — another one-hot-target case where grid-like units appear with no centre–surround readout anywhere in the loss, and the first to run a train-time/test-time control on the hyperparameter it credits with setting the scale (changing the prediction horizon after training leaves the period unchanged) — while still leaving module structure, adjacent-scale ratios and filtered-noise controls unreported.
 - **[[wiki/concepts/meta-optimized-plasticity.md]]** — the identifiability question moved onto the learning rule: a meta-loss over a fixed candidate basis with an L1 penalty is an explicit device for making *which mechanism did the work* recoverable, where a per-synapse discovered rule leaves it unidentifiable.
 - **[[wiki/concepts/manifold-constrained-learning.md]]** — the strongest support in the wiki for this page's central line that population-level structure is a legitimate target: a factor-analysis subspace fitted to baseline activity goes on to predict which of two confound-matched decoder perturbations an animal can learn, so the population object earns its status by predicting a manipulation rather than by fitting the data it came from (Sadtler et al. 2014).
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the sharpest instance of the many-to-one direction: one network's objective is set by a per-layer variance parameter, so backpropagation, principal-component analysis and inverse regression are the same architecture at three precision ratios and no representation can distinguish which one was intended.

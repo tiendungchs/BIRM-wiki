@@ -48,6 +48,60 @@ The dendritic row matters because it means "predictive coding" and "dendritic er
 
 ---
 
+## The precision ratio selects the objective — backpropagation is one setting of one scalar
+
+> `raw/whittington-2017-predictive-coding-approximates-backprop.md` — Whittington & Bogacz, *Neural Computation* 29(5):1229–62, 2017. The primary result the wiki has so far carried only through the 2019 review. Its contribution beyond "predictive coding ≈ backpropagation" is that the approximation is **controlled by the variance parameters `Σ^(l)` of the generative model**, and that varying them sweeps the network through a family of different objectives, of which backpropagation is one endpoint.
+
+**The setup.** A layered generative model, input clamped at the *top* (`l = l_max`), output at the bottom (`l = 0`) — inverted relative to Rao & Ballard, because in a supervised biological setting the input arrives at one sensory cortex and the target at another, and this network is the associative→output-modality half of that arc.
+
+```
+x^(l) ~ N(μ^(l), Σ^(l)),   μ_i^(l) = Σ_j θ_ij^(l+1) f(x_j^(l+1))         generative model
+ε_i^(l) = (x_i^(l) − μ_i^(l)) / Σ_i^(l)                                   error node        (2.17)
+ẋ_i^(l) = −ε_i^(l) + f′(x_i^(l)) Σ_k ε_k^(l−1) θ_ki^(l)                   value node        (2.18)
+Δθ_ij^(l) ∝ ε_i^(l−1) f(x_j^(l))                                          Hebbian, at equilibrium (2.19)
+```
+
+Setting `ẋ = 0` in (2.18) gives `ε_i^(l) = f′(x_i^(l)) Σ_k ε_k^(l−1) θ_ki^(l)` — **algebraically identical to the backpropagation recursion for `δ`**, when all `Σ^(l) = 1`. The two rules therefore differ in exactly one place: backpropagation's `δ` is evaluated at the *feedforward* activity, predictive coding's `ε` at the *relaxed* activity with the output clamped.
+
+**Three conditions under which they coincide** — worth separating, because only the third is a design knob:
+
+| # | Condition | Why |
+|---|---|---|
+| 1 | The network already predicts the training outputs exactly | Then `F` reaches its maximum 0 during relaxation, so `x*^(l) = y^(l)` for all `l` and the two updates are *identical* — and both are zero. **The perfect-prediction weights are a shared fixed point**, so the two algorithms cannot diverge at convergence, only en route |
+| 2 | Predictions are close to the targets | Clamping the output perturbs the other layers only slightly; the gradient directions stay within a small angle. Measured on a 1-1-1 network: the angle between the two weight-change directions shrinks toward 0 near the objective's maximum |
+| 3 | **`Σ^(0) → ∞`** (output-layer variance dominates), learning rate rescaled by the same constant | Clamping a high-variance node barely moves anything upstream, so `x*^(l) → y^(l)` for `l > 0` *regardless of accuracy*. This is the only route to asymptotic equivalence that does not depend on already having learned |
+
+**MNIST, 784-600-600-10, sigmoid, Adam, batch 20, only 20 inference steps (deliberately not converged):** predictive coding with `Σ^(0) = 1` and with `Σ^(0)` large both track the artificial neural network's learning curve; all three reach 0.00% training error and 1.7–1.8% validation error. The approximation is not a handicap at this scale, and it does not require relaxation to convergence.
+
+**What the knob actually buys.** Put both modalities at the bottom (`s^in` at one level-0 arm, `s^out` at the other, a shared unconstrained apex) and the variance ratio picks out a different estimator entirely:
+
+| Precision setting | The network learns | Standard algorithm it reproduces |
+|---|---|---|
+| `Σ^out ≫ Σ^in` | Predict output from input | **Backpropagation** (linear case: forward regression) |
+| `Σ^out ≈ Σ^in` | The direction of maximum variance in the joint data | **First principal component** |
+| `Σ^in ≫ Σ^out` | Predict input from output | **Inverse regression** |
+
+Each is best in its own direction and the *equal-precision* setting is second-best in both. Since the apex is unconstrained at test time, one trained network is run in either direction by clamping either arm and letting the other relax — **no separate inverse model, no decoder, the same weights** (§3.3).
+
+**(brainstorm)** This is the sharpest instance in the wiki of an objective being *set by a parameter of the architecture rather than chosen by the designer*. The wiki's G30 asks for a quantity that can be ascended to produce a structural code; here a per-layer scalar — one that is itself learnable in the full framework, and physiologically maps to synaptic gain / neuromodulatory precision — moves the system continuously between a discriminative objective, a generative-variance objective, and its own inverse. A model that could *set* its precisions per layer per task would be selecting its own objective at runtime, which is what [[wiki/concepts/meta-learning.md]] needs and [[wiki/concepts/objective-identifiability.md]] says an observer cannot recover from the representation.
+
+**The paper's own argument that cortex does *not* implement backpropagation.** Not from implausible machinery — from the *probabilistic model backpropagation implicitly assumes*:
+
+| Assumption forced by the backpropagation limit | What real tasks look like |
+|---|---|
+| All variability enters at the **output layer** (`Σ^(0) ≫ Σ^(l>0)`) | Variability enters at every level — stroke angle and stroke length as much as pixel colour |
+| The latent structure is a **chain**: `l_max → … → 0` | The letter is a *common cause* of both the seen shape and the heard sound; the natural graph is a tree with two arms, not a chain |
+
+Both point the same way: the useful regime is the one with **no variance parameter dominating**, i.e. the regime that is *not* backpropagation. The wiki should stop treating backpropagation-approximation as the target for these models and treat it as one calibration.
+
+**The convergence limit is anti-biological, and this is a real cost.** Condition 3 works by driving the error nodes' activity toward zero. A spiking neuron cannot reliably encode a vanishing-magnitude error, so the parameter regime in which the equivalence proof holds is the regime in which the circuit stops being implementable. The proof is a statement about the algorithm, not an argument for the biology — and the MNIST curves show the biologically usable setting (`Σ^(0) = 1`) loses nothing anyway.
+
+**Autonomy, and where it is still short.** No phase signal is needed because the update rule is zero when the target is absent: with the output free, the errors relax to 0 and (2.19) gives `Δθ = 0`. The network can even decide *when* to update — weights change once activity has settled. But a synapse can only detect that *its own two* neurons have settled, not that the network has; whether that local convergence test suffices is untested. A bias unit is a node with constant output `1` **and no error node attached**, so it never contributes a residual.
+
+**Remaining anatomical debts, stated by the authors.** (i) One-to-one value↔error pairing has no cortical evidence; whether distributed pairing works is untested. (ii) Symmetric `θ` for prediction and error return — asserted unnecessary in later work, not shown here. (iii) Error nodes take both signs, which requires reading zero as a *baseline firing rate*, hence high mean rates — true of interneurons, not of pyramidal cells. (iv) The nonlinearity needs extra machinery: an inhibitory interneuron computing `f(x)` on the top-down path (which also fixes the sign, since real inter-areal projections are excitatory) plus a multiplicative `f′(x)` gate on the bottom-up path, i.e. a modulatory rather than driving synapse ([[wiki/concepts/dendritic-computation.md]]).
+
+---
+
 ## Hierarchical dynamical models: the generative model is a cascade of attractors
 
 > `raw/friston-2009-predictive-coding-free-energy.md` — Friston & Kiebel, *Phil. Trans. R. Soc. B* 364:1211–21, 2009. The version of this page's scheme in which the *thing being inferred is a trajectory*, not a static cause.
@@ -218,7 +272,7 @@ Step 3 is the expensive one and is explicitly acknowledged as intractable in gen
 - **[[wiki/concepts/abstract-structural-codes.md]]** — spatial predictive encodings are a second, learned candidate for `g`: content-invariant frame-of-reference mappings acquired from multimodal correlation, where grid codes are periodic and given.
 - **[[wiki/concepts/attention.md]]** — attention here is *action abstracted from execution*: the same active-inference machinery pointed at internal encodings, which is what makes thought and behaviour one mechanism.
 - **[[wiki/concepts/working-memory.md]]** — `α = β = γ = 0` is maintenance in the absence of evidence, i.e. active maintenance recovered as a limiting case of the inference update rather than as a dedicated store.
-- **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — predictive coding is the local rule this page runs on; the error `e` is computed within a layer, so no weight transport is needed — and clamping the output layer turns the same circuit into a close approximation of backpropagation, at a cost of `2L−1` synaptic delays per forward pass and a one-to-one error↔value wiring the cortex does not show (Whittington & Bogacz 2019).
+- **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — predictive coding is the local rule this page runs on; the error `e` is computed within a layer, so no weight transport is needed — and clamping the output layer turns the same circuit into a close approximation of backpropagation, at a cost of `2L−1` synaptic delays per forward pass and a one-to-one error↔value wiring the cortex does not show (Whittington & Bogacz 2019). The 2017 primary result sharpens the relation: the equivalence is *exact* when the output-layer variance dominates, at the price of driving error activity to zero, so the family contains backpropagation as a boundary case rather than aiming at it (T119).
 - **[[wiki/concepts/core-knowledge.md]]** — the direct rival on origins: this page derives "innate" conceptual primitives from very early sensorimotor prediction (tension T12), while supplying the same *kind* of thing — a small set of installed structural biases.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the slow half of the update (`W` adaptation to minimise residual error) is a local, error-driven write rule, and the precision gates are a metaplasticity-like control over how much it writes.
 - **[[wiki/concepts/shortcut-learning.md]]** — the three typed prediction channels are an architecture-lever bet against shortcuts: a spatial or temporal channel cannot express a purely appearance-based rule.
@@ -242,3 +296,4 @@ Step 3 is the expensive one and is explicitly acknowledged as intractable in gen
 - **[[wiki/concepts/attractor-dynamics.md]]** — settling to a joint minimum with two fragments held active is the composition-by-constraint-satisfaction mechanism proposed for G21; and the hierarchical-dynamical version above supplies the wiki's one run-time source of a manifold, with the level above delivering the control parameters that reshape the level below's attractor (Friston & Kiebel 2009).
 - **[[wiki/concepts/generalization-optimized-consolidation.md]]** — an internally generated error signal driving long-term learning: the slow learner descends the mismatch between its own forward pass and a target reactivated from the fast store, so consolidation is prediction-error learning against a replayed model rather than against the world.
 - **[[wiki/concepts/inter-areal-synchrony.md]]** — where the derived frequency asymmetry becomes a measurement protocol: band-limited coupling types an inter-module link, and the high/low power ratio of two populations says which one is integrating the other's residual.
+- **[[wiki/concepts/objective-identifiability.md]]** — the precision parameters `Σ^(l)` make that page's many-to-one direction a continuum rather than a list: backpropagation, the first principal component and inverse regression are one architecture and one Hebbian rule at three variance ratios, so no representation identifies the objective, but measuring the ratio would (Whittington & Bogacz 2017).

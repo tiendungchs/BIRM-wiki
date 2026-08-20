@@ -9,7 +9,7 @@ One INGEST each:
 
 - [x] `friston-2009-predictive-coding-free-energy.md` — predictive-coding · F · 2009
 - [x] `bastos-2012-canonical-microcircuits.md` — predictive-coding · F · 2012
-- [ ] `whittington-2017-predictive-coding-approximates-backprop.md` — predictive-coding · M · 2017
+- [x] `whittington-2017-predictive-coding-approximates-backprop.md` — predictive-coding · M · 2017
 - [ ] `milosevic-2026-active-inference-convex-mdp.md` — predictive-coding · M · 2026
 - [ ] `kerjan-2026-predictive-coding-imagenet-eqprop.md` — predictive-coding · M · 2026
 - [ ] `nguyen-2025-event-segmentation-mechanisms.md` — predictive-coding · R · 2025
