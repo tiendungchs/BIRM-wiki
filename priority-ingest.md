@@ -24,7 +24,7 @@ One INGEST each:
 - [x] `spedding-2012-hippocampal-prefrontal-pathway.md` — prefrontal-control · S · 2012
 - [x] `preston-2013-hippocampus-prefrontal-memory.md` — prefrontal-control · S · 2013
 - [x] `jin-2015-prefrontal-hippocampal-interactions.md` — prefrontal-control · S · 2015
-- [ ] `sigurdsson-2016-hippocampal-prefrontal-interactions.md` — prefrontal-control · S · 2016
+- [x] `sigurdsson-2016-hippocampal-prefrontal-interactions.md` — prefrontal-control · S · 2016
 - [ ] `lieberman-2018-mpfc-social-self-affective.md` — prefrontal-control · S · 2018
 - [ ] `friedman-2021-prefrontal-cognitive-control.md` — prefrontal-control · S · 2021
 - [ ] `arnsten-2010-dynamic-network-connectivity.md` — prefrontal-control · F · 2010

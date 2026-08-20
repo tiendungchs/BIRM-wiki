@@ -94,6 +94,8 @@ The deep layers therefore receive the state/arousal input **and** emit the patch
 
 ## The hippocampal link is one-way
 
+> **Superseded twice below.** An indirect return path is named in "The return path, and what the channel does at each task phase" (nucleus reuniens), and a *direct* anterior-cingulate → CA1/CA3 projection in "The direct return arrow exists after all". Read this section as the anatomy of the ventral tier's **input** port only.
+
 Hippocampal formation → medial prefrontal cortex is real, topographic (ventral subiculum and ventral CA1 → infralimbic and ventral prelimbic) and **essentially unreciprocated**: very few medial prefrontal fibres reach the hippocampal formation directly. Return influence must go through the entorhinal cortex (which *is* bidirectional with the medial wall) or through diencephalic relays. Parahippocampal coupling is bidirectional: perirhinal → infralimbic/ventral prelimbic predominantly, dorsolateral entorhinal → the whole medial wall.
 
 **Why a builder should care.** Every schema-retrieval story in the wiki ([[wiki/concepts/complementary-learning-systems.md]], gap G37) draws a bidirectional arrow between the fast episodic store and the controller. The anatomy says the *direct* arrow runs one way: the store addresses the controller, the controller cannot address the store except through a third module. That makes "the controller queries memory" an operation requiring an intermediary — and makes entorhinal cortex, not hippocampus, the controller's actual read port.
@@ -320,6 +322,35 @@ Prefrontal damage spares familiarity-based recognition and impairs **recollectio
 
 ---
 
+## The direct return arrow exists after all, and it is addressed to hubs
+
+> **Provenance (sixth ingest).** Sigurdsson & Duvarci 2016, *Hippocampal-prefrontal interactions in cognition, behavior and psychiatric disease*, Front Syst Neurosci 9:190 (`raw/sigurdsson-2016-hippocampal-prefrontal-interactions.md`). A review organized around the measurement of the interaction; its methodological core has its own page, [[wiki/concepts/inter-areal-synchrony.md]].
+
+**The one-way section above is now fully retired.** A **monosynaptic** projection runs prefrontal cortex → dorsal hippocampus in the mouse (Rajasethupathy et al. 2015):
+
+| Property | Detail |
+|---|---|
+| Origin | **Anterior cingulate** subdivision of the medial wall — the *dorsal* tier, not the ventral one that receives the hippocampal input |
+| Termination | **CA1 and CA3** of the dorsal hippocampus |
+| Causal status | Optogenetically **necessary and sufficient** for retrieval of a spatial memory (assayed by contextual fear) |
+| Target selection | Preferentially innervates **highly connected "hub" neurons** within the hippocampal network — cells that *emerge after learning* |
+| Other evidence | Prefrontal inactivation changes hippocampal place-cell activity in memory-guided tasks (Navawongse & Eichenbaum 2013) |
+
+So the circuit is not "store addresses controller, controller replies through a relay". It is **two direct arrows with different endpoints**: ventral hippocampus → ventral medial wall (context in), anterior cingulate → dorsal CA1/CA3 (retrieval trigger out). The tiers established at the top of this page are the two ports: the tier that receives from the store is not the tier that writes to it.
+
+**(brainstorm) Addressing by connectivity rank is a memory-system primitive the wiki has no version of.** Every read in the wiki is content-addressed — a query vector against stored keys ([[wiki/concepts/attention.md]], [[wiki/concepts/pattern-separation-completion.md]]). Here the controller's axons find their targets by the targets' *graph degree inside the store*, and that degree is itself a product of learning. A one-line write to a learning-created hub triggers completion of the whole pattern, which is a retrieval interface whose bandwidth is independent of the memory's size — and it makes hub formation, not the memory trace, the thing consolidation has to produce ([[wiki/concepts/engram.md]], [[wiki/concepts/latent-graph-discovery.md]]).
+
+### The choice-phase requirement runs on a different route than the encoding one
+
+Silencing the direct ventral-hippocampal terminals abolishes pathway **gamma** and impairs the **sample** phase, and leaves **theta** — the band that rises at the **choice** point — untouched ([[wiki/concepts/inter-areal-synchrony.md]]). Since the choice phase is when theta coupling peaks and predicts correctness, the two task phases are served by **different pathways**, not merely by different bands of one: encoding by the direct projection, choice by an indirect route (reuniens, ventral hippocampus as synchronizer, septum). This sharpens [[wiki/empirical-tensions.md]] T100 from a phase puzzle into a routing claim.
+
+Two further constraints from the same source:
+
+- **Coupling with the ventral pole exceeds coupling with the dorsal pole** (Adhikari et al. 2010; O'Neill et al. 2013), matching the monosynaptic origin — and inactivating ventral hippocampus **desynchronizes prefrontal–dorsal-hippocampal theta**, so the ventral pole is also the other two nodes' synchronizer, not only the wiki's "context supplier".
+- **The coupling is acquired.** Theta synchrony rises across learning of a spatial working-memory task in parallel with performance (Sigurdsson et al. 2010), and its loss is the measured phenotype in every 22q11.2, *Zdhhc8*, neuregulin, maternal-immune-activation and neurodevelopmental-lesion model examined — with synchrony deficits correlating with working-memory impairment, and, in *Zdhhc8* mice, with **reduced axonal branching of ventral-hippocampal terminals in prefrontal cortex** (Mukai et al. 2015). That is the wiki's one case where a behavioural deficit is traced to the *wiring of a single edge* rather than to either module.
+
+---
+
 ## Limitations
 
 - **Rat, and homology is asserted at one point only** — prelimbic ≈ Brodmann area 32. Everything else must be mapped by hand before it constrains a primate-derived control model.
@@ -335,6 +366,8 @@ Prefrontal damage spares familiarity-based recognition and impairs **recollectio
 - **The pathway's own contribution to the prelimbic/infralimbic split is unresolved by the authors** — it projects to both, and the two have opposite roles in fear expression versus extinction, with no evidence of which terminal field carries which function.
 - **The 2013 schema framework is a synthesis of two literatures, not an experiment.** Its central variable — integration demand — is never measured within a trial, only designed in; almost all of its schema-formation and schema-expression evidence comes from immediately or a few days after learning, which is the wrong window for a claim about consolidation trajectories; and the human arm rests on the rat-mPFC ≈ human-vmPFC homology the source itself calls unfinished.
 - **The 2015 review is a narrative review with no new data**, and its most load-bearing claims (reuniens collateralisation, future-path coding, gamma-band encoding) each rest on a single primary study.
+- **The direct prefrontal→hippocampal projection rests on one mouse study** (Rajasethupathy et al. 2015) reported second-hand in a review; the hub-targeting claim in particular is a single anatomical result, and "necessary and sufficient for retrieval" is measured by contextual fear, not by a spatial read-out.
+- **The 2016 review is a narrative review with no new data**, and its human arm is dominated by haemodynamic functional connectivity measured below 0.1 Hz, which is not the quantity any rodent result here reports ([[wiki/concepts/inter-areal-synchrony.md]]).
 - **Nothing localises the *content* on the channel.** The only positive characterisation is "context"; there is no decoding of what is transmitted, so the difference between the pathway carrying a context label, a gain signal, or an episodic sample is untested (gap G52).
 
 ---
@@ -359,3 +392,4 @@ Prefrontal damage spares familiarity-based recognition and impairs **recollectio
 - **[[wiki/concepts/temporal-coding.md]]** — two coincidence gates downstream of this region are timing-typed rather than sum-typed: the relative arrival time of basolateral-amygdala and ventral-hippocampal input sets an mPFC neuron's firing probability, and hippocampal theta leads prefrontal spiking by ~50 ms, which is the interval a monosynaptic pathway would impose (Spedding & Jay 2012).
 - **[[wiki/concepts/schema-assimilation.md]]** — supplies the content on this page's one-way hippocampal channel and the operation it serves: the ventral/anterior pole codes context-general information (the dorsal/posterior pole codes items in places) and only it projects here, and inactivating this region leaves dorsal hippocampal retrieval intact but *indiscriminate* — both context-appropriate and inappropriate object memories come back — so the controller selects among retrieved candidates rather than addressing the store (Preston & Eichenbaum 2013, [[wiki/empirical-tensions.md]] T99).
 - **[[wiki/entities/nucleus-reuniens.md]]** — the return path this page's anatomy section says must exist, and its topology: prefrontal cortex reaches hippocampus only through this midline relay, whose neurons collateralise to both structures and whose prefrontal→hippocampal arm carries the future path, so the controller's write into the store is a goal constraint delivered on a shared bus rather than a query (Jin & Maren 2015).
+- **[[wiki/concepts/inter-areal-synchrony.md]]** — the measurement layer under every claim on this page about the hippocampal channel: cutting the direct terminals removes gamma and leaves theta, so this page's "frequency-multiplexed channel" is really a *content* channel on the direct wire plus a *coordination* channel supplied by a third region.

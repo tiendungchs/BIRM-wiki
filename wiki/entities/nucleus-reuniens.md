@@ -47,6 +47,15 @@ The Ito result is the specific one. The direct hippocampus → prefrontal channe
 
 ---
 
+## Two updates from a later review
+
+> Sigurdsson & Duvarci 2016 (`raw/sigurdsson-2016-hippocampal-prefrontal-interactions.md`), summarized at [[wiki/concepts/inter-areal-synchrony.md]].
+
+- **This relay is no longer the *only* route back into the store.** A monosynaptic anterior-cingulate → dorsal-CA1/CA3 projection exists and is necessary and sufficient for spatial-memory retrieval (Rajasethupathy et al. 2015). Reuniens is now one of two controller→store channels, and the page's premise — "the controller cannot address the store except through a third module" — holds only for the ventral tier. What survives, and is unique to reuniens, is the *collateralised* topology.
+- **A specific job for the relay, from a subtraction.** Silencing the direct hippocampus→prefrontal terminals abolishes gamma coupling but leaves **theta** coupling intact, and theta is the band that rises at memory-guided choice points. Whatever carries choice-phase coordination is therefore *not* the direct wire; reuniens — bidirectional, excitatory to both ends, collateralised, and lesion-sensitive on exactly these tasks — is the leading candidate, alongside the medial septum and the ventral hippocampus itself (whose inactivation desynchronizes prefrontal–dorsal-hippocampal theta, O'Neill et al. 2013). **(brainstorm)** A collateralising axon is the cheapest possible theta generator: shared phase with no computation at either endpoint.
+
+---
+
 ## Limitations
 
 - **Everything here is rat, and almost all of it is lesion or electrical stimulation.** No cell-type-specific causal dissection of the collateralising population, so "the same spike goes to both" is anatomy (dual retrograde labelling) plus inference, not a simultaneous recording of both terminals.
@@ -66,3 +75,4 @@ The Ito result is the specific one. The direct hippocampus → prefrontal channe
 - **[[wiki/concepts/cognitive-map.md]]** — a second writer into the map: prefrontal lesions degrade hippocampal place-cell spatial firing, so the map's own tuning depends on controller input arriving through this relay.
 - **[[wiki/concepts/temporal-coding.md]]** — the collateralised relay is a synchrony *generator*: one axon delivering the same spike to two structures produces coordinated timing without either structure computing a phase.
 - **[[wiki/concepts/schema-assimilation.md]]** — supplies the missing write channel for the selection story: the controller narrows what the store returns by constraining it through this relay, which is why controller inactivation leaves retrieval intact but indiscriminate.
+- **[[wiki/concepts/inter-areal-synchrony.md]]** — assigns this relay a measurable signature: the coupling band that *survives* cutting the direct hippocampus→prefrontal wire (theta, peaking at choice points) must come from a common input, which is what a collateralising relay delivers by construction.
