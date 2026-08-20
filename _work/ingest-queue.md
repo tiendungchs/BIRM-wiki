@@ -224,8 +224,8 @@ One INGEST each:
 
 **Bundle — Liquid Time-constant Networks (paper + explainer).** One INGEST pass over all 2 files (~8077 words), in this order.
 
-- [ ] `hasani-2021-liquid-time-constant-networks.md` — sequence-models · M · 2021
-- [ ] `emergentmind-2026-liquid-time-constant-networks.md` — sequence-models · X · 2026
+- [x] `hasani-2021-liquid-time-constant-networks.md` — sequence-models · M · 2021
+- [x] `emergentmind-2026-liquid-time-constant-networks.md` — sequence-models · X · 2026
 
 One INGEST each:
 
