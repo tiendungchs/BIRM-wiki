@@ -10,7 +10,7 @@ One INGEST each:
 - [x] `taniguchi-2023-world-models-predictive-coding-robotics.md` — world-models · S · 2023
 - [x] `long-2025-embodied-intelligence-world-models.md` — world-models · S · 2025
 - [x] `zhang-2026-identifiability-controlled-world-models.md` — world-models · F · 2026
-- [ ] `bortoletto-2023-irene-intuitive-reasoning-network.md` — world-models · M · 2023
+- [x] `bortoletto-2023-irene-intuitive-reasoning-network.md` — world-models · M · 2023
 - [ ] `koenig-2024-kan-odes-dynamical-systems.md` — world-models · M · 2024
 - [ ] `gao-2025-adaworld-latent-actions.md` — world-models · M · 2025
 - [ ] `assran-2025-v-jepa-2.md` — world-models · M · 2025
@@ -33,4 +33,6 @@ One INGEST each:
 - [ ] `balestriero-2025-lejepa.md` — ssl-representation · M · 2025
 - [ ] `chen-2025-vl-jepa.md` — ssl-representation · M · 2025
 - [ ] `akbar-2026-weak-sigreg-covariance-regularization.md` — ssl-representation · M · 2026
+- [ ] `kawaharazuka-2025-vision-language-action-robotics.md` — embodied-robotics · S · 2025
+- [ ] `green-2025-learningmatch-siamese-match-manifold.md` — siamese-model · M · 2025
 
