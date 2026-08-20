@@ -149,6 +149,26 @@ Mishchanchuk et al. 2024 (*Science* 386:926-932) supply the two things every acc
 
 **The caveat that limits what it evidences.** The fitted SI agent is a **2-state sticky hidden Markov model with fixed cardinality** — a stay-probability `γ`, an observation-compatibility parameter `c` (and a separate `d` for omissions), and softmax steepness fixed at 10 — not a Chinese Restaurant Process or a hierarchical Dirichlet process. The number of contexts is supplied by the experimenter, so this is strong evidence for **belief maintenance over a known context set** and *no* evidence for the allocation half this page leans on `γ, κ, α` for. The best-fitting variant also updates `p(o_t∣s_t)` on **rewarded trials only** (`d = 0`), treating omissions as uninformative — a deliberate asymmetry that buys stability when the correct option pays out only 70% of the time. **(brainstorm)** That asymmetry is worth copying: an evidence channel whose likelihood is flat for the *frequent-but-ambiguous* observation is a one-parameter defence against a posterior thrashing under a noisy reward function, and it is cheaper than tuning stickiness `κ` to do the same job.
 
+## When the clustered object is a policy — and when the prior is a wiring statistic
+
+Collins & Frank 2013 run this page's machinery over a different kind of content and get a neural implementation for free ([[wiki/entities/c-ts-model.md]]).
+
+| Dimension | COIN / remapping | C-TS |
+|---|---|---|
+| What a context owns | a scalar state (force-field strength), or a map | a whole **stimulus→action policy** — several arbitrary edges bundled under one latent |
+| What is clustered | observations over time | **contexts**, by whether they condition the same set of stimulus–action–outcome contingencies |
+| Evidence available per trial | the observation | **one dimension of the cluster** — one stimulus, one action, one outcome; similarity between two contexts is never directly observable |
+| Prior | sticky hierarchical Dirichlet process, `γ, κ, α` fit per subject | bare Chinese restaurant process, one `α` (mean fitted 4.5, no individual differences) |
+| Posterior handling | responsibility-weighted mixture, **every** memory updates | **collapse to the mode**, one memory updates ([[wiki/empirical-tensions.md]] T108) |
+| Implementation | particle learning; no circuit | two nested cortex–basal-ganglia gating loops |
+
+Two things this adds that no other source on this page supplies.
+
+1. **`α` is a connectivity statistic.** Sweeping the context→prefrontal projection from fully random (many contexts can activate a common stripe) toward one-to-one (each context gets its own) moves the *fitted* Dirichlet `α` with `r = 0.76, p < 2×10⁻⁴`, and moves nothing else. The allocate-vs-reuse knob this page and gap G38 treat as a hyperparameter is, in the circuit, how promiscuously the context layer innervates the state layer — a quantity experience could set and a builder can read off a weight matrix.
+2. **The partial-match failure is the price of retrieval.** A new context whose correct policy overlaps *both* stored task-sets is learned more slowly than one that overlaps neither, because a rewarded trial under a wrong rule raises that rule's posterior. Systematic, predicted, and present in humans as an excess of exactly one error type. A responsibility-weighted mixture smooths this; an argmax does not, which is the sharpest behavioural handle on which inference scheme is running.
+
+---
+
 ---
 
 ## Open problems
@@ -190,4 +210,5 @@ Mishchanchuk et al. 2024 (*Science* 386:926-932) supply the two things every acc
 - **[[wiki/concepts/temporal-coding.md]]** — the arrival-time condition the posterior's evidence channels have to meet: single medial-prefrontal neurons receiving convergent hippocampal (context) and amygdalar (valence) input fire as a function of the *relative timing* of the two, so fusing evidence channels is a coincidence operation with a window, not an addition.
 - **[[wiki/concepts/schema-assimilation.md]]** — puts the same context-selects-memory logic downstream of retrieval rather than inside it: with medial prefrontal cortex inactivated the hippocampus returns context-appropriate *and* inappropriate memories together, so in this account responsibility is applied by a controller suppressing wrong candidates, not by a posterior deciding which store is read (Preston & Eichenbaum 2013).
 - **[[wiki/entities/nucleus-reuniens.md]]** — the return arm of the same selection loop: the controller does not only receive the context evidence, it writes a goal-conditioned trajectory back into the store through a midline-thalamic relay, so responsibility can be applied by *constraining* the store's dynamics rather than by re-weighting its outputs.
+- **[[wiki/entities/c-ts-model.md]]** — this page's posterior with the clustered object upgraded from a scalar to a policy and the inference collapsed to an argmax, plus the circuit this page lacks: a two-loop corticostriatal gating network that approximates a Dirichlet-process mixture, with the clustering prior `α` identified as the randomness of the context→prefrontal projection rather than as a fitted constant (Collins & Frank 2013).
 - **[[wiki/entities/meta-rl-agent.md]]** — the same latent-state tracking reached without inference machinery: recurrent activity clusters by which cue is currently rewarded and abruptly reverses at the switch, and the volatility that sets this page's update rate is tracked by 37 ± 1% of units with the learning rate emerging rather than being computed (Wang et al. 2018).

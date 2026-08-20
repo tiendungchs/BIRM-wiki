@@ -31,7 +31,7 @@ One INGEST each:
 - [x] `wang-2018-pfc-meta-rl-system.md` — prefrontal-control · F · 2018
 - [x] `jensen-2026-planning-prefrontal-cortex.md` — prefrontal-control · F · 2026
 - [x] `martinet-2011-prefrontal-spatial-planning-model.md` — prefrontal-control · M · 2011
-- [ ] `collins-2013-task-set-structure-learning.md` — prefrontal-control · M · 2013
+- [x] `collins-2013-task-set-structure-learning.md` — prefrontal-control · M · 2013
 - [ ] `boettiger-2005-frontal-stimulus-response-learning.md` — prefrontal-control · R · 2005
 - [ ] `badre-2010-frontal-abstract-action-rules.md` — prefrontal-control · R · 2010
 - [ ] `matsuzaka-2012-dmpfc-response-tactic-selection.md` — prefrontal-control · R · 2012
