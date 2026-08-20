@@ -37,7 +37,7 @@ One INGEST each:
 - [x] `matsuzaka-2012-dmpfc-response-tactic-selection.md` — prefrontal-control · R · 2012
 - [x] `bichot-2015-feature-based-attention-pfc.md` — prefrontal-control · R · 2015
 - [x] `widge-2019-dbs-internal-capsule-cognitive-control.md` — prefrontal-control · R · 2019
-- [ ] `bichot-2019-prefrontal-feature-attention-v4.md` — prefrontal-control · R · 2019
+- [x] `bichot-2019-prefrontal-feature-attention-v4.md` — prefrontal-control · R · 2019
 - [ ] `awan-2020-tactic-based-sensorimotor-transformations.md` — prefrontal-control · R · 2020
 - [ ] `eng-2025-pfc-connectivity-executive-function.md` — prefrontal-control · R · 2025
 - [ ] `zhou-2025-preparatory-attentional-templates.md` — prefrontal-control · R · 2025

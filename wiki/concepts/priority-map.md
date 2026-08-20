@@ -58,6 +58,33 @@ Behaviour degrades only in the contralateral hemifield and on the midline: more 
 
 ---
 
+## The same lesion, measured one stage further down: V4 (2019)
+
+> **Provenance.** Bichot, Xu, Ghadooshahy, Williams & Desimone 2019, *The role of prefrontal cortex in the control of feature attention in area V4*, Nature Communications 10:5727 (`raw/bichot-2019-prefrontal-feature-attention-v4.md`). Two macaques (one shared with the 2015 study), free-viewing search over 20 colour×shape conjunction stimuli; V4 recording during 14 control and 12 unilateral VPA-muscimol sessions (135 vs 127 units).
+
+The 2015 experiment silenced VPA and recorded FEF — an area with **no** feature selectivity of its own. The 2019 experiment repeats the manipulation and records V4, an area that *is* feature-selective. Same task family, same dissociation-by-saccade logic (measure the receptive-field stimulus while the saccade goes elsewhere), one stage further down.
+
+| Measure in V4 | Control | VPA inactivated (same hemisphere) |
+|---|---|---|
+| Feature selection, array onset → 1st saccade | present from ~130 ms (`t` = 8.9 / 8.8, `P` < 10⁻¹¹) | **eliminated**, both monkeys (`P` = 0.10 / 0.98; interaction `F` = 24.2 / 32.1, `P` < 10⁻⁵ / 10⁻⁷) |
+| Feature selection, subsequent fixations | `t` = 10.8 / 8.6, `P` < 10⁻¹² | eliminated (monkey J, `P` = 0.36); **reduced but surviving** (monkey F, `t` = 3.4, `P` = 0.001) |
+| Feature contrast ratio (median, 1st / subsequent) | F 0.063 / 0.068 · J 0.030 / 0.030 | F 0.027 / 0.022 · J 0.007 / 0.010 (all `P` < 10⁻³); differs from zero **only** for monkey F, subsequent saccades |
+| Spatial selection (saccade to RF vs away) | `P` < 10⁻⁶ … 10⁻²⁷ | **intact**, all four interactions n.s. (`P` = 0.12–0.32); contrast ratios 0.047–0.109 unchanged |
+| Detection-trial response (target alone in RF) | — | unchanged (monkey F's late-window drop survives a responsiveness-matched subsample with feature selection still abolished, `F` = 24.8, `P` < 10⁻⁵) |
+| Behaviour | 4.8 / 4.7 saccades to target (vs 10.5 expected serial) | contralateral hemifield only: more saccades, longer search, more errors; **detection saccades unimpaired** (`P` = 0.92 / 0.81) |
+
+Three things this adds that the FEF experiment could not.
+
+- **The elimination is not an artefact of the recorded area lacking the variable.** T112's proposed discriminating test — *does the downstream area independently represent the biased dimension?* — is run here, and the answer is mostly "still eliminated": V4 is colour- and shape-selective and still loses feature selection almost entirely. The residual predicted by biased competition appears in exactly one monkey, in one time window, at a third of its control size. Supplementary analysis further reports the loss is **independent of each V4 unit's own tuning** for the colours and shapes used — so local selectivity does not buy local competition. Bias-over-a-competent-substrate survives only as a small correction term.
+- **Feature and spatial gain in sensory cortex are separately addressable.** The same V4 cells, in the same sessions, keep full spatial modulation while losing feature modulation. Whatever V4's attentional gain is, it is not one scalar: at least two independent write-ports exist onto the same units, and only one of them runs through VPA.
+- **Feature-match enhancement is graded and asymmetric.** Enhancement for a *distractor* sharing only the target colour is modest but real, and is also abolished by inactivation; enhancement for a distractor sharing only the target **shape** is never significant in V4 — even though behaviourally the monkeys fixate same-shape distractors far above chance (`t` = 21.9 / 11.2, `P` < 10⁻⁹ / 10⁻⁷). Guidance by shape exists in the eye movements without a matching V4 signal ([[wiki/empirical-tensions.md]] T114).
+
+**Route unresolved, deliberately.** VPA's projection to V4 is not established; the authors leave two candidates open — indirect via IT/TEO feedback (which would explain why feature attention is expressed globally, given large IT receptive fields), or via the FEF/LIP priority maps, whose feedback is retinotopic. Their own discriminating test: a **spatially addressed** route cannot produce feature attention in transparent or overlapping-dot displays, where target and distractor features occupy the same locations. That experiment has not been run.
+
+**(brainstorm)** The two-write-port result is the cleanest architectural licence in this page for splitting an attention layer's gain into a *content-addressed* term and a *location-addressed* term with separate controllers, rather than one blended score. Under that split, the 2015 caution stands — apparent feature-tuned modulation in a sensory layer can be produced entirely by the location-addressed port — but the 2019 data say the content-addressed port must still exist somewhere upstream, because killing one controller removes feature gain while leaving location gain at full strength.
+
+---
+
 ## Two routes to a template, and only one of them is maintained
 
 Repeating the cue for blocks of 20 trials changes what the inactivation costs:
@@ -84,7 +111,7 @@ action       = argmax_ℓ  priority(ℓ) (+ spatial bias, history, value)   # co
 
 with the caveat that VPA units also carry spatial selection late (138 ms) — the argmax is fed *back* into the map, so the two stages are a loop, not a feedforward pipeline. VPA additionally shows feature enhancement for its *non*-preferred object when that is the target (weaker, later), so the similarity is computed against the current template rather than being a fixed tuning gain — which is what makes it a `sim(·,·)` and not a bias vector.
 
-**Consequence the source draws explicitly:** feature-attention effects in extrastriate cortex may be *downstream* of this loop rather than its source — FEF feedback is retinotopic, so enhancing "locations containing target-like stimuli" produces V4/IT modulation that looks like feature-based gain but is addressed by location. The wiki's earlier reading of feature-similarity gain in sensory cortex as a top-down *feature*-space bias is not what this experiment supports.
+**Consequence the source draws explicitly:** feature-attention effects in extrastriate cortex may be *downstream* of this loop rather than its source — FEF feedback is retinotopic, so enhancing "locations containing target-like stimuli" produces V4/IT modulation that looks like feature-based gain but is addressed by location. The wiki's earlier reading of feature-similarity gain in sensory cortex as a top-down *feature*-space bias is not what this experiment supports. The 2019 follow-up sharpens rather than settles this: V4 feature gain and V4 spatial gain fall to *different* controllers, so at least one of them is not delivered by the retinotopic route.
 
 ---
 
@@ -108,16 +135,17 @@ with the caveat that VPA units also carry spatial selection late (138 ms) — th
 
 - **Where does the template come from?** VPA holds and applies it; VPS is implicated in loading/switching it (blocked-design result) but that is an inference from a null, not a positive measurement. Nothing here identifies the pathway that writes a cue into the register — the same missing write-policy as gap G33's configurator.
 - **Is the similarity computed on features or on learned object identity?** The source cannot say: multi-unit recording, eight over-trained objects. Component-feature tuning and learned target-identity tuning predict the same data, and they differ exactly on generalisation to a *novel* target — the case abstract reasoning cares about.
+- **Is a residual real?** Only one monkey retained any V4 feature modulation after inactivation, and only after the first saccade. Two animals cannot distinguish partial muscimol coverage (the injections did not cover all of VPA) from a genuine locally-generated remainder — the number that decides T112 is currently a single `P` = 0.001.
 - **One map or several?** LIP and superior colliculus carry priority maps too; only FEF was recorded. Whether the argmax is taken once over a shared map or separately in each is untested, and it is the difference between one arbitration module and a voting ensemble.
-- **Does VPA feed sensory cortex directly?** Untested here. If it does, the "extrastriate feature attention is retinotopic FEF feedback" reading above weakens.
+- **Does VPA feed sensory cortex directly?** Still open after the 2019 V4 experiment, which shows VPA is *necessary* for feature attention in V4 without identifying the pathway: IT/TEO feedback and FEF/LIP retinotopic feedback both predict the result. The discriminating experiment is a display where target and distractor features share a location (transparent surfaces, overlapping dot fields), which a spatially addressed route cannot handle (Bichot et al. 2019).
 - **Anatomy is descriptive.** "VPA" is a location (likely areas 45A/12, possibly 46v), not a functionally-bounded area; the authors decline to claim it is one. Proposed human homologue: the inferior frontal junction (Baldauf & Desimone 2014).
 
 ---
 
 ## Connections
 
-- **[[wiki/concepts/attention.md]]** — supplies the object that page's spotlight controller was missing a mechanism for, and splits it: the query is held as persistent object-selective firing in ventral prearcuate cortex, the similarity is computed there (~90 ms), and the arbitration over locations happens 15 ms later in the frontal eye field — so the two halves fused inside `softmax(qKᵀ)V` are separable modules with a causal double dissociation (Bichot et al. 2015).
-- **[[wiki/concepts/cognitive-control.md]]** — a controller-lesion datum its bias account has to absorb: silencing the source *eliminates* downstream feature selection (AUROC 0.633 → 0.508, chance) rather than reducing it, while spatial selection in the same cells is untouched — biased competition predicts a residual where the target area has its own selectivity, and FEF has none ([[wiki/empirical-tensions.md]] T112).
+- **[[wiki/concepts/attention.md]]** — supplies the object that page's spotlight controller was missing a mechanism for, and splits it: the query is held as persistent object-selective firing in ventral prearcuate cortex, the similarity is computed there (~90 ms), and the arbitration over locations happens 15 ms later in the frontal eye field — so the two halves fused inside `softmax(qKᵀ)V` are separable modules with a causal double dissociation, and the same lesion in V4 shows the split reaches sensory cortex: feature gain and location gain onto one population arrive through different controllers (Bichot et al. 2015, 2019).
+- **[[wiki/concepts/cognitive-control.md]]** — a controller-lesion datum its bias account has to absorb: silencing the source *eliminates* downstream feature selection (AUROC 0.633 → 0.508, chance) rather than reducing it, while spatial selection in the same cells is untouched — biased competition predicts a residual where the target area has its own selectivity, and the 2019 test in V4, which does have colour and shape tuning, returns only a one-monkey one-window remainder ([[wiki/empirical-tensions.md]] T112).
 - **[[wiki/concepts/working-memory.md]]** — the delay-period content here is *used* rather than reported: the same persistent object code that a delayed-match task would read out as the remembered item is what the search computation takes as its query, and it survives saccades that overwrite the entire retinal input — an update-invariant register, not a decaying trace.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the fast/slow split appearing inside the control layer: repeating the cue removes the need for the switching stage entirely (VPS inactivation costs nothing under a blocked design) and part of the need for the matching stage, so a recurring query is progressively absorbed into slower structure.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — the complementary half of selection at the same station: this page's map enhances matching locations, that page's beta-addressed suppression removes items that stopped mattering; here suppression is implicit (unselected locations simply lose the argmax) and nothing addresses a location for removal.

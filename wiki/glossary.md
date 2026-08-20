@@ -197,6 +197,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | FEF | Frontal Eye Field | Prefrontal oculomotor area holding a retinotopic priority map; no object selectivity, earliest and largest spatial selection ([[wiki/concepts/priority-map.md]]) |
 | VPA | Ventral PreArcuate cortex | Region forward of FEF on the prearcuate gyrus (likely areas 45A/12, possibly 46v); holds the search template and computes target–template similarity; proposed homologue of the human inferior frontal junction ([[wiki/concepts/priority-map.md]]) |
 | VPS | Ventral bank of the Principal Sulcus | Adjacent prefrontal region; needed for switching the search template, not for applying a repeated one ([[wiki/concepts/priority-map.md]]) |
+| V4 | Visual area 4 | Mid-level extrastriate area selective for colour, orientation and shape; carries both feature and spatial attentional gain, delivered by separately ablatable controllers ([[wiki/concepts/priority-map.md]]) |
 | IT | InferoTemporal cortex | Late ventral-stream object-recognition cortex; object-selective but shows feature *selection* later (189 ms) than either frontal area |
 | IFJ | Inferior Frontal Junction | Human region implicated in top-down control of object/feature-based attention (Baldauf & Desimone 2014) |
 | RF | Receptive Field | The region of the sensory surface a unit responds to |
