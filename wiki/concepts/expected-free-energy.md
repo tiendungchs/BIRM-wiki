@@ -129,9 +129,66 @@ so after deployment the agent refits `m` to data *its own policy* induced: both 
 
 ---
 
+## The epistemic term is an information-gain bonus at a *derived* weight — and only that
+
+> **Second primary source.** `raw/cooper-2026-efe-belief-dependent-utility.md` — Cooper & Velasquez, arXiv:2607.16981, 2026. Where Milosevic et al. classify the optimisation problem, this source identifies the *objective itself* with an older, plainer one and then measures what the identification is worth: EFE minimisation **is** a ρ-POMDP whose belief-dependent utility is expected information gain, entered at coefficient `w = 1`.
+
+**Proposition 1 (observe-then-commit POMDPs).** With actions partitioned into observation actions `A_obs` (cost `c_k`, belief update, hidden state unchanged) and terminal commit actions `A_com`, recursive EFE
+
+```
+G(observe_k) = c_k − I_k(b) + E_o[ min_a G(a | b'_o) ]        I_k(b) = H(b) − E_{o|k}[H(b'_o)]
+G(commit_i)  = −E_b[R_i]
+```
+
+is, under `V ≜ −G`, exactly the ρ-POMDP Bellman recursion `V*(b) = max_a { R(b,a) + ρ_EFE(b,a) + E_o[V*(b'_o)] }` with
+
+```
+ρ_EFE(b,a) = I_a(b)  for observation actions,   0  for commit actions.
+```
+
+**So EFE = Planning+InfoGain at `w = 1`, exactly.** The paper is explicit that this does not *eliminate* the exploration weight — it derives one. The coefficient is 1 because the variational bound puts pragmatic and epistemic value in the same unit (nats); in bits it would be `1/ln 2 ≈ 1.44`, and the reward-optimal basin is broad enough (`w ∈ [0.5, 2]` near-identical) that the unit choice is practically irrelevant.
+
+**Proposition 3 (how far the identity reaches).** It holds in any **factored observation POMDP**: state `s = (s_vis, s_hid)` with `s_vis` observable, and every observation and navigation action leaving `s_hid` fixed, `T_hid(s'|s,a) = δ(s'=s)`. Then the transition–observation coupling `Δ_T(b,a) = D_KL[b'_{o,T} ‖ b'_o]` vanishes and `ρ_EFE = I_a(b)`. It **fails** wherever information-gathering changes what is being measured — destructive testing, biopsy, active intervention, moving targets, quantum measurement. For slowly drifting hidden state the error scales with the per-step transition entropy `H(s'_hid | s_hid, a)`; the acceptable regime is unquantified.
+
+**Proposition 2 (when `w = 1` is the *right* weight).** Two states, uniform prior, one observation action of accuracy `p` and cost `c`, commit rewards `R⁺` / `R⁻ = −αR⁺`, `I_max = ln 2 − H_post(p)`:
+
+```
+w*_thresh = [ c − (p − ½)(1 + α) R⁺ ] / I_max
+```
+
+Observation is worth taking for any `w > w*_thresh`, and `w*_thresh < 0` — so *any* positive weight suffices — whenever the **reward asymmetry** `α = |R⁻|/R⁺` exceeds `c/[(p−½)R⁺] − 1`. High asymmetry (`α ≥ 5`: Tiger, Diagnosis, Tileworld) puts `w = 1` far above threshold. Symmetric penalties (`α ≈ 1`) put it above the reward-optimal weight, and the agent over-explores.
+
+### What the measurements say
+
+Six observe-then-commit environments, four RockSample instances, and a new Structural Inspection benchmark (`|S|` up to 65,536); 1,000 episodes × 5 seeds; all agents share belief-update machinery and tree-search depth, differing only in `ρ`.
+
+| Finding | Number |
+|---|---|
+| `w = 1` sits at the **Pareto knee** of the success–reward frontier on every environment | Reward-maximising `w*_ret ∈ [0.5, 1]`; success-maximising `w*_succ ∈ [20, 200]` |
+| Advantage over reward-only planning grows with state-space size | Tileworld 8×8: 66.5% vs. 2.5% success |
+| …and with the number of observation actions | RockSample[7,8]: `+19.57` vs. `+11.75` reward (`+7.82`) |
+| Tuned additive bonuses over-explore, and depth amplifies the error | Diagnosis at `w = 100`: 13.21 tests, 99.3% success, `−3.63` reward vs. EFE's 9.73 tests, 97.1%, `−1.50` |
+| Tuned weights **transfer catastrophically**; `w = 1` does not | `w*_succ` varies 5× across four environments; every transferred weight underperforms `w = 1` on at least one target |
+| The pragmatic term is not optional | Epistemic-only ablation commits at chance (50.1% Tiger, 25.1% Bandit, 0.0% Tileworld) |
+| The identity's *practical* value is conditional | `w = 1` is reward-near-optimal in only 9 / 22 / 32 % of 100 random two-state environments at `H = 1 / 2 / 3` |
+| Discounting destroys the advantage | Diagnosis: `+7.8 pp` over planning at `γ = 1.0`, `+1.0 pp` at `γ = 0.95`, **`−1.6 pp` at `γ = 0.90`** — discounting truncates the horizon below the number of observations a confident commit needs |
+| EFE as an **MCTS leaf heuristic** beats semi-informed rollouts at matched compute | Tiger `H = 10`: 97.2% vs. POMCP 89.7%; Tileworld 6×6: 96.0% vs. 2–15% |
+| Robustness to a misspecified observation model is graceful, asymmetrically | ±0.15 accuracy error: Tiger stays >96.7%; *over*estimating accuracy hurts more (premature commit) |
+
+**Where EFE is not recommended by its own authors:** symmetric penalties (`α ≈ 1`), navigation-style POMDPs where observation is tied to translation and a greedy mover already gets informative feedback, model misspecification beyond ±0.15, `H = 1` (it degenerates to myopic information gain), and `γ < 0.99` with multiple observation actions.
+
+### What this changes for the wiki
+
+- **The stopping rule is the finding, not the weight.** The agent commits when the value of committing exceeds the value of observing, a crossover that appears without tuning. This is the first *runtime-computable* answer in the wiki to the "when is the answer good enough" half of gap G15 — and it is one scalar comparison, not a metacognitive estimator.
+- **The over-exploration failure is diagnostic.** Tuned bonuses reach higher success and *lose* reward, and planning depth amplifies the miscalibration (`w = 100` on Bandit: 12.41 inspections at depth vs. 10.99 myopic). An additive epistemic bonus and a derived one differ mainly in *when they stop*.
+- **The two "epistemic terms" in this page are not the same object.** Milosevic's `Φ = −Σ_t H(ρ_t^π)` pays for *spreading* the predictive state marginal; Cooper's `I_a(b) = H(b) − E_o[H(b'_o)]` pays for *sharpening* the belief over a fixed hidden state. **(brainstorm)** They are consistent because they act on different distributions — coverage over states one *will occupy*, concentration over states the world *is in* — but a deep implementation that writes "epistemic bonus" without saying which distribution it is over has the same silent degree of freedom the `G^agg`/`G^step` choice already has.
+- **`Δ_T = 0` is a constraint a reasoning agent will violate.** [[wiki/concepts/latent-graph-discovery.md]]'s agent gathers information by *acting on* the structure it is inferring, which is the intervention case (`Δ_T ≠ 0`) the equivalence explicitly excludes. The clean derivation covers passive measurement — diagnosis, inspection, sensing — not experiment.
+
+---
+
 ## What this buys for building a reasoning model
 
-- **The exploration term is not a hyperparameter.** `−log ρ_t(s)` falls out of the objective's gradient. A reasoning agent that must discover latent structure ([[wiki/concepts/latent-graph-discovery.md]]) needs to visit edges it has not traversed; here the drive to do so is the derivative of the planning objective, and the gridworld result shows it measurably accelerates identification of the transition kernel.
+- **The exploration term is not a hyperparameter — but it *is* a coefficient, and its value is a claim that can be wrong.** `−log ρ_t(s)` falls out of the objective's gradient, and the ρ-POMDP reduction names what the gradient is worth: an information-gain bonus at exactly `w = 1` nat (Cooper & Velasquez 2026). That is a derived weight, not the absence of one, and it is reward-near-optimal in only ~32% of random two-state environments at depth 3 ([[wiki/empirical-tensions.md]] T123). A reasoning agent that must discover latent structure ([[wiki/concepts/latent-graph-discovery.md]]) needs to visit edges it has not traversed; here the drive to do so is the derivative of the planning objective, and the gridworld result shows it measurably accelerates identification of the transition kernel.
 - **The graph-discovery loop is one algorithm with two alternating steps, not two systems.** VFE writes the graph, EFE walks it, and the coupling between them is the wiki's G5 (no joint discover-and-navigate loop) written as a fixed-point equation. **(brainstorm)** G5's complaint has always been that structure learning is offline relative to behaviour; here the offline-ness is *deliberate and episodic* — model frozen during planning, policy frozen during fitting — and the price is named exactly (performativity), which is more progress than an architecture that interleaves them and cannot say what it has broken.
 - **Curiosity is mode-covering, and that is the opposite of the free-energy bound's usual direction.** [[wiki/concepts/divergence-objectives.md]] records that variational free energy optimises the *reverse*, mode-seeking KL — which is why relaxation lands in one attractor. But minimising `Φ = −Σ_t H(ρ_t)` **maximises** the entropy of the imagined state marginal: the planner is paid to spread. So the same principle is mode-seeking in perception and mode-covering in imagination, and the sign flip is not a contradiction but a division of labour — commit hard to one interpretation of the present, keep the imagined future broad. **(brainstorm)** For a planner over a one-to-many transition this is the right pairing, and it suggests the wiki's open question "which direction should a reasoning model minimise?" has an answer of the form *per phase*, not per model.
 - **Horizon enters as a smoothness constant** (`L = ½T(T+1)`), not as a discount. Gap G24 asks where planning depth comes from; this source does not answer it, but it prices it: the optimisation cost of a deeper plan is quadratic in the depth, independent of the environment.
@@ -146,6 +203,9 @@ so after deployment the agent refits `m` to data *its own policy* induced: both 
 - **Uniqueness fails**: `Φ` is convex but not strictly, so distinct policies can achieve the same optimum. What the agent actually does at the optimum is underdetermined by the objective.
 - **Which infinite-horizon variant is the right one** is a modelling choice the literature has been making silently. No principle selects between `G^agg` and `G^step`.
 - **The epistemic value is over *states*, not parameters.** Parameter-novelty ("model-uncertainty") terms used in practical implementations are excluded from the convex-MDP result and are named as a source of extra policy-dependence — the reduction is clean exactly where it is least like a learning agent.
+- **The equivalence stops at intervention.** `ρ_EFE = I_a(b)` requires observation actions to leave the hidden state fixed (`Δ_T = 0`). An agent that learns structure by *changing* it — the case a reasoning agent is in — needs the coupling term, and no treatment of it exists (Cooper & Velasquez 2026).
+- **The derived weight optimises reward, not accuracy.** The success-maximising weight is 20–200× the derived one on every environment tested, so any agent that must be *right* rather than *profitable* is back to tuning.
+- **The epistemic drive does not survive discounting.** Its advantage over reward-only planning requires `γ ≥ 0.99` when there are several observation actions, and reverses at `γ = 0.90`. Every deep implementation that discounts is outside the regime where the term has been shown to pay.
 - **Nothing here makes the preference distribution `p̃` come from anywhere.** It is given. The pragmatic half of EFE is as unexplained as a reward function; the paper's own framing ("equivalent to reward maximisation in a latent MDP") makes that explicit rather than hiding it inside a free-energy story.
 
 ---
@@ -154,11 +214,14 @@ so after deployment the agent refits `m` to data *its own policy* induced: both 
 
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — supplies the other half of the loop: that page's VFE fits `m = (p,ν)` to collected data and its recognition gap `D_KL(ν‖p(s|h))` is exactly what must vanish for this page's epistemic term to *be* mutual information rather than a state-marginal entropy.
 - **[[wiki/concepts/simulation-based-planning.md]]** — this is the objective a rollout is scored by, and the structural result says what kind of search it is: convex over occupancies, so no Bellman-optimal value function exists, and planning must relinearise between iterations rather than back up a single `V`.
+- **[[wiki/concepts/simulation-based-planning.md]]** — and the wiki's first runtime-computable stopping rule for a rollout: the agent observes while `−c_k + I_k(b) + E_o[max V]` exceeds `max_i E_b[R_i]` and commits when it does not, a crossover that needs no tuned threshold and no metacognitive estimator (G15's *when is the answer good enough*; Cooper & Velasquez 2026).
 - **[[wiki/concepts/divergence-objectives.md]]** — the sign flip that page's open question needs: the variational bound is mode-seeking in perception, while EFE's `−H(ρ_t)` term is *entropy-maximising* over the imagined state marginal, so one principle takes both directions of the asymmetry depending on which phase it is running.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the epistemic term is a derived edge-coverage drive: `−log ρ_t(s)` pays the agent to place occupancy on states its current plan avoids, which is what makes the transition kernel identifiable at all.
+- **[[wiki/concepts/latent-graph-discovery.md]]** — and the boundary of that drive's derivation: the information-gain reading holds only where the probe leaves the graph unchanged (`Δ_T = 0`, factored-observation POMDPs), so measuring a latent structure and intervening on it are formally different problems and only the first is covered (Cooper & Velasquez 2026).
 - **[[wiki/concepts/amortized-inference.md]]** — the composed behaviour policy `β = π∘ν` is amortization split in two: `ν` is the compiled recognition network, `π` the compiled policy, and planning optimises only the second while holding the first fixed.
 - **[[wiki/concepts/attention.md]]** — the epistemic/pragmatic trade-off that page inherits from active inference is here made precise as `⟨ℓ,μ⟩ + Φ(μ)`, one linear and one convex term with no free mixing coefficient between them.
 - **[[wiki/concepts/energy-based-models.md]]** — a second reading of "minimise a scalar over a policy rather than over an activity": here the scalar is convex in the occupancy and the constraint set is a flow polytope, so the minimisation has a rate where the energy-based relaxation has none.
 - **[[wiki/entities/aixi.md]]** — the same impossibility met with a different instrument: that page's proof that no optimality bound exists for an agent shaping its own data becomes, here, a performative fixed point that provably *exists* but whose reachability turns on an uncertified state-coverage floor.
 - **[[wiki/concepts/event-segmentation.md]]** — the sharpest neural evidence that this page's two terms are physically separate: boundaries triggered by prediction *error* (the linear cost `ℓ`) recruit ventrolateral prefrontal cortex and are followed by widespread pattern stabilisation, while boundaries triggered by prediction *uncertainty* (the convex term `Φ`) recruit the dorsal attention network with almost no stabilisation — commit versus look-around, dissociated at 45 subjects (Nguyen et al. 2025).
+- **[[wiki/concepts/objective-identifiability.md]]** — the same identifiability question asked of the planner's objective rather than of the task's: EFE and Planning+InfoGain-at-`w=1` are behaviourally indistinguishable by construction (Proposition 1), so no experiment on an agent's actions can license "it is doing active inference" over "it has a tuned bonus" (Cooper & Velasquez 2026).
 - **[[wiki/concepts/precision-weighting.md]]** — the argument that makes this objective necessary rather than optional: since loss ≡ surprise and expected loss ≡ entropy, the value function is redundant and goals become priors over sensory trajectories, which removes the Bellman solve and leaves exactly the terms decomposed above (Friston 2009).
