@@ -18,7 +18,7 @@ One INGEST each:
 - [x] `nuijten-2026-what-inference-is-active-inference.md` — active-inference · F · 2026
 - [x] `champion-2023-deconstructing-deep-active-inference.md` — active-inference · M · 2023
 - [x] `nuijten-2026-efe-planning-variational-inference.md` — active-inference · M · 2026
-- [ ] `zhang-2025-novelty-variability-active-inference.md` — active-inference · R · 2025
+- [x] `zhang-2025-novelty-variability-active-inference.md` — active-inference · R · 2025
 - [ ] `talk-nd-free-energy-principle.txt` — active-inference · X · nd
 - [ ] `gerfen-2011-striatal-dopamine-modulation.md` — rl-planning · S · 2011
 - [ ] `helie-2013-basal-ganglia-cognitive-models.md` — rl-planning · S · 2013

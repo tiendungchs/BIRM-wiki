@@ -345,6 +345,55 @@ q(y,x,u,θ) = q(θ) Π_t q(u_t|x_{t-1}) q(x_t|x_{t-1},u_t,θ) q(y_t|x_t,θ)
 
 ---
 
+## Sixth primary source: the terms are separately localised in the human brain — and only their *values* are, not their magnitudes
+
+> **Sixth primary source.** `raw/zhang-2025-novelty-variability-active-inference.md` — Zhang, Tian, Liu & Wu, *eLife* 13:RP92892, 2025. The first five sources are analyses or ablations of the objective in silico. This one asks whether the decomposition is *real in a brain*: N=25 human electroencephalogram (EEG), a contextual two-armed bandit in which information carries an explicit price, Bayesian-information-criterion (BIC) model comparison of active inference against model-free and model-based reinforcement learning, and per-timepoint linear regression of source-space induced power onto each term of `G` separately.
+
+**Task.** Two choices per trial, 120 trials. First choice: `Stay` (free, no information) vs. `Cue` (`−1` reward, reveals the current context of the risky path). Second choice: `Safe` (`+6` always) vs. `Risky` (`0/3/6/9/12`, distribution set by the hidden context, which resamples every trial). Context 1 pays `[+12 55%, +9 25%, +6 10%, +3 5%, 0 5%]`, Context 2 the mirror image. The design is what makes the ingest worth doing: **the price of information is a task parameter, the hidden state is resampled each trial (so variability never decays), and the model parameters are learned across trials (so novelty does)** — the two uncertainties of T124 are put on different timescales inside one task and can therefore be regressed separately.
+
+| Model | Free parameters | BIC |
+|---|---|---|
+| **Active inference** (Eq. 9, coefficients on all three `G` terms + `α`) | 4 | **best** |
+| Model-based reinforcement learning | `α, γ`, prior | worse |
+| Model-free reinforcement learning | `α, γ` | worst |
+
+The behavioural signature the fit is carrying: participants **paid for the cue far more often than they stayed**, which a reward-only learner has no reason to do. The fitted coefficients are *precisions* in the sense of [[wiki/concepts/precision-weighting.md]] — one scaling novelty-seeking, one scaling variability-avoidance, one the learning rate — and they vary widely across the 25 participants, so "how much epistemic drive" is an individual-differences parameter, not a constant of the objective.
+
+### The localisation table
+
+Each row is a separate per-timepoint regression of source-space induced power on one regressor, FDR-corrected. **Every reported significant correlate has a negative mean *t*** (higher regressor value → lower induced power); the paper does not comment on the sign.
+
+| Stage | What the agent is doing | Regressor | Peak region (mean *t*) |
+|---|---|---|---|
+| First choice | pay for information? | **expected free energy** | **frontal pole** (−3.23); superior temporal gyrus |
+| First choice | " | value of reducing **variability** | **medial orbitofrontal cortex** (−3.08); post-/precentral gyrus |
+| First choice | " | extrinsic value | middle temporal gyrus |
+| First result | belief update over the **hidden state** | reducing variability | **medial orbitofrontal cortex** (−3.00); rostral middle frontal, lateral orbitofrontal |
+| Second choice | safe vs. risky | **expected free energy** | **rostral middle frontal gyrus** (−4.82, `p<0.001`); caudal middle frontal, middle temporal |
+| Second choice | " | value of reducing **novelty** | rostral middle frontal gyrus (−3.07); superior frontal, insula, lateral orbitofrontal |
+| Second choice | " | extrinsic value | rostral middle frontal gyrus (`p<0.001`) |
+| Second choice | " | **degree** of novelty | **nothing survives FDR** |
+| Second result | belief update over **parameters** | reducing novelty | **precentral gyrus** |
+| Second result | " | prediction error | bank of superior temporal sulcus, inferior temporal, lateral occipital |
+
+Three readings a builder should take:
+
+- **The two uncertainties have different addresses.** Variability (hidden state) is orbitofrontal at both its valuation and its update; novelty (parameters) is rostral middle frontal at valuation and **precentral** at update. That is a *learning-rate-carrying* separation, not a relabelling: the same architecture updates `q(s)` and `q(θ)` in different tissue, which is the anatomical form of the freeze-`θ`-during-planning split that makes novelty additive (Nuijten et al. 2026, above).
+- **`G` beats its own reward term as a neural regressor** in both choice stages, and in the second choice it does so at `p<0.001` where extrinsic value alone is also strong — the integrated quantity tracks cortex better than the pragmatic half does. This is the wiki's only evidence that the *sum* rather than the reward term is the quantity a brain carries into action selection.
+- **Extrinsic value's correlate appears *earlier* in the epoch than expected free energy's.** The authors read this as reward-first, then integration with information value. **(brainstorm)** If that ordering is real it is an architectural constraint the wiki has nowhere else: `G` is not computed as one expression but *assembled*, pragmatic term first, epistemic term arriving late enough to be interruptible. A deep implementation with a one-shot `G`-head ([[wiki/entities/deep-active-inference-agent.md]]) cannot express that, and the failure mode of those heads — the epistemic term dominating into policy collapse — is exactly what a late, additive, low-precision epistemic contribution would prevent.
+
+### The null that matters: value of resolving, not amount of uncertainty
+
+The degree of novelty has **no** surviving correlate; the degree of variability likewise. What is encoded is the *value of reducing* each. This cuts against the wiki's default reading of [[wiki/concepts/precision-weighting.md]], where uncertainty is a first-class represented quantity with its own substrate (synaptic gain) — here the represented object appears to be an epistemic *value*, i.e. uncertainty already multiplied by what resolving it is worth. See [[wiki/empirical-tensions.md]] T127. The paper's own caveat is the honest one: the task did not parametrically vary uncertainty magnitude, so this is a null under low power, not a demonstration of absence.
+
+### What this changes for the wiki
+
+- **T125 gains a data point on a system that is not an agent.** Every prior entry asks whether the epistemic term improves *task performance*; this one asks whether it improves *fit to a biological decision-maker*, and it does. Those are different claims and the paper is explicit about why the second is weak: under the **complete class theorem** (Wald 1947), any behaviour–reward pair is describable as ideal Bayesian decision-making under *some* prior, so a BIC win over reinforcement learning licenses "there exist priors reproducing this behaviour" and nothing stronger. That is the same non-identifiability Cooper & Velasquez prove for the objective, conceded in advance by an author who benefits from ignoring it — see [[wiki/concepts/objective-identifiability.md]].
+- **Sensor-level result runs against the exploration literature's sign.** Amplitude was *greater* in the second half of the experiment (low novelty) across left/right frontal, central and left parietal clusters, whereas late-positive-potential studies report greater response under *high* novelty. The definitions differ — perceptual discriminability there, expected information gain here — but the disagreement is not resolved, only named.
+- **Theta tracks state uncertainty specifically.** Not-asked trials (hidden state unknown) show higher theta-band power than asked trials, alongside frontal and central amplitude differences. The wiki's only frequency-band handle on which of the two uncertainties a circuit is carrying.
+
+---
+
 ## What this buys for building a reasoning model
 
 - **The exploration term is not a hyperparameter — but it *is* a coefficient, and its value is a claim that can be wrong.** `−log ρ_t(s)` falls out of the objective's gradient, and the ρ-POMDP reduction names what the gradient is worth: an information-gain bonus at exactly `w = 1` nat (Cooper & Velasquez 2026). That is a derived weight, not the absence of one, and it is reward-near-optimal in only ~32% of random two-state environments at depth 3 ([[wiki/empirical-tensions.md]] T123). A reasoning agent that must discover latent structure ([[wiki/concepts/latent-graph-discovery.md]]) needs to visit edges it has not traversed; here the drive to do so is the derivative of the planning objective, and the gridworld result shows it measurably accelerates identification of the transition kernel.
@@ -375,6 +424,9 @@ q(y,x,u,θ) = q(θ) Π_t q(u_t|x_{t-1}) q(x_t|x_{t-1},u_t,θ) q(y_t|x_t,θ)
 - **The two corrections have no joint theory, only a pair of environments each.** The action-entropy planning correction is worth `+2.6%` in one paper's grid-worlds and `+85%` in the other's DoorKey; the epistemic priors are worth everything in the T-maze and exactly nothing in DoorKey. No principle predicts in advance which regime a task is in ([[wiki/empirical-tensions.md]] T126).
 - **The complexity term `C(u)` in `q*(u) = σ(−P(u) − G(u) − C(u))` is derived and then never studied.** It penalises plans that require large belief change, i.e. it opposes exploration, and every EFE implementation that uses Friston's `σ(−G)` silently sets it to zero.
 - **The epistemic priors are functions of the posterior they weight.** Planning is a fixed-point problem, not a minimisation; gradient descent converges empirically on three environments and there is no guarantee.
+- **The brain appears to encode the *value* of resolving uncertainty but not its *degree*.** Regressing source-space power on the degree of novelty yields nothing after FDR correction while the value of reducing novelty and of reducing variability both survive (Zhang et al. 2025). If that holds under a design that varies uncertainty parametrically, then the quantity a biological planner carries is already `uncertainty × worth-of-resolving`, and an architecture with a separate uncertainty register is representing something the brain does not ([[wiki/empirical-tensions.md]] T127).
+- **Every human neural correlate of `G` and of its terms is *negative*.** Higher expected free energy, higher value-of-reducing-variability and higher value-of-reducing-novelty all predict *lower* induced power, at every stage and every peak region, and the source does not address the sign. Until it is explained, the mapping from the objective's arithmetic to a measured neural signal is unsigned, which is the empirical counterpart of this page's existing complaint that the epistemic term's sign is not standardised.
+- **The terms may be assembled in sequence rather than computed at once.** Extrinsic value's correlate precedes expected free energy's within the choice epoch (Zhang et al. 2025). Nothing in any formulation on this page predicts a temporal order among the terms, and no implementation has one.
 - **Nothing here makes the preference distribution `p̃` come from anywhere.** It is given. The pragmatic half of EFE is as unexplained as a reward function; the paper's own framing ("equivalent to reward maximisation in a latent MDP") makes that explicit rather than hiding it inside a free-energy story.
 
 ---
@@ -400,4 +452,7 @@ q(y,x,u,θ) = q(θ) Π_t q(u_t|x_{t-1}) q(x_t|x_{t-1},u_t,θ) q(y_t|x_t,θ)
 - **[[wiki/entities/deep-active-inference-agent.md]]** — the implementation side of this page and its sharpest counterweight: five one-step neural estimators of `G`, each beaten by its own reward-only ablation, with the failure traced to an epistemic term that an agent minimises by restricting its own data distribution rather than by gathering information ([[wiki/empirical-tensions.md]] T125, Champion et al. 2023).
 - **[[wiki/concepts/simulation-based-planning.md]]** — the representational condition under which this objective's epistemic term survives stochastic dynamics: score a *policy* `q(u_t|x_{t-1})` obtained by marginalising the joint posterior, not a fixed plan, or the value of an action whose worth is what it enables gets charged the cost of every rigid continuation of it (Nuijten et al. 2026).
 - **[[wiki/concepts/amortized-inference.md]]** — the scalability route that replaces enumeration: imposing the generative model's Markov structure on the variational posterior makes the parameter count linear rather than exponential in the horizon, and the per-step factor `q(u_t|x_{t-1})` *is* the compiled reactive policy (Nuijten et al. 2026).
+- **[[wiki/concepts/precision-weighting.md]]** — the empirical wedge between the two pages: that page makes uncertainty a represented quantity with its own substrate, while regression of human source-space power finds correlates for the *value of reducing* novelty and variability and none for the *degree* of either (Zhang et al. 2025, [[wiki/empirical-tensions.md]] T127).
+- **[[wiki/entities/medial-prefrontal-cortex.md]]** — where the two epistemic terms are physically separated in a human brain: uncertainty about the hidden *state* is valued and updated in medial orbitofrontal cortex, uncertainty about the *parameters* is valued in rostral middle frontal gyrus and updated in precentral gyrus, so T124's two candidate terms have different addresses rather than being one quantity (Zhang et al. 2025).
+- **[[wiki/concepts/objective-identifiability.md]]** — the complete class theorem as a self-imposed limit on a model-comparison win: any behaviour–reward pair is describable as ideal Bayesian decision-making under *some* prior, so beating model-free and model-based reinforcement learning by BIC on human choices licenses the existence of priors reproducing the data and not the claim that the brain minimises this objective (Zhang et al. 2025).
 - **[[wiki/entities/deep-active-inference-agent.md]]** — and the estimator defect that decouples every exact result above from running code: deep implementations substitute the generative factor `P_θs(s_{t+1}|ŝ_t,a_t)` for the variational `Q(s_{t+1}|a_t)` inside the expectation, so their `G` is not the expectation of their `F`.

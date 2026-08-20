@@ -254,6 +254,24 @@ So both sides of the homogeneous-vs-partitioned argument are readable off one da
 
 ---
 
+### Which *kind* of value: the ventral tier prices the resolution of state uncertainty
+
+> **Provenance.** Zhang, Tian, Liu & Wu 2025, *eLife* 13:RP92892 (`raw/zhang-2025-novelty-variability-active-inference.md`) — N=25 human EEG, source-space regression of each term of the active-inference planning objective ([[wiki/concepts/expected-free-energy.md]]) separately, on a bandit where information carries an explicit price.
+
+The table above gives VMPFC (medial Brodmann area 11) the **value** domain at 64% of selective voxels. This source splits that label: the ventral tier is not tracking value in general but a specific one of the objective's three terms.
+
+| Quantity regressed | Where it lands | Reading |
+|---|---|---|
+| Value of reducing **variability** (uncertainty about the hidden *state*) | **medial orbitofrontal cortex**, at both the choice stage and the update stage | the ventral tier prices *and* performs the resolution of state uncertainty |
+| Value of reducing **novelty** (uncertainty about model *parameters*) | rostral middle frontal gyrus, superior frontal, insula, lateral orbitofrontal | a dorsolateral quantity, not a medial-wall one |
+| Updating the parameters themselves (reducing novelty) | **precentral gyrus** | outside prefrontal cortex entirely |
+| Extrinsic value (expected reward) | middle/inferior temporal at the first choice; rostral middle frontal at the second | not medial-wall either, in this task |
+| Integrated expected free energy | **frontal pole** (first choice), rostral middle frontal gyrus (second) | the integration site is anterior and lateral, above the ventral tier that supplies one of its terms |
+
+Two consequences for this page. (i) **The medial/lateral split in this task is a state-vs-parameter split**, which is the anatomical form of [[wiki/empirical-tensions.md]] T124 — the two candidate epistemic terms are not one quantity under two names. (ii) The *degree* of either uncertainty has no surviving correlate anywhere; only the value of resolving it does (T127). A controller built to this spec reads an epistemic price, not an uncertainty level.
+
+---
+
 ## The monkey medial wall: a region defined by the demand it serves
 
 > **Provenance.** Matsuzaka, Akiyama, Tanji & Mushiake 2012, PNAS 109:4633–4638 (`raw/matsuzaka-2012-dmpfc-response-tactic-selection.md`). Two *Macaca fuscata*, chronic single units.
@@ -410,3 +428,4 @@ The assays label states behaviourally, which the wiki normally distrusts. The in
 - **[[wiki/entities/pfc-columnar-planning-model.md]]** — builds a planner on this region's cytoarchitecture (no layer IV, hippocampal excitatory drive, dopaminergic/amygdalar motivation input) and predicts a five-way functional taxonomy of its cells that a blind PCA + k-means clustering of real navigating-rat recordings recovers (Martinet et al. 2011).
 - **[[wiki/entities/c-ts-model.md]]** — turns this page's diagonal cortico-striatal projections into computation: cross-loop convergence between rostrocaudally adjacent circuits is what lets a higher loop's conflict gate a lower loop's output.
 - **[[wiki/concepts/event-segmentation.md]]** — this region is the only one whose activity patterns shift for *both* error-driven and uncertainty-driven event boundaries, and the two boundary types drive significantly different timecourses in the same parcel — making it a candidate arbitration site between the two update triggers rather than a detector of either (Nguyen et al. 2025).
+- **[[wiki/concepts/expected-free-energy.md]]** — what the ventral tier's "value" label resolves into: medial orbitofrontal cortex tracks the value of reducing uncertainty about the hidden *state* and performs that update, while parameter uncertainty is valued dorsolaterally and updated in precentral gyrus, and the integrated objective sits at the frontal pole (Zhang et al. 2025).
