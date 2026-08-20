@@ -91,6 +91,58 @@ Each is a partial answer to a wiki gap, reported without the wiki's framing.
 
 ---
 
+## What the objective identifies — and the part of it that is not in the architecture
+
+Everything above treats a world model as an architecture plus a loss. The first identifiability theory for the *action-conditioned* case says that is not the full specification: a third thing, the **behaviour policy that collected the data**, decides whether the learned transition means anything off-policy — and it appears in no architecture diagram in this wiki.
+
+> **Provenance.** Zhang et al. 2026 (`raw/zhang-2026-identifiability-controlled-world-models.md`), unreviewed arXiv preprint (v2). Analyses the LeJEPA-style objective `L = E‖h(x_{t+1}) − F(h(x_t), a_t)‖²` with the encoder constrained to `h(x) ~ N(0, I_d)`.
+
+**The assumptions are the price, so they go first.**
+
+| Assumption | What it grants | What it costs |
+|---|---|---|
+| Observation map `g` **invertible** | Isolates the representation problem from information loss | No partial observability — the case every deployed world model is actually in |
+| Latent dynamics **linear–Gaussian**, `z_{t+1} = A z_t + B a_t + ξ_t`, stationary `z_t ~ N(0, I_d)` | Exact spectral analysis; state and action effects stay separate | All the nonlinearity lives in `g`; the dynamics themselves are the easy case |
+| Encoder **exactly** `h(x_t) ~ N(0, I_d)` | Fixes scale, kills collapse, leaves only rotational symmetry | An exact distributional constraint, not the soft regulariser any implementation uses |
+| Squared loss | Predictor targets the **conditional mean** | Says nothing about the conditional *distribution* — the multi-modality the RSSM/stochastic branch exists for is outside the result |
+| Population objective | No estimation error | Finite-sample behaviour not covered |
+| **Actions are observed inputs** | — | Nothing here infers an action alphabet; G4 and G27 are untouched |
+
+**The two margins.** Both are properties of the *data-generating distribution* `P_π`, not of the learner.
+
+| Margin | Definition | What it separates |
+|---|---|---|
+| **Representation** `γ_rep(π)` | `λ_min(R_π) − λ_max(R_π)²`, where `R_π = Cov(A z_t + B a_t)` is the predictable-signal covariance | The weakest genuinely-first-order predictable direction against the strongest *nonlinear* alternative. In the Hermite basis a degree-≥2 component's predictable energy is at most `λ_max(R_π)²` times its variance, so `γ_rep > 0` makes every true latent direction more predictable than any nonlinear reparameterisation |
+| **Transition** `ρ_tr(π)` | `λ_min(E_z[Cov_π(a_t \| z_t)])` — the **weakest conditional action excitation** | Whether the data contain action variation *after conditioning on the state*. This is persistent excitation from classical system identification, restated where the state coordinates are themselves unknown |
+
+**The three results.**
+
+| | Statement | Reading |
+|---|---|---|
+| **Thm 1** (exact) | `γ_rep > 0` **and** `ρ_tr > 0` ⟹ every global minimiser satisfies `h(g(z)) = Qz` and `F(y,a) = QAQᵀy + QBa` for a single orthogonal `Q`, on *all* of `ℝ^d × ℝ^m`. Minimum loss is the irreducible noise, `d − tr(R_π)` | A positive identifiability result for the JEPA objective. Note the direction of work: `ρ_tr > 0` gives the joint state–action distribution full support, and *continuity of `F`* upgrades an almost-sure on-policy identity into a global one. Identification off the data is bought by a smoothness assumption, not by data |
+| **Thm 2** (approximate) | With encoder excess risk `Δ_enc` and `η := Δ_enc / γ_rep`: `E‖h(g(z)) − Qz‖² ≤ Cη`, and transition error `≤ C·Δ_pred + C(1 + ‖A‖²_op)·η`. Valid only while `Δ_enc ≤ c·γ_rep` | The two error sources are not symmetric: **predictor error enters additively, encoder error enters divided by the margin.** As the spectral gap narrows, nonlinear features become nearly as predictive as the true latent directions and a fixed optimisation shortfall buys unboundedly more representation error |
+| **Thm 3** (counterfactual) | The predictor class contains a continuous `F_δ` with on-policy excess risk exactly `δ` and counterfactual error exactly `δ / ρ_tr(π)`. For the policy family `a_t = √(1−σ²)·K z_t + σ η_t`, `ρ_tr = σ²`, so the attainable amplification is `1/σ²`, diverging as the policy becomes deterministic | **Attainable lower bound, not a uniform upper bound** — it says such a model *can* be learned, not that it will be. Construction: perturb `F⋆` by a rank-one map along the least-excited action direction `v_min`, which the on-policy residual barely probes and the counterfactual distribution probes at unit variance |
+
+At `σ = 0` the transition is **structurally non-identifiable**: the data constrain only the closed-loop map `A + BK`, and two continuous predictors with identical on-policy risk give different answers to "what if I had done something else".
+
+**What the experiments add** (2-D latent/observation/action, four synthetic observation maps — spiral, parabolic, sinusoidal, wave — 8-layer SiLU MLPs, 100k transitions, five seeds):
+
+- Identification error changes **smoothly through `γ_rep = 0`**, which is the authors' own evidence that Thm 1 is sufficient and not necessary. The margin is a certificate, not a phase boundary.
+- At `σ = 0`, behaviour-action prediction stays accurate while counterfactual error is large and **`A` and `B` are not separately identifiable** — recovered by regressing `F(y_i, a_probe) ≈ M̂ y_i + N̂ a_probe` and comparing to `Q⋆AQ⋆ᵀ` and `Q⋆B`. Action-conditioning the predictor and getting low training loss demonstrates nothing about action sensitivity.
+- Goal-conditioned planning (fixed bank of 210 constant-action sequences, horizon 6, selection by encoded-goal distance so neither `Q⋆` nor the true latent enters action selection) has mean terminal error falling sharply with `σ` and nearly eliminated in the well-excited regime. The predicted reachable set is the object that is wrong under low coverage.
+- **Caveat on the sweep:** to keep the marginal stationary, `Cov(ξ_t)` is re-set at every `σ`, so the process-noise trace moves 0.8 → 0.9 and `γ_rep` drifts 0.118 → 0.140. `σ` is therefore not a perfectly isolated knob, though the drift is in the direction that would *help* the low-`σ` runs.
+- The appendix's objective statement is internally inconsistent — the same line gives `λ_gauss = 50` in prose and `λ_gauss = 0` in the equation. Since the Gaussian constraint is exactly what Thm 1 needs, it is not a harmless typo, and the experiments cannot be read as confirming the constrained setting until it is resolved.
+
+**Three things transfer regardless of the linear-Gaussian setting.**
+
+1. **State-only prediction recovers the behaviour-policy-averaged future and nothing else.** Proved, not asserted: without the action in the predictor's input, the identified object is `E_π[z_{t+1} | z_t]`, which folds `π` into the "dynamics". This is the formal version of the passive-observer limit — the wiki's [[wiki/concepts/causal-model-building.md]] five-modes table says active agency is needed for causal models of one's own effects; this says *which* quantity a passive learner gets instead, and it is policy-contaminated in the same way the successor representation's `S` is ([[wiki/concepts/successor-representation.md]]).
+2. **The counterfactual gap now has a rate.** The "correlation, not causation" failure listed under **Open problems** below is not a vague qualitative limit: on-policy excess risk `δ` and counterfactual error `δ/ρ_tr` are the same model, and `ρ_tr` is measurable from the training data alone. This is the sharpest available statement of tension **T144** and the first quantity anyone has offered that is computable *before* training and predicts the direction of **G62**'s failure.
+3. **Two failure modes with two different owners.** `γ_rep` is fixed by the environment's dynamics under the policy and cannot be raised by collecting more data of the same kind; `ρ_tr` belongs entirely to the behaviour policy and is a design choice. A world model that fails the first needs a different environment or a different representation constraint; one that fails the second needs a noisier data-collection policy, which costs nothing but reward.
+
+**(brainstorm) The result implies a self-undermining loop that nothing in the wiki manages.** `ρ_tr` is the conditional variance of the actor's own actions. Every mechanism the wiki has for improving an actor reduces it: [[wiki/concepts/amortized-inference.md]]'s Mode-2 → Mode-1 distillation trains a *deterministic* policy `A(s)` on the planner's argmin; any converging reinforcement learner anneals its exploration; a competent policy is by definition one whose action is nearly a function of the state. So the better the agent gets, the closer its data-collection policy comes to `σ = 0` and the less identifiable the world model that its own data supports — while on-policy prediction error, the only number anyone reports, goes *down* throughout. An agent that trains its world model on its own recent experience is walking into the degenerate case, and it will not see it in the loss. The cheap fix is the one classical system identification already knows — inject dither, keep a fixed floor on conditional action variance — but that makes exploration a requirement of *model estimation* rather than of reward-seeking, which is a different justification from any on [[wiki/concepts/expected-free-energy.md]] and a different controller from the one gap **G61** asks for (new gap **G63**).
+
+---
+
 ## Open problems
 
 Distilled from the survey's challenge list, keeping the items that name a missing mechanism rather than a difficulty.
@@ -115,3 +167,6 @@ Distilled from the survey's challenge list, keeping the items that name a missin
 - **[[wiki/concepts/shortcut-learning.md]]** — planner exploitation is shortcut learning with the roles reversed: the *search* finds the model's spurious structure and acts on it, so model error becomes a reward channel.
 - **[[wiki/concepts/affordance-grounded-symbols.md]]** — the discrete alternative to everything on this page, and the only route the wiki has to the verifiability problem above.
 - **[[wiki/entities/h-jepa.md]]** — the architectural counter-proposal: predict in representation space so unpredictable detail can be discarded, rather than reconstructing and reweighting the loss; the survey's Table VI shows exactly one such entry against ~19 RSSM variants.
+- **[[wiki/concepts/objective-identifiability.md]]** — the same page from the positive side and one variable further out: a Gaussian representation constraint plus positive conditional action excitation in the *behaviour policy* makes the global minimiser recover latent state and controlled dynamics up to an orthogonal `Q`, so identifiability is a property of the (architecture, loss, data-collection policy) triple rather than of the first two (Zhang et al. 2026).
+- **[[wiki/concepts/amortized-inference.md]]** — where the identifiability condition and the wiki's default efficiency move collide: distilling a planner into a deterministic reactive policy is exactly the operation that drives `ρ_tr → 0`, so the compilation step that makes an agent fast makes the data it subsequently collects unable to identify the model it plans with (gap G63).
+- **[[wiki/concepts/successor-representation.md]]** — the same contamination in the cached representation: `S` is the transition structure *under the policy that built it*, and a state-only latent predictor is proved to identify `E_π[z′|z]` for the same reason, so both objects inherit the behaviour policy and neither's error shows up on its own training signal.

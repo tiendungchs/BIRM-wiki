@@ -144,6 +144,23 @@ The three directions above concern the objective. A large-scale controlled compa
 
 ---
 
+## A fifth direction: the data-collection policy, and the one case where identifiability is *achieved*
+
+The four directions above are all negative and all concern the learner: given a system, an observer cannot recover its objective, its solution, or its learning rule. The controlled-world-model case runs the other way — it gives **sufficient conditions under which the learner does recover the truth** — and in doing so names a variable none of the four accounts for: **the behaviour policy that produced the training data** (Zhang et al. 2026, [[wiki/concepts/learned-world-models.md]]).
+
+Setting: invertible nonlinear observations of a linear–Gaussian latent system, a LeJEPA-style objective with the encoder constrained to `h(x) ~ N(0, I_d)`, an action-conditioned predictor under squared loss. Two margins, **both properties of the data distribution rather than of the architecture or the loss**, jointly suffice for the global minimiser to recover the latent state and the controlled dynamics up to one orthogonal `Q`: a spectral separation `γ_rep(π) = λ_min(R_π) − λ_max(R_π)²` on the predictable signal, and a conditional action excitation `ρ_tr(π) = λ_min(E_z[Cov_π(a|z)])`.
+
+| Consequence | For this page |
+|---|---|
+| **Identifiability is a property of the (architecture, loss, *policy*) triple** | Every audit item in the checklist above interrogates the model and the target. None asks what distribution the data came from. Here the architecture and the loss can be exactly right and the answer still not recoverable, because the *actor* stopped varying its actions — a failure invisible to any inspection of the trained system |
+| **The Gaussian constraint is what buys the result** | Non-identifiability in nonlinear representation learning is the default (Hyvärinen–Pajunen; Locatello et al. 2019). The escape here is the same one this page names in general form — add structure — but the structure is a *distributional constraint on the representation*, not an inductive-bias audit. Rotational symmetry survives and is stated as irreducible, so `Q` is the exact residual ambiguity: the wiki's usual "population geometry is legitimate, per-unit tuning is not" line, derived rather than argued ([[wiki/concepts/population-geometry.md]]) |
+| **The failure is silent in the loss** | At `ρ_tr = 0` two predictors have identical on-policy risk and different counterfactual predictions. Excess risk — the quantity the whole emergence literature uses to certify that a model "solved" the task — cannot see the difference. This is the many-to-one direction with a *measurable* discriminator missing rather than merely unidentified |
+| **Sufficient, and demonstrably not necessary** | The authors' own sweep shows identification error changing smoothly through `γ_rep = 0`. A margin condition is a certificate, not a diagnosis: `γ_rep < 0` does not license the conclusion that the model failed |
+
+**(brainstorm)** The transferable audit item is a seventh for the checklist and it is cheap: **report the conditional variance of whatever policy generated the training data.** For a passive dataset the analogue is the conditional variance of the intervention/viewpoint/annotation channel given the scene. Every `emergence` claim in this wiki rests on a dataset someone generated with a procedure, and no source in the wiki reports that procedure's excitation — which is the one number here that decides whether the representation could have been recovered at all.
+
+---
+
 ## Connections
 
 - **[[wiki/entities/cscg.md]]** — the one instance in the wiki where this page's degeneracy is broken empirically: three architectures reach the same orthogonalized endpoint and only one reproduces the order in which a brain reaches it — bought at the cost of a symbol-encoding choice that flips the result.
@@ -168,3 +185,4 @@ The three directions above concern the objective. A large-scale controlled compa
 - **[[wiki/entities/deep-active-inference-agent.md]]** — the same non-identifiability at the level of published code: eight systems all described as deep active inference optimise measurably different one-step objectives, several cannot be reproduced or have no code, so "this architecture implements active inference" is not currently a checkable claim (Champion et al. 2023).
 - **[[wiki/concepts/expected-free-energy.md]]** — the same non-identifiability conceded by a source that wins the model comparison: active inference beats model-free and model-based reinforcement learning by BIC on 25 humans' choices, and the authors immediately invoke the complete class theorem (Wald 1947) — any behaviour–reward pair is ideal Bayesian decision-making under *some* prior — so the win establishes that priors reproducing the data exist, not that the brain minimises expected free energy (Zhang et al. 2025).
 - **[[wiki/concepts/learned-world-models.md]]** — the problem inside a single architecture: an RSSM world model's loss is a sum of an observation term and a reward term, one dominates by default, and rebalancing them moves performance 10–69% — so what the latent represents is attributable to the loss weighting rather than to the architecture (HarmonyDream, in Long et al. 2025).
+- **[[wiki/concepts/learned-world-models.md]]** — the one positive identifiability result in the wiki, and the variable it adds to this page's list: with a Gaussian representation constraint and enough conditional action variation in the *behaviour policy*, the global minimiser recovers latent state and controlled dynamics up to an orthogonal `Q` — so identifiability is a property of the architecture, the loss and the data-collection policy together (Zhang et al. 2026).
