@@ -102,6 +102,8 @@ IntPhys private test set, human data from Riochet et al. 2022 (Mechanical Turk),
 
 The correlated failure is the more interesting half. **(brainstorm)** A shared failure profile between a human and a model that shares none of the human's priors is exactly what [[wiki/concepts/core-knowledge.md]]'s signature-limit criterion was supposed to rule out — see [[wiki/empirical-tensions.md]] **T161**.
 
+**An independent replication of the null, on a different model class and a different question format** (Jassim et al., cited in Bordes et al. 2024, [[wiki/concepts/cross-modal-grounding.md]]). Synthetic videos are generated to obey or violate physics — a ball that vanishes breaks spatio-temporal continuity — and the model is *asked in language* whether the trajectory is lawful. VideoLLaMA and PandaGPT do not exceed random performance; humans exceed 80%. Two things this adds to the table above: the multimodal-LLM null is not an artefact of the surprise-based scoring (here the read-out is a verbal answer, not a `max_t` statistic), and the human ceiling is supplied by the same design rather than imported from another study.
+
 ---
 
 ## Robustness of the emergence: three ablations
@@ -153,3 +155,4 @@ The 128-hour result is the one with consequences elsewhere: at fixed compute, an
 - **[[wiki/concepts/event-segmentation.md]]** — the same scalar under a different use: a prediction-error spike is the segmentation signal there and the violation signal here, which means one trace serves both without a second mechanism.
 - **[[wiki/concepts/simulation-based-planning.md]]** — the negative result that matters for planning: the properties a planner most needs (solidity, collision) are exactly the ones at chance, so a model that passes this protocol is not thereby a usable physics simulator.
 - **[[wiki/concepts/objective-identifiability.md]]** — the ablations are an identifiability experiment run by hand: three masking objectives and three corpora, with the corpus *distribution* mattering far more than the objective or the corpus size.
+- **[[wiki/concepts/cross-modal-grounding.md]]** — an independent replication of the multimodal-LLM null with a verbal rather than a surprise-based read-out (VideoLLaMA and PandaGPT at chance, humans >80%), and a second differencing instrument in the same spirit as the untrained null: déjà vu memorization is defined only as a gap against a reference model trained without the item.

@@ -51,6 +51,28 @@ Consequence for the core framing. When a transition is genuinely one-to-many —
 
 ---
 
+## The other decomposition: rate and distortion
+
+Cross-entropy splits a loss into *irreducible* and *model's fault*. A second split, orthogonal to it, separates what the **data pipeline** costs from what the **loss** costs — and it is the one that covers every self-supervised objective in the wiki at once (Dubois et al.; Federici et al., as presented in Bordes et al. 2024, [[wiki/concepts/cross-modal-grounding.md]]).
+
+Any transformation `f(X)` of the data induces an equivalence relation partitioning `f(𝒳)`, with the constraint `f(x) ∼ f(x′) ⟹ p(z|f(x)) = p(z|f(x′))`. Masking, augmentation, cropping, *and the choice of which of two modalities to read* are all instances of `f`. Learning is then
+
+```
+argmin_{p(z|x)}   I(f(X); Z)  +  β · H(X | Z)
+                  └── rate ──┘   └ distortion ┘
+```
+
+| Term | Fixed by | How each family pays it |
+|---|---|---|
+| **Rate** `I(f(X);Z)` — how much survives | the **data transformation** | Masked auto-encoding: an entropy bottleneck `log q(z)` bounded by a *constant* determined by how much the masking removed. Multimodal: `Z` is reduced to the **minimum** information available from either source |
+| **Distortion** `H(X|Z)` — what preservation means | the **loss** | Auto-encoding bounds it by `log q(x|z)`; InfoNCE bounds it by scoring the *equivalence of two representations*, i.e. contrastive learning is compression **without** reconstruction |
+
+**Why this belongs on this page.** It reclassifies a design decision the wiki has been treating as an objective choice. Whether a model can represent word order, arrangement or motion is a **rate** question settled by the augmentation/masking/modality pipeline before the loss is ever evaluated — so two systems with the same objective and different `f` are not variants, they have different information budgets. It also gives the sharpest available statement of why caption supervision fails on relations: the caption *is* the `f`, and the rate is its length ([[wiki/concepts/cross-modal-grounding.md]]).
+
+**(brainstorm)** Put against the four levers of [[wiki/concepts/shortcut-learning.md]]: this says the *data* lever and the *goal* lever act on different terms of one functional and therefore cannot substitute for each other, which is a sharper version of the three-vs-four-lever dispute (T15) than either side has stated.
+
+---
+
 ## Why the code says cross-entropy and the theory says KL
 
 `KL(P‖Q) = H(P,Q) − H(P)`, and `H(P)` is a property of the data alone — no setting of the model's parameters changes how diverse cats in the world are. So:
@@ -94,3 +116,4 @@ Consequence for the core framing. When a transition is genuinely one-to-many —
 - **[[wiki/concepts/expected-free-energy.md]]** — the case that makes this page's "which direction?" question phase-relative rather than model-relative: the same free-energy principle runs the reverse, mode-seeking KL in perception and an explicitly *entropy-maximising* term `−Σ_t H(ρ_t)` over the imagined state marginal in planning, so a single agent covers modes in imagination and seeks one in inference (Milosevic et al. 2026).
 - **[[wiki/concepts/precision-weighting.md]]** — where the reverse-KL direction becomes an architectural commitment: the gap between free energy and surprise is that KL, and its mode-seeking behaviour is why the recognition density is claimed to be unimodal — bistable rather than bimodal percepts — which is the framework's most exposed and least tested assumption (Friston 2009).
 - **[[wiki/entities/deep-active-inference-agent.md]]** — this page's question decided at the level of behaviour rather than fit: `D_KL[P_θs ‖ Q_φs]`, its reverse, and the two entropy differences between them are four defensible readings of one "epistemic value", and swapping between them turns a working agent into one that emits a single action forever, or into one whose loss goes `NaN` (Champion et al. 2023).
+- **[[wiki/concepts/cross-modal-grounding.md]]** — the rate–distortion decomposition above, and its one architecturally load-bearing corollary: in a multimodal objective the latent's information content is capped by the *weaker* channel, so a 77-token caption sets the budget for what a 400M-image vision encoder is allowed to keep.

@@ -357,3 +357,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | PLDM | Predictive Latent Dynamics Model | The other end-to-end pixel JEPA, trained with a seven-term VICReg-derived objective; LeWM's closest baseline |
 | DINO-WM | DINO World Model | Latent world model built on a frozen DINOv2 encoder; the frozen-foundation-encoder branch of the JEPA control lineage |
 | AdaLN | Adaptive Layer Normalization | Conditioning by predicting a normalisation layer's scale and shift from a conditioning vector; zero-initialised in LeWM so action conditioning enters gradually |
+| VLM | Vision-Language Model | Any model mapping images (or video) and text into a common computation; four training families — contrastive, masking, generative, pretrained-backbone ([[wiki/concepts/cross-modal-grounding.md]]) |
+| NCE | Noise-Contrastive Estimation | Train an energy model by discriminating data from samples of an arbitrary *noise* distribution, substituted for the intractable model distribution; the ancestor of InfoNCE |
+| CLIP | Contrastive Language–Image Pre-training | Two randomly-initialised encoders trained with InfoNCE on 400M web image–caption pairs into one shared space; the field's default vision encoder |
+| SigLIP | Sigmoid Loss for Language–Image Pre-training | CLIP with the original binary-cross-entropy NCE loss instead of the multi-class InfoNCE; better zero-shot at small batch sizes |
+| MLM / MIM | Masked Language / Image Modeling | Predict masked tokens or patches from the unmasked remainder |
+| ARO | Attribution, Relation, and Order | Benchmark of caption negatives made by swapping a relation, attribute or word order; no paired negative image ([[wiki/concepts/cross-modal-grounding.md]]) |
+| PUG | Photorealistic Unreal Graphics | Rendered scenes built one element at a time, so a single spatial relation can be varied with everything else fixed; VLMs score at chance on it |
+| DCI | Densely Captioned Images | 7,805 images segmented with Segment Anything and human-annotated at >1000 words each; supports crop–caption matching |
+| DataComp | — | Benchmark that fixes CLIP's architecture and hyperparameters and competes on the *dataset*, showing data pruning beats the scaling law |
