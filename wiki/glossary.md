@@ -362,6 +362,14 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SIGReg | Sketched-Isotropic-Gaussian Regularizer | Anti-collapse term: project embeddings onto `M` random unit directions and penalise each 1-D projection's Epps–Pulley distance from `N(0,1)`; by Cramér–Wold this matches the joint to `N(0, I)` ([[wiki/entities/lewm.md]]) |
 | LeWM | LeWorldModel | The 15M end-to-end pixel JEPA built on SIGReg ([[wiki/entities/lewm.md]]) |
 | PLDM | Predictive Latent Dynamics Model | The other end-to-end pixel JEPA, trained with a seven-term VICReg-derived objective; LeWM's closest baseline |
+| DINOv2 | — | Self-supervised ViT foundation encoder: DINO image-level + iBOT patch-level cross-entropy against an EMA teacher, teacher output centered or Sinkhorn–Knopp-normalised, plus KoLeo ([[wiki/entities/dinov2.md]]) |
+| iBOT | image BERT pre-Training with Online Tokenizer | Masked-patch self-distillation: mask patches for the student, predict the EMA teacher's tokens at those positions; DINOv2's patch-level term |
+| KoLeo | Kozachenko–Leonenko | Differential-entropy estimator used as a spread regulariser: `−(1/n) Σ log min_{j≠i}‖x_i − x_j‖`, i.e. penalise small nearest-neighbour spacings ([[wiki/entities/dinov2.md]]) |
+| SK | Sinkhorn–Knopp | Iterative matrix scaling toward doubly-stochastic; used (3 iterations, from SwAV) to force a batch's prototype assignments toward equipartition |
+| SwAV | Swapping Assignments between Views | Clustering-based SSL whose batch-level equipartition constraint DINOv2 borrows as a teacher normalisation |
+| LVD-142M | Large Visual Dataset | DINOv2's pretraining corpus: 142M images retrieved from a deduplicated 744M web pool as nearest neighbours of curated seed datasets, with no metadata or text |
+| LayerScale | — | Per-channel learnable scaling on each residual branch; in DINOv2 it costs linear-probe accuracy and buys training stability at scale |
+| SwiGLU | Swish-Gated Linear Unit | Gated feed-forward variant used in DINOv2's from-scratch ViTs |
 | DINO-WM | DINO World Model | Latent world model built on a frozen DINOv2 encoder; the frozen-foundation-encoder branch of the JEPA control lineage |
 | AdaLN | Adaptive Layer Normalization | Conditioning by predicting a normalisation layer's scale and shift from a conditioning vector; zero-initialised in LeWM so action conditioning enters gradually |
 | VLM | Vision-Language Model | Any model mapping images (or video) and text into a common computation; four training families — contrastive, masking, generative, pretrained-backbone ([[wiki/concepts/cross-modal-grounding.md]]) |
