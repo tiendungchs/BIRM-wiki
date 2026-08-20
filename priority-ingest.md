@@ -15,7 +15,7 @@ One INGEST each:
 - [x] `gao-2025-adaworld-latent-actions.md` — world-models · M · 2025
 - [x] `assran-2025-v-jepa-2.md` — world-models · M · 2025
 - [x] `peng-2025-grid-code-quantization-world-models.md` — world-models · M · 2025
-- [ ] `venkatesh-2025-spelke-segments.md` — world-models · M · 2025
+- [x] `venkatesh-2025-spelke-segments.md` — world-models · M · 2025
 - [ ] `maes-2026-leworldmodel-jepa-from-pixels.md` — world-models · M · 2026
 - [ ] `baek-2026-theorize-world-from-observation.md` — world-models · M · 2026
 - [ ] `nanda-2023-linear-representations-othello.md` — world-models · R · 2023
