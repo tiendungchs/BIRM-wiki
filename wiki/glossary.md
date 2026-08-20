@@ -188,6 +188,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CRP | Conditional Response Probability | Probability of recalling an item at lag `+k`/`−k` from the one just recalled; the standard measure of temporal contiguity in free recall |
 | DMS / DNMS | Delayed (Non-)Match to Sample | Recognition tasks over a delay; the animal analogue of a recency test |
 | PFC | Prefrontal Cortex | |
+| DBS | Deep Brain Stimulation | Chronic electrical stimulation through implanted electrodes; in psychiatry it is delivered continuously at 50–130 Hz and its mechanism is contested. Used in this wiki as the one *interventional* handle on the human control loop ([[wiki/concepts/cognitive-control.md]]) |
+| VCVS | Ventral internal Capsule / Ventral Striatum | White-matter DBS target carrying prefrontal↔striatal fibres; the only psychiatric DBS site to pass blinded trials, in both depression and obsessive-compulsive disorder. Stimulating it raises task-induced prefrontal theta (Widge et al. 2019) |
+| MSIT | Multi-Source Interference Task | Conflict task: report the digit that differs from its flankers, with a non-intuitive digit→button mapping on interference trials. The affective variant adds an emotionally arousing distractor image |
+| MADRS | Montgomery–Åsberg Depression Rating Scale | Clinician-rated depression severity; response conventionally a 50% drop |
+| YBOCS | Yale–Brown Obsessive–Compulsive Scale | Obsessive-compulsive symptom severity; response conventionally a 35% drop |
+| STN | SubThalamic Nucleus | Basal-ganglia node and DBS target; its stimulation *increases* impulsive responding under conflict, the opposite behavioural profile to VCVS ([[wiki/concepts/cognitive-control.md]]) |
 | FEF | Frontal Eye Field | Prefrontal oculomotor area holding a retinotopic priority map; no object selectivity, earliest and largest spatial selection ([[wiki/concepts/priority-map.md]]) |
 | VPA | Ventral PreArcuate cortex | Region forward of FEF on the prearcuate gyrus (likely areas 45A/12, possibly 46v); holds the search template and computes target–template similarity; proposed homologue of the human inferior frontal junction ([[wiki/concepts/priority-map.md]]) |
 | VPS | Ventral bank of the Principal Sulcus | Adjacent prefrontal region; needed for switching the search template, not for applying a repeated one ([[wiki/concepts/priority-map.md]]) |
