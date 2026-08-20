@@ -16,7 +16,7 @@ One INGEST each:
 
 One INGEST each:
 
-- [ ] `hasani-2022-closed-form-continuous-time-nets.md` — sequence-models · M · 2022
+- [x] `hasani-2022-closed-form-continuous-time-nets.md` — sequence-models · M · 2022
 - [ ] `gu-2022-s4-structured-state-spaces.md` — sequence-models · M · 2022
 - [ ] `karami-2025-ms-ssm-multi-scale-state-space.md` — sequence-models · M · 2025
 - [ ] `talk-nd-reservoir-computing.txt` — sequence-models · X · nd
