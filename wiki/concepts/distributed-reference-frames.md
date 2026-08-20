@@ -71,6 +71,20 @@ This makes [[wiki/concepts/path-integration.md]] the *shared* primitive and the 
 
 ---
 
+## The frame problem shows up inside a probe result
+
+A text-only language model probed for spatial relations gives three axes of visibly different quality, and they rank the way a frame-ambiguity account predicts (Tehenan et al. 2025, [[wiki/concepts/linear-representation-hypothesis.md]]):
+
+| Axis | Raw-stream inverse-pair cosine (layer 24) | Steering success |
+|---|---|---|
+| `left ↔ right` | 0.964 | 100% / 79% |
+| `above ↔ below` | 0.447 | 100% / 100% |
+| `in front ↔ behind` | **0.113** — not antipodal at all | 62% / **5%** |
+
+**(brainstorm)** The source explains the failure by tokenisation (`in front of` is multi-token, so no single direction at one token position carries it). A reference-frame reading is available and cheaper to test: `above/below` is the only axis with an external anchor every speaker shares (gravity), while `in front/behind` is the axis with the most competing conventions in English — intrinsic (the object's own face), relative (the viewer's), and absolute — so the *same* words label different directions across the corpus. A single direction can only exist where the frame is stable. This is G43's arbitration problem appearing as representational quality rather than as a control question: the model does not fail to represent depth, it fails to have one frame in which to represent it. The discriminating experiment is a prompt set that fixes the frame explicitly ("from the camera's point of view, …") and re-runs both the geometry and the steering; if the axis sharpens, the deficit is arbitration, not tokenisation.
+
+---
+
 ## The measurement problem, stated by the source itself
 
 The paper argues for near-universal grid coding and then undercuts its own detector:
@@ -125,4 +139,5 @@ This is the wiki's first *biological* candidate machinery for gap G39 (anchoring
 - **[[wiki/concepts/dendritic-computation.md]]** — the same programme's cellular level: the columns that vote here are built from cells whose ~100 dendritic segments each detect one pattern by thresholded overlap, which is what makes "each column recognises the object from its own partial input" affordable — a column's vote is a set of segment matches, not a learned classifier.
 - **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the circuit this page's central claim assumes and never specifies: cortical columns are canonical because the laminar excitatory graph is conserved across areas and species, and "columns voting on a consistent pose" cashes out as soft winner-take-all among superficial pyramids, propagated between columns by lateral patches and between areas by layer-5 feedback (Douglas & Martin 2004).
 - **[[wiki/entities/thousand-brains-theory.md]]** — the source theory of this page's architectural proposal, at circuit level: the per-column frame is a layer-6 grid population path-integrating an efference copy from layer 5, bound in layer 2/3 to the layer-4 feature by layer-1 dendritic priming, and the voting this page leaves unspecified becomes a second, lateral layer-2/3 output — still with no rule for making two object-anchored frames commensurate (G43).
+- **[[wiki/concepts/linear-representation-hypothesis.md]]** — this page's arbitration gap measured from inside a network: the spatial axis whose frame convention is ambiguous in language is exactly the axis that fails to form a clean direction and cannot be steered, while the gravity-anchored axis is the strongest.
 - **[[wiki/entities/v-jepa-2.md]]** — what an agent with *no* reference frame of its own actually costs, measured: a world model that must infer "which way does `+x` move the arm" from monocular pixels ends up with an inferred coordinate axis that rotates roughly linearly with camera position (~1.6 cm systematic error against a 5 cm ground-truth delta), and the repair is a one-off unsupervised least-squares fit of a rotation from random self-generated actions — i.e. the frame this page says cortex replicates everywhere is here a single 2×2 matrix nobody fitted (G43).

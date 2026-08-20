@@ -19,7 +19,7 @@ One INGEST each:
 - [x] `maes-2026-leworldmodel-jepa-from-pixels.md` — world-models · M · 2026
 - [x] `baek-2026-theorize-world-from-observation.md` — world-models · M · 2026
 - [x] `nanda-2023-linear-representations-othello.md` — world-models · R · 2023
-- [ ] `tehenan-2025-linear-spatial-world-models-llms.md` — world-models · R · 2025
+- [x] `tehenan-2025-linear-spatial-world-models-llms.md` — world-models · R · 2025
 - [ ] `garrido-2025-intuitive-physics-v-jepa.md` — world-models · R · 2025
 - [ ] `bordes-2024-vision-language-modeling.md` — ssl-representation · S · 2024
 - [ ] `weller-2026-embedding-retrieval-limits.md` — ssl-representation · F · 2026
