@@ -189,6 +189,23 @@ The doublet analysis dissolves a distinction the wiki has been carrying. A "sequ
 
 ---
 
+## The channel, not the region, is the unit — and rate is blind to it
+
+Lai et al. 2026 record prelimbic cells labelled by **where they project** (basolateral amygdala vs. nucleus accumbens), in the same tissue at the same depth, across three behavioural assays (`raw/lai-2026-mpfc-bla-nac-affective-pathways.md`, [[wiki/entities/medial-prefrontal-cortex.md]]).
+
+| Level | Verdict |
+|---|---|
+| Mean calcium transient rate | **Identical.** No region main effect and no Region × Behaviour interaction in the open field (`P = 0.14`, `P > 0.3`), none in the elevated plus maze (`p = 0.304`), none between social and non-social stimuli |
+| Population geometry | **Divergent.** Both pathways place the animal's default state (corner) at nearly the same location (`r = 0.64`, `p < 1×10⁻⁹`; smallest cross-pathway canonical-correlation difference, 0.12) and disagree about which behaviours sit far from it — amygdala-projecting cells push centre and grooming out, accumbens-projecting cells push sniffing out |
+
+Two things follow for this page. First, it is the wiki's cleanest case of geometry being the *only* level at which a real functional distinction exists — the rate comparison is not merely less sensitive, it is null under every condition tested. Second, the divergence is indexed by a variable no purely observational geometry analysis can recover: **which downstream structure reads the population**. A manifold fitted to all prelimbic cells would be the union of two differently-oriented codes, and nothing in the activity says to split it.
+
+**(brainstorm) Shared origin, divergent axes is a cheap architecture.** The measured pattern — one anchor state agreed on by both readers, different directions maximized away from it — is what a shared recurrent state with multiple linear heads produces when each head is trained on a different contrast. It gives factorization *at the readout* without disentangling the shared code, and it predicts that adding a new downstream consumer costs a head rather than a renegotiation of the representation. The testable signature is exactly the one measured here: matched marginal statistics, matched reference state, divergent contrast directions.
+
+**A caution the same dataset supplies.** A subensemble defined by one task's manipulation (cells excited by entry into the anxiogenic zone) and its parent population rank the two pathways in *opposite* orders for how well they separate social from non-social stimuli. Cluster-distance geometry is therefore not level-invariant: the answer depends on which cells were let into the projection ([[wiki/concepts/representation-probing.md]], [[wiki/empirical-tensions.md]] T116).
+
+---
+
 ## Open problems
 
 - **One manifold, one task.** Nothing here says how the manifolds for two tasks relate, whether they share dimensions, or what happens on the transition. That is G40's reuse question and this paper does not touch it.
@@ -205,6 +222,7 @@ The doublet analysis dissolves a distinction the wiki has been carrying. A "sequ
 
 ## Connections
 
+- **[[wiki/entities/medial-prefrontal-cortex.md]]** — the case where this page's level argument becomes the whole result: two prefrontal projection classes are indistinguishable in firing rate under every behavioural condition and differ only in which contrast directions leave a shared reference state, so the functional variable (which structure reads the population) is invisible to any analysis of the activity alone (Lai et al. 2026).
 - **[[wiki/concepts/priority-map.md]]** — a mechanism left undetermined for want of this page's instrument: multi-unit recording cannot say whether object identity and location are conjunctive within cells or superposed across the population, and only the second lets a target–template similarity be read off a linear projection (Bichot et al. 2015).
 - **[[wiki/concepts/objective-identifiability.md]]** — supplies this page's reason to exist (population structure is a legitimate prediction target, single-unit tuning is not) and receives its instrument, plus the number that bounds its own dimensionality confound: a linear PC count can exceed the true latent dimension by 7–8×, so two systems differing in participation ratio may carry identical geometry.
 - **[[wiki/entities/cscg.md]]** — the model that predicts this page's one longitudinal result: the topological progression of the CA1 manifold *is* a state machine's states separating, and the clone model is the only one tested that reproduces the order in which they separate.

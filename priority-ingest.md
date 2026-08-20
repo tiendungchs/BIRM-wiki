@@ -41,5 +41,5 @@ One INGEST each:
 - [x] `awan-2020-tactic-based-sensorimotor-transformations.md` — prefrontal-control · R · 2020
 - [x] `eng-2025-pfc-connectivity-executive-function.md` — prefrontal-control · R · 2025
 - [x] `zhou-2025-preparatory-attentional-templates.md` — prefrontal-control · R · 2025
-- [ ] `lai-2026-mpfc-bla-nac-affective-pathways.md` — prefrontal-control · R · 2026
+- [x] `lai-2026-mpfc-bla-nac-affective-pathways.md` — prefrontal-control · R · 2026
 

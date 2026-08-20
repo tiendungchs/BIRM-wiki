@@ -165,6 +165,24 @@ Unregulated separation destroys recall — nothing would ever be recognised as a
 
 ---
 
+### The knob outside the hippocampus, and an estimator that needs no upstream recording
+
+Lai et al. 2026 measure the same operation in prelimbic cortex (`raw/lai-2026-mpfc-bla-nac-affective-pathways.md`). The statistic is the **full width at half maximum of the distribution of pairwise Pearson correlations** across simultaneously imaged cells — narrower distribution = more decorrelated ensemble — computed separately for the epochs in which the animal engaged each of two stimuli:
+
+| Session | Behavioural preference | Decorrelation for the preferred stimulus |
+|---|---|---|
+| Stranger mouse vs. object | Strong | **Yes**, accumbens-projecting cells only (`P = 0.025`, `d = −0.92`); amygdala-projecting cells ns |
+| Same pair, positions swapped | **Absent** | **None** in either pathway |
+| Familiar vs. novel mouse | Strong | **Yes**, accumbens-projecting only (`P = 0.021`, `d = −0.96`) |
+
+Three exports:
+
+- **The operation is not hippocampus-specific**, and here it is carried by a *projection-defined* subpopulation rather than a cytoarchitectonic subfield — the same cortical tissue decorrelates or not depending on which structure reads it ([[wiki/entities/medial-prefrontal-cortex.md]]).
+- **The bias tracks the behavioural contrast, not stimulus novelty.** Decorrelation vanishes in the session where the animal's preference vanishes, with the stimuli unchanged. That is the closest the wiki has to evidence that the setting is driven by *what the animal is currently discriminating* rather than by input statistics — a partial answer to G38's missing controller, on the demand side rather than the actuator side.
+- **The estimator is cheap.** FWHM of a pairwise-correlation histogram needs simultaneous unit recording but no upstream measurement and no labels — the complement to the `bias = (1st − Lure)/(1st − Repeat)` estimator above, which needs no unit resolution but does need a designed lure. Its price is precisely what the formalism section warns about: with no input measurement, a narrower output correlation distribution is compatible with the pathway relaying an already-decorrelated input.
+
+---
+
 ## Mapping to the core framing
 
 | Biology | [[wiki/concepts/latent-graph-discovery.md]] element |
@@ -235,6 +253,7 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 
 - **[[wiki/concepts/population-geometry.md]]** — the level at which the separation-vs-abstraction trade-off is actually decided: decorrelation for capacity and disentanglement for transfer were measured together in one hippocampal population and rose together, so a code can be expressive and abstract at once (T50).
 
+- **[[wiki/entities/medial-prefrontal-cortex.md]]** — carries this operation outside the hippocampus and indexes it by output port: prefrontal cells projecting to nucleus accumbens decorrelate their ensemble for the preferred social stimulus while amygdala-projecting cells in the same tissue do not, and the effect disappears in the session where the preference does — so the knob is set by the discrimination currently in demand (Lai et al. 2026).
 - **[[wiki/entities/vector-hash.md]]** — separation with no separator and no controller: a random fixed projection from a prestructured grid code yields attractors that are provably convex, equal-sized and free of spurious minima, so the transfer curve's steepness and offset are set once by the architecture instead of being tuned at runtime (G38) — and completion is one round-trip pass rather than a relaxation whose depth depends on what was stored.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — supplies the mechanism behind the "sparse conjunctive code" that page asserts: separation is what makes the fast store's codes non-overlapping, and it is a tunable transfer curve rather than a fixed sparsity level.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — separation is de-aliasing (hardness source 3) and completion is retrieval; the transfer curve is the allocate-vs-reuse decision made by degree.

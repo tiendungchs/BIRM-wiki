@@ -429,6 +429,69 @@ So pmPFC is the only medial-wall area holding all three terms of the transformat
 
 ---
 
+## The mouse medial wall: the output port selects the code, and the firing rate cannot see it
+
+> **Provenance.** Lai et al. 2026, *Functional specialization of mPFC-BLA and mPFC-NAc pathways in affective state representation*, eLife reviewed preprint 105528 (`raw/lai-2026-mpfc-bla-nac-affective-pathways.md`). Retrograde AAV-GCaMP6m into basolateral amygdala (BLA) **or** nucleus accumbens (NAc), 1-mm gradient-index lens spanning the full depth of left prelimbic cortex, head-mounted miniscope at 15 Hz in freely moving female CaMKII-Cre mice; 11–83 neurons per mouse (mean 38) for mPFC→BLA, 18–54 (mean 39) for mPFC→NAc, tracked across open field, elevated plus maze and a modified three-chamber social test on consecutive days.
+
+This is the page's opening thesis — the controller is factorized **by output port** — measured for the first time *inside one subregion, in simultaneously recorded cells, with the port as the only labelled variable*. Everything above sorts tiers by anatomy and lesion; here both populations sit in the same prelimbic tissue at the same depth and differ only in where they project.
+
+**The load-bearing negative result: mean rate is blind to the split.**
+
+| Measure | mPFC→BLA vs. mPFC→NAc |
+|---|---|
+| Calcium transient rate, open field (centre / corner / sniffing / grooming) | No region main effect (`P = 0.14`), no Region × Behaviour interaction (`P > 0.3`) |
+| Transient rate, elevated plus maze | Open arms > closed arms for both (`β = 0.0149`, `P = 7.3×10⁻⁶`), no region effect (`p = 0.304`), no interaction (all `P > 0.29`) |
+| Transient rate, social vs. object stimulus | No difference in either pathway, in any of the three sessions |
+| **Population geometry** (principal-component-space distance from the corner centroid) | **Divergent** — see below |
+| **Ensemble coactivity** (width of the pairwise-correlation distribution) | **Divergent** — NAc only |
+
+So a rate-coded readout of prelimbic cortex would report one population doing one thing. The difference lives entirely in the arrangement of the population state, which is [[wiki/concepts/population-geometry.md]]'s claim in its strongest form: the *observable that distinguishes two functional channels is not visible at the level of unit activity at all.*
+
+**What the geometry says.** Behavioural bouts are averaged, reduced by principal component analysis, and each behaviour's cluster measured as a Euclidean distance from the **corner** centroid (the state the animal occupies most, used as the shared reference):
+
+| Comparison | mPFC→BLA | mPFC→NAc |
+|---|---|---|
+| Corner (reference) | Nearly identical across pathways — Pearson `r = 0.64`, `p < 1×10⁻⁹`; smallest cross-pathway canonical-correlation difference (0.12) of the four behaviours (centre 0.47, sniffing 0.43, grooming 0.34) | same |
+| Centre (anxiogenic) | **Far** from corner | Near |
+| Grooming (self-directed coping) | **Farthest** from corner | Near |
+| Sniffing (directed exploration) | Near | **Far** from corner |
+| Elevated plus maze, centre-ON cells | Highest rate in the unfamiliar open arm (Region × Condition `F(3,72) = 3.21`, `P = 0.030`; Tukey `P = 0.018`, open-NP only) | No elevation |
+
+Label-shuffling within mouse and session, plus circular time-shifts preserving autocorrelation, put the observed distances beyond the 95th percentile of both nulls at 10,000 permutations (`p_perm < 0.01`).
+
+**(brainstorm) The shared anchor is the part a builder should copy.** Two readers of one substrate agree almost exactly on the baseline state and disagree about which directions leave it: BLA maximizes the aversive/coping axis, NAc the exploratory axis. That is a concrete architecture — *one recurrent state, several readout heads, each head trained to make a different contrast large while all heads keep a common origin* — and it is cheaper than the wiki's usual factorization proposals, because nothing has to be disentangled inside the shared code. It also predicts what the wiki has never had a mechanism for: a module can be added to a trained controller by growing a head, without renegotiating the representation the existing heads read.
+
+### Decorrelation, in cortex, and only on the pathway whose behaviour it supports
+
+The pairwise Pearson correlation distribution over simultaneously recorded cells is symmetric about zero in both pathways; what changes is its **full width at half maximum**, narrower (more decorrelated) for the more attractive stimulus:
+
+| Session | Behavioural preference | mPFC→NAc FWHM difference | mPFC→BLA |
+|---|---|---|---|
+| S1 (mouse vs. object) | Strong (`t(9) = 12.71`, `d = 4.02`) | Significant (`t(7) = −2.75`, `P = 0.025`, `d = −0.92`) | ns |
+| S2 (same stimuli, positions swapped) | **Absent** (`t(9) = 0.88`, `P = 0.40`) | **ns** | ns |
+| S3 (familiar vs. novel mouse) | Strong (`t(9) = 7.29`, `d = 2.31`) | Significant (`t(7) = −2.87`, `P = 0.021`, `d = −0.96`) | ns |
+
+The decorrelation tracks the *preference*, not the stimulus category — it disappears in exactly the session where the animal stops preferring. Mechanistically this is the [[wiki/concepts/pattern-separation-completion.md]] knob operating in prefrontal cortex rather than dentate gyrus, and the authors make the analogy to olfactory-bulb decorrelation explicit.
+
+### The subset and the population give opposite answers
+
+Cells raising their activity around entry into the anxiogenic centre zone — **centre-ON** — are defined once in the open field and then followed into the other two assays. Doing so inverts the conclusion:
+
+| Level of analysis | Which pathway separates social from non-social stimuli better? |
+|---|---|
+| All recorded neurons | **mPFC→BLA** (greater cluster distance, `P < 0.001`) |
+| Centre-ON subset only | **mPFC→NAc** (greater cluster distance, `P < 0.001`) |
+
+The authors read this as layered encoding: BLA broad environmental differentiation, NAc a specialized subset for motivationally salient social cues. For the wiki the methodological consequence is larger than the biological one — **a functionally defined subensemble and its parent population can rank two channels in opposite orders**, so "pathway X encodes Y" is undefined without stating the level ([[wiki/concepts/representation-probing.md]], [[wiki/empirical-tensions.md]] T116).
+
+**The centre-ON tag is also the page's only cross-context ensemble label**: an ensemble identified by one task's manipulation (centre entry) predicts responses in two structurally unrelated tasks a day later (open-arm entry; social vs. object discrimination). That is the ensemble-level counterpart of cross-condition generalization — a *set of cells* rather than a coding direction that transfers across task surfaces.
+
+### Validating that the behavioural labels are internal states
+
+The assays label states behaviourally, which the wiki normally distrusts. The independent check is a repeated dominance tube test: subordinate mice show elevated brain corticosterone against both controls and winners, less centre time in the open field, and near-total loss of social preference; winners show a higher sociability index; **locomotion is unchanged in both**. So the induced variable modulates which policy is selected without touching motor capacity — an affective state entering the controller as a slow contextual latent, not as a gain on action ([[wiki/concepts/contextual-inference.md]]).
+
+---
+
 ## Limitations
 
 - **Rat, and homology is asserted at one point only** — prelimbic ≈ Brodmann area 32. Everything else must be mapped by hand before it constrains a primate-derived control model.
@@ -450,6 +513,10 @@ So pmPFC is the only medial-wall area holding all three terms of the transformat
 - **The situational-processing proposal is an educated guess, and the authors say so.** No study manipulates situational information as an independent variable; the cluster is defined by a *negative* (it wins nothing) and the interpretation is assembled from adjacent scene-construction and schema literatures. The experiment that would test it — vary situational relevance within a mentalizing, valuation or emotion task and ask whether this cluster tracks the manipulation rather than the domain — is proposed, not run.
 - **Nothing localises the *content* on the channel.** The only positive characterisation is "context"; there is no decoding of what is transmitted, so the difference between the pathway carrying a context label, a gain signal, or an episodic sample is untested (gap G52).
 - **The three-area comparison has no simultaneous recording and no interaction test.** pmPFC, pre-SMA and SMA were recorded separately and compared as populations; "pmPFC gates the spatial input to pre-SMA" is an inference from projection densities plus a between-study discrepancy, never a measured directional effect, and the 2020 design contains no single-tactic condition to test the contingency (Awan et al. 2020).
+- **The mouse projection-pathway result is correlational and single-sex.** No pathway- or ensemble-specific manipulation was run, so "mPFC→BLA encodes aversive states" is a decoding claim; all animals are female (chosen deliberately, since the sex differences in these circuits are large), so the coding principle is untested in males. The two pathways are also recorded in *different* animals — never simultaneously — so no cross-pathway interaction or shared-variance measurement exists (Lai et al. 2026).
+- **The projection classes are anatomically coarse.** Retrograde labelling from BLA pools its magnocellular and parvocellular subdivisions and from NAc its core and shell; mPFC→NAc spans several cell classes and mPFC→BLA several layers, so "pathway" here means "everything retrogradely labelled from one injection", and any of the reported divergence could be a cell-class difference rather than a target difference.
+- **Cross-session neuron co-registration is a minority of cells** — 30% (open field→elevated plus maze) and 16% (open field→social) for mPFC→BLA, 23% and 21% for mPFC→NAc — so the centre-ON ensemble followed across tasks is a biased survivor subset, and its transfer claim is conditioned on trackability.
+- **The geometry is measured on session-averaged bouts in a 2-D principal-component projection**, with cluster distance as the only statistic; no intrinsic-dimension estimate, no cross-condition generalization test, and no input-geometry control ([[wiki/concepts/population-geometry.md]]), so the divergence is a difference between two projections rather than a characterised difference of manifolds.
 - **The monkey arm is two animals and one task, and its region has no independent anatomical definition.** pmPFC is delimited by where task-related neurons were found plus two negatives (no sensory response, no microstimulation effect); no cytoarchitecture, no tract tracing, and no homology to the rat tiers above or to the human medial wall below is offered. Its central manipulation is also confounded: the single-tactic blocks removed the choice *and* made the cue→target spatial relation constant, so habit formation is an alternative account of the withdrawal that the design cannot exclude ([[wiki/empirical-tensions.md]] T94).
 
 ---
@@ -466,6 +533,8 @@ So pmPFC is the only medial-wall area holding all three terms of the transformat
 - **[[wiki/concepts/contextual-inference.md]]** — the ventral tier is the switching hardware that page's formalism assumes: cross-modal shifts fail without it while intramodal reversals survive, so context *type* changes and context *value* changes have separable substrate — and the *carrier* of the context evidence is now identified and cuttable: fear renewal (expression of the original association outside the extinction context) is abolished by ventral-hippocampal inactivation and by asymmetric disconnection of the ventral hippocampus→prelimbic edge, which removes the selection between two intact memories rather than either memory (Spedding & Jay 2012).
 - **[[wiki/entities/pbwm.md]]** — the same cortico-striatal loop drawn with one tier: PBWM gates prefrontal maintenance through basal ganglia, this page shows the loop family is plural (one re-entrant circuit per subregion) with an extra ventral→shell→dorsal feed-forward link that PBWM has no analogue of.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — infralimbic cortex is a worked instance of addressed suppression: after extinction its cells fire to the tone and dampen basolateral amygdala output, and the size of that response predicts how little the animal freezes — and the hippocampal input arrives the same way, as excitation *of interneurons*: ventral-hippocampal inactivation lowers prelimbic interneuron firing and raises pyramidal firing, so the context channel withholds prefrontal output rather than supplying it (Spedding & Jay 2012, [[wiki/empirical-tensions.md]] T98).
+- **[[wiki/concepts/population-geometry.md]]** — the level at which this page's output-port factorization is actually visible: two prelimbic projection classes recorded in the same tissue are indistinguishable in transient rate under every behavioural condition and diverge only in the arrangement of their population states, sharing a common reference (corner) while maximizing different contrast directions away from it (Lai et al. 2026).
+- **[[wiki/concepts/pattern-separation-completion.md]]** — supplies a cortical instance of the separation knob and its controller: prefrontal cells projecting to nucleus accumbens narrow their pairwise-correlation distribution for the preferred social stimulus, and stop doing so in the session where the preference itself vanishes, so decorrelation here is licensed by the behavioural contrast rather than by stimulus novelty (Lai et al. 2026).
 - **[[wiki/concepts/representation-probing.md]]** — the instrument that produced this page's human table, and the reason to trust it over the meta-analyses it contradicts: a forward-inference map says where a task lands, a *head-to-head posterior comparison between domains* says which domain an activation here is evidence for, and only the second is a statement about what the region computes.
 - **[[wiki/concepts/policy-abstraction-hierarchy.md]]** — supplies what this page's rat tiers are selecting *between*, one level up from an action: the monkey medial wall carries which **response tactic** is running (51% of posterior medial prefrontal response-period cells, against 5/260 in cingulate cortex), and carries it only while more than one tactic is live — so a control region's population is instantiated by the demand and vacated when the choice is removed (Matsuzaka et al. 2012). A follow-up in the same animals makes this region the *only* medial-wall stage holding all three terms of the transformation — tactic, cue position and action — with the cue position absent one station caudal, so pmPFC is where the abstract variable is applied rather than merely broadcast (Awan et al. 2020).
 - **[[wiki/concepts/controller-knowledge-vs-process.md]]** — the same factorization argued from theory rather than tract tracing: this page's dorsal/ventral output-port split is the rat counterpart of a proposed dorsolateral (mechanistic plans) / ventromedial (social scripts) *storage* axis, so both say the controller is partitioned by what it connects to, not by what it computes.
