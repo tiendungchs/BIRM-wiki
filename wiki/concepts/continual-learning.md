@@ -79,6 +79,7 @@ The slow **W** of [[wiki/concepts/latent-graph-discovery.md]] *is* an accumulati
 - **[[wiki/concepts/cognitive-map.md]]** — supplies the one setting where the protect-vs-overwrite decision is made by *role* and its outcome is measured: new nodes are assimilated into a held-constant entorhinal frame while the prefrontal distance readout is rebuilt, with frame constancy predicting reasoning over the new nodes (Qu et al. 2026).
 
 
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — an eighth candidate family, asserted rather than measured: if every weight descends only its own layer's residual, no single global output loss is ever free to overwrite structure elsewhere — protection by *objective locality* instead of by gating, replay or separation (talk-nd-brain-learning-algorithm, **(tentative)**).
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the same interference problem solved by adding a second fast system instead of gating plasticity inside one; replay and weight protection are complementary.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — continual learning is the write mechanism for slow W; without it the meta-graph cannot accumulate across environment families.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — EWC is a clean case of a synaptic finding converted into a loss term, with optogenetic erasure supplying the causal half of the evidence.

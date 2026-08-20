@@ -1,0 +1,1244 @@
+
+Introduction
+0:00
+Of all the mysteries that the human
+0:02
+brain presents, perhaps one stands above
+0:04
+the rest. How does it learn so
+0:06
+effectively? In the world of artificial
+0:09
+intelligence, scientists and engineers
+0:11
+have spent decades trying to replicate
+0:13
+the brain's learning mechanisms. Their
+0:16
+efforts led to back propagation with
+0:18
+gradient descent, the workhorse
+0:20
+algorithm that powers virtually the
+0:23
+entire field of machine learning today.
+0:25
+Due to its remarkable success,
+0:28
+researchers began to speculate that
+0:30
+perhaps brains do something similar.
+0:32
+However, there is a fundamental problem.
+0:35
+The back propagation algorithm
+0:37
+contradicts essential biological
+0:39
+principles of brain function, making its
+0:41
+exact implementation in neural tissue
+0:44
+virtually impossible.
+0:46
+In recent years, however, an alternative
+0:48
+algorithm called predictive coding has
+0:50
+emerged that is not only more aligned
+0:53
+with the brain's biological hardware,
+0:55
+but sometimes can work even better than
+0:57
+the back propagation itself. In this
+1:00
+video, we will build predictive coding
+1:02
+from first principles. Explore what
+1:04
+issues of biological plausibility it
+1:06
+addresses and how it might inspire the
+1:09
+next revolution in machine learning.
+Credit Assignment Problem
+1:15
+The fundamental challenge that
+1:16
+computational systems must solve is
+1:18
+called credit assignment. When you have
+1:21
+a system with numerous parameters like
+1:24
+connection weights between neurons that
+1:25
+can be adjusted to achieve a desired
+1:27
+output such as recognizing objects in an
+1:30
+image or executing appropriate actions.
+1:33
+How do you determine which parameters to
+1:35
+adjust and by how much? Artificial
+1:38
+neural networks solve this elegantly
+1:40
+through what's called automatic
+1:42
+differentiation. Because the entire
+1:44
+computation can be represented as a
+1:46
+mathematical function, computers use
+1:49
+calculus, particularly the chain rule of
+1:51
+derivatives, to calculate precisely how
+1:54
+each parameter should be nudged to
+1:56
+guarantee improvement in performance. If
+1:59
+you're interested in a deep step-by-step
+2:01
+derivation of how back propagation
+2:03
+works, I've covered this in one of my
+2:05
+earlier videos. However, despite its
+2:07
+remarkable success in machine learning,
+2:09
+evidence suggests that the brain almost
+2:12
+certainly uses a different approach.
+2:14
+There are various reasons why back
+2:16
+propagation doesn't map directly onto
+2:18
+neural hardware, but luckily most of
+2:20
+them have biologically plausible
+2:22
+workarounds. What is crucial for our
+2:25
+discussion today and why I'm extremely
+2:27
+excited about predictive coding is that
+2:29
+it addresses two fundamental constraints
+2:32
+that are absolutely incompatible with
+2:34
+neurohysiology and which are the biggest
+2:37
+reasons why brains cannot perform back
+2:39
+prop namely lack of local autonomy and
+2:43
+discontinuous processing. Sounds
+2:45
+confusing. So let's unpack what this
+2:46
+means.
+Problems with Backprop
+2:50
+Artificial networks operate in strictly
+2:52
+separated phases that alternate
+2:55
+sequentially. First, information flows
+2:58
+forward. Input propagates across layers
+3:00
+to the output, generating a prediction.
+3:04
+Next, this prediction is compared
+3:06
+against the desired outcome, calculating
+3:09
+an error. Then comes the crucial
+3:11
+backward pass. This error travels back
+3:15
+through the network layer by layer
+3:17
+determining precisely how each weight
+3:19
+should change to reduce future errors.
+3:22
+Finally, all weights update
+3:24
+simultaneously and the cycle repeats
+3:27
+with a new training example. For this
+3:29
+process to work, neurons must
+3:32
+essentially freeze their feed forward
+3:33
+activity values like taking snapshots of
+3:36
+activity and holding on to them while
+3:39
+error signals flow backward. But our
+3:42
+brains don't work like this. They don't
+3:44
+hit pause between thinking and learning.
+3:48
+Communication in biological tissue is
+3:50
+relatively slow compared to silicon
+3:52
+processors. If the brain followed back
+3:54
+propagation approach, it would have to
+3:57
+completely stop information processing
+3:59
+for hundreds of milliseconds before
+4:01
+performing the backward pass to update
+4:03
+connections. Imagine experiencing brief
+4:06
+blackouts every time you learn something
+4:08
+new.
+4:10
+Instead, biological brains process
+4:12
+information and learn simultaneously in
+4:15
+a continuous stream. There is no
+4:17
+evidence for separate forward and
+4:19
+backward phases. Neurons receive,
+4:21
+process, and adapt to information in
+4:24
+parallel without pausing computation to
+4:26
+accommodate learning. The second major
+4:29
+issue with back propagation is its
+4:31
+reliance on global coordination.
+4:34
+Not only must there exist some kind of
+4:36
+central controller to switch the entire
+4:39
+network between forward and backward
+4:40
+modes, but this information must
+4:42
+propagate in a precise temporal
+4:45
+sequence. Even if neurons could somehow
+4:48
+freeze their activity, they would need
+4:50
+to unfreeze in strict succession, you
+4:53
+cannot compute errors for a given neuron
+4:55
+before its downstream partners have
+4:57
+finished calculating their own errors.
+5:01
+Everything we know about brain
+5:02
+physiology suggests that such global
+5:05
+coordination is extremely unlikely to
+5:08
+exist. While there are some coordinating
+5:10
+mechanisms, oscillations like theta and
+5:13
+gamma rhythms, attentional systems and
+5:15
+neurom modulators like dopamine that
+5:18
+influence broad populations. These
+5:20
+mechanisms operate at much coarser
+5:22
+temporal and spatial scales than would
+5:24
+be required for back propagation which
+5:27
+relies on cellby cell precision.
+5:29
+Instead, individual neurons and synapses
+5:32
+mostly function as autonomous agents,
+5:35
+modifying their states based solely on
+5:37
+information physically available at
+5:39
+their specific locations. The brain
+5:42
+operates in a massively parallel locally
+5:44
+autonomous system where computation and
+5:47
+learning occurs simultaneously
+5:49
+throughout the network in a distributed
+5:51
+manner without centralized control.
+5:54
+Now that we understand the limitations
+5:56
+of back propagation in biological
+5:58
+systems, let's explore a promising
+6:00
+alternative, the predictive coding
+Foundations of Predictive Coding
+6:05
+algorithm. This framework originated
+6:07
+from midentth century research,
+6:10
+proposing that the brain's fundamental
+6:12
+objective is to predict incoming sensory
+6:15
+information. From an evolutionary
+6:17
+perspective, prediction enhances
+6:19
+survival by allowing organisms to
+6:21
+anticipate threats and interpret noisy
+6:24
+observations. There is also an
+6:26
+efficiency argument. Neuralactivity
+6:28
+demands considerable metabolic energy,
+6:31
+and a brain that can predict incoming
+6:33
+signals only needs to process unexpected
+6:36
+information, reducing the metabolic
+6:38
+burden of transmitting predictable and
+6:41
+thus redundant data. In this view, the
+6:44
+brain's primary task isn't simply
+6:47
+processing incoming stimuli, but
+6:49
+constructing an internal model that
+6:51
+explains sensory
+6:53
+inputs. When this model predicts
+6:55
+accurately, minimal additional
+6:57
+processing is required. When predictions
+7:00
+fail, the resulting prediction errors
+7:02
+signal that the internal model needs
+7:04
+updating.
+7:06
+Predictive coding formalizes this
+7:08
+concept as a hierarchical system where
+7:11
+each neural layer attempts to predict
+7:13
+the activity of the layer below it. The
+7:16
+lowest level corresponds to raw sensory
+7:18
+input like pixels of an image while
+7:21
+higher levels encode increasingly
+7:23
+abstract features and categories that
+7:26
+enable effective prediction of the lower
+7:28
+level visual features. Although real
+7:31
+brains possess more complex
+7:32
+connectivity, including associative
+7:34
+connections between different
+7:36
+modalities, the simplified hierarchical
+7:38
+model captures the core
+7:40
+principles. Information flows
+7:42
+birectionally through this hierarchy.
+7:45
+Top-down connections carry predictions
+7:48
+from higher levels to lower levels,
+7:50
+while bottom up connections carry
+7:53
+prediction errors, differences between
+7:55
+predictions and the actual activity.
+7:58
+This abstract description of information
+8:00
+flow will guide our derivation of how
+8:03
+individual neurons must
+Energy Formalism
+8:07
+interconnect. We'll approach our network
+8:09
+as a so-called energy- based model.
+8:11
+Essentially, this means associating each
+8:14
+possible network state with a single
+8:16
+number representing some form of
+8:18
+abstract energy. We can then derive
+8:21
+rules for how the system should evolve
+8:23
+to reduce this energy. This framework
+8:26
+parallels physical systems that
+8:28
+naturally progress towards minimum
+8:30
+energy states like a ball rolling
+8:32
+downhill to minimize gravitational
+8:34
+potential energy or proteins folding to
+8:37
+minimize atomic interaction energy.
+8:40
+Since the brain is also a physical
+8:42
+system, it too evolves towards states
+8:44
+that minimize some form of energy. In
+8:47
+predictive coding networks, this energy
+8:49
+relates to the total magnitude of errors
+8:52
+between predictions and reality. To
+8:54
+visualize it, consider the following
+8:57
+analogy. Imagine the network as an
+8:59
+assembly of movable parts, springs, and
+9:02
+connection rods where each neuron is a
+9:04
+node sliding on a post. Its height
+9:07
+representing its activity level. On the
+9:10
+same post slides a platform
+9:12
+corresponding to its predicted activity,
+9:15
+determined by the neurons from the layer
+9:17
+above. A spring connects the neuron node
+9:20
+and the platform and the tension of the
+9:23
+spring proportional to its squared
+9:24
+length contributes to the overall
+9:27
+energy. If the neurons activity deviates
+9:30
+significantly from its predicted value
+9:32
+in either direction, the energy
+9:35
+increases. A neuron's activity can be
+9:37
+freely adjusted while its predicted
+9:40
+activity is determined by other neurons.
+9:43
+We can visualize it as rods connecting
+9:46
+neuron nodes on the layer above to the
+9:48
+platforms at a current level positioned
+9:51
+at variable angles corresponded to
+9:53
+synaptic weights which determine how
+9:55
+other neurons activities influence the
+9:58
+prediction. The sum of activities from
+10:00
+all neurons in the layer above
+10:02
+multiplied by synaptic weights
+10:04
+connecting them. Note that typically
+10:07
+activities pass through a nonlinear
+10:09
+activation function like sigmoid or
+10:11
+relu, but I'm omitting it here for
+10:14
+simplicity. The prediction error for
+10:16
+each neuron then is the difference
+10:18
+between its actual and predicted
+10:20
+activity. And the total energy
+10:23
+representing the overall tension of all
+10:26
+springs sums the squared errors across
+10:28
+all neurons in each layer.
+10:32
+The network's fundamental objective is
+10:34
+to minimize the total prediction error
+10:36
+by finding the optimal configuration of
+10:39
+neural activities and connection
+10:41
+weights. As we'll see shortly, when
+10:43
+presented with training examples, the
+10:46
+network settles interstates that balance
+10:48
+these elements to represent input output
+10:51
+relationships as accurately as possible.
+10:54
+So let's determine precisely how neural
+10:56
+activities and connection weights should
+10:58
+adjust to reduce this total energy. The
+11:01
+resulting mechanisms will align
+11:03
+surprisingly well with known
+Activity Update Rule
+11:08
+neurohysiology. During the systems
+11:10
+evolution, it effectively rolls downhill
+11:13
+on the energy surface defined in a
+11:15
+highdimensional space where each
+11:17
+coordinate represents a parameter such
+11:20
+as neural activity or synaptic weight.
+11:23
+Mathematically, this downhill roll
+11:26
+corresponds to moving in the direction
+11:28
+of steepest descent opposite to what's
+11:30
+called the gradient of the function
+11:32
+where the gradient vector points in the
+11:34
+direction of steepest asend and is
+11:36
+composed of derivatives with respect to
+11:39
+each parameter. Let's isolate a specific
+11:42
+neuron at layer L and determine how to
+11:45
+adjust its activity to lower the
+11:48
+energy. To find this derivative, let's
+11:51
+revisit our energy definition where we
+11:53
+sum over all posts and add up the
+11:56
+squared lengths of all springs. Since
+11:59
+the derivative of a sum equals the sum
+12:01
+of the derivatives, we can examine each
+12:04
+post individually and ask if we slightly
+12:07
+adjust the note height x subi at player
+12:10
+L, how would the tension at any post
+12:13
+change? Then we add up all these
+12:16
+effects.
+12:18
+First of all, notice that this neuron
+12:21
+doesn't affect the tension at any spring
+12:23
+at layers upstream from L. So the
+12:26
+derivative of all those terms is zero.
+12:29
+Even within layer L itself, the only
+12:32
+spring directly affected is the one
+12:34
+connecting neuron I to its predicted
+12:37
+value. By differentiating the square of
+12:39
+the prediction error, we find that the
+12:42
+rate of change of this neuron's activity
+12:44
+is the negative of its prediction error.
+12:47
+This makes intuitive sense. When the
+12:49
+error epsilon is positive, meaning the
+12:52
+neuron's activity exceeds its
+12:54
+prediction, the spring wants to contract
+12:57
+and pull the value down towards the
+12:59
+prediction, creating the negative rate
+13:01
+of change. Conversely, if the value is
+13:04
+lower than predicted, the spring tension
+13:07
+drives the neuron's activity
+13:09
+upward. But there is additional
+13:11
+complexity to consider. When we adjust
+13:13
+the height of the node at layer L beyond
+13:16
+effect in its own spring, it also
+13:19
+influences the predicted activities at
+13:21
+the layer below it. To compute the
+13:23
+complete derivative, we must account for
+13:25
+how change in x subi affects these
+13:28
+downstream
+13:30
+errors. Recall that the predicted
+13:32
+activity of a neuron is given by the
+13:34
+weighted sum of activities of upstream
+13:37
+neurons. So when we change X subi at
+13:40
+layer L for each neuron at the layer
+13:43
+below, it affects the predicted value
+13:45
+proportionally to the weight connecting
+13:47
+them. To compute the total derivative,
+13:51
+we need to add up the prediction errors
+13:53
+from the layer below scaled by the
+13:56
+connection weights and combine them with
+13:58
+our earlier result.
+14:00
+Notice that for some downstream neuron,
+14:03
+if its activity is larger than its
+14:05
+predicted value, to reduce the tension
+14:07
+in the spring, we need to increase the
+14:10
+prediction by moving the platform up,
+14:13
+which can be done by moving the neuron
+14:15
+at the layer above up as well if the
+14:18
+weight coupling them is positive.
+14:21
+Conversely, if the prediction error is
+14:23
+negative, tension can be decreased by
+14:26
+lowering the predicted value through
+14:28
+decreasing the activity of the upstream
+14:31
+neuron. This elegant equation tells us
+14:33
+something profound about neural
+14:35
+dynamics. Activity is adjusted trying to
+14:38
+find a compromise between two competing
+14:40
+influences. The first term drives the
+14:43
+neuron to align with its top- down
+14:46
+prediction while the second term
+14:48
+encourages it to better predict the
+14:50
+layer below. When these forces settle
+14:53
+into balance, the neuron has found its
+14:55
+optimal activity level, one that
+14:57
+minimizes prediction errors both at its
+15:00
+own layer and the layer it helps to
+15:02
+predict. But before we move to adjusting
+15:05
+the weights, let's translate these
+15:07
+update rules from abstract springs and
+15:09
+platforms into actual
+Neural Connectivity
+15:13
+neurons. Notice that each neuron must
+15:16
+receive its own prediction error as
+15:18
+input with a negative sign. Earlier we
+15:21
+treated this error as a kind of abstract
+15:23
+subtraction, but this comparison must
+15:26
+physically occur somewhere. We need a
+15:28
+mechanism to store the prediction error
+15:31
+so it can drive the activity
+15:33
+changes. This is the fundamental insight
+15:35
+of predictive coding. We need a separate
+15:38
+population of neurons explicitly
+15:41
+encoding prediction errors. In fact,
+15:43
+this is the origin of the term
+15:45
+predictive coding. Neurons forming a
+15:48
+code that represents prediction errors
+15:51
+rather than signals themselves. In our
+15:54
+framework, within each layer, we can
+15:56
+imagine that alongside each
+15:58
+representational neuron X subi, which
+16:01
+encodes predictions passed to the layer
+16:03
+below, there exists a dedicated error
+16:06
+neuron, a biological counterpart that
+16:10
+encodes the deviation of X subi from its
+16:13
+predicted value. With this structure in
+16:15
+mind, we can directly read off the
+16:18
+required neural connectivity from our
+16:20
+update rule. A representational neuron X
+16:23
+subi must be inhibited by its
+16:26
+corresponding error neuron and excited
+16:29
+by error neurons sending feedback
+16:31
+signals from the layer below. This
+16:34
+elegantly maps our mathematical
+16:36
+formulation onto biological
+16:39
+circuitry. Now we need to determine what
+16:41
+drives the error neurons themselves. By
+16:44
+definition, error neurons function as
+16:46
+comparators. Calculating the difference
+16:49
+between the activity of X subi and its
+16:51
+predicted value which is given by the
+16:54
+weighted combination of activities from
+16:56
+the layer above. This equation reveals
+16:58
+another set of required connections.
+17:01
+Error neurons receive excitatory input
+17:04
+from their partner representational
+17:06
+neurons within the same layer and
+17:08
+inhibitory input from neurons in the
+17:11
+layer above that communicate
+17:13
+predictions. Perfect. Now we have two
+17:16
+distinct populations of neurons with
+17:18
+specific excitatory and inhibitory
+17:20
+connections between them. When allowed
+17:23
+to unfold according to its own intrinsic
+17:25
+dynamics, this network will settle into
+17:27
+an equilibrium which minimizes
+17:29
+prediction errors across all layers. But
+17:32
+everything we have discussed so far
+17:34
+assumes fixed connection weights. To
+17:37
+complete our model, we need to endow it
+17:39
+with learning
+Weight Update Rule
+17:42
+capabilities. Like neural activities,
+17:44
+synaptic weights are also movable parts
+17:47
+in our system that evolve towards
+17:49
+configurations minimizing the total
+17:52
+energy. For a weight connecting neuron I
+17:54
+in layer L to neuron K in layer L minus
+17:57
+one, we can derive an update rule that
+18:00
+decreases the total energy by taking
+18:03
+steps opposite to the gradient
+18:05
+direction. Since our energy function
+18:08
+sums all squared prediction errors
+18:10
+across the entire network when we change
+18:13
+the weight coupling those two neurons,
+18:15
+the only term that is affected is the
+18:17
+prediction error at the post synaptic
+18:20
+neuron. The derivative equals the
+18:22
+negative of this prediction error
+18:24
+multiplied by the presinaptic neurons
+18:27
+activity. This gives us an elegant
+18:29
+update rule where weight changes are
+18:32
+proportional to the product of the two
+18:34
+activities. This rule strikingly
+18:36
+resembles habian plasticity in
+18:38
+neuroscience. Neurons that fire together
+18:41
+wire together. However, translating this
+18:44
+rule to biological neural connectivity
+18:47
+reveals a challenge. Predictions flow
+18:49
+from top to bottom with the
+18:51
+representational neuron I connecting to
+18:53
+the neuron K at the layer below. When
+18:57
+prediction errors flow upward from this
+19:00
+error neuron back to neuron I, our
+19:02
+derivation requires using the same
+19:04
+synaptic weight. But in biological
+19:07
+networks, these are physically distinct
+19:10
+sinapses and maintaining the perfect
+19:12
+symmetry would require instantaneous
+19:15
+communication between them. A phenomenon
+19:17
+not observed in the brain. This
+19:20
+so-called weight transport problem
+19:22
+affects both back propagation and
+19:24
+predictive coding.
+19:26
+However, closer examination of the
+19:28
+weight dynamics suggests a possible
+19:30
+resolution. For the two opposing
+19:33
+sinapses, the update rule is essentially
+19:36
+identical, differing only in which
+19:38
+neuron is presinaptic and which is post
+19:40
+synaptic. Consequently, feedback and
+19:43
+feed forward synapses, which should
+19:46
+theoretically match, may independently
+19:48
+converge to similar values through
+19:50
+similar update processes. In this way,
+19:53
+the very physiology of the update
+19:56
+naturally mitigates the weight transfer
+19:58
+problem. I should note that in real
+20:01
+models though there is a nonlinear
+20:03
+activation function which we have been
+20:05
+sweeping under the rug. When these
+20:07
+nonlinearities are included, the updates
+20:10
+for the two sapses are not
+20:11
+mathematically identical. Fortunately,
+20:14
+research suggests that perfect symmetry
+20:17
+may not be essential. Even when feed
+20:19
+forward and feedback signapses learn
+20:21
+independently with slightly different
+20:23
+update rules, the approximate symmetry
+20:26
+that emerges is sufficient for the
+20:28
+network to function effectively. This
+20:31
+learning rule integrates seamlessly with
+20:33
+the activity dynamics we derived
+20:35
+earlier. As neural activities settle to
+20:38
+minimize prediction errors for specific
+20:40
+inputs, the weights simultaneously adapt
+20:43
+to encode statistical patterns across
+20:46
+many
+20:47
+experiences. Together, these processes
+20:49
+enable the network to continuously
+20:51
+refine its internal model, closely
+20:54
+mimicking how biological neural circuits
+20:56
+learn from experience.
+Putting all together
+21:00
+Let's now put everything together and
+21:03
+see how this framework operates as a
+21:05
+complete system. If we allow the network
+21:08
+to freely adjust every parameter, both
+21:11
+neural activities and the weights, it
+21:13
+would naturally settle to a zero energy
+21:16
+state. However, this solution would be
+21:18
+trivial and not perform any meaningful
+21:21
+computation. In practical
+21:23
+implementations of predictive coding and
+21:25
+likely in the brain itself, certain
+21:27
+neurons are kind of clamped to specific
+21:30
+values. The bottommost layer, for
+21:32
+example, cannot vary freely since those
+21:35
+neurons are directly driven by sensory
+21:38
+input. This constraint forces the
+21:41
+network to find an optimal compromise.
+21:46
+When presented with a training example,
+21:48
+the network undergoes an iterative
+21:50
+relaxation process. Neural activities
+21:53
+and weights adjust according to our
+21:55
+local update rules until reaching an
+21:57
+equilibrium configuration, an energy
+22:00
+minimum that encodes information about
+22:02
+the training example within the network
+22:05
+structure. Repeating this process across
+22:08
+diverse examples gradually refineses the
+22:10
+network's internal model of the world.
+22:13
+Through this process, the network
+22:15
+develops compressed representations of
+22:17
+data. This can be leveraged for
+22:19
+generative tasks when we unclamp the
+22:22
+output layer, freeze the weights, and
+22:25
+let the network run to equilibrium to
+22:28
+synthesize new images consistent with
+22:30
+its learned model.
+22:33
+For supervised learning tasks like
+22:35
+classification, we also clamp the
+22:37
+topmost layer to the desired label,
+22:40
+allowing the network to discover optimal
+22:42
+input to output mappings encoded in its
+22:45
+connection
+22:46
+weights. When classifying new inputs, we
+22:49
+simply freeze the weights, let the
+22:52
+system settle into equilibrium, and read
+22:54
+off the label from the equilibrium
+22:57
+activity of neurons at the top layer.
+23:00
+The key advantage of predictive coding
+23:02
+lies in its locality. While in back
+23:04
+propagation, all adjustments serve this
+23:07
+single goal of minimizing global output
+23:09
+error which must be transmitted
+23:12
+throughout the entire network. In
+23:14
+predictive coding, each neuron and
+23:16
+signapse only responds to local
+23:19
+prediction errors. How much a given
+23:21
+layer deviates from its own prediction
+23:24
+and how well it predicts its neighbor.
+23:27
+This biological plausibility and
+23:29
+accordance with neurohysiological data
+23:32
+such as observed plasticity rules
+23:34
+suggest that predictive coding might
+23:36
+very well be the key to understanding
+23:38
+how our own brains learn so effectively.
+23:42
+We can bring those insights into
+23:43
+artificial intelligence as well. The
+23:46
+local autonomy makes the algorithm
+23:48
+extremely parallelizable and in certain
+23:51
+settings more efficient than back
+23:52
+propagation.
+23:54
+Theoretical considerations suggest that
+23:57
+resulting updates may actually lead to
+24:00
+better solutions than back propagation.
+24:02
+While backrop focuses solely on the
+24:05
+overall output loss, potentially
+24:07
+overriding previously learned
+24:09
+information, a phenomenon known as
+24:11
+catastrophic forgetting, predictive
+24:13
+coding's local update rules better
+24:16
+preserve existing knowledge structure.
+24:18
+To wrap up, let's summarize what we have
+24:21
+explored today. By framing inference and
+24:24
+learning as an energy minimization
+24:26
+problem where each layer predicts the
+24:28
+activity of the layer below, we have
+24:30
+derived an algorithm that operates with
+24:33
+complete local autonomy. Unlike back
+24:36
+prop which requires global coordination
+24:38
+and separate phases for computation and
+24:40
+learning, predictive coding emerges as a
+24:43
+continuous parallel process where
+24:46
+neurons simultaneously predict, compare
+24:49
+and adapt. This approach not only aligns
+24:51
+with the biological constraints of
+24:53
+neural tissue but potentially offers
+24:56
+computational advantages for artificial
+24:58
+models.
+25:00
+As neuroscience and artificial
+25:02
+intelligence continue to inform each
+25:04
+other, predictive coding stands as a
+25:06
+compelling bridge between the remarkable
+25:08
+learning capabilities of biological
+25:10
+brains and the next generation of neural
+25:12
+network
+25:14
+architectures. Speaking of efficient
