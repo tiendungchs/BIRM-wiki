@@ -3,30 +3,43 @@
 **One ingest per pass** - never batch ingests.
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
-## Wave 4 — learning rules · synaptic plasticity and systems consolidation
+## Wave 5 — control layer · working memory and prefrontal control
 
 One INGEST each:
 
-- [x] `whittington-2019-error-backpropagation-in-brain.md` — plasticity · S · 2019
-- [x] `wikipedia-nd-hebbian-theory.md` — plasticity · S · nd
-- [x] `bengio-2015-biologically-plausible-deep-learning.md` — plasticity · F · 2015
-- [x] `lisman-2018-synaptic-strength-excitability.md` — plasticity · F · 2018
-- [x] `litman-2025-eqprop-without-limits.md` — plasticity · F · 2025
-- [x] `gerstner-1996-submillisecond-temporal-coding.md` — plasticity · M · 1996
-- [x] `scellier-2017-equilibrium-propagation.md` — plasticity · M · 2017
-- [x] `millidge-2020-activation-relaxation.md` — plasticity · M · 2020
-- [x] `shervanitabar-2023-meta-learning-plasticity-rules.md` — plasticity · M · 2023
-- [x] `lindsey-2024-recall-gated-plasticity.md` — plasticity · M · 2024
-- [x] `wu-2025-btsp-content-addressable-memory.md` — plasticity · M · 2025
-- [x] `cazalets-2025-hebbian-reservoir-adaptation.md` — plasticity · M · 2025
-- [x] `bi-1998-spike-timing-dependent-plasticity.md` — plasticity · R · 1998
-- [x] `sadtler-2014-neural-constraints-learning.md` — plasticity · R · 2014
-- [x] `bartunov-2018-biologically-motivated-dl-scalability.md` — plasticity · R · 2018
-- [x] `golub-2018-neural-reassociation-learning.md` — plasticity · R · 2018
-- [x] `talk-nd-brain-learning-algorithm.txt` — plasticity · X · nd
-- [x] `talk-nd-brain-learning-limits.txt` — plasticity · X · nd
-- [x] `sun-2023-systems-consolidation-generalization.md` — memory-consolidation · M · 2023
-- [x] `mander-2013-nrem-slow-waves-memory-aging.md` — memory-consolidation · R · 2013
-- [x] `desousa-2026-prefrontal-controls-memory-organization.md` — memory-consolidation · R · 2026
-- [x] `talk-nd-memory-engram.txt` — memory-consolidation · X · nd
-- [x] `talk-nd-memory-gating.txt` — memory-consolidation · X · nd
+- [x] `oreilly-2006-making-working-memory-work.md` — working-memory · M · 2006
+- [ ] `graves-2016-differentiable-neural-computer.md` — working-memory · M · 2016
+- [ ] `kozachkov-2022-short-term-plasticity-working-memory.md` — working-memory · M · 2022
+- [ ] `liu-2025-transient-trajectory-rnn-working-memory.md` — working-memory · M · 2025
+- [ ] `lebedev-2004-attended-vs-remembered-locations-pfc.md` — working-memory · R · 2004
+- [ ] `lundqvist-2018-gamma-beta-bursts-working-memory.md` — working-memory · R · 2018
+- [ ] `derosa-2024-working-memory-removal-operations.md` — working-memory · R · 2024
+- [ ] `gong-2024-self-attention-working-memory-limit.md` — working-memory · R · 2024
+- [ ] `wise-2000-arbitrary-antecedent-action-associations.md` — prefrontal-control · S · 2000
+- [ ] `murray-2000-pfc-arbitrary-visuomotor-mapping.md` — prefrontal-control · S · 2000
+- [ ] `miller-2002-prefrontal-categories-concepts.md` — prefrontal-control · S · 2002
+- [ ] `heidbreder-2003-rat-medial-prefrontal-dorsoventral.md` — prefrontal-control · S · 2003
+- [ ] `wood-2003-prefrontal-representational-perspectives.md` — prefrontal-control · S · 2003
+- [ ] `euston-2012-mpfc-memory-decision-making.md` — prefrontal-control · S · 2012
+- [ ] `spedding-2012-hippocampal-prefrontal-pathway.md` — prefrontal-control · S · 2012
+- [ ] `preston-2013-hippocampus-prefrontal-memory.md` — prefrontal-control · S · 2013
+- [ ] `jin-2015-prefrontal-hippocampal-interactions.md` — prefrontal-control · S · 2015
+- [ ] `sigurdsson-2016-hippocampal-prefrontal-interactions.md` — prefrontal-control · S · 2016
+- [ ] `lieberman-2018-mpfc-social-self-affective.md` — prefrontal-control · S · 2018
+- [ ] `friedman-2021-prefrontal-cognitive-control.md` — prefrontal-control · S · 2021
+- [ ] `arnsten-2010-dynamic-network-connectivity.md` — prefrontal-control · F · 2010
+- [ ] `wang-2018-pfc-meta-rl-system.md` — prefrontal-control · F · 2018
+- [ ] `jensen-2026-planning-prefrontal-cortex.md` — prefrontal-control · F · 2026
+- [ ] `martinet-2011-prefrontal-spatial-planning-model.md` — prefrontal-control · M · 2011
+- [ ] `collins-2013-task-set-structure-learning.md` — prefrontal-control · M · 2013
+- [ ] `boettiger-2005-frontal-stimulus-response-learning.md` — prefrontal-control · R · 2005
+- [ ] `badre-2010-frontal-abstract-action-rules.md` — prefrontal-control · R · 2010
+- [ ] `matsuzaka-2012-dmpfc-response-tactic-selection.md` — prefrontal-control · R · 2012
+- [ ] `bichot-2015-feature-based-attention-pfc.md` — prefrontal-control · R · 2015
+- [ ] `widge-2019-dbs-internal-capsule-cognitive-control.md` — prefrontal-control · R · 2019
+- [ ] `bichot-2019-prefrontal-feature-attention-v4.md` — prefrontal-control · R · 2019
+- [ ] `awan-2020-tactic-based-sensorimotor-transformations.md` — prefrontal-control · R · 2020
+- [ ] `eng-2025-pfc-connectivity-executive-function.md` — prefrontal-control · R · 2025
+- [ ] `zhou-2025-preparatory-attentional-templates.md` — prefrontal-control · R · 2025
+- [ ] `lai-2026-mpfc-bla-nac-affective-pathways.md` — prefrontal-control · R · 2026
+
