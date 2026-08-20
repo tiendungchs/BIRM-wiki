@@ -125,6 +125,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | LRF / GRF | Local / Global Receptive Field | dANN input-sampling rules: receptive-field centre drawn per dendrite (LRF, best-performing) or per soma (GRF) |
 | eHebb | error-based Hebbian plasticity | `ΔW_{ℓ−1,ℓ} ∝ −e_ℓ e_{ℓ−1}ᵀ` — outer product of post- and pre-synaptic *error* signals rather than activations; drives forward weights toward the transpose of fixed random feedback (Shervani-Tabar & Rosenbaum 2023) |
 | MLP | Multi-Layer Perceptron | Plain fully-connected feedforward stack; the default comparator or head in most architectures here |
+| KAN | Kolmogorov-Arnold Network | Learnable univariate activation functions on the *edges* summed at the nodes, in place of fixed activations with learnable node weights; the basis of [[wiki/entities/kan-ode.md]] |
+| KAT | Kolmogorov-Arnold representation Theorem | `f(x) = Σ_q Φ_q(Σ_p φ_{q,p}(x_p))` — every continuous multivariate function is a finite composition of univariate ones; the KAN's licence, as the universal approximation theorem is the MLP's |
+| Neural ODE | Neural Ordinary Differential Equation | A network used as a gradient-getter, `du/dt = NN(u,t)`, integrated by a standard ODE solver with gradients taken by the adjoint method; makes a dynamics model continuous-time and grid-agnostic |
+| RBF | Radial Basis Function | `ψ(r) = exp(−r²/2h²)` on a grid of centres; the basis used in place of B-splines in the KAN-ODE implementation |
+| SINDy | Sparse Identification of Nonlinear Dynamics | Sparse regression of a system's derivative onto a hand-supplied library of candidate functions; interpretable within the library and blind outside it |
+| PINN | Physics-Informed Neural Network | Puts the known governing equations in the loss as a soft constraint; interpretable, but requires the governing law up front |
 | GNN | Graph Neural Network | Message-passing network over an explicit node/edge set; the backbone of [[wiki/entities/neuromatch.md]] |
 | GIN | Graph Isomorphism Network | The maximally expressive message-passing GNN under the Weisfeiler-Lehman test; the ceiling NeuroMatch's identity injection is designed to exceed |
 | GraphSAGE | Graph SAmple and aggreGatE | Inductive GNN layer: a *learned aggregator* over sampled neighbours, so embeddings can be produced for nodes unseen during training — the property [[wiki/entities/irene.md]] credits for handling evaluation-set entities |
