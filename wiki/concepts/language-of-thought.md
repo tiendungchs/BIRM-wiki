@@ -4,7 +4,7 @@
 
 The wiki's core framing names *probabilistic language of thought* as one of the rival one-problem reductions to latent graph discovery ([[wiki/concepts/latent-graph-discovery.md]]). This page is that rival stated in full. It is assembled from material the wiki acquired for a different argument — the developmental dispute over where compositional machinery comes from — and its load-bearing content is that **the dispute is not about whether the format exists but about whether it is installed or acquired**, with both horns costed.
 
-> **Provenance.** No *ingested* source is about LoT as a computational proposal. Everything below is folded from Spelke 2022 and Revencu & Csibra 2023 (via [[wiki/concepts/core-knowledge.md]]), Fodor & Pylyshyn 1988 as cited there, and Lake et al. 2017 (via [[wiki/entities/bayesian-program-learning.md]], whose stochastic programs are a PLoT instance in all but name). Fodor 1975 and the probabilistic-programming statements of PLoT are **not** in the wiki, though `raw/goodman-2024-probabilistic-programs-language-thought.md` is present and unread; see Open Problems.
+> **Provenance.** No *ingested* source is about LoT as a philosophical proposal, but one now **builds** one: [[wiki/entities/neo-neural-theorizer.md]] names its VQ codebook a *learned Language of Thought* and is the first machine in the wiki whose vocabulary, syntax and semantics are all fitted rather than stipulated (see below). Everything below is folded from Spelke 2022 and Revencu & Csibra 2023 (via [[wiki/concepts/core-knowledge.md]]), Fodor & Pylyshyn 1988 as cited there, and Lake et al. 2017 (via [[wiki/entities/bayesian-program-learning.md]], whose stochastic programs are a PLoT instance in all but name). Fodor 1975 and the probabilistic-programming statements of PLoT are **not** in the wiki, though `raw/goodman-2024-probabilistic-programs-language-thought.md` is present and unread; see Open Problems.
 
 ---
 
@@ -41,6 +41,27 @@ This is the **non-embeddable symbolic slice** the graph framing lists as its own
 
 ---
 
+## The first machine instance, and what it does to the dispute
+
+[[wiki/entities/neo-neural-theorizer.md]] instantiates the format without taking either horn of the installed/acquired dispute, which is the interesting part.
+
+| LoT element | NEO's realisation |
+|---|---|
+| Conceptual stock | A VQ codebook `E = {e_1,…,e_{M'}}` of symbols with **no predefined semantics**; `M'` is a hyperparameter and may be 6× the true primitive count without harm |
+| Syntax | The theory programmer `q_φ(z_k \| s_k, y)` — a goal-conditioned policy that decides which symbol comes next |
+| Semantics | One **shared executor** `f_θ(s, z)`: a symbol means whatever this network does with it, so meaning is *operational* and jointly learned with the syntax |
+| Prior over expressions | `λ_MDL^k · ℓ(y, ŷ_k)` — an exponential length penalty, selecting `k*` per instance |
+| Productivity | Demonstrated: programs of length 4–8 composed from primitives seen only in length 1–3 programs, 0.845 transfer |
+| Systematicity | **Still not tested** — OTIB scores composition coverage, not the `X prefers Y` / `Y prefers X` symmetry |
+
+Three consequences for this page:
+
+- **Neither installed nor acquired-from-language.** The vocabulary is acquired, from raw non-linguistic observation pairs, with no corpus and no teacher. That is a third position the developmental dispute does not contain, and it is available to a machine because a machine can be *given a shared executor* — the thing that forces distinct symbols to have distinct, reusable effects. Whether an infant has an analogue of `f_θ` is exactly the question the dispute is about, and this does not answer it; what it shows is that the format does not need to be either innate or linguistic to be learnable.
+- **The prior *can* carry the pruning load — inside a band.** This page's last open problem asks whether a prior over expressions can do the pruning overgeneration demands without being the innate content the argument was avoiding. Here it can: an exponential length prior with one scalar. But the sweep shows the scalar is two-sided — at `λ_MDL = 1.2` the prior prunes so hard that it selects *entangled composites* (primitiveness 1.000 → 0.213), i.e. an over-strong simplicity prior does not merely fail to help, it destroys the vocabulary it was meant to organise ([[wiki/empirical-tensions.md]] T155).
+- **The overgeneration argument gets a second, cheaper pruner nobody named.** The state-grounding loss removes from the composition space every expression whose *intermediate* results are not decodable observations. That is not a prior over sentences at all — it is a well-formedness constraint on the execution trace — and removing it collapses the model completely (primitiveness 0.002). **(brainstorm)** If this generalises, the reason a mind never builds most available compositions may be less that they are improbable than that their intermediate states are not states of anything.
+
+---
+
 ## The live dispute: installed or acquired (T8)
 
 Full table and evidence: [[wiki/concepts/core-knowledge.md]]. The compressed form, because it is what makes LoT a *design* question rather than a philosophical one:
@@ -71,10 +92,11 @@ Three things the wiki has already extracted from this, and they are the transfer
 
 ## Open Problems
 
-- **No ingested primary source.** The wiki holds the *dispute* about LoT without the proposal itself. This costs nothing to fix: `raw/goodman-2024-probabilistic-programs-language-thought.md` is already present and unread, and it is the one file that would replace every second-hand statement on this page with a first-hand one.
+- **No ingested primary source on the psychological claim.** The wiki holds the *dispute* about LoT without the proposal itself. This costs nothing to fix: `raw/goodman-2024-probabilistic-programs-language-thought.md` is already present and unread, and it is the one file that would replace every second-hand statement on this page with a first-hand one.
 - **No substrate.** Nothing in the wiki proposes a neural implementation of variable binding, which is the operation the whole account rests on.
 - **No instrument.** Productivity and systematicity are the diagnostics, and no benchmark here measures either — the reason T8 cannot be adjudicated.
-- **Whether the prior can carry the pruning load.** PLoT's answer to overgeneration is a prior over expressions. Whether any such prior is learnable from a child's (or an agent's) input, rather than being the innate content the argument was trying to avoid, is unaddressed.
+- **~~Whether the prior can carry the pruning load.~~** Partly answered in a toy setting: an MDL length prior with one scalar does the pruning, and the scalar has a wrong side ([[wiki/entities/neo-neural-theorizer.md]]). What is unaddressed is whether it scales past ≤8 primitives and ≤8-step programs, and whether anything sets `λ` other than a sweep against ground truth the learner is not supposed to have.
+- **No arity, no binding, still.** NEO's expressions compose by concatenation: symbols take no arguments, nothing is bound, nothing recurses. So the machine instance realises the *productivity* diagnostic and not the operation — variable binding — that this page says the whole account rests on.
 
 ---
 
@@ -86,4 +108,5 @@ Three things the wiki has already extracted from this, and they are the transfer
 - **[[wiki/concepts/compositionality.md]]** — the mechanism-agnostic statement of what LoT claims is achieved by syntax; productivity and systematicity are its diagnostics on both pages.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the mechanistic rival to a syntax: compose by relaxation into a joint free-energy minimum with the relative spatial encoding as the binding term, requiring no shared symbolic format — and buying consistency rather than truth.
 - **[[wiki/entities/bayesian-program-learning.md]]** — a PLoT instance in all but name: a prior over structured expressions (parts, sub-parts, relations) with concepts as posterior programs, and the wiki's one demonstration that the format pays in sample efficiency.
+- **[[wiki/entities/neo-neural-theorizer.md]]** — the first machine instance of the format with nothing stipulated: codebook symbols as the conceptual stock, a goal-conditioned policy as the syntax, a shared executor as the semantics, and an MDL length prior doing the pruning that the overgeneration objection demands.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — the competing answer to "what is a concept stored as": a position in a relational code, invariant to content, which supports transfer and path consistency but has no binding operation.
