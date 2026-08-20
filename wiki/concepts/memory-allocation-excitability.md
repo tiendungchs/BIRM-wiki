@@ -87,6 +87,10 @@ The last row is the load-bearing one: the shared subpopulation is a *separable* 
 
 ---
 
+### The window is not the only way to build the overlap
+
+Allocate-to-link can only relate episodes whose relatedness was already implied by their timing. A second route creates the same object *after the fact*: two engrams encoded **4 days** apart (taste aversion, auditory fear) are initially disjoint; presenting both conditional stimuli together repeatedly reactivates both traces, their overlap grows, and the animal comes to freeze to the taste — while silencing the *emergent shared* population leaves each memory retrievable and abolishes only the transfer (`raw/talk-nd-memory-engram.txt`, **(tentative)** — talk only, no paper read). Same dissociation as the amygdala result above, reached without any excitability window, which makes population overlap the common currency of linkage and the tag only one of its writers. Detail and the edge algebra: [[wiki/concepts/engram.md]].
+
 ## Function 2 — assembly consolidation (proposed, untested)
 
 **Claim:** the excitability tag persists into the post-learning rest period, so tagged cells participate more in sharp-wave ripples (SWRs), so *their* synapses get the repeated coactivation that consolidation requires — the ensemble stabilises itself.
@@ -211,3 +215,4 @@ Specificity limits worth carrying: the effect appears only when the two episodes
 - **[[wiki/concepts/recall-gated-consolidation.md]]** — the rival consolidation criterion, and cleanly separable from this one: an excitability tag is set at *encoding*, is content-blind and groups episodes by temporal proximity, while the recall gate is evaluated at *every recurrence* and is content-specific. The tag decides which episodes share an assembly; the gate decides which assembly earns a long-term write.
 - **[[wiki/entities/btsp-cam.md]]** — the same architectural move — *which* neurons a memory is written into decided by a variable that is neither a weight nor the input — at a different timescale and with the opposite statistics: a seconds-long dendritic plateau arriving input-independently at rate `f_q ≈ 0.005`, which spreads memory load **uniformly** where this page's hours-long excitability tag deliberately clusters it on recently-active cells.
 - **[[wiki/concepts/generalization-optimized-consolidation.md]]** — supplies the reason the top-down controller can only be a *late* mechanism: it needs a cortical trace that transport has already built, which is why the vmPFC gate is load-bearing at 7 d and inert at 5 h, and it makes the amount of consolidation a determinant of how well new memories are organized rather than only of how well old ones are retained.
+- **[[wiki/concepts/engram.md]]** — the object this page allocates into, with three facts it does not carry: the write set is size-conserved across memories of different strength and valence, it is distributed brain-wide as aspect-specific component ensembles, and its overlap with another trace can also be grown *after* encoding by repeated co-retrieval — so the excitability tag is one writer of linkage rather than its definition.
