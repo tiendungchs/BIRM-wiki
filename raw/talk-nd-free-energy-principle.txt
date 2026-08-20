@@ -1,0 +1,804 @@
+
+0:00
+This video was brought to you by Squarespace.
+0:02
+Take a look at this mask.
+0:04
+It looks like a convex face protruding outwards.
+0:07
+Now, let's rotate it.
+0:10
+At this point, you know what you expect to see,
+0:13
+a concave mask protruding inwards.
+0:16
+However,
+0:17
+somehow you get a strong sense that something is off,
+0:20
+and the mask sure looks like
+0:22
+it got warped to be convex again,
+0:24
+even though part of you knows that it's not the case.
+0:28
+But why is your brain so stubbornly convinced
+0:31
+that the mask is protruding outward?
+0:33
+The answer actually reveals something remarkable about the nervous system.
+0:38
+What if I told you that everything you're seeing,
+0:41
+hearing, and feeling at this moment
+0:44
+isn't actually reality,
+0:46
+that it is a controlled hallucination,
+0:48
+your brain constructing & testing hypotheses about what's out there?
+0:53
+There is a powerful theory in neuroscience
+0:56
+called the free energy principle,
+0:58
+which proposes something mind-bending.
+1:00
+According to this framework,
+1:02
+your brain isn't passively receiving information about the world.
+1:06
+It is actively generating predictions about what should be out there,
+1:10
+and then uses the sensory input to merely check
+1:13
+if those predictions are right.
+1:15
+Today, we're going to explore this fascinating theory.
+1:18
+We'll discover why evolution turned our brains into prediction machines,
+1:23
+how this helps us survive in an uncertain world,
+1:26
+and why sometimes, like in this mask illusion,
+1:29
+our brain's predictions can override
+1:32
+what's actually in front of us.
+Role of world models
+1:37
+But first, let's go back to the beginning.
+1:39
+To understand why our brains work this way,
+1:42
+we need to look at the fundamental problem they evolved to solve.
+1:46
+The main purpose of the brain,
+1:48
+like any trait favored by evolution,
+1:50
+is to increase the chances of survival & reproduction.
+1:54
+To achieve this,
+1:55
+organisms need to react to stimuli appropriately.
+1:58
+For instance, if you sense harmful chemicals,
+2:01
+you need to swim away from them.
+2:03
+But such simple reactions can be accomplished
+2:05
+through basic biochemistry.
+2:07
+No complex nervous system required.
+2:10
+In fact, you don't even need to be multicellular for this.
+2:13
+Just a bag of liquid with a few chemical reactions would work.
+2:17
+However, as organisms began to inhabit more complex environments,
+2:21
+they faced a challenge of the outside world.
+2:24
+Being noisy, ambiguous,
+2:26
+and often providing only partial information.
+2:30
+For instance, let's say that over the course of your lifetime,
+2:33
+you learned that tigers mean danger
+2:36
+and should be avoided.
+2:37
+To your brain, a tiger is essentially
+2:40
+any pattern on the retina that looks similar to this.
+2:43
+Now, suppose one day
+2:45
+your retina registers a pattern of activity that looks like this.
+2:50
+If you had a primitive nervous system
+2:52
+that determined whether something is a tiger or not
+2:55
+by pure pattern matching,
+2:57
+the similarity might be below the threshold
+2:59
+and you will get eaten.
+3:01
+This is where brains come in.
+3:03
+They evolved not just as reaction machines,
+3:06
+but as sophisticated model builders
+3:09
+that try to explain sensory inputs
+3:12
+by inferring their hidden causes.
+3:14
+In this case,
+3:15
+Your brain might have an internal model of what a tiger is,
+3:19
+how it looks like,
+3:20
+and what will happen if you get caught.
+3:22
+Importantly, the brain also knows that in the real world,
+3:25
+objects may be occluded by other objects.
+3:29
+Thus, the brain is capable to combine those two facts together
+3:33
+and come up with an explanation
+3:34
+that what you're seeing isn't a totally novel object
+3:38
+that looks like 1/2 tiger,
+3:40
+but rather is an actual full tiger
+3:43
+occluded by the tree, so it better run.
+3:46
+This ability to fill in the gaps
+3:48
+and come up with plausible explanations for sensory data
+3:51
+is at the heart of the brain's evolutionary success.
+3:55
+In essence,
+Free Energy as tradeoff between accuracy and complexity
+3:56
+you can think of your brain like a judge,
+3:58
+weighting evidence on a scale.
+4:00
+On one side, there is what your senses are telling you,
+4:04
+the raw data coming in through your eyes, ears, & other modalities.
+4:09
+On the other side,
+4:10
+there is what you already know about how the world works.
+4:14
+Your prior beliefs build up through evolution and experience.
+4:18
+Your brain is constantly trying to find the perfect balance
+4:22
+between those two forces.
+4:24
+When they are out of balance,
+4:26
+we can think of it as creating a kind of tension or energy in the brain
+4:30
+which it wants to minimize.
+4:32
+This tension is what neuroscientists call
+4:35
+the variational free energy,
+4:37
+or just free energy for short.
+4:41
+Let's go back to our tiger example.
+4:43
+When your senses show you half a tiger pattern,
+4:46
+that creates a puzzle.
+4:48
+One explanation might be that
+4:50
+you're seeing a strange half tiger creature,
+4:53
+but that explanation would have very high free energy.
+4:56
+It conflicts strongly with your prior knowledge
+4:59
+that tigers are whole animals that are symmetric.
+5:03
+The other explanation that it is a complete tiger
+5:06
+partially hidden behind something
+5:08
+has a much lower free energy.
+5:11
+It fits both what you're seeing
+5:13
+and what you know about how the world works.
+5:17
+Brains minimize free energy
+5:18
+to adapt to specific niches in the environment
+Sponsor: Squarespace
+5:21
+and if you're looking to carve out your own niche online,
+5:24
+our today's sponsor, Squarespace,
+5:26
+is exactly what you need.
+5:28
+Squarespace is an all-in-one platform
+5:30
+that makes it super simple to build a professional website & get it up & running.
+5:35
+Starting a website can be an intimidating experience,
+5:38
+especially when you're faced with a blank HTML file
+5:41
+not knowing where to begin.
+5:42
+This is where Squarespace Design Intelligence feature comes in.
+5:46
+Their suite of generative AI tools
+5:48
+can create a fully customized site
+5:50
+based on your business type and brand preferences,
+5:53
+complete with images & content tailored to your liking,
+5:56
+serving as a great starting point.
+5:59
+From there, you have complete creative control,
+6:01
+customized colors and fonts,
+6:03
+use their intuitive drag & drop interface,
+6:05
+& even add animations to make it stand out.
+6:08
+But Squarespace isn't just a website builder,
+6:10
+it's a complete business solution.
+6:12
+Whether you want to create online courses,
+6:14
+launch e-mail campaigns,
+6:16
+or start accepting payments through multiple methods,
+6:19
+they provide all the tools you need in one place.
+6:22
+Check out squarespace.com for a free trial,
+6:25
+and once you're ready to launch,
+6:26
+go to
+6:29
+to save 10% off your first purchase of a website or domain.
+Generative Model
+6:35
+But how does the brain actually implement such sophisticated explanations?
+6:40
+The key challenge is that sensory data,
+6:43
+like the pattern of light on your retina,
+6:45
+consists of thousands of neurons firing in complex patterns.
+6:50
+The brain needs some way to compress
+6:52
+this vast amount of information into a manageable form.
+6:56
+By finding commonalities & hidden structure in the data,
+7:00
+the solution found by evolution was quite elegant.
+7:04
+Alongside neurons, that directly correspond to sensory inputs.
+7:09
+the brain evolved neurons
+7:11
+that don't directly connect to the outside world.
+7:14
+These hidden or latent neurons
+7:17
+learn to represent meaningful features
+7:20
+or causes at different levels of abstraction.
+7:24
+At a high level,
+7:25
+there might be neurons encoding abstract causes
+7:28
+like tiger or object occlusion.
+7:32
+These connect to intermediate neurons
+7:34
+representing things like stripes or fur texture,
+7:38
+which, in turn, connect to neurons
+7:39
+encoding more basic causes like edges or color.
+7:43
+For such latent neurons,
+7:45
+because they don't interface with the outside world,
+7:48
+there is no ground truth
+7:50
+on what their activity should be.
+7:52
+In fact, the brain is free to choose
+7:54
+whichever latents it wants.
+7:56
+So, how can we test which world model is the best to select among them?
+8:03
+While we can't directly verify the latents,
+8:06
+we can verify their consequences.
+8:09
+A good set of latent causes
+8:11
+should be able to explain the patterns we observe in our sensory neurons.
+8:16
+And by explain,
+8:17
+I mean they should contain enough information
+8:20
+to decently reconstruct the source sensory data
+8:24
+from this compressed representation.
+8:26
+Here is an intuitive way to think about this.
+8:29
+Imagine a three-dimensional scene
+8:31
+in a computer graphics program like Blender.
+8:34
+The scene might have just a few adjustable parameters,
+8:37
+sliders controlling the rotation of the object,
+8:40
+the position of the light source,
+8:42
+and the object's color.
+8:44
+When you render the scene,
+8:46
+you get a high resolution image,
+8:49
+perhaps 1000 by 1000 pixels.
+8:51
+That is a million variables,
+8:54
+each with its own color value.
+8:56
+Yet, all possible images you could render from the scene
+8:59
+are controlled by just those three slider positions,
+9:03
+which contain all the information you need
+9:06
+to reconstruct the scene fully.
+9:08
+For example, if you wanted to share one of those images with a friend,
+9:12
+you wouldn't need to send them all the milli pixels.
+9:16
+You could just send three numbers,
+9:18
+the positions of each slider,
+9:20
+and if they have the same scene setup,
+9:22
+they could generate the identical image.
+9:26
+This is similar to how latent neurons
+9:29
+encode abstract high level features of the observed data
+9:33
+and the rendering process,
+9:35
+the complex computation under the hood of the graphics software
+9:38
+that transforms slider positions to rendered pixels
+9:43
+corresponds to a so-called generative network
+9:46
+or generative model inside the brain.
+9:50
+You can think of this generative model as connection weights
+9:53
+between latent & sensory neurons,
+9:56
+plus additional neural circuits that carry out this reconstruction
+10:00
+and uncompress the latent representation.
+Priors
+10:04
+Now, imagine you are setting up the scene
+10:06
+to match photographs of real objects.
+10:09
+You would quickly discover that some slider combinations
+10:13
+occur much more frequently than others in the real world.
+10:16
+Light sources are usually above objects,
+10:19
+not below them,
+10:20
+and objects tend to rest on surfaces in stable positions.
+10:24
+Through experience, you will develop an intuitive sense
+10:28
+of which parameter combinations are more likely to occur.
+10:32
+This is exactly what your brain does.
+10:35
+It learns which patterns of latent neuron activity
+10:38
+correspond to real-world situations
+10:41
+and are thus more common than others.
+10:44
+These learned probabilities of different causes
+10:47
+are what we call priors,
+10:50
+because they represent your prior beliefs
+10:52
+before you take the observed sensory data into account.
+10:56
+Priors are crucial for making sense of ambiguous situations.
+11:01
+If you're walking through a city park
+11:03
+and catch a glimpse of something orange & striped
+11:06
+in your peripheral vision,
+11:07
+your brain will favor explanations that are common in this context.
+11:12
+Perhaps a child's stuffed toy
+11:14
+or somebody wearing a striped shirt.
+11:17
+Even though the sensory data might be consistent with the tiger cause,
+11:22
+your prior belief about how unlikely it is
+11:25
+to encounter a tiger in a city park
+11:28
+helps you arrive at a more reasonable interpretation.
+11:31
+However, if you were on a safari,
+11:34
+the same orange striped glimpse
+11:36
+would likely trigger a very different interpretation,
+11:39
+because your priors about
+11:41
+what is likely in that environment are quite different.
+11:44
+Hence, the generative model the brain uses
+11:47
+to make sense of the outside world
+11:49
+has two components,
+11:52
+the prior, which tells us how likely various causes are,
+11:56
+and the generator network,
+11:58
+which can synthesize sensory data for a given cause.
+12:02
+In real life, however,
+12:03
+we constantly face the opposite problem.
+12:06
+We have sensory input and need to figure out what caused it.
+12:11
+It is called inference.
+12:13
+Inferring causes from observations,
+12:15
+and this is where things get a bit tricky.
+Approximate Inference via Recognition Model
+12:20
+Let's return to our blender analogy.
+12:23
+Imagine you're given just the final image
+12:26
+and asked to figure out the slider positions that created it.
+12:29
+This reverse problem
+12:31
+faces a fundamental computational challenge.
+12:34
+To find the right causes, in general,
+12:37
+you would need to try every possible combination of slider positions,
+12:41
+render an image from each one,
+12:44
+and compare it with your target image.
+12:47
+Even with just three sliders,
+12:49
+each with 100 possible positions,
+12:51
+that's a million combinations to check.
+12:54
+Your brain faces the same problem,
+12:57
+but on a much larger scale.
+12:59
+It has millions of latent neurons,
+13:01
+each with many possible activity levels,
+13:03
+checking every combination would take longer than the age of the universe.
+13:08
+And yet, brains solve this problem nearly instantaneously.
+13:12
+When you get a glimpse of an orange-striped pattern,
+13:15
+you don't have time to test billions of possible causes.
+13:19
+If that pattern really is a tiger,
+13:21
+you need to figure it out fast.
+13:24
+So how does the brain manage this seemingly impossible task?
+13:28
+The key idea
+13:29
+is that while we can't directly invert the generative model
+13:33
+and compute exact probabilities
+13:35
+of how different causes are likely given the sensory observation,
+13:39
+we can try to find an approximation.
+13:42
+The brain has a separate network,
+13:45
+a recognition model,
+13:46
+which works in the opposite direction
+13:49
+by mapping a sensory observation
+13:51
+to the distribution of causes.
+13:54
+Importantly, this result is only an approximation,
+13:57
+a rough first guess
+13:59
+of what causes might explain the sensory observation.
+14:02
+To improve the guess,
+14:04
+the brain might need to do multiple rounds
+14:07
+of engaging recognition & generation networks in a loop
+14:11
+to arrive at a refined estimate.
+Free Energy balance revisited
+14:14
+Crucially, for this system to work,
+14:16
+the recognition and generative networks
+14:18
+need to be aligned with each other.
+14:20
+They need to speak the same language of causes.
+14:24
+When the recognition network
+14:26
+suggests a particular pattern of latent neuron activity as an explanation,
+14:31
+the generative network should produce sensory patterns
+14:34
+that match what the recognition network has learned to associate
+14:38
+with those causes.
+14:40
+This alignment isn't automatic,
+14:42
+it needs to be learned through experience.
+14:45
+Now, when we've seen how the brain uses recognition
+14:48
+and generative models to make sense of the world,
+14:50
+let's see how they work together to minimize free energy.
+14:54
+When your brain encounters a new sensory input,
+14:58
+these two models engage in a rapid dance.
+15:02
+The recognition model proposes possible explanations,
+15:06
+and the generative model checks how well they work.
+15:09
+If there is a mismatch,
+15:11
+if the generative model predicts sensory patterns
+15:13
+that don't match what you're actually experiencing,
+15:17
+your brain adjusts the explanation and tries again.
+15:21
+This back and forth continues
+15:23
+until your brain finds an explanation that minimizes free energy,
+15:27
+one that explains both the sensory input
+15:30
+and aligns well with your prior beliefs.
+15:34
+This is the process of perception,
+15:36
+when the brain rapidly adjusts the activity
+15:39
+of those latent neurons we talked about,
+15:41
+tweaking its explanation
+15:43
+until it finds the one that minimizes free energy.
+15:46
+This happens incredibly quickly,
+15:48
+usually within fractions of a second.
+15:51
+But there is also a longer term process of learning.
+15:55
+Over time, the brain gradually refines both models
+15:59
+by adjusting connection weights between the neurons.
+16:02
+The recognition model gets better at making initial guesses,
+16:06
+and the generative model gets better
+16:08
+at predicting their sensory consequences
+16:10
+and builds up better prior expectations of causes.
+16:14
+Importantly, even though perception and learning
+16:17
+operate on two different time scales,
+16:20
+they both serve the same overarching goal,
+16:23
+reducing uncertainty in the world
+16:26
+by building optimal models of the environment
+16:29
+and finding explanations for sensory data within those models.
+Explanation for optical illusion
+16:36
+Now we understand exactly why
+16:38
+the brain refuses to see the mask as concave,
+16:40
+even when we know that's what it is.
+16:43
+Your brain is facing a dilemma,
+16:45
+the pattern of light and shadows on your retina
+16:48
+suggests a hollow, inward protruding shape.
+16:52
+But this interpretation would violate
+16:54
+one of your brain's strongest prior beliefs
+16:57
+that faces protrude outward.
+16:59
+From the free energy perspective,
+17:01
+your brain has two possible explanations.
+17:04
+Either that there is a concave face in front of you,
+17:07
+or that there is normal convex face with somewhat unusual lighting.
+17:12
+The brain chooses the explanation which minimizes total free energy.
+17:17
+The prior belief about faces being convex is incredibly strong,
+17:21
+built from a lifetime of experience.
+17:24
+As a result,
+17:25
+the brain would rather assume
+17:27
+there is something unusual about the lighting
+17:29
+than to accept the existence of an inwardly protruding face.
+17:33
+The free energy is lower when slightly mismatching sensory evidence
+17:38
+than when violating the fundamental expectation about faces.
+17:42
+And knowing the truth doesn't break the illusion,
+17:45
+as it is rooted in a more evolutionarily conserved circuitry for visual perception.
+17:49
+So even the analytical part of the brain cannot override this.
+Review
+17:55
+Let's put all the pieces together.
+17:57
+At its core, the free energy principle suggests
+18:00
+that our brains are essentially prediction machines,
+18:04
+constantly trying to explain the chaos of incoming sensory information.
+18:08
+They achieve it by having a generative model
+18:11
+which can come up with new sensory patterns
+18:14
+and a recognition model working in tandem
+18:17
+to arrive at the best explanation,
+18:20
+the compressed representation of sensory patterns
+18:23
+that balances observed evidence with prior beliefs.
+18:27
+This balance is quantified by the value of free energy,
+18:30
+with lower values corresponding to favorable explanations
+18:34
+that fit both the incoming sensory data
+18:37
+and existing beliefs
+18:39
+about what's likely to be observed
+18:41
+according to the current world model.
+18:43
+Of course, we've only scratched the surface of this fascinating theory.
+18:47
+While I chose to keep this explanation conceptual,
+18:50
+focusing on intuitive understanding rather than mathematical formalism,
+18:55
+there is another layer of beauty to discover.
+18:57
+The mathematics behind the free energy principle,
+19:00
+although initially daunting,
+19:02
+actually reveals an elegant framework
+19:04
+that ties these ideas together.
+19:06
+In future videos, we'll explore this deeper mathematical foundation
+19:10
+and see how it connects to modern machine learning,
+19:13
+allowing us to build artificial systems that,
+19:16
+like our own brains, can perceive, predict,
+19:19
+and develop their own models of the world.

@@ -283,6 +283,23 @@ Step 3 is the expensive one and is explicitly acknowledged as intractable in gen
 
 ---
 
+## A prior that evidence, action and knowledge all fail to revise (tentative)
+
+> `raw/talk-nd-free-energy-principle.txt` — a conceptual explainer with no formalism; every claim in this section is **(tentative)**. Its content restates the generative/recognition pair and the `F = complexity − accuracy` trade already on this page. What it adds is one worked *counterexample* to the loop's usual reading, the **hollow-mask illusion**: a mask rotated to show its concave side is still perceived as convex.
+
+| Element | Content |
+|---|---|
+| The two candidate explanations | (i) a concave face under ordinary illumination; (ii) a convex face under unusual illumination |
+| The arbitration | the face-is-convex prior is precise enough that mis-explaining the shading is the *cheaper* accuracy cost — so `F` is lower for (ii), and (ii) is what is perceived |
+| The part that is load-bearing | **knowing the mask is hollow does not change the percept.** A correct, high-confidence belief held at the reportable level never revises the level below |
+| The offered reason | the prior sits in evolutionarily older visual circuitry that the analytic level cannot write to |
+
+**Why this is a constraint on Eq. (1) and not just a curiosity.** The update has a top-down term `β·(W^{S_{i+1}})^T·y^{S_{i+1}}` whose weight is a precision gate. Impenetrability says that for this layer pair, the gate is effectively pinned at zero *for the reportable level's message* — or, equivalently, that the face prior's precision is not among the quantities the system infers. Either reading contradicts the wiki's Friston 2009 line that precisions are represented and updated by the same rule as states and parameters ([[wiki/concepts/precision-weighting.md]]); logged as [[wiki/empirical-tensions.md]] T128.
+
+It also sharpens the picture the illusion is usually used to support. The mask is normally cited as evidence that top-down prediction dominates bottom-up evidence — but the *dominant* top-down signal here is not the agent's best current belief. It is a fixed one. So "top-down wins" and "the highest level wins" are different claims, and the illusion separates them.
+
+**(brainstorm)** The deployable version is a **precision floor on a designated subset of priors** — an architectural way to install core knowledge without hand-writing content ([[wiki/concepts/core-knowledge.md]]): pick a small set of latents, clamp their prior precision above what evidence can move, and the resulting system gets the benefits the wiki wants from installed structure (fast disambiguation of occluded and ambiguous input, refusal of physically absurd parses) *and* the failure mode that certifies it is doing that job — a systematic, unrevisable illusion. The illusion is not a defect to be engineered out; it is the observable signature that the floor exists. A model with no such failure has no installed prior, only a strong regularizer.
+
 ## Open problems
 
 - **Is the locality advantage real or rhetorical?** Local residual descent is claimed to resist catastrophic forgetting and to be more parallelisable and sometimes more efficient than backpropagation (talk-nd-brain-learning-algorithm, **(tentative)**), but the same framework's headline result is that clamped predictive coding *approximates backpropagation* — the two claims are only compatible if the approximation is loose in a specific, unquantified way.
@@ -290,6 +307,7 @@ Step 3 is the expensive one and is explicitly acknowledged as intractable in gen
 - **The structural priors are stipulated.** Why *these three* channels and not four or two is argued functionally, not derived from free energy — which concedes that the principle underdetermines the architecture.
 - **Event-boundary detection is not derived from the principle.** Butz 2016 states outright that deriving segmentation from free energy "remains a future challenge"; the working proposals are multiplicative gates and explicit change monitors ([[wiki/concepts/event-segmentation.md]]).
 - **The global attractor is intractable.** Local relaxation approximates it with no guarantee, so "concepts are free-energy minima" is a definition the system can never verify it has met.
+- **The precision hierarchy is not uniform, and nothing says which gates are frozen.** If some priors are cognitively impenetrable (hollow mask, `talk-nd-free-energy-principle`, **(tentative)**) while others revise readily, then the free-energy account is silent on the partition — which prior is a constant and which is inferred is exactly the choice the principle was supposed to remove.
 - **Social and linguistic dimensions are excluded by the author.** Other agents are treated as items; intentionality, and any account of how language shapes the encodings, are left out — the same boundary that T8 sits on.
 - **The data problem.** Developmental-scale, self-motivated sensorimotor experience is not obtainable from robots (days at best); the proposed substitute is game-engine virtual reality. Whether structure learned in a simulator is the structure the theory is about is untested.
 
