@@ -151,6 +151,57 @@ The review's closing hypothesis, and the reason a 2004 anatomy paper belongs on 
 
 ---
 
+## The predictive-coding assignment: the same graph, one quantity per cell class
+
+> `raw/bastos-2012-canonical-microcircuits.md` — Bastos, Usrey, Adams, Mangun, Fries & Friston, *Neuron* 76:695–711, 2012. A review that does one thing the wiki has no other instance of: it takes a set of *differential equations* (generalised predictive coding, Eq. 1 of [[wiki/concepts/predictive-coding-free-energy.md]]) and asks which measured cell population computes each term, then checks the resulting graph against the quantitative connectivity of Haeusler & Maass (2007) / Thomson et al. (2002).
+
+**The assignment.** Two variable types (hidden causes `v`, hidden states `x`) × two roles (expectation `μ`, prediction error `ξ`) = four quantities, plus a precision. Each lands on a distinct population:
+
+| Population | Quantity | Why that cell |
+|---|---|---|
+| **L4 spiny stellate (excitatory)** | prediction error on **causes**, arriving from the level below | Feedforward extrinsic input terminates here |
+| **L4 inhibitory interneuron** | prediction error on **hidden states** | Assigned "for symmetry"; hidden-state dependencies are confined to a node, so they must stay intracolumnar |
+| **L2/3 excitatory interneuron** | expectation on **causes** | ~half of L2/3 excitatory cells do not leave the column (Callaway & Wiser 1996) |
+| **L2/3 inhibitory interneuron** | expectation on **hidden states** | Node-local, so inhibitory |
+| **L2/3 pyramidal** | prediction error on causes, **broadcast forward** | Superficial cells are the source of feedforward extrinsic connections |
+| **L5/6 pyramidal + deep excitatory interneuron** | the **prediction** itself (nonlinear `g`, `f` of the expectations) | Deep cells are the source of feedback extrinsic connections; ~80% of L5 excitatory cells stay in the column |
+| **Gain of the L2/3 pyramidal cell** | **precision `Π`** of the ascending error | Superficial layers carry the nonlinear dendritic/neuromodulatory infrastructure needed to scale, not just relay |
+
+The structural regularity that makes this non-arbitrary: **causes are excitatory, states are inhibitory; expectations sit supragranular, errors sit granular/superficial-pyramidal.** Because a graphical model confines hidden-state dependencies to a node, the state variables must be encoded by cells that do not project out of the column — which is what forces them onto interneurons.
+
+**It nearly matches the measured circuit, and the misses are a prediction.** Every edge predictive coding requires exists in the quantitative microcircuit *except two*: projections onto the granular inhibitory cells from supragranular inhibitory and infragranular excitatory populations. Those are required because a state-error unit must compare *expected* change in hidden states against *actual* change, so it needs both. The paper predicts these connections exist and are feedback-type (prediction-carrying). **This is the wiki's cleanest example of a computational specification generating a falsifiable anatomical claim** — the equations say which wires must exist, and two of them had not been reported.
+
+**Two functional readings of the same lamination, now both explicit:**
+
+| | Douglas–Martin (2004) | Bastos et al. (2012) |
+|---|---|---|
+| Superficial layers | **Explore** interpretations (iterated soft-WTA) | Compute and broadcast **prediction error** |
+| Deep layers | **Commit** to one, drive motor output | Hold **expectations**, emit **predictions** |
+| What ascends | The selected interpretation | The residual only |
+| What the loop does | Selection re-shapes the hypothesis space | Error accumulation smooths into an estimate |
+| Inhibition's job | Selection (perisomatic) + transfer-function control (dendritic) | *Encoding a variable* — inhibitory cells hold hidden-state quantities |
+
+They disagree on what a superficial pyramidal spike *means* (a candidate interpretation vs. a residual) and on what inhibition is *for* (competition vs. representation). Recorded as [[wiki/empirical-tensions.md]] T118.
+
+**(brainstorm) The transferable object.** Take the two readings together and the column is: a population that holds a state estimate, a second population that holds only the residual against it, a per-unit gain register on the residual population that is set by uncertainty, and a nonlinear read-out that converts state → prediction for a peer module. That is a **typed register file with a learned precision term**, not a layer of a network. The wiki's machine architectures collapse all four onto one activation vector; the cost of the collapse is that nothing in them can be *attended to* (gain of the error channel) independently of being *represented* (state channel) — the split G56 asks for, delivered at cell-class resolution.
+
+**Feedback is inhibitory in effect and driving-plus-modulatory in mechanism** — a resolution the wiki should carry, because the two readings look contradictory in the raw data:
+
+| Observation | Reading under predictive coding |
+|---|---|
+| Optogenetic drive of V1 L6 suppresses LGN visual responses by 76% and V1 L2–5 by 80–84% (Olsen et al. 2012) | Predictions subtract; feedback's *net* effect is suppression |
+| Cooling V5/MT or V2 **decreases** V1 firing for stimuli confined to the classical receptive field, but **increases** it when the surround is stimulated (Hupé et al. 1998; Bullier et al. 1996) | Higher levels learn features spanning many lower receptive fields (Rao & Ballard 1999); with no surround there is nothing to predict, so removing feedback removes drive, not explanation |
+| Cortico-cortical feedback evokes driving-type responses between proximate areas (Covic & Sherman 2011) | Predictions must *obligatorily* elicit responses in error units — a weak modulator could not cancel a driving input |
+| Feedback terminates in L1, which is <0.5% of cells, almost all inhibitory, strongly interconnected, monosynaptically inhibiting L2/3 pyramids (Chu et al. 2003; Meyer et al. 2011) | The anatomical route by which an excitatory long-range projection delivers net inhibition to the error population |
+
+Extrinsic connections are glutamatergic; the inhibition is **polysynaptic and local**, so "feedback is inhibitory" is a statement about effective connectivity, not about the transmitter. A machine analogue must therefore implement subtraction with a *learned local circuit*, not with a negative weight on the descending link.
+
+**Prediction-error signatures the assignment has to explain** (the paper's Table 1, worth carrying as a test battery): enhanced firing in monkey inferotemporal cortex to violated learned image pairings (Meyer & Olson 2011); enhanced V1–V3 firing to stimuli violating natural-image statistics; mismatch negativity and enhanced gamma to deviants in an auditory stream (Garrido et al. 2007; Todorovic et al. 2011); enhanced BOLD to incoherent form/motion and to apparent motion; **sign-flipping with attention** — unpredicted stimuli raise the BOLD response when unattended and lower it when attended (Kok et al. 2011), which is precisely what a precision gain on the error population predicts and what a pure subtraction account cannot produce.
+
+**Transthalamic routing is an unresolved alternative to the direct cortico-cortical edges.** The posterior medial nucleus can relay S1→S2 (Theyel et al. 2009), and higher-order thalamus has been proposed as a synchronizer of cortical responses (Saalmann et al. 2012). Whether the feedforward/feedback typing survives being routed through thalamus is open — and it matters for any model that treats inter-areal edges as direct.
+
+---
+
 ## Limitations
 
 | Limit | Consequence |
@@ -170,7 +221,7 @@ The review's closing hypothesis, and the reason a 2004 anatomy paper belongs on 
 - **[[wiki/concepts/distributed-reference-frames.md]]** — supplies the circuit that theory presupposes and never specifies: "columns vote on a consistent pose" becomes soft winner-take-all among superficial pyramids, with lateral patches carrying the vote between columns and L5 feedback carrying it between areas; it also supplies the uniformity evidence that whole argument rests on.
 - **[[wiki/concepts/dendritic-computation.md]]** — the anatomy that makes the apical/basal split load-bearing: feedback and subcortical input terminate in layer 1 on distal apical tufts while drive arrives on basal and proximal compartments, so the prediction channel and the evidence channel are physically separated at the level of wiring, not just of theory.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — the same interneuron populations sorted by a different criterion: that page splits them by transcriptomic family and assigns each a *code feature*, this one splits them by axon geometry and assigns each a *computational role* (perisomatic → selection, dendritic → transfer-function control) — and adds that which channels reach a cell is set by its layer, which is a wiring answer to that page's open "what sets the gains" question.
-- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the laminar substrate that hierarchy assumes: feedforward from L2/3 into L4 of the area above, feedback from L5/6 into layer 1 below, with the SLN% distance rule making hierarchical depth a measurable continuous quantity rather than a stipulated layer index — and the rival functional assignment to this page's explore/exploit reading: superficial pyramids are **error units** (the only thing that goes up is prediction error) and deep pyramids **state units** (the only thing that comes down is a prediction), which explains the driver/modulator asymmetry as linear bottom-up error mixing against nonlinear top-down entry through `f, g`, and predicts that local field potentials measure prediction error directly (Friston & Kiebel 2009).
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the laminar substrate that hierarchy assumes: feedforward from L2/3 into L4 of the area above, feedback from L5/6 into layer 1 below, with the SLN% distance rule making hierarchical depth a measurable continuous quantity rather than a stipulated layer index — and the rival functional assignment to this page's explore/exploit reading: superficial pyramids are **error units** (the only thing that goes up is prediction error) and deep pyramids **state units** (the only thing that comes down is a prediction), which explains the driver/modulator asymmetry as linear bottom-up error mixing against nonlinear top-down entry through `f, g`, and predicts that local field potentials measure prediction error directly (Friston & Kiebel 2009). Bastos et al. 2012 completes that assignment to cell-class resolution (causes excitatory, states inhibitory; expectations supragranular, errors granular and superficial-pyramidal; precision on the L2/3 pyramid's gain) and derives the gamma-superficial / beta-deep asymmetry from the fact that expectations integrate errors.
 - **[[wiki/concepts/attention.md]]** — the biological form of the soft-max: selection over a population implemented by perisomatic inhibition, iterated rather than one-shot, and with a second channel (dendrite-targeting inhibition) that changes what each unit can integrate before the competition runs — a control the standard attention block has no counterpart for.
 - **[[wiki/concepts/energy-based-models.md]]** — the closest machine reading of the explore/exploit lamination split: superficial layers relaxing toward a consistent interpretation under mutual inhibition is a settling process, and the deep layers are the read-out that commits and then constrains the input.
 - **[[wiki/concepts/sparse-distributed-representations.md]]** — where the sparsity comes from mechanically: perisomatic soft winner-take-all is the operation that holds the active fraction in the band those results require, and the conserved 10–20% symmetric-synapse fraction is a measured budget for it.
@@ -185,3 +236,5 @@ The review's closing hypothesis, and the reason a 2004 anatomy paper belongs on 
 - **[[wiki/entities/trnn.md]]** — the coarsest possible version of this motif — sensory / association / motor blocks with sparser inter-block than intra-block recurrence — turns out to be near-necessary for transient working-memory dynamics in a trained network, and reproduces the recorded fall in stimulus selectivity along the sensory-to-motor gradient (Liu et al. 2025).
 - **[[wiki/entities/medial-prefrontal-cortex.md]]** — the strongest claim in the wiki that the canonical circuit is *sufficient for control*: medial prefrontal cortex is argued to differ from sensory cortex only in what it is wired to, not in its local architecture, so the control layer would be this page's circuit at an unusual pair of ports — asserted by Euston et al. 2012 and never tested by comparing the two circuits directly.
 - **[[wiki/entities/pfc-columnar-planning-model.md]]** — assigns the column/minicolumn motif a concrete computational job (one column = one graph node, its minicolumns = that node's outgoing edges) while conceding this page's open problem: no general function for the column is established (Martinet et al. 2011).
+- **[[wiki/concepts/inter-areal-synchrony.md]]** — the measurement that discriminates the two functional readings of this graph without tracing an axon: superficial gamma and deep beta, coherent within compartments and not across, with feedforward influence carried at higher frequencies than feedback — a spectral read-out of which population holds the estimate and which the residual.
+- **[[wiki/concepts/attention.md]]** — a second, sharper contact: putting precision on the superficial pyramidal cell's gain makes attention a multiplier on the *error* channel, which predicts the observed sign flip (unpredicted stimuli raise the response when unattended, lower it when attended) that no selection-only account of this circuit produces.

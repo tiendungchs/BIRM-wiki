@@ -41,6 +41,12 @@ Two consequences the wiki has to carry:
 
 ---
 
+**A second, orthogonal band rule: the band also types the *direction* of a hierarchical message.** Feedforward inter-areal influence is carried at higher frequencies than feedback (Bosman et al. 2012), and within a column the superficial layers are gamma-dominated while the deep layers are alpha/beta-dominated (Roopun et al. 2006; Maier et al. 2010; Buffalo et al. 2011), with strong coherence *within* each compartment and weak coherence *across* them. Predictive coding derives this rather than fitting it: expectations accumulate prediction errors, integration is a low-pass filter, and the nonlinear prediction map re-creates high frequencies on the way down, so **error must run faster than the estimate that absorbs it** (Bastos et al. 2012, [[wiki/concepts/predictive-coding-free-energy.md]]). The two rules compose: the band identifies *whether* the correlation is carried by the direct axons (gamma vs. theta, above) and, among those that are, *which way up the hierarchy* the message runs.
+
+**(brainstorm)** This makes a spectral statistic a **weight-free probe of computational role**: in any recurrent model with two interacting populations, the one whose power spectrum is shifted low is the integrator and the one shifted high is the residual — measurable from activity alone, with no access to parameters and no laminar labels.
+
+---
+
 ## Synchrony predicts which neurons carry the task variable
 
 | Observation | Detail | Source |
@@ -106,3 +112,5 @@ The learning row is the one with no machine analogue. Every inter-module connect
 - **[[wiki/concepts/representation-probing.md]]** — a probe method the wiki does not have: band-limited coupling between a unit and a candidate source module identifies *where a representation is arriving from*, without ablation or a trained classifier.
 - **[[wiki/concepts/offline-replay.md]]** — the same measurement logic applied at rest: hippocampal sharp waves and cortical spindles co-occur within a few hundred milliseconds, which is a cross-correlation claim with the same directionality caveat, and hippocampal activity leads prefrontal activity during sleep.
 - **[[wiki/concepts/cognitive-control.md]]** — a constraint on how a controller could be biased by its inputs: whether a control signal is being *delivered* or merely *timed* is decidable from the band, so "top-down bias" is two testably different operations. It also supplies this page's only *interventional* entry: electrically driving the fibre bundle into the control loop raises induced theta and improves conflict performance, which makes band power a candidate control resource rather than a read-out — a claim this page's coupling results neither support nor exclude ([[wiki/empirical-tensions.md]] T113, Widge et al. 2019).
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — supplies the one *derived* band rule on this page: taking the Fourier transform of the update equation shows expectations low-pass their own prediction errors, so a population's high/low power ratio reads off whether it holds the estimate or the residual, independently of the cut-the-wire test.
+- **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the within-column version of the same measurement: superficial and deep compartments are each internally coherent and weakly coherent with one another, in gamma and beta respectively, so the laminar spectral split is the intra-areal instance of this page's inter-areal band typing.

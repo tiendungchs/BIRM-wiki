@@ -104,6 +104,32 @@ That the intrinsic, within-level constraint matters more than the top-down one i
 
 ---
 
+## The laminar implementation, and why forward messages must be faster than backward ones
+
+> `raw/bastos-2012-canonical-microcircuits.md` — Bastos et al., *Neuron* 76:695–711, 2012. Takes Eq. (1) above and assigns each of its terms to a measured cell population; the full assignment table and its falsifiable anatomical prediction live on [[wiki/concepts/canonical-cortical-microcircuit.md]].
+
+The two-population claim (state units deep, error units superficial) is refined into **four quantities plus a precision**: expectations on causes and states go to supragranular excitatory and inhibitory interneurons, errors on causes and states to L4 spiny stellates and L4 interneurons, forward-broadcast error to L2/3 pyramids, predictions to L5/6 pyramids, and **precision `Π` to the gain of the L2/3 pyramidal cell**. The typing rule: *causes are excitatory (they cross levels), states are inhibitory (a graphical model confines them to a node)*.
+
+**A frequency signature falls straight out of the update equation.** Taking the Fourier transform of `μ̇ = … + ξ`, the contribution of angular frequency `ω` in the error units to the expectations they drive is attenuated in proportion to `ω`:
+
+```
+|μ(ω)|  ∝  |ξ(ω)| / ω        (approximately, from the first equality of Eq. 1)
+```
+
+| Step | Consequence |
+|---|---|
+| Expectations **accumulate** prediction error | Integration is a low-pass filter — high frequencies are lost going superficial → deep |
+| Errors are **nonlinear** functions of expectations (`f`, `g`) | Nonlinearity *creates* high frequencies going deep → superficial (squaring a sine doubles its frequency: beta → gamma) |
+| Net | **Prediction errors must express higher frequencies than the predictions that accumulate them** |
+
+This is derived, not fitted, and it matches the measurements: superficial layers are gamma-dominated and deep layers alpha/beta-dominated (Roopun et al. 2006; Maier et al. 2010; Buffalo et al. 2011; Livingstone 1996 — 50% of L2/3 cells oscillating at gamma vs. <20% in L4C and infragranular), the two compartments are coherent within and weakly coherent across (Maier et al. 2010), and feedforward inter-areal influence is carried at higher frequencies than feedback (Bosman et al. 2012). Predictive coding says nothing about *why* gamma and beta specifically — only that the ratio must run in this direction.
+
+**Why a builder should care.** It is the wiki's one case where a **spectral measurement reads off the direction of a message** without tracing an axon: measure the high/low power ratio of two populations and the integrator is the low one. Applied to a recurrent machine model with no laminar labels, the same statistic would say which units hold state and which hold residual — a probe for gap G17-style questions that needs no access to weights. See [[wiki/concepts/inter-areal-synchrony.md]].
+
+**Precision as gain, and the attention sign flip.** Placing `Π` on the superficial pyramidal cell's postsynaptic sensitivity makes attention and prediction *separable and opposed* controls on the same signal: an unattended unpredicted stimulus raises the BOLD response, an attended one lowers it (Kok et al. 2011). A subtraction-only account cannot produce the flip; a gain-on-the-residual account predicts it. This is the concrete cash value of the `α, β, γ` precision gates above — they are not scalars in a schematic, they are the synaptic gain of one identified cell class.
+
+---
+
 ## Three structural priors (the paper's central proposal)
 
 Free-energy minimisation is indifferent to what kind of encoding forms. Butz 2016 proposes that development must be biased — genetically — toward exactly three encoding types, from which all others compose:
@@ -211,7 +237,8 @@ Step 3 is the expensive one and is explicitly acknowledged as intractable in gen
 - **[[wiki/entities/fcann.md]]** — the first empirical test of a *geometric* prediction of free-energy minimisation: if attractors are learned priors written by the contrastive rule `ΔJ_ij ∝ σ_iσ_j − L(·)σ_j`, they must come out approximately orthogonal, and in human functional connectomes they do — with stochastic relaxation read as posterior sampling and the inverse temperature `β` as the precision of the prior.
 - **[[wiki/entities/boltzmann-machine.md]]** — names the substrate this page invokes ("a highly modular, distributed restricted Boltzmann machine") and its escape from the intractable global attractor: in a ratio between two states differing in one unit the partition function cancels, so local interactive adjustment samples a globally normalised distribution without ever evaluating `Z`.
 - **[[wiki/concepts/dendritic-computation.md]]** — a candidate physical substrate for the prediction channel: a distal NMDA spike depolarizes the cell for 50–200 ms without firing it, so a detection is a prediction held over a behavioural interval on an anatomically separate pathway from the feedforward drive carrying the evidence.
-- **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the laminar substrate the hierarchy assumes: feedforward projections originate in layer 2/3 and terminate in layer 4 above, feedback originates in layers 5/6 and terminates outside layer 4 (mostly layer 1, on distal apical tufts) — and the superficial-layer-neuron percentage makes hierarchical *depth* a measured continuous quantity rather than a stipulated layer index (Douglas & Martin 2004) — and the laminar assignment runs the other way too: superficial pyramidal cells are the error units (only prediction error goes up) and deep pyramidal cells the state units (only predictions come down), which makes local field potentials a direct read-out of prediction error (Friston & Kiebel 2009).
+- **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the laminar substrate the hierarchy assumes: feedforward projections originate in layer 2/3 and terminate in layer 4 above, feedback originates in layers 5/6 and terminates outside layer 4 (mostly layer 1, on distal apical tufts) — and the superficial-layer-neuron percentage makes hierarchical *depth* a measured continuous quantity rather than a stipulated layer index (Douglas & Martin 2004) — and the laminar assignment runs the other way too: superficial pyramidal cells are the error units (only prediction error goes up) and deep pyramidal cells the state units (only predictions come down), which makes local field potentials a direct read-out of prediction error (Friston & Kiebel 2009). — and holds the full cell-class assignment of this page's equation terms, together with the two intrinsic connections predictive coding requires that the measured microcircuit does not yet report (a falsifiable anatomical prediction) and the rival explore/commit reading of the same layers (T118).
 - **[[wiki/entities/thousand-brains-theory.md]]** — shares this page's premise that cortex is a predictive modeller and denies that the model is singular: prediction is generated by each column from its own next movement inside its own reference frame, not by a top-down residual descending a hierarchy.
 - **[[wiki/concepts/attractor-dynamics.md]]** — settling to a joint minimum with two fragments held active is the composition-by-constraint-satisfaction mechanism proposed for G21; and the hierarchical-dynamical version above supplies the wiki's one run-time source of a manifold, with the level above delivering the control parameters that reshape the level below's attractor (Friston & Kiebel 2009).
 - **[[wiki/concepts/generalization-optimized-consolidation.md]]** — an internally generated error signal driving long-term learning: the slow learner descends the mismatch between its own forward pass and a target reactivated from the fast store, so consolidation is prediction-error learning against a replayed model rather than against the world.
+- **[[wiki/concepts/inter-areal-synchrony.md]]** — where the derived frequency asymmetry becomes a measurement protocol: band-limited coupling types an inter-module link, and the high/low power ratio of two populations says which one is integrating the other's residual.
