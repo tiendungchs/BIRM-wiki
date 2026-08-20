@@ -183,6 +183,30 @@ Four things this changes for fast **M**:
 
 ---
 
+## Removal is at least three operations, and different subsystems cut them differently
+
+The section above treats the clear as one primitive delivered to the right address. DeRosa et al. 2024 (re-analysis of Kim et al. 2020; 55 humans, cued fMRI, 72 trials each of **maintain / replace / suppress / clear**, 360 Glasser parcels) show the primitive is a *family*, and that no single subsystem is responsible for distinguishing its members.
+
+**Instrument.** Per-parcel representational similarity matrices over the 288 trial vectors → parcels clustered by how similar their *similarity structures* are (Spearman correlation → weighted k-nearest-neighbour graph → bagged Leiden community detection). The result is a partition of the brain by **representational geometry rather than by connectivity or by activation level** ([[wiki/concepts/representation-probing.md]]). Four communities fell out, aligned to conventional networks.
+
+| Community | Cut it makes over the four operations | Pairwise classification (area under precision–recall curve; **low = the two operations look alike**) |
+|---|---|---|
+| **Visual** (76 parcels) | Binary: *is an item being held at all* — {maintain, replace} vs. {suppress, clear} | within-pair 0.610–0.698, across-pair 0.985–0.993 |
+| **Somatomotor** (63) | `clear` singled out; everything else weakly separated | maintain vs. replace **0.532**; clear vs. maintain/replace 0.953–0.965 |
+| **Default mode** (121) | Held vs. removed, **plus** suppress ≠ clear | all pairs 0.932–0.988 |
+| **Frontoparietal control** (100) | All four distinct — the only community that does | all pairs 0.968–0.999; across-operation 0.956–0.980 |
+
+Four consequences for a machine store:
+
+- **"Delete" is under-specified as a single primitive.** Overwriting a slot with new content (`replace`), removing one item while the buffer stays occupied (`suppress`), and emptying the buffer (`clear`) are separable in representation, and only one of them is what a free list does. The wiki's stores implement `replace` (write over a matched slot) and a usage-driven approximation of `clear`; **none has `suppress`** — a targeted removal that leaves the rest of the store untouched and is not triggered by an incoming item needing the space (gap G49).
+- **The cheap cut and the expensive cut are made by different subsystems.** Sensory cortex only needs the occupancy bit (held / not held); the control network carries the full 4-way identity. So the *type* of the removal is control-layer information that never reaches the store — an argument for keeping the operation code in the controller and shipping only its effect downstream, rather than tagging memory entries with why they were removed. (brainstorm)
+- **`clear` is not the limit of `suppress`.** Emptying the buffer separates from suppressing one item in three of four communities, and in somatomotor cortex it is the *only* operation that separates at all — consistent with clear involving a shift away from external sensory/motor processing rather than a stronger version of item-targeted deletion. A store whose "clear all" is implemented as a loop over per-item suppressions is making an assumption the biology contradicts.
+- **The operations run in parallel across communities, in different formats.** This is the same content represented under four different quotient maps simultaneously — which is what makes the causal question below undecidable from these data.
+
+**Caveat, and it is the authors'.** The design cannot say whether an operation is implemented by the *conjunction* of the four network codes or by the frontoparietal network alone with the other three patterns as by-products of top-down control ([[wiki/empirical-tensions.md]] T90). Nothing here is causal: no manipulation, and no link between a network's representational pattern on a trial and whether the item was actually removed (the classifier-verified removal is in Kim et al. 2020, not re-linked here). Operations are also *cued*, so this is instructed removal, not self-initiated forgetting.
+
+---
+
 ## Mapping to the core framing
 
 | Working-memory element | Latent-graph element |
@@ -273,3 +297,4 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/entities/trnn.md]]** — the fifth maintenance design and the only head-to-head performance test: a memory carried by a moving trajectory of sequentially peaking units, matched to mouse recordings by a transient index, more information-rich and cheaper than the persistent solution, and better on distractors, multiple items and spatial navigation at equal parameter count (Liu et al. 2025).
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — supplies the channel that decides *when* a held item is expressed: prefrontal beta bursts suppress gamma and informative spiking at exactly the sites that carry information, drop when a read is due and rise when the content stops being needed, so "which item is readable right now" is set by an inhibitory rhythm rather than by the store (Lundqvist et al. 2018).
 - **[[wiki/concepts/population-geometry.md]]** — the level at which this page's store can be read at all: when two same-type variables share one prefrontal population (the held item and the attended location), what keeps both decodable is anti-aligned mixed selectivity in hybrid cells, not separate cells for each (Lebedev et al. 2004).
+- **[[wiki/concepts/representation-probing.md]]** — supplies the instrument behind this page's removal-operations table (per-site representational similarity matrices clustered by their mutual similarity), and takes back the lesson that a distinction can exist in one subsystem and not another: four cortical communities represent the same four operations under four different quotient maps, and only the frontoparietal control network keeps all four apart (DeRosa et al. 2024).

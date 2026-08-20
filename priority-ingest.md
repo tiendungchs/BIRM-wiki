@@ -13,7 +13,7 @@ One INGEST each:
 - [x] `liu-2025-transient-trajectory-rnn-working-memory.md` — working-memory · M · 2025
 - [x] `lebedev-2004-attended-vs-remembered-locations-pfc.md` — working-memory · R · 2004
 - [x] `lundqvist-2018-gamma-beta-bursts-working-memory.md` — working-memory · R · 2018
-- [ ] `derosa-2024-working-memory-removal-operations.md` — working-memory · R · 2024
+- [x] `derosa-2024-working-memory-removal-operations.md` — working-memory · R · 2024
 - [ ] `gong-2024-self-attention-working-memory-limit.md` — working-memory · R · 2024
 - [ ] `wise-2000-arbitrary-antecedent-action-associations.md` — prefrontal-control · S · 2000
 - [ ] `murray-2000-pfc-arbitrary-visuomotor-mapping.md` — prefrontal-control · S · 2000
