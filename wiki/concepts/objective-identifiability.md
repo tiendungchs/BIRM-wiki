@@ -132,6 +132,18 @@ The two directions above assume the system *has* an objective and ask what an ob
 
 ---
 
+## A fourth direction: the *learning algorithm* is the least identifiable component of all
+
+The three directions above concern the objective. A large-scale controlled comparison adds the algorithm to the list. Across four datasets (MNIST, CIFAR-10, CIFAR-100, ImageNet 32×32), two cost functions, a batch-size sweep and a weight-initialisation sweep, equilibrium propagation on a predictive-coding energy is competitive with backpropagation **in every cell** — and the authors' own summary of the sweep is that end performance "depends prominently on the cost function and the batch size" and "depends little on the learning algorithm used" (Kerjan et al. 2026, [[wiki/concepts/energy-based-models.md]]). The magnitudes: on ImageNet 32×32, swapping mean-squared error for cross-entropy moves top-5 error 55.9 → 36.6, while swapping backpropagation for equilibrium propagation moves it ~0.1.
+
+| Consequence | For this page |
+|---|---|
+| **Credit-assignment mechanism is not recoverable from performance** | Two learning rules with completely different locality properties, weight-transport requirements and phase structure land within noise of each other on four datasets. No behavioural or accuracy-level measurement distinguishes them, which is the many-to-one direction applied one level below the objective |
+| **The identifiable choices are the ones the wiki treats as incidental** | Cost function, batch size and initialisation gain are the load-bearing variables; the algorithm is not. An emergence audit that names an *architecture* and a *rule* but leaves `C` unstated has named the two variables that do not matter and omitted one that does |
+| **(brainstorm)** It cuts against the wiki's own selection criterion | Much of [[wiki/concepts/biologically-plausible-credit-assignment.md]] ranks rules by how closely they approximate backpropagation's gradient. If any of them, at scale, reaches backpropagation's accuracy regardless, then gradient alignment was never the quantity that discriminated — and the discriminating experiment has to be something other than a benchmark number: sample efficiency, forgetting, or the trajectory lever this page already names |
+
+---
+
 ## Connections
 
 - **[[wiki/entities/cscg.md]]** — the one instance in the wiki where this page's degeneracy is broken empirically: three architectures reach the same orthogonalized endpoint and only one reproduces the order in which a brain reaches it — bought at the cost of a symbol-encoding choice that flips the result.
@@ -151,3 +163,4 @@ The two directions above assume the system *has* an objective and ask what an ob
 - **[[wiki/concepts/meta-optimized-plasticity.md]]** — the identifiability question moved onto the learning rule: a meta-loss over a fixed candidate basis with an L1 penalty is an explicit device for making *which mechanism did the work* recoverable, where a per-synapse discovered rule leaves it unidentifiable.
 - **[[wiki/concepts/manifold-constrained-learning.md]]** — the strongest support in the wiki for this page's central line that population-level structure is a legitimate target: a factor-analysis subspace fitted to baseline activity goes on to predict which of two confound-matched decoder perturbations an animal can learn, so the population object earns its status by predicting a manipulation rather than by fitting the data it came from (Sadtler et al. 2014).
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the sharpest instance of the many-to-one direction: one network's objective is set by a per-layer variance parameter, so backpropagation, principal-component analysis and inverse regression are the same architecture at three precision ratios and no representation can distinguish which one was intended.
+- **[[wiki/concepts/energy-based-models.md]]** — the controlled sweep that puts the *learning algorithm* on this page's non-identifiability list: equilibrium propagation and backpropagation land within noise of each other across four datasets, while the cost function moves top-5 error by ~19 points (Kerjan et al. 2026).

@@ -195,6 +195,41 @@ Mechanism: the signal-to-noise ratio of the state perturbation `Δs = s_β − s
 
 Three consequences for this page. (i) The zero-temperature `min_z` elimination in the formalism table is a *limit*, not the definition; at finite `T` the free energy is the right object and the contrastive rule is its exact gradient. (ii) This is a sample-contrastive method whose second term is nevertheless not a sample-placement problem in the usual sense — the "contrastive sample" is the model's own nudged equilibrium, so the exponential-in-`dim(y)` cost of the table above is replaced by the cost of sampling `ρ_β`. (iii) It supplies a second, independent argument for a probabilistically interpretable energy: `A` is a log-partition function, so the free-energy preference recorded above stops being an empirical observation and becomes a definition.
 
+### ImageNet at 13.23% top-5: the relaxation cost is a property of the energy, not of the framework (Kerjan et al. 2026)
+
+> `raw/kerjan-2026-predictive-coding-imagenet-eqprop.md` — Kerjan, Scellier & Høier (Rain AI), 2026. First demonstration of **either** equilibrium propagation **or** a predictive-coding network at full-size ImageNet (1.28M images, 224×224, 1000 classes).
+
+Every equilibrium-propagation number above stops at MNIST, and the "free phase is the entire cost and it explodes with depth" table is why. That table is a fact about the **Hopfield** energy, not about equilibrium propagation. Swap in the predictive-coding energy
+
+```
+E_PCN(θ, x, h) = ½ Σ_{k=1..L} ‖h_k − f_k(θ_k, h_{k−1})‖²
+```
+
+and the free equilibrium is the *unique global minimum* with `E = 0`, reached by **one forward pass** — the 20/100/500-iteration column collapses to 1 at every depth. The nudged phase is the only iterative part, and its cost is `K ≈ L` iterations, not `5^L`. This is the row the framework table already had ("free energy … one phase — the free phase already sits at the global minimum") turned into the reason the method scales.
+
+| Result (VGG10, full ImageNet, 50 epochs) | Top-1 | Top-5 |
+|---|---|---|
+| Equilibrium propagation, centered scheme | 33.81 | **13.23** |
+| Equilibrium propagation, random scheme (single equilibrium) | 34.73 | 14.02 |
+| Backpropagation baseline | 32.35 | 12.20 |
+| *Prior best for a predictive-coding net* (Qi et al. 2025, Tiny ImageNet: 13× fewer images, 12× smaller, 5× fewer classes) | 44.69 | 20.70 |
+| *Prior best for equilibrium propagation* (Nest & Ernoult 2024, ImageNet 32×32) | 54.0 | 30.0 |
+
+The gap to backpropagation is **~1 point of top-5 error**, and 13.23% beats AlexNet's 15.3%. Adding strided 1×1 skip connections (VGG10Skip) changes nothing (13.32% vs. 12.1%).
+
+**Four things a builder should take from it.**
+
+| # | Finding | Why it matters here |
+|---|---|---|
+| 1 | **Nudging beats clamping, and the margin appears only when the task is hard.** On CIFAR-100 the two are indistinguishable; on ImageNet 32×32 cross-entropy-nudging is far ahead of both mean-squared-error nudging and clamping | Clamping (`h_out^β = (1−β)h_out⁰ + βy`, O'Reilly 1996) defines **no cost function**, so its update is the gradient of nothing even as `β → 0`. The page's claim that "the cost function is a free design variable, and that is the property worth taking" now has its price tag: on ImageNet 32×32, choosing cross-entropy over mean-squared error moves top-5 error 55.9 → 36.6 |
+| 2 | **The finite-difference scheme barely matters.** Centered, random and backward are all competitive at ImageNet scale — contradicting Laborieux et al. 2021, where the centered scheme's `O(β²)` bias reduction was the headline | For a predictive-coding energy `∂F/∂θ` **vanishes at the free equilibrium**, so the random/backward update needs only the *nudged* state: `∇_θC ≈ (1/β)·∂F_PCN/∂θ(θ, β, h_β⋆)`. **One equilibrium, one phase, half the wall-clock** (10 days vs. 18 on a single A100), and no free-phase measurement to store or compare against — which is the phase-control objection (objection 6 on [[wiki/concepts/biologically-plausible-credit-assignment.md]]) partly dissolved rather than answered |
+| 3 | **`β` can be tiny.** Error rate is flat for `0.0002 ≤ β ≤ 0.1` and `K ≥ 4`; the optimal `K` is *the number of layers*, i.e. exactly the time for the perturbation to travel output → input (two layers per iteration under the even/odd asynchronous traversal) | Directly contradicts the Litman 2025 result above, where `β = 0.01` was near chance — see T120. It also makes `K` a **derived** hyperparameter: nudge for as many steps as the network is deep |
+| 4 | **The nudged state is not a minimum of `F`.** Equilibration curves spike and settle at `ΔF > 0` relative to the free equilibrium; the dynamics are better read as fixed-point iteration onto a *critical point* of `F` | Equilibrium propagation only ever needed the first-order condition `∂F/∂h = 0`. The wiki should stop describing the second phase as "settling into a lower-energy state" — a saddle serves |
+
+**The nudged dynamics, written out** (what actually runs, and it is not gradient descent as usually pictured): projected gradient descent with step size `α = 1` on `F_PCN` makes the `h_k` terms cancel, leaving `h_k ← ReLU(f_k(θ_k, h_{k−1}) + ∂ε²_{k+1}/∂h_k)` — bottom-up prediction plus top-down error, one line, no learning rate. Two deviations were needed to make it work at depth: **asynchronous traversal** (update even-indexed layers, then odd — synchronous updates diverge, as in deep Boltzmann machines), and **mod-PGD**, `h_k ← ReLU(a_k + ∂ε²_{k+1}/∂h_k)` using the *pre-activation* `a_k` rather than `ReLU(a_k)`. The difference bites in one quadrant only: with plain projected gradient descent, a unit whose bottom-up drive is inhibitory (`a_k < 0`) *ignores* that inhibition when the top-down error is positive; mod-PGD lets the negative drive act as an **inhibitory buffer**, so a bottom-up-suppressed unit stays silent unless top-down evidence is strong. Tempering top-down signals this way keeps the nudged state near the free one — and is the difference between training and diverging to NaN on CIFAR-10 at `K = 5`. **(brainstorm)** This is a precision-weighting mechanism arrived at empirically: it is the same "how much should top-down override bottom-up" knob that [[wiki/concepts/predictive-coding-free-energy.md]] parameterises as `Σ`, discovered here as a projection rule rather than a variance.
+
+**What the result does *not* buy.** Equilibrium propagation cost 18 days on one A100 against 36 hours for backpropagation — ~12× wall-clock for ~1 point of accuracy, in a setting with **no hardware payoff**, since the authors are explicit that it is unknown whether `F_PCN` and the mod-PGD dynamics can be realised physically at all. The result is an argument about *the framework*, not a proposal: it decouples "equilibrium propagation does not scale" from "the physical networks people run equilibrium propagation on do not scale", and lands the blame on the second. And it sharpens the identifiability line — EP tracks backpropagation under every variation of batch size, cost function and initialisation gain tested, so **the learning algorithm is the least load-bearing choice in the pipeline** ([[wiki/concepts/objective-identifiability.md]]).
+
 ---
 
 ## Connections
@@ -229,3 +264,5 @@ Three consequences for this page. (i) The zero-temperature `min_z` elimination i
 - **[[wiki/concepts/attractor-dynamics.md]]** — an attractor is a local minimum of the scalar compatibility function, so relaxation is the dynamical form of `argmin` over it.
 - **[[wiki/entities/spacetime-attractor.md]]** — planning as `argmin` with the terms named: the free variable is the whole trajectory, reward enters as a per-timestep input term and realisability as the adjacency-matrix recurrence, so the settled state is the minimum-energy compatible future (Jensen et al. 2026).
 - **[[wiki/concepts/expected-free-energy.md]]** — the same "minimise a scalar" move made over a *policy* instead of an activity, and the difference that buys: the scalar is convex on a compact flow polytope, so the minimisation comes with an existence proof and an `O(1/K)` rate where relaxation on an energy landscape has neither (Milosevic et al. 2026).
+- **[[wiki/entities/neuromatch.md]]** — a contrastive energy whose asymmetric hinge `‖max{0, z_q − z_u}‖²` makes representational collapse self-defeating, so no separate anti-collapse term is needed.
+- **[[wiki/concepts/objective-identifiability.md]]** — the ImageNet sweep here is an identifiability result: cost function and batch size determine performance while the choice between equilibrium propagation and backpropagation does not, so the learning rule is not recoverable from accuracy.

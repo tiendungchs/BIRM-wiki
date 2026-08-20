@@ -102,6 +102,31 @@ Both point the same way: the useful regime is the one with **no variance paramet
 
 ---
 
+## Scaling: nudge the output, do not clamp it (Kerjan et al. 2026)
+
+> `raw/kerjan-2026-predictive-coding-imagenet-eqprop.md` — Kerjan, Scellier & Høier, 2026. The first predictive-coding network trained on full-size ImageNet (1.28M images, 224×224, 1000 classes): a 10-layer convolutional net at **13.23% top-5 error against a 12.20% backpropagation baseline**. Prior predictive-coding results stopped at Tiny ImageNet (13× fewer images, 12× smaller, 5× fewer classes).
+
+The standard training algorithm on this page **clamps** the output units to the target. That is a design choice, and it is the wrong one at scale.
+
+| Perturbation | Rule | Property |
+|---|---|---|
+| **Clamping** (Whittington & Bogacz 2017; O'Reilly 1996) | `h_out^β = (1−β)h_out⁰ + βy` | Defines **no cost function**. The resulting weight update is the gradient of *no objective*, even as `β → 0` |
+| **Nudging** (equilibrium propagation) | Add `βC(h_L, y)` to the energy: `F = E_PCN + βC` | `C` is free. The update is `(1/β)·∂F/∂θ` at the nudged state, and → `∇_θC` as `β → 0` |
+
+The two are indistinguishable on CIFAR-100 and separate sharply on ImageNet 32×32, where cross-entropy-nudging beats both clamping and mean-squared-error-nudging. **The margin is bought by the freedom to pick `C`**, not by the perturbation mechanics: on that dataset, cross-entropy against mean-squared error moves top-5 error 55.9 → 36.6, while the choice of learning algorithm (equilibrium propagation vs. backpropagation) moves it by ~0.1. So the clamping formulation's defect is that it *has no `C` to choose*. See [[wiki/concepts/energy-based-models.md]] for the full result.
+
+**Two mechanisms this page should carry.**
+
+1. **The nudged relaxation is prediction-plus-error with no learning rate.** Projected gradient descent on `F_PCN = ½Σ‖ε_k‖² + βC` with step size `α = 1` cancels the `h_k` terms exactly, leaving `h_k ← ReLU(f_k(θ_k, h_{k−1}) + ∂ε²_{k+1}/∂h_k)` — bottom-up prediction plus top-down error, the canonical message-passing form of this page, obtained as an update rule rather than assumed. Layers must be traversed **asynchronously** (even indices, then odd; synchronous updates diverge), which makes teaching signals travel **two layers per iteration**, and the required iteration count is therefore the depth of the network: `K ≈ L`.
+
+2. **Inhibitory bottom-up drive should veto top-down error.** Plain projected gradient descent has a defect in one quadrant: a unit whose bottom-up input is inhibitory (`a_k < 0`) *ignores* that inhibition whenever the top-down error is positive, so top-down signal alone can drive it active. The fix ('mod-PGD') is to project the **pre-activation** rather than the rectified prediction, `h_k ← ReLU(a_k + ∂ε²_{k+1}/∂h_k)`, which lets negative bottom-up drive act as an inhibitory buffer — a bottom-up-suppressed unit stays silent unless top-down evidence is strong enough to overcome it. This is the difference between training and diverging to NaN on CIFAR-10 at `K = 5`. **(brainstorm)** It is a precision-weighting rule found empirically: the same "how far may top-down override bottom-up" quantity this page parameterises as `Σ`, implemented as an asymmetric projection instead of a variance.
+
+**Two claims of this page that the result revises.** (i) `∂F_PCN/∂θ` **vanishes at the free equilibrium**, so a nudged-phase-only update is exact in the same limit — a genuinely single-phase, single-equilibrium algorithm, which halves the compute (10 vs. 18 days on one A100) and removes the free/nudged comparison altogether. (ii) The nudged state is **not a minimum** of `F`: equilibration ends at higher total energy than the free state (`ΔF > 0`), so the relaxation is fixed-point iteration onto a *critical point*, and "settling to lower free energy" is the wrong picture for the phase that carries the teaching signal.
+
+**Not yet a biological or hardware claim.** The authors are explicit that it is unknown whether `F_PCN` and this relaxation can be realised in physical dynamics, and equilibrium propagation cost ~12× backpropagation's wall-clock here. The demonstrated result is that the *algorithm* scales — that the ceiling reported for this family was a property of the energy functions people used, not of local error-driven learning.
+
+---
+
 ## Hierarchical dynamical models: the generative model is a cascade of attractors
 
 > `raw/friston-2009-predictive-coding-free-energy.md` — Friston & Kiebel, *Phil. Trans. R. Soc. B* 364:1211–21, 2009. The version of this page's scheme in which the *thing being inferred is a trajectory*, not a static cause.
