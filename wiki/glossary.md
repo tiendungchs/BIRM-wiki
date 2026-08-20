@@ -332,3 +332,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MoF / mIoU | Mean-over-Frames / mean Intersection-over-Union | Segmentation metrics: frame-wise accuracy (class-imbalance sensitive) and per-class overlap (penalises both over- and under-segmentation) |
 | PU classifier | Positive-Unlabelled classifier | Trained from positive examples plus unlabelled data with no confirmed negatives; used to learn option initiation sets `I` and termination functions `β` from segmented observations |
 | BC | Behavioural Cloning | Supervised imitation — fit `π(a\|s)` to demonstration state–action pairs, with no environment interaction and no reward |
+| CEM | Cross-Entropy Method | Derivative-free optimiser: sample candidates from a Gaussian, keep the top-`k`, refit mean and variance, repeat; the planner used by [[wiki/entities/v-jepa-2.md]] and [[wiki/entities/adaworld.md]] to minimise a goal-distance energy over action sequences |
+| ViT | Vision Transformer | Transformer over image/video patches (here `2×16×16` tubelets); sizes referenced as ViT-S/L/H/g at 22M/300M/600M/1B parameters |
+| RoPE | Rotary Position Embedding | Relative position encoded by rotating query/key feature pairs; the 3D variant splits the feature dimension into time/height/width thirds and rotates each separately ([[wiki/entities/v-jepa-2.md]]) |
+| EMA | Exponential Moving Average | A slowly-trailing copy of a network's weights; in JEPA training it produces the prediction targets, and the stop-gradient through it is what prevents collapse (G34) |
+| MLLM | Multimodal Large Language Model | An LLM fed projected visual encoder outputs as input tokens (the LLaVA recipe); the setting of tension T149 |
+| VLA | Vision-Language-Action model | A vision-language backbone fine-tuned by behavioural cloning to emit actions directly, with no world model and no planning — Octo is the wiki's instance |
+| VidQA | Video Question Answering | Open-language QA over video clips; the benchmark family (PerceptionTest, MVP, TempCompass, TemporalBench, TOMATO, TVBench, MVBench) used to score encoders after LLM alignment |
