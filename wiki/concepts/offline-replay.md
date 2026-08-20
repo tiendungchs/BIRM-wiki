@@ -115,6 +115,40 @@ Every row above concerns *which* experienced sequence is resampled. Barron et al
 
 ---
 
+## Awake ripples tag, sleep ripples transfer — a two-stage schedule
+
+> **Provenance.** `raw/talk-nd-memory-gating.txt` — explainer talk on a 2025 *Science* paper; authors and title not stated in the talk, and the paper itself has not been read. Everything in this section is **(tentative)**.
+
+Every job above asks *what* is resampled offline. This source splits the offline period in two and gives the awake half a distinct function: **awake ripples do not consolidate, they select.**
+
+**Task and readout.** Mice alternate arms in a figure-8 maze (reward alternates left/right) across days of run → sleep → run; ~400 CA1 cells recorded. UMAP is fitted **only to running activity**, yielding a looped manifold that reproduces the maze layout without ever seeing position, with a second, systematic drift across trial number (learning progression). Ripple population vectors are then projected onto that behaviourally-fitted manifold, so ripple *content* is read out as a (position, trial) coordinate.
+
+| Observation | Reading |
+|---|---|
+| Awake ripples at the reward site project onto the manifold as compressed replays of **the trial just completed** — trial index decodable, not merely position | Awake replay is recency-locked to the specific successful trajectory, not a generic map sample |
+| Sleep ripples after learning project onto the **same trials and locations** as the preceding awake ripples | The awake selection, not experience frequency, predicts what sleep repeats |
+| Sleep ripples recorded **before** learning contain unrelated patterns | The correspondence is acquired, not a fixed manifold attractor |
+| Awake replay rate is far **lower** than sleep replay rate | Awake events cannot themselves supply the repetitions consolidation needs — they are a pointer, not a transfer |
+| Many ripples fall **off** the manifold and are simply undecodable | The method reads only the fraction of replay expressible in the running reference frame; "off-manifold" ≠ noise (other memories, planning, non-spatial content) |
+
+**Why two stages at all**, on the talk's argument: (i) cortex is only receptive in the sleep state, so transfer cannot run on demand; (ii) transfer needs many repetitions, and the awake hippocampus is busy tracking ongoing experience and maintaining the map. So selection is placed where the evidence about importance is (immediately after the event) and transfer where the bandwidth is (sleep).
+
+**The proposed carrier of the tag is local plasticity, and it is unmeasured.** The talk's own hypothesis: awake ripples induce plasticity *within* hippocampus that biases which sequences reactivate during sleep — "carving preferred paths" in the network's dynamics. That is exactly the hole this page names above ("offline plasticity is a hole, not a mechanism"), now load-bearing: with no intrahippocampal plasticity during rest, there is no substrate for a tag that survives hours of intervening behaviour.
+
+**What this adds to the jobs table.** An eighth entry, and the only one whose output is not a training update at all:
+
+| Job | Sampling criterion | Output |
+|---|---|---|
+| **Tagging** — mark an event during waking for priority replay during sleep | Recency × salience/reward at the moment of the event | A persistent bias on the *later* sampling distribution, not a weight change in the slow store |
+
+This partly dissolves the arbitration problem rather than adding to it: if awake ripples write the priority and sleep ripples spend it, then two of the incompatible sampling policies are **sequential stages of one pipeline** rather than competitors for one budget — awake selection can be reward- and recency-driven (position A of [[wiki/empirical-tensions.md]] T30) while the sleep distribution it seeds is still filtered toward transferable content (position B). It also narrows T34: the *criterion* is computed awake, the *transfer* runs asleep, which is a schedule both Rolls and the ripple recordings can accept.
+
+**(brainstorm) The machine form is a two-timescale priority buffer with no rehearsal at write time.** At the end of each episode segment, emit a *tag* — one scalar per stored item, written online from reward and recency — and do no replay whatsoever during the online phase; then draw the offline rehearsal distribution from the tags rather than from TD-error recomputed at sample time. This differs from prioritised experience replay in exactly the way the biology does: priority is a **stale, cheap quantity fixed at encoding**, never refreshed, which costs accuracy but frees the online phase entirely — the same trade the hippocampus is described as making because it "can't dedicate itself to endless replay". Falsifiable against the wiki: tag priority ∝ excitability ([[wiki/concepts/memory-allocation-excitability.md]]) predicts *cluster*-level tagging, whereas this source's trial-index decoding implies the tag is trajectory-specific.
+
+**Methodological import, independent of the result.** Fitting a low-dimensional manifold on behaviour and then projecting offline events onto it is the first instrument in the wiki that gives replay content a *coordinate* rather than a template match — including a trial index, i.e. a position along the learning trajectory. [[wiki/concepts/population-geometry.md]] had this as an untested prediction (sequences are paths on a manifold, so replay should be too); this is a direct test of it, with the caveat that the manifold is defined by the running data and therefore cannot represent anything the animal never expressed while running.
+
+---
+
 ## What replay costs in wiring: `c · M ≈ const`
 
 Sammons et al. 2023 asks the quantitative version of the mechanism question — *how much recurrence does a sequence need to replay at all?* — in a spiking network built to the measured CA3 statistics.
@@ -175,6 +209,7 @@ The third point is the one with teeth for a machine: it makes **use frequency th
 - **[[wiki/entities/vector-hash.md]]** — narrows this page's remit: 11 environments learned in sequence with zero forgetting and *no replay of any kind*, because separation in a large prestructured address space already prevents interference. If that holds, replay's job is consolidation and generalisation, not protection of what is already stored.
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the dissenting schedule above, plus the mechanism replay must operate through: completion in a diluted CA3 attractor within a single theta cycle (~120 ms), and a polysynaptic reverse hierarchy to get the reinstated pattern back to cortex; and the two pages now price the same wiring from opposite ends — its `p_max ≈ kC/(a ln(1/a))` counts fixed points storable at a given fan-in, while `c · M ≈ const` counts what fan-in a *sequence* needs to propagate, both landing on total recurrent synapse count as the budget.
 
+- **[[wiki/concepts/memory-allocation-excitability.md]]** — the tagging stage above needs a carrier that survives hours of intervening behaviour, and the decaying excitability tag is the wiki's only candidate; the two disagree on granularity — the tag glues a *cluster* of episodes, whereas awake-ripple content decodes to one specific trial.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — this page is the content of that page's coupling channel: CLS says replay transports episodes to cortex, and the transport turns out to be lossy *by design*, suppressing non-generalisable items rather than sampling experience faithfully.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — supplies the write rules replay operates on (symmetric CA3 STDP for bidirectional sequences, inhibitory plasticity for the filter), and receives from this page the theta-cycle compression that lets a millisecond plasticity window see second-scale behavioural transitions.
 - **[[wiki/concepts/simulation-based-planning.md]]** — forward replay at choice points is that page's rollout mechanism; this page adds that most replay is *not* about the imminent path, so rollout and consolidation cannot be the same sampling policy.
@@ -194,6 +229,7 @@ The third point is the one with teeth for a machine: it makes **use frequency th
 - **[[wiki/entities/temporal-context-model.md]]** — supplies a mechanism replay could exploit: re-presenting an item reinstates the context surrounding it, which is how offline reactivation could propagate transitive structure across pairs that were never experienced together.
 - **[[wiki/entities/hidden-state-inference-remapping.md]]** — a sixth candidate job for the same substrate, and the only one that makes alternation itself the computation: one hidden state sampled per theta cycle turns rapid map flickering into a posterior sample, predicting that switching rate declines as evidence accumulates.
 - **[[wiki/entities/spiking-tem.md]]** — the mechanistic dissociation this page's theta row lacked: in a trained spiking cognitive map, a learnable neuromodulatory gain drives spikes *earlier* (phase precession, 100% of grid cells when it alone is on) while oscillatory inhibition pins them to a fixed phase (phase locking, 100% when it alone is on), and the recorded MECII-precesses/MECIII-locks mixture appears only with both — so the compression this page relies on has two named, separately dialable causes.
+- **[[wiki/concepts/population-geometry.md]]** — supplies the instrument that gives replay content a coordinate: fit a manifold on running activity, project ripple population vectors onto it, and read out position *and* trial index — which turns that page's untested "replay is a path on the same surface" prediction into a measurement, at the cost that off-manifold ripples become undecodable rather than absent (`raw/talk-nd-memory-gating.txt`, **(tentative)**).
 - **[[wiki/concepts/population-geometry.md]]** — a second candidate unification of the competing sampling policies, from the online side: a sequence is fully accounted for by a path on a ~5-dimensional population manifold (identity at TPR 0.87 / FPR 0.14, and timing from path length), so if replay runs on the same surface then the seven jobs become seven trajectory distributions over one geometry rather than seven ways of selecting stored episodes.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — gives this page's "inhibition sets ripple firing order" claim cell-type resolution: the four interneuron families have distinct ripple phase preferences and modulation magnitudes, and while all increase on average, ~25% of *Id2* neurons and the *Id2-Sncg* (cholecystokinin-basket-like) subfamily are *suppressed* during sharp-wave ripples — so the candidate substrate of the replay filter is a differentiated set of channels, not one inhibitory pool.
 - **[[wiki/entities/stp-flickering-cann.md]]** — awake re-expression of a representation the current input does not support, at theta rather than ripple timescale and driven by short-term synaptic state rather than by reactivation: the same recurrent network, a different clock and a different trigger.

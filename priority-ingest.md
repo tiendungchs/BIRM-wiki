@@ -29,4 +29,4 @@ One INGEST each:
 - [x] `mander-2013-nrem-slow-waves-memory-aging.md` — memory-consolidation · R · 2013
 - [x] `desousa-2026-prefrontal-controls-memory-organization.md` — memory-consolidation · R · 2026
 - [x] `talk-nd-memory-engram.txt` — memory-consolidation · X · nd
-- [ ] `talk-nd-memory-gating.txt` — memory-consolidation · X · nd
+- [x] `talk-nd-memory-gating.txt` — memory-consolidation · X · nd
