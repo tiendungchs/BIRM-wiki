@@ -38,6 +38,23 @@ The memory-hop mechanism is also the paper's outstanding *prediction for neurosc
 
 ---
 
+## The spotlight has a persistent state, and it is held in prefrontal cortex
+
+The sections above treat selection as an operation applied per step. Single-unit recordings say it is also a **maintained variable**, held across a delay in the same cells and the same area that the working-memory literature reads as a content buffer (Lebedev et al. 2004; [[wiki/concepts/working-memory.md]]). With a remembered location and a covertly attended location dissociated within one trial, 61% of spatially tuned dorsolateral prefrontal cells tracked *where attention was*, against 16% tracking the remembered location, and the attention signal **grew stronger late in the delay**, as the moment when the attended stimulus mattered approached, with the sensory input unchanged.
+
+| Property of the prefrontal attention signal | Consequence for an attention mechanism |
+|---|---|
+| Persists across a 1.0–2.5 s delay with no attention-worthy event occurring | The spotlight has state; it is not recomputed from the current input each step |
+| Strengthens as the moment of use approaches | The controller's priority is **anticipatory** — a schedule, not a response |
+| Collapses for whichever location has become irrelevant, *before* the action that makes it so | Deselection is an explicit prospective operation, not decay |
+| Ventrolateral zone: 28% attention vs. 2% memory cells; dorsomedial zone: 8% / 9% / 10% | Selection and content are partly **anatomically separated**, and the mixed zone is the smaller one |
+
+Two readings for a builder. **The wiki's spotlight controller (below) has a candidate substrate and a candidate output format**: a spatial priority map maintained in prefrontal cortex, biasing posterior sensory areas top-down — which is what "attention effects originate in frontal cortex" has meant in this literature since. And **the maintained attentional state is the thing a machine attention layer most conspicuously lacks**: softmax attention recomputes its weights from the current query every step and has no register in which "what I am currently tracking" survives a step that does not query it.
+
+**(brainstorm)** In the soft-adjacency reading below, a persistent attention signal is a *pinned node* in the one-step graph — a node kept in the query set across steps regardless of what the current content matches. That is one line of state and it is the difference between a graph walk that can hold a frontier and one that must rediscover it from content at every hop.
+
+---
+
 ## Reading in the core framing
 
 | Attention operation | Latent-graph reading |
@@ -54,7 +71,7 @@ The memory-hop mechanism is also the paper's outstanding *prediction for neurosc
 
 ## Open problems
 
-- **What controls attention?** Selection policies here are learned end-to-end for a task; no account of goal-driven control of the spotlight, which is the same gap as "what initiates a rollout" in [[wiki/concepts/simulation-based-planning.md]]. The one architectural proposal in the wiki is H-JEPA's **configurator** — a module that primes perception, world model and cost for the current task by modulating their parameters and attention circuits, implemented in transformer modules as *extra input tokens* that change the connection graph. It supplies the interface and not the policy: how it chooses a task decomposition is left unspecified by its own author (gap G33).
+- **What controls attention?** Selection policies here are learned end-to-end for a task; no account of goal-driven control of the spotlight, which is the same gap as "what initiates a rollout" in [[wiki/concepts/simulation-based-planning.md]]. Lebedev et al. 2004 localizes the *state* of the spotlight (persistent, anticipatory, prefrontal) without supplying the policy that sets it — the same shape of partial answer as the configurator below. The one architectural proposal in the wiki is H-JEPA's **configurator** — a module that primes perception, world model and cost for the current task by modulating their parameters and attention circuits, implemented in transformer modules as *extra input tokens* that change the connection graph. It supplies the interface and not the policy: how it chooses a task decomposition is left unspecified by its own author (gap G33).
 - **Hop depth.** Multi-hop retrieval works for a few supporting statements; reliability along long chains is untested here and is the same problem as self-generated intermediate nodes (gap G10).
 - **Content vs. structure addressing.** Attention retrieves by similarity of content; a navigator needs retrieval by structural position.
 - **Where does the unit of selection come from?** Glimpse models select regions; biological object-based attention selects *objects*, individuated by a prior that runs before selection. Nothing here specifies who computes that individuation, which is gap G23's entry test in another place.
@@ -64,7 +81,8 @@ The memory-hop mechanism is also the paper's outstanding *prediction for neurosc
 
 ## Connections
 
-- **[[wiki/concepts/working-memory.md]]** — attention is the read/write access discipline for an external memory; the controller acts on the store only through it.
+- **[[wiki/concepts/working-memory.md]]** — attention is the read/write access discipline for an external memory; the controller acts on the store only through it — and the two are confounded in the substrate, since most of the delay-period signal in prefrontal cortex encodes the attended location rather than the remembered one ([[wiki/empirical-tensions.md]] T88).
+- **[[wiki/concepts/population-geometry.md]]** — supplies the mechanism by which one population can carry both an attended and a remembered location without either being lost: hybrid cells whose preferred location for the two variables *differs* are what resolves the ambiguity that same-preference cells create.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — attention weights are a content-computed soft adjacency, i.e. a one-step graph recomputed per query rather than a persisted structure.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the clearest case of an import that arrived largely unacknowledged, and the source of an open prediction (a neural substrate for memory hops).
 - **[[wiki/concepts/simulation-based-planning.md]]** — both need a control policy that decides where the next computation is spent; neither has one.

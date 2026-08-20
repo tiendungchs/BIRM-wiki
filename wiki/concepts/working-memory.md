@@ -117,6 +117,28 @@ Three things this changes for fast **M**:
 
 ---
 
+## What the delay signal is *about*
+
+Every design above reads sustained delay-period firing as *the item being held*. One experiment sets that reading against the alternative directly (Lebedev et al. 2004). Monkeys fixated centrally while a circle revolved from an initial location (which had to be **remembered**, and was then unmarked) to a final location (which had to be covertly **attended**, because a brief 150 ms dimming/brightening there carried both the go signal and the choice of which of the two locations to saccade to). Both locations were potential saccade targets and both were equally predictive of reward until the trigger, so reward anticipation cannot explain a preference for either.
+
+| Delay-period tuning in dorsolateral prefrontal cortex (n = 303 spatially tuned) | Share | Mean selectivity index |
+|---|---|---|
+| Attended location only ("attention cells") | **61%** | `I_Att` = 1.84 ± 0.08 |
+| Remembered location only ("memory cells") | **16%** | `I_Rem` = 1.21 ± 0.02 |
+| Both ("hybrid cells") | 23% | — |
+
+Preferred-minus-least-preferred rate difference: 8.8 spikes/s for the attended location vs. 5.3 for the remembered one. Ensemble neuron-dropping decoding gives the same ordering. Three controls make this hard to explain away: tuning to the circle's location was **stronger late in the delay than early** (1.83 vs. 1.46), with sensory input identical in every coordinate frame, so it is not a visual response; memory tuning was **absent at stimulus onset and developed during the trial**, so it is not a decaying replica of the cue response; and after the saccade the decoding of whichever location had become irrelevant *decayed* while the newly relevant one *improved*, with the switch preceding saccade onset.
+
+Three things this changes for fast **M**:
+
+- **Delay-period activity is not, by itself, evidence that anything is being maintained.** A persistent, decodable, spatially tuned signal in the canonical working-memory area is mostly about where the controller is *pointing*, not about what it is *holding* ([[wiki/empirical-tensions.md]] T88). Every claim in the sections above that reads prefrontal delay firing as an item — including the attractor and STSP comparisons — inherits this confound wherever the task left attention uncontrolled, which is most of them.
+- **A store needs a pointer register as well as a content register, and the wiki has no design that separates them** (gap G48). The two variables here are the same *type* (a location) and live in one population, which is exactly the case where a read-out cannot tell them apart.
+- **Deletion is by relevance, and it is prospective.** The irrelevant location's representation decays only once it stops mattering, and the reweighting happens before the action that makes it irrelevant — a controller-driven clear, not a time constant. **(brainstorm)** This is the cheapest missing operation in every key–value store in the wiki: not "forget the oldest" but "unmark whatever the next step will not query".
+
+**Read against the maintenance evidence.** The paper does not deny prefrontal short-term memory; it denies that maintenance accounts for most of the delay signal, and it reinterprets two pillars of the opposite case — Funahashi et al.'s "mnemonic scotomas" after prefrontal inactivation are equally consistent with a localized failure to attend, and antisaccade/brightness tasks confound the cued location with the attention-attracting one.
+
+---
+
 ## Mapping to the core framing
 
 | Working-memory element | Latent-graph element |
@@ -175,7 +197,7 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — derives the `7 ± 2` span from noise-driven transitions between asymmetrically coupled attractors, making capacity a dynamical rather than a slot limit, and puts serial order in the same recurrent network that stores episodes.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the only architecture in this ingest that performs explicit multi-hop graph traversal, and marks the boundary: it navigates a *given* graph, it does not discover one.
-- **[[wiki/concepts/attention.md]]** — attention is the read mechanism of an external memory; internal attention and content-addressable retrieval are the same operation.
+- **[[wiki/concepts/attention.md]]** — attention is the read mechanism of an external memory; internal attention and content-addressable retrieval are the same operation — and in prefrontal cortex the two are not separable at the read-out: 61% of delay-tuned cells track the attended location and 16% the remembered one, so the store's persistent signal is mostly its own pointer (Lebedev et al. 2004).
 - **[[wiki/concepts/complementary-learning-systems.md]]** — external memory is the engineering form of the fast store; working memory adds the controller that decides what is written and read.
 - **[[wiki/concepts/meta-learning.md]]** — meta-RL's inner learner lives in recurrent activity, i.e. in entangled working memory; its capacity limits are working-memory limits.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — control/storage separation is the transfer that produced graph-traversal-capable networks, and gating is the case where influence ran both ways.
@@ -205,3 +227,4 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/entities/stsp-working-memory-rnn.md]]** — the controlled comparison of this page's two maintenance designs on one task: the synaptic store reproduces prefrontal cortex's collapse of delay decoding while the attractor store does not, reading it requires spiking (so maintain and use are separate metabolic regimes), and it survives ablation of half its synapses because the memory is not in the trained weights.
 - **[[wiki/entities/pbwm.md]]** — the one design in this page where the *write policy itself* is learned: prefrontal stripes hold, basal-ganglia disinhibition enables the write, and which inputs deserve a write is trained by reinforcement — with the ablation (no dopamine modulation → 0% of networks learn any task) that shows a store without a trained gate is useless.
 - **[[wiki/entities/trnn.md]]** — the fifth maintenance design and the only head-to-head performance test: a memory carried by a moving trajectory of sequentially peaking units, matched to mouse recordings by a transient index, more information-rich and cheaper than the persistent solution, and better on distractors, multiple items and spatial navigation at equal parameter count (Liu et al. 2025).
+- **[[wiki/concepts/population-geometry.md]]** — the level at which this page's store can be read at all: when two same-type variables share one prefrontal population (the held item and the attended location), what keeps both decodable is anti-aligned mixed selectivity in hybrid cells, not separate cells for each (Lebedev et al. 2004).
