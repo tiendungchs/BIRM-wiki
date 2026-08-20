@@ -2,4 +2,5 @@ tools/qmd.db
 .qmd/
 .DS_Store
 .vscode/
-_work/
+_work/ingest-logs/
+_work/.*
