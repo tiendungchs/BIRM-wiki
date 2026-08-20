@@ -220,7 +220,7 @@ One INGEST each:
 
 One INGEST each:
 
-- [ ] `li-2024-simple-cycle-reservoirs-universal.md` — sequence-models · F · 2024
+- [x] `li-2024-simple-cycle-reservoirs-universal.md` — sequence-models · F · 2024
 
 **Bundle — Liquid Time-constant Networks (paper + explainer).** One INGEST pass over all 2 files (~8077 words), in this order.
 
