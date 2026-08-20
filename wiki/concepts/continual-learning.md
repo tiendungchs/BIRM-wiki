@@ -70,6 +70,19 @@ The repair is a family this table has as a row but not in this form: **functiona
 
 Two facts about it are the interesting ones for this page. It **repairs rather than prevents** — applied only after the damage, it recovers the read-out in 10k iterations, 1% of the budget that caused the loss, which no weight-protection method can do because the information is gone from the parameters. And the anchor has a **usable age window**: a 100k- or 200k-iteration checkpoint works, a 1M-iteration one is harmful, because by then it has the disease. A rehearsal buffer with an expiry date at *both* ends is not a shape any row above has.
 
+**Forgetting caused by a *downstream module's initialisation*, and the field's answer is to switch learning off** (Kawaharazuka et al. 2025, a survey of Vision-Language-Action models; results attributed to their own sources). Attaching a randomly initialised action head to a pretrained vision-language backbone and training end-to-end degrades the backbone's representations — the damage is done by the transient from an untrained module below, with no task sequence and no distribution shift, and it is the mainstream's most common form of catastrophic forgetting. The remedies in use, ordered by how much learning they give up:
+
+| Remedy | What it does | What it gives up |
+|---|---|---|
+| **Gradient insulation** | Block gradients from the action head at the backbone boundary | All adaptation of perception to the robot's own visual domain |
+| **Full freezing** (GR00T N1.5) | The backbone is not trained at all | As above, and any language grounding in action terms |
+| **Low-Rank Adaptation** | Update a low-rank correction only | Reported competitive with full fine-tuning on OpenVLA, at consumer-GPU cost |
+| **Staged unfreezing / selective layers** | Delay or restrict which parameters move | Needs a schedule nobody derives |
+| **RevLA** | *Gradually reverse* the backbone's weights toward their pretrained values, by analogy with model merging | Repair rather than prevention, like Gram anchoring above, but in parameter space |
+| **DSRL** | Do not update the policy at all: learn a distribution over the **initial noise** the diffusion policy denoises from | Reported to take `π₀` from ~20% to ~100% success on 10K samples — adaptation confined to the *input* of a frozen generator |
+
+**(brainstorm)** DSRL is the row with no biological or wiki analogue and the most interesting shape: the learner is not permitted to touch any weight, so the entire adaptation lives in the sampler's initial condition. That is continual learning as *conditioning* — the stability–plasticity trade-off dissolved by making the plastic object a latent input rather than a parameter — and it is immune to every failure this page catalogues, at the price that whatever the frozen policy cannot express is unreachable no matter how much data arrives. The survey also states the field's baseline honestly: once trained offline these models are frozen and "do not adapt to new situations", so none of the rows above is being used to support learning at deployment.
+
 EWC's practical claim: multiple tasks learned **without an increase in network capacity**, with weights shared efficiently between tasks that have related structure — protection is compatible with transfer, not opposed to it. Demonstrated at scale in deep RL agents.
 
 ---
@@ -97,6 +110,7 @@ The slow **W** of [[wiki/concepts/latent-graph-discovery.md]] *is* an accumulati
 - **[[wiki/entities/dinov3.md]]** — forgetting with no task sequence and no distribution shift: one stationary stream, one fixed loss, and a dense read-out decays over 1M iterations while a global one improves — repaired by functional regularisation against a stored earlier checkpoint that constrains only the token-similarity structure, needs no boundary and no importance estimate, and works only from a *young enough* anchor.
 
 
+- **[[wiki/concepts/cross-embodiment-transfer.md]]** — what the protection is protecting: a backbone pooled across bodies and web-scale data is destroyed by the initialisation transient of a per-body action head, which is why gradient insulation, freezing and Low-Rank Adaptation are the field's default recommendations (gap G65, Kawaharazuka et al. 2025).
 - **[[wiki/concepts/cognitive-map.md]]** — supplies the one setting where the protect-vs-overwrite decision is made by *role* and its outcome is measured: new nodes are assimilated into a held-constant entorhinal frame while the prefrontal distance readout is rebuilt, with frame constancy predicting reasoning over the new nodes (Qu et al. 2026).
 
 
