@@ -10,7 +10,7 @@ One INGEST each:
 - [x] `oreilly-2006-making-working-memory-work.md` — working-memory · M · 2006
 - [x] `graves-2016-differentiable-neural-computer.md` — working-memory · M · 2016
 - [x] `kozachkov-2022-short-term-plasticity-working-memory.md` — working-memory · M · 2022
-- [ ] `liu-2025-transient-trajectory-rnn-working-memory.md` — working-memory · M · 2025
+- [x] `liu-2025-transient-trajectory-rnn-working-memory.md` — working-memory · M · 2025
 - [ ] `lebedev-2004-attended-vs-remembered-locations-pfc.md` — working-memory · R · 2004
 - [ ] `lundqvist-2018-gamma-beta-bursts-working-memory.md` — working-memory · R · 2018
 - [ ] `derosa-2024-working-memory-removal-operations.md` — working-memory · R · 2024

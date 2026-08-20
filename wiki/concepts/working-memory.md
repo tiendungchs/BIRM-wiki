@@ -95,6 +95,28 @@ Three things follow for this page:
 
 ---
 
+## Maintenance by not staying still
+
+A fifth design keeps the item in activity but forbids any unit from holding it: the memory is a **trajectory** whose participating units peak in sequence and tile the delay (Liu et al. 2025, [[wiki/entities/trnn.md]]). Three structural edits to an otherwise ordinary trained recurrent net are enough — per-unit self-inhibition `τ_v dV/dt = −V + mr` subtracted from the drive, sparse recurrence, and sensory/association/motor blocks with sparser inter-block connectivity.
+
+| | Persistent (vanilla RNN) | Transient trajectory (TRNN) |
+|---|---|---|
+| Carrier | Units held at a fixed rate for the delay | A moving pattern; each unit fires once, sharply |
+| Delay-period geometry | Approach to a fixed point | dPCA trajectories keep moving, velocity does **not** decay |
+| Activity entropy | Low | Rises ~linearly with the transient index |
+| Metabolic proxy `⟨r²⟩` | High | Falls stepwise with the transient index |
+| Variable delay (3–6 s) | Free by construction | Learned, at a ~4-point accuracy cost |
+| Distractors, 2–6 items, spatial navigation | Worse; on the water maze no better than a memoryless net | Better on all three at equal parameter count |
+| Match to recordings | Transient index far below mouse | Transient index mouse-like; 38.2% vs. 32.6% stimulus-selective units |
+
+Three things this changes for fast **M**:
+
+- **Persistence is the trained default, not the task requirement.** A vanilla recurrent net converges on something attractor-like without being asked; the three edits are subtractions, and every task metric improves. So "the fast store holds a value" is a claim about architecture, not about what the delay demands.
+- **Capacity is bought with entropy.** Pinning units to one value for the whole delay spends them; letting them tile spends them on distinguishable states. This is the wiki's one measured item-capacity advantage of a dynamic code over a fixed-point code — and it is partly circular, since the information-richness measure is a component of the transience measure.
+- **Holding and moving are the same knob, again.** The self-inhibition term is literally A-CANN's adaptation current ([[wiki/entities/adaptive-cann.md]]), whose closed form says `m > τ/τ_v` converts a held state into a travelling wave. The section above prices maintenance; this one says the far side of that price is not memory loss but a *usable* memory of a different kind.
+
+---
+
 ## Mapping to the core framing
 
 | Working-memory element | Latent-graph element |
@@ -182,3 +204,4 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/entities/differentiable-neural-computer.md]]** — the primary source for this page's control/storage argument, and the store whose *addressing* is fully specified: content lookup, write-order links and a usage-based free list, with one learned gate choosing between allocating a fresh slot and editing a matched one.
 - **[[wiki/entities/stsp-working-memory-rnn.md]]** — the controlled comparison of this page's two maintenance designs on one task: the synaptic store reproduces prefrontal cortex's collapse of delay decoding while the attractor store does not, reading it requires spiking (so maintain and use are separate metabolic regimes), and it survives ablation of half its synapses because the memory is not in the trained weights.
 - **[[wiki/entities/pbwm.md]]** — the one design in this page where the *write policy itself* is learned: prefrontal stripes hold, basal-ganglia disinhibition enables the write, and which inputs deserve a write is trained by reinforcement — with the ablation (no dopamine modulation → 0% of networks learn any task) that shows a store without a trained gate is useless.
+- **[[wiki/entities/trnn.md]]** — the fifth maintenance design and the only head-to-head performance test: a memory carried by a moving trajectory of sequentially peaking units, matched to mouse recordings by a transient index, more information-rich and cheaper than the persistent solution, and better on distractors, multiple items and spatial navigation at equal parameter count (Liu et al. 2025).
