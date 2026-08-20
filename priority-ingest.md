@@ -8,7 +8,7 @@
 One INGEST each:
 
 - [x] `taniguchi-2023-world-models-predictive-coding-robotics.md` — world-models · S · 2023
-- [ ] `long-2025-embodied-intelligence-world-models.md` — world-models · S · 2025
+- [x] `long-2025-embodied-intelligence-world-models.md` — world-models · S · 2025
 - [ ] `zhang-2026-identifiability-controlled-world-models.md` — world-models · F · 2026
 - [ ] `bortoletto-2023-irene-intuitive-reasoning-network.md` — world-models · M · 2023
 - [ ] `koenig-2024-kan-odes-dynamical-systems.md` — world-models · M · 2024
