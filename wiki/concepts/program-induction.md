@@ -1,0 +1,109 @@
+# Program Induction
+
+**Reasoning is search over a space of programs: infer the shortest / highest-prior composition of primitives that reproduces the observed input–output pairs, then run it to answer the query.**
+
+The wiki's core framing names *program induction* as one of the rival one-problem reductions to latent graph discovery ([[wiki/concepts/latent-graph-discovery.md]]). This page is that rival stated in full, assembled from the wiki's existing material — it has been the operating frame of four pages ([[wiki/entities/bayesian-program-learning.md]], [[wiki/entities/arc-agi.md]], [[wiki/entities/aixi.md]], [[wiki/concepts/universal-induction.md]]) without ever being stated as one commitment.
+
+> **Provenance.** No *ingested* source is about program induction as such. Everything below is folded from sources ingested for other reasons: Lake, Salakhutdinov & Tenenbaum 2015 via Lake et al. 2017 (BPL), Chollet 2019 (the ARC solver sketch), Hutter 2000 (the formal limit), Taniguchi et al. 2023 (symbols distilled to PDDL rules). The tradition's own machine-learning statements are **not** in the wiki, though several are sitting unread in `raw/` (`johnson-2021-human-program-induction-arc.md`, `rocha-2024-ilp-program-synthesis-arc.md`, `das-2025-compositional-neurosymbolic-arc.md`, `franzen-2025-product-of-experts-arc.md`); see Open Problems.
+
+---
+
+## The commitment
+
+| Element | Program-induction statement |
+|---|---|
+| **What a concept is** | A procedure. To have the concept is to hold a program that generates its instances (BPL: a concept is a stochastic motor program) |
+| **What learning is** | Posterior inference over program space: `p(π \| D) ∝ p(D \| π) · p(π)`, where `p(π)` is a prior over compositions, usually length-based |
+| **What the primitives are** | A **library** / domain-specific language (DSL), fixed in advance or grown across tasks |
+| **What generalization is** | Re-use: a sub-program that worked on an earlier task is recombined into a new one, so transfer is *literal* code sharing rather than a shared representation |
+| **What the answer is** | The program's *output* — obtained by execution, not by retrieval or interpolation |
+
+The whole family is one design choice repeated at three budgets: keep the full computable program class and lose computability ([[wiki/entities/aixi.md]]), bound the class by proof length ([[wiki/entities/aixi.md]], AIXItl), or hand-restrict it to a domain DSL and make search feasible ([[wiki/entities/bayesian-program-learning.md]]).
+
+---
+
+## Translation to the graph framing
+
+The two reductions are mutually foldable — which is exactly why neither is a finding. The dictionary:
+
+| Latent graph discovery | Program induction |
+|---|---|
+| Edge label | A primitive, or a one-line program |
+| Edge vocabulary (hardness 2) | The DSL / primitive library |
+| Path (composed sequence) | The program |
+| Meta-graph | The library shared across tasks |
+| Instance-graph | The per-task program |
+| Navigation / path search | Program search, ranked by `p(π)` |
+| Node content | Intermediate values on the execution trace |
+
+**Where the dictionary is exact.** ARC-AGI is the clean case: the benchmark is described in the wiki as pure edge-label-latent with a co-latent vocabulary, and Chollet's intended solver is a DSL search that recombines sub-programs from earlier tasks ([[wiki/entities/arc-agi.md]]). Those are the same sentence in two vocabularies. Likewise BPL's library/program split *is* the two-level hierarchy, drawn at `program vs. library` rather than at `g vs. x`.
+
+**Where it is not.** Three asymmetries, and they run in both directions:
+
+- **Programs have binding and recursion; paths do not.** A program can bind a variable, call itself, and type-check its arguments. This is precisely the **non-embeddable symbolic slice** the graph framing lists as its own open bet — so on that slice program induction is not a rival account but the *only* account the wiki holds. What it buys there is real: modular arithmetic and syntactic recursion are short programs and are not short walks.
+- **Paths have a state the walker is *in*; programs do not.** Hardness sources 3 and 4 — observation aliasing and simultaneity (infer the structure *while* navigating it) — have no statement in program-induction terms, because program search assumes a corpus of complete input–output pairs and a clean discovery-then-use separation. Both BPL and the ARC solver score `Not addressed` on those rows.
+- **A program is selected by length, a path by traversal cost.** These come apart, and the wiki has the case on record: Chollet's own step 3 refuses ranking by simplicity alone and asks for a *learned* prior over programs instead, which is gap G26 (nothing selects hypotheses by structure rather than by length) receiving its first concrete proposal.
+
+---
+
+## The formal spine, and its ceiling
+
+Program induction has the wiki's only reduction with a *proved* limit case, and both halves of the result matter.
+
+| Result | Statement | Where |
+|---|---|---|
+| **The ideal inductor exists** | Weight every computable hypothesis by `2^−(shortest program length)`; the mixture dominates every computable alternative within a constant equal to that alternative's description length | [[wiki/concepts/universal-induction.md]] |
+| **Learnability = compressibility** | The only property of the environment entering the convergence bounds is `K(µ)` — description length, not size, stochasticity or stationarity | [[wiki/concepts/universal-induction.md]] |
+| **Uncomputability is removable** | AIXItl enumerates programs of length `≤ l̃` carrying a proof they never overrate their own value; `O(2^l̃·t̃)` per cycle | [[wiki/entities/aixi.md]] |
+| **The active wall is not** | For any agent whose actions influence its observations, **no** credit bound in terms of `K(µ)` exists — proved, not merely unfound (gap G25) | [[wiki/concepts/universal-induction.md]] |
+| **Short ≠ navigable** | The simplicity prior selects a short program, not a structured one, so even the ideal inductor need not expose the graph in usable form (gap G26) | [[wiki/entities/aixi.md]] |
+
+The last two rows are what a builder should carry. Program induction is *complete* on the passive slice — sequence prediction and classification are "essentially solved apart from computation" — and provably has no such guarantee the moment the learner's outputs shape the data it will see. Any architecture in this family that operates in a loop with an environment is buying its guarantee from environment assumptions (separability class), not from the induction principle.
+
+---
+
+## Instantiations in the wiki
+
+| System | Program space | Library origin | What it demonstrates |
+|---|---|---|---|
+| [[wiki/entities/bayesian-program-learning.md]] | Stochastic motor programs over strokes, sub-parts, relations | **Authored** — relation types given by the prior, primitives learned in pre-training | One-shot human-level classification and generation from 5 alphabets of pre-training, where matched convolutional nets have ~5× the error. The wiki's clearest existence proof that a two-level factorization pays in sample efficiency when it is *installed* |
+| [[wiki/entities/arc-agi.md]] | An unbuilt DSL over four core-knowledge priors | **Forbidden to author** — supplying it in combinable program form is stated as the unsolved subproblem | That the priors are not the hard part: the *combinable program form* is (gap G21 as an engineering deliverable) |
+| [[wiki/entities/aixi.md]] | All computable environments | Universal machine | The ceiling and its two walls |
+| [[wiki/concepts/affordance-grounded-symbols.md]] | Probabilistic PDDL rules distilled from an effect predictor, handed to an off-the-shelf planner | **Induced from interventions** — categories carved by consequence rather than appearance | The one route on the wiki where the symbols a program is written over are grounded rather than authored, which makes rollout depth a symbolic search parameter |
+| [[wiki/entities/neuromatch.md]] | — (retrieval, not synthesis) | — | The discriminative counterpart of the same query: order-embedding subgraph matching buys millisecond retrieval of a stored structure with an un-flagged error rate where program search buys a posterior with search cost ([[wiki/concepts/subgraph-matching.md]]) |
+
+---
+
+## The four standing costs
+
+1. **Somebody authors the library.** Every working instantiation is handed its vocabulary; the one benchmark that forbids this is unsolved by the method it proposes. This is gap G4 (vocabulary co-discovery at scale) in its original clothing. The wiki's two partial answers to G4 — an edge alphabet induced from ~2000M video frames ([[wiki/entities/adaworld.md]]) and a node set installed as attractor states ([[wiki/entities/gcq.md]]) — both come from the *continuous* side and neither yields anything a program could be written in.
+2. **Search is intractable, and the remedy is amortization.** Inference over programs is an intractable search in general; [[wiki/concepts/amortized-inference.md]] exists to pay it down — a recognition network proposing hypotheses inside the structured model, or a parametric guess that initializes rather than replaces the relaxation.
+3. **The prior is doing unadvertised work.** Length is known to be the wrong ranking (ARC step 3), and no source in the wiki supplies a structural alternative. Whatever replaces `2^−l(π)` is where the domain knowledge actually lives.
+4. **Discrete search inherits nothing from the failure of the previous candidate.** A rejected program returns one bit; a gradient returns a direction. This is the standing efficiency argument for the energy reading ([[wiki/concepts/energy-based-models.md]]), where the vocabulary question becomes a *latent-capacity* question with a knob attached — `k` discrete values give at most `k` labels — rather than a discrete-search question with none.
+
+---
+
+## Open Problems
+
+- **No ingested machine-learning source in this family.** Everything above is second-hand or adjacent, and the gap is an *unread-file* gap rather than an acquisition gap: `raw/` already holds inductive-logic-programming and neurosymbolic attacks on ARC (`rocha-2024-ilp-program-synthesis-arc.md`, `das-2025-compositional-neurosymbolic-arc.md`, `franzen-2025-product-of-experts-arc.md`) and a human-side study of the same task (`johnson-2021-human-program-induction-arc.md`). Until they are ingested the wiki cannot say how far cost 1 has actually been pushed.
+- **Nothing scores a program inducer on the aliasing and simultaneity rows.** The two hardness sources with no statement in this vocabulary are also the two the biological evidence is strongest on.
+- **What a *learned* prior over programs is a function of.** ARC's step 3 asks for one and specifies nothing; G26 has had no candidate since.
+- **Whether the library can be grown from a continuous stream.** The wiki's alphabet-induction results are all over continuous latents; nothing converts them into typed primitives a search could compose.
+
+---
+
+## Connections
+
+- **[[wiki/concepts/latent-graph-discovery.md]]** — the named rival reduction, stated in full: program ↔ path, DSL ↔ edge vocabulary, library ↔ meta-graph, and the two places the dictionary breaks (binding/recursion on one side, aliasing and simultaneity on the other).
+- **[[wiki/concepts/language-of-thought.md]]** — the same reduction with the DSL identified as the mind's own concept format rather than as a modeller's choice; the probabilistic version *is* this page's posterior over programs, and its overgeneration objection is this page's prior problem (G26) in developmental clothing.
+- **[[wiki/concepts/universal-induction.md]]** — the limit case: the full computable program class with a length prior, which supplies both the completeness result on the passive slice and the proof that no such guarantee survives on the active one.
+- **[[wiki/entities/aixi.md]]** — the ceiling as an agent, and the source of the two corrections this page carries: uncomputability is removable, the active wall is not, and short ≠ navigable.
+- **[[wiki/entities/bayesian-program-learning.md]]** — the worked tractable instantiation: hand-restricted program space, learned primitive library, one-shot results, and the honest admission that the relation types are given by the prior.
+- **[[wiki/entities/arc-agi.md]]** — the benchmark built to forbid the one step every instantiation relies on (authoring the library), and the source of the concession that ranking by description length is insufficient.
+- **[[wiki/concepts/compositionality.md]]** — what program re-use *is*: productivity by recombination of parts, with the ARC solver making it the evaluation criterion rather than an emergent property.
+- **[[wiki/concepts/amortized-inference.md]]** — the standing remedy for cost 2: compile the expensive posterior over programs into a fast proposer, at the price of a recognition net only as good as what it was trained on.
+- **[[wiki/concepts/energy-based-models.md]]** — the continuous competitor for the same job: an edge label and a latent variable are the same free variable, so vocabulary size becomes a capacity knob a regulariser can turn instead of a discrete space a search must enumerate.
+- **[[wiki/concepts/affordance-grounded-symbols.md]]** — the one route in the wiki where the symbols the program is written over are induced from intervention outcomes rather than authored, which is a partial answer to cost 1 on the robotic slice.
+- **[[wiki/concepts/subgraph-matching.md]]** — the retrieval half of the same architecture: before a library entry can be recombined it must be *found* and aligned, which is NP-complete in general and is what order-embedding matching approximates.
+- **[[wiki/concepts/causal-model-building.md]]** — why the program form is chosen over a discriminative one: parameterizing a concept by its production process makes appearance-only rules inexpressible, at the cost of needing causal (e.g. stroke) data.
+- **[[wiki/concepts/skill-acquisition-efficiency.md]]** — the shared algorithmic-information vocabulary: generalization difficulty and program length are the same measure, which is why this family and the wiki's scoring function come from one tradition.

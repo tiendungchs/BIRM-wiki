@@ -17,6 +17,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | AIT | Algorithmic Information Theory | Kolmogorov complexity and its relatives; the formal language of both [[wiki/concepts/universal-induction.md]] and [[wiki/concepts/skill-acquisition-efficiency.md]] |
 | LSA | Latent Semantic Analysis | Word meaning from a factorised document co-occurrence matrix; read here as a retrieved-context model of semantic learning |
 | DSL | Domain-Specific Language | A restricted program space to search over; ARC's proposed solver hard-codes core-knowledge priors as one |
+| LoT | Language of Thought | The claim that thought is conducted in recursively combinable typed expressions with a compositional semantics ([[wiki/concepts/language-of-thought.md]]) |
+| PLoT | Probabilistic Language of Thought | LoT with a distribution over expressions, so concept learning is posterior inference over sentences of the internal language ([[wiki/concepts/language-of-thought.md]]) |
 | GD | Generalization Difficulty | `H(Sol^θ_T \| TrainSol^opt_{T,C}) / H(Sol^θ_T)` — how far the shortest curriculum-optimal program must be edited to work at evaluation |
 | AIXI | AI with (X) Induction (I) | Hutter's uncomputable universal agent; the formal ceiling ([[wiki/entities/aixi.md]]) |
 | AIXItl | AIXI bounded to length `l̃` and per-cycle time `t̃` | Computable reduction of AIXI; dominates all self-certifying policies within those bounds |
