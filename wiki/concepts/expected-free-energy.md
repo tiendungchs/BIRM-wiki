@@ -186,6 +186,72 @@ Six observe-then-commit environments, four RockSample instances, and a new Struc
 
 ---
 
+## EFE is a set of entropy corrections to plain variational inference — and only one of them pays
+
+> **Third primary source.** `raw/nuijten-2026-what-inference-is-active-inference.md` — Nuijten, Lukashchuk, van de Laar & de Vries, arXiv:2606.04935, 2026. Milosevic et al. classify the optimisation problem and Cooper & Velasquez identify the objective with a ρ-POMDP; this source asks what *distinguishes* the objective from ordinary planning-as-inference, answers with an exact algebraic identity, and then ablates the pieces.
+
+**Theorem 1 (entropy-corrected form).** Let `p̂` be the preference-augmented rollout model (goals as priors `p̂(x_t)`, `p̂(y_t)`, with `p̂(x) ∝ exp R(x)`), and `p̃` that model further augmented with the epistemic priors that encode which variables are controlled / inferred / observed. Then, exactly:
+
+```
+F_p̃[q] = F_p̂[q] + Σ_t ( 2·H[q(y_t|x_t,θ)] − H[q(x_t|x_{t-1},u_t)] − H[q(y_t|x_t)] )
+```
+
+Grouped the standard way, `H[q(y|x,θ)]` is **ambiguity** (penalised) and `H[q(y|x)] − H[q(y|x,θ)]` is **novelty**, the expected information gain about the *parameters* `θ` (rewarded) — the factor of two is these two groupings overlapping.
+
+**The AIF-specific commitment lives entirely in the correction term.** Specifying a planning method is a three-way choice — (i) the generative model, (ii) the assignment of variable roles among controlled / state / parameter / observed, (iii) the entropy correction that selects the objective. (i) and (ii) are shared with every planning-as-inference method; only (iii) is active inference. The ladder:
+
+| Objective | Correction added to `F_p̂[q]` | What changes |
+|---|---|---|
+| Baseline VFE | `0` | marginal inference; in control, KL control |
+| **Cross-entropy planning** (VBP) | `+Σ_t H[q(u_t\|x_{t-1})]` | *how control is posed* — penalises action uncertainty so the extracted policy actually attains the cost it appears to minimise; kills optimistic inference (conditioning on goals otherwise buys favourable state realisations the policy cannot produce). Reduces to `min_q Σ_t H[q(x_t), p̂(x_t)]` = expected-reward maximisation |
+| **Risk-minimising planning** | CE `− Σ_t H[q(x_t\|x_{t-1},u_t)]` | adds Friston's *risk*; an intermediate ablation |
+| **EFE-based planning** | CE `+ Σ_t (2H[q(y_t\|x_t,θ)] − H[q(x_t\|x_{t-1},u_t)] − H[q(y_t\|x_t)])` | *what* is optimised — adds ambiguity and novelty |
+
+Two corrections, two jobs: **the planning correction changes how control is posed; the EFE correction changes what objective is optimised.** Proper active-inference planning needs both, and neither implies the other — Theorem 1 alone yields EFE inside a *marginal* objective, which is not yet planning over policies.
+
+**Implementation: channel reparameterization.** A conditional entropy is not a function of any single coordinate in a Bethe/factor-graph optimisation (a conditional is a ratio of region beliefs). Gibbs' inequality `H[q(y|x)] = min_r E_q[−log r(y|x)]` promotes each corrected conditional to a free variational parameter (a *channel*), exactly rather than as a bound. Each correction then acts locally on one factor kernel:
+
+```
+f̃_obs(y,x,θ) = p(y|x,θ)·r_{y|xθ}²(y|x,θ) / r_{y|x}(y|x)
+f̃_dyn(x,x',θ,u) = p(x|x',θ,u)·r_{u|x}(u|x') / r_{x|xu}(x|x',u)
+```
+
+The objective is then a standard Bethe free energy on the modified graph, so **the whole family runs as sum-product message passing with kernels substituted for factors** — belief propagation, VBP, risk-minimising planning and full EFE planning are one derivation at different channel counts, and the posterior-dependent epistemic priors' circularity becomes an ordinary joint optimisation over beliefs and channels (fixed point: each `r*` equals the corresponding conditional of its region belief).
+
+**Learning and planning are deliberately separated, and that is what makes novelty additive.** `θ` is updated by Bayesian filtering on *real* observations; during planning it is held at `q(θ)` (backward messages into `θ` from simulated factors are simply not sent). Because every step's novelty is then scored against a common `θ` baseline, the *global* information gain about `θ` decomposes into per-step factors and is additive over the horizon. **(brainstorm)** This is a concrete answer to a question the wiki keeps deferring — how a graph-discovery agent can credit an individual probe for what it reveals about global structure. Freeze the structural belief across the rollout and per-probe information gains stop double-counting; let it update inside the rollout and they do not sum.
+
+### Ablations: novelty is the term that does the work
+
+Three grid-worlds with the layout itself as the unknown parameter `θ`, 1000 episodes, all methods sharing belief machinery and differing only in which channels are active. **Nuijten-MP** is the prior alternating heuristic (epistemic priors recomputed as literal prior factors between BP sweeps, novelty prior omitted).
+
+| Method | Corrections | Frozen Lake success | RockSample reward / retrieval | Wumpus success |
+|---|---|---|---|---|
+| BP | none | 51.9% | 1.00 / 0.0% | 1.2% |
+| VBP | planning | 54.5% | 1.00 / 0.0% | 5.5% |
+| RM-MP | + dynamics | 50.0% | 1.00 / 0.0% | 24.0% |
+| Nuijten-MP | ambiguity only, heuristic | **95.6%** | 1.00 / 0.0% | 5.0% |
+| **AIF-MP** | planning + dynamics + observation | **95.9%** | **4.01 / 98.7%** | **40.7%** |
+
+The environments are chosen to separate *where epistemic value lives*. In Frozen Lake a SCAN action persistently changes the observation kernel, so its value shows up as reduced **ambiguity** and the heuristic finds it as easily as the joint scheme. In canonical RockSample and Wumpus World no action changes the observation model — a CHECK buys one noisy reading whose entire value is what it says about `θ`, i.e. pure **novelty**. There, every method without the novelty term walks straight to the exit (`0.0%` retrieval), because under a uniform quality prior sampling an unchecked rock has negative expected reward and so CHECK is worthless.
+
+| Correction | Empirical worth |
+|---|---|
+| Planning (`+H[q(u\|x)]`) | modest (`51.9 → 54.5%`) |
+| Dynamics (`−H[q(x\|x,u)]`) | nothing under deterministic dynamics; substantial under stochastic (Wumpus `5.5 → 24.0%`) |
+| Ambiguity | large *only* when a sensing action persistently changes the observation kernel |
+| **Novelty** (info gain about `θ`) | the rest — and it is all-or-nothing where sensing is one-shot (`0.0% → 98.7%` retrieval) |
+
+The gap to the heuristic is an **objective mismatch, not a scheduling artefact**: treating epistemic priors as literal priors recomputed outside the variational objective drops the novelty prior, and the method collapses to its planning-only core exactly when novelty is the only source of epistemic value.
+
+### What this changes for the wiki
+
+- **The wiki's open problem "the epistemic value is over *states*, not parameters" is now the main result, inverted.** The convex-MDP reduction explicitly excludes parameter-novelty terms, and the ρ-POMDP identity scores information gain about a *belief over a fixed hidden state*. This source measures the term both exclude and finds it carries nearly the whole effect wherever sensing does not alter the sensor. See [[wiki/empirical-tensions.md]] T124.
+- **"Active inference vs. planning-as-inference" is a one-line difference, and it is auditable.** Any implementation can be placed on the ladder above by asking which entropy corrections its loss contains. Several methods that call themselves active inference sit at cross-entropy planning plus ambiguity.
+- **The `−H(ρ_t)` / `I_a(b)` pair on this page is now a triple.** Three distinct "epistemic terms" are in circulation: coverage over states one will occupy (Milosevic), sharpening of a belief over a fixed hidden state (Cooper), and information gain about *model parameters* (this source). Only the third pays in the environments where sensing is one-shot. **(brainstorm)** For a reasoning agent the third is the relevant one by construction — the unknown is the graph, which is a parameter, not a state.
+- **The cost is a min-max.** The corrections carry opposing signs, so the joint optimisation over beliefs and channels is min-max: standard belief-propagation convergence guarantees do not transfer, arithmetic damping `r^n ∝ (1−λ)r^{n−1} + λr*` is required, `λ` is tuned per environment, and convergence takes ~150 iterations. The wiki's cleanest derived exploration drive is also its least stable optimiser.
+
+---
+
 ## What this buys for building a reasoning model
 
 - **The exploration term is not a hyperparameter — but it *is* a coefficient, and its value is a claim that can be wrong.** `−log ρ_t(s)` falls out of the objective's gradient, and the ρ-POMDP reduction names what the gradient is worth: an information-gain bonus at exactly `w = 1` nat (Cooper & Velasquez 2026). That is a derived weight, not the absence of one, and it is reward-near-optimal in only ~32% of random two-state environments at depth 3 ([[wiki/empirical-tensions.md]] T123). A reasoning agent that must discover latent structure ([[wiki/concepts/latent-graph-discovery.md]]) needs to visit edges it has not traversed; here the drive to do so is the derivative of the planning objective, and the gridworld result shows it measurably accelerates identification of the transition kernel.
@@ -203,6 +269,9 @@ Six observe-then-commit environments, four RockSample instances, and a new Struc
 - **Uniqueness fails**: `Φ` is convex but not strictly, so distinct policies can achieve the same optimum. What the agent actually does at the optimum is underdetermined by the objective.
 - **Which infinite-horizon variant is the right one** is a modelling choice the literature has been making silently. No principle selects between `G^agg` and `G^step`.
 - **The epistemic value is over *states*, not parameters.** Parameter-novelty ("model-uncertainty") terms used in practical implementations are excluded from the convex-MDP result and are named as a source of extra policy-dependence — the reduction is clean exactly where it is least like a learning agent.
+- **…and parameter-novelty is exactly the term that pays.** Ablated across three grid-worlds, the information gain about `θ` accounts for nearly the whole performance gap wherever sensing actions do not alter the observation kernel — `98.7%` vs. `0.0%` rock retrieval (Nuijten et al. 2026). So the two clean theoretical results cover the term with the least measured effect, and the term with the most measured effect has no theory. **[[wiki/empirical-tensions.md]] T124.**
+- **Novelty is additive only because learning is frozen during planning.** Per-step novelty decomposes from the global information gain about `θ` only if backward messages into `θ` are withheld during the rollout. An agent that updates its structural belief *inside* imagination has no additive epistemic score, and nothing says what the right objective is there.
+- **The channelised scheme has no convergence theory.** Opposing correction signs make the joint optimisation min-max; belief-propagation guarantees do not transfer, and the damping constant is hand-set per environment (Nuijten et al. 2026).
 - **The equivalence stops at intervention.** `ρ_EFE = I_a(b)` requires observation actions to leave the hidden state fixed (`Δ_T = 0`). An agent that learns structure by *changing* it — the case a reasoning agent is in — needs the coupling term, and no treatment of it exists (Cooper & Velasquez 2026).
 - **The derived weight optimises reward, not accuracy.** The success-maximising weight is 20–200× the derived one on every environment tested, so any agent that must be *right* rather than *profitable* is back to tuning.
 - **The epistemic drive does not survive discounting.** Its advantage over reward-only planning requires `γ ≥ 0.99` when there are several observation actions, and reverses at `γ = 0.90`. Every deep implementation that discounts is outside the regime where the term has been shown to pay.
@@ -212,6 +281,7 @@ Six observe-then-commit environments, four RockSample instances, and a new Struc
 
 ## Connections
 
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the sharpest statement of how the two halves relate: the planning objective on this page *is* that page's variational free energy plus four explicit conditional-entropy corrections, an exact algebraic identity, so active inference is not a different currency but the same one with named terms added (Nuijten et al. 2026).
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — supplies the other half of the loop: that page's VFE fits `m = (p,ν)` to collected data and its recognition gap `D_KL(ν‖p(s|h))` is exactly what must vanish for this page's epistemic term to *be* mutual information rather than a state-marginal entropy.
 - **[[wiki/concepts/simulation-based-planning.md]]** — this is the objective a rollout is scored by, and the structural result says what kind of search it is: convex over occupancies, so no Bellman-optimal value function exists, and planning must relinearise between iterations rather than back up a single `V`.
 - **[[wiki/concepts/simulation-based-planning.md]]** — and the wiki's first runtime-computable stopping rule for a rollout: the agent observes while `−c_k + I_k(b) + E_o[max V]` exceeds `max_i E_b[R_i]` and commits when it does not, a crossover that needs no tuned threshold and no metacognitive estimator (G15's *when is the answer good enough*; Cooper & Velasquez 2026).
@@ -225,3 +295,5 @@ Six observe-then-commit environments, four RockSample instances, and a new Struc
 - **[[wiki/concepts/event-segmentation.md]]** — the sharpest neural evidence that this page's two terms are physically separate: boundaries triggered by prediction *error* (the linear cost `ℓ`) recruit ventrolateral prefrontal cortex and are followed by widespread pattern stabilisation, while boundaries triggered by prediction *uncertainty* (the convex term `Φ`) recruit the dorsal attention network with almost no stabilisation — commit versus look-around, dissociated at 45 subjects (Nguyen et al. 2025).
 - **[[wiki/concepts/objective-identifiability.md]]** — the same identifiability question asked of the planner's objective rather than of the task's: EFE and Planning+InfoGain-at-`w=1` are behaviourally indistinguishable by construction (Proposition 1), so no experiment on an agent's actions can license "it is doing active inference" over "it has a tuned bonus" (Cooper & Velasquez 2026).
 - **[[wiki/concepts/precision-weighting.md]]** — the argument that makes this objective necessary rather than optional: since loss ≡ surprise and expected loss ≡ entropy, the value function is redundant and goals become priors over sensory trajectories, which removes the Bellman solve and leaves exactly the terms decomposed above (Friston 2009).
+- **[[wiki/concepts/simulation-based-planning.md]]** — the objective made runnable without tree search: promoting each corrected conditional to a free channel via Gibbs' inequality turns the whole ladder (belief propagation → cross-entropy planning → risk-minimising → full EFE) into sum-product message passing on one factor graph with kernels substituted for factors (Nuijten et al. 2026).
+- **[[wiki/concepts/latent-graph-discovery.md]]** — the empirical case for the parameter reading of the epistemic term: when the unknown layout *is* the parameter `θ` and a probe returns one noisy reading, only the novelty correction makes probing worth anything at all — which is precisely the situation of an agent inferring a hidden graph (Nuijten et al. 2026).
