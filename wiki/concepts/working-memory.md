@@ -139,6 +139,50 @@ Three things this changes for fast **M**:
 
 ---
 
+## Reading is a separate operation, and something schedules it
+
+The section above says most of the delay signal is the pointer. Lundqvist et al. 2018 record the operation that pointer serves. Macaque prefrontal cortex, **two-object sequence** delayed match: sample 1 → 1 s → sample 2 → 1 s → test 1 → 1 s → test 2, with the bar release permitted only after the *whole* test sequence (95.5% correct). Because nothing is responded to at test 1, the read-out and evaluation of the first item is observable with no motor confound — the confound that makes most delayed-response recordings unusable for this question.
+
+| | **Gamma bursts** (~50–120 Hz) | **Beta bursts** (~20–35 Hz) |
+|---|---|---|
+| Relation to item information | Spiking **and** percent-explained-variance for object identity are higher *inside* bursts (`p` < 0.0001, `p` = 0.02) | Spiking suppressed inside bursts (`p` = 0.004) |
+| Where | 160/188 sites gamma-modulated, overlapping the 130 informative sites (`p` < 6e−6, Fisher) | Same sites, opposite sign; anti-correlated over time **only** at informative sites (`r` = −0.40 vs. `r` = 0.08) |
+| Across-site relation to peak information | `rho` = **+0.49** with stimulus-induced gamma | `rho` = **−0.44** with stimulus-induced beta |
+| Time course | Brief bursts of varying centre frequency, weakly correlated across trials; per-neuron information tracks the gamma rate over time (`r` = 0.23, carried by the most informative neurons) | Elevated during delays and, especially, post-trial |
+
+The trial-averaged "sustained" oscillation is an artefact of averaging — single trials show discrete bursts. So **expression of an item is intermittent even while the item is held**, and if different items burst at different times one store can hold several without interference (time-division multiplexing). The model under test is a short-term-plasticity one, so between bursts the item is in synapses ([[wiki/empirical-tensions.md]] T86, [[wiki/entities/stsp-working-memory-rnn.md]]).
+
+### The read is item-specific, prospective, and gated by relevance rather than by predictability
+
+| Event about to happen | Gamma ramp in the preceding delay? | Information ramp, and about what? |
+|---|---|---|
+| Test 1 (must be compared to sample 1) | **yes** (`p` < 0.0001) | yes, about **sample 1 only** (`p` = 0.003); sample 2 shows a non-significant *decline* |
+| Test 2, after a *matching* test 1 | **yes** | yes, about **sample 2 only** (`p` = 0.0005) |
+| Test 2, after a *non-matching* test 1 — the sequence is already decided | **no**; beta rises instead, at informative sites only | **no** (`p` = 0.001 vs. match trials) |
+| Sample 2 — equally predictable, but nothing to read | **no** (non-significant decrease) | no |
+| Tests 3/4 of the second, always-matching sequence — responded to, never evaluated | **no** (`p` = 0.46, 0.23) | no |
+
+The last two rows carry the argument. Predictability of an event does not trigger a read; a forthcoming *query against the store* does. And the one object that is always responded to (test 4) gets no ramp while the one that is never responded to (test 1) does, so the ramp is not motor preparation.
+
+### Clearing is a signal, and the schedule is where errors live
+
+- **Post-trial.** The single largest time × frequency difference between informative and non-informative sites anywhere in the dataset is beta *elevation* at the informative sites after the response, while information about the last object drops sharply (`p` < 0.0001). Forgetting is a signal delivered to the sites that hold something, not a time constant running out.
+- **Graded comparison in one channel.** Gamma during test 1 was lowest for a match, intermediate for an **order** violation, highest for an **identity** violation — so a single burst-rate channel carries a graded match score, and violating order registers as *less* of a mismatch than violating identity. Beta then separated match from non-match (either kind) and bridged the following second; gamma's distinction died within a few hundred ms.
+- **Errors are control errors.** On non-match trials answered "match", gamma and beta *during* test 1 followed the correct non-match trajectory; the deviation appeared in the following delay, where gamma ramped up and beta was suppressed exactly as on match trials. The comparison was computed correctly and the **read schedule** was wrong. The mirror case (match answered "non-match") went wrong immediately, at test 1.
+
+Four things this changes for fast **M**:
+
+- **Hold, read and clear are three operations with three signatures, and only one of them is expensive.** Every store in the wiki exposes a read as a pure function of the query, available whenever it is called. Here it is a scheduled event with an onset, a specific addressee, and a metabolic cost that is paid only when the read happens — which is what the activity-silent designs predict and this measures directly ([[wiki/entities/stp-flickering-cann.md]]).
+- **The controller's output is an address *plus a time*.** The ramp starts several hundred milliseconds before the item is needed and names which item. A machine controller that emits only "which slot" is under-specified against this; the missing half is *when to have it ready*, which is exactly the state a store needs to be usable at a deadline. (gap G49)
+- **Deletion has a dedicated channel with the right addressing.** Beta rises at informative sites and not elsewhere, i.e. the clear is delivered *to the sites holding the now-irrelevant content*, which is a content-addressed erase — the operation Lebedev's prospective decay implies and no key-value store in the wiki implements (gaps G48, G49; [[wiki/empirical-tensions.md]] T89; [[wiki/entities/differentiable-neural-computer.md]]'s free list is the closest and is addressed by usage, not by relevance).
+- **(brainstorm) The failure mode to design against is a mis-scheduled read, not a corrupted item.** This is the wiki's only case where a memory error is localized to the control layer with the encoding verified intact on the same trials. It suggests a diagnostic no machine memory currently supports: log *when and at what* the store was read, and score the schedule separately from the contents.
+
+**Where the control layer might live.** The authors place beta generation in the mediodorsal thalamus–prefrontal loop and the contents in superficial prefrontal layers, i.e. the scheduler is a different circuit from the store — the same split [[wiki/entities/pbwm.md]] makes on the write side with basal ganglia, and the anatomical version of this page's control/storage separation ([[wiki/concepts/canonical-cortical-microcircuit.md]]).
+
+**Caveat.** Everything here is correlational: burst rates are local-field-potential measures with no causal manipulation, and "volitional" is inferred from the task-relevance contrasts rather than demonstrated by intervention.
+
+---
+
 ## Mapping to the core framing
 
 | Working-memory element | Latent-graph element |
@@ -197,7 +241,7 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — derives the `7 ± 2` span from noise-driven transitions between asymmetrically coupled attractors, making capacity a dynamical rather than a slot limit, and puts serial order in the same recurrent network that stores episodes.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the only architecture in this ingest that performs explicit multi-hop graph traversal, and marks the boundary: it navigates a *given* graph, it does not discover one.
-- **[[wiki/concepts/attention.md]]** — attention is the read mechanism of an external memory; internal attention and content-addressable retrieval are the same operation — and in prefrontal cortex the two are not separable at the read-out: 61% of delay-tuned cells track the attended location and 16% the remembered one, so the store's persistent signal is mostly its own pointer (Lebedev et al. 2004).
+- **[[wiki/concepts/attention.md]]** — attention is the read mechanism of an external memory, and the read is *scheduled*: gamma bursting and object information ramp up several hundred milliseconds before the item is queried, for that item only, and not before an equally predictable event that requires no read (Lundqvist et al. 2018); internal attention and content-addressable retrieval are the same operation — and in prefrontal cortex the two are not separable at the read-out: 61% of delay-tuned cells track the attended location and 16% the remembered one, so the store's persistent signal is mostly its own pointer (Lebedev et al. 2004).
 - **[[wiki/concepts/complementary-learning-systems.md]]** — external memory is the engineering form of the fast store; working memory adds the controller that decides what is written and read.
 - **[[wiki/concepts/meta-learning.md]]** — meta-RL's inner learner lives in recurrent activity, i.e. in entangled working memory; its capacity limits are working-memory limits.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — control/storage separation is the transfer that produced graph-traversal-capable networks, and gating is the case where influence ran both ways.
@@ -224,7 +268,8 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/entities/context-modular-memory-network.md]]** — storage/control separation implemented at the connectivity rather than at the buffer: the control variable holds no content (`s` discrete states) yet determines the whole set of retrievable attractors, so the controller's state is a handful of bits and its effect is an entire energy landscape.
 - **[[wiki/concepts/attractor-dynamics.md]]** — maintenance is occupancy of a fixed point, and the noise-driven attractor chain is where sequence order comes from without a scheduler.
 - **[[wiki/entities/differentiable-neural-computer.md]]** — the primary source for this page's control/storage argument, and the store whose *addressing* is fully specified: content lookup, write-order links and a usage-based free list, with one learned gate choosing between allocating a fresh slot and editing a matched one.
-- **[[wiki/entities/stsp-working-memory-rnn.md]]** — the controlled comparison of this page's two maintenance designs on one task: the synaptic store reproduces prefrontal cortex's collapse of delay decoding while the attractor store does not, reading it requires spiking (so maintain and use are separate metabolic regimes), and it survives ablation of half its synapses because the memory is not in the trained weights.
+- **[[wiki/entities/stsp-working-memory-rnn.md]]** — the controlled comparison of this page's two maintenance designs on one task, and the design whose central prediction this page's read-out section measures (information is expressed in bursts, not continuously): the synaptic store reproduces prefrontal cortex's collapse of delay decoding while the attractor store does not, reading it requires spiking (so maintain and use are separate metabolic regimes), and it survives ablation of half its synapses because the memory is not in the trained weights.
 - **[[wiki/entities/pbwm.md]]** — the one design in this page where the *write policy itself* is learned: prefrontal stripes hold, basal-ganglia disinhibition enables the write, and which inputs deserve a write is trained by reinforcement — with the ablation (no dopamine modulation → 0% of networks learn any task) that shows a store without a trained gate is useless.
 - **[[wiki/entities/trnn.md]]** — the fifth maintenance design and the only head-to-head performance test: a memory carried by a moving trajectory of sequentially peaking units, matched to mouse recordings by a transient index, more information-rich and cheaper than the persistent solution, and better on distractors, multiple items and spatial navigation at equal parameter count (Liu et al. 2025).
+- **[[wiki/concepts/inhibitory-control-of-coding.md]]** — supplies the channel that decides *when* a held item is expressed: prefrontal beta bursts suppress gamma and informative spiking at exactly the sites that carry information, drop when a read is due and rise when the content stops being needed, so "which item is readable right now" is set by an inhibitory rhythm rather than by the store (Lundqvist et al. 2018).
 - **[[wiki/concepts/population-geometry.md]]** — the level at which this page's store can be read at all: when two same-type variables share one prefrontal population (the held item and the attended location), what keeps both decodable is anti-aligned mixed selectivity in hybrid cells, not separate cells for each (Lebedev et al. 2004).

@@ -115,6 +115,24 @@ The taxonomy above assigns *Id2* the **selectivity** feature and leaves "what dr
 
 ---
 
+## A fifth channel that is a rhythm, not a cell type
+
+The four families above are actuators defined by *who they inhibit*. Prefrontal cortex supplies one defined by *when it fires*, at a coarser grain and with a job the cell-type taxonomy does not cover: **beta bursts (~20–35 Hz) decide when and where information is allowed to be expressed** (Lundqvist et al. 2018, macaque prefrontal cortex, sequence delayed-match).
+
+| Property | Measurement |
+|---|---|
+| What it suppresses | Gamma bursts and the informative spiking that rides them — spiking is reduced inside beta bursts (`p` = 0.004) and elevated inside gamma bursts (`p` < 0.0001) |
+| Where it acts | Anti-correlated with gamma over time **only** at sites whose spiking carries object information (`r` = −0.40 vs. `r` = 0.08 at non-informative sites) |
+| When it rises | When content stops being needed: post-trial at informative sites (the largest time × frequency effect in the dataset), and before an already-irrelevant test object |
+| When it falls | Several hundred milliseconds before the held item must be compared against a test object |
+| Likely generator | Mediodorsal thalamus–prefrontal loop, with the contents in superficial layers — a controller anatomically outside the population it gates |
+
+**The transferable claim: a spatiotemporal filter.** The same signal addresses *which* sites (only those holding something) and *when* (release before a read, raise after use). The four-family matrix gives per-feature actuators with no controller; this gives a controller with no per-feature resolution — the two are the same design read at different grains, and the honest summary is that inhibition here is not a gain on a representation but the **schedule** of its expression ([[wiki/concepts/working-memory.md]]).
+
+**(brainstorm)** Read against the fan-in rule above, an oscillation is the limiting case of *broad* pooling — a population-wide channel — yet it achieves site specificity anyway, by being anti-correlated with the excitatory drive rather than by wiring. So a machine does not need a sparsely-innervated gate to get selective suppression; it can get it from a global inhibitory signal whose phase relationship to local activity differs by site. No model in the wiki has an inhibitory channel with a *phase*, only ones with a gain.
+
+---
+
 ## Why this is a candidate answer to gap G38
 
 G38 says nothing in the wiki sets the separation/completion bias, and that it cannot be a constant. The candidates the wiki had were a global neuromodulator (acetylcholine switching storage vs. recall) and a closed-loop CA3→DG backprojection. This adds a third architecture, and it is the one with the most resolution:
@@ -167,4 +185,5 @@ The last row is the honest limit. This supplies the *actuator* for G38 with four
 - **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the same interneuron population cut by axon geometry instead of transcriptomic family: perisomatic (basket, chandelier) cells implement selection over the local population while dendrite-targeting (double bouquet, Martinotti) cells set which inputs a cell can integrate — and because interneuron types are distributed unevenly across layers, which channels reach a pyramidal cell is fixed by its laminar position, a wiring answer to this page's open question about what sets the gains (Douglas & Martin 2004).
 - **[[wiki/concepts/memory-allocation-excitability.md]]** — the control problem that gave one of these channels a controller: whether a new episode is written into the cells that hold an old one is set by SLM NDNF⁺ neurogliaform cells, driven by a vmPFC→MEC projection, and inhibiting that single cell type reproduces the whole effect — so an allocation prior the wiki had treated as intrinsic to the pyramidal cell is actuated by inhibition and commanded from cortex (de Sousa et al. 2026).
 - **[[wiki/concepts/engram.md]]** — the write-budget job for the same machinery: engram size is held at a region-specific set-point (10–20% in lateral amygdala, 2–6% in dentate gyrus) by principal cells recruiting interneurons that suppress their neighbours, and blocking those interneurons *enlarges* the trace — so `k` in a k-winner-take-all is an inhibitory gain, not a firing threshold **(tentative)**.
+- **[[wiki/concepts/working-memory.md]]** — where this page's control channels acquire a schedule: prefrontal beta bursts suppress gamma and informative spiking at exactly the sites that carry an item, fall before that item is read and rise once it is no longer needed, making inhibition the timer of expression rather than a gain on the code (Lundqvist et al. 2018).
 - **[[wiki/entities/stsp-working-memory-rnn.md]]** — inhibition as the trainability condition: a recurrent net with plastic synapses trains stably only when the plastic term is anti-Hebbian at excitatory and Hebbian at inhibitory synapses, so the sign of plasticity is assigned by cell class and the inhibitory population is what makes the network contracting (Kozachkov et al. 2022).
