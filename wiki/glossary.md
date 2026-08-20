@@ -95,7 +95,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | BPTT | Backpropagation Through Time | Credit assignment in recurrent nets by unrolling; truncation length bounds the gradient horizon, not necessarily the model's memory |
 | ELBO | Evidence Lower Bound | The variational objective maximised in place of the intractable log-likelihood |
 | VAE / VQ-VAE | Variational / Vector-Quantized Auto-Encoder | Noise- and quantisation-based latent-capacity regularisers |
-| VICReg | Variance-Invariance-Covariance Regularization | Non-contrastive JEPA criterion: variance hinge per component + covariance decorrelation |
+| VICReg | Variance-Invariance-Covariance Regularization | Non-contrastive JEPA criterion: variance hinge per component + covariance decorrelation, applied to each branch separately ([[wiki/entities/vicreg.md]]) |
 | ξ | Universal semimeasure | `Σ_p 2^-l(p)` over programs producing the observed string; dominates every enumerable semimeasure |
 | SR | Successor Representation | Discounted expected future state occupancy, `S = ΣγⁿTⁿ`; value is `Sr` ([[wiki/concepts/successor-representation.md]]) |
 | DR | Default Representation | SR-like representation built for default behaviour and linearly updatable when rewards change; from linear RL |

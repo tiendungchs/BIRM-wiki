@@ -74,13 +74,15 @@ The augmentation result has a mechanism, and it is the sharpest statement of wha
 
 ## The claim worth extracting: an anti-collapse mechanism that is not a term
 
-The wiki's collapse taxonomy ([[wiki/concepts/energy-based-models.md]], gap **G34**) has carried three families, all of them *terms in an objective*: sample-contrastive (negatives), dimension-contrastive (VICReg/Barlow Twins variance + covariance), distribution-matching (SIGReg, [[wiki/entities/lewm.md]]). BYOL is a fourth kind and not a fourth member: **the anti-collapse provision is a property of the update rule, not of the loss.** The loss at every step is a plain regression that a constant encoder minimises perfectly; the dynamics never go there.
+The wiki's collapse taxonomy ([[wiki/concepts/energy-based-models.md]], gap **G34**) has carried three families, all of them *terms in an objective*: sample-contrastive (negatives), dimension-contrastive ([[wiki/entities/vicreg.md]]/Barlow Twins variance + covariance), distribution-matching (SIGReg, [[wiki/entities/lewm.md]]). BYOL is a fourth kind and not a fourth member: **the anti-collapse provision is a property of the update rule, not of the loss.** The loss at every step is a plain regression that a constant encoder minimises perfectly; the dynamics never go there.
+
+**What it is doing, measured against the terms it replaces** (Bardes et al. 2022, [[wiki/entities/vicreg.md]]). Two statistics, tracked through BYOL and SimSiam pretraining: the embeddings' per-dimension standard deviation sits *exactly* at `1/√d` — perfectly spread on the unit sphere, so no norm collapse — while the average off-diagonal correlation coefficient of the **representations** falls on its own, with no decorrelation term anywhere in the loss. The dynamical mechanism therefore drives the same two quantities the dimension-contrastive terms impose explicitly. What it does *not* fully arrest is the representation-level variance: bolting VICReg's variance hinge onto BYOL raises it and buys **+0.9** at 100 epochs (69.3 → 70.2), decaying to +0.2 at 1000, i.e. faster convergence plus a residual "very slow collapse" the architectural tricks leave on the table. The two kinds are not rival objectives; they are two implementations of one target, which is why the graft is worth ≈1 point rather than 10 ([[wiki/empirical-tensions.md]] T166).
 
 | | Contrastive | Dimension-contrastive | Distribution-matching | **BYOL (dynamical)** |
 |---|---|---|---|---|
 | Where the provision lives | loss | loss | loss | **update rule** |
 | Cost model | negatives may grow exponentially in `dim(y)` | representation width | one coefficient + a dimensionality prior | **none in the loss; ~2× compute for the second branch** |
-| Coefficients to tune | temperature | 6 (VICReg-derived) | 1 (`λ`) | **0** (but `τ` and the predictor's LR ratio move in) |
+| Coefficients to tune | temperature | 1 free scale (VICReg: `λ=μ`, `ν=1`; the *6* the wiki quoted is PLDM's seven-term objective) | 1 (`λ`) | **0** (but `τ` and the predictor's LR ratio move in) |
 | Certifiable | yes — the objective's minimum is not collapsed | yes | yes | **no — no objective exists to certify** |
 | Fails when | batch too small; noise distribution misses the relevant perturbation | width too small | environment's intrinsic dimension < target's | predictor falls behind the target (`τ = 0`), or is removed |
 
@@ -100,11 +102,11 @@ The trade in the last two rows is the point. BYOL buys the cheapest anti-collaps
 
 ## Comparison
 
-| | **BYOL** | SimCLR | MoCo | Mean Teacher | VICReg / [[wiki/entities/barlow-twins.md]] | [[wiki/entities/lewm.md]] | [[wiki/entities/v-jepa-2.md]] |
+| | **BYOL** | SimCLR | MoCo | Mean Teacher | [[wiki/entities/vicreg.md]] / [[wiki/entities/barlow-twins.md]] | [[wiki/entities/lewm.md]] | [[wiki/entities/v-jepa-2.md]] |
 |---|---|---|---|---|---|---|---|
 | Negatives | no | yes (in-batch) | yes (memory bank) | no | no | no | no |
 | EMA target | yes | no | yes (for negatives) | yes | no | **no** | yes (`0.99925`) |
-| Predictor on one branch | **yes** | no | no | **no → collapses** | no — adding predictor **and** stop-grad costs BT 10 points | yes (the world-model predictor) | yes |
+| Predictor on one branch | **yes** | no | no | **no → collapses** | no — adding predictor **and** stop-grad costs BT 10 points, VICReg 0 | yes (the world-model predictor) | yes |
 | Anti-collapse | dynamics | negatives | negatives | supervised loss | variance + covariance terms; BT: cross-correlation → `I` | SIGReg | EMA + stop-grad (BYOL's) |
 | Descends a well-defined loss | **no** | yes | yes | yes | yes | yes | no |
 | Predicts across | two views of one image | — | — | — | two views | **time**, action-conditioned | **time**, masked patches |
@@ -118,6 +120,7 @@ The right-hand columns are the reason this 2020 paper is a wave-7 ingest: the JE
 - **[[wiki/concepts/energy-based-models.md]]** — supplies the fourth anti-collapse family for that page's contrastive/regularised split, and the one that breaks its framing: the provision is in the update rule rather than the loss, so a joint-embedding architecture can avoid the collapse its energy landscape permits without any term that pushes energy up anywhere.
 - **[[wiki/concepts/objective-identifiability.md]]** — the limit case of that page's many-to-one direction: BYOL's authors hypothesise *no* loss is jointly descended, so the representation cannot be attributed to an objective at all, only to a dynamics.
 - **[[wiki/entities/h-jepa.md]]** — the design whose four training criteria this refutes as necessary conditions: BYOL implements criterion 3 (predictability) alone, omits 1, 2 and 4 (information maximisation and latent capacity limits), and does not collapse.
+- **[[wiki/entities/vicreg.md]]** — the measurement of what this page's update rule accomplishes: BYOL's embeddings already sit at `1/√d` on the sphere and its representations decorrelate with no term asking them to, so the dynamical and dimension-contrastive mechanisms target the same two statistics — and grafting VICReg's variance hinge on is worth only +0.9, the size of the residual slow collapse.
 - **[[wiki/entities/barlow-twins.md]]** — the symmetric alternative and the mutual control: its cross-correlation-to-identity loss needs neither of this page's components, and bolting them on costs it 10 points, while its 8192-wide projector costs BYOL 1.8 — so the two designs' stabilisers are competing rather than stackable, and its negative-free augmentation fragility undercuts this page's shortcut reading (T165).
 - **[[wiki/entities/lewm.md]]** — the direct answer: the EMA teacher and stop-gradient LeWM removes are exactly this page's two components, and its objection — that they correspond to no well-defined objective — is this paper's own admission, restated as a reason to replace them.
 - **[[wiki/entities/v-jepa-2.md]]** — inherits the mechanism at scale: masked feature prediction with an EMA teacher at `τ = 0.99925` is BYOL's asymmetry with the second view replaced by a future frame.

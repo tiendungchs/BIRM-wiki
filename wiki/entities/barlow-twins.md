@@ -54,14 +54,14 @@ Competitive rather than dominant on linear eval; **best in the wiki's most label
 | Loss variant | Top-1 | What it establishes |
 |---|---|---|
 | Baseline | 71.4 | — |
-| **Invariance term only** (no off-diagonal penalty) | **57.3** | *Does not collapse.* An objective whose only term is "make the two views agree" still reaches 57.3% — because the embeddings are standardised along the batch before `C` is formed, and a constant unit has zero batch variance. **The anti-collapse provision is partly in the normalisation, not in the term the paper advertises** |
+| **Invariance term only** (no off-diagonal penalty) | **57.3** | *Does not collapse.* An objective whose only term is "make the two views agree" still reaches 57.3% — because the embeddings are standardised along the batch before `C` is formed, and a constant unit has zero batch variance. **The anti-collapse provision is partly in the normalisation, not in the term the paper advertises**. **Identified across papers** ([[wiki/entities/vicreg.md]]): VICReg strips all standardisation and its invariance-only ablation *does* collapse; restoring an explicit per-dimension variance hinge recovers **57.5**, the same number to 0.2 points. So this row's hidden provision is VICReg's `v` term implemented implicitly |
 | **Redundancy term only** (no invariance) | **0.1** | Decorrelation alone is worthless — chance. The off-diagonal term is a *constraint*, never a signal |
 | Normalise along feature dim instead (covariance, cosine-style) | 69.8 | Slight loss; the axis choice is real but not decisive |
 | No BN in projector hidden layers | 71.2 | Inert |
 | No BN **and** no batch standardisation (cross-**covariance**) | 53.4 | −18 points. Confirms the row above: removing the batch-wise standardisation is what actually costs |
 | Cross-entropy with temperature over the same `C` | 63.3 | Same quantity penalised, different functional form, −8 points. **What is penalised does not determine performance; how it is penalised does** |
 
-The 57.3% row is the one worth carrying: the wiki has been classifying anti-collapse provisions as *loss term* (VICReg, SIGReg), *update rule* ([[wiki/entities/byol.md]]) or *negatives*. This is a fourth locus — **a normalisation layer inside the loss** — which is certifiable like a term but appears nowhere in the coefficient count.
+The 57.3% row is the one worth carrying: the wiki has been classifying anti-collapse provisions as *loss term* ([[wiki/entities/vicreg.md]], SIGReg), *update rule* ([[wiki/entities/byol.md]]) or *negatives*. This is a fourth locus — **a normalisation layer inside the loss** — which is certifiable like a term but appears nowhere in the coefficient count. It is a *locus*, not a distinct mechanism: the VICReg identification above shows the same provision written as a term costs one coefficient and buys the freedom to weight it per branch.
 
 ### Symmetry-breaking: BYOL's mechanism, added on top, *hurts*
 
@@ -72,7 +72,9 @@ The 57.3% row is the one worth carrying: the wiki has been classifying anti-coll
 | (b) | — | ✓ | 70.2 |
 | (c) | ✓ | ✓ | **61.3** |
 
-Row (c) is a 10-point loss from adding exactly the two components BYOL cannot run without. The two anti-collapse strategies are **not** composable: an update-rule asymmetry inside a system that already has a well-defined minimum moves the dynamics away from it. The converse control is also run — BYOL with a Barlow-Twins-sized projector (8192³) and an 8192-d embedding drops from 74.1 to **72.3**, so the width that Barlow Twins needs is not a general SSL improvement.
+Row (c) is a 10-point loss from adding exactly the two components BYOL cannot run without. The two anti-collapse strategies are **not** composable *here*: an update-rule asymmetry inside a system that already has a well-defined minimum moves the dynamics away from it. The converse control is also run — BYOL with a Barlow-Twins-sized projector (8192³) and an 8192-d embedding drops from 74.1 to **72.3**, so the width that Barlow Twins needs is not a general SSL improvement.
+
+**The generalisation does not survive the sibling method** ([[wiki/entities/vicreg.md]], tension **T166**). VICReg takes a predictor and stop-gradient *neutrally* (73.2 → 73.2 at 1000 epochs) and its variance term added to BYOL *helps* by +0.9. The one component VICReg removed relative to Barlow Twins is precisely the batch standardisation, which makes it the surviving candidate for what conflicts with a stop-gradient **(brainstorm)**: a normalisation computed across the batch inside the loss is a second implicit coupling between the branches, and an EMA/stop-gradient is a third. Rows (a)–(c) above are then a three-way interaction, not a two-family incompatibility — and the covariance term is the piece that does *not* compose either way ("optimization with SG and CR is hard").
 
 ### Batch size and embedding width — the two scaling facts, and they have one mechanism
 
@@ -80,6 +82,7 @@ Row (c) is a 10-point loss from adding exactly the two components BYOL cannot ru
 |---|---|---|---|
 | Batch 2048 → 256 | ~flat (best 71.7 at batch 1024) | **−4 pp** | flat |
 | Projector output dim 16 → 16384 | **monotone increase throughout**, no saturation | saturates early | saturates early |
+| *(VICReg, same mechanism)* | steep to 8192, then **saturates** (+0.2 to 16384) | — | — |
 | `λ ∈ [0.002, 0.02]` | 70.8–71.6 | (no analogue) | (no analogue) |
 
 **The mechanism the paper gives, and it explains both rows at once.** InfoNCE's contrastive term is a *non-parametric* entropy estimator of the embedding distribution (Wang & Isola 2020) — non-parametric estimators need many samples and degrade with dimension, so InfoNCE needs a big batch and gains nothing from a wide embedding. `L_BT` is a **proxy entropy estimator under a Gaussian parametrisation**: it only estimates second moments, which are cheap in samples and well-behaved in dimension. Hence small batches suffice and width keeps paying.
@@ -100,12 +103,12 @@ Row (c) is a 10-point loss from adding exactly the two components BYOL cannot ru
 
 ## Comparison
 
-| | **Barlow Twins** | [[wiki/entities/byol.md]] | SimCLR | VICReg | [[wiki/entities/lewm.md]] |
+| | **Barlow Twins** | [[wiki/entities/byol.md]] | SimCLR | [[wiki/entities/vicreg.md]] | [[wiki/entities/lewm.md]] |
 |---|---|---|---|---|---|
 | Anti-collapse lives in | **loss (off-diagonal) + batch standardisation** | update rule | negatives | loss (variance hinge + covariance) | loss (SIGReg normality test) |
 | Branch asymmetry | **none** (adding it costs 10 pts) | predictor + EMA (both required) | none | none | none |
 | Negatives / batch dependence | none; flat to 256 | none | **yes**, −4 pp at 256 | none | none |
-| Coefficients | **1** (`λ`, flat over a 10× range) | 0 in the loss (`τ`, LR ratio instead) | 1 (temperature) | 6 (as used end-to-end) | 1 |
+| Coefficients | **1** (`λ`, flat over a 10× range) | 0 in the loss (`τ`, LR ratio instead) | 1 (temperature) | 1 free scale (`λ=μ`, `ν=1`) — with a collapse boundary | 1 |
 | Contrastive over | **dimensions** | — | samples | dimensions | marginals |
 | What it assumes about the embedding | second moments suffice (Gaussian proxy) | nothing explicit | a good noise distribution | per-dimension variance floor | full isotropic `N(0,I)` |
 | Descends a well-defined loss | **yes** | **no** | yes | yes | yes |
@@ -118,6 +121,7 @@ The last two rows are the pair to keep. Barlow Twins and LeWM sit at the same co
 ## Connections
 
 - **[[wiki/concepts/energy-based-models.md]]** — the founding instance of that page's *dimension-contrastive* column, previously cited there only by name: the volume-minimising regulariser is here an explicit `D×D` matrix penalty, and its ablations add a locus the page's taxonomy lacks (a normalisation, not a term) plus the finding that dimension-contrastive and dynamical anti-collapse are mutually destructive.
+- **[[wiki/entities/vicreg.md]]** — the sibling that keeps the off-diagonal penalty and replaces everything else: per-branch covariance instead of cross-branch cross-correlation, an explicit variance hinge instead of batch standardisation (the 57.3/57.5 identification), and the resulting freedom for the two branches to differ in weights, architecture and modality — which is worth 2–4 points wherever this page's cross-correlation matrix has to compare unlike statistics.
 - **[[wiki/entities/byol.md]]** — the direct control in both directions: BYOL's predictor and stop-gradient added to Barlow Twins cost 10 points, and Barlow Twins' 8192-wide projector added to BYOL costs 1.8 — so neither method's stabiliser is a general improvement, and the two are alternative *whole designs* rather than components.
 - **[[wiki/entities/lewm.md]]** — the same one-coefficient target reached four years earlier by a weaker distributional commitment (second moments vs. the full `N(0,I)`), which is why Barlow Twins has no equivalent of LeWM's intrinsic-dimension failure and LeWM has no equivalent of Barlow Twins' unbounded width gain.
 - **[[wiki/entities/h-jepa.md]]** — one of the two named non-contrastive instantiations of its four training criteria; this page supplies the measured version, and the invariance-only ablation (57.3%, no collapse) says criteria 1–2 are not the only thing standing between the design and a constant encoder.

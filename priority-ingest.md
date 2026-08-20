@@ -25,7 +25,7 @@ One INGEST each:
 - [x] `weller-2026-embedding-retrieval-limits.md` — ssl-representation · F · 2026
 - [x] `grill-2020-byol-self-supervised.md` — ssl-representation · M · 2020
 - [x] `zbontar-2021-barlow-twins.md` — ssl-representation · M · 2021
-- [ ] `bardes-2022-vicreg.md` — ssl-representation · M · 2022
+- [x] `bardes-2022-vicreg.md` — ssl-representation · M · 2022
 - [ ] `oquab-2023-dinov2.md` — ssl-representation · M · 2023
 - [ ] `assran-2023-i-jepa.md` — ssl-representation · M · 2023
 - [ ] `simeoni-2025-dinov3.md` — ssl-representation · M · 2025

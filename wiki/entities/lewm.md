@@ -39,14 +39,16 @@ T(h) = ∫ w(t) |φ_N(t; h) − φ_0(t)|² dt        (Epps–Pulley statistic, �
 
 | Quantity | PLDM (the only other end-to-end pixel JEPA) | **LeWM** |
 |---|---|---|
-| Loss terms | 7 (VICReg-derived) | **2** |
+| Loss terms | 7 (VICReg-derived; [[wiki/entities/vicreg.md]] itself has 3) | **2** |
 | Tunable loss hyperparameters | 6 | **1** (`λ`; `M` and the number of quadrature knots are measured to be inert) |
 | Hyperparameter search cost | `O(n⁶)` grid | **`O(log n)` bisection** |
 | Training curves | Noisy, non-monotone across several terms | Prediction loss falls monotonically; SIGReg drops sharply then plateaus |
 | PushT success, 3 seeds | 78.0 ± 5.0 | **96.0 ± 2.83** (DINO-WM 92.0 ± 1.63) |
 | `λ` robustness | — | >80% success for `λ ∈ [0.01, 0.2]`, peak ≈0.09; collapses only at 0.5, where the regulariser outweighs prediction |
 
-**Why this belongs in the wiki as a result rather than an engineering note.** Gap **G34** says every self-supervised objective's cheapest solution is to represent nothing, and the wiki's answer column has carried two families (contrastive, and dimension-contrastive regularisers like VICReg and [[wiki/entities/barlow-twins.md]]). This adds a third mechanism — **match the embedding distribution to a fixed target** — and prices the difference in the currency that decides whether anyone can use it: *how many coupled coefficients a practitioner must balance*. A six-dimensional grid search is not a worse version of a one-dimensional bisection; it is a different research programme.
+**Why this belongs in the wiki as a result rather than an engineering note.** Gap **G34** says every self-supervised objective's cheapest solution is to represent nothing, and the wiki's answer column has carried two families (contrastive, and dimension-contrastive regularisers like [[wiki/entities/vicreg.md]] and [[wiki/entities/barlow-twins.md]]). This adds a third mechanism — **match the embedding distribution to a fixed target** — and prices the difference in the currency that decides whether anyone can use it: *how many coupled coefficients a practitioner must balance*. A six-dimensional grid search is not a worse version of a one-dimensional bisection; it is a different research programme.
+
+**The comparison is against PLDM's objective, not against VICReg's** ([[wiki/entities/vicreg.md]]). VICReg itself has three coefficients, one fixed (`ν = 1`) and two tied (`λ = μ`) — **one free scale**, the same count as SIGReg's `λ`, and the values transfer unchanged from ImageNet to MNIST and CIFAR. The six/seven belongs to the *end-to-end pixel JEPA* built on top of it. So the correct version of this page's argument is not about counting but about **robustness within the count**: SIGReg's `λ` and Barlow Twins' `λ` are flat over wide ranges, while VICReg's ray has a collapse boundary a factor of two away in either direction (`λ=μ=1, ν=1` collapses; `λ=μ=5, ν=1` reaches 68.1).
 
 ---
 
@@ -67,7 +69,7 @@ C(ẑ_H) = ‖ẑ_H − z_g‖²₂ ,   a*_{1:H} = argmin C ,   solver = CEM
 | Planning wall-clock | <1 s per full plan; **~48–50× faster than DINO-WM**, comparable to PLDM |
 | Under **fixed FLOPs** | LeWM significantly outperforms DINO-WM on both Push-T and OGBench-Cube |
 
-**The Two-Room failure is the informative cell, and it is a statement about anti-collapse regularisers in general.** The environment's *intrinsic* dimensionality is low; the target distribution is an isotropic Gaussian in a 192-dimensional space. Forcing a low-complexity data stream to fill a high-dimensional Gaussian degrades the representation. **(brainstorm)** Read as a design rule: an anti-collapse term is not a neutral safety device but a **prior on the latent's geometry**, and it carries a dimensionality specification that must be matched to the environment. VICReg's per-component variance hinge has the same property and nobody reports the corresponding failure. The ablation supplies the other side of the same knob — performance collapses below embedding dimension ≈184 and saturates above it — so the usable band is bounded on both ends and neither bound is predicted by anything.
+**The Two-Room failure is the informative cell, and it is a statement about anti-collapse regularisers in general.** The environment's *intrinsic* dimensionality is low; the target distribution is an isotropic Gaussian in a 192-dimensional space. Forcing a low-complexity data stream to fill a high-dimensional Gaussian degrades the representation. **(brainstorm)** Read as a design rule: an anti-collapse term is not a neutral safety device but a **prior on the latent's geometry**, and it carries a dimensionality specification that must be matched to the environment. **VICReg's per-component variance hinge is the weakest form of the same commitment, and the cost of strengthening it is measured** ([[wiki/entities/vicreg.md]]): a variance *floor* per dimension leaves the joint shape free, but re-running VICReg with the embedding `l2`-normalised — which fixes each dimension's variance at exactly `1/√d`, i.e. specifies the geometry the way SIGReg's `N(0, I)` does — costs **3.5 points** on ImageNet, an environment whose intrinsic dimension is not in doubt. So the price of a geometric commitment is charged even where the target dimensionality is *right*, and Two-Room is that price plus a mismatch. The ablation supplies the other side of the same knob — performance collapses below embedding dimension ≈184 and saturates above it — so the usable band is bounded on both ends and neither bound is predicted by anything.
 
 ---
 
@@ -140,7 +142,7 @@ This lands on the neuroscience temporal-straightening hypothesis (Hénaff et al.
 | | **LeWM** | [[wiki/entities/v-jepa-2.md]] | PLDM | DINO-WM |
 |---|---|---|---|---|
 | Encoder | ViT-Tiny, **trained from pixels** | ViT-g 1B, pretrained then frozen | trained from pixels | DINOv2, frozen |
-| Anti-collapse | SIGReg — distribution matching to `N(0, I)` | EMA teacher + stop-gradient | VICReg, 7 terms | none needed (frozen encoder) |
+| Anti-collapse | SIGReg — distribution matching to `N(0, I)` | EMA teacher + stop-gradient | [[wiki/entities/vicreg.md]]-derived, 7 terms | none needed (frozen encoder) |
 | Loss hyperparameters | **1** | EMA rate + masking schedule | 6 | — |
 | Latent per frame | one 192-d vector | patch grid | patch grid | patch grid |
 | Params | **~15M** | 1B + 300M | — | 300M+ |
@@ -179,4 +181,5 @@ This lands on the neuroscience temporal-straightening hypothesis (Hénaff et al.
 - **[[wiki/concepts/counterfactual-probing.md]]** — the contrast case: the same family of world model, probed by comparing *perturbed against unperturbed real trajectories* rather than by injecting a counterfactual into the conditioning path, which is why this system needs no special conditioning interface and gets no partition out.
 - **[[wiki/concepts/violation-of-expectation.md]]** — the protocol this page's dissociation result belongs to, and where its prediction (general pretraining should hurt violation detection) is tested against a 1M-hour foundation video model and splits: refuted on scale, confirmed on colour.
 - **[[wiki/entities/byol.md]]** — the paper this system's headline subtraction is aimed at: the EMA teacher and stop-gradient removed here are BYOL's, and BYOL's own ablations say they were doing anti-collapse work (removing either collapses it), so SIGReg is not simplifying a redundancy but replacing a mechanism.
+- **[[wiki/entities/vicreg.md]]** — the objective this page's coefficient-count argument was aimed at, corrected and re-aimed: VICReg has one free scale rather than six (the six is PLDM's), so the difference SIGReg buys is robustness rather than count — and VICReg's `l2`-normalised variant prices this page's dimensionality-prior claim at 3.5 points even on data whose intrinsic dimension is ample.
 - **[[wiki/entities/barlow-twins.md]]** — the same one-coefficient tuning surface reached from a weaker distributional commitment: matching second moments (`C → I`) instead of the full `N(0,I)`, which is why it has no analogue of this page's intrinsic-dimension failure — decorrelating an over-wide embedding of a low-dimensional world is satisfiable where filling an isotropic Gaussian is not — and why its gains from embedding width are unbounded (to 16384) where here the width is fixed by the target.
