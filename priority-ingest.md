@@ -3,43 +3,30 @@
 **One ingest per pass** - never batch ingests.
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
-## Wave 5 — control layer · working memory and prefrontal control
+## Wave 6 — normative theories · predictive coding, active inference, RL planning
 
 One INGEST each:
 
-- [x] `oreilly-2006-making-working-memory-work.md` — working-memory · M · 2006
-- [x] `graves-2016-differentiable-neural-computer.md` — working-memory · M · 2016
-- [x] `kozachkov-2022-short-term-plasticity-working-memory.md` — working-memory · M · 2022
-- [x] `liu-2025-transient-trajectory-rnn-working-memory.md` — working-memory · M · 2025
-- [x] `lebedev-2004-attended-vs-remembered-locations-pfc.md` — working-memory · R · 2004
-- [x] `lundqvist-2018-gamma-beta-bursts-working-memory.md` — working-memory · R · 2018
-- [x] `derosa-2024-working-memory-removal-operations.md` — working-memory · R · 2024
-- [x] `gong-2024-self-attention-working-memory-limit.md` — working-memory · R · 2024
-- [x] `wise-2000-arbitrary-antecedent-action-associations.md` — prefrontal-control · S · 2000
-- [x] `murray-2000-pfc-arbitrary-visuomotor-mapping.md` — prefrontal-control · S · 2000
-- [x] `miller-2002-prefrontal-categories-concepts.md` — prefrontal-control · S · 2002
-- [x] `heidbreder-2003-rat-medial-prefrontal-dorsoventral.md` — prefrontal-control · S · 2003
-- [x] `wood-2003-prefrontal-representational-perspectives.md` — prefrontal-control · S · 2003
-- [x] `euston-2012-mpfc-memory-decision-making.md` — prefrontal-control · S · 2012
-- [x] `spedding-2012-hippocampal-prefrontal-pathway.md` — prefrontal-control · S · 2012
-- [x] `preston-2013-hippocampus-prefrontal-memory.md` — prefrontal-control · S · 2013
-- [x] `jin-2015-prefrontal-hippocampal-interactions.md` — prefrontal-control · S · 2015
-- [x] `sigurdsson-2016-hippocampal-prefrontal-interactions.md` — prefrontal-control · S · 2016
-- [x] `lieberman-2018-mpfc-social-self-affective.md` — prefrontal-control · S · 2018
-- [x] `friedman-2021-prefrontal-cognitive-control.md` — prefrontal-control · S · 2021
-- [x] `arnsten-2010-dynamic-network-connectivity.md` — prefrontal-control · F · 2010
-- [x] `wang-2018-pfc-meta-rl-system.md` — prefrontal-control · F · 2018
-- [x] `jensen-2026-planning-prefrontal-cortex.md` — prefrontal-control · F · 2026
-- [x] `martinet-2011-prefrontal-spatial-planning-model.md` — prefrontal-control · M · 2011
-- [x] `collins-2013-task-set-structure-learning.md` — prefrontal-control · M · 2013
-- [x] `boettiger-2005-frontal-stimulus-response-learning.md` — prefrontal-control · R · 2005
-- [x] `badre-2010-frontal-abstract-action-rules.md` — prefrontal-control · R · 2010
-- [x] `matsuzaka-2012-dmpfc-response-tactic-selection.md` — prefrontal-control · R · 2012
-- [x] `bichot-2015-feature-based-attention-pfc.md` — prefrontal-control · R · 2015
-- [x] `widge-2019-dbs-internal-capsule-cognitive-control.md` — prefrontal-control · R · 2019
-- [x] `bichot-2019-prefrontal-feature-attention-v4.md` — prefrontal-control · R · 2019
-- [x] `awan-2020-tactic-based-sensorimotor-transformations.md` — prefrontal-control · R · 2020
-- [x] `eng-2025-pfc-connectivity-executive-function.md` — prefrontal-control · R · 2025
-- [x] `zhou-2025-preparatory-attentional-templates.md` — prefrontal-control · R · 2025
-- [x] `lai-2026-mpfc-bla-nac-affective-pathways.md` — prefrontal-control · R · 2026
+- [x] `friston-2009-predictive-coding-free-energy.md` — predictive-coding · F · 2009
+- [ ] `bastos-2012-canonical-microcircuits.md` — predictive-coding · F · 2012
+- [ ] `whittington-2017-predictive-coding-approximates-backprop.md` — predictive-coding · M · 2017
+- [ ] `milosevic-2026-active-inference-convex-mdp.md` — predictive-coding · M · 2026
+- [ ] `kerjan-2026-predictive-coding-imagenet-eqprop.md` — predictive-coding · M · 2026
+- [ ] `nguyen-2025-event-segmentation-mechanisms.md` — predictive-coding · R · 2025
+- [ ] `friston-2009-free-energy-principle-rough-guide.md` — active-inference · S · 2009
+- [ ] `cooper-2026-efe-belief-dependent-utility.md` — active-inference · F · 2026
+- [ ] `nuijten-2026-what-inference-is-active-inference.md` — active-inference · F · 2026
+- [ ] `champion-2023-deconstructing-deep-active-inference.md` — active-inference · M · 2023
+- [ ] `nuijten-2026-efe-planning-variational-inference.md` — active-inference · M · 2026
+- [ ] `zhang-2025-novelty-variability-active-inference.md` — active-inference · R · 2025
+- [ ] `talk-nd-free-energy-principle.txt` — active-inference · X · nd
+- [ ] `gerfen-2011-striatal-dopamine-modulation.md` — rl-planning · S · 2011
+- [ ] `helie-2013-basal-ganglia-cognitive-models.md` — rl-planning · S · 2013
+- [ ] `doya-2002-metalearning-neuromodulation.md` — rl-planning · F · 2002
+- [ ] `daw-2005-uncertainty-based-arbitration.md` — rl-planning · F · 2005
+- [ ] `botvinick-2008-hierarchical-rl-behavior.md` — rl-planning · F · 2008
+- [ ] `bogacz-2007-basal-ganglia-optimal-decisions.md` — rl-planning · M · 2007
+- [ ] `poursiami-2025-hippocampal-rl-framework.md` — rl-planning · M · 2025
+- [ ] `harvey-2026-hierarchical-skill-discovery.md` — rl-planning · M · 2026
+- [ ] `kable-2007-subjective-value-intertemporal-choice.md` — rl-planning · R · 2007
 

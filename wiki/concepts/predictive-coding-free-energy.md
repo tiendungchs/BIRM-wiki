@@ -48,6 +48,62 @@ The dendritic row matters because it means "predictive coding" and "dendritic er
 
 ---
 
+## Hierarchical dynamical models: the generative model is a cascade of attractors
+
+> `raw/friston-2009-predictive-coding-free-energy.md` — Friston & Kiebel, *Phil. Trans. R. Soc. B* 364:1211–21, 2009. The version of this page's scheme in which the *thing being inferred is a trajectory*, not a static cause.
+
+**The model.** Each level `i` emits a cause downward and carries hidden states that link time, all in generalised coordinates of motion (`x̃ = (x, x′, x″, …)`):
+
+```
+v^(i−1) = g(x^(i), v^(i)) + z^(i)        ← output of level i is the input of level i−1
+x′^(i)  = f(x^(i), v^(i)) + w^(i)        ← hidden states carry memory
+```
+
+| Object | Role |
+|---|---|
+| **causes `v`** | link **levels** — the vertical, structural direction |
+| **hidden states `x`** | link **time** — the horizontal, dynamical direction; never observed directly |
+| **generalised coordinates** | the derivatives are represented explicitly, so a *trajectory* is a point and prediction over time needs no rollout |
+| **empirical priors** | the Gaussian density at level `i` is simultaneously a likelihood for level `i` and a prior for level `i+1` — the hierarchy *is* the prior, nothing is stipulated at the top except at the last level |
+
+Inversion is gradient ascent on the internal energy **in a frame of reference that moves along the trajectory** (`μ̃̇ = Dμ̃ + ∂U/∂μ̃`): the conditional mean chases a moving target, and at the stationary solution *the path of the mean becomes the mean of the path*. This is what lets a fixed-point-style relaxation track a dynamical world.
+
+**The message passing (the two-population claim).** Rewriting the ascent in terms of precision-weighted prediction errors `ξ` splits the network into exactly two populations:
+
+| Population | Encodes | Receives from | Anatomy claimed |
+|---|---|---|---|
+| **state units** | conditional mean `μ̃^(i)` | error units at its **own** level and the level **below** | deep pyramidal cells (source of backward connections) |
+| **error units** | `ξ^(i) = Π^(i)(μ̃^(i) − prediction)` | state units at its **own** level and the level **above** | superficial pyramidal cells (source of forward connections, and the main generators of local field potentials / event-related potentials) |
+
+Only two things ever cross a level boundary: **prediction error going up, predictions coming down** — inference at level `i` needs `ξ^(i)` and `ξ^(i+1)` and nothing else. Two asymmetries follow and are the paper's anatomical evidence: the motion of a state unit is a *linear* mixture of bottom-up error (so forward drive is obligatory and does not depend on other forward inputs), whereas predictions enter through the nonlinear `f, g` (so backward connections are modulatory) — matching the observed driving/modulatory split and the slower time constants of feedback. See [[wiki/concepts/canonical-cortical-microcircuit.md]].
+
+**Hierarchically coupled attractors.** The load-bearing move: `f` at each level is an attractor flow, and the states of the level above enter as its **control parameters**, reshaping its manifold (demonstrated with two coupled Lorenz systems driving a synthetic syrinx; the higher one an order of magnitude slower, its Rayleigh/Prandtl values switching the lower through fixed-point → quasi-periodic → chaotic regimes).
+
+| Claim | Statement |
+|---|---|
+| **Manifold = *what*, state = *where*** | the shape of the low-level manifold says which sequence is being expressed; the neuronal activity says where on that sequence the percept currently is |
+| **Categories are coordinates** | every point in the higher state space names a manifold, i.e. a category of sequence — so perceptual categorisation is *locating a point*, not selecting a label |
+| **Sequences of sequences, by induction** | a level's states are control parameters for the level below, so the construction recurses to arbitrary depth with one mechanism |
+| **Slow-above, fast-below is derived** | a higher attractor prescribes the manifold the lower states flow over, so its own state must change slowly — the timescale hierarchy is a consequence of the coupling, not an assumption |
+| **Categorisation is a trajectory → point map** | with the second-level dynamics suppressed and flat priors on its causes, three songs are separated after ≈600 ms (about two chirps) with conditional densities that barely overlap (≈100% precision) and 90% intervals containing the true control parameters |
+
+**Structural vs dynamical priors, dissociated by lesion** (simulated, on the same model):
+
+| Cut | Removes | Effect on recognition |
+|---|---|---|
+| top-down connections from second-level hidden states to their causes | **structural** priors (the manifold-shaping input) | degraded, prediction error inflated — the *milder* of the two |
+| self-connections among state units (the coupling between orders of motion) | **dynamical** priors (the generalised-coordinate constraint) | **worse**: frequency tracking survives but the stream is no longer *segmented* — sequential structure is lost entirely |
+
+That the intrinsic, within-level constraint matters more than the top-down one is the result to carry ([[wiki/empirical-tensions.md]] T117): in this scheme most of the work of perceiving a sequence is done by priors on *motion*, not by the hierarchy. It also names a mechanism for segmentation that [[wiki/concepts/event-segmentation.md]] does not have — boundaries fall out of the dynamical prior rather than out of a change detector.
+
+**Omission responses.** Terminating the song early produces (i) a burst of precision-weighted prediction error at the moment of termination, comparable in size to the error evoked by a *missed* stimulus, generated with no sensory input at all, and (ii) a transient **percept with no stimulus**, correctly timed to the omitted chirp, slightly off in frequency. A model that predicts trajectories is therefore falsifiable by omission paradigms, and the wiki's cheapest behavioural test of whether a system's predictions are dynamical rather than reactive.
+
+**(brainstorm) Where a manifold comes from (G47).** [[wiki/concepts/attractor-dynamics.md]] records that every continuous attractor in the wiki has its topology installed by the designer and nothing notices if it is wrong. This scheme supplies the one alternative present in the wiki: **the manifold is set at run time, by the level above, as a small vector of control parameters**, and is itself inferred from data. It does not close G47 — `f`, `g` and the number of levels are still hand-built here and the parameters `θ` are assumed known — but it changes the shape of the question from "learn a topology" to "learn a *parameterisation* of topologies plus an inference over its coordinates", which is a far smaller object and is exactly the amortised form of a category.
+
+**Limits of the demonstration.** Two hand-specified Lorenz attractors; `θ` (the parameters) assumed known, so nothing is *learned* — only states are inferred; Laplace and Gaussian assumptions throughout; three songs; the recognition takes ≈600 ms of simulated relaxation, and one chirp is misperceived because the dynamical prior overrides weak evidence — the same de-noising that makes it work makes it hallucinate.
+
+---
+
 ## Three structural priors (the paper's central proposal)
 
 Free-energy minimisation is indifferent to what kind of encoding forms. Butz 2016 proposes that development must be biased — genetically — toward exactly three encoding types, from which all others compose:
@@ -130,7 +186,7 @@ Step 3 is the expensive one and is explicitly acknowledged as intractable in gen
 
 - **[[wiki/concepts/continual-learning.md]]** — the claimed payoff of locality: weights driven by a layer-local residual rather than by one global output loss are argued to overwrite prior structure less, an unmeasured claim sitting alongside this page's backpropagation-approximation result.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the named rival reduction, stated in full; its three predictive-encoding types map onto node content, inter-node relations and edges, and its activity/weight split is the fast-**M**/slow-**W** split derived from inference.
-- **[[wiki/concepts/event-segmentation.md]]** — the abstraction layer built on top of this substrate: events are *sets* of active predictive encodings, boundaries are significant changes in that set.
+- **[[wiki/concepts/event-segmentation.md]]** — the abstraction layer built on top of this substrate: events are *sets* of active predictive encodings, boundaries are significant changes in that set — and the lesion result above says the segmentation actually comes from the *dynamical* prior (coupling between orders of motion), since cutting it destroys sequential structure while leaving frequency tracking intact (Friston & Kiebel 2009).
 - **[[wiki/concepts/simulation-based-planning.md]]** — supplies the switch that turns perception into simulation (`γ → 0`, strongly negative `β`) and the homeostatic drive that initiates a rollout.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — reaches the same two-timescale split from a different premise: here it is activity-vs-weight adaptation under one objective, there it is interference between a sparse store and a distributed one.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — spatial predictive encodings are a second, learned candidate for `g`: content-invariant frame-of-reference mappings acquired from multimodal correlation, where grid codes are periodic and given.
@@ -155,7 +211,7 @@ Step 3 is the expensive one and is explicitly acknowledged as intractable in gen
 - **[[wiki/entities/fcann.md]]** — the first empirical test of a *geometric* prediction of free-energy minimisation: if attractors are learned priors written by the contrastive rule `ΔJ_ij ∝ σ_iσ_j − L(·)σ_j`, they must come out approximately orthogonal, and in human functional connectomes they do — with stochastic relaxation read as posterior sampling and the inverse temperature `β` as the precision of the prior.
 - **[[wiki/entities/boltzmann-machine.md]]** — names the substrate this page invokes ("a highly modular, distributed restricted Boltzmann machine") and its escape from the intractable global attractor: in a ratio between two states differing in one unit the partition function cancels, so local interactive adjustment samples a globally normalised distribution without ever evaluating `Z`.
 - **[[wiki/concepts/dendritic-computation.md]]** — a candidate physical substrate for the prediction channel: a distal NMDA spike depolarizes the cell for 50–200 ms without firing it, so a detection is a prediction held over a behavioural interval on an anatomically separate pathway from the feedforward drive carrying the evidence.
-- **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the laminar substrate the hierarchy assumes: feedforward projections originate in layer 2/3 and terminate in layer 4 above, feedback originates in layers 5/6 and terminates outside layer 4 (mostly layer 1, on distal apical tufts) — and the superficial-layer-neuron percentage makes hierarchical *depth* a measured continuous quantity rather than a stipulated layer index (Douglas & Martin 2004).
+- **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the laminar substrate the hierarchy assumes: feedforward projections originate in layer 2/3 and terminate in layer 4 above, feedback originates in layers 5/6 and terminates outside layer 4 (mostly layer 1, on distal apical tufts) — and the superficial-layer-neuron percentage makes hierarchical *depth* a measured continuous quantity rather than a stipulated layer index (Douglas & Martin 2004) — and the laminar assignment runs the other way too: superficial pyramidal cells are the error units (only prediction error goes up) and deep pyramidal cells the state units (only predictions come down), which makes local field potentials a direct read-out of prediction error (Friston & Kiebel 2009).
 - **[[wiki/entities/thousand-brains-theory.md]]** — shares this page's premise that cortex is a predictive modeller and denies that the model is singular: prediction is generated by each column from its own next movement inside its own reference frame, not by a top-down residual descending a hierarchy.
-- **[[wiki/concepts/attractor-dynamics.md]]** — settling to a joint minimum with two fragments held active is the composition-by-constraint-satisfaction mechanism proposed for G21.
+- **[[wiki/concepts/attractor-dynamics.md]]** — settling to a joint minimum with two fragments held active is the composition-by-constraint-satisfaction mechanism proposed for G21; and the hierarchical-dynamical version above supplies the wiki's one run-time source of a manifold, with the level above delivering the control parameters that reshape the level below's attractor (Friston & Kiebel 2009).
 - **[[wiki/concepts/generalization-optimized-consolidation.md]]** — an internally generated error signal driving long-term learning: the slow learner descends the mismatch between its own forward pass and a target reactivated from the fast store, so consolidation is prediction-error learning against a replayed model rather than against the world.

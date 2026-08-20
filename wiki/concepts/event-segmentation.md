@@ -43,15 +43,16 @@ The triple ⟨condition, event, final⟩ is precondition–action–effect. Thre
 
 ## How boundaries get detected
 
-Butz 2016 states plainly that deriving segmentation from free-energy inference **remains a future challenge**. Two working mechanisms are offered instead:
+Butz 2016 states plainly that deriving segmentation from free-energy inference **remains a future challenge**. Three working mechanisms are offered instead, plus one that segments without a detector at all:
 
 | Mechanism | How it works | Cost |
 |---|---|---|
 | **Multiplicative gates (long short-term memory)** | a near-linear unit accumulates evidence; a saturating non-linear unit decides when the accumulation is passed on; identity recurrence maintains it until further notice. Linear part ≈ event progression, gate ≈ event boundary | trained by backpropagation through time — non-local, so the biological story is unpaid |
 | **Explicit boundary monitors** | watch the continuous activation of predictive encodings; flag onset after prolonged inactivity, or cessation after prolonged activity | robust under very large sensory noise (demonstrated on doorway detection in the four-rooms task); but the thresholds are hand-set, not learned |
 | **Driver/modulator wiring** | multiplicatively interacting predictive encodings, distinguishing driving from modulating inputs | shows the interaction is *expressible* in a predictive-coding substrate; not shown to segment anything |
+| **Dynamical priors** | in a hierarchical dynamical model, the coupling between orders of motion (generalised coordinates) *is* what parses the stream: cutting those within-level self-connections in a synthetic songbird preserves frequency tracking but destroys sequential structure — the stream stops being segmented at all (Friston & Kiebel 2009) | no boundary is ever named or read out; segmentation is implicit in the flow, so nothing downstream can be indexed by it |
 
-The honest summary: the *definition* of a boundary is principled and the *detector* is not.
+The honest summary: the *definition* of a boundary is principled and the *detector* is not. The dynamical-prior row sharpens what is missing: a system can *behave* as if segmented without any explicit boundary variable, and the surprise of the lesion result is that this implicit route matters **more** than the top-down structural prior.
 
 ---
 
@@ -74,7 +75,7 @@ Secondary consequence for aliasing (gap G2): because an event is a *set*, two id
 
 ## Connections
 
-- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the substrate this page abstracts over: events are sets of *its* active encodings, so segmentation needs no machinery beyond a change detector on that set.
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the substrate this page abstracts over: events are sets of *its* active encodings, so segmentation needs no machinery beyond a change detector on that set; its hierarchical-dynamical form also supplies the implicit alternative, where priors on *motion* parse the stream and lesioning them costs more than lesioning the top-down priors (Friston & Kiebel 2009).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the discretisation the graph formalisation assumes: events are nodes, event schemata are typed edges with preconditions and effects, episodes are compressed paths.
 - **[[wiki/concepts/simulation-based-planning.md]]** — episode encodings are the coarse level that jumpy multi-scale planning needs, and backward chaining through schema preconditions is path search run in reverse from the goal.
 - **[[wiki/concepts/working-memory.md]]** — the multiplicative gate that detects a boundary is the same gate that maintains an item, so segmentation and maintenance are one mechanism seen at two timescales.
