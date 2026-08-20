@@ -166,6 +166,8 @@ Against this, lateral prefrontal cortex resolves the *same* competition the othe
 
 ## Connections
 
+- **[[wiki/concepts/priority-map.md]]** — where a selected schema goes once it is selected: a learned face↔scene pairing retrieved in ventrolateral prefrontal cortex during the cue is installed over the following delay as the *attentional template* in the inferior frontal junction and as sensory gain in the associate's own category area, so "prefrontal cortex selects the schema" and "prefrontal cortex sets the search query" are the same operation observed at two stages (Zhou & Geng 2025).
+
 - **[[wiki/concepts/complementary-learning-systems.md]]** — indexes the same fast/slow transport by a different variable: not elapsed time or learning rate but *overlap with what is already stored*, which turns the standard slow-cortical-learning claim into a special case (the no-schema condition) and makes one-trial cortical learning the schema-matched case (Tse et al. 2007, via Preston & Eichenbaum 2013).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the biological statement of the page's central problem in memory terms: a schema is a known subgraph, assimilation is adding an edge between existing nodes, accommodation is rewriting existing edges, and the inference test (A–C never observed) is a path query over a *discovered* graph.
 - **[[wiki/entities/medial-prefrontal-cortex.md]]** — supplies the content on that page's one-way hippocampal channel: a generality-graded context code from the ventral/anterior pole, and the causal demonstration that the controller *selects* rather than retrieves — mPFC inactivation leaves dorsal hippocampal retrieval intact but indiscriminate.

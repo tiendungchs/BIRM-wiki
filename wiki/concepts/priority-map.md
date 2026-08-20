@@ -115,6 +115,42 @@ with the caveat that VPA units also carry spatial selection late (138 ms) — th
 
 ---
 
+## What goes in the register is chosen by utility, not by identity with the goal
+
+> **Provenance.** Zhou & Geng 2025, *Preparatory attentional templates in prefrontal and sensory cortex encode target-associated information*, eLife 14:RP104041 (`raw/zhou-2025-preparatory-attentional-templates.md`). N = 26 humans, fMRI cross-task MVPA (train on the search task, test on an independent 1-back task with the same images), 12 a-priori ROIs plus whole-brain searchlight. Four face↔scene-category pairings learned outside the scanner (97.4% ± 2.7% on a match/non-match test); then cued search: 1 s face cue → **8 s blank delay** → 0.25 s display of two race/gender-matched faces superimposed on scenes, target on its associated scene on 75% of trials.
+
+Everything above assumes the register holds the *target*. This experiment shows the register holds whatever is expected to guide the search best — and when a learned associate is more discriminable than the target, the target is evicted from the template network altogether.
+
+| Period | Face (the actual target) decoded in | Scene (the learned associate, never shown) decoded in |
+|---|---|---|
+| **Cue** (1 s, face on screen) | bilateral FFA (`P` = 0.0074 unc. / < 0.005), bilateral SPL (0.018 / < 0.005), right dLPFC (< 0.005), left IFJp (0.012 unc.); left dLPFC by searchlight | **vLPFC only** (0.0066 unc. / 0.023); *not* PPA (0.12 / 0.51) |
+| **Delay** (8 s, blank screen) | **left IPS only** (0.019 unc.) — not FFA, not IFJ, not dLPFC, not FEF | bilateral **PPA** (0.007 / < 0.005), bilateral **PEF** (0.03 / < 0.005), right **IFJp** (0.027 unc.); bilateral retrosplenial cortex by searchlight |
+
+Whole-brain: **no region decodes both**. The scene is never presented during the cue or delay, so every scene effect is memory-evoked; the face effects during the delay are the ones at risk of BOLD carry-over from the cue, and they are the ones that are absent.
+
+Read as a sequence, this is a four-step pipeline the wiki did not have:
+
+```
+cue (target identity)  →  vLPFC retrieves the associate from long-term memory   (cue period)
+                       →  associate written into the template register (IFJp/PEF)  (delay)
+                       →  same associate installed as sensory gain in its own category area (PPA)
+                       →  target identity parked elsewhere (IPS), out of the template loop
+```
+
+**The template's content is a decision, and it has a cost function.** The associate wins here because the two faces are race/gender-matched (hard discrimination) while the four scene categories are visually distinctive; the same laboratory's behavioural work shows the scene stops being used when the target face is easy to discriminate (Zhou & Geng 2024). So the register is loaded with `argmax` over *candidate proxies* of expected guidance value — discriminability × predictiveness — not with the goal.
+
+**The cost of the substitution is paid on the 25% of trials where the proxy misleads.** Scene-invalid trials: accuracy down (`t(25)` = 4.96, `P` < 0.001, `d` = 0.97), RT up (`t` = −3.46, `P` = 0.002, `d` = 0.68); univariate activation higher in bilateral IFJp/IFJa, vLPFC, left dLPFC and IPS, plus ACC and insula. Scene-**valid** trials produce more activation in *no* ROI. Read as: ACC registers the prediction error, lateral prefrontal cortex reinstates the veridical target into a register it had been evicted from ([[wiki/concepts/cognitive-control.md]]).
+
+**(brainstorm) Three importable consequences.**
+
+- **A query is a free variable, and picking it is a computation nobody models.** Every retrieval and attention layer in the wiki takes the query as given by the goal (`q` = encoding of the target). Here the goal only *addresses* the query: `q = retrieve(goal)` chosen for detectability, which makes "what should I look for in order to find what I want?" a learnable sub-policy with an explicit utility. A machine version is cheap to state — score each associate of the goal by (predictive validity × ease of detection), load the winner — and no architecture here has the slot (gap G60).
+- **The proxy is one edge away, so this is graph traversal used as perception.** The associate is a *neighbour* of the goal in a learned associative graph, selected because the neighbour is the easier node to find; reaching it converts a hard direct search into an easy search plus one known edge ([[wiki/concepts/latent-graph-discovery.md]]). This is the same move as a landmark/subgoal in navigation, run at the timescale of a single fixation.
+- **The eviction predicts a specific failure mode.** With the target out of the template, a proxy-invalid trial cannot be resolved by the fast path; it needs a reload from a second store (IPS) driven by an error signal. An architecture that swaps its query for a proxy therefore needs a monitor and a rollback path, or it silently commits to the proxy — which is what the accuracy drop measures.
+
+**Limits.** fMRI + behaviour is correlational: nothing here shows the delay-period scene code *causes* the guidance. And the reviewers' unanswered objection stands — no condition separates "installing a search template" from plain cued associative recall, since the scene was task-irrelevant and a subject who merely remembers "Emma → beach" produces the same delay-period decoding. The behavioural validity effect is the only evidence the recalled associate was actually used. Splitting the delay in half destroys the effect (only left PPA survives), so the timecourse — when the swap happens, how long it holds — is unmeasured.
+
+---
+
 ## Reading in the core framing
 
 | Element | Latent-graph reading |
@@ -134,6 +170,8 @@ with the caveat that VPA units also carry spatial selection late (138 ms) — th
 ## Open problems
 
 - **Where does the template come from?** VPA holds and applies it; VPS is implicated in loading/switching it (blocked-design result) but that is an inference from a null, not a positive measurement. Nothing here identifies the pathway that writes a cue into the register — the same missing write-policy as gap G33's configurator.
+- **What decides the template's *content*?** Zhou & Geng 2025 shows it need not be the target: the register can be loaded with a learned associate instead, and the same laboratory's behavioural work says the swap happens only when the target is hard to discriminate and the associate is easy. Nobody has measured the trade-off curve — vary target discriminability and associate predictive validity independently and find the crossover at which the proxy is loaded. Until that exists, "chosen by expected guidance value" is a description, not a policy.
+- **Is the delay-period associate a template or just a recall?** The task made the scene irrelevant to the response, so cued associative retrieval and template installation predict identical decoding; the only discriminating evidence is a behavioural validity effect measured across trials, not within them (Zhou & Geng 2025).
 - **Is the similarity computed on features or on learned object identity?** The source cannot say: multi-unit recording, eight over-trained objects. Component-feature tuning and learned target-identity tuning predict the same data, and they differ exactly on generalisation to a *novel* target — the case abstract reasoning cares about.
 - **Is a residual real?** Only one monkey retained any V4 feature modulation after inactivation, and only after the first saccade. Two animals cannot distinguish partial muscimol coverage (the injections did not cover all of VPA) from a genuine locally-generated remainder — the number that decides T112 is currently a single `P` = 0.001.
 - **One map or several?** LIP and superior colliculus carry priority maps too; only FEF was recorded. Whether the argmax is taken once over a shared map or separately in each is untested, and it is the difference between one arbitration module and a voting ensemble.
@@ -152,5 +190,6 @@ with the caveat that VPA units also carry spatial selection late (138 ms) — th
 - **[[wiki/concepts/arbitrary-sensorimotor-mapping.md]]** — the same frontal machinery under a different contingency: there a cue specifies *which action*, here a cue specifies *what to find* and the action is chosen by the map — so a template is a cue→predicate mapping rather than a cue→response mapping, and it composes with an arbitrary number of locations.
 - **[[wiki/concepts/control-unity-and-diversity.md]]** — an anatomical instance of its shifting-specific factor: the region whose loss matters only when the target changes trial-to-trial (VPS) is separable from the one whose loss matters whether or not it changes (VPA), which is switching cost isolated from maintenance by a lesion rather than by factor analysis.
 - **[[wiki/concepts/population-geometry.md]]** — what is missing here and would settle the mechanism: multi-unit recording cannot say whether object identity and location are conjunctive in single cells or superposed across the population, and only the second permits `sim(·,·)` to be read off a linear projection.
-- **[[wiki/concepts/latent-graph-discovery.md]]** — the acting-to-observe loop in its cheapest form: the argmax over the priority map determines the next fixation, hence the next observation, hence the next query — evidence about the scene is gathered by a policy the scene's own contents wrote.
+- **[[wiki/concepts/latent-graph-discovery.md]]** — the acting-to-observe loop in its cheapest form: the argmax over the priority map determines the next fixation, hence the next observation, hence the next query — evidence about the scene is gathered by a policy the scene's own contents wrote. And the *query* itself can be an edge away from the goal: the template is set to a learned neighbour of the target when that neighbour is easier to detect, decomposing a hard direct search into an easy search plus one known edge (Zhou & Geng 2025).
+- **[[wiki/concepts/schema-assimilation.md]]** — supplies what the register gets loaded *with* when the goal itself is a poor query: a learned pairing retrieved from long-term memory in ventrolateral prefrontal cortex is installed as the delay-period template in the inferior frontal junction and as sensory gain in the associate's own category area, so the schema the controller selects becomes the thing attention searches for (Zhou & Geng 2025).
 - **[[wiki/concepts/shortcut-learning.md]]** — the deficit's shape is a shortcut in reverse: with the matching stage silenced, behaviour does not collapse but degrades to inspecting distractors in an unchanged serial fashion, i.e. the fallback policy is intact and content-blind — a reminder that a system can look functional while the only task-relevant computation has been removed.

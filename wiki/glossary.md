@@ -199,7 +199,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | VPS | Ventral bank of the Principal Sulcus | Adjacent prefrontal region; needed for switching the search template, not for applying a repeated one ([[wiki/concepts/priority-map.md]]) |
 | V4 | Visual area 4 | Mid-level extrastriate area selective for colour, orientation and shape; carries both feature and spatial attentional gain, delivered by separately ablatable controllers ([[wiki/concepts/priority-map.md]]) |
 | IT | InferoTemporal cortex | Late ventral-stream object-recognition cortex; object-selective but shows feature *selection* later (189 ms) than either frontal area |
-| IFJ | Inferior Frontal Junction | Human region implicated in top-down control of object/feature-based attention (Baldauf & Desimone 2014) |
+| IFJ (IFJa / IFJp) | Inferior Frontal Junction (anterior / posterior subdivision) | Human region implicated in top-down control of object/feature-based attention (Baldauf & Desimone 2014); proposed homologue of macaque VPA; IFJp carries the preparatory template over a delay ([[wiki/concepts/priority-map.md]]) |
+| PEF | Parietal Eye Field | Posterior IFJ-adjacent/parietal oculomotor parcel of the HCP-MMP1 atlas; carries delay-period template information and does not overlap the vLPFC parcel ([[wiki/concepts/priority-map.md]]) |
+| FFA | Fusiform Face Area | Face-selective ventral-stream region; the face counterpart of PPA |
+| dLPFC / vLPFC | dorsolateral / ventrolateral PreFrontal Cortex | Lateral prefrontal subdivisions; in cued search the dorsal one carries the cue identity and the ventral one the memory-retrieved associate ([[wiki/concepts/priority-map.md]]) |
+| SPL / IPS | Superior Parietal Lobule / IntraParietal Sulcus | Dorsal parietal attention and working-memory regions; IPS is where the target identity is parked when the template holds a proxy ([[wiki/concepts/priority-map.md]]) |
 | RF | Receptive Field | The region of the sensory surface a unit responds to |
 | dva | degrees of visual angle | Standard unit of retinal eccentricity and stimulus size |
 | HD cell | Head Direction cell | Fires as a function of head orientation in the navigational plane; the heading half of a cognitive map ([[wiki/concepts/cognitive-map.md]]) |
