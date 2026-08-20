@@ -27,7 +27,7 @@ One INGEST each:
 - [x] `sigurdsson-2016-hippocampal-prefrontal-interactions.md` — prefrontal-control · S · 2016
 - [x] `lieberman-2018-mpfc-social-self-affective.md` — prefrontal-control · S · 2018
 - [x] `friedman-2021-prefrontal-cognitive-control.md` — prefrontal-control · S · 2021
-- [ ] `arnsten-2010-dynamic-network-connectivity.md` — prefrontal-control · F · 2010
+- [x] `arnsten-2010-dynamic-network-connectivity.md` — prefrontal-control · F · 2010
 - [ ] `wang-2018-pfc-meta-rl-system.md` — prefrontal-control · F · 2018
 - [ ] `jensen-2026-planning-prefrontal-cortex.md` — prefrontal-control · F · 2026
 - [ ] `martinet-2011-prefrontal-spatial-planning-model.md` — prefrontal-control · M · 2011

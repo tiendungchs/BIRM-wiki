@@ -32,7 +32,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SDTP | Simplified Difference Target Propagation | DTP with that last gradient removed — fully gradient-free and weight-transport-free (Bartunov et al. 2018) |
 | AO-SDTP | Auxiliary-Output SDTP | SDTP whose output layer carries extra random features of the penultimate layer, to raise target diversity |
 | LC | Locally-Connected (layer) | Convolution-style receptive fields **without** weight sharing; the biologically defensible version of a convnet |
-| DNC | Differentiable Neural Computer | Controller + external memory matrix addressed by content, write-order links and a usage-based free list, trained end to end ([[wiki/entities/differentiable-neural-computer.md]]) |
+| DNC | Differentiable Neural Computer | Controller + external memory matrix addressed by content, write-order links and a usage-based free list, trained end to end ([[wiki/entities/differentiable-neural-computer.md]]). **Collision:** Arnsten et al. 2010 use DNC for *Dynamic Network Connectivity*; this wiki spells that one out ([[wiki/concepts/dynamic-network-connectivity.md]]) |
 | NTM | Neural Turing Machine | The DNC's predecessor: same controller/memory split, but addressing is content plus index-shift, with no de-allocation and no write-order record across address jumps |
 | bAbI | (not an abbreviation) | 20 synthetic question-answering tasks over short generated stories, each a set of constraints on an underlying graph; the DNC's language benchmark |
 | DAGGER | Dataset Aggregation | Imitation-learning scheme mixing the expert and the learner's own policy so training states match the states the learner will actually visit |
@@ -166,6 +166,19 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | d-AP-5 | d-2-Amino-5-PhosphonoValerate | NMDA-receptor antagonist; the standard pharmacological test that a plasticity effect is NMDA-dependent |
 | ITD | Interaural Time Difference | Arrival-time difference of a sound at the two ears; the latent variable a coincidence detector over tuned delays recovers, and the barn owl's cue for azimuth |
 | LTP / LTD | Long-Term Potentiation / Depression | Lasting strengthening / weakening of a synapse |
+| cAMP | cyclic Adenosine MonoPhosphate | Second messenger; in prefrontal spines it opens HCN directly and KCNQ via protein kinase A, shunting the synapse — high cAMP disconnects the network and impairs working memory while *strengthening* long-term consolidation ([[wiki/concepts/dynamic-network-connectivity.md]]) |
+| HCN | Hyperpolarization-activated Cyclic Nucleotide-gated channel | Cation channel opened directly by cAMP; located in prefrontal spine heads and necks, where it gates the synaptic input rather than setting somatic excitability |
+| KCNQ (Kv7) | K-Channel voltage-gated, Q subfamily | K⁺ channel opened by protein kinase A downstream of cAMP; closed by muscarinic acetylcholine receptors (the "M-current"). A mutation preventing protein kinase A from opening KCNQ2/3 causes childhood epilepsy |
+| SK channel | Small-conductance Ca²⁺-activated K⁺ channel | Negative feedback on recurrent excitation: NMDA Ca²⁺ opens it, which shunts the synapse. Blocking it (apamin) improves working memory |
+| TRPC | Transient Receptor Potential Canonical channel | Depolarizing current that strengthens prefrontal network connections when cAMP is low |
+| mGluR1/5 | metabotropic Glutamate Receptor 1/5 | Perisynaptic receptors engaged by glutamate spillover; Gq → IP₃ → intracellular Ca²⁺ → SK, i.e. a second negative-feedback route. Inhibited by RGS4 |
+| RGS4 | Regulator of G-protein Signaling 4 | Perisynaptic brake on mGluR1/5–Gq signalling; markedly reduced in prefrontal cortex in schizophrenia and in Alzheimer's disease |
+| PDE4 | PhosphoDiEsterase type 4 | Enzyme family hydrolysing cAMP; loss of activity lets cAMP build up and collapses prefrontal network firing. Activated by DISC1 |
+| DISC1 | Disrupted In SChizophrenia 1 | Spine protein that activates PDE4 under high cAMP, co-localised with HCN channels; translocated in a large pedigree with high rates of mental illness |
+| α2A-AR | alpha-2A Adrenergic Receptor | Norepinephrine receptor that inhibits cAMP production, closing HCN/KCNQ and strengthening prefrontal connections; its agonist guanfacine is used clinically for distractibility and poor impulse control |
+| D1R | Dopamine D1 Receptor | Raises cAMP; moderate stimulation shunts inputs from dissimilarly tuned neurons (noise reduction), high stimulation suppresses all firing — the inverted-U |
+| α7 nAChR | alpha-7 nicotinic Acetylcholine Receptor | Nicotinic receptor located directly on prefrontal spines beside the NMDA synapse; an agonist partially rescues ketamine-induced working-memory deficits |
+| PKA / PKC | Protein Kinase A / C | A transduces cAMP (opens KCNQ); C is driven by Ca²⁺ and α1 adrenergic signalling under stress and is implicated in dendritic spine loss |
 | MEG | Magnetoencephalography | |
 | MTL | Medial Temporal Lobe | Hippocampus and surrounding cortex |
 | TCM | Temporal Context Model | Howard & Kahana's drifting-context model of episodic recall, extended to the entorhinal place code ([[wiki/entities/temporal-context-model.md]]) |

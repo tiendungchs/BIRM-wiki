@@ -248,6 +248,26 @@ Every design above locates capacity in the carrier — distinguishable stable st
 
 ---
 
+## Or the limit can be a safety margin the store imposes on itself
+
+Every locus above is a ceiling the substrate *suffers*: distinguishable stable states, distinguishable facilitated populations, noisy transitions, softmax competition at the read. Arnsten et al. 2010 name a fourth that the store *chooses* ([[wiki/concepts/dynamic-network-connectivity.md]]).
+
+Recurrent excitation is intrinsically unsafe, so prefrontal microcircuits run a negative feedback loop — delay activity → Ca²⁺ through NMDA receptors → small-conductance Ca²⁺-activated K⁺ channels → shunt of the network input at the spine.
+
+| Manipulation in rat prefrontal cortex | Effect on working memory |
+|---|---|
+| Apamin (blocks the SK potassium channel) | **Improves** performance; also increases the prefrontal NMDA current |
+| Xestospongin C (blocks IP₃-mediated intracellular Ca²⁺ release) | **Improves** performance |
+| Genetic loss of the same brakes (HCN reduction; a mutation preventing protein kinase A from opening KCNQ2/3) | Lowered cortical seizure threshold; childhood epilepsy |
+
+Three things this changes:
+
+- **The store is running below its achievable capacity, and the shortfall is recoverable pharmacologically** — which no resource account predicts ([[wiki/empirical-tensions.md]] T104). The price of removing the margin is named in the third row: seizures.
+- **The handoff to the episodic store gets a cause.** The authors offer the same feedback as the reason hippocampal connections are required beyond ~10–30 s, so the fast-**M**/slow-store boundary is set by a stability constraint rather than by a decay constant.
+- **(brainstorm) Every recurrent store in the wiki pays this tax and none reports it as a capacity number.** Spectral-radius clipping, activity normalisation and adaptation currents ([[wiki/entities/adaptive-cann.md]]) are all stability regularisers. The experiment is one sweep: lower the regulariser until the network destabilises, recording item capacity along the way. A monotone rise up to the instability point would say the wiki's stores are all holding an unmeasured margin too.
+
+---
+
 ## Mapping to the core framing
 
 | Working-memory element | Latent-graph element |
@@ -346,3 +366,4 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/concepts/controller-knowledge-vs-process.md]]** — dissolves this page's store into a duration: if a "process" is just a set of long-term representations held active, then working memory has no occupancy of its own, and its capacity claim becomes how many stored items can be co-activated rather than how many slots exist (Wood & Grafman 2003).
 - **[[wiki/concepts/inter-areal-synchrony.md]]** — the measurement layer under this page's phase dissociation: the encoding requirement lives on the direct link (gamma, abolished by terminal silencing) and the choice-point requirement on an indirect route (theta, untouched), so a spatial working-memory deficit can be a lesion of either pathway or of the clock that times them.
 - **[[wiki/concepts/control-unity-and-diversity.md]]** — places this store's operations inside the control layer's factor structure: updating carries variance, genetics and a dopamine D1 dependence separable from set-shifting, and intelligence loads on that updating-specific component *in addition to* the common control factor — so capacity is not a symptom of general control (Friedman & Robbins 2021).
+- **[[wiki/concepts/dynamic-network-connectivity.md]]** — a fourth locus for this page's capacity limit, and the only one that is *imposed rather than suffered*: prefrontal recurrence is held below its achievable level by a Ca²⁺→K⁺ shunt that exists to prevent runaway excitation, and blocking that shunt (apamin, xestospongin C) improves working memory — which also supplies a cause for the ~10–30 s handoff to the hippocampal store (Arnsten et al. 2010).
