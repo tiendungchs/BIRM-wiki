@@ -30,6 +30,19 @@ Every other evaluation instrument in the wiki scores a system from outside: beha
 
 ---
 
+**A probe that fits nothing and needs no labels: decode the pre-image and read what is invariant** (Assran et al. 2023, [[wiki/entities/i-jepa.md]]). Freeze the network, train a *conditional generative* decoder (RCDM) from the representation back to pixels, then sample it several times from one representation. What is **constant across samples** is what the representation contains; what **varies** is what it discarded. Run on an image JEPA's predictor output it returns: object parts with correct pose and the positional uncertainty of the predicted region as constants, precise low-level detail and background as variables.
+
+| Property | This probe | The table above |
+|---|---|---|
+| Needs labels | **no** | yes |
+| Needs an ontology / coordinate system | **no** | yes — and the Othello case shows it moves a result from 75% to 99.6% |
+| Decoder deliberately weak | **no** — deliberately strong | yes |
+| Returns | a set of images, read by a human | a number |
+
+It is the generative twin of the input-side counterfactual row: both return a *grouping* without names rather than a score against a hypothesis, which is what makes them the only two instruments here that do not presuppose the structure they look for. The costs are real — a strong decoder can supply detail the representation did not carry (the usual objection to decoding probes, unaddressed here), and "read by a human" scales to figures, not to benchmarks.
+
+---
+
 ## What a successful probe does and does not establish
 
 | Claim | Licensed? |
@@ -169,3 +182,4 @@ Every reverse-inference verdict is relative to the `k` domains entered. The sour
 - **[[wiki/concepts/cross-modal-grounding.md]]** — a probe whose null is a second *trained* model: déjà vu memorization decodes objects from a caption embedding by `k`-NN over a held-out public set, and is only defined as the gap against a reference CLIP trained without that image–caption pair — the strictest control any probe in the wiki uses, and the only way to interrogate an encoder that has no decoder.
 - **[[wiki/entities/dinov2.md]]** — probe class as a free parameter with architectural consequences: `k`-NN and linear top-1 rank four of that model's design decisions oppositely, and the recipe was selected on the former; it also supplies the wiki's strongest frozen-feature result (fine-tuning 1.1B parameters beats a linear layer by 2.0 points) and a label-free correspondence probe — patch-feature assignment between images of *different* objects.
 - **[[wiki/entities/byol.md]]** — the sharpest caveat on the random-initialisation control: the same untrained network reads out at 1.4% as a classifier and supports 18.8% when used as a *prediction target*, so "random baseline" bounds what the chosen probe can extract and not what the representation contains.
+- **[[wiki/entities/i-jepa.md]]** — the label-free, ontology-free probe this page was missing: decode the frozen representation with a conditional diffusion model and read what stays constant across samples, which answers "what is in here?" by sampling the pre-image instead of fitting a hypothesis to the activations.
