@@ -275,6 +275,76 @@ The gap to the heuristic is an **objective mismatch, not a scheduling artefact**
 
 ---
 
+## The same objective by gradient descent — and the correction that pays depends on where the uncertainty lives
+
+> **Fifth primary source.** `raw/nuijten-2026-efe-planning-variational-inference.md` — Nuijten, van de Laar & de Vries, arXiv:2606.20658, 2026. Same group as the third source, six weeks later, and the two are the *same result derived twice for two different optimisers*: there the corrections are entropy terms implemented as factor-graph channels and run by message passing; here they are **epistemic priors** in the denominator of an ordinary variational free energy, run by Adam on a JAX-parameterised posterior. What is new is (i) the complexity term that survives the decomposition, (ii) a plan-vs-policy ablation, and (iii) a temporal factorization that gets active inference onto a standard reinforcement-learning benchmark.
+
+**Proposition 1.** Augment the rollout model with a preference prior `p̂(x)` *and* three epistemic priors, and assume the posterior factorizes as `q(y,x,u,θ) = q(y,θ|x) q(x|u) q(u)`:
+
+```
+F[q] = E_q[ log q(y,x,u,θ) / ( p(y,x,u,θ) · p̂(x) · p̃(u) p̃(x) p̃(y,x) ) ]
+
+p̃(u)   ∝ exp(  H[q(x|u)] )                              → risk
+p̃(x)   ∝ exp( −E_{q(θ|x)} H[q(y|x,θ)] )                 → ambiguity
+p̃(y,x) ∝ exp(  D_KL[ q(θ|y,x) ‖ q(θ|x) ] )              → novelty
+
+⇒  F[q] = E_{q(u)}[G(u)]  +  E_q[ log q(y,x,u,θ)/p(y,x,u,θ) ]  +  const
+              expected plan cost            complexity
+```
+
+Each prior is exactly the negative of the entropy term it is meant to cancel, so "epistemic prior" is a bookkeeping device, not a preference — the authors say so. The priors depend on `q`, so the optimisation is a **fixed point**: minimise a free energy whose priors are functions of the minimiser. Gradient descent converges anyway on all three environments tested, which is the practical difference from the channel scheme (min-max, hand-tuned damping, ~150 iterations).
+
+**The optimal posterior over plans carries a third term the standard formula omits.**
+
+```
+q*(u) = σ( −P(u) − G(u) − C(u) ),    P(u) = −log p(u),   C(u) = complexity of the plan-conditioned posterior
+```
+
+Friston et al. 2021 give `σ(−G)`; the variational derivation adds the plan prior *and* the belief-change cost `C(u)`. **(brainstorm)** `C(u)` is a bias toward plans the agent's current beliefs already support — a laziness term with the same shape as the description-length penalty [[wiki/concepts/universal-induction.md]] pays for hypotheses. It is the one term on this page that argues *against* exploration, and it appears for free.
+
+### Plans vs. policies: the ablation that separates the two corrections
+
+Three environments, chosen so that each isolates a different failure. `F_marginal` = VFE + preference prior only (KL control). `F_planning` = `F_marginal` + the Lázaro-Gredilla action-entropy correction (the wiki's *cross-entropy planning* rung). `F_active` = full epistemic priors. Standard EFE planning and Sophisticated Inference are tabular pymdp baselines.
+
+| Environment | What is unknown | `F_marginal` | `F_planning` | `F_active` | Standard EFE (plan-based) | Sophisticated Inference |
+|---|---|---|---|---|---|---|
+| T-maze (deterministic) | latent context `θ` behind a cue | 48% | 52% | **100%** | 100% | 100% |
+| Reactivity Maze (stochastic) | `θ` + which action works depends on realised state | 0% (safe sink) | 17% | **100%** | 61% (cue 66%) | 94% |
+| MiniGrid DoorKey-8×8 (partially observable, `T=20`) | key/door locations, revealed by a 3×3 field of view | 4% | **89%** | **89%** | cannot run | cannot run |
+
+Read the columns, not the bold: **the two corrections are necessary in disjoint regimes, and neither subsumes the other.**
+
+| Regime | Which correction pays | Why |
+|---|---|---|
+| Uncertainty concentrated in a latent parameter resolved by a *dedicated* probe (cue) | epistemic priors (`F_active`) | nothing else can anticipate that a detour will resolve `θ`; cue-visit rate is 0% without them |
+| Long-horizon multi-step coordination under partial observability, uncertainty resolved *incidentally* by moving | the action-entropy planning correction (`F_planning`) | `4% → 89%`; without it the agent cannot chain find-key → unlock → goal. Epistemic priors "neither help nor hinder" here |
+
+This is a direct qualification of the third source's ranking, where the planning correction was worth `51.9 → 54.5%` and novelty carried everything. Both measurements are from the same group; they disagree because the environments put the uncertainty in different places. See [[wiki/empirical-tensions.md]] T126.
+
+**The plan-vs-policy result is the part with an architectural consequence.** A *plan* is a fixed sequence `u = (u_1,…,u_T)`; a *policy* is `q(u_t|x_{t-1})`. Under stochastic transitions, plan-based EFE evaluation systematically undervalues an action whose worth lies in what it *enables*: if `u_1` leads to either of two intermediate states, each requiring a different follow-up, then both `(u_1, u_2^{(1)})` and `(u_1, u_2^{(2)})` score badly in isolation and `u_1` inherits their cost. Inference over the *joint* posterior and marginalising —
+
+```
+q(u_t|x_{t-1}) = q(u_t, x_{t-1}) / q(x_{t-1})
+```
+
+— prices `u_1` against *all* future trajectories paired with the responses the agent would make, so contingency is recovered without recursive belief modelling. Measured: Reactivity Maze, plan-based Standard EFE visits the cue in 66% of episodes because it cannot anticipate being able to react to what the cue says; `F_active` and Sophisticated Inference visit it in 100%. **The agent must be able to represent that it will still be able to choose later, or information-gathering does not look worth it.**
+
+**Scalability comes from temporal factorization, and it is what gets EFE onto a benchmark.** The tabular joint posterior is exponential in the horizon (180,256 parameters for a five-state T-maze at `T=4`). Imposing the generative model's own Markov structure on the posterior —
+
+```
+q(y,x,u,θ) = q(θ) Π_t q(u_t|x_{t-1}) q(x_t|x_{t-1},u_t,θ) q(y_t|x_t,θ)
+```
+
+— makes it linear in `T`, *and* the factor `q(u_t|x_{t-1})` is literally the reactive policy. DoorKey-8×8 at `T=20` runs; Standard EFE planning and Sophisticated Inference cannot be instantiated there at all, because both enumerate states and observations.
+
+### What this changes for the wiki
+
+- **"EFE needs tree search" is retired.** Two independent variational routes now run the same objective without enumeration: message passing with channel kernels, and plain gradient descent on a factorized posterior. The remaining obstacle to a deep implementation is the estimator defect (fourth source), not the search.
+- **The policy/plan distinction is a *representational* requirement on the planner, not a search heuristic.** It costs nothing extra — the same joint posterior, marginalised differently — and it is what makes epistemic value survive stochasticity. Any rollout scorer in the wiki that evaluates fixed action sequences ([[wiki/concepts/simulation-based-planning.md]]'s model-predictive-control row, H-JEPA's action-sequence optimisation) inherits the same underestimation.
+- **The epistemic term *did* pay here, in a gradient-based implementation.** `F_active` beats every ablation on both environments where the unknown is a latent parameter, and beats Sophisticated Inference (100% vs 94%) on the stochastic one. This is the first entry in the wiki where a gradient-optimised epistemic term earns its place — narrowing [[wiki/empirical-tensions.md]] T125 to *neural amortised one-step estimators* rather than gradient optimisation as such.
+
+---
+
 ## What this buys for building a reasoning model
 
 - **The exploration term is not a hyperparameter — but it *is* a coefficient, and its value is a claim that can be wrong.** `−log ρ_t(s)` falls out of the objective's gradient, and the ρ-POMDP reduction names what the gradient is worth: an information-gain bonus at exactly `w = 1` nat (Cooper & Velasquez 2026). That is a derived weight, not the absence of one, and it is reward-near-optimal in only ~32% of random two-state environments at depth 3 ([[wiki/empirical-tensions.md]] T123). A reasoning agent that must discover latent structure ([[wiki/concepts/latent-graph-discovery.md]]) needs to visit edges it has not traversed; here the drive to do so is the derivative of the planning objective, and the gridworld result shows it measurably accelerates identification of the transition kernel.
@@ -301,6 +371,10 @@ The gap to the heuristic is an **objective mismatch, not a scheduling artefact**
 - **No implementation has ever shown the epistemic term paying its way.** Across five one-step neural estimators × three action-selection rules × two agent depths, the reward-only ablation wins every comparison, and the closest thing to a principled estimate collapses the policy onto a single action ([[wiki/empirical-tensions.md]] T125, Champion et al. 2023). Whether that is a fact about EFE or about horizon-1 state-based estimators is exactly what nobody has tested.
 - **The epistemic term's *sign* is not standardised, and it is not checked.** Written as a bonus for expected belief change it drives exploration; written as a penalty for disagreement between the forward model and the encoder it drives the agent to stop acting. Both are in circulation under the name "epistemic value", and the tabular experiment shows the underlying decomposition itself flips exploratory reading depending on whether the likelihood or the prior is the distribution moving (Champion et al. 2023).
 - **The deep estimator is not the objective.** `Q(s_{t+1}|a_t)` is estimated from a factor of the *generative* model rather than the variational distribution in every deep implementation surveyed, so none of the exact results on this page — the convex-MDP reduction, the ρ-POMDP identity, the entropy-correction theorem — is known to describe what deep active-inference code minimises.
+- **Plan-based scoring is wrong under stochastic dynamics, and nothing says how deep the contingency must be represented.** Marginalising a joint posterior recovers within-horizon adaptability for free, but only *within* the horizon: at the boundary the agent again evaluates as if it will never choose again. Whether the underestimation of enabling actions reappears at the horizon edge is untested (Nuijten et al. 2026).
+- **The two corrections have no joint theory, only a pair of environments each.** The action-entropy planning correction is worth `+2.6%` in one paper's grid-worlds and `+85%` in the other's DoorKey; the epistemic priors are worth everything in the T-maze and exactly nothing in DoorKey. No principle predicts in advance which regime a task is in ([[wiki/empirical-tensions.md]] T126).
+- **The complexity term `C(u)` in `q*(u) = σ(−P(u) − G(u) − C(u))` is derived and then never studied.** It penalises plans that require large belief change, i.e. it opposes exploration, and every EFE implementation that uses Friston's `σ(−G)` silently sets it to zero.
+- **The epistemic priors are functions of the posterior they weight.** Planning is a fixed-point problem, not a minimisation; gradient descent converges empirically on three environments and there is no guarantee.
 - **Nothing here makes the preference distribution `p̃` come from anywhere.** It is given. The pragmatic half of EFE is as unexplained as a reward function; the paper's own framing ("equivalent to reward maximisation in a latent MDP") makes that explicit rather than hiding it inside a free-energy story.
 
 ---
@@ -324,4 +398,6 @@ The gap to the heuristic is an **objective mismatch, not a scheduling artefact**
 - **[[wiki/concepts/simulation-based-planning.md]]** — the objective made runnable without tree search: promoting each corrected conditional to a free channel via Gibbs' inequality turns the whole ladder (belief propagation → cross-entropy planning → risk-minimising → full EFE) into sum-product message passing on one factor graph with kernels substituted for factors (Nuijten et al. 2026).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the empirical case for the parameter reading of the epistemic term: when the unknown layout *is* the parameter `θ` and a probe returns one noisy reading, only the novelty correction makes probing worth anything at all — which is precisely the situation of an agent inferring a hidden graph (Nuijten et al. 2026).
 - **[[wiki/entities/deep-active-inference-agent.md]]** — the implementation side of this page and its sharpest counterweight: five one-step neural estimators of `G`, each beaten by its own reward-only ablation, with the failure traced to an epistemic term that an agent minimises by restricting its own data distribution rather than by gathering information ([[wiki/empirical-tensions.md]] T125, Champion et al. 2023).
+- **[[wiki/concepts/simulation-based-planning.md]]** — the representational condition under which this objective's epistemic term survives stochastic dynamics: score a *policy* `q(u_t|x_{t-1})` obtained by marginalising the joint posterior, not a fixed plan, or the value of an action whose worth is what it enables gets charged the cost of every rigid continuation of it (Nuijten et al. 2026).
+- **[[wiki/concepts/amortized-inference.md]]** — the scalability route that replaces enumeration: imposing the generative model's Markov structure on the variational posterior makes the parameter count linear rather than exponential in the horizon, and the per-step factor `q(u_t|x_{t-1})` *is* the compiled reactive policy (Nuijten et al. 2026).
 - **[[wiki/entities/deep-active-inference-agent.md]]** — and the estimator defect that decouples every exact result above from running code: deep implementations substitute the generative factor `P_θs(s_{t+1}|ŝ_t,a_t)` for the variational `Q(s_{t+1}|a_t)` inside the expectation, so their `G` is not the expectation of their `F`.

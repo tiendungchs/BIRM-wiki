@@ -98,11 +98,44 @@ The wiki's first concrete proposal for row 2, from [[wiki/entities/h-jepa.md]]:
 
 ---
 
+---
+
+## Plans vs. policies: what a rollout must be scored over
+
+> `raw/nuijten-2026-efe-planning-variational-inference.md` — Nuijten, van de Laar & de Vries, arXiv:2606.20658, 2026.
+
+A distinction every entry in the *Machine instantiations* table above quietly takes a side on, with a measured cost for getting it wrong.
+
+| | **Plan** | **Policy** |
+|---|---|---|
+| Object | fixed sequence `u = (u_1,…,u_T)` | state-conditioned `q(u_t\|x_{t-1})` |
+| Represents | what the agent will do | what the agent will do *in each state it might reach* |
+| Who does this | model-predictive control (action-sequence optimisation, [[wiki/entities/h-jepa.md]]), standard EFE planning, most MCTS rollout scoring | Sophisticated Inference (recursive belief modelling); variational inference over a joint posterior, then marginalise |
+
+**The failure is specific and it only appears under stochastic transitions.** Suppose action `u_1` leads to either of two intermediate states, and each requires a *different* follow-up to reach the goal. Then `(u_1, u_2^{(1)})` fails whenever the transition goes the other way, and so does `(u_1, u_2^{(2)})`. Every plan containing `u_1` scores badly in isolation, so `u_1` is undervalued — even though taking `u_1` and then adapting is optimal. **Plan-based scoring cannot represent "and then I will still get to choose", so it prices enabling actions as if the agent were about to go rigid.**
+
+The repair costs nothing structural: run inference over the *joint* posterior `q(y,x,u,θ)` and marginalise,
+
+```
+q(u_t|x_{t-1}) = q(u_t, x_{t-1}) / q(x_{t-1})
+```
+
+which scores `u_1` against all reachable futures *paired with the responses the agent would make to each* — contingency without recursive belief modelling and without a tree. Impose the generative model's own Markov factorization on the posterior and `q(u_t|x_{t-1})` is literally a per-timestep factor, so the policy is not extracted after planning, it is a variational parameter.
+
+**Measured.** On a stochastic maze where a cue resolves a latent goal but costs a step and carries a prior penalty: plan-based standard EFE planning visits the cue in 66% of episodes and succeeds in 61%, because it cannot anticipate being able to *react* to what the cue says and so takes a guaranteed-mediocre sink instead; the two policy-based methods visit it in 100% (94% and 100% success). Under *deterministic* transitions (a T-maze) plan- and policy-based methods are indistinguishable at 100% — which is why the distinction is invisible in most of the wiki's benchmarks.
+
+**(brainstorm)** This sharpens the value-of-information argument generally: **information is only worth gathering by an agent that models itself as still able to choose afterwards.** A planner that scores fixed sequences will always undervalue probing, in proportion to how much of the environment's branching it cannot commit around. That makes plan-vs-policy a precondition for gap G15's *which branch* question rather than a detail of it — before deciding where to spend a rollout, the scorer must be over an object that can express contingency.
+
+**Scale consequence.** The tabular joint posterior is exponential in horizon (180,256 parameters for a 5-state maze at `T=4`); the Markov-factorized posterior is linear, and runs MiniGrid DoorKey-8×8 at `T=20` (89% success) where the enumerating tabular planners cannot be instantiated at all. See [[wiki/concepts/expected-free-energy.md]].
+
+---
+
 ## Open problems
 
 - **Learning the model without priors.** Everything above assumes a model exists; acquiring it *is* latent graph discovery.
 - **What initiates a rollout, and what stops it?** No account of the control policy over simulation — when to plan, how deep, which branch, when the answer is good enough (gap G15).
 - **The depth question has no answer even in the ideal agent.** In AIXI, planning *is* expectimax over the future — `max_y Σ_x max_y … Σ_x (credit sum)` — and the horizon `m_k` is the model's only remaining free parameter. Every parameter-free proposal fails: known lifetime `T` is unavailable, exponential discounting introduces a timescale `1/λ`, power-law discounting `k^−α` introduces a dynamic one, and the unbounded limit misbehaves (Hutter's example has the *optimal* agent postpone the rewarding action forever and score zero). The least arbitrary choice is `h_k = β·k` — farsightedness proportional to elapsed history, `β ≈ 1` matching the observation that humans of age `k` rarely plan beyond `k` years. Gap G24; see [[wiki/entities/aixi.md]].
+- **The horizon edge re-introduces the plan/policy failure.** Marginalising a joint posterior buys contingency only inside the planning horizon; at the boundary the agent again scores as though it will never choose again, and nobody has measured whether enabling actions are undervalued there (Nuijten et al. 2026).
 - **Compounding model error.** Rollout accuracy decays with horizon; jumpy hierarchical planning may be as much an error-control device as an efficiency device.
 - **Creativity.** The hardest stated target: an agent that plans hierarchically and generates solutions that elude humans.
 - **Who sets the subgoals?** H-JEPA's hierarchical planner requires a module that decomposes a task into a sequence of individually achievable subgoals and configures the cost for each. The source calls that module "the most mysterious" in its architecture and leaves it explicitly unspecified — so the mechanism above assumes the decomposition rather than producing it (gap G33).
@@ -127,6 +160,7 @@ The wiki's first concrete proposal for row 2, from [[wiki/entities/h-jepa.md]]:
 - **[[wiki/concepts/causal-model-building.md]]** — supplies what the rollout runs on: a model is usable for planning only if its steps correspond to the environment's generative steps, and the re-goaling test above is that page's richness criterion applied to control.
 - **[[wiki/concepts/compositionality.md]]** — constructive recombination, listed here as a missing property, is compositionality applied to imagined scenarios; and sub-goal composition is the only cited route to planning under sparse reward.
 - **[[wiki/concepts/event-segmentation.md]]** — supplies the multi-scale graph to plan over (episodes compress schema chains) and runs path search *backwards*: chain event schemata by matching a desired final event to another schema's preconditions.
+- **[[wiki/concepts/expected-free-energy.md]]** — and what the rollout must be scored *over* rather than *by*: marginalising a joint posterior into `q(u_t|x_{t-1})` prices an action against the responses the agent would make to each stochastic outcome, which fixed-sequence scoring cannot express and which is what keeps information-gathering worth doing (Nuijten et al. 2026).
 - **[[wiki/entities/h-jepa.md]]** — the fullest worked instantiation of this page: model-predictive control on a learned world model and a learned cost, with high-level actions reinterpreted as conditions on lower-level states, which is the wiki's first mechanism for the jumpy multi-scale row above.
 - **[[wiki/entities/hbtom.md]]** — the inverse direction with numbers on it: run the same MDP rollout machinery backwards over another agent's trajectory to recover its utilities and its degree of rationality, in a domain where the transition model is hand-supplied so only the inversion is being tested.
 - **[[wiki/concepts/energy-based-models.md]]** — planning restated as constraint satisfaction: the action sequence is a set of free variables and the plan is the configuration minimising a summed energy, which makes actions and latents the same kind of object.
