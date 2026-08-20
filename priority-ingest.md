@@ -22,7 +22,7 @@ One INGEST each:
 - [x] `talk-nd-free-energy-principle.txt` — active-inference · X · nd
 - [x] `gerfen-2011-striatal-dopamine-modulation.md` — rl-planning · S · 2011
 - [x] `helie-2013-basal-ganglia-cognitive-models.md` — rl-planning · S · 2013
-- [ ] `doya-2002-metalearning-neuromodulation.md` — rl-planning · F · 2002
+- [x] `doya-2002-metalearning-neuromodulation.md` — rl-planning · F · 2002
 - [ ] `daw-2005-uncertainty-based-arbitration.md` — rl-planning · F · 2005
 - [ ] `botvinick-2008-hierarchical-rl-behavior.md` — rl-planning · F · 2008
 - [ ] `bogacz-2007-basal-ganglia-optimal-decisions.md` — rl-planning · M · 2007
