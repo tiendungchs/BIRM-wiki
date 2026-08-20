@@ -119,6 +119,23 @@ Also: in Parkinson's models it is the **timing** of activity in the two pathways
 
 ---
 
+### Which competition is the module in?
+
+> **Third source.** Daw, Niv & Dayan 2005 (`raw/daw-2005-uncertainty-based-arbitration.md`).
+
+The habitual/goal-directed dichotomy is usually drawn as striatum-versus-cortex. This source draws it *inside* the module and inside the loops:
+
+| Claim | Content | Consequence for a builder |
+|---|---|---|
+| The cache system is **dorsolateral** striatum plus its dopaminergic afferents | Lesions or dopamine depletion there leave learning intact but keep overtrained lever-pressing devaluation-sensitive — the animal never becomes habitual | Habitisation is a property of a *specific* loop, not of striatal learning in general |
+| The tree-search system includes **dorsomedial** striatum, not just prefrontal cortex | Prefrontal-associated striatal territory is implicated in goal-directed control (Yin et al. 2005); prefrontal cortex is itself dopaminergically innervated | The competition is best read as **dorsomedial vs. dorsolateral corticostriatal loop**, which makes it the same *kind* of relation as the anterior→posterior sequence-learning handover already on this page (Nakahara et al. 2001), rather than a cortex-vs-basal-ganglia opposition |
+| Dopamine's role in the tree system is **wholly unresolved** | The transmitter is assigned a teaching-signal role in the cache and nothing at all in the model-based controller | The wiki's dopamine accounts (T122, T129, T133) all describe one loop's learning signal; nothing states what the same transmitter does in the loop that plans |
+| Candidate substrates for the *arbitration itself*: infralimbic cortex and anterior cingulate | Infralimbic lesions reinstate goal-directed control from previously habitual behaviour, yet the area is not classically part of the habit system — so it may implement the competition rather than one side of it | The arbiter would be a third structure with its own lesion signature, which is the cleanest existing prediction for where a metacognitive estimator lives |
+
+**(brainstorm)** Read against the census above, this reframes the "relocation or distillation" question (T131): if both controllers are corticostriatal loops, then automatisation is neither — it is a *change in which loop wins an uncertainty comparison*, with both loops retaining a complete policy the whole time. That is testable with the recording prediction the source states: each system's activity should track its own preference even when the other is driving behaviour, so switching the arbitration factors (training amount, reward proximity) should switch which loop's activity correlates with choice, without either falling silent.
+
+---
+
 ## Limitations
 
 | Limit | Consequence |
@@ -148,3 +165,4 @@ Also: in Parkinson's models it is the **timing** of activity in the two pathways
 - **[[wiki/concepts/working-memory.md]]** — the module appears in five reviewed working-memory models and does a *different job* in each: write-enable on a thalamo-cortical reverberation, write-enable on a cortico-cortical one, or the reverberating loop itself — a three-way split that no behavioural datum yet separates, and only the last predicts the controller stays occupied for the whole retention interval (Helie et al. 2013, T130).
 - **[[wiki/concepts/skill-acquisition-efficiency.md]]** — the anatomy that decides what practice *costs*: if automatisation is distillation into cortico-cortical weights the module's capacity is returned, and if it is migration to a posterior striatal loop it is not — so the two readings of T131 give opposite answers to how many skills can be automated in parallel.
 - **[[wiki/concepts/neuromodulatory-metaparameters.md]]** — the same circuit read as a bank of hyperparameter registers rather than a selector: the direct/indirect balance is proposed to set the *discount factor* (via serotonergic control of the two pathways), globus pallidus's high spontaneous firing plus mutual inhibition is proposed as the noise source whose gain noradrenaline sets, and striatal cholinergic interneurons gate the dopamine-dependent plasticity as a learning rate. The conflict is direct — the explore-regime models assign that same direct/indirect balance to the exploration temperature instead ([[wiki/empirical-tensions.md]] T133) — and the discount-factor version additionally inherits the unsolved TD-computation circuit it is built on (Doya 2002).
+- **[[wiki/concepts/amortized-inference.md]]** — locates this module on one side of the model-free/model-based arbitration and then splits it: the cache is the dorsolateral loop (lesioning it blocks habitisation without impairing learning) while dorsomedial territory belongs to the tree-search system, so the arbitration is between two corticostriatal loops and the transmitter this page is organised around has no stated role in the planning one (Daw et al. 2005).

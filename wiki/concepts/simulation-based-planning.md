@@ -128,12 +128,28 @@ which scores `u_1` against all reachable futures *paired with the responses the 
 
 **Scale consequence.** The tabular joint posterior is exponential in horizon (180,256 parameters for a 5-state maze at `T=4`); the Markov-factorized posterior is linear, and runs MiniGrid DoorKey-8×8 at `T=20` (89% success) where the enumerating tabular planners cannot be instantiated at all. See [[wiki/concepts/expected-free-energy.md]].
 
+
+---
+
+## When to stop searching: uncertainty crossing as a depth rule
+
+> `raw/daw-2005-uncertainty-based-arbitration.md` — Daw, Niv & Dayan, *Nature Neuroscience* 8:1704–1711, 2005.
+
+The flexibility/speed trade-off cited above has a mechanism, and it is a quantity a planner can compute. Both controllers are run as approximate Bayesian learners; the estimate used for an action is the one whose **posterior variance** is smaller. Two consequences belong on this page rather than on [[wiki/concepts/amortized-inference.md]], where the full account sits:
+
+- **Search has an uncertainty cost that grows with depth.** Pruning and partial expansion inject *computational noise* into a derived value, modelled as accumulating with each search iteration. So a rollout's value gets *less* trustworthy the further it is carried, independently of model error — and this term, not data scarcity, is what eventually makes the cache the more reliable source. It predicts the within-chain dissociation: an overtrained action one step from reward stays devaluation-sensitive while the action before it does not.
+- **Partial evaluation turns that into a stopping rule.** Expand a path partway, substitute cached values for the unexpanded sub-trees, and compare the two uncertainties **at each node**: expand while the tree's accumulated computational noise is below the cache's uncertainty about the sub-tree, fall back when it is not. Depth is then not a parameter but the crossing point of two variances the agent is already maintaining (gaps G15, G24).
+
+**A structural routing signal, free from the model already held.** Caching is relatively advantageous under **fan-out** (one state followed randomly by several); linear or **fan-in** topologies favour search. This is the only criterion in the wiki that reads *when to plan* off the graph's shape rather than off experience or a resource budget — and the tree system's own transition estimate is what it is computed from, so it costs nothing extra ([[wiki/concepts/latent-graph-discovery.md]]).
+
+**(brainstorm)** The missing piece for a machine is exactly the noise term. Monte-Carlo tree search reports a visit count and a value, never an estimate of how much its own truncation cost it; without that, the crossing never happens and there is no principled moment to stop expanding or to hand the behaviour to a cached policy. A cheap surrogate — variance across independently pruned rollouts of the same node, compared against a value-head ensemble's variance — would instantiate the rule with machinery already present in AlphaZero-style planners, and would make planning depth an emergent per-node quantity instead of a schedule.
+
 ---
 
 ## Open problems
 
 - **Learning the model without priors.** Everything above assumes a model exists; acquiring it *is* latent graph discovery.
-- **What initiates a rollout, and what stops it?** No account of the control policy over simulation — when to plan, how deep, which branch, when the answer is good enough (gap G15).
+- **What initiates a rollout, and what stops it?** No account of the control policy over simulation — when to plan, how deep, which branch, when the answer is good enough (gap G15). The uncertainty-crossing rule above supplies a *stopping* criterion and a *depth* criterion from one quantity, but it presupposes calibrated variances on both sides, including one no machine planner computes — the uncertainty a truncated search injects into its own valuation (Daw et al. 2005).
 - **The depth question has no answer even in the ideal agent.** In AIXI, planning *is* expectimax over the future — `max_y Σ_x max_y … Σ_x (credit sum)` — and the horizon `m_k` is the model's only remaining free parameter. Every parameter-free proposal fails: known lifetime `T` is unavailable, exponential discounting introduces a timescale `1/λ`, power-law discounting `k^−α` introduces a dynamic one, and the unbounded limit misbehaves (Hutter's example has the *optimal* agent postpone the rewarding action forever and score zero). The least arbitrary choice is `h_k = β·k` — farsightedness proportional to elapsed history, `β ≈ 1` matching the observation that humans of age `k` rarely plan beyond `k` years. Gap G24; see [[wiki/entities/aixi.md]].
 - **The horizon edge re-introduces the plan/policy failure.** Marginalising a joint posterior buys contingency only inside the planning horizon; at the boundary the agent again scores as though it will never choose again, and nobody has measured whether enabling actions are undervalued there (Nuijten et al. 2026).
 - **Compounding model error.** Rollout accuracy decays with horizon; jumpy hierarchical planning may be as much an error-control device as an efficiency device.
@@ -189,3 +205,4 @@ which scores `u_1` against all reachable futures *paired with the responses the 
 - **[[wiki/concepts/precision-weighting.md]]** — the proposal to delete the value function outright: rollouts are scored against prior expectations over *sensory* trajectories, which are observed, rather than against a `V` over hidden states that must be solved for — demonstrated on mountain car, at the cost that re-goaling becomes model surgery (Friston 2009, G28).
 - **[[wiki/entities/deep-active-inference-agent.md]]** — the conflict a control policy over simulation inherits, with numbers: the agent that learns the transition structure best is the one taking uniformly random actions and scoring at chance, while the agent that solves the task predicts the environment worse — so G15's controller is also a data-collection policy for the model it rolls out on (Champion et al. 2023).
 - **[[wiki/concepts/neuromodulatory-metaparameters.md]]** — makes the horizon a regulated quantity rather than a chosen one: value estimates learned with `γ → 1` have high variance, the variance is visible in the TD error, so an agent can lower its own discount factor exactly when its long-range predictions stop being reliable — a computable answer to G24 that needs no lifetime estimate, and one carried by a specific transmitter (Doya 2002).
+- **[[wiki/concepts/amortized-inference.md]]** — and the quantity that decides between them: posterior variance per action, with the tree's variance growing by a *computational noise* term at each search iteration, so overtraining, task simplicity and distance from reward all push control to the cache while task complexity and reward proximity keep it in the search (Daw et al. 2005).

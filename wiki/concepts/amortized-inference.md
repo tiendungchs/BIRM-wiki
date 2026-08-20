@@ -50,6 +50,39 @@ where `h` is a free variable initialized from `q` and then updated to increase `
 | The arbitration is rational | A trade-off between flexibility and speed, resolved by an arbitration policy (Daw et al. 2005; Keramati, Dezfouli & Piray 2011) |
 | Habitization is the shift | With routine application, skills move from model-based to model-free control |
 
+The last row conflates two proposals the wiki has been citing together: arbitration by *reliability* (below) and arbitration by *value of computation* (Keramati et al. 2011). They are separable and predict different things under time pressure — [[wiki/empirical-tensions.md]] T135.
+
+### Arbitration by relative uncertainty — the primary account
+
+> `raw/daw-2005-uncertainty-based-arbitration.md` — Daw, Niv & Dayan, *Nature Neuroscience* 8:1704–1711, 2005.
+
+The "arbitration is rational" row above is a second-hand summary of this paper. The mechanism it actually proposes is sharper than a flexibility/speed trade-off, and it is the wiki's only **computable** candidate for the metacognitive estimator this page's open problems say is missing.
+
+**The rule.** Run both controllers as approximate Bayesian learners, so each returns a *posterior* over each action's value rather than a point estimate. For each action, adopt the estimate of whichever controller has the smaller posterior variance; choose among actions in proportion to the resulting values. Three properties a builder should notice:
+
+- The arbitration variable is a quantity **each learner already tracks** — no separate metacognitive module, no value-of-computation calculation, no learned meta-policy.
+- It is **per action**, not a global mode switch: the same animal can be goal-directed about magazine entry and habitual about the lever press that precedes it.
+- It is explicitly the multisensory-integration move (weight evidence by reliability), but taken as a **winner-take-all on certainty**, not a weighted average — and the adopted estimate is not necessarily the *larger* one, so this is estimation control, not a bias toward optimism.
+
+**Why the two uncertainty curves cross, and where.** Both controllers assume the task can drift, which puts a finite effective time horizon on past data and makes both uncertainties asymptote at nonzero levels. Which asymptote is lower depends on four factors, each matched to a devaluation result:
+
+| Factor | Winner | Mechanism |
+|---|---|---|
+| Early training | **tree** | Under a model, one morsel of experience immediately propagates to the values of *all* states; bootstrapping (using cached successor values as stand-ins) delays that propagation, which is the precise sense in which model-free learning is data-inefficient |
+| Overtraining, simple task, action distal from reward | **cache** | Tree search pays **computational noise** — inaccuracy from pruning and partial expansion — that *accumulates with each search iteration*; the cache recalls instead of computing and pays none |
+| Proximity to reward | **tree** | One fewer iteration to evaluate ⇒ less accumulated computational noise. Predicts the observed dissociation *within one behaviour chain*: overtrained magazine entry stays devaluation-sensitive while the lever press that precedes it does not |
+| Task complexity, frequent reversals | **tree** | Experience is spread over more states and actions, so data per action stay scarce and the tree's data-efficiency advantage never expires — overtrained two-action/two-outcome tasks remain devaluation-sensitive |
+| Task topology | fan-out ⇒ **cache**; fan-in or linear ⇒ **tree** | Long-known in reinforcement learning; the only *structural* (rather than experiential) routing signal in this section, and it is computable from the model the tree already holds |
+
+**Partial evaluation makes the same rule a depth criterion.** Search partway along a path, then substitute cached values for the unexpanded sub-trees, comparing the two uncertainties *at each node* to decide expand-or-fall-back. This converts the controller switch into a per-node stopping rule: **planning stops where the tree's accumulated computational noise exceeds the cache's uncertainty about the sub-tree** — a candidate for gap G24 (*how deep*) and not only G15 (*when to plan*), derived from the same single quantity.
+
+**Incentive learning, reinterpreted, with a falsifier.** The standard account holds that an animal must experience the reinforcer in its devalued state so the goal-directed system can *learn* the new value. Daw et al. instead read the exposure as **reducing the tree system's uncertainty** (confirming what it already knew), which promotes tree dominance. The strong prediction: in animals whose caching system is lesioned, the requirement for incentive-learning experience should **vanish entirely**. Not run, and it separates a learning account from an arbitration account cleanly.
+
+**Both controllers are rational.** The paper sets itself against the economic framing in which an impulsive limbic system interferes with a rational prefrontal one: here the two pursue identical ends and the cache is simply the approximation that trades accuracy for tractability. The wiki's habitual reading of model-free control as *the failure mode* is the framing this paper rejects — consistent with the amortization inversion at the end of this section.
+
+**(brainstorm) What blocks the machine version is one missing term.** The rule needs both learners to emit calibrated variances on a shared scale; a deep model-based/model-free pair emits neither, and ensembles or dropout give a variance for the value head but nothing for **computational noise** — the tree's uncertainty about its *own* approximation. Monte-Carlo tree search does not report how much its pruning cost it. Without that term the crossing that produces habits cannot occur, which is a compact statement of why machine agents have no principled reason to stop planning and no principled route to automatisation: they are missing the one uncertainty that grows with thinking.
+
+
 **Consequence for gap G15** (no control policy over simulation): arbitration is the *when-to-plan* question answered by a second criterion — an estimated value of computation — rather than by the free-energy drive [[wiki/concepts/predictive-coding-free-energy.md]] supplies. The two are compatible and neither answers *how deep* (gap G24).
 
 **The one case where both modes are recorded on the same knowledge.** Barron et al. 2020 ran a sensory-preconditioning inference task (`X→Y` day 1, `Y→Z` day 2, `X` alone day 3) in humans and mice and found the *expensive* and the *compiled* route to the same answer running in one brain:
@@ -110,7 +143,7 @@ The fourth row is the architectural proposal: **the neural network is the infere
 ## Open problems
 
 - **Amortization is only as good as the training distribution of the recognition net.** It inherits meta-learning's knowledge-boundedness limit exactly: queries outside the sampled space get a fast, confident, wrong answer, with no signal that the expensive path should have been taken.
-- **Nothing decides when to fall back.** Arbitration between fast approximation and slow exact inference is asserted to be metacognitive and rational; no computational account of the metacognitive estimator is given.
+- **What decides when to fall back is now specified but not implemented.** Daw et al. 2005 give the estimator — relative posterior variance, per action, with a partial-evaluation version that also sets depth — so the gap is no longer conceptual. What is missing is a machine pair of controllers that emits calibrated variances at all, and in particular any estimate of the *computational* noise a truncated search injects into its own valuation.
 - **The guided-search claim is not mechanised.** "Aha!" sequences and abstract-feature-guided hypothesis selection are described behaviourally; what computes the type of a question, and what prunes the answer space with it, is unspecified.
 - **Consolidation direction is unproven in machines.** Offline replay of model-based rollouts into a model-free learner is proposed as a form of consolidation, but replay in current systems decorrelates a training stream rather than transporting structure — the same defect as gap G14, one level down.
 
@@ -145,3 +178,5 @@ The fourth row is the architectural proposal: **the neural network is the infere
 - **[[wiki/concepts/successor-representation.md]]** — the wiki's clearest worked example of compiling model-based computation into a cached object: half the Bellman computation stored ahead of time, with obstacle insertion as the exact price of the caching.
 - **[[wiki/entities/neuromatch.md]]** — structural amortisation on an NP-complete query: subgraph containment answered by precomputed order embeddings plus a coordinate comparison, with all the cost moved offline.
 - **[[wiki/concepts/precision-weighting.md]]** — the representational precondition for amortisation: free-form (sample-based) posteriors need neurons exponential in latent dimensionality, so only a fixed-form code — a small vector of sufficient statistics, with precision derivable from the mean — is something a recognition network can emit (Friston 2009).
+- **[[wiki/entities/basal-ganglia.md]]** — supplies the anatomy for the uncertainty arbitration and narrows it: the cache is specifically the dorsolateral corticostriatal loop, the tree system reaches into dorsomedial striatum, and infralimbic cortex is the candidate arbiter — a third structure whose lesion *reinstates* goal-directed control (Daw et al. 2005).
+- **[[wiki/concepts/neuromodulatory-metaparameters.md]]** — the candidate substrate for the arbitration variable: relative posterior variance has to be represented somewhere, and cholinergic/noradrenergic signalling is the standing proposal for carrying expected and unexpected uncertainty — the same transmitters Doya 2002 assigns to learning rate and exploration.
