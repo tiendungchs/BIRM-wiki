@@ -9,6 +9,7 @@ Structural maintenance pass over the whole wiki. Find decay, propose a fix plan 
 
 ## Steps
 
+0. **Check problematic works:** check to see if any operation coincides with any Opus 5 elevated error period, reported by https://status.claude.com/ , and discard or fix them if possible.
 1. **Read all three indexes** — `wiki/index-concepts.md`, `wiki/index-entities.md` — to establish full coverage.
 2. **Read the open-problem files:** `wiki/architectural-gaps.md`, `wiki/priority-tasks.md` and `wiki/empirical-tensions.md`.
 3. **Read all relevant concept and entity pages.** Batch the reads; this is the expensive part and it is not optional.
