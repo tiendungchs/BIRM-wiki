@@ -29,7 +29,7 @@ One INGEST each:
 - [x] `friedman-2021-prefrontal-cognitive-control.md` — prefrontal-control · S · 2021
 - [x] `arnsten-2010-dynamic-network-connectivity.md` — prefrontal-control · F · 2010
 - [x] `wang-2018-pfc-meta-rl-system.md` — prefrontal-control · F · 2018
-- [ ] `jensen-2026-planning-prefrontal-cortex.md` — prefrontal-control · F · 2026
+- [x] `jensen-2026-planning-prefrontal-cortex.md` — prefrontal-control · F · 2026
 - [ ] `martinet-2011-prefrontal-spatial-planning-model.md` — prefrontal-control · M · 2011
 - [ ] `collins-2013-task-set-structure-learning.md` — prefrontal-control · M · 2013
 - [ ] `boettiger-2005-frontal-stimulus-response-learning.md` — prefrontal-control · R · 2005
