@@ -63,7 +63,7 @@ And the failure profile is legible in the framing's own vocabulary: the models a
 
 | Limitation | Statement |
 |---|---|
-| **No causal evidence** | The entire case is correlational: probes, direct logit attribution and lens readings. The authors explicitly defer ablations and interventions on the identified heads to future work, so "the model uses the representation it contains" is unestablished (contrast Li et al. 2022 on Othello, where probe-directed interventions changed play) |
+| **No causal evidence** | The entire case is correlational: probes, direct logit attribution and lens readings. The authors explicitly defer ablations and interventions on the identified heads to future work, so "the model uses the representation it contains" is unestablished. The contrast case is now in the wiki and shows how cheap the missing step is: in [[wiki/entities/othellogpt.md]] a *single vector addition* along the probe direction changes play to match a counterfactual board, matching gradient-based editing (Nanda et al. 2023) |
 | **The graph is given, not discovered** | The adjacency list is in the prompt. Nothing here recovers topology from experience; the achievement is *re-representation* of an explicitly supplied graph into a parallel-accessible form |
 | **Probes are supervised** | Ground-truth walls train the decoder, so the instrument requires knowing the answer in advance — it cannot be run on a domain whose structure is what one is trying to find (gap G17) |
 | **Grokking claim is temporal co-occurrence** | Representation improvement and generalisation improvement coincide in training time; no intervention separates cause from common cause |
@@ -88,6 +88,8 @@ And the failure profile is legible in the framing's own vocabulary: the models a
 ## Connections
 
 - **[[wiki/concepts/representation-probing.md]]** — the instrument page this entity is the worked example of: linear probes, direct logit attribution and the TunedLens, together with the decoded-but-unused failure they exposed here.
+- **[[wiki/entities/othellogpt.md]]** — the missing causal step, run elsewhere: there a probe direction is *added* to the residual stream and play changes to match the counterfactual board (0.10 errors against a 2.72 null), which is exactly the ablation this page defers — and it comes with the opposite setup, a graph discovered from raw sequences rather than supplied in the prompt.
+- **[[wiki/concepts/linear-representation-hypothesis.md]]** — the assumption this page's whole instrument set rests on, and the caveat it never checked: the wall probes are linear, but a null linear probe here (as for `hallway`) could equally mean the wrong feature basis rather than no representation.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the cleanest available separation of the framing's two halves: the graph estimate is verifiably present and the navigation over it is still wrong, so *discovery* and *use* are shown to be independently failable.
 - **[[wiki/concepts/attention.md]]** — turns the page's "attention weights are a soft adjacency" brainstorm into a measurement: L5H3 attends to nodes at *path* length 1, i.e. it has learned the in-context adjacency matrix rather than the lattice's.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — emergent metric structure with no metric supplied: embedding distance tracks Manhattan distance from orthogonal one-hot inputs, which is a content-invariant positional code arising from the objective alone.

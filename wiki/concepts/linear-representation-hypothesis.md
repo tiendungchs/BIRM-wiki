@@ -1,0 +1,95 @@
+# Linear Representation Hypothesis
+
+**A feature is a *direction* in activation space: the network's state is a superposition `R = Σ_i a_i v_i` of feature vectors, the value of feature `i` is recovered by projection `a_i ≈ R · p_i`, and a belief is changed by addition `R' ← R + α p_d`. If true, reading and writing a network's internal content are both single matrix operations.**
+
+The hypothesis is old (word-vector arithmetic) and was long asserted without a case where the ground truth was known. It now has one: an emergent world model previously reported as *non-linear* is perfectly linear once the feature labels are written in the model's own frame, and the recovered directions steer behaviour by plain addition ([[wiki/entities/othellogpt.md]], Nanda et al. 2023).
+
+---
+
+## Why the linear case is not just a convenient case
+
+| Property | Consequence |
+|---|---|
+| **The residual stream is a sum** — `x^{l+1} = x^l + Σ_h Att^h_l(x^l) + MLP_l(·)` | Any *linear* function of the stream distributes over that sum, so a read decomposes exactly into per-head, per-layer, per-neuron contributions. This is what makes direct logit attribution, path attribution and the tuned lens possible at all. A non-linearly coded feature admits no such decomposition, and mechanistic interpretability has no foothold |
+| **Reads are projections** | The decoder is `d` numbers per feature; there is no capacity argument to be had about whether the probe "computed" the answer ([[wiki/concepts/representation-probing.md]]) |
+| **Writes are additions** | An intervention needs no optimisation loop. Editing a belief costs one `axpy`, which turns an interpretability result directly into a **control primitive** |
+| **Weight-space analysis becomes possible** | If both a feature direction and a component's output map are linear, their relationship is computable with no forward pass: `CosSim(Emb[m] @ Att_h.V @ Att_h.O, p_Empty(m)) = −0.862` establishes that a first-layer head writes `Not-Played` into other positions, from the weights alone |
+| **Superposition** | `d` dimensions can carry ≫ `d` features as near-orthogonal directions, at the price of interference. Linearity is what makes the overcapacity possible *and* what makes the residual noise tolerable |
+
+---
+
+## Evidence
+
+| System | Feature found as a direction | Strength |
+|---|---|---|
+| **[[wiki/entities/othellogpt.md]]** | Board square ∈ {Mine, Yours, Empty} | 99.6% linear-probe accuracy; **causal** — adding the direction changes play (0.10 / 0.02 errors vs 2.72 null), matching gradient-based editing |
+| **[[wiki/entities/othellogpt.md]]** | `Flipped` (squares captured this move) — a *state difference*, not a state | `F1` 96.3; causal (0.486 vs 1.686 null) |
+| **[[wiki/entities/maze-solving-transformers.md]]** | Wall presence per cell × direction, whole maze from one token | 0.83–0.99 per wall, correlational only |
+| Word embeddings, iGPT | Analogy directions; linearly separable image classes from a next-pixel objective | The original observations; no causal test |
+| Language-model steering | "Truthfulness" vectors, task vectors, steering vectors | Behavioural effect established; the *feature* is named by the intervention rather than verified against ground truth |
+| AlphaZero (chess, Hex) | Human chess concepts linearly decodable | Correlational |
+| Biology | Linear decodability of task variables from neural populations; CCGP as the format test | See [[wiki/concepts/population-geometry.md]] — the biological literature reached the same instrument independently, and found that *decodability* and *linear generalisability* dissociate |
+
+---
+
+## The basis problem — the hypothesis is not falsifiable one probe at a time
+
+The Othello case is the clean demonstration. Li et al. 2022 fit linear and non-linear probes for {Black, White, Empty}; linear saturated at ~75% across six layers, the MLP reached 98.7%, and the field recorded "the world model is non-linear". Re-labelling the *same activations* as {Mine, Yours, Empty} — the square's colour relative to whoever moves — put a linear probe above the MLP at every layer (99.6%). The MLP had been spending its capacity re-deriving a parity transform the model never applied.
+
+| Reading of a failed linear probe | Testable? |
+|---|---|
+| The content is absent | Yes — a stronger decoder settles it |
+| The content is coded non-linearly | Assumed by default, and **this is the unsafe step** |
+| The content is coded linearly in a basis the experimenter did not enumerate | Almost never tested; there is no procedure for enumerating candidate bases |
+
+The source's own limiting case: suppose a physics model computes gravity and a neuron carries `√distance`. Is distance non-linearly represented, or is `d²` simply the natural feature and the code linear in it? **"Linear" is a property of the pair (representation, feature vocabulary), not of the representation.** Consequences a builder should carry:
+
+- **A null probe result is nearly uninformative** unless the basis search was systematic — which compounds the null-result problem [[wiki/concepts/representation-probing.md]] already records for task distribution and site selection.
+- **The wrong basis is the *human* basis by default.** Black/White is what a person looking at a board sees; Mine/Yours is what a legality predictor needs, because the rules are symmetric under colour swap. The general heuristic: **guess the frame the model's own loss is invariant under, not the frame the domain is described in.**
+- **The only listed escape is basis-free discovery** — sparse dictionary learning over the activation space, which returns directions with no names and hands identification back to the experimenter, or input-side [[wiki/concepts/counterfactual-probing.md]], which returns a partition without fitting anything.
+
+---
+
+## What a linear feature does *not* buy
+
+- **It does not say the feature is used.** Directions can be present and behaviourally inert ([[wiki/empirical-tensions.md]] T25); only intervention settles it, and this page's central case is valuable precisely because it did the intervention.
+- **It does not say the feature is used *on this input*.** In OthelloGPT the board direction is verified causal and the model still often computes legal moves at an earlier layer than the board in end games (`MoveFirst`), which implies a second, cheaper circuit running in parallel (T158). An averaged intervention score cannot separate "always used, partially" from "fully used, sometimes".
+- **It does not say the direction is one feature.** Under superposition a fitted direction may be a mixture of several sparsely-active features that happen to co-occur on the probe set.
+- **It does not explain itself.** Why linear codes emerge from gradient descent is open. The only gesture on offer — a matrix multiplication can cheaply extract a *different* linear subset of features for each downstream unit, so linear encoding is the format that makes every downstream read cheap — is a plausibility argument, not a derivation. Nothing in any objective in the wiki rewards it (gap **G30**).
+
+---
+
+## Applying it to build a reasoning model
+
+| Use | How |
+|---|---|
+| **Make the `g`/`x` split checkable** | If structural position and content are separate *subspaces*, factorization becomes a measurable angle rather than an aspiration: fit `p_g` and `p_x` at the same site and test mutual generalisation (gap G1) |
+| **Make path-consistency a vector identity** | G3 asks that the same graph position reached by different routes give the same code. With linear features this is a residual `‖g(path₁) − g(path₂)‖`, and — more usefully — the composition of edge-actions can be tested as *addition* of edge directions |
+| **Turn a probe into an actuator** | A verified feature direction is a write port. Installing a goal, a context or a counterfactual state needs no retraining and no gradient loop — one addition at inference. This is the cheapest existing mechanism for "tell the architecture its latent structure" (gap G45) |
+| **Prefer relative frames when the loss has a symmetry** | The model chose a mover-relative code because legality is colour-symmetric. Building the invariance into the code halves what must be learned and de-aliases repeated observations (G2) — and it is the machine analogue of an egocentric frame |
+| **Look for `Δstate` as a feature** | A transformer cannot iterate, so where a recurrent system would apply a delta to a carried state, a depth-parallel one may represent the delta *itself* (`Flipped`). In a learned world model with no explicit transition function, the transition may be findable as a direction |
+| **Report the basis, always** | Any probe table without its label ontology stated is uninterpretable, since the ontology can move a result from 75% to 99.6% with nothing else changed |
+
+---
+
+## Open problems
+
+- **No procedure enumerates candidate bases.** The single most consequential free parameter on this page is chosen by intuition.
+- **No objective rewards linearity**, so it remains a by-product that a change of architecture or scale could remove without warning (G30).
+- **Superposition and identification are unresolved together**: sparse autoencoders escape the labelling circularity but produce features whose names must still be guessed, and whose count is a hyperparameter.
+- **Linearity of *composition* is untested.** Every result here is a linear read of a single feature. Whether relations compose linearly — whether `edge` directions add — is the property the wiki's framing actually needs, and nothing measures it.
+- **The causal tests are all additive edits at every layer.** None localises where a direction is *read*, so "the model uses it" is established without the read site being known.
+
+---
+
+## Connections
+
+- **[[wiki/entities/othellogpt.md]]** — the page's strongest evidence and the source of every number on it: a world model reported as non-linear turns out to be linear under a re-parameterised label set, and its directions steer behaviour by plain addition at parity with gradient editing.
+- **[[wiki/concepts/representation-probing.md]]** — the instrument page this one supplies the underlying hypothesis for: probing is only a cheap, capacity-free instrument *because* features are conjectured to be directions, and the basis problem here is a new way for a probe null to be wrong.
+- **[[wiki/concepts/population-geometry.md]]** — the same claim from the neural side and with a stronger vocabulary: directions are the elementary case of a geometry, and the biological instruments (CCGP, parallelism) test not just whether a linear read exists but whether it *transfers*, which is what "in usable form" should mean here too.
+- **[[wiki/concepts/abstract-structural-codes.md]]** — states the factorization this page makes measurable; the mover-relative Othello code is a content-invariant re-referencing discovered by gradient descent rather than built in.
+- **[[wiki/concepts/attention.md]]** — linearity is what lets an attention head's *function* be read from `Emb @ V @ O` without a forward pass, which is how the `Played`/`Empty` circuit was identified.
+- **[[wiki/concepts/shortcut-learning.md]]** — a linear feature being causal does not mean it is on the path taken: the same model that provably uses its world model also has a cheaper circuit that bypasses it.
+- **[[wiki/concepts/counterfactual-probing.md]]** — the alternative when the basis cannot be guessed: intervene on the *input* of a generative model and cluster the responses, which needs no feature vocabulary at all.
+- **[[wiki/entities/maze-solving-transformers.md]]** — the same instrument on a supplied rather than discovered graph, and the one that stops before the causal step; together the two bracket what a linear-probe result can mean.
+- **[[wiki/concepts/energy-based-models.md]]** — the constructed counterpart: where a latent is designed low-capacity and discrete, linear readability is stipulated instead of hoped for, which is this page's requirement met by architecture rather than by luck.

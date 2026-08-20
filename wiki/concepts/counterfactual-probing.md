@@ -63,6 +63,8 @@ Steps 4 and 6 are what "statistical" means: the object is a property of the *ens
 
 ## Connections
 
+- **[[wiki/concepts/linear-representation-hypothesis.md]]** — the alternative this page is the escape from: activation-side probing needs the feature vocabulary guessed correctly (Othello's 75% → 99.6% swing on relabelling alone), while an input-side intervention needs no vocabulary at all — at the cost of requiring a generative model addressable at a point.
+
 - **[[wiki/entities/spelkenet.md]]** — the only instance, with every number: the architecture that makes step 3 expressible, the generative-vs-deterministic delta that makes step 4 mandatory, and the downstream evidence that the extracted partition is worth more than a supervised one.
 - **[[wiki/concepts/representation-probing.md]]** — the complementary instrument and the sharper contrast in the wiki: probes read *activations* and require a named target, this reads the *output distribution* under an input intervention and requires none — so it is the second escape (after sparse dictionary learning) from that page's labels-are-the-answer circularity, and it meets that page's own intervention standard by construction.
 - **[[wiki/concepts/causal-model-building.md]]** — the criterion this operationalises: group by response to intervention rather than by appearance. It also supplies a third source of causal data beyond that page's passive- and active-agency modes — interventions run inside the model, free of both an agent and a labelled generative trace.

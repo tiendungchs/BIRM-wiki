@@ -18,7 +18,7 @@ One INGEST each:
 - [x] `venkatesh-2025-spelke-segments.md` — world-models · M · 2025
 - [x] `maes-2026-leworldmodel-jepa-from-pixels.md` — world-models · M · 2026
 - [x] `baek-2026-theorize-world-from-observation.md` — world-models · M · 2026
-- [ ] `nanda-2023-linear-representations-othello.md` — world-models · R · 2023
+- [x] `nanda-2023-linear-representations-othello.md` — world-models · R · 2023
 - [ ] `tehenan-2025-linear-spatial-world-models-llms.md` — world-models · R · 2025
 - [ ] `garrido-2025-intuitive-physics-v-jepa.md` — world-models · R · 2025
 - [ ] `bordes-2024-vision-language-modeling.md` — ssl-representation · S · 2024
