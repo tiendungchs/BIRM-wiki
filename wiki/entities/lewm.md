@@ -169,6 +169,9 @@ This lands on the neuroscience temporal-straightening hypothesis (Hénaff et al.
 
 ## Connections
 
+- **[[wiki/entities/dinov3.md]]** — sharpens T154 from the amortisation side: a *frozen* self-supervised backbone plus a 100M-parameter head now beats fully fine-tuned specialists on COCO detection, ADE20k segmentation and monocular depth, so the pretrained-encoder route's cost is entirely front-loaded and the case against it has to rest on planning-time token count alone.
+
+
 - **[[wiki/entities/v-jepa-2.md]]** — the same architecture at the opposite end of the scale axis, and the head-to-head the wave needs: 15M trained from pixels versus 1B pretrained and frozen, both planning by CEM on a goal-embedding distance, with the small model winning on planning latency and per-FLOP control performance and never leaving simulation.
 - **[[wiki/entities/h-jepa.md]]** — the design both instantiate, audited from the cheap end: this system supplies the missing anti-collapse criterion in a single term with one coefficient, and leaves the stack, the latent `z` and the learned cost as unbuilt as V-JEPA 2 does.
 - **[[wiki/concepts/energy-based-models.md]]** — supplies the third anti-collapse family for that page's contrastive/regularised split: neither sample- nor dimension-contrastive but **distribution-matching**, driving the embedding's marginals onto a fixed target by a normality test along random projections.

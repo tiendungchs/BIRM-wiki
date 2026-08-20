@@ -148,6 +148,9 @@ This is [[wiki/concepts/skill-acquisition-efficiency.md]]'s point arriving from 
 
 ## Connections
 
+- **[[wiki/entities/dinov3.md]]** — the rate argument's widest measured margin: the best language-supervised encoder scores **0.5** GAP on Met instance retrieval against 55.4, and 23.1 against 58.7 on dense semantic correspondence, while beating the self-supervised model on ImageNet-A — captions carry category and carry neither identity nor geometry.
+
+
 - **[[wiki/concepts/affordance-grounded-symbols.md]]** — the same word, opposite direction: there a symbol is *derived* from the effects of the agent's actions and needs no corpus; here the symbol is given by language and only the mapping is learned — which is why that route grounds relations (effects are relational) and this one grounds nouns.
 - **[[wiki/concepts/compositionality.md]]** — supplies the diagnosis this page measures: objects recovered, arrangement not represented, so the caption defaults to the most frequent training arrangement; Winoground/ARO/PUG are that failure with paired controls.
 - **[[wiki/concepts/shortcut-learning.md]]** — three benchmark-side shortcuts documented here (language priors with no negative image, procedural negatives detectable as ungrammatical text, and an `argmax` tie-break a zero model wins), plus the finding that zero-shot scores track pretraining concept frequency.

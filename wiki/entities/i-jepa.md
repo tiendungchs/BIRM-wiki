@@ -166,6 +166,9 @@ This is a probe of a different type from everything on [[wiki/concepts/represent
 
 ## Connections
 
+- **[[wiki/entities/dinov3.md]]** — the other half of this page's lesson about what a loss does not see: the mask sampler moves the representation further than any anti-collapse term does, and the *training horizon* moves it too — a dense read-out peaking at 200k iterations and ending below its start under a correctly-minimised objective. Neither the pair distribution nor the stopping point is a coefficient in anyone's loss.
+
+
 - **[[wiki/entities/h-jepa.md]]** — the design this instantiates for images, and the first evidence that its central bet pays: prediction in representation space is worth +26.2 points over the same architecture predicting pixels — while supplying a concrete instance of the lever that design concedes it cannot set, the mask sampler at 34 points.
 - **[[wiki/entities/v-jepa-2.md]]** — the direct descendant: same lab, same objective shape, same EMA-teacher masked-feature prediction moved to video, scaled 1B×1M-hours and given an action-conditioned predictor and a planner; every architectural choice it does not explain is settled here.
 - **[[wiki/entities/byol.md]]** — the mechanism this inherits unchanged (predictor on one branch, EMA on the other, no anti-collapse term) with the pair source swapped from augmentations to masking, which removes the colour-histogram shortcut BYOL's crop-only ablation exposed and installs a texture-continuation one in its place.

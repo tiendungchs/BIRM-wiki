@@ -123,6 +123,20 @@ Every reverse-inference verdict is relative to the `k` domains entered. The sour
 
 ---
 
+## A probe can disagree with another probe about which *checkpoint* is better
+
+(Siméoni et al. 2025, [[wiki/entities/dinov3.md]].) The [[wiki/entities/dinov2.md]] entry recorded a probe-choice confound at the level of *models*: `k`-NN and linear top-1 rank four design decisions in opposite directions. Its successor supplies the same confound along the training axis and along a third instrument class.
+
+| Read-out of one frozen encoder | Behaviour across 1M training iterations |
+|---|---|
+| Linear probe on the CLS token (ImageNet-1k) | **monotone increase** |
+| Linear probe on patch tokens (Pascal VOC mIoU) | peaks at ~200k, then declines **below its own early value** |
+| Non-parametric graph partitioning of the patch-similarity graph (TokenCut object discovery) | fails outright on DINOv2, whose *parametric* dense probe is strong — attributed to feature-map artifacts a linear layer can absorb and a graph cut cannot |
+
+Two things follow for this page. First, "which checkpoint has the better representation" has no answer independent of the probe, so a training run's *stopping rule* is a probe choice — and the field's default probe is the one that says train longer. Second, **the parametric/non-parametric split is a real axis of the instrument table, not a convenience**: a linear head is fitted *around* structured noise in the features, while a non-parametric read-out (nearest-neighbour retrieval, label propagation, graph cut) consumes the feature geometry as given. The wiki's existing warning is that a probe's failure may be the label basis's fault (T157); this adds that a probe's *success* may be the fitted head's doing, and that a matched non-parametric instrument is the cheap control.
+
+---
+
 ## Open problems
 
 - **No probe certifies discovery.** Labels are required, so the instrument is confined to re-representation claims (gap G17 stands). The two additions above narrow the hole without closing it: manifold inference finds a *shape* without labels, and group alignment compares two systems without either one's ground truth — but both still need the experimenter to name the task variables before the shape means anything.
@@ -142,6 +156,9 @@ Every reverse-inference verdict is relative to the `k` domains entered. The sour
 ---
 
 ## Connections
+
+- **[[wiki/entities/dinov3.md]]** — probe choice deciding not which model but which *checkpoint*: over one training run a CLS-token linear probe rises monotonically while a patch-token linear probe peaks at 200k and ends below its start, and a non-parametric graph cut on the same features fails where the parametric dense probe succeeds — so a fitted head can absorb structure that a geometry-consuming read-out cannot.
+
 
 - **[[wiki/entities/maze-solving-transformers.md]]** — the worked instance of every instrument on this page, and the source of the decoded-but-unused failure and its converse.
 - **[[wiki/entities/othellogpt.md]]** — the wiki's only machine model that passes this page's acceptance test, and the source of its two newest failure modes: the label *basis* can move a linear probe from 75% to 99.6% with nothing else changed, and a verified causal direction can coexist with a cheaper circuit that bypasses it.

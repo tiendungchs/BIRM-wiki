@@ -147,6 +147,9 @@ Recorded as [[wiki/empirical-tensions.md]] T151.
 
 ## Connections
 
+- **[[wiki/entities/dinov3.md]]** — the successor to the baseline this page critiques, and the critique survives it: sharper, artifact-free patch features fix *class-agnostic* object discovery (where DINOv2 fails outright despite strong dense probes) without giving the encoder any way to individuate two instances of one category — so instance-merging is a commitment of the discriminative objective, not a resolution limit of the feature map.
+
+
 - **[[wiki/concepts/counterfactual-probing.md]]** — the method abstracted away from vision: this page is its worked instance and its only quantitative evidence, and the CWM comparison is where the "aggregate over a distribution, not a prediction" requirement gets its number.
 - **[[wiki/concepts/core-knowledge.md]]** — supplies the definition (a Spelke object is the entity type the object system admits) and receives the missing mechanism: the cohesion detector that the entry condition presupposes, learned from unlabeled video rather than stipulated (that page's last open problem, gap G23).
 - **[[wiki/concepts/causal-model-building.md]]** — the criterion made into a partition: this groups pixels by response to intervention rather than by appearance, and it gets its interventional data from a *model* rather than from acting, which is the one route to causal data that costs neither an agent nor a labelled generative trace.

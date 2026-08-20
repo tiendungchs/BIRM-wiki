@@ -175,6 +175,9 @@ Distilled from the survey's challenge list, keeping the items that name a missin
 
 ## Connections
 
+- **[[wiki/entities/dinov3.md]]** — the frozen-encoder branch's backbone upgraded, with the dependency made visible: swapping DINOv2 for DINOv3 inside VGGT with the pipeline otherwise unchanged improves camera pose, multi-view depth and two-view matching simultaneously, so the geometry available to a world model built on frozen features is set by the encoder's patch-level consistency.
+
+
 - **[[wiki/entities/othellogpt.md]]** — the limiting case of this page's object: a world model with no world-model module, no decoder, no latent `z` and no `p(z'|z,a)` — the state is a set of directions in a residual stream, the transition surfaces as a parallel `Flipped` (state-difference) feature because a transformer cannot iterate, and the whole thing is causally verified by vector addition. It also supplies the wave's sharpest caution: the model *has* the verified world model and still answers many queries through a cheaper circuit that bypasses it.
 
 - **[[wiki/entities/neo-neural-theorizer.md]]** — a fifth role for the same object: infer the *program* rather than the future, scored by whether it re-executes on a different instance of the same mechanism — which turns this page's compositional-generalisation open problem from an aspiration into a measured quantity.

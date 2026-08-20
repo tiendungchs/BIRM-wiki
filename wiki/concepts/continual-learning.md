@@ -57,6 +57,19 @@ Read as a solution family, this is **address-space separation plus a re-trained 
 
 **The lifelong-learning framing (Schmidgall et al. 2023).** Catastrophic forgetting is attributed specifically to *repeatedly applying backpropagation*: the algorithm has no term expressing the need to preserve prior knowledge, so weights optimized for earlier tasks are as free to move as any other. The proposed route is not a better penalty but a different write mechanism — brain-inspired local learning, where adaptation is continuous and the mature brain is the existence proof (it learns across a lifetime while staying roughly fixed in size). The strongest result so far is **online one-shot continual learning from a meta-optimized spike-timing-dependent plasticity rule** ([[wiki/concepts/meta-optimized-plasticity.md]]), which is a demonstration on a single task family, not a general solution.
 
+**Forgetting inside a *stationary* stream, with no tasks and no boundaries** (Siméoni et al. 2025, [[wiki/entities/dinov3.md]]). Every row above presupposes a sequence — task A then task B — and locates the damage in B overwriting A. DINOv3's 7B trains for 1M iterations on one i.i.d. image distribution with one fixed loss, and a read-out is destroyed anyway: a linear probe on its patch tokens peaks at ~200k iterations and ends **below its own early value**, while the image-level probe rises monotonically throughout. The two "tasks" are the two terms of a single objective, presented simultaneously, and one of them wins over training *time*.
+
+The repair is a family this table has as a row but not in this form: **functional regularisation against a stored earlier self.** `L_Gram = ‖X_S X_Sᵀ − X_G X_Gᵀ‖_F²` holds the current network's patch-similarity structure near that of a checkpoint from 800k steps earlier, refreshed every 10k steps. Compared with the rows above:
+
+| | EWC | Replay | **Gram anchoring** |
+|---|---|---|---|
+| What is carried forward | an importance estimate over parameters | data | a **relational structure** over one input's tokens |
+| Where the constraint acts | parameter space | input space | **function space, and only on second-order structure** — the features are free up to any inner-product-preserving transformation |
+| Needs a task boundary | yes | no | no |
+| Selection of what to protect | Fisher information | sampling | by *role*: the quantity the surviving objective does not measure |
+
+Two facts about it are the interesting ones for this page. It **repairs rather than prevents** — applied only after the damage, it recovers the read-out in 10k iterations, 1% of the budget that caused the loss, which no weight-protection method can do because the information is gone from the parameters. And the anchor has a **usable age window**: a 100k- or 200k-iteration checkpoint works, a 1M-iteration one is harmful, because by then it has the disease. A rehearsal buffer with an expiry date at *both* ends is not a shape any row above has.
+
 EWC's practical claim: multiple tasks learned **without an increase in network capacity**, with weights shared efficiently between tasks that have related structure — protection is compatible with transfer, not opposed to it. Demonstrated at scale in deep RL agents.
 
 ---
@@ -80,6 +93,9 @@ The slow **W** of [[wiki/concepts/latent-graph-discovery.md]] *is* an accumulati
 ---
 
 ## Connections
+
+- **[[wiki/entities/dinov3.md]]** — forgetting with no task sequence and no distribution shift: one stationary stream, one fixed loss, and a dense read-out decays over 1M iterations while a global one improves — repaired by functional regularisation against a stored earlier checkpoint that constrains only the token-similarity structure, needs no boundary and no importance estimate, and works only from a *young enough* anchor.
+
 
 - **[[wiki/concepts/cognitive-map.md]]** — supplies the one setting where the protect-vs-overwrite decision is made by *role* and its outcome is measured: new nodes are assimilated into a held-constant entorhinal frame while the prefrontal distance readout is rebuilt, with frame constancy predicting reasoning over the new nodes (Qu et al. 2026).
 

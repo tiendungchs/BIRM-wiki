@@ -130,6 +130,12 @@ If the brain approximates predictability with **frequency**, Go-CLS's most disti
 - **It puts a criterion on which edges are promoted into the meta-graph:** an edge is promoted iff its promotion lowers held-out error on the environment family. That is a *validation* criterion rather than a *recurrence* criterion, and the two come apart.
 - **Overfitting the world model is a named failure mode.** The "maladaptive generalization, worse than chance" regime is what an agent that consolidates every episode into its world model should be expected to do in an unpredictable environment ([[wiki/concepts/shortcut-learning.md]] is the same disease with a different cause: there the spurious feature is reliable, here it is noise).
 
+**A machine teacher–student where the teacher is the same network, earlier** (Siméoni et al. 2025, [[wiki/entities/dinov3.md]]). The [[wiki/entities/dinov2.md]] entry recorded a machine instance where the direction was size: distil a larger net into a smaller one and beat training the smaller one directly. DINOv3 supplies the axis this page actually cares about — **time**. The Gram teacher is a checkpoint of the same 7B network 800k iterations earlier: *worse* on the objective being optimised, *better* on the property being lost, and regressing the current network's patch-similarity structure onto it recovers that property in 10k steps. Three points of contact with the formalism above:
+
+- **The teacher has a usable age window at both ends.** A 100k- or 200k-iteration anchor works; a 1M-iteration one is harmful. Transport from the notebook is beneficial only while the notebook's contents are still worth having — which is the interior-optimum shape of this page's result, relocated from *how much* to transport to *from when*.
+- **The regulator is a role, not an estimate.** What is protected is chosen by *which read-out the surviving objective cannot see*, not by a Fisher-style importance score or a validation split. That sidesteps the "validation data the brain does not hold out" open problem below, at the cost of needing to know in advance which property is at risk.
+- **Distillation crosses an architecture boundary.** The 7B ViT's features distil into ConvNeXts with no CLS token and no attention (+17.9 mIoU over ImageNet-22k-supervised ConvNeXt-T on ADE20k), and an 0.8B student matches the 8× larger teacher. What the teacher transports is not capacity and not weights — it is a target distribution, and the student's substrate is nearly free.
+
 ---
 
 ## Open problems
@@ -145,6 +151,9 @@ If the brain approximates predictability with **frequency**, Go-CLS's most disti
 ---
 
 ## Connections
+
+- **[[wiki/entities/dinov3.md]]** — the teacher–student channel run along *time* rather than size: a checkpoint 800k iterations old, worse on the optimised metric and better on the eroded one, restores the eroded property in 10k steps — and the anchor is useful only within an age window, which is this page's interior optimum relocated from how much to transport to from when.
+
 
 - **[[wiki/concepts/complementary-learning-systems.md]]** — supplies the normative sign condition CLS never stated: transport is beneficial only while it lowers generalization error, so partial and zero consolidation are optimal outcomes rather than pathologies, and it quantifies the two-system advantage as peaking when the stored example count matches the slow learner's parameter count.
 - **[[wiki/concepts/recall-gated-consolidation.md]]** — the rival criterion for the same valve, and they are separable: recall gating passes what *recurs*, Go-CLS passes what the slow learner can *model*, and an unmodellable-but-recurring relation (a nonlinear teacher seen daily) is consolidated by the first and refused by the second ([[wiki/empirical-tensions.md]] T81).

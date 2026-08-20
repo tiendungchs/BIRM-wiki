@@ -35,6 +35,13 @@
 | **Sequence prediction** | Reconstruct activity from `d` latents, re-run the sequence detector, sweep the threshold for an ROC | Whether the geometry accounts for the circuit's *temporal* structure and not only its state distribution | Sequence detector has its own shuffle-defined threshold |
 | **Input-geometry control** | Run the identical pipeline on the raw sensory stream (here: the VR video the animal saw) | Whether the manifold is a representation or a re-description of the input | Run once, on a 17×-downsampled single colour channel |
 
+**One instrument in the wiki has now been used as an *objective* rather than as a measurement** (Siméoni et al. 2025, [[wiki/entities/dinov3.md]]). The similarity matrix `X Xᵀ` over a set of simultaneously-active units is the RSA-family instrument this page's comparisons rest on. DINOv3 puts it in the loss: `L_Gram = ‖X_S X_Sᵀ − X_G X_Gᵀ‖_F²` over ℓ₂-normalised patch tokens of one image, driving a network's similarity structure toward that of a reference network (there, an earlier iterate of itself). Two properties make this worth carrying past its vision setting:
+
+- **It is invariant to everything a geometry comparison is supposed to be invariant to.** Any transformation preserving inner products leaves it unchanged, so it constrains the *shape* and not the coordinates — exactly the invariance class that makes the cross-subject hyperalignment row legitimate. It is therefore the natural loss to pair with the claim that population-level `g` is the legitimate prediction target and per-unit tuning is not.
+- **It measurably protects a geometry that a competing objective was destroying**, at no cost to the competing objective: a global discriminative loss was steadily eroding the patch-level similarity structure over 800k training iterations (patch-probe mIoU ending below its start while the image-level probe rose monotonically), and 10k iterations of this penalty recovered it. That is the wiki's only demonstration that a similarity structure can be *held in place by gradient descent* while the code carrying it keeps changing.
+
+**(brainstorm)** The same term would fit anywhere the wiki wants a structure preserved across a change of content or of substrate: matching a model's RSA matrix to a recorded population's is the standard *evaluation*, and nothing stops it from being the training signal — with the caveat this page's last row raises, that a similarity matrix reproduced from an input stream with the same similarity matrix is not evidence of anything.
+
 The last row is the one the wiki should demand of every manifold claim. It is the population-geometry analogue of audit item 2 in [[wiki/concepts/objective-identifiability.md]] — *is the target already the phenomenon?* — moved from a supervised readout to a sensory input: a low-dimensional structure in the activity means nothing if the input stream has the same structure.
 
 ---
@@ -239,6 +246,9 @@ Three consequences for this page. (i) `S_straight` is a cheap, label-free geomet
 ---
 
 ## Connections
+
+- **[[wiki/entities/dinov3.md]]** — this page's similarity-matrix instrument used as a **loss** rather than a measurement: `‖X_S X_Sᵀ − X_G X_Gᵀ‖_F²` pulls one network's patch-level geometry toward another's while leaving the features free up to any inner-product-preserving transformation, and is measured to hold that geometry against a competing objective eroding it.
+
 
 - **[[wiki/entities/medial-prefrontal-cortex.md]]** — the case where this page's level argument becomes the whole result: two prefrontal projection classes are indistinguishable in firing rate under every behavioural condition and differ only in which contrast directions leave a shared reference state, so the functional variable (which structure reads the population) is invisible to any analysis of the activity alone (Lai et al. 2026).
 - **[[wiki/concepts/priority-map.md]]** — a mechanism left undetermined for want of this page's instrument: multi-unit recording cannot say whether object identity and location are conjunctive within cells or superposed across the population, and only the second lets a target–template similarity be read off a linear projection (Bichot et al. 2015).

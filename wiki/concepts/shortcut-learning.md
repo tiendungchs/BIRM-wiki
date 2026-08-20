@@ -145,6 +145,9 @@ The last family is the instrument the wiki actually needs: a *controlled* shortc
 
 ## Connections
 
+- **[[wiki/entities/dinov3.md]]** — the coverage argument at 12× scale with the curation objectives separated: clustering-based balancing buys robustness and retrieval-based curation buys `k`-NN and fine-grained recognition, neither dominates, and the mixture beats both — so a corpus is a set of purchases rather than a size.
+
+
 - **[[wiki/entities/othellogpt.md]]** — the page's problem in its hardest form: the shortcut and the structural rule are **both** present and both causal inside one model. OthelloGPT's board representation is verified by intervention, and from the game's midpoint it increasingly resolves correct legal moves at an *earlier layer* than the board state — a cheap end-game circuit (roughly `Empty` plus local features) running in parallel with the expensive one. Every diagnostic on this page compares models or distributions; none separates two circuits inside one forward pass ([[wiki/empirical-tensions.md]] T158). [[wiki/concepts/linear-representation-hypothesis.md]] states why the strongest internal test still does not close this: an intervention score is an average over cases.
 
 - **[[wiki/concepts/priority-map.md]]** — a failure mode worth the warning: with the target-matching stage silenced, monkeys keep searching at near-normal rates and simply stop preferring items that match the cue, so a system can look functional while the only task-relevant computation has been deleted (Bichot et al. 2015).

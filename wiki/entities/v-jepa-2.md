@@ -157,6 +157,9 @@ A ViT-L feedforward decoder is trained (L2 pixel loss, 150K steps) to map *encod
 
 ## Connections
 
+- **[[wiki/entities/dinov3.md]]** — bounds the same deficit from the same direction as this page's DINOv2 comparison, at 6× the scale: a frozen 7B image encoder with an attentive probe beats V-JEPA 2 by 3.9 on appearance-driven K400 and loses SSv2 by 4.6, so dense-feature quality and scale do not substitute for a temporal objective.
+
+
 - **[[wiki/entities/h-jepa.md]]** — the design this is the first at-scale instantiation of, and the audit: the encoder/predictor split, the representation-space objective and MPC are all present and work; the stack, the latent `z`, the configurator, the learned cost and gradient-based action inference are all absent, so every long-horizon failure reported here is a failure of the level the design says should not have been alone.
 - **[[wiki/concepts/learned-world-models.md]]** — the one joint-embedding entry in that page's ~38-model survey, now with its own numbers: deterministic transition (hence planner-exploitable), no decoder, and a head-to-head against a pixel-generative model under an identical planner that the decoder question had never been given.
 - **[[wiki/concepts/simulation-based-planning.md]]** — supplies a working energy for the rollout (`‖P(â;s,z) − z_g‖₁`, smooth and locally convex around the true action) and the sharpest price list in the wiki for what the model costs the search: 16 s versus 4 min per action at 10× the candidates.
