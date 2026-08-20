@@ -80,6 +80,21 @@ Stated caveat: cross-sectional mediation across a 50-year age gap, no manipulati
 
 ---
 
+## The channel also runs backwards, at encoding time
+
+This page's coupling is unidirectional: fast → slow, by replay, offline. Rolls' reverse hierarchy adds cortex ← hippocampus at *retrieval*. de Sousa et al. 2026 adds a third traffic direction the wiki had no slot for — **slow → fast, during encoding, controlling how the fast store writes**.
+
+| Property | Consequence for this page |
+|---|---|
+| vmPFC activity during a new episode tracks its contextual similarity to a *prior* episode and the time since it | The slow store is consulted at write time, not only at read time |
+| Inhibiting vmPFC→MEC makes dCA1 write the new episode into the old episode's cells (~15% → ~25% overlap); activating it forces separation even when the contexts are identical | Cortex sets the fast store's *write geometry*, bidirectionally, without touching the content |
+| The effect exists at a 7 d interval and is absent at 5 h | The control path requires a matured cortical trace — i.e. it is **switched on by consolidation itself** |
+| Single-episode encoding, exploration and social behaviour are unaffected | It is an organization channel, not a general encoding gate |
+
+**(brainstorm) What this costs the standard picture.** Under CLS the fast store is an unopinionated buffer and all the structure-extraction happens downstream. Here the slow learner reaches back and decides which new experiences get bound to which old ones *before* replay ever runs, so part of the meta-graph's influence is exercised at encoding. Two things follow for gap G14: the transported unit is not chosen only by an offline filter ([[wiki/concepts/offline-replay.md]], [[wiki/concepts/recall-gated-consolidation.md]]) — some of the grouping is already fixed at write time by an *online* similarity test against consolidated content; and the loop is self-reinforcing, since more consolidation buys a better arbiter, which buys better-organized new memories. No machine CLS implementation has a cortex→buffer path at all.
+
+---
+
 ## Machine instantiations
 
 | System | Mechanism | What it borrows | What it drops |
@@ -158,3 +173,4 @@ Stated caveat: cross-sectional mediation across a 50-year age gap, no manipulati
 - **[[wiki/concepts/manifold-constrained-learning.md]]** — proposes a boundary between fast and slow that is geometric rather than quantitative: within-span re-association of existing population patterns is learned in one session (adaptation), while changing the span itself is not learned at all on that timescale and is the posited job of multi-day skill learning — a fast/slow split diagnosable from the population geometry before any training is run (Sadtler et al. 2014). Golub et al. 2018 name the two processes and their timescales — re-association of a fixed activity repertoire over hours, repertoire realignment over days to weeks, with only a residual trace of the slow one detectable within a session.
 - **[[wiki/concepts/generalization-optimized-consolidation.md]]** — supplies the sign condition this page never states: transport helps only while it lowers generalization error, so for a relation the slow learner cannot model the optimal transfer is *zero* and the memory stays hippocampal permanently — which turns partial consolidation from an anomaly into the predicted normal case, and prices the two-system advantage as maximal exactly where the stored-example count matches the slow learner's parameter count (Sun et al. 2023).
 - **[[wiki/concepts/offline-replay.md]]** — supplies the carrier for the throughput result above: sharp-wave ripples are nested in the cortical slow oscillation whose amplitude (SWA) is what predicts overnight retention, so the prefrontal generator measured by Mander et al. 2013 is plausibly gating *when* the fast store's ripples are allowed to write — a scheduler for that page's seven competing sampling policies that lives outside the hippocampus entirely **(brainstorm)**.
+- **[[wiki/concepts/memory-allocation-excitability.md]]** — supplies the reverse channel above: a consolidated vmPFC trace, acting through MEC onto CA1 neurogliaform interneurons, decides at encoding time whether a new episode is allocated to the cells holding an old one — so the slow store shapes the fast store's writes, and only after consolidation has built the trace it uses to do so (de Sousa et al. 2026).

@@ -95,6 +95,26 @@ Recovered graph: `Vip ⊣ Sst`, `Sst ⊣ {all except Id2-non-Sncg}`, `Id2 ⊣ al
 
 ---
 
+## One channel with a job *and* a controller: NDNF⁺ neurogliaform cells
+
+The taxonomy above assigns *Id2* the **selectivity** feature and leaves "what drives the channels?" open. de Sousa et al. 2026 take the neurogliaform (NGF) subset of that family — NDNF⁺ cells in the stratum lacunosum moleculare (SLM) of dorsal CA1 — and close both halves for one control problem: how much two episodes' ensembles are allowed to overlap.
+
+| Question | Answer in this circuit |
+|---|---|
+| **What feature does the channel set?** | Ensemble overlap between two episodes encoded 7 d apart. Chemogenetic inhibition of SLM NDNF⁺ cells alone raises dCA1 overlap and raises pyramidal Ca²⁺ event rate |
+| **Is it naturally modulated?** | Yes, by the variable it should track: fewer NDNF⁺/c-Fos⁺ cells when the two contexts are the *same* (integration is appropriate) than when different (separation is required) |
+| **What drives it?** | A cortical input three synapses up: vmPFC (deep, excitatory) → MEC layers II/III/V → SLM. Inhibiting vmPFC→MEC lowers MEC c-Fos, lowers GAD67⁺/c-Fos⁺ and NDNF⁺/c-Fos⁺ counts in SLM, and reproduces the overlap effect; optogenetic MEC stimulation *raises* SLM c-Fos |
+| **Is the effect channel-specific?** | Yes. SOM⁺, PV⁺ and VIP⁺ c-Fos across dCA1 are all unchanged; the GAD67 effect is confined to SLM (not stratum oriens, not radiatum) |
+| **Why this layer** | SLM is where the temporoammonic (EC→CA1) path arrives; NGF cells there gate entorhinal against CA3 drive onto the same pyramids, which is the encoding/retrieval balance rather than a gain change |
+
+**This is the wiki's first end-to-end control loop for a coding feature**: a named cortical controller, a named pathway, a named interneuron subtype, a measured actuation, and a behavioural read-out — where the four-family matrix above supplies actuators with no controller and the neuromodulatory candidates supply a controller with no per-feature resolution (gap G38).
+
+**(brainstorm) The transferable shape.** The controller is *not* in the circuit it controls, its input is a comparison between the current episode and consolidated cortical content, and its output is a single inhibitory channel that changes the write geometry without changing the content written. In machine terms: a slow module reads similarity between the current input and its own stored structure, and emits one scalar that multiplies an inhibitory gate on the fast store's allocator. That is a *cross-module* control path, and every gating mechanism the wiki holds is intra-module. It also predicts the fan-in rule above should hold for the NGF channel — sparse innervation → context-specific splitting — which is consistent with *Id2* being the context-specific family and is untested here.
+
+**Caveat carried from the source:** all interneuron read-outs are c-Fos/RNAscope counts (activity proxies at 90 min resolution), not recordings, so "the NGF channel carries the signal" rests on a causal inhibition plus a correlated marker, not on spike data.
+
+---
+
 ## Why this is a candidate answer to gap G38
 
 G38 says nothing in the wiki sets the separation/completion bias, and that it cannot be a constant. The candidates the wiki had were a global neuromodulator (acetylcholine switching storage vs. recall) and a closed-loop CA3→DG backprojection. This adds a third architecture, and it is the one with the most resolution:
@@ -113,7 +133,7 @@ The last row is the honest limit. This supplies the *actuator* for G38 with four
 
 ## Open problems
 
-- **What drives the channels?** The families' effects are characterized; what sets their gain trial-by-trial is not. G38's regress moves, it does not close.
+- **What drives the channels?** The families' effects are characterized; what sets their gain trial-by-trial is not — **except for one channel**: the NGF/NDNF⁺ subset of *Id2* in SLM is driven by vmPFC→MEC input, whose own gain tracks contextual similarity and elapsed time (de Sousa et al. 2026). The other three families still have no identified controller, and what function vmPFC computes to set *its* gain is unmeasured, so the regress moves one more level rather than closing.
 - **The coupling estimates ignore third-party interactions and oscillation-phase-specific effects** — stated by the authors. A directed edge in the recovered graph may be mediated by an unrecorded family or hold only at one theta phase.
 - **Subfamilies are unresolved.** Each of the four families contains many transcriptomic types; only the *Id2*/*Sncg* split has a physiological fingerprint so far. Whether the feature→channel assignment survives at subfamily resolution is untested.
 - **Non-spatial generality is asserted, not shown.** The fingerprinting method is paradigm-independent, but every feature→channel assignment here was measured on a spatial alternation task. Whether *Sst* controls generalization for non-spatial contexts is the obvious next experiment and it has not been run.
@@ -145,3 +165,4 @@ The last row is the honest limit. This supplies the *actuator* for G38 with four
 - **[[wiki/concepts/dendritic-computation.md]]** — the excitatory unit the channels act on, one level finer: if the computational unit is a dendritic segment with its own threshold rather than a cell, a channel's fan-in breadth decides which *segments* it can veto, and dendrite-targeting versus soma-targeting interneurons become functionally distinct controllers rather than two ways of subtracting drive.
 - **[[wiki/entities/hodgkin-huxley-model.md]]** — the biophysical origin of the distinction this page treats functionally: because ionic current is `g(V − E)`, a synapse whose reversal potential sits at rest contributes conductance without current and *divides* rather than subtracts, so shunting versus hyperpolarizing inhibition is a receptor fact and the divisive-normalization scalar used elsewhere in the wiki is its coarse-grained form.
 - **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the same interneuron population cut by axon geometry instead of transcriptomic family: perisomatic (basket, chandelier) cells implement selection over the local population while dendrite-targeting (double bouquet, Martinotti) cells set which inputs a cell can integrate — and because interneuron types are distributed unevenly across layers, which channels reach a pyramidal cell is fixed by its laminar position, a wiring answer to this page's open question about what sets the gains (Douglas & Martin 2004).
+- **[[wiki/concepts/memory-allocation-excitability.md]]** — the control problem that gave one of these channels a controller: whether a new episode is written into the cells that hold an old one is set by SLM NDNF⁺ neurogliaform cells, driven by a vmPFC→MEC projection, and inhibiting that single cell type reproduces the whole effect — so an allocation prior the wiki had treated as intrinsic to the pyramidal cell is actuated by inhibition and commanded from cortex (de Sousa et al. 2026).

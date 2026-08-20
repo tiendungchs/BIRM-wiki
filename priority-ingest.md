@@ -27,6 +27,6 @@ One INGEST each:
 - [x] `talk-nd-brain-learning-limits.txt` — plasticity · X · nd
 - [x] `sun-2023-systems-consolidation-generalization.md` — memory-consolidation · M · 2023
 - [x] `mander-2013-nrem-slow-waves-memory-aging.md` — memory-consolidation · R · 2013
-- [ ] `desousa-2026-prefrontal-controls-memory-organization.md` — memory-consolidation · R · 2026
+- [x] `desousa-2026-prefrontal-controls-memory-organization.md` — memory-consolidation · R · 2026
 - [ ] `talk-nd-memory-engram.txt` — memory-consolidation · X · nd
 - [ ] `talk-nd-memory-gating.txt` — memory-consolidation · X · nd

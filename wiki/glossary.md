@@ -210,6 +210,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SPW-R | Sharp-Wave Ripple | 100–250 Hz hippocampal population burst; the replay carrier ([[wiki/concepts/offline-replay.md]]) |
 | ChR2 | Channelrhodopsin-2 | Light-gated cation channel used to activate (and thereby "opto-tag") a genetically defined cell population |
 | CCK | Cholecystokinin | Peptide marking a basket-cell type inside the *Id2* interneuron family (the *Sncg* subfamily) |
+| NGF | NeuroGliaForm cell | Late-spiking, densely arborising interneuron of the *Id2* family; in CA1 it sits in the stratum lacunosum moleculare and gates entorhinal against CA3 input onto pyramidal dendrites ([[wiki/concepts/inhibitory-control-of-coding.md]]) |
+| NDNF | Neuron-Derived Neurotrophic Factor | Marker gene for hippocampal neurogliaform cells; NDNF-Cre mice are how that population is targeted ([[wiki/concepts/memory-allocation-excitability.md]]) |
+| SLM | Stratum Lacunosum Moleculare | Most distal layer of CA1, where the temporoammonic (entorhinal→CA1) path terminates and NDNF⁺ neurogliaform cells reside |
+| GAD67 | Glutamic Acid Decarboxylase 67 | GABA-synthesising enzyme; the standard immunohistochemical marker for inhibitory neurons |
+| TRAP2 | Targeted Recombination in Active Populations (Fos2A-iCreER) | Tamoxifen-gated Cre driven by the *Fos* promoter; permanently labels the neurons active during a chosen window, the standard engram-tagging tool |
+| CNO | Clozapine *N*-oxide | Ligand for DREADD chemogenetic receptors; the drug that switches an engineered inhibition or excitation on |
 | ASD / TDC | Autism Spectrum Disorder / Typically Developing Control | Group labels in the ABIDE resting-state dataset used to test whether a connectome-derived attractor model predicts altered dynamics ([[wiki/entities/fcann.md]]) |
 | CEBRA | Consistent Embedding of high-dimensional Recordings using Auxiliary variables | Contrastive latent-embedding method used to decode position from neural populations |
 
