@@ -160,6 +160,7 @@ Consequences this page did not state:
 
 ## Connections
 
+- **[[wiki/concepts/priority-map.md]]** — the fast/slow split appearing inside the *control* layer rather than inside memory: repeating a search cue in blocks removes the need for the template-switching stage entirely and part of the need for the matching stage, so a recurring query is progressively absorbed into slower structure (Bichot et al. 2015).
 - **[[wiki/entities/vector-hash.md]]** — the fast store built and priced, with an explicit verdict against content compression: the hippocampal state is a content-independent *pointer* into cortex, and an autoencoder bottleneck that compresses the content instead loses capacity, forgetting-resistance and sequence memory at matched size (Chandra et al. 2023).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the biological derivation of the slow-W / fast-M split, and maps hippocampal sparse coding onto the de-aliasing requirement.
 - **[[wiki/concepts/continual-learning.md]]** — same interference problem, different solution: add a second fast system rather than gate plasticity within one; replay and weight protection are complementary, not rival.

@@ -127,6 +127,7 @@ The last family is the instrument the wiki actually needs: a *controlled* shortc
 
 ## Connections
 
+- **[[wiki/concepts/priority-map.md]]** — a failure mode worth the warning: with the target-matching stage silenced, monkeys keep searching at near-normal rates and simply stop preferring items that match the cue, so a system can look functional while the only task-relevant computation has been deleted (Bichot et al. 2015).
 - **[[wiki/entities/hag-reservoir.md]]** — the objection transposed onto architecture search: a purely unsupervised structural rule wires together whatever co-fluctuates in the input, so a high-variance nuisance regularity gets an edge as readily as a task-relevant one — "task-specific" there means specific to the input distribution, never to the task.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — a shortcut *is* hardness source 5 realized: an edge that fits in-distribution and breaks out of it; this page supplies the evidence that it is the default outcome and that i.i.d. evaluation cannot detect it.
 - **[[wiki/concepts/meta-learning.md]]** — the environment family the outer loop samples is the multi-environment signal that makes invariant (causal) edges identifiable, so fast adaptation and shortcut resistance are the same property viewed twice.

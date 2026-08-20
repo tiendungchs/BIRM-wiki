@@ -188,6 +188,13 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CRP | Conditional Response Probability | Probability of recalling an item at lag `+k`/`−k` from the one just recalled; the standard measure of temporal contiguity in free recall |
 | DMS / DNMS | Delayed (Non-)Match to Sample | Recognition tasks over a delay; the animal analogue of a recency test |
 | PFC | Prefrontal Cortex | |
+| FEF | Frontal Eye Field | Prefrontal oculomotor area holding a retinotopic priority map; no object selectivity, earliest and largest spatial selection ([[wiki/concepts/priority-map.md]]) |
+| VPA | Ventral PreArcuate cortex | Region forward of FEF on the prearcuate gyrus (likely areas 45A/12, possibly 46v); holds the search template and computes target–template similarity; proposed homologue of the human inferior frontal junction ([[wiki/concepts/priority-map.md]]) |
+| VPS | Ventral bank of the Principal Sulcus | Adjacent prefrontal region; needed for switching the search template, not for applying a repeated one ([[wiki/concepts/priority-map.md]]) |
+| IT | InferoTemporal cortex | Late ventral-stream object-recognition cortex; object-selective but shows feature *selection* later (189 ms) than either frontal area |
+| IFJ | Inferior Frontal Junction | Human region implicated in top-down control of object/feature-based attention (Baldauf & Desimone 2014) |
+| RF | Receptive Field | The region of the sensory surface a unit responds to |
+| dva | degrees of visual angle | Standard unit of retinal eccentricity and stimulus size |
 | HD cell | Head Direction cell | Fires as a function of head orientation in the navigational plane; the heading half of a cognitive map ([[wiki/concepts/cognitive-map.md]]) |
 | PPA | Parahippocampal Place Area | Scene/landmark-selective region; perceptual identification of the local place or context |
 | RSC | Retrosplenial Complex | Parieto-occipital-sulcus region (partly overlapping Brodmann area 29/30) that anchors the map: heading codes in local and global reference frames |

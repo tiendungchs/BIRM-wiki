@@ -205,6 +205,7 @@ The doublet analysis dissolves a distinction the wiki has been carrying. A "sequ
 
 ## Connections
 
+- **[[wiki/concepts/priority-map.md]]** — a mechanism left undetermined for want of this page's instrument: multi-unit recording cannot say whether object identity and location are conjunctive within cells or superposed across the population, and only the second lets a target–template similarity be read off a linear projection (Bichot et al. 2015).
 - **[[wiki/concepts/objective-identifiability.md]]** — supplies this page's reason to exist (population structure is a legitimate prediction target, single-unit tuning is not) and receives its instrument, plus the number that bounds its own dimensionality confound: a linear PC count can exceed the true latent dimension by 7–8×, so two systems differing in participation ratio may carry identical geometry.
 - **[[wiki/entities/cscg.md]]** — the model that predicts this page's one longitudinal result: the topological progression of the CA1 manifold *is* a state machine's states separating, and the clone model is the only one tested that reproduces the order in which they separate.
 - **[[wiki/concepts/representation-probing.md]]** — the same inside-the-system ambition with the labels removed: a probe asks whether a *named* structure is decodable, manifold inference asks what shape the activity has before naming anything, and cross-subject rotation alignment is the one comparison here that does not need ground truth. Both stop at decodability without intervention.

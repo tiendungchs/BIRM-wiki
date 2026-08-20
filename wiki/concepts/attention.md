@@ -57,6 +57,24 @@ Two readings for a builder. **The wiki's spotlight controller (below) has a cand
 
 ---
 
+## The spotlight is computed in two stages, and they can be lesioned apart
+
+Where the previous section localises the *state*, Bichot et al. 2015 localises the *computation*, and finds it split across two prefrontal stations that a softmax layer fuses ([[wiki/concepts/priority-map.md]]). Free-viewing search for one of eight natural objects, with feature and spatial selection dissociated by conditioning on where the saccade went:
+
+| | Ventral prearcuate cortex | Frontal eye field |
+|---|---|---|
+| Object selectivity | 35% of units | **0%** |
+| Template held through delay and *across saccades* | yes, to targets and distractors alike | n/a |
+| Feature selection | +21.8%, onset 90 ms, earliest per unit (`t` = 2.45, `P` = 0.016) | +8.1%, 100 ms |
+| Spatial selection | 138 ms, second | 105 ms, largest (AUROC `F` = 33.56, `P` < 10⁻¹⁸) |
+| Silencing it (muscimol) | — | feature selection **abolished** (AUROC 0.633 → 0.508 = chance), spatial selection intact (0.717 → 0.698, `P` = 0.21) |
+
+Three things this fixes for the machine analogue. **The query is a register, not a recomputation** — the same cells hold the cued object through an 800 ms delay and across saccades that replace the entire retinal input, which is the persistent state this page says softmax attention lacks, now with content rather than only a location. **Similarity and arbitration are separate stages** — `sim(template, stimulus(ℓ))` in one area, `argmax_ℓ` in another 15 ms later, with the winner fed back; `softmax(qKᵀ)V` computes both in one expression. **The scoring stage is independently ablatable** — removing it leaves search running and unguided, so the failure mode is content-blind inspection rather than inaction.
+
+The same experiment also removes a common reading of feature attention in sensory cortex: feature selection is *later* in inferior temporal cortex (189 ms) than in either frontal area, and in V4 later than in the frontal eye field (Zhou & Desimone 2011), so extrastriate feature-gain effects are plausibly retinotopic frontal feedback addressed by location, not a feature-space bias signal.
+
+---
+
 ## Selection is the capacity limit, and the softmax denominator is where it lives
 
 The sections above treat selection as free once the target is known. Gong & Zhang 2024 measure what it costs when the target is *far*, in the smallest model that can express the task: a causal decoder-only transformer with **one layer, one head, no feed-forward network and no layer norm**, trained from scratch on the `N`-back task (24-letter sequences, 8 matches / 16 nonmatches, 50 independently trained models per `N`, 10 epochs).
@@ -108,6 +126,7 @@ Three things this changes for a builder.
 
 ## Connections
 
+- **[[wiki/concepts/priority-map.md]]** — the two-stage decomposition of this page's spotlight: a persistent template register and a per-location similarity computed in ventral prearcuate cortex, an argmax over a retinotopic map taken in the frontal eye field, with a causal double dissociation between them — the operations `softmax(qKᵀ)V` fuses into one expression (Bichot et al. 2015).
 - **[[wiki/concepts/working-memory.md]]** — attention is the read/write access discipline for an external memory; the controller acts on the store only through it — and the two are confounded in the substrate, since most of the delay-period signal in prefrontal cortex encodes the attended location rather than the remembered one ([[wiki/empirical-tensions.md]] T88). And the store's *capacity* is a property of this page's mechanism rather than of the store: in a minimal transformer the sequence sits well inside the context window, so nothing is forgotten and the read is what fails, with summed attention-matrix entropy tracking the failure (Gong & Zhang 2024).
 - **[[wiki/concepts/population-geometry.md]]** — supplies the mechanism by which one population can carry both an attended and a remembered location without either being lost: hybrid cells whose preferred location for the two variables *differs* are what resolves the ambiguity that same-preference cells create.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — attention weights are a content-computed soft adjacency, i.e. a one-step graph recomputed per query rather than a persisted structure.

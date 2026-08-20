@@ -323,6 +323,7 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 
 ## Connections
 
+- **[[wiki/concepts/priority-map.md]]** — delay-period content caught in the act of being *used*: the persistent object code that a delayed-match task reads out as "the remembered item" is the query a search computation matches every location against, and it survives saccades that overwrite the whole retinal input — an update-invariant register rather than a decaying trace (Bichot et al. 2015).
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — derives the `7 ± 2` span from noise-driven transitions between asymmetrically coupled attractors, making capacity a dynamical rather than a slot limit, and puts serial order in the same recurrent network that stores episodes.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the only architecture in this ingest that performs explicit multi-hop graph traversal, and marks the boundary: it navigates a *given* graph, it does not discover one.
