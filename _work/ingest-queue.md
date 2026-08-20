@@ -231,7 +231,7 @@ One INGEST each:
 
 - [x] `hasani-2022-closed-form-continuous-time-nets.md` — sequence-models · M · 2022
 - [x] `gu-2022-s4-structured-state-spaces.md` — sequence-models · M · 2022
-- [ ] `karami-2025-ms-ssm-multi-scale-state-space.md` — sequence-models · M · 2025
+- [x] `karami-2025-ms-ssm-multi-scale-state-space.md` — sequence-models · M · 2025
 - [ ] `talk-nd-reservoir-computing.txt` — sequence-models · X · nd
 - [ ] `vaswani-2017-attention-is-all-you-need.md` — attention-transformers · M · 2017
 
