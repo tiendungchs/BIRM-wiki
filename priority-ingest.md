@@ -16,7 +16,7 @@ One INGEST each:
 - [x] `derosa-2024-working-memory-removal-operations.md` — working-memory · R · 2024
 - [x] `gong-2024-self-attention-working-memory-limit.md` — working-memory · R · 2024
 - [x] `wise-2000-arbitrary-antecedent-action-associations.md` — prefrontal-control · S · 2000
-- [ ] `murray-2000-pfc-arbitrary-visuomotor-mapping.md` — prefrontal-control · S · 2000
+- [x] `murray-2000-pfc-arbitrary-visuomotor-mapping.md` — prefrontal-control · S · 2000
 - [ ] `miller-2002-prefrontal-categories-concepts.md` — prefrontal-control · S · 2002
 - [ ] `heidbreder-2003-rat-medial-prefrontal-dorsoventral.md` — prefrontal-control · S · 2003
 - [ ] `wood-2003-prefrontal-representational-perspectives.md` — prefrontal-control · S · 2003
