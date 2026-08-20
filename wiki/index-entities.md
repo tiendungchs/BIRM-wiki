@@ -53,6 +53,7 @@ Models, frameworks, benchmarks, and biological systems. One page per artefact. N
 | Page | What it is | Load-bearing for |
 |---|---|---|
 | [[wiki/entities/fly-central-complex.md]] | The *Drosophila* ellipsoid body: a toroidal neuropil whose columnar (EBw.s) neurons tile a ring and carry one heading bump, imaged as a complete population in a walking fly under closed-loop virtual reality | The wiki's only structural code observed in a *complete, identified* population, and its only direct measurement of the three regimes an integrator needs — landmark-driven anchoring (offset-preserving reset, winner-take-all between aliased landmarks), angular path integration with visible drift in darkness, and >30 s persistence with no input at all ([[wiki/empirical-tensions.md]] T46) |
+| [[wiki/entities/medial-prefrontal-cortex.md]] | The rat medial frontal wall split along a dorsoventral axis: a dorsal tier (Fr2, dorsal anterior cingulate, dorsal prelimbic) wired to sensorimotor cortex, accumbens core and superior colliculus, and a ventral tier (ventral prelimbic, infralimbic, medial orbital) wired to hippocampus, amygdala, hypothalamus, autonomic brainstem and the monoaminergic nuclei | The wiki's only *factorized* controller — control split by output port rather than by computation, with an asymmetric ventral→shell→dorsal cascade, a layer-typed output channel that writes to the dopamine cells, and the dissociation between acquiring a rule and replacing one |
 
 ---
 
@@ -63,7 +64,7 @@ Artefacts named on existing pages that have no page of their own. Listed so the 
 | Artefact | Referenced from | Queued source |
 |---|---|---|
 | Hippocampus / medial temporal lobe | [[wiki/concepts/complementary-learning-systems.md]], [[wiki/concepts/simulation-based-planning.md]], [[wiki/concepts/offline-replay.md]], [[wiki/concepts/pattern-separation-completion.md]], [[wiki/concepts/cognitive-map.md]] | `raw/liao-2024-single-shot-many-shot-hippocampus.md`, `raw/yassa-2011-pattern-separation-hippocampus.md`, `raw/bakker-2008-pattern-separation-ca3-dentate.md` |
-| Prefrontal cortex | [[wiki/concepts/working-memory.md]], [[wiki/concepts/meta-learning.md]] | `raw/wang-2018-pfc-meta-rl-system.md`, `raw/friedman-2021-prefrontal-cognitive-control.md` |
+| Prefrontal cortex (primate lateral / general) | [[wiki/concepts/working-memory.md]], [[wiki/concepts/meta-learning.md]] | Partly covered by [[wiki/entities/medial-prefrontal-cortex.md]] (rat medial wall); the lateral/primate page still awaits `raw/wang-2018-pfc-meta-rl-system.md`, `raw/friedman-2021-prefrontal-cognitive-control.md` |
 | Entorhinal grid cells | [[wiki/concepts/abstract-structural-codes.md]] | `raw/constantinescu-2016-gridlike-code-concepts.md` |
 | Differentiable neural computer | [[wiki/concepts/working-memory.md]] | `raw/graves-2016-differentiable-neural-computer.md` |
 | Deep Q-network / experience replay | [[wiki/concepts/complementary-learning-systems.md]], [[wiki/concepts/causal-model-building.md]] | *(no primary source in `raw/`; Lake et al. 2017 supplies the Frostbite sample-efficiency numbers and the re-goaling critique second-hand)* |

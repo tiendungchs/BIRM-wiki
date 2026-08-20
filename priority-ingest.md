@@ -18,7 +18,7 @@ One INGEST each:
 - [x] `wise-2000-arbitrary-antecedent-action-associations.md` — prefrontal-control · S · 2000
 - [x] `murray-2000-pfc-arbitrary-visuomotor-mapping.md` — prefrontal-control · S · 2000
 - [x] `miller-2002-prefrontal-categories-concepts.md` — prefrontal-control · S · 2002
-- [ ] `heidbreder-2003-rat-medial-prefrontal-dorsoventral.md` — prefrontal-control · S · 2003
+- [x] `heidbreder-2003-rat-medial-prefrontal-dorsoventral.md` — prefrontal-control · S · 2003
 - [ ] `wood-2003-prefrontal-representational-perspectives.md` — prefrontal-control · S · 2003
 - [ ] `euston-2012-mpfc-memory-decision-making.md` — prefrontal-control · S · 2012
 - [ ] `spedding-2012-hippocampal-prefrontal-pathway.md` — prefrontal-control · S · 2012
