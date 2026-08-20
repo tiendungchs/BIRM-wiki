@@ -129,6 +129,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | GIN | Graph Isomorphism Network | The maximally expressive message-passing GNN under the Weisfeiler-Lehman test; the ceiling NeuroMatch's identity injection is designed to exceed |
 | MDP / POMDP | (Partially Observable) Markov Decision Process | State–action–reward formalism, with *partially observable* meaning the agent sees an observation rather than the state — the setting every navigation task in the wiki actually sits in |
 | PDDL | Planning Domain Definition Language | Hand-written symbolic action schemas (preconditions, effects); the form in which [[wiki/entities/hbtom.md]]'s environment dynamics are *supplied* rather than learned ([[wiki/empirical-tensions.md]] T21) |
+| SSM / RSSM | (Recurrent) State-Space Model | A latent-dynamics world model: `p(z_t|z_{t-1},a_{t-1})` plus `p(x_t|z_t)`, trained on the ELBO; the recurrent variant (PlaNet, Dreamer) is what makes latent-space rollout possible without decoding each step
+| PPDDL | Probabilistic PDDL | PDDL with stochastic action effects; the target language DeepSym's distilled decision tree emits ([[wiki/concepts/affordance-grounded-symbols.md]])
 | AUROC | Area Under the Receiver Operating Characteristic curve | Ranking metric on balanced samples; disputed as a retrieval measure because it hides class skew ([[wiki/empirical-tensions.md]] T22) |
 | TPR / FPR | True / False Positive Rate | Detection rates; the pair AUROC summarises and precision does not follow from |
 | BFS | Breadth-First Search | Uninformed shortest-path search; the query-generation procedure in NeuroMatch's training set and a cost signal read out of lateral prefrontal cortex ([[wiki/concepts/cognitive-map.md]]) |

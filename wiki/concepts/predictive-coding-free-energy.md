@@ -250,6 +250,24 @@ The last row is the paper's strongest architectural claim: **thinking is action 
 
 ---
 
+## One model or two: the entangled policy (Taniguchi et al. 2023)
+
+> `raw/taniguchi-2023-world-models-predictive-coding-robotics.md` — a survey bridging machine world models and predictive-coding robotics. Its sharpest contribution to this page is a design question the two literatures answer differently without noticing.
+
+| | Machine world models | Predictive-coding neurorobotics |
+|---|---|---|
+| What is learned | `p(z′\|z,a)`, `p(x\|z)` — and a *separate* `π(a\|z)` or cost | one joint model over sensation **and** action |
+| How an action is produced | optimise or sample from the policy given the model | **inference on the same model** — the action is a latent whose posterior is what the residual descent produces |
+| Claimed payoff | task-agnostic representation; a new objective composes at query time (gap G28) | the successes reported across the Tani lineage — multi-timescale hierarchical recurrent nets, precision-weighted error minimisation, robot manipulation, imitation, navigation |
+
+The entangling is deliberate, and this page's own machinery is the reason: if attention is *action abstracted from execution* and thought is action on internal encodings, then perception, control and imagination are already the same update, and factoring a policy back out of it is an extra assumption rather than a simplification. The affordance literature argues the same from the representation side — an action possibility is a property of the agent–environment pair, so an object's code already contains what can be done to it ([[wiki/concepts/affordance-grounded-symbols.md]]).
+
+**What this costs the wiki.** Gap G28 asks for a transitions/preferences factorization and treats its absence as a defect. If entangling is what makes robot-scale learning work, that gap is a *trade* rather than a bug: immediate re-goaling has to be bought back by some other mechanism, and no source in the wiki has priced it. Logged as [[wiki/empirical-tensions.md]] T142.
+
+**The survey's second concession, and it cuts the other way.** Two features of biological inference it names as absent from machine implementations of this page's equations: **spontaneous dynamics** (brain information processing runs on ongoing activity that no predictive-coding network in the wiki has) and **specialised inductive biases per region** — the cortical principal gradient from unimodal to heteromodal areas recapitulating a hierarchical generative model, and the what/where split read as a **factorization of the generative model** rather than as a processing convenience. The second is the more useful reading: it says a large world model should be factored by *which statistical regularity each part is tuned to* (fast vs slow scene dynamics, one's own body, other agents, extended events), which is a design rule the wiki's single-hierarchy account does not supply.
+
+---
+
 ## The cognitive processing loop
 
 Generalised from the **modular modality frame** architecture (a probabilistic body-image model that represents an arm in many limb-centred low-dimensional frames rather than one high-dimensional one — modularity *for scalability*):
@@ -318,6 +336,7 @@ It also sharpens the picture the illusion is usually used to support. The mask i
 - **[[wiki/concepts/continual-learning.md]]** — the claimed payoff of locality: weights driven by a layer-local residual rather than by one global output loss are argued to overwrite prior structure less, an unmeasured claim sitting alongside this page's backpropagation-approximation result.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the named rival reduction, stated in full; its three predictive-encoding types map onto node content, inter-node relations and edges, and its activity/weight split is the fast-**M**/slow-**W** split derived from inference.
 - **[[wiki/concepts/event-segmentation.md]]** — the abstraction layer built on top of this substrate: events are *sets* of active predictive encodings, boundaries are significant changes in that set — and the lesion result above says the segmentation actually comes from the *dynamical* prior (coupling between orders of motion), since cutting it destroys sequential structure while leaving frequency tracking intact (Friston & Kiebel 2009).
+- **[[wiki/concepts/affordance-grounded-symbols.md]]** — the same residual objective with the target moved from sensation to *the effect of an action*, which turns prediction error into a category-carving signal: situations whose consequences the agent cannot separate collapse to one discrete code (Taniguchi et al. 2023).
 - **[[wiki/concepts/simulation-based-planning.md]]** — supplies the switch that turns perception into simulation (`γ → 0`, strongly negative `β`) and the homeostatic drive that initiates a rollout.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — reaches the same two-timescale split from a different premise: here it is activity-vs-weight adaptation under one objective, there it is interference between a sparse store and a distributed one.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — spatial predictive encodings are a second, learned candidate for `g`: content-invariant frame-of-reference mappings acquired from multimodal correlation, where grid codes are periodic and given.

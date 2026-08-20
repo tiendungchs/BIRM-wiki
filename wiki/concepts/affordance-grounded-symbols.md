@@ -1,0 +1,83 @@
+# Affordance-Grounded Symbols
+
+**A discrete symbol is an equivalence class of situations that produce the same *effect* under the agent's own actions — so the discretisation of a continuous sensorimotor stream is supervised by action consequences rather than by perceptual similarity.**
+
+> Primary framing source: `raw/taniguchi-2023-world-models-predictive-coding-robotics.md` — Taniguchi, Murata, Suzuki, Ognibene, Lanillos, Ugur, Jamone, Nakamura, Ciria, Lara, *Advanced Robotics* 37(13):780–806, 2023. A **survey**: every result below is reported there, not reproduced there, and is attributed to its own source.
+
+This is the wiki's third candidate answer to gap G27 (*nothing supplies the discretisation the graph formalisation assumes*), and the only one whose carving criterion comes from **outside** the observation stream. Event segmentation carves on predictive failure; contextual inference carves on novel-context responsibility; both read a signal the sensory stream already contains. Effect-equivalence carves on what the agent's actions *do*, which no passive observer can compute.
+
+---
+
+## The criterion
+
+Let `x` be an observation of an entity, `a` an action from the agent's repertoire `A`, and `e = effect(x,a)` the observed change. The symbol map `b: x → {0,1}^k` is defined implicitly by
+
+```
+b(x₁) = b(x₂)   ⟺   ∀a ∈ A:  effect(x₁,a) ≈ effect(x₂,a)
+```
+
+and learned by putting a **binary bottleneck inside an effect predictor**:
+
+```
+b = round(σ(f_enc(x)))  ∈ {0,1}^k          # the symbol
+ê = g_dec(b, a)                             # predicted effect
+L = ‖ê − effect(x,a)‖²
+```
+
+Three properties fall out, none of which a perceptual autoencoder has:
+
+| Property | Why it holds |
+|---|---|
+| **Symbols are agent-relative** | `A` is the agent's own repertoire. The same stone is one symbol to an agent that can lift it and another to one that cannot — Gibson's affordance definition made computational, and the *Umwelt* claim (the "world" of a world model is the world under this agent's sensors and effectors, never a bird's-eye map) turned into a training objective |
+| **Symbols are typed by consequence, not by appearance** | Two visually dissimilar objects that afford the same effect collapse to one code; two near-identical objects that behave differently separate. Pure-visual neuro-symbolic systems cannot do either, which is the survey's central contrast between visual and robotic symbol discovery |
+| **The symbol carries its own precondition** | An effect predictor conditioned on `a` is exactly a `⟨precondition, action, effect⟩` triple, i.e. a typed edge — the object PDDL wants, obtained without writing predicates |
+
+---
+
+## Instantiations (all as reported in Taniguchi et al. 2023)
+
+| System | Discretiser | Supervision | What it plans with | Limitation |
+|---|---|---|---|---|
+| Konidaris et al. | symbols discovered for a given agent setting, constructed to be usable in a planning-domain description | the agent's own action/option set | discovered symbols used **directly as PDDL predicates** in action descriptions; deterministic and probabilistic plans, simulation and real robot | needs the action/option set (gap G33) handed to it |
+| James et al. | same, in the agent's **egocentric** frame | as above | transfers to new settings | egocentric symbols lose allocentric relations |
+| Ugur et al. | X-means clustering + SVM over continuous perceptual space | hand-coded perceptual features | PDDL manipulation planning | the features — i.e. the hard half of G27 — are supplied |
+| **DeepSym** (Ahmetoglu et al.) | binary bottleneck in an encoder–decoder from *raw pixels + action* to effect in pixel coordinates | effect prediction only | decision tree distils the decoder into probabilistic PDDL rules consumed by an off-the-shelf planner | one object at a time |
+| DeepSym + multi-head attention (Ahmetoglu) | as above, attention over object set | effect prediction | symbols encoding affordances of *object relations*, not single objects | relations are attention weights, not typed edges |
+| Ahmetoglu et al. (slow feature analysis) | units with the **lowest** eigenvalues | none (slowness) | nothing yet — the units merely *correlate* with high-level features | "precursors of symbols", not symbols |
+| **LatPlan** (Asai et al.) | discrete-bottleneck state autoencoder trained first, action preconditions/effects learned second; later work learns both jointly | image reconstruction, then transition | classical planning over discovered propositions, with visualised plan execution | 2-D puzzles; the state encoder is action-blind in the two-stage version |
+
+**The row that matters is DeepSym.** It is the only entry that goes from raw pixels to a plan with no hand-coded feature, no supplied option set and no reconstruction objective — and its symbols group objects by shared affordance *as a consequence of the training target*, because the only thing the code has to preserve is what the object does when acted on.
+
+---
+
+## Why this is a world model, not an adjunct to one
+
+The survey's §4.3 argument, which the wiki should adopt: a computational affordance model that includes the action *and* its effect **is** an internal model of how the world behaves for this agent — the same object as `p(z'|z,a)`, written over a discrete state space instead of a continuous one. So the affordance literature and the world-model literature are not neighbours to be reconciled; they are the discrete and continuous readings of one thing, and the techniques used to learn them overlap.
+
+**(brainstorm)** Effect-equivalence is also the cleanest available answer to gap G23 (*machine priors are unconditional; a prior needs an entry test*). A symbol learned this way arrives with its own applicability mask: the set of `x` mapping to code `b` is precisely the set on which `b`'s effect rules hold, and an object outside it is not admitted. Core knowledge stipulates entry conditions (cohesion, continuity); this learns them, at the price of only ever recovering conditions that some action in `A` can distinguish. It predicts the corresponding failure: an agent whose repertoire cannot separate two kinds of thing will never form two symbols for them, however different they look — the sand-vs-solid distinction is learnable by a gripper and invisible to a camera.
+
+**(brainstorm)** It also gives G40 (*when to factorise and when to entangle*) a decision procedure rather than a preference. Factorise iff the effect predictor's loss is unchanged when the code is split and the parts are recombined — i.e. iff effects are separable across the proposed factors. That is a measurable quantity on machinery already trained, and it is not available to any objective scored on reconstruction.
+
+---
+
+## Open problems
+
+- **No symbol has been put inside a state-space world model.** The survey states plainly that methods for integrating symbolic structure into VAE- and SSM-based world models "are still being explored". Every entry above discretises *instead of* running a latent-dynamics model, not *inside* one — so the wiki has no example of a system that plans symbolically at the top and continuously at the bottom on one learned representation.
+- **The action repertoire is fixed.** Every criterion above quantifies over `A`, and every system takes `A` as given. If actions are themselves learned (options, G33), symbols and options must be co-discovered — the vocabulary co-discovery problem (G4) with a second circularity: options are defined over states, and the states are defined by what the options do.
+- **Effect-equivalence is repertoire-limited, and nothing measures the shortfall.** No system reports which distinctions its action set *cannot* make, so the discretisation's coverage is unaudited.
+- **Bottom-up symbols vs. top-down language.** The survey's §5.1 frames the live question as bidirectional: injecting a language model's symbolic knowledge into a robot's world model is the easy direction; the hard one is bottom-up formation of a symbol system that a language could then attach to (symbol emergence in cognitive and developmental systems). Nothing in the wiki does the second.
+- **Continuous and discrete costs are not commensurable.** A distilled PDDL rule set is consumed by a classical planner whose plan quality is measured in steps; the underlying effect predictor's error is measured in pixels. No entry above scores a symbolic plan by the continuous cost it will actually incur.
+
+---
+
+## Connections
+
+- **[[wiki/concepts/event-segmentation.md]]** — the sibling answer to gap G27 with the complementary carving criterion: segmentation cuts the stream where *prediction fails*, effect-equivalence cuts it where *actions stop mattering*; an event schema's `⟨precondition, transition, effect⟩` and a distilled PDDL rule are the same object arrived at from opposite ends.
+- **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the nodes the framing assumes: a symbol is a node, its precondition mask is the node's entry test, and the distilled action rule is a typed edge, all obtained without a hand-built state space.
+- **[[wiki/concepts/simulation-based-planning.md]]** — what the symbols are *for*: distilled probabilistic PDDL rules are handed to an off-the-shelf planner, which makes rollout depth a symbolic search parameter rather than a horizon over a learned latent — the discrete counterpart of that page's model-based branch.
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the same prediction-error objective with the bottleneck moved: predict *effects of actions* rather than *sensations*, and the residual carves categories instead of tracking states; the survey treats effect prediction as predictive coding over object symbols.
+- **[[wiki/concepts/causal-model-building.md]]** — an effect predictor is a causal model in the narrow sense that its inputs are interventions, so the symbols it induces are grouped by intervention response — the training signal that page says causal fidelity has to be paid for with.
+- **[[wiki/concepts/core-knowledge.md]]** — the learned rival to installed entry conditions: core systems stipulate which entities they admit, effect-equivalence derives an applicability mask from what the agent's actions can distinguish (gap G23).
+- **[[wiki/concepts/temporal-abstraction-options.md]]** — the co-discovery circularity: Konidaris-style symbols are constructed against a *given* action/option set, and options are policies over states the symbols are supposed to define, so neither family currently bootstraps the other (G4, G33).
+- **[[wiki/concepts/compositionality.md]]** — supplies a compositional vocabulary whose primitives are grounded rather than stipulated, and a test for whether a proposed factorisation is real (does splitting the code leave effect prediction unchanged).
+- **[[wiki/entities/h-jepa.md]]** — the continuous rival at the same job: there, high-level actions are *conditions on lower-level states* learned by long-range predictability; here they are discrete codes learned by effect-equivalence, and neither has been run inside the other.

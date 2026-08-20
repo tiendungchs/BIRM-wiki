@@ -3,30 +3,34 @@
 **One ingest per pass** - never batch ingests.
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
-## Wave 6 — normative theories · predictive coding, active inference, RL planning
+## Wave 7 — machine world models · JEPA family and self-supervised representation
 
 One INGEST each:
 
-- [x] `friston-2009-predictive-coding-free-energy.md` — predictive-coding · F · 2009
-- [x] `bastos-2012-canonical-microcircuits.md` — predictive-coding · F · 2012
-- [x] `whittington-2017-predictive-coding-approximates-backprop.md` — predictive-coding · M · 2017
-- [x] `milosevic-2026-active-inference-convex-mdp.md` — predictive-coding · M · 2026
-- [x] `kerjan-2026-predictive-coding-imagenet-eqprop.md` — predictive-coding · M · 2026
-- [x] `nguyen-2025-event-segmentation-mechanisms.md` — predictive-coding · R · 2025
-- [x] `friston-2009-free-energy-principle-rough-guide.md` — active-inference · S · 2009
-- [x] `cooper-2026-efe-belief-dependent-utility.md` — active-inference · F · 2026
-- [x] `nuijten-2026-what-inference-is-active-inference.md` — active-inference · F · 2026
-- [x] `champion-2023-deconstructing-deep-active-inference.md` — active-inference · M · 2023
-- [x] `nuijten-2026-efe-planning-variational-inference.md` — active-inference · M · 2026
-- [x] `zhang-2025-novelty-variability-active-inference.md` — active-inference · R · 2025
-- [x] `talk-nd-free-energy-principle.txt` — active-inference · X · nd
-- [x] `gerfen-2011-striatal-dopamine-modulation.md` — rl-planning · S · 2011
-- [x] `helie-2013-basal-ganglia-cognitive-models.md` — rl-planning · S · 2013
-- [x] `doya-2002-metalearning-neuromodulation.md` — rl-planning · F · 2002
-- [x] `daw-2005-uncertainty-based-arbitration.md` — rl-planning · F · 2005
-- [x] `botvinick-2008-hierarchical-rl-behavior.md` — rl-planning · F · 2008
-- [x] `bogacz-2007-basal-ganglia-optimal-decisions.md` — rl-planning · M · 2007
-- [x] `poursiami-2025-hippocampal-rl-framework.md` — rl-planning · M · 2025
-- [x] `harvey-2026-hierarchical-skill-discovery.md` — rl-planning · M · 2026
-- [x] `kable-2007-subjective-value-intertemporal-choice.md` — rl-planning · R · 2007
+- [x] `taniguchi-2023-world-models-predictive-coding-robotics.md` — world-models · S · 2023
+- [ ] `long-2025-embodied-intelligence-world-models.md` — world-models · S · 2025
+- [ ] `zhang-2026-identifiability-controlled-world-models.md` — world-models · F · 2026
+- [ ] `bortoletto-2023-irene-intuitive-reasoning-network.md` — world-models · M · 2023
+- [ ] `koenig-2024-kan-odes-dynamical-systems.md` — world-models · M · 2024
+- [ ] `gao-2025-adaworld-latent-actions.md` — world-models · M · 2025
+- [ ] `assran-2025-v-jepa-2.md` — world-models · M · 2025
+- [ ] `peng-2025-grid-code-quantization-world-models.md` — world-models · M · 2025
+- [ ] `venkatesh-2025-spelke-segments.md` — world-models · M · 2025
+- [ ] `maes-2026-leworldmodel-jepa-from-pixels.md` — world-models · M · 2026
+- [ ] `baek-2026-theorize-world-from-observation.md` — world-models · M · 2026
+- [ ] `nanda-2023-linear-representations-othello.md` — world-models · R · 2023
+- [ ] `tehenan-2025-linear-spatial-world-models-llms.md` — world-models · R · 2025
+- [ ] `garrido-2025-intuitive-physics-v-jepa.md` — world-models · R · 2025
+- [ ] `bordes-2024-vision-language-modeling.md` — ssl-representation · S · 2024
+- [ ] `weller-2026-embedding-retrieval-limits.md` — ssl-representation · F · 2026
+- [ ] `grill-2020-byol-self-supervised.md` — ssl-representation · M · 2020
+- [ ] `zbontar-2021-barlow-twins.md` — ssl-representation · M · 2021
+- [ ] `bardes-2022-vicreg.md` — ssl-representation · M · 2022
+- [ ] `oquab-2023-dinov2.md` — ssl-representation · M · 2023
+- [ ] `assran-2023-i-jepa.md` — ssl-representation · M · 2023
+- [ ] `simeoni-2025-dinov3.md` — ssl-representation · M · 2025
+- [ ] `li-2025-hit-jepa-trajectory-embedding.md` — ssl-representation · M · 2025
+- [ ] `balestriero-2025-lejepa.md` — ssl-representation · M · 2025
+- [ ] `chen-2025-vl-jepa.md` — ssl-representation · M · 2025
+- [ ] `akbar-2026-weak-sigreg-covariance-regularization.md` — ssl-representation · M · 2026
 
