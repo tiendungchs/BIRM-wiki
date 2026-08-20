@@ -375,3 +375,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | DataComp | — | Benchmark that fixes CLIP's architecture and hyperparameters and competes on the *dataset*, showing data pruning beats the scaling law |
 | LIMIT | — | 50k-document retrieval dataset built from the densest qrel matrix that fits ~1000 top-2 queries (all `C(46,2)` pairs), instantiated as *`Jon likes Apples`* / *`who likes Apples?`*; every single-vector embedding model fails it ([[wiki/concepts/retrieval-capacity.md]]) |
 | MTEB / BEIR | Massive Text Embedding Benchmark / Benchmarking IR | The field's standard embedding leaderboards; scores on them are uncorrelated with LIMIT |
+| IB | Information Bottleneck | Find a code maximally informative about the sample and minimally informative about the nuisance (here, the distortion applied); Barlow Twins' `λ` is its trade-off parameter ([[wiki/entities/barlow-twins.md]]) |
+| LARS | Layer-wise Adaptive Rate Scaling | The large-batch optimiser every ImageNet-scale SSL method in the wiki trains with (BYOL, Barlow Twins) |
+| W-MSE | Whitening Mean Squared Error | Cholesky-whiten each batch of embeddings exactly, then take a cosine similarity — the *hard*-whitening counterpart to Barlow Twins' soft decorrelation; 66.3% ImageNet linear eval |
+| IMAX | — | Becker & Hinton 1992: maximise `log det C(Z^A − Z^B) − log det C(Z^A + Z^B)` between twin networks; a genuine information quantity of the same two-term shape as Barlow Twins, which did not scale to ImageNet |

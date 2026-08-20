@@ -42,6 +42,8 @@
 | Remove colour distortion | **−9.1** | −22.2 |
 | Crop only (all other augmentations removed) | **59.4** (−13.1) | 40.3 (−27.6) |
 
+**The augmentation row now has a counter-example and the mechanism below is contested.** Barlow Twins — no negatives, no discrimination, a dimension-contrastive loss — degrades on the same progressive-removal sweep *like SimCLR* (≈ −25 at crop-only), not like BYOL (Zbontar et al. 2021, [[wiki/entities/barlow-twins.md]]). So "the negatives author the shortcut" cannot be the whole explanation; the surviving candidate is that BYOL's EMA target carries features **no augmentation demanded**, making it the outlier rather than SimCLR ([[wiki/empirical-tensions.md]] T165). The paragraph below is the wiki's original reading, kept because it is still the mechanism for the SimCLR–BYOL gap specifically.
+
 The augmentation result has a mechanism, and it is the sharpest statement of what negatives cost. Crops of one image share a colour histogram and histograms differ across images, so a *contrastive* task on crops alone is solved by colour histogram and the representation is never charged for anything else — the negatives define what the shortcut is ([[wiki/concepts/shortcut-learning.md]]). BYOL's target is not a discrimination but a regression onto a representation that already contains more, so any extra feature the target carries is worth encoding.
 
 ---
@@ -54,6 +56,7 @@ The augmentation result has a mechanism, and it is the sharpest statement of wha
 | Target = EMA, `τ_base ∈ {0.9, 0.99, 0.999}` | 68.4 / **72.5** / 69.8 | Wide plateau; the trade-off is targets that move too fast vs. too slowly |
 | Target = online network, `τ = 0` (stop-grad only) | **0.3** | Collapse. Stop-gradient by itself does not prevent it |
 | BYOL minus predictor (= unsupervised Mean Teacher) | **0.2–0.3** | Collapse. EMA target by itself does not prevent it either |
+| **Barlow Twins' 8192-wide projector + 8192-d embedding** (Zbontar et al. 2021) | 74.1 → **72.3** | The width a dimension-contrastive loss keeps profiting from is *harmful* here — BYOL's embedding width saturates and then costs |
 | Add SimCLR's negatives to BYOL (`β = 1`, temperature untuned) | 70.9 | Negatives *hurt* here; recoverable by retuning the temperature |
 | SimCLR + target network (same negative count) | 69.4 → **71.0** | The EMA target helps by stabilisation alone, not by supplying more negatives as in MoCo |
 | SimCLR + predictor | ≈ unchanged | The predictor is not a capacity fix |
@@ -97,12 +100,12 @@ The trade in the last two rows is the point. BYOL buys the cheapest anti-collaps
 
 ## Comparison
 
-| | **BYOL** | SimCLR | MoCo | Mean Teacher | VICReg | [[wiki/entities/lewm.md]] | [[wiki/entities/v-jepa-2.md]] |
+| | **BYOL** | SimCLR | MoCo | Mean Teacher | VICReg / [[wiki/entities/barlow-twins.md]] | [[wiki/entities/lewm.md]] | [[wiki/entities/v-jepa-2.md]] |
 |---|---|---|---|---|---|---|---|
 | Negatives | no | yes (in-batch) | yes (memory bank) | no | no | no | no |
 | EMA target | yes | no | yes (for negatives) | yes | no | **no** | yes (`0.99925`) |
-| Predictor on one branch | **yes** | no | no | **no → collapses** | no | yes (the world-model predictor) | yes |
-| Anti-collapse | dynamics | negatives | negatives | supervised loss | variance + covariance terms | SIGReg | EMA + stop-grad (BYOL's) |
+| Predictor on one branch | **yes** | no | no | **no → collapses** | no — adding predictor **and** stop-grad costs BT 10 points | yes (the world-model predictor) | yes |
+| Anti-collapse | dynamics | negatives | negatives | supervised loss | variance + covariance terms; BT: cross-correlation → `I` | SIGReg | EMA + stop-grad (BYOL's) |
 | Descends a well-defined loss | **no** | yes | yes | yes | yes | yes | no |
 | Predicts across | two views of one image | — | — | — | two views | **time**, action-conditioned | **time**, masked patches |
 
@@ -115,6 +118,7 @@ The right-hand columns are the reason this 2020 paper is a wave-7 ingest: the JE
 - **[[wiki/concepts/energy-based-models.md]]** — supplies the fourth anti-collapse family for that page's contrastive/regularised split, and the one that breaks its framing: the provision is in the update rule rather than the loss, so a joint-embedding architecture can avoid the collapse its energy landscape permits without any term that pushes energy up anywhere.
 - **[[wiki/concepts/objective-identifiability.md]]** — the limit case of that page's many-to-one direction: BYOL's authors hypothesise *no* loss is jointly descended, so the representation cannot be attributed to an objective at all, only to a dynamics.
 - **[[wiki/entities/h-jepa.md]]** — the design whose four training criteria this refutes as necessary conditions: BYOL implements criterion 3 (predictability) alone, omits 1, 2 and 4 (information maximisation and latent capacity limits), and does not collapse.
+- **[[wiki/entities/barlow-twins.md]]** — the symmetric alternative and the mutual control: its cross-correlation-to-identity loss needs neither of this page's components, and bolting them on costs it 10 points, while its 8192-wide projector costs BYOL 1.8 — so the two designs' stabilisers are competing rather than stackable, and its negative-free augmentation fragility undercuts this page's shortcut reading (T165).
 - **[[wiki/entities/lewm.md]]** — the direct answer: the EMA teacher and stop-gradient LeWM removes are exactly this page's two components, and its objection — that they correspond to no well-defined objective — is this paper's own admission, restated as a reason to replace them.
 - **[[wiki/entities/v-jepa-2.md]]** — inherits the mechanism at scale: masked feature prediction with an EMA teacher at `τ = 0.99925` is BYOL's asymmetry with the second view replaced by a future frame.
 - **[[wiki/concepts/amortized-inference.md]]** — the predictor is an amortised regression whose *staleness* is the design variable: a closed-form optimal linear predictor (52.5%) or a faster-learning one (66.5%) substitutes for the EMA target entirely, so this is a case where how well the amortiser tracks its exact solution decides whether the whole system learns anything.
