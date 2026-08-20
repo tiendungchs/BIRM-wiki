@@ -124,7 +124,6 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | vANN / sANN / pdANN | vanilla / sparse / partly-dendritic ANN | dANN's controls: fully connected, randomly sparse, and tree-structured-but-fully-sampled-input |
 | LRF / GRF | Local / Global Receptive Field | dANN input-sampling rules: receptive-field centre drawn per dendrite (LRF, best-performing) or per soma (GRF) |
 | eHebb | error-based Hebbian plasticity | `ΔW_{ℓ−1,ℓ} ∝ −e_ℓ e_{ℓ−1}ᵀ` — outer product of post- and pre-synaptic *error* signals rather than activations; drives forward weights toward the transpose of fixed random feedback (Shervani-Tabar & Rosenbaum 2023) |
-
 | MLP | Multi-Layer Perceptron | Plain fully-connected feedforward stack; the default comparator or head in most architectures here |
 | GNN | Graph Neural Network | Message-passing network over an explicit node/edge set; the backbone of [[wiki/entities/neuromatch.md]] |
 | GIN | Graph Isomorphism Network | The maximally expressive message-passing GNN under the Weisfeiler-Lehman test; the ceiling NeuroMatch's identity injection is designed to exceed |
@@ -134,7 +133,21 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | TPR / FPR | True / False Positive Rate | Detection rates; the pair AUROC summarises and precision does not follow from |
 | BFS | Breadth-First Search | Uninformed shortest-path search; the query-generation procedure in NeuroMatch's training set and a cost signal read out of lateral prefrontal cortex ([[wiki/concepts/cognitive-map.md]]) |
 | CMAC | Cerebellar Model Articulation Controller | Albus 1971: a sparse-distributed store with *error-gated* writing, `ΔC = g(p̂_u − s_u)/K` applied only when the retrieval error exceeds tolerance ([[wiki/entities/sparse-distributed-memory.md]]) |
-| SDM | Sparse Distributed Memory | Kanerva's random-address store; capacity `τ ≈ 0.10·M`, per-read confidence `|s_u|` ([[wiki/entities/sparse-distributed-memory.md]]) |
+| SDM | Sparse Distributed Memory | Kanerva's random-address store; capacity `τ ≈ 0.10·M`, per-read confidence `\|s_u\|` ([[wiki/entities/sparse-distributed-memory.md]]) |
+| ReLU | Rectified Linear Unit | `max(0, x)`; the nonlinearity the predictive-coding energy's projected-gradient dynamics project onto ([[wiki/concepts/energy-based-models.md]]) |
+| UMAP | Uniform Manifold Approximation and Projection | Nonlinear dimensionality reduction used to visualise population state spaces; a *display*, not a measurement — the wiki's geometric claims rest on CCGP/PS instead ([[wiki/concepts/population-geometry.md]]) |
+| PGD | Projected Gradient Descent | Gradient step followed by projection back onto a constraint set; the nudged-phase dynamics of a predictive-coding network are PGD with step size 1 ([[wiki/concepts/energy-based-models.md]]) |
+| VF2 / FastPFP / IsoRankN / MFinder | (algorithm names, not abbreviations) | Classical exact or approximate subgraph-matching and network-alignment algorithms; the combinatorial baselines that [[wiki/entities/neuromatch.md]] amortises away ([[wiki/concepts/subgraph-matching.md]]) |
+| STA | Spacetime Attractor | One attractor population per future timestep, so a whole trajectory is represented at once ([[wiki/entities/spacetime-attractor.md]]) |
+| TRNN | Transient Recurrent Neural Network | RNN whose delay-period activity decays to baseline while the memory survives in short-term synaptic state ([[wiki/entities/trnn.md]]) |
+| BPL | Bayesian Program Learning | Concept learning by inferring a generative program with reusable parts ([[wiki/entities/bayesian-program-learning.md]]) |
+| HaSH | (Vector) Hippocampal Scaffolded Heteroassociative Memory | Prestructured grid-module scaffold plus heteroassociative binding, giving exponential capacity with provably convex basins ([[wiki/entities/vector-hash.md]]) |
+| EFE | Expected Free Energy | The active-inference objective over policies: a linear reward term plus one convex term whose gradient is curiosity ([[wiki/concepts/expected-free-energy.md]]) |
+| VFE | Variational Free Energy | The perceptual-inference objective — an upper bound on surprise, minimised over beliefs about the current state ([[wiki/concepts/predictive-coding-free-energy.md]]) |
+| PBWM | Prefrontal Cortex / Basal Ganglia Working Memory | O'Reilly & Frank's model in which basal-ganglia Go/NoGo gating learns the *write policy* of a prefrontal store ([[wiki/entities/pbwm.md]]) |
+| Go / NoGo | (striatal pathway names) | The direct (Go) and indirect (NoGo) striatal pathways; in [[wiki/entities/pbwm.md]] they are the two learned votes on whether a stripe is updated |
+| PVLV | Primary Value, Learned Value | PBWM's dopamine model: two Rescorla–Wagner systems (`PVe/PVi`, `LVe/LVi`) that reproduce the dopamine firing record with no temporal-difference prediction chain |
+| 1-2-AX | (task name) | Hierarchical working-memory task: an outer digit cue selects which of two inner letter sequences (A→X or B→Y) is the target — the wiki's standard test that a store can hold two nested contexts ([[wiki/entities/pbwm.md]]) |
 
 ## Neuroscience
 
@@ -245,7 +258,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | GCaMP | Genetically encoded Calcium indicator (GFP + Calmodulin + M13) | Fluorescent activity reporter; GCaMP6f is the fast variant used for two-photon population imaging |
 | GABA | γ-aminobutyric acid | The principal inhibitory transmitter; "GABAergic" = inhibitory interneuron ([[wiki/concepts/inhibitory-control-of-coding.md]]) |
 | ACG | Autocorrelogram | Spike-train autocorrelation; its *rise time* is one of the six features that separate interneuron families physiologically |
-| CV2 | Second coefficient of variation of interspike intervals | `2|ISI_{i+1} − ISI_i|/(ISI_{i+1} + ISI_i)`, averaged over spikes — a local firing-irregularity measure, the single most informative cell-class feature |
+| CV2 | Second coefficient of variation of interspike intervals | `2\|ISI_{i+1} − ISI_i\|/(ISI_{i+1} + ISI_i)`, averaged over spikes — a local firing-irregularity measure, the single most informative cell-class feature |
 | SPW-R | Sharp-Wave Ripple | 100–250 Hz hippocampal population burst; the replay carrier ([[wiki/concepts/offline-replay.md]]) |
 | ChR2 | Channelrhodopsin-2 | Light-gated cation channel used to activate (and thereby "opto-tag") a genetically defined cell population |
 | CCK | Cholecystokinin | Peptide marking a basket-cell type inside the *Id2* interneuron family (the *Sncg* subfamily) |
@@ -257,12 +270,18 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CNO | Clozapine *N*-oxide | Ligand for DREADD chemogenetic receptors; the drug that switches an engineered inhibition or excitation on |
 | ASD / TDC | Autism Spectrum Disorder / Typically Developing Control | Group labels in the ABIDE resting-state dataset used to test whether a connectome-derived attractor model predicts altered dynamics ([[wiki/entities/fcann.md]]) |
 | CEBRA | Consistent Embedding of high-dimensional Recordings using Auxiliary variables | Contrastive latent-embedding method used to decode position from neural populations |
-
 | CCGP | Cross-Condition Generalization Performance | Train a linear decoder on one set of conditions, test on held-out ones: the standard score for whether a population code is *abstract* ([[wiki/concepts/population-geometry.md]]) |
 | BCI | Brain–Computer Interface | Closed-loop cursor control from recorded population activity; the experimenter owns the whole activity→behaviour map, which is what makes learnability testable ([[wiki/concepts/manifold-constrained-learning.md]]) |
 | IM | Intrinsic Manifold | The subspace spanned by a population's natural co-modulation patterns, estimated as the column space of the factor-analysis loading matrix; predicts which new activity patterns are learnable ([[wiki/concepts/manifold-constrained-learning.md]]) |
 | PD | Preferred Direction | The movement direction eliciting a motor unit's maximal firing; changes in PD are the classical single-cell signature of sensorimotor learning |
 | BTSP | Behavioral Timescale Synaptic Plasticity | Seconds-wide eligibility window gated by a dendritic plateau; produces a place field from one traversal, and a binary-weight content-addressable memory at the population level ([[wiki/concepts/synaptic-plasticity.md]], [[wiki/entities/btsp-cam.md]], [[wiki/empirical-tensions.md]] T13) |
+| SMA / pre-SMA | Supplementary Motor Area / pre-Supplementary Motor Area | Medial premotor cortex on the dorsal medial wall; pre-SMA is the more rostral, more abstract of the pair and carries *response tactic* rather than movement ([[wiki/concepts/policy-abstraction-hierarchy.md]], [[wiki/entities/medial-prefrontal-cortex.md]]) |
+| PMd | Dorsal Premotor Cortex | Where an arbitrary cue→action mapping is stored once learned ([[wiki/concepts/arbitrary-sensorimotor-mapping.md]]) |
+| MEC II / MEC III | Medial Entorhinal Cortex, layer II / layer III | Layer II grid cells phase-precess; layer III cells phase-lock and are trained to predict layer II one step ahead ([[wiki/entities/spiking-tem.md]], [[wiki/concepts/temporal-coding.md]]) |
+| NAc | Nucleus Accumbens | Ventral striatum; the second coincidence gate downstream of the control layer, where hippocampal and prefrontal input converge ([[wiki/entities/hippocampal-prefrontal-channel.md]]) |
+| VTC | Ventral Temporal Cortex | The object-selective end of the ventral visual stream |
+| SWR | Sharp-Wave Ripple | Hippocampal high-frequency burst during rest and slow-wave sleep; the event replay rides on ([[wiki/concepts/offline-replay.md]]) |
+| RPE | Reward Prediction Error | `r + γV(s′) − V(s)`; the quantity dopamine phasic firing is standardly read as reporting, and which [[wiki/entities/pbwm.md]]'s PVLV contests |
 
 ## Benchmarks
 

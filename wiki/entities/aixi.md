@@ -31,7 +31,7 @@ Two structural facts: the model has **no learning algorithm** (conditioning the 
 | **Problem-class coverage** | Sequence prediction, strategic games (reduces to minimax against a minimax opponent, and exploits sub-rational opponents), function minimization, supervised learning, classification — each formulated inside the model and shown equivalent to its purpose-built optimal solver |
 | **Supervised learning is emergent** | Never designed in; AIXI learns to exploit demonstrations within `O(1)` cycles, because the relation is already compressed into the program predicting the example stream ([[wiki/concepts/universal-induction.md]]) |
 | **Exploration is forced** | In the optimization setting, the assumption that the agent tests only finitely many candidates is refuted — the mixture assigns strictly positive probability to any untested candidate being better |
-| **Prior knowledge is injectable** | Presenting knowledge `z` in cycle 1 replaces `K(µ)` by `K(µ|z)` in the bounds — "the boundary between implementation and training is unsharp" |
+| **Prior knowledge is injectable** | Presenting knowledge `z` in cycle 1 replaces `K(µ)` by `K(µ\|z)` in the bounds — "the boundary between implementation and training is unsharp" |
 
 ---
 

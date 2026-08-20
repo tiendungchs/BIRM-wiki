@@ -38,7 +38,7 @@ variance-HAG  (κ = v):  s_i = σ_{x_i, T}       target activity standard deviat
 |---|---|
 | `Δz_i < −1` (under-active) | **Grow.** Over the set of neurons *not* at homeostasis, compute all pairwise Pearson correlations `r_ij`; take `(i*, j*) = argmax r_ij`; increment the incoming synapse `w_{i*j*} ← w_{i*j*} + δw` |
 | `Δz_i > +1` (over-active) | **Prune.** Draw `j` uniformly from `{j : w_ij > 0}` and set `w_ij ← max(0, w_ij − δw)` |
-| `|Δz_i| ≤ 1` for all `i` | Converged (no formal guarantee; ties and random pruning make the final wiring seed-dependent) |
+| `\|Δz_i\| ≤ 1` for all `i` | Converged (no formal guarantee; ties and random pruning make the final wiring seed-dependent) |
 
 Three details carry most of the behaviour:
 
@@ -138,3 +138,4 @@ The paper's own refinement of its claim: HAG performs a **minimal-sufficient exp
 - **[[wiki/entities/spiking-neural-networks.md]]** — the deployment target the excitatory-only constraint is chosen for: substrates realising only non-negative weights otherwise need `w = w⁺ − w⁻` differential pairs, and the paper's claim is that grown structure buys back what the missing sign would have provided.
 - **[[wiki/concepts/three-component-framework.md]]** — a rule that changes the *architecture* slot rather than the learning-rule or objective slot, and one that fails that page's demand in an instructive way: no quantity is named that HAG ascends, so its decorrelation and separability gains are measured rather than derived.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — structure discovery run one level down, on the network's own wiring instead of on the environment's states; the limitation transfers exactly, since a symmetric correlation-grown edge is not a directed transition and nothing carries the grown structure across environments.
+- **[[wiki/concepts/shortcut-learning.md]]** — the shortcut objection transposed onto architecture search: an unsupervised structural wiring rule connects whatever co-fluctuates, so a high-variance nuisance regularity earns an edge as readily as a task-relevant one — 'task-specific' means specific to the input distribution, never to the task.

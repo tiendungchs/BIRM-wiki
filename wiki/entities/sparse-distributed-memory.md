@@ -102,10 +102,10 @@ The correspondence was noticed after the model was built, and is the sharpest an
 | Where fixed points come from | The **address sample** `A`, fixed before data | Stored content | Stored content in CA3 | Prestructured grid code |
 | Plastic layer | Contents only (`C`) | The single recurrent matrix | Perforant path + CA3 recurrence | Hippocampus↔cortex only |
 | Capacity | `τ ≈ 0.10 · M`, independent of `N`, `U` | `≈0.14N`, capped by pattern size | `p_max ≈ kC/(a ln(1/a))` | Exponential in scaffold size |
-| Overload | Graded — cross-talk grows as `pT`, `|s_u|` shrinks | Cliff, total loss | Cliff | Graded (resolution, not identity) |
+| Overload | Graded — cross-talk grows as `pT`, `\|s_u\|` shrinks | Cliff, total loss | Cliff | Graded (resolution, not identity) |
 | Sparsity set by | `p = (2MT)^(−1/3)`, **derived and load-dependent** | Not a parameter | `a`, hand-set | `N_h` at design time |
 | Addresses movable by action | **No** — no algebra on the address space | No | No | **Yes** — velocity shifts on the grid torus |
-| Runtime confidence read-out | **Yes** (`|s_u|`) | No | No | Recognition via mean rate |
+| Runtime confidence read-out | **Yes** (`\|s_u\|`) | No | No | Recognition via mean rate |
 | Structure discovery | None | None | None | None |
 
 The last two rows are where three decades went. Vector-HaSH is SDM with the random address sample replaced by a *path-integrable* one, which buys exponential capacity and zero-shot inference at the cost of assuming the code; SDM's addresses are cheaper and assume nothing, and there is no way to move from an address to a neighbouring address except by already holding the neighbour.

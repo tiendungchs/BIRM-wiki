@@ -92,13 +92,11 @@ The deep layers therefore receive the state/arousal input **and** emit the patch
 
 ---
 
-## The hippocampal link is one-way
+## The hippocampal link, and the channel's own page
 
-> **Superseded twice below.** An indirect return path is named in "The return path, and what the channel does at each task phase" (nucleus reuniens), and a *direct* anterior-cingulate → CA1/CA3 projection in "The direct return arrow exists after all". Read this section as the anatomy of the ventral tier's **input** port only.
+The hippocampal–prefrontal projection has grown past what an endpoint page can hold — it carries a learning rule, a gain, an amygdala lock on its writability, a stress-set operating point, two anatomically distinct directions with different cargo, and several logical channels multiplexed by frequency band. All of it now lives on **[[wiki/entities/hippocampal-prefrontal-channel.md]]**, together with the replay and theta traffic that runs down it and the disconnection logic that unilaterality makes available.
 
-Hippocampal formation → medial prefrontal cortex is real, topographic (ventral subiculum and ventral CA1 → infralimbic and ventral prelimbic) and **essentially unreciprocated**: very few medial prefrontal fibres reach the hippocampal formation directly. Return influence must go through the entorhinal cortex (which *is* bidirectional with the medial wall) or through diencephalic relays. Parahippocampal coupling is bidirectional: perirhinal → infralimbic/ventral prelimbic predominantly, dorsolateral entorhinal → the whole medial wall.
-
-**Why a builder should care.** Every schema-retrieval story in the wiki ([[wiki/concepts/complementary-learning-systems.md]], gap G37) draws a bidirectional arrow between the fast episodic store and the controller. The anatomy says the *direct* arrow runs one way: the store addresses the controller, the controller cannot address the store except through a third module. That makes "the controller queries memory" an operation requiring an intermediary — and makes entorhinal cortex, not hippocampus, the controller's actual read port.
+What matters for *this* page is only which port each direction uses: **ventral hippocampus → the ventral tier** (context in), **anterior cingulate → dorsal CA1/CA3** (retrieval trigger out), and **the dorsal tier → nucleus reuniens → hippocampus** ([[wiki/entities/nucleus-reuniens.md]], goal-conditioned trajectory down). The tier that receives from the store is not the tier that writes to it — which is the two-tier split of this page's opening section showing up as a wiring fact rather than as a behavioural dissociation.
 
 ---
 
@@ -177,81 +175,6 @@ Tasks whose consolidation needs mPFC are **not** always tasks whose acquisition 
 
 ---
 
-## Replay, theta and the hippocampal channel
-
-This page's anatomy says hippocampus → medial wall is one-way. The physiology says what runs down it.
-
-| Observation | Detail |
-|---|---|
-| **Replay exists in mPFC** | Task spike patterns replay in mPFC and nucleus accumbens during post-task rest, at an **accelerated rate** relative to behaviour, and **selectively for recently learned** events |
-| **It is coupled to the hippocampus** | mPFC reactivation is strongest during high-density **low-voltage spindles**; hippocampal **sharp waves** and cortical spindles occur within a few hundred milliseconds of each other; sharp waves correlate with mPFC replay directly |
-| **Direction unresolved** | Some measurements put hippocampal events first, others cortical; the proposed reconciliation is that cortical events *initiate* hippocampal replay which then reinforces the ongoing cortical replay — a loop, not a pipe |
-| **Theta coupling during behaviour** | ~half of mPFC cells phase-lock to hippocampal theta; coherence **rises as the animal approaches a memory-guided choice point**, increases further **after a new rule is acquired**, and reductions in phase-locking **predict errors** |
-| **No place fields, but room discrimination** | mPFC input arises from ventral/intermediate hippocampus, where fields are large enough to code global context — so the controller receives *context*, not position |
-| **Disconnection ≈ bilateral lesion** | Because the pathway is unilateral, inactivating mPFC in one hemisphere and hippocampus in the other severs it while leaving one intact copy of each. Effects nearly match bilateral mPFC inactivation on water maze, T-maze, radial-arm win-shift and Hebb-Williams maze |
-
-**The disconnection logic is a method worth keeping**, and it is available only because of the unilaterality this page establishes: it separates "this region is needed" from "this *edge* is needed" without damaging either endpoint. The machine analogue — zeroing one inter-module connection while both modules stay intact — is rarely run; ablation studies almost always remove nodes, not edges.
-
----
-
-## The edge as the unit of analysis: the hippocampal→prefrontal channel has its own state
-
-> **Provenance (third ingest).** Spedding & Jay 2012, *The hippocampal–prefrontal pathway: the weak link in psychiatric disorders?*, Eur Neuropsychopharmacol 24:1153–1165 (`raw/spedding-2012-hippocampal-prefrontal-pathway.md`). A review that takes the **projection**, not either endpoint, as the object of study — anatomy, synaptic physiology, plasticity, its behavioural necessity, its pharmacological control, and its failure signature across schizophrenia, major depression and post-traumatic stress disorder.
-
-The two ingests above treat the hippocampal input as a wire that delivers context. This one measures the wire. It turns out to carry a **learning rule, a gain, a third-party lock on its writability, and a stress-set operating point** — four state variables that no inter-module connection in any wiki architecture has (gap G52).
-
-### Where it runs
-
-| | Rat | Monkey / human |
-|---|---|---|
-| Origin | Ventral CA1 and subiculum (strongest), light from intermediate third | Rostral CA1, prosubiculum, subiculum |
-| Route | Fimbria/fornix, **ipsilateral** | Fimbria/fornix (inferred in humans from diffusion tensor imaging) |
-| Target | Infralimbic, prelimbic, anterior cingulate; moderate to medial/ventrolateral/lateral orbital; intermediate-hippocampal subpopulation → insular | Orbital and medial prefrontal areas 11, 12, 13, 14c, 24, 25, 32; **light** to dorsolateral (areas 9, 46) |
-| Reciprocity | Monosynaptic, **unidirectional** | Same; hippocampal lesion degrades ventromedial prefrontal white matter (monkey diffusion tensor imaging) |
-
-The dorsolateral prefrontal cortex — the primate region most of the wiki's control-layer evidence comes from — receives only a *light* direct hippocampal projection. Human working-memory results attributed to hippocampal–prefrontal interaction are therefore largely about a **medial/orbital** channel, or about a multi-synaptic route.
-
-### Transmission is excitatory onto inhibitory cells: the context input acts as a *suppressor*
-
-Ventral-hippocampal stimulation produces short-latency AMPA-receptor excitation in prelimbic cortex **followed by inhibition of pyramidal cells**, because the same glutamatergic terminals contact GABAergic interneurons and drive feed-forward inhibition. The causal test runs the right way round: chemical inactivation of ventral hippocampus **decreases** prelimbic interneuron activity and **increases** pyramidal firing, and in fear-extinguished rats specifically, increases freezing.
-
-**So removing the context channel does not silence the controller — it disinhibits it.** The pathway's normal action is to *withhold* prefrontal output that the current context does not license. This inverts the wiki's standing picture of the channel as content delivery ([[wiki/empirical-tensions.md]] T98) and makes it a worked instance of addressed suppression ([[wiki/concepts/inhibitory-control-of-coding.md]]).
-
-### The edge is where the memory is stored, and it is gated by a third region
-
-| Property | Measurement |
-|---|---|
-| Plasticity repertoire | Long-term potentiation, long-term depression **and depotentiation**; bidirectional |
-| Requirements | NMDA-receptor dependent, protein-kinase-A dependent; **dopamine D1 is the key regulator**, with serotonergic, noradrenergic and cholinergic modulation |
-| **Metaplastic lock** | High-frequency stimulation of basolateral amygdala **prevents subsequent induction of potentiation** in the pathway. A third region decides whether this edge may be written |
-| Behavioural read-out | Fear-extinction training **potentiates** the pathway; low-frequency stimulation of ventral hippocampus after extinction depotentiates it **and abolishes extinction recall** |
-| Developmental gate | Stress at three weeks post-birth prevents extinction-induced potentiation **in adulthood**; the partial NMDA agonist d-cycloserine near extinction rescues it |
-| Stress sensitivity | A *single* elevated-platform exposure blocks potentiation induction; reversed by antidepressants, by glucocorticoid-receptor antagonists, and by clozapine (at the dose that also restores hippocampal–prefrontal coherence). Chronic stress → prefrontal dendritic atrophy, lost potentiation, impaired working memory and behavioural flexibility |
-| Molecular correlates of the stress effect | Region- and subunit-specific glutamate-receptor phosphorylation changes; MEK/MAPK and brain-derived neurotrophic factor downregulation, both antidepressant-reversible |
-
-**(brainstorm) The importable object is an edge with a four-tuple of state**: `(weight, gain, writability, decay)`, where *weight* is set by the local Hebbian rule, *gain* by dopamine at the terminal, *writability* by a signal from a module that is neither endpoint (amygdala), and the whole tuple is displaced for hours-to-weeks by a scalar stress variable that reaches every edge in the network at once. The nearest machine construct is a gated skip connection with a learned scalar — but nobody gives that scalar its own plasticity, its own external lock, or a global mode switch. The concrete experiment: in a two-module model with a learned inter-module gate, let a third module emit a binary write-mask on that gate and check whether the resulting behaviour is *stateful in the order of training episodes* the way extinction-then-low-frequency-stimulation is. If the wiki's consolidation stories are right that only the *mapping* transports (Euston et al. 2012, above), then the mapping lives on edges, and edge-level state is where continual-learning protection should be applied — not on the units.
-
-### Context selects which memory is expressed, and the disconnection proves it is this edge
-
-Fear extinction does not erase the original association; it adds a second, context-limited one. Expression of the extinguished response outside the extinction context (**fear renewal**) is abolished by ventral-hippocampal inactivation *and* by asymmetric disconnection of ventral hippocampus from prelimbic cortex. The context posterior of [[wiki/concepts/contextual-inference.md]] therefore has a named carrier, and cutting the carrier does not degrade either memory — it removes the *selection* between them.
-
-### Convergence and timing, at two downstream junctions
-
-| Junction | Finding | Reading |
-|---|---|---|
-| Single mPFC neurons | Receive convergent basolateral-amygdala and ventral-hippocampal input; the **relative timing** of the two inputs strongly influences firing probability | A coincidence gate, not a sum: context and valence must arrive in a window |
-| Single nucleus-accumbens neurons | Receive convergent ventral-hippocampal and prefrontal input; coincident activation drives goal-directed behaviour, and dopamine modulates the glutamatergic afferents | The action-selection stage is a second AND-gate, with the same neuromodulator setting its threshold |
-| Ascending vs. descending amygdala link | Disrupting basolateral amygdala, accumbens core, or their communication **reduces** choice of the large-uncertain option; disrupting the **descending** prefrontal→amygdala direction **increases** it; the ascending direction does not (Floresco et al.) | Two directions of one reciprocal connection carry opposite behavioural terms — a directed-edge dissociation, obtainable only with per-direction manipulation |
-| Dopamine on the channel | Dopamine applied to prefrontal cortex **increases** hippocampal–prefrontal coherence; D1 activation raises interneuron excitability; D1 blockade impairs working memory | The coherence the wiki treats as a measured signature is a *controllable* variable with a known knob |
-
-### Human evidence, and the failure signature
-
-- Intracranial recording in epilepsy patients: theta coherence between medial temporal lobe and prefrontal cortex **rises during memory recall**, with higher **directed information flow medial-temporal → prefrontal** — the human match to the rodent 50 ms hippocampus-leads phase lag.
-- Hippocampus and medial prefrontal cortex are both default-network nodes and are functionally coupled at rest, so the same edge carries both task-driven and self-generated ("mental simulation") traffic.
-- **The "weak link" thesis:** schizophrenia, major depression and post-traumatic stress disorder share cognitive impairment and emotional dysregulation, and each shows structural (fornix, hippocampal volume, prefrontal thinning) *and* coupling abnormalities on this pathway — present in first-episode and at-risk individuals, so not a consequence of chronicity or medication. Animal models converge: maternal immune activation lowers hippocampal–prefrontal theta coherence (clozapine-reversible, dose-dependent) and the 22q11.2-deletion Df(16)A± mouse shows impaired coherence alongside cognitive deficits.
-
-**(brainstorm) The diagnostic move is the one worth stealing, independent of the psychiatry.** A single shared edge failing produces a *joint* symptom profile that looks like several distinct disorders when scored per-symptom. Applied to model debugging: a family of seemingly unrelated behavioural failures (poor rule switching, poor extinction of a learned association, poor context-specific retrieval) is the predicted signature of one degraded inter-module channel, and the cheap test is the disconnection — sever the edge in an otherwise intact model and check whether the whole failure profile appears together. The wiki has no evaluation that scores a *profile* rather than a task.
-
 ## What mPFC is *not* needed for, and the working-memory deconfound
 
 The review's most useful negative section, because it removes claims the wiki's control pages could otherwise over-import.
@@ -282,74 +205,8 @@ The survivors of these controls are narrow and specific: delayed alternation wit
 > **Provenance (fourth ingest).** Preston & Eichenbaum 2013, *Interplay of hippocampus and prefrontal cortex in memory*, Curr Biol 23:R764–R773 (`raw/preston-2013-hippocampus-prefrontal-memory.md`). Full treatment on [[wiki/concepts/schema-assimilation.md]]; three claims belong here because they attach to this page's anatomy.
 
 1. **The channel's cargo is now characterised.** The hippocampal input arises from the ventral/anterior pole, and that pole codes what *all* events of a context share — it discriminates between contexts better than the dorsal/posterior pole, which codes specific objects at specific places. So the "context, not position" statement above is sharper: the long axis is a **generality gradient**, and the controller is wired only to its general end. This page's limitation "nothing localises the content on the channel" is partly retired.
-2. **The controller selects rather than retrieves — causally.** Rats disambiguating contradictory object–reward associations by spatial context: with this region inactivated, dorsal hippocampal neurons retrieve **both** the context-appropriate and the context-inappropriate object representation. The store works without the controller; what is lost is suppression of the wrong candidate. The route is the prefrontal projection to perirhinal/lateral entorhinal cortex — i.e. through exactly the intermediary this page's one-way-anatomy section identified as the controller's only read/write port into the episodic system.
+2. **The controller selects rather than retrieves — causally.** Rats disambiguating contradictory object–reward associations by spatial context: with this region inactivated, dorsal hippocampal neurons retrieve **both** the context-appropriate and the context-inappropriate object representation. The store works without the controller; what is lost is suppression of the wrong candidate. The route is the prefrontal projection to perirhinal/lateral entorhinal cortex — i.e. through exactly the intermediary named on [[wiki/entities/hippocampal-prefrontal-channel.md]] as the controller's only read/write port into the episodic system.
 3. **The recent/remote timeline of the section above is contested by its own successor literature.** Prefrontal involvement tracks how much a new event conflicts with stored associations, not the memory's age: in associative-inference, transitive-inference and food-location-schema tasks, damage here impairs *acquisition* and blocks inference from the outset, while in single-shock contextual fear — no prior model of the box — it is dispensable early and needed only later. The age-indexed table is then the profile that low-integration-demand paradigms produce ([[wiki/empirical-tensions.md]] T99, T97).
-
----
-
-## The return path, and what the channel does at each task phase
-
-> **Provenance (fifth ingest).** Jin & Maren 2015, *Prefrontal-hippocampal interactions in memory and emotion*, Front Syst Neurosci 9:170 (`raw/jin-2015-prefrontal-hippocampal-interactions.md`). A review of both the direct and the **indirect** hippocampal–prefrontal pathways. Its reuniens material has its own page: [[wiki/entities/nucleus-reuniens.md]].
-
-**The one-way section above is now half-retired.** The direct projection is still monosynaptic and unreciprocated, but the return route is named and lesioned: medial prefrontal cortex → **nucleus reuniens** → hippocampus, with a reciprocal arm and — the detail worth importing — *single* reuniens neurons collateralising to both endpoints. The prefrontal → reuniens → septal hippocampus arm carries the **future path** during goal-directed behaviour (Ito et al. 2015). So the two directions carry different types: the store sends *context* up, the controller writes a *goal-conditioned trajectory* down.
-
-**The functional dependence was symmetric all along.** Prefrontal lesions disrupt the spatial firing of hippocampal place cells; hippocampal lesions disrupt anticipatory prefrontal activity in working-memory tasks (Kyd & Bilkey 2003; Burton et al. 2009). Mutual dependence under one-way direct wiring is the signature that predicted an indirect return path before one was demonstrated.
-
-### The edge is needed at *encoding*, while the region is needed at *retrieval*
-
-Spellman et al. 2015, optogenetic terminal inhibition of the ventral-hippocampus → medial-prefrontal projection in a four-goal T-maze:
-
-| Observation | Detail |
-|---|---|
-| Epoch of necessity | Inhibiting the terminals during **cue encoding** impairs performance; the pathway is required for encoding task-relevant spatial cues at both neuronal and behavioural levels |
-| Frequency band | **Gamma (30–70 Hz)** in the pathway correlates with successful cue encoding and with correct trials, and is abolished by terminal inhibition |
-| Relation to theta | Theta (4–10 Hz) phase-locking, with prefrontal firing lagging the hippocampal local field potential, is the *coordination* signature; gamma is the *content-transfer* signature on the same wire |
-
-This sets up a phase dissociation the wiki should carry explicitly ([[wiki/empirical-tensions.md]] T100): the **region** is dispensable at encoding and required at retrieval (spatial win-shift, Euston et al. 2012 section above), while the **edge into it** is required at encoding. Both can be true — the controller acquires the cue→context mapping through this channel and is queried later — but no wiki architecture assigns different task phases to a module and to its input link, and lesion designs that hit the region cannot detect the difference.
-
-### The context channel is also a gate on a third connection
-
-- Ventral-hippocampal neurons projecting to **both** medial prefrontal cortex and amygdala are preferentially recruited during fear renewal (Jin & Maren 2015) — the same collateral-broadcast motif as reuniens, one axon addressing two targets.
-- The hippocampus thereby **gates the reciprocal prefrontal↔amygdala circuit** that expresses and inhibits fear (Herry et al. 2008; Knapska & Maren 2009; Knapska et al. 2012), rather than only delivering context to the controller.
-
-**(brainstorm)** Combined with the amygdala's metaplastic lock on hippocampal→prefrontal potentiation (Spedding & Jay 2012, above), the three regions form a **mutual write-gating triangle**: each pair's edge is licensed by the third node. That is a strictly stronger construct than gap G52's single-edge state tuple — the write-mask is not an external signal but the network's own third vertex, so no node is privileged as the gate-setter.
-
-### Frequency bands divide labour on the same channel
-
-In monkeys learning object–paired associates, different frequency bands within hippocampus and prefrontal cortex carry different functional roles (Brincat & Miller 2015). With the gamma/theta split above, the channel is **frequency-multiplexed**: one anatomical wire, several concurrent logical channels distinguished by band. No architecture in the wiki has more than one logical channel per connection.
-
-### The episodic-memory division of labour
-
-Prefrontal damage spares familiarity-based recognition and impairs **recollection-based** memory — retrieval of contextual and temporal information, and resolution of interference. The proposed split (Dolan & Fletcher 1997): the controller integrates old and new memories that share **overlapping features**, the hippocampus forms new ones. This is the same variable as integration demand on [[wiki/concepts/schema-assimilation.md]], reached from the human neuropsychology side rather than the rodent lesion side.
-
----
-
-## The direct return arrow exists after all, and it is addressed to hubs
-
-> **Provenance (sixth ingest).** Sigurdsson & Duvarci 2016, *Hippocampal-prefrontal interactions in cognition, behavior and psychiatric disease*, Front Syst Neurosci 9:190 (`raw/sigurdsson-2016-hippocampal-prefrontal-interactions.md`). A review organized around the measurement of the interaction; its methodological core has its own page, [[wiki/concepts/inter-areal-synchrony.md]].
-
-**The one-way section above is now fully retired.** A **monosynaptic** projection runs prefrontal cortex → dorsal hippocampus in the mouse (Rajasethupathy et al. 2015):
-
-| Property | Detail |
-|---|---|
-| Origin | **Anterior cingulate** subdivision of the medial wall — the *dorsal* tier, not the ventral one that receives the hippocampal input |
-| Termination | **CA1 and CA3** of the dorsal hippocampus |
-| Causal status | Optogenetically **necessary and sufficient** for retrieval of a spatial memory (assayed by contextual fear) |
-| Target selection | Preferentially innervates **highly connected "hub" neurons** within the hippocampal network — cells that *emerge after learning* |
-| Other evidence | Prefrontal inactivation changes hippocampal place-cell activity in memory-guided tasks (Navawongse & Eichenbaum 2013) |
-
-So the circuit is not "store addresses controller, controller replies through a relay". It is **two direct arrows with different endpoints**: ventral hippocampus → ventral medial wall (context in), anterior cingulate → dorsal CA1/CA3 (retrieval trigger out). The tiers established at the top of this page are the two ports: the tier that receives from the store is not the tier that writes to it.
-
-**(brainstorm) Addressing by connectivity rank is a memory-system primitive the wiki has no version of.** Every read in the wiki is content-addressed — a query vector against stored keys ([[wiki/concepts/attention.md]], [[wiki/concepts/pattern-separation-completion.md]]). Here the controller's axons find their targets by the targets' *graph degree inside the store*, and that degree is itself a product of learning. A one-line write to a learning-created hub triggers completion of the whole pattern, which is a retrieval interface whose bandwidth is independent of the memory's size — and it makes hub formation, not the memory trace, the thing consolidation has to produce ([[wiki/concepts/engram.md]], [[wiki/concepts/latent-graph-discovery.md]]).
-
-### The choice-phase requirement runs on a different route than the encoding one
-
-Silencing the direct ventral-hippocampal terminals abolishes pathway **gamma** and impairs the **sample** phase, and leaves **theta** — the band that rises at the **choice** point — untouched ([[wiki/concepts/inter-areal-synchrony.md]]). Since the choice phase is when theta coupling peaks and predicts correctness, the two task phases are served by **different pathways**, not merely by different bands of one: encoding by the direct projection, choice by an indirect route (reuniens, ventral hippocampus as synchronizer, septum). This sharpens [[wiki/empirical-tensions.md]] T100 from a phase puzzle into a routing claim.
-
-Two further constraints from the same source:
-
-- **Coupling with the ventral pole exceeds coupling with the dorsal pole** (Adhikari et al. 2010; O'Neill et al. 2013), matching the monosynaptic origin — and inactivating ventral hippocampus **desynchronizes prefrontal–dorsal-hippocampal theta**, so the ventral pole is also the other two nodes' synchronizer, not only the wiki's "context supplier".
-- **The coupling is acquired.** Theta synchrony rises across learning of a spatial working-memory task in parallel with performance (Sigurdsson et al. 2010), and its loss is the measured phenotype in every 22q11.2, *Zdhhc8*, neuregulin, maternal-immune-activation and neurodevelopmental-lesion model examined — with synchrony deficits correlating with working-memory impairment, and, in *Zdhhc8* mice, with **reduced axonal branching of ventral-hippocampal terminals in prefrontal cortex** (Mukai et al. 2015). That is the wiki's one case where a behavioural deficit is traced to the *wiring of a single edge* rather than to either module.
 
 ---
 
@@ -523,6 +380,7 @@ The assays label states behaviourally, which the wiki normally distrusts. The in
 
 ## Connections
 
+- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the projection into and out of this region, split off from this page because it is about neither endpoint: the medial wall's two tiers turn out to be the channel's two ports (ventral tier receives context, anterior cingulate writes the retrieval trigger back), and the edge itself carries a plasticity rule, a dopaminergic gain, an amygdala write-lock and a stress-set operating point that this page's anatomy only supplies the terminals for.
 - **[[wiki/concepts/cognitive-control.md]]** — supplies the anatomy that page's mechanism omits: the "sustained bias broadcast to the systems that supply its input" is emitted by *two* controllers with disjoint output ports (dorsal → sensorimotor/collicular/accumbens-core, ventral → limbic/autonomic/monoaminergic), so which systems get biased is a property of which tier holds the task model — and the prelimbic→infralimbic goal-directed→habit shift contradicts that page's account of automaticity as the controller dropping out ([[wiki/empirical-tensions.md]] T94).
 - **[[wiki/concepts/working-memory.md]]** — locates the maintenance deficit: delay-dependent error growth and muscarinic-blockade-sensitive spatial working memory are prelimbic/infralimbic, not anterior cingulate, so the cholinergic gate on maintenance is subregion-specific rather than a global prefrontal parameter — and then removes most of what is left: rodent delay-period deficits are confounded with task novelty, with mediating behavioural strategies (cells resolve sub-centimetre position differences), and with reference memory, leaving short-term memory *for actions and errors* as the only well-controlled residue (Euston et al. 2012).
 - **[[wiki/concepts/arbitrary-sensorimotor-mapping.md]]** — that page's rat ablation table names prelimbic cortex as a site whose damage impairs conditional mapping; this page says *which* prelimbic, and adds that the deficit is in replacing a mapping rather than acquiring one, which re-reads several of its lesion rows as switching costs.
@@ -545,8 +403,9 @@ The assays label states behaviourally, which the wiki normally distrusts. The in
 - **[[wiki/concepts/temporal-coding.md]]** — two coincidence gates downstream of this region are timing-typed rather than sum-typed: the relative arrival time of basolateral-amygdala and ventral-hippocampal input sets an mPFC neuron's firing probability, and hippocampal theta leads prefrontal spiking by ~50 ms, which is the interval a monosynaptic pathway would impose (Spedding & Jay 2012).
 - **[[wiki/concepts/schema-assimilation.md]]** — receives this page's non-selective ventral cluster as its human substrate: Brodmann-area-11 lesions diminish assimilation of new information into existing schemas and remove schema-biased recall, so the situation model is not merely correlated with this tissue but lost with it (Lieberman & Meyer 2018) — and supplies the content on this page's one-way hippocampal channel and the operation it serves: the ventral/anterior pole codes context-general information (the dorsal/posterior pole codes items in places) and only it projects here, and inactivating this region leaves dorsal hippocampal retrieval intact but *indiscriminate* — both context-appropriate and inappropriate object memories come back — so the controller selects among retrieved candidates rather than addressing the store (Preston & Eichenbaum 2013, [[wiki/empirical-tensions.md]] T99).
 - **[[wiki/entities/nucleus-reuniens.md]]** — the return path this page's anatomy section says must exist, and its topology: prefrontal cortex reaches hippocampus only through this midline relay, whose neurons collateralise to both structures and whose prefrontal→hippocampal arm carries the future path, so the controller's write into the store is a goal constraint delivered on a shared bus rather than a query (Jin & Maren 2015).
-- **[[wiki/concepts/inter-areal-synchrony.md]]** — the measurement layer under every claim on this page about the hippocampal channel: cutting the direct terminals removes gamma and leaves theta, so this page's "frequency-multiplexed channel" is really a *content* channel on the direct wire plus a *coordination* channel supplied by a third region.
+- **[[wiki/concepts/inter-areal-synchrony.md]]** — the measurement layer under every claim about this region's hippocampal channel ([[wiki/entities/hippocampal-prefrontal-channel.md]]): cutting the direct terminals removes gamma and leaves theta, so this page's "frequency-multiplexed channel" is really a *content* channel on the direct wire plus a *coordination* channel supplied by a third region.
 - **[[wiki/concepts/control-unity-and-diversity.md]]** — a second factorization of the same controller, by operation rather than by output port: the two are orthogonal and compose into one specification — shared goal-maintenance state, operation-specific parameters for updating and shifting, and typed output channels — which no machine controller in the wiki has (Friedman & Robbins 2021).
 - **[[wiki/concepts/dynamic-network-connectivity.md]]** — turns this page's neurochemistry table into a mechanism: the modulators listed as tonic tier parameters act by opening or closing K⁺/HCN/TRPC channels inside individual spines, and the ventral tier's projections to the dopamine, noradrenergic and serotonergic cell groups close the loop from the controller onto the gain it runs at (Arnsten et al. 2010).
 - **[[wiki/entities/spacetime-attractor.md]]** — a computational account of exactly this page's lesion boundary: stimulus–response and stable-reward behaviour survive prefrontal damage while reversal and time-varying goals do not, and a spacetime attractor is the only model of the three compared (temporal difference, successor representation, STA) that solves the second class (Jensen et al. 2026).
 - **[[wiki/entities/pfc-columnar-planning-model.md]]** — builds a planner on this region's cytoarchitecture (no layer IV, hippocampal excitatory drive, dopaminergic/amygdalar motivation input) and predicts a five-way functional taxonomy of its cells that a blind PCA + k-means clustering of real navigating-rat recordings recovers (Martinet et al. 2011).
+- **[[wiki/entities/c-ts-model.md]]** — turns this page's diagonal cortico-striatal projections into computation: cross-loop convergence between rostrocaudally adjacent circuits is what lets a higher loop's conflict gate a lower loop's output.

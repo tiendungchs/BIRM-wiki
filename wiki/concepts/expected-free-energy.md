@@ -32,7 +32,7 @@ g_t = log ρ_t^π(s_t)  −  log ν(s_t|o_t) − log p(o_t|s_t) − log p̃(o_t)
 
 | Term | Definition | Type |
 |---|---|---|
-| `ℓ_t(s,a) = −E_{o∼p(·|s)} log p̃(s,o)` | pragmatic + ambiguity + recognition | **linear** in `μ` — an ordinary reward in a latent MDP |
+| `ℓ_t(s,a) = −E_{o∼p(·\|s)} log p̃(s,o)` | pragmatic + ambiguity + recognition | **linear** in `μ` — an ordinary reward in a latent MDP |
 | `Φ(μ) = −Σ_t H(ρ_t^π)` | negative state-marginal entropy | **convex**, not strictly — the *only* nonlinearity |
 
 Everything that distinguishes active inference from reinforcement learning is `Φ`. Drop it and EFE minimisation *is* reward maximisation on the latent state space.
@@ -43,10 +43,10 @@ Everything that distinguishes active inference from reinforcement learning is `�
 
 | Variant | Integrand | Nonlinearity |
 |---|---|---|
-| Information gain (observation preference) | `log ρ_t − log p(s_t|o_t) − log p̃(o_t)` | `Φ` |
-| Approximate information gain (variational future inference) | `log ρ_t − log ν(s_t|o_t) − log p̃(o_t)` | `Φ` |
-| Risk–ambiguity (state preference) | `log ρ_t − log p(o_t|s_t) − log p̃(s_t)` | `Φ` |
-| + action complexity `log π_t(a|s)/π̄_t(a|s)` | any of the above | `R = Φ + Ψ` (state-action neg. entropy) |
+| Information gain (observation preference) | `log ρ_t − log p(s_t\|o_t) − log p̃(o_t)` | `Φ` |
+| Approximate information gain (variational future inference) | `log ρ_t − log ν(s_t\|o_t) − log p̃(o_t)` | `Φ` |
+| Risk–ambiguity (state preference) | `log ρ_t − log p(o_t\|s_t) − log p̃(s_t)` | `Φ` |
+| + action complexity `log π_t(a\|s)/π̄_t(a\|s)` | any of the above | `R = Φ + Ψ` (state-action neg. entropy) |
 
 They differ only in the linear cost `ℓ` and in whether the entropy is over states or over state-actions. The action-complexity row is the control-as-inference / deep-active-inference term, and it is what keeps the optimum **interior** (a joint-entropy barrier) — without it the softmax update can never populate an action it currently plays with probability zero.
 

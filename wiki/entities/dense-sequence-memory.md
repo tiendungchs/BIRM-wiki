@@ -85,7 +85,7 @@ Consequences a builder should note:
 |---|---|---|---|---|
 | Sequence mechanism | Asymmetric weights, state → successor state | Store the **2-D velocity**; manifold dynamics regenerate the state | Pointer chain: word stored at the previous word's address | None (two static maps) |
 | Sequence capacity | Polynomial or **exponential** in `N` | ~1.5×10⁵ steps (velocity-coded); its asymmetric-Hopfield baseline ≈ 50 steps | Demonstrated at 6 steps; capacity not separately derived | — |
-| Cost per step | `O(N)` bits — the whole successor pattern | `log|actions|` bits | `O(N)` bits | — |
+| Cost per step | `O(N)` bits — the whole successor pattern | `log\|actions\|` bits | `O(N)` bits | — |
 | Branching | No (one successor per pattern; the hidden layer could support it — see brainstorm) | No (unstructured shift) | No (an address with two successors averages them) | — |
 | Correlated patterns | Catastrophic without GPI or an exponential `f` | Handled by construction (addresses are content-free) | Degrades (clustered data wastes locations) | — |
 | Variable dwell time | **Yes** (`MixedNet`, `τ` steps) | No | No | Implicitly, via short-term plasticity |
