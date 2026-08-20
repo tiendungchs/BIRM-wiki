@@ -27,6 +27,6 @@ One INGEST each:
 - [x] `botvinick-2008-hierarchical-rl-behavior.md` — rl-planning · F · 2008
 - [x] `bogacz-2007-basal-ganglia-optimal-decisions.md` — rl-planning · M · 2007
 - [x] `poursiami-2025-hippocampal-rl-framework.md` — rl-planning · M · 2025
-- [ ] `harvey-2026-hierarchical-skill-discovery.md` — rl-planning · M · 2026
+- [x] `harvey-2026-hierarchical-skill-discovery.md` — rl-planning · M · 2026
 - [ ] `kable-2007-subjective-value-intertemporal-choice.md` — rl-planning · R · 2007
 
