@@ -3,36 +3,21 @@
 **One ingest per pass** - never batch ingests.
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
-## Wave 7 — machine world models · JEPA family and self-supervised representation
+## Wave 8 — sequence architectures · state-space, continuous-time, attention
 
 One INGEST each:
 
-- [x] `taniguchi-2023-world-models-predictive-coding-robotics.md` — world-models · S · 2023
-- [x] `long-2025-embodied-intelligence-world-models.md` — world-models · S · 2025
-- [x] `zhang-2026-identifiability-controlled-world-models.md` — world-models · F · 2026
-- [x] `bortoletto-2023-irene-intuitive-reasoning-network.md` — world-models · M · 2023
-- [x] `koenig-2024-kan-odes-dynamical-systems.md` — world-models · M · 2024
-- [x] `gao-2025-adaworld-latent-actions.md` — world-models · M · 2025
-- [x] `assran-2025-v-jepa-2.md` — world-models · M · 2025
-- [x] `peng-2025-grid-code-quantization-world-models.md` — world-models · M · 2025
-- [x] `venkatesh-2025-spelke-segments.md` — world-models · M · 2025
-- [x] `maes-2026-leworldmodel-jepa-from-pixels.md` — world-models · M · 2026
-- [x] `baek-2026-theorize-world-from-observation.md` — world-models · M · 2026
-- [x] `nanda-2023-linear-representations-othello.md` — world-models · R · 2023
-- [x] `tehenan-2025-linear-spatial-world-models-llms.md` — world-models · R · 2025
-- [x] `garrido-2025-intuitive-physics-v-jepa.md` — world-models · R · 2025
-- [x] `bordes-2024-vision-language-modeling.md` — ssl-representation · S · 2024
-- [x] `weller-2026-embedding-retrieval-limits.md` — ssl-representation · F · 2026
-- [x] `grill-2020-byol-self-supervised.md` — ssl-representation · M · 2020
-- [x] `zbontar-2021-barlow-twins.md` — ssl-representation · M · 2021
-- [x] `bardes-2022-vicreg.md` — ssl-representation · M · 2022
-- [x] `oquab-2023-dinov2.md` — ssl-representation · M · 2023
-- [x] `assran-2023-i-jepa.md` — ssl-representation · M · 2023
-- [x] `simeoni-2025-dinov3.md` — ssl-representation · M · 2025
-- [x] `li-2025-hit-jepa-trajectory-embedding.md` — ssl-representation · M · 2025
-- [x] `balestriero-2025-lejepa.md` — ssl-representation · M · 2025
-- [x] `chen-2025-vl-jepa.md` — ssl-representation · M · 2025
-- [x] `akbar-2026-weak-sigreg-covariance-regularization.md` — ssl-representation · M · 2026
-- [x] `kawaharazuka-2025-vision-language-action-robotics.md` — embodied-robotics · S · 2025
-- [ ] `green-2025-learningmatch-siamese-match-manifold.md` — siamese-model · M · 2025
+- [ ] `li-2024-simple-cycle-reservoirs-universal.md` — sequence-models · F · 2024
 
+**Bundle — Liquid Time-constant Networks (paper + explainer).** One INGEST pass over all 2 files (~8077 words), in this order.
+
+- [ ] `hasani-2021-liquid-time-constant-networks.md` — sequence-models · M · 2021
+- [ ] `emergentmind-2026-liquid-time-constant-networks.md` — sequence-models · X · 2026
+
+One INGEST each:
+
+- [ ] `hasani-2022-closed-form-continuous-time-nets.md` — sequence-models · M · 2022
+- [ ] `gu-2022-s4-structured-state-spaces.md` — sequence-models · M · 2022
+- [ ] `karami-2025-ms-ssm-multi-scale-state-space.md` — sequence-models · M · 2025
+- [ ] `talk-nd-reservoir-computing.txt` — sequence-models · X · nd
+- [ ] `vaswani-2017-attention-is-all-you-need.md` — attention-transformers · M · 2017

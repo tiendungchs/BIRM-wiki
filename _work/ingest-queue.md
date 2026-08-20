@@ -214,7 +214,7 @@ One INGEST each:
 - [x] `chen-2025-vl-jepa.md` — ssl-representation · M · 2025
 - [x] `akbar-2026-weak-sigreg-covariance-regularization.md` — ssl-representation · M · 2026
 - [x] `kawaharazuka-2025-vision-language-action-robotics.md` — embodied-robotics · S · 2025
-- [ ] `green-2025-learningmatch-siamese-match-manifold.md` — siamese-model · M · 2025
+- [x] `green-2025-learningmatch-siamese-match-manifold.md` — siamese-model · M · 2025
 
 ## Wave 8 — sequence architectures · state-space, continuous-time, attention
 
