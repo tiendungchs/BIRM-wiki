@@ -213,6 +213,22 @@ Two things follow for this page. First, it is the wiki's cleanest case of geomet
 
 ---
 
+## The one normative statement: which geometry a read-out-agnostic code should have
+
+Every other section on this page measures a geometry that exists. This one says which geometry is *optimal*, and it is a theorem rather than an observation ([[wiki/entities/lejepa.md]], Balestriero & LeCun 2025). Hold the embedding cloud's total variance fixed (`Tr(Cov(Z)) = κ`; the Frobenius, determinant and spectral variants give the same answer) and ask which distribution minimises the risk of a probe fitted later, for an unknown target `y`:
+
+| Read-out | Result |
+|---|---|
+| Ridge linear probe | Whenever the covariance spectrum is not flat, **some** downstream task has strictly higher estimator bias than under isotropy, at any `λ > 0` |
+| OLS linear probe | `tr(Var(β̂_aniso)) > tr(Var(β̂_iso))` — isotropy minimises total estimator variance |
+| Radius k-NN, Nadaraya–Watson kernel | `ISB_{k-NN} = r₀⁴/(K+2)² · τ_g² J(p) + O(r₀⁴)`; among distributions under a scalar covariance constraint the **isotropic Gaussian is the unique minimiser** of integrated squared bias |
+
+Isotropy is what the linear analysis forces; **Gaussianity** is what the nonlinear one adds. Three qualifications this page should carry with it: the result is *worst-case over tasks* and reverses if the task family is known; it constrains the **marginal** cloud and says nothing about relations within an input ([[wiki/entities/dinov3.md]]'s patch Gram matrix) or across time (the straightening section below); and it fixes the shape at a given dimension `K` while saying nothing about choosing `K` — where the measured failures are ([[wiki/empirical-tensions.md]] T169).
+
+**(brainstorm)** Read against the neural measurements above, it is a prediction with the sign the wiki does not usually see. Cortical population geometries are consistently *not* isotropic — participation ratios of a few, power-law spectra, abstraction as a flattening onto a low-dimensional manifold. If isotropy is optimal only when the read-out is unknown, then an anisotropic biological geometry is evidence that the brain's read-outs are *not* unknown to it: the spectrum is shaped by which downstream structures actually read the population, which is the same claim [[wiki/concepts/manifold-constrained-learning.md]] makes from the intervention side.
+
+---
+
 ## A temporal property of the geometry: straightening, and whether it is a virtue
 
 Every measurement above is of the *state cloud*'s shape. The one geometric property that is about **trajectories** enters the wiki from the machine side (Maes et al. 2026, [[wiki/entities/lewm.md]]), against the neuroscience temporal-straightening hypothesis (Hénaff et al.): perceptual representations render temporally complex input as approximately straight paths, which makes prediction linear extrapolation.
@@ -291,3 +307,4 @@ Three consequences for this page. (i) `S_straight` is a cheap, label-free geomet
 - **[[wiki/concepts/linear-representation-hypothesis.md]]** — the elementary case of everything on this page (a feature as a single direction), and the machine-side cautionary result this page's instruments would have avoided: an Othello world model was reported non-linear because the *labels* were written in the wrong frame, which is a failure a geometry-first method (fit the manifold, then ask what lies on it) cannot make.
 - **[[wiki/concepts/retrieval-capacity.md]]** — the other end of the trade this page's low-dimensional results sit on, now with a theorem: dimension is a *necessary* resource for addressing distinct subsets of a store (`d ≥ log C(n,k)/log(1+1/γ)`), so a compressed manifold buys generalisation by forfeiting addressability (T50, T75).
 - **[[wiki/entities/hit-jepa.md]]** — a collapse signature readable only geometrically: the failed ablation's retrieval rank scales *linearly* with database size (106.6 → 497.1 as `|D|` goes 20% → 100%), i.e. the true match sits at a fixed ~0.5 percentile, which is a representation retaining coarse neighbourhood structure while losing within-neighbourhood ordering — partial dimensional collapse that a constant-encoder or norm diagnostic would pass (Li et al. 2025).
+- **[[wiki/entities/lejepa.md]]** — the page's only normative claim about geometry: isotropy minimises linear-probe bias and variance and the isotropic Gaussian uniquely minimises k-NN and kernel-probe bias when the read-out task is unknown, which turns every anisotropy measured above into an implicit claim about known read-outs.
