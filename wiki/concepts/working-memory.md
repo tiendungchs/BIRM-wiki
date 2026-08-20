@@ -154,6 +154,20 @@ What survives the controls is narrow and is not about stimuli: delayed alternati
 
 ---
 
+### The input link and the region are needed at different task phases
+
+Optogenetic terminal inhibition separates the *edge* from its endpoint (Spellman et al. 2015, in Jin & Maren 2015; [[wiki/entities/medial-prefrontal-cortex.md]]). In a four-goal T-maze, the ventral-hippocampus → medial-prefrontal projection is required during **cue encoding**, and gamma-band (30–70 Hz) activity on that pathway tracks successful encoding and correct trials, disappearing under terminal inhibition. The region itself, by the best-controlled rodent result, is required at **retrieval** and not at encoding or during the delay (spatial win-shift, Euston et al. 2012).
+
+| Manipulation | Encoding | Delay | Retrieval |
+|---|---|---|---|
+| Inhibit the ventral-hippocampus → prefrontal **terminals** | **Impaired** | — | — |
+| Inactivate **medial prefrontal cortex** | No effect | No effect | **Impaired** |
+| Lesion **nucleus reuniens** (the return bus) | Radial-arm maze and delayed-non-match-to-position both impaired; phase not resolved | | |
+
+**(brainstorm)** No store in the wiki is specified with a phase-typed input port. The reading that fits both rows is that the channel *writes* the trial's context→cue mapping into the controller during encoding and the controller is *queried* later, so ablating the module and ablating its input link should give opposite phase signatures — a prediction that costs one extra ablation condition and that no machine memory evaluation runs. It also means "the module is not needed at encoding" and "nothing reaches the module at encoding" are routinely conflated.
+
+---
+
 ## Reading is a separate operation, and something schedules it
 
 The section above says most of the delay signal is the pointer. Lundqvist et al. 2018 record the operation that pointer serves. Macaque prefrontal cortex, **two-object sequence** delayed match: sample 1 → 1 s → sample 2 → 1 s → test 1 → 1 s → test 2, with the bar release permitted only after the *whole* test sequence (95.5% correct). Because nothing is responded to at test 1, the read-out and evaluation of the first item is observable with no motor confound — the confound that makes most delayed-response recordings unusable for this question.
@@ -292,6 +306,7 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the only architecture in this ingest that performs explicit multi-hop graph traversal, and marks the boundary: it navigates a *given* graph, it does not discover one.
 - **[[wiki/concepts/attention.md]]** — attention is also where this page's capacity limit can sit: in a minimal transformer trained on `N`-back the item stays inside the context window and the *read* is what degrades, logarithmically in the offset and in step with the entropy of the attention matrix (Gong & Zhang 2024). Attention is the read mechanism of an external memory, and the read is *scheduled*: gamma bursting and object information ramp up several hundred milliseconds before the item is queried, for that item only, and not before an equally predictable event that requires no read (Lundqvist et al. 2018); internal attention and content-addressable retrieval are the same operation — and in prefrontal cortex the two are not separable at the read-out: 61% of delay-tuned cells track the attended location and 16% the remembered one, so the store's persistent signal is mostly its own pointer (Lebedev et al. 2004).
 - **[[wiki/concepts/complementary-learning-systems.md]]** — external memory is the engineering form of the fast store; working memory adds the controller that decides what is written and read.
+- **[[wiki/entities/nucleus-reuniens.md]]** — the bus between the store and the controller is itself a lesionable cause of working-memory deficit: reuniens damage reproduces the radial-arm-maze and delayed-non-match-to-position failures of a hippocampal–prefrontal disconnection while both endpoints stay intact, so a maintenance deficit need not be located in any maintaining structure.
 - **[[wiki/concepts/meta-learning.md]]** — meta-RL's inner learner lives in recurrent activity, i.e. in entangled working memory; its capacity limits are working-memory limits.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — control/storage separation is the transfer that produced graph-traversal-capable networks, and gating is the case where influence ran both ways.
 - **[[wiki/concepts/simulation-based-planning.md]]** — the controller/model split used for planning is the same separation applied to an environment model instead of a memory matrix.

@@ -283,6 +283,43 @@ The survivors of these controls are narrow and specific: delayed alternation wit
 
 ---
 
+## The return path, and what the channel does at each task phase
+
+> **Provenance (fifth ingest).** Jin & Maren 2015, *Prefrontal-hippocampal interactions in memory and emotion*, Front Syst Neurosci 9:170 (`raw/jin-2015-prefrontal-hippocampal-interactions.md`). A review of both the direct and the **indirect** hippocampal–prefrontal pathways. Its reuniens material has its own page: [[wiki/entities/nucleus-reuniens.md]].
+
+**The one-way section above is now half-retired.** The direct projection is still monosynaptic and unreciprocated, but the return route is named and lesioned: medial prefrontal cortex → **nucleus reuniens** → hippocampus, with a reciprocal arm and — the detail worth importing — *single* reuniens neurons collateralising to both endpoints. The prefrontal → reuniens → septal hippocampus arm carries the **future path** during goal-directed behaviour (Ito et al. 2015). So the two directions carry different types: the store sends *context* up, the controller writes a *goal-conditioned trajectory* down.
+
+**The functional dependence was symmetric all along.** Prefrontal lesions disrupt the spatial firing of hippocampal place cells; hippocampal lesions disrupt anticipatory prefrontal activity in working-memory tasks (Kyd & Bilkey 2003; Burton et al. 2009). Mutual dependence under one-way direct wiring is the signature that predicted an indirect return path before one was demonstrated.
+
+### The edge is needed at *encoding*, while the region is needed at *retrieval*
+
+Spellman et al. 2015, optogenetic terminal inhibition of the ventral-hippocampus → medial-prefrontal projection in a four-goal T-maze:
+
+| Observation | Detail |
+|---|---|
+| Epoch of necessity | Inhibiting the terminals during **cue encoding** impairs performance; the pathway is required for encoding task-relevant spatial cues at both neuronal and behavioural levels |
+| Frequency band | **Gamma (30–70 Hz)** in the pathway correlates with successful cue encoding and with correct trials, and is abolished by terminal inhibition |
+| Relation to theta | Theta (4–10 Hz) phase-locking, with prefrontal firing lagging the hippocampal local field potential, is the *coordination* signature; gamma is the *content-transfer* signature on the same wire |
+
+This sets up a phase dissociation the wiki should carry explicitly ([[wiki/empirical-tensions.md]] T100): the **region** is dispensable at encoding and required at retrieval (spatial win-shift, Euston et al. 2012 section above), while the **edge into it** is required at encoding. Both can be true — the controller acquires the cue→context mapping through this channel and is queried later — but no wiki architecture assigns different task phases to a module and to its input link, and lesion designs that hit the region cannot detect the difference.
+
+### The context channel is also a gate on a third connection
+
+- Ventral-hippocampal neurons projecting to **both** medial prefrontal cortex and amygdala are preferentially recruited during fear renewal (Jin & Maren 2015) — the same collateral-broadcast motif as reuniens, one axon addressing two targets.
+- The hippocampus thereby **gates the reciprocal prefrontal↔amygdala circuit** that expresses and inhibits fear (Herry et al. 2008; Knapska & Maren 2009; Knapska et al. 2012), rather than only delivering context to the controller.
+
+**(brainstorm)** Combined with the amygdala's metaplastic lock on hippocampal→prefrontal potentiation (Spedding & Jay 2012, above), the three regions form a **mutual write-gating triangle**: each pair's edge is licensed by the third node. That is a strictly stronger construct than gap G52's single-edge state tuple — the write-mask is not an external signal but the network's own third vertex, so no node is privileged as the gate-setter.
+
+### Frequency bands divide labour on the same channel
+
+In monkeys learning object–paired associates, different frequency bands within hippocampus and prefrontal cortex carry different functional roles (Brincat & Miller 2015). With the gamma/theta split above, the channel is **frequency-multiplexed**: one anatomical wire, several concurrent logical channels distinguished by band. No architecture in the wiki has more than one logical channel per connection.
+
+### The episodic-memory division of labour
+
+Prefrontal damage spares familiarity-based recognition and impairs **recollection-based** memory — retrieval of contextual and temporal information, and resolution of interference. The proposed split (Dolan & Fletcher 1997): the controller integrates old and new memories that share **overlapping features**, the hippocampus forms new ones. This is the same variable as integration demand on [[wiki/concepts/schema-assimilation.md]], reached from the human neuropsychology side rather than the rodent lesion side.
+
+---
+
 ## Limitations
 
 - **Rat, and homology is asserted at one point only** — prelimbic ≈ Brodmann area 32. Everything else must be mapped by hand before it constrains a primate-derived control model.
@@ -297,6 +334,7 @@ The survivors of these controls are narrow and specific: delayed alternation wit
 - **Potentiation in the pathway is measured under anaesthesia by evoked field potentials**, at a synapse driven by electrical stimulation of ventral hippocampus. What that stimulation does to the natural, sparse, theta-organised traffic on the pathway is unknown, so "extinction potentiates the pathway" is a statement about evoked responses.
 - **The pathway's own contribution to the prelimbic/infralimbic split is unresolved by the authors** — it projects to both, and the two have opposite roles in fear expression versus extinction, with no evidence of which terminal field carries which function.
 - **The 2013 schema framework is a synthesis of two literatures, not an experiment.** Its central variable — integration demand — is never measured within a trial, only designed in; almost all of its schema-formation and schema-expression evidence comes from immediately or a few days after learning, which is the wrong window for a claim about consolidation trajectories; and the human arm rests on the rat-mPFC ≈ human-vmPFC homology the source itself calls unfinished.
+- **The 2015 review is a narrative review with no new data**, and its most load-bearing claims (reuniens collateralisation, future-path coding, gamma-band encoding) each rest on a single primary study.
 - **Nothing localises the *content* on the channel.** The only positive characterisation is "context"; there is no decoding of what is transmitted, so the difference between the pathway carrying a context label, a gain signal, or an episodic sample is untested (gap G52).
 
 ---
@@ -320,3 +358,4 @@ The survivors of these controls are narrow and specific: delayed alternation wit
 - **[[wiki/concepts/cognitive-map.md]]** — why the controller receives context and not position: its hippocampal input comes from ventral/intermediate hippocampus where place fields are large enough to code which environment the animal is in, so mPFC discriminates rooms while having no place fields of its own.
 - **[[wiki/concepts/temporal-coding.md]]** — two coincidence gates downstream of this region are timing-typed rather than sum-typed: the relative arrival time of basolateral-amygdala and ventral-hippocampal input sets an mPFC neuron's firing probability, and hippocampal theta leads prefrontal spiking by ~50 ms, which is the interval a monosynaptic pathway would impose (Spedding & Jay 2012).
 - **[[wiki/concepts/schema-assimilation.md]]** — supplies the content on this page's one-way hippocampal channel and the operation it serves: the ventral/anterior pole codes context-general information (the dorsal/posterior pole codes items in places) and only it projects here, and inactivating this region leaves dorsal hippocampal retrieval intact but *indiscriminate* — both context-appropriate and inappropriate object memories come back — so the controller selects among retrieved candidates rather than addressing the store (Preston & Eichenbaum 2013, [[wiki/empirical-tensions.md]] T99).
+- **[[wiki/entities/nucleus-reuniens.md]]** — the return path this page's anatomy section says must exist, and its topology: prefrontal cortex reaches hippocampus only through this midline relay, whose neurons collateralise to both structures and whose prefrontal→hippocampal arm carries the future path, so the controller's write into the store is a goal constraint delivered on a shared bus rather than a query (Jin & Maren 2015).
