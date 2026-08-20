@@ -95,6 +95,26 @@ This page's coupling is unidirectional: fast → slow, by replay, offline. Rolls
 
 ---
 
+## What actually moves: the mapping, not the terms
+
+Euston et al. 2012 read the rodent medial prefrontal literature as one associator observed at three ages of its content, and the reading puts a constraint on the cargo this page's channel carries.
+
+| Interval | Where the association lives | Where the representations live |
+|---|---|---|
+| Acquisition | Hippocampus (rapid binding) | Already in cortex |
+| Recent (1–2 d) | Hippocampus | Cortex *represents* context, events and responses — but not the mapping between them |
+| Remote (≥30 d, shown to 200 d) | Cortex | Cortex, now holding both |
+
+Consequences this page did not state:
+
+- **Transport is not "move the memory".** The slow learner has the vocabulary from the start; what consolidates is the association among items it could already represent. This predicts the otherwise awkward asymmetry that a cortical lesion costs *more* at remote delays than at recent ones without the region being dispensable early — at remote delays it is the only copy of the mapping, at recent delays it is one of two systems representing the terms.
+- **A bounded consolidation window.** Disrupting medial prefrontal cortex 0–2 h after a task destroys recall 24–48 h later; the same disruption outside the window does not, and a plasticity-enhancing or glucocorticoid agent inside it *improves* retention. Rat cortical consolidation then continues for ~2 weeks.
+- **Necessity at learning and necessity at consolidation come apart.** Several tasks are acquired normally without medial prefrontal cortex yet lose their memory to post-task disruption of it. The proposed patch is compensation — another frontal area takes over *if* the region was offline during learning, but cannot substitute once it was engaged — which makes a module's necessity depend on its own availability history. **(brainstorm)** That invalidates single-module ablation as a functional assay for any architecture with redundant parallel learners, biological or machine, and no ablation study in the wiki checks for it.
+
+**(brainstorm) The runnable version.** Freeze the slow learner's input and output representations and let replay write only the associative weights between them; under this reading consolidation should lose nothing, while the reverse ablation should fail. No machine consolidation scheme here factorises transport this way — self-distillation ([[wiki/concepts/generalization-optimized-consolidation.md]]) moves whatever the loss moves, experience replay moves everything.
+
+---
+
 ## Machine instantiations
 
 | System | Mechanism | What it borrows | What it drops |
@@ -178,3 +198,4 @@ This page's coupling is unidirectional: fast → slow, by replay, offline. Rolls
 - **[[wiki/entities/differentiable-neural-computer.md]]** — states the CLS division as an explicit design target (domain regularities in the controller's slow weights, episode-specific variability in the fast memory matrix) and supplies no channel between them, which is gap G14 exhibited inside one architecture.
 - **[[wiki/concepts/arbitrary-sensorimotor-mapping.md]]** — the fast/slow dissociation on material with no internal regularity: hippocampal ablation blocks acquisition of *new* arbitrary cue→action mappings while pre-lesion mappings are performed normally with the same cues and movements, so the cortical residue cannot be a compressed structure — and the acquisition rate the fast store must support is measured (~3 trials/cue to substantial learning, 24 new mappings/day) (Wise & Murray 2000). It also supplies a fast store that is *untyped by content* — the hippocampal system holds exemplars, higher-order rules and problem-solving strategies over the intermediate term and hands each to a different cortical destination — plus the control this page's evidence base mostly omits: post-lesion sparing of old material is a preserved store only when performance is good immediately after surgery, not across days of re-exposure (Murray et al. 2000).
 - **[[wiki/entities/medial-prefrontal-cortex.md]]** — breaks the symmetry this page's fast-store/controller arrow assumes: ventral subiculum and ventral CA1 project to infralimbic and ventral prelimbic cortex with almost no direct return, so the episodic store addresses the controller directly while the controller must reach the store through entorhinal cortex or a diencephalic relay.
+- **[[wiki/entities/medial-prefrontal-cortex.md]]** — constrains the cargo: the cortical learner already represents the context, event and response terms at acquisition, so what the replay channel transports is the *association* among them — which is why a cortical lesion costs more at remote than at recent delays, and why the transport budget is spent inside a 0–2 h post-task window (Euston et al. 2012).

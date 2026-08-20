@@ -20,7 +20,7 @@ One INGEST each:
 - [x] `miller-2002-prefrontal-categories-concepts.md` — prefrontal-control · S · 2002
 - [x] `heidbreder-2003-rat-medial-prefrontal-dorsoventral.md` — prefrontal-control · S · 2003
 - [x] `wood-2003-prefrontal-representational-perspectives.md` — prefrontal-control · S · 2003
-- [ ] `euston-2012-mpfc-memory-decision-making.md` — prefrontal-control · S · 2012
+- [x] `euston-2012-mpfc-memory-decision-making.md` — prefrontal-control · S · 2012
 - [ ] `spedding-2012-hippocampal-prefrontal-pathway.md` — prefrontal-control · S · 2012
 - [ ] `preston-2013-hippocampus-prefrontal-memory.md` — prefrontal-control · S · 2013
 - [ ] `jin-2015-prefrontal-hippocampal-interactions.md` — prefrontal-control · S · 2015

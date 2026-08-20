@@ -123,6 +123,95 @@ Immediate-early-gene expression separates the tiers the same way: conditioned fe
 | Cross-modal vs. intramodal shift | Only shifts that cross the *type* of the relevant variable need the ventral tier — within-type reversal does not. A type-level switch and a value-level switch are different operations with different substrate |
 | Ventral → shell → dorsal cascade | A precedence edge between two controllers routed through the action-selection bus rather than through the controller layer |
 | Deep-layer → patch → dopamine neurons | A controller edge that writes to the **teaching signal**, closing a loop the wiki has always drawn as open |
+| (context, event) → response | The controller's stored content is a set of **conditioned edges**: which transition to take given both where you are on the graph and what just happened. Context includes the live rule, so a rule change is a change of input, not of machinery (Euston et al. 2012) |
+| Recent → remote transfer | Only the **edge weights** move between stores; the node vocabulary (context codes, event codes, response codes) is already in the controller at acquisition (G14) |
+| "Needed at retrieval, not at encoding or delay" | Module involvement indexed by *operation on the graph* rather than by *age of the content* — a distinction no fast/slow scheme in the wiki can express |
+
+---
+
+## A second source on the same structure: what the two tiers *compute*
+
+> **Provenance (second ingest).** Euston, Gruber & McNaughton 2012, *The role of medial prefrontal cortex in memory and decision making*, Neuron 76:1057–1070 (`raw/euston-2012-mpfc-memory-decision-making.md`). A review reconciling three literatures that had claimed the region for decision making, for remote memory, and for consolidation. Heidbreder & Groenewegen supply the wiring; this supplies the function the wiring computes, and the timeline over which it is held.
+
+**The thesis, in one line:** mPFC takes **context** and **events** as input and outputs **the response that past experience predicts will lead to the most favourable outcome** — an action (dorsal tier) or an emotional/autonomic response (ventral tier). Evaluative feedback about the outcome is a *separate input* that drives plasticity, not part of the output.
+
+The load-bearing claim for a builder is the authors' own framing of it: *"what differentiates mPFC from other cortical areas is not its underlying functional architecture, but rather, its unique inputs and outputs."* The control layer is ordinary cortex placed at a particular pair of ports. Its stored contents are **schematic** — the central tendency over a collection of experiences, not a single episode — like any other cortical area.
+
+| Term | What it covers here | Evidence in the tissue |
+|---|---|---|
+| **Context** (input) | Place, time, task phase, the currently applicable rule, **and the animal's emotional state** | Cells discriminate which *room* the animal is in; position differences as small as **1 cm** change firing; some cells fire selectively in the inter-trial interval; firing differs by *why* the same lever is being pressed (visually cued vs. always-rewarded) with the action held fixed |
+| **Events** (input) | Sensory cues and actions alike | Cells tied to turning, running direction, lever pressing; after learning, cells develop responses to cues predicting reward or punishment, and to salient cues predicting neither |
+| **Adaptive response** (output) | Action, or emotional/autonomic/endocrine response | Dorsal-tier firing tracks *what the animal is doing* (left vs. right arm), ventral-tier firing tracks *reward outcome* (Sul et al. 2010) — the electrophysiological version of this page's output-port split |
+| **Outcome evaluation** (input, plasticity only) | Reward and punishment signals from ventral tegmental area, insular cortex, hypothalamus | Anticipated and actual reward value are carried by **separate pools of neurons** in both rat and monkey — so the output-side prediction and the input-side teaching signal are physically distinguishable in the same region |
+
+**The separate-pools result is the one to import.** Every machine controller in the wiki emits a value estimate and receives a reward on the same wire; here the anticipatory signal (part of the *output*, an autonomic preparation) and the evaluative signal (part of the *input*, the learning term) are different cells. A rival reading the authors flag: mPFC may instead compute the *difference* — expectancy violation, "surprise" — and broadcast that as the teaching signal (Alexander & Brown 2011).
+
+Cross-species anchor: lesions in rats, monkeys and humans agree that dorsal anterior cingulate supports **action–value** associations while orbitofrontal cortex supports **stimulus–value** associations — the same dorsal-action / ventral-outcome axis, read from a third method.
+
+---
+
+## The memory timeline: what consolidates is the *mapping*, not the terms
+
+The reconciliation the review is built to deliver. Read down the column and the apparent contradiction (decision-making region vs. remote-memory region vs. consolidation region) dissolves into one associator observed at different ages of its content.
+
+| Phase | Who holds what | Evidence |
+|---|---|---|
+| **Acquisition** (minutes) | Hippocampus learns faster; mPFC begins mapping context+event → response, leaning on the hippocampus for the rapid binding | Disconnection (see below); hippocampal-dependence of rapid arbitrary mappings elsewhere in cortex (Wise & Murray 2000, [[wiki/concepts/arbitrary-sensorimotor-mapping.md]]) |
+| **Critical window** (~0–2 h post-task) | mPFC activity is *required* for the memory to survive, even on tasks where it was not required to perform | Post-task disruption impairs recall 24–48 h later across odour–reward, lever-press, socially transmitted food preference, object recognition, water maze, trace and contextual fear, inhibitory avoidance, and extinction of both fear and drug seeking. Disruption **outside** the window does not. Glucocorticoid agonist or a plasticity-enhancing agent in the window *improves* retention |
+| **Recent** (1–2 days) | mPFC represents context, events and responses; the **mapping between them is still in the hippocampus** | mPFC lesion/inactivation impairs recent navigational, object-place and fear memory in some studies and not others; hippocampus strongly activated |
+| **Remote** (~30 d, shown to 200 d) | mPFC both *represents* and *stores* the mapping; hippocampus disengages | Selective remote-memory activation and lesion deficits across radial-arm maze, water maze, contextual fear, conditioned taste aversion, trace eyeblink, cocaine reinstatement; dendritic spine growth in mPFC is greater at the remote time point; consolidation within rat mPFC continues **~2 weeks** |
+
+**This is the sharpest architectural statement in the source.** The representational vocabulary — the codes for context, for events, for responses — is present in the controller from the start. What migrates from fast store to controller during consolidation is only the **association among them**. The authors use it to explain why mPFC loss hurts *more* at remote delays without being dispensable at recent ones: at remote delays the region carries both roles, so nothing else can compensate.
+
+**(brainstorm)** No machine consolidation scheme in the wiki factorises transport this way. Sun et al.'s self-distillation ([[wiki/concepts/generalization-optimized-consolidation.md]]) moves whatever the slow learner's loss moves; experience replay moves everything. The prediction here is testable and cheap: freeze the slow learner's input and output embeddings, allow only the associative weights between them to be written by replay, and consolidation should lose nothing — while the reverse ablation (embeddings trainable, associator frozen) should fail outright. It also predicts a *staged* lesion signature — early damage costs an association that could be re-read from the fast store; late damage costs the only copy.
+
+### The compensation puzzle the framework does not survive intact
+
+Tasks whose consolidation needs mPFC are **not** always tasks whose acquisition needs it: prelimbic-lesioned rats learn and retrieve odour–reward associations within a session, yet post-session mPFC disruption destroys the 48 h memory; NMDA blockade in infralimbic cortex *after* extinction blocks its consolidation while the same blockade *during* extinction leaves within-session learning and recall intact. The authors' proposed patch — other frontal areas (orbitofrontal cortex) take over during learning if mPFC is offline, but cannot substitute for consolidation or recall once mPFC was engaged — makes the region's necessity depend on **whether it was available at encoding**, a history variable no lesion design measures. Their own verdict: *"the functional lesion data are insufficient to fully constrain a theory of mPFC function at this time."*
+
+**(brainstorm)** A machine analogue exists and is normally treated as a bug: in a mixture of parallel learners, ablating one at train time reallocates the function and ablating it at test time does not. It means single-module ablation cannot identify function in *any* architecture with redundant learners — the wiki's default interpretive tool for both biology and models is invalid wherever compensation is possible, and nothing in the wiki checks whether it is.
+
+---
+
+## Replay, theta and the hippocampal channel
+
+This page's anatomy says hippocampus → medial wall is one-way. The physiology says what runs down it.
+
+| Observation | Detail |
+|---|---|
+| **Replay exists in mPFC** | Task spike patterns replay in mPFC and nucleus accumbens during post-task rest, at an **accelerated rate** relative to behaviour, and **selectively for recently learned** events |
+| **It is coupled to the hippocampus** | mPFC reactivation is strongest during high-density **low-voltage spindles**; hippocampal **sharp waves** and cortical spindles occur within a few hundred milliseconds of each other; sharp waves correlate with mPFC replay directly |
+| **Direction unresolved** | Some measurements put hippocampal events first, others cortical; the proposed reconciliation is that cortical events *initiate* hippocampal replay which then reinforces the ongoing cortical replay — a loop, not a pipe |
+| **Theta coupling during behaviour** | ~half of mPFC cells phase-lock to hippocampal theta; coherence **rises as the animal approaches a memory-guided choice point**, increases further **after a new rule is acquired**, and reductions in phase-locking **predict errors** |
+| **No place fields, but room discrimination** | mPFC input arises from ventral/intermediate hippocampus, where fields are large enough to code global context — so the controller receives *context*, not position |
+| **Disconnection ≈ bilateral lesion** | Because the pathway is unilateral, inactivating mPFC in one hemisphere and hippocampus in the other severs it while leaving one intact copy of each. Effects nearly match bilateral mPFC inactivation on water maze, T-maze, radial-arm win-shift and Hebb-Williams maze |
+
+**The disconnection logic is a method worth keeping**, and it is available only because of the unilaterality this page establishes: it separates "this region is needed" from "this *edge* is needed" without damaging either endpoint. The machine analogue — zeroing one inter-module connection while both modules stay intact — is rarely run; ablation studies almost always remove nodes, not edges.
+
+---
+
+## What mPFC is *not* needed for, and the working-memory deconfound
+
+The review's most useful negative section, because it removes claims the wiki's control pages could otherwise over-import.
+
+| Task | mPFC required? |
+|---|---|
+| Free foraging, 8-arm maze | **No** |
+| Spatial **win-shift**, 30 min delay | **Yes — at retrieval only.** Inactivation before training, or during the delay, has no effect |
+| Short-term memory for a *few* odours, objects, or locations | **No**; no within-session object-recognition task has ever shown mPFC dependence |
+| Short-term memory for **10 odours over 10 min**, or odour preferences acquired socially | **Yes** |
+| Delayed alternation with mediating strategies controlled for | **Yes** (dorsal tier) |
+| Simple instrumental conditioning, place–reward association | **No** |
+
+**"Needed at retrieval, not at encoding or during the delay"** is a dissociation no memory architecture in the wiki can express. Every fast/slow scheme here makes the controller's involvement a property of *when the content was written*; this one makes it a property of *which operation is being run on it*.
+
+Three confounds the authors raise against reading rodent mPFC as a working-memory store — all of which apply to model evaluations too:
+
+1. **Delay length is confounded with novelty.** Lesioned rats trained at 5 s and then switched to 20 s show deficits; rats trained from the start on randomly shuffled delays do not. The "deficit grows with delay" signature can be a deficit in handling a *changed* task.
+2. **Delay activity may be embodied.** mPFC cells are selective to sub-centimetre differences in position and trajectory, so delay-period firing can reflect a differential *behaviour* adopted during the delay rather than a maintained item. The proposed primary deficit is in implementing mediating strategies, not in storage.
+3. **Working memory is confounded with reference memory.** Mice given a protein-synthesis blocker in mPFC *after* each daily session — with no drug present during the task — fail to acquire a spatial win-shift, so the impairment is in consolidating the task *rules*, not in holding the trial-specific item.
+
+The survivors of these controls are narrow and specific: delayed alternation with mediating strategies excluded; one-third of dorsal mPFC cells modulated while a lever is held, **half of them predictive of premature release**; one-fifth of dorsal mPFC cells responding differently after error trials and **carrying that state into the next trial**. Short-term memory for *actions and errors*, not for stimuli.
 
 ---
 
@@ -133,15 +222,18 @@ Immediate-early-gene expression separates the tiers the same way: conditioned fe
 - **A gradient sold as a dichotomy.** The authors state the transitions are gradual and that connectivity crosses cytoarchitectonic borders; the two-tier table is a summary of a continuum, and the rostrocaudal axis is a third dimension they explicitly leave underspecified.
 - **The review dates to 2003**, predating optogenetic and chemogenetic dissection of exactly these subregions; nothing here is a circuit-level causal test at cell-type resolution.
 - **No electrophysiology of the control state itself.** The page describes what each tier is wired to and what its loss costs; it contains no recording of a task model, rule or category in either tier. The format claims of [[wiki/concepts/cognitive-control.md]] are untouched by it.
+- **The 2012 framework is a reconciliation, not a test.** It is constructed to accommodate three literatures at once and, by the authors' own account, needs an extra stipulation (compensation by orbitofrontal cortex) to survive the consolidation data and another (mPFC stores as well as represents at remote delays) to survive the remote-memory data. Its one falsifiable prediction — that experiments showing a selective remote-memory role will, on closer examination, also show a weak recent-memory role — is untested ([[wiki/empirical-tensions.md]] T97).
+- **"Ordinary cortex at unusual ports" is asserted, not demonstrated.** No comparison of mPFC's local circuitry against a sensory area is offered; the claim rests on the absence of a known difference ([[wiki/concepts/canonical-cortical-microcircuit.md]]).
+- **Rodent-weighted throughout**, and the rodent/primate homology of the medial wall is itself contested in the source (proto-prefrontal vs. medial-homologue readings).
 
 ---
 
 ## Connections
 
 - **[[wiki/concepts/cognitive-control.md]]** — supplies the anatomy that page's mechanism omits: the "sustained bias broadcast to the systems that supply its input" is emitted by *two* controllers with disjoint output ports (dorsal → sensorimotor/collicular/accumbens-core, ventral → limbic/autonomic/monoaminergic), so which systems get biased is a property of which tier holds the task model — and the prelimbic→infralimbic goal-directed→habit shift contradicts that page's account of automaticity as the controller dropping out ([[wiki/empirical-tensions.md]] T94).
-- **[[wiki/concepts/working-memory.md]]** — locates the maintenance deficit: delay-dependent error growth and muscarinic-blockade-sensitive spatial working memory are prelimbic/infralimbic, not anterior cingulate, so the cholinergic gate on maintenance is subregion-specific rather than a global prefrontal parameter.
+- **[[wiki/concepts/working-memory.md]]** — locates the maintenance deficit: delay-dependent error growth and muscarinic-blockade-sensitive spatial working memory are prelimbic/infralimbic, not anterior cingulate, so the cholinergic gate on maintenance is subregion-specific rather than a global prefrontal parameter — and then removes most of what is left: rodent delay-period deficits are confounded with task novelty, with mediating behavioural strategies (cells resolve sub-centimetre position differences), and with reference memory, leaving short-term memory *for actions and errors* as the only well-controlled residue (Euston et al. 2012).
 - **[[wiki/concepts/arbitrary-sensorimotor-mapping.md]]** — that page's rat ablation table names prelimbic cortex as a site whose damage impairs conditional mapping; this page says *which* prelimbic, and adds that the deficit is in replacing a mapping rather than acquiring one, which re-reads several of its lesion rows as switching costs.
-- **[[wiki/concepts/complementary-learning-systems.md]]** — breaks the symmetry of the fast-store/controller arrow: ventral hippocampus and subiculum project to infralimbic and ventral prelimbic cortex, with almost no direct return, so consolidation-side traffic from controller to episodic store must be routed through entorhinal cortex or diencephalon.
+- **[[wiki/concepts/complementary-learning-systems.md]]** — breaks the symmetry of the fast-store/controller arrow: ventral hippocampus and subiculum project to infralimbic and ventral prelimbic cortex, with almost no direct return, so consolidation-side traffic from controller to episodic store must be routed through entorhinal cortex or diencephalon — and supplies the cargo on that channel: the controller already holds the context, event and response codes at acquisition, so what consolidation transports is the *mapping among them*, which is why remote recall loses more to an mPFC lesion than recent recall does (Euston et al. 2012).
 - **[[wiki/concepts/attention.md]]** — assigns the orienting input a nucleus and a tier: intralaminar thalamic nuclei terminate in deep layers of the *dorsal* medial wall while midline (arousal/visceral) nuclei terminate in the ventral one, so attentional and interoceptive drive enter the controller by separate ports.
 - **[[wiki/concepts/skill-acquisition-efficiency.md]]** — puts a location on the controlled→automatic transition: overtraining moves control from prelimbic to infralimbic cortex, so the transition is a *transfer between prefrontal subregions*, not a withdrawal of prefrontal involvement, and the cost accounting must charge for the receiving module.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the deep-layer → striatal-patch/accumbens-shell → dopamine-neuron route lets the controller set the level of its own teaching signal, which makes the neuromodulatory learning term endogenous rather than an environment-supplied scalar (gap G50).
@@ -149,3 +241,7 @@ Immediate-early-gene expression separates the tiers the same way: conditioned fe
 - **[[wiki/entities/pbwm.md]]** — the same cortico-striatal loop drawn with one tier: PBWM gates prefrontal maintenance through basal ganglia, this page shows the loop family is plural (one re-entrant circuit per subregion) with an extra ventral→shell→dorsal feed-forward link that PBWM has no analogue of.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — infralimbic cortex is a worked instance of addressed suppression: after extinction its cells fire to the tone and dampen basolateral amygdala output, and the size of that response predicts how little the animal freezes.
 - **[[wiki/concepts/controller-knowledge-vs-process.md]]** — the same factorization argued from theory rather than tract tracing: this page's dorsal/ventral output-port split is the rat counterpart of a proposed dorsolateral (mechanistic plans) / ventromedial (social scripts) *storage* axis, so both say the controller is partitioned by what it connects to, not by what it computes.
+- **[[wiki/concepts/offline-replay.md]]** — the cortical end of the replay channel measured directly: mPFC and nucleus accumbens replay task patterns during post-task rest, time-compressed and selective for recently learned events, with reactivation strongest during low-voltage spindles that co-occur with hippocampal sharp waves within a few hundred milliseconds — and with the direction of the hippocampus↔cortex initiation still unresolved.
+- **[[wiki/concepts/generalization-optimized-consolidation.md]]** — a biological constraint on what the transport function may be: only the association is transported, not the representations it associates, so a self-distillation scheme that rewrites the slow learner's whole parameter vector is transporting more than the biology does.
+- **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the claim this page's function rests on: mPFC is asserted to differ from sensory cortex only in its inputs and outputs, not in its local architecture, which makes the control layer an instance of the canonical circuit rather than a distinct machine — asserted by Euston et al. 2012, never tested against a sensory area.
+- **[[wiki/concepts/cognitive-map.md]]** — why the controller receives context and not position: its hippocampal input comes from ventral/intermediate hippocampus where place fields are large enough to code which environment the animal is in, so mPFC discriminates rooms while having no place fields of its own.
