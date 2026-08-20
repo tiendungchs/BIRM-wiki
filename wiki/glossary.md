@@ -22,6 +22,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | AIXItl | AIXI bounded to length `l̃` and per-cycle time `t̃` | Computable reduction of AIXI; dominates all self-certifying policies within those bounds |
 | AIµ | The same agent with the *true* environment prior `µ` | Plain expectimax; optimal by construction, and the reference AIXI is measured against |
 | CLS | Complementary Learning Systems | Fast hippocampal / slow cortical memory pair; also the name of the theory |
+| Go-CLS | Generalization-Optimized Complementary Learning Systems | Sun et al. 2023's theory: consolidate a relation only while transport lowers generalization error |
+| SNR | Signal-to-Noise Ratio | In Go-CLS, `σ_w²/σ_ε²` of the environment's mapping — the wiki's operational definition of a relation's *predictability* |
 | CNN | Convolutional Neural Network | |
 | AR | Activation Relaxation | Credit-assignment scheme whose equilibrium activations *are* the backpropagation gradients ([[wiki/concepts/biologically-plausible-credit-assignment.md]]) |
 | DFA | Direct Feedback Alignment | Output error wired straight to every hidden layer |

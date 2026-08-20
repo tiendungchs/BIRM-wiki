@@ -25,7 +25,7 @@ One INGEST each:
 - [x] `golub-2018-neural-reassociation-learning.md` — plasticity · R · 2018
 - [x] `talk-nd-brain-learning-algorithm.txt` — plasticity · X · nd
 - [x] `talk-nd-brain-learning-limits.txt` — plasticity · X · nd
-- [ ] `sun-2023-systems-consolidation-generalization.md` — memory-consolidation · M · 2023
+- [x] `sun-2023-systems-consolidation-generalization.md` — memory-consolidation · M · 2023
 - [ ] `mander-2013-nrem-slow-waves-memory-aging.md` — memory-consolidation · R · 2013
 - [ ] `desousa-2026-prefrontal-controls-memory-organization.md` — memory-consolidation · R · 2026
 - [ ] `talk-nd-memory-engram.txt` — memory-consolidation · X · nd
