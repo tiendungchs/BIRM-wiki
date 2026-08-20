@@ -166,6 +166,7 @@ This is a probe of a different type from everything on [[wiki/concepts/represent
 
 ## Connections
 
+- **[[wiki/entities/vl-jepa.md]]** — the cross-modal echo of this page's target-space result: token target vs embedding target at matched encoder, data, batch and iterations gives 7.1 vs 14.8 CIDEr with the token model carrying *twice* the trainable parameters — the same conclusion as 40.7 vs 66.9, but with the loss and the parameter count riding along, so it is a system comparison where this page has an ablation.
 - **[[wiki/entities/dinov3.md]]** — the other half of this page's lesson about what a loss does not see: the mask sampler moves the representation further than any anti-collapse term does, and the *training horizon* moves it too — a dense read-out peaking at 200k iterations and ending below its start under a correctly-minimised objective. Neither the pair distribution nor the stopping point is a coefficient in anyone's loss.
 
 

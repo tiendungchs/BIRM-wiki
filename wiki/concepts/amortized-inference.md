@@ -165,6 +165,7 @@ The fourth row of the table above is the architectural proposal: **the neural ne
 
 ## Connections
 
+- **[[wiki/entities/vl-jepa.md]]** — deliberation cost separated from answer cost: because the answer is a single non-autoregressive embedding, its semantics exist after one forward pass and the text decoder becomes an on-demand read-out, which is what makes decoding only at detected semantic boundaries possible at all.
 - **[[wiki/concepts/causal-model-building.md]]** — the cost this page pays down: causal, program-like models are exactly the models that are slow to invert, so amortization is the precondition for using one in real time.
 - **[[wiki/concepts/simulation-based-planning.md]]** — plan amortization is this page applied to rollouts: model-based simulation generates training data for a model-free controller, and habitization is the resulting shift in control.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — offline amortization (dreaming, quiet wakefulness) is the same replay machinery in a third role: not stabilizing a training stream and not consolidating episodes, but compiling plans into values.

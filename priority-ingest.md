@@ -31,7 +31,7 @@ One INGEST each:
 - [x] `simeoni-2025-dinov3.md` — ssl-representation · M · 2025
 - [x] `li-2025-hit-jepa-trajectory-embedding.md` — ssl-representation · M · 2025
 - [x] `balestriero-2025-lejepa.md` — ssl-representation · M · 2025
-- [ ] `chen-2025-vl-jepa.md` — ssl-representation · M · 2025
+- [x] `chen-2025-vl-jepa.md` — ssl-representation · M · 2025
 - [ ] `akbar-2026-weak-sigreg-covariance-regularization.md` — ssl-representation · M · 2026
 - [ ] `kawaharazuka-2025-vision-language-action-robotics.md` — embodied-robotics · S · 2025
 - [ ] `green-2025-learningmatch-siamese-match-manifold.md` — siamese-model · M · 2025

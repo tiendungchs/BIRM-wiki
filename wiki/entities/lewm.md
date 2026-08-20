@@ -171,6 +171,7 @@ This lands on the neuroscience temporal-straightening hypothesis (Hénaff et al.
 
 ## Connections
 
+- **[[wiki/entities/vl-jepa.md]]** — the frozen-target endpoint priced elsewhere (−7.3 classification against a slowly-trained target encoder), and the architecture that names SIGReg as a drop-in replacement for its InfoNCE uniformity term and leaves it untried.
 - **[[wiki/entities/dinov3.md]]** — sharpens T154 from the amortisation side: a *frozen* self-supervised backbone plus a 100M-parameter head now beats fully fine-tuned specialists on COCO detection, ADE20k segmentation and monocular depth, so the pretrained-encoder route's cost is entirely front-loaded and the case against it has to rest on planning-time token count alone.
 
 

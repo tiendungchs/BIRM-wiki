@@ -117,6 +117,7 @@ The right-hand columns are the reason this 2020 paper is a wave-7 ingest: the JE
 
 ## Connections
 
+- **[[wiki/entities/vl-jepa.md]]** — this page's *rate ratio between two networks* as a literal scalar with an interior optimum: with a genuinely separate target network in another modality, a learning-rate multiplier on the target branch is swept and both endpoints lose (full speed −3.6, frozen −7.3, best at 0.05–0.10), so the lineage's two shipped settings are the two ends of a continuum.
 - **[[wiki/concepts/energy-based-models.md]]** — supplies the fourth anti-collapse family for that page's contrastive/regularised split, and the one that breaks its framing: the provision is in the update rule rather than the loss, so a joint-embedding architecture can avoid the collapse its energy landscape permits without any term that pushes energy up anywhere.
 - **[[wiki/concepts/objective-identifiability.md]]** — the limit case of that page's many-to-one direction: BYOL's authors hypothesise *no* loss is jointly descended, so the representation cannot be attributed to an objective at all, only to a dynamics.
 - **[[wiki/entities/h-jepa.md]]** — the design whose four training criteria this refutes as necessary conditions: BYOL implements criterion 3 (predictability) alone, omits 1, 2 and 4 (information maximisation and latent capacity limits), and does not collapse.

@@ -125,6 +125,7 @@ Secondary consequence for aliasing (gap G2): because an event is a *set*, two id
 
 ## Connections
 
+- **[[wiki/entities/vl-jepa.md]]** — this page's boundary rule implemented on a *semantic* stream and priced: Ward-variance agglomerative clustering with a temporal-connectivity constraint over a non-autoregressive embedding stream Pareto-dominates uniform sampling and matches 1 Hz decoding at 0.35 Hz, with the granularity `N` still set by hand and the clustering offline rather than online.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the substrate this page abstracts over: events are sets of *its* active encodings, so segmentation needs no machinery beyond a change detector on that set; its hierarchical-dynamical form also supplies the implicit alternative, where priors on *motion* parse the stream and lesioning them costs more than lesioning the top-down priors (Friston & Kiebel 2009).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the discretisation the graph formalisation assumes: events are nodes, event schemata are typed edges with preconditions and effects, episodes are compressed paths.
 - **[[wiki/concepts/simulation-based-planning.md]]** — episode encodings are the coarse level that jumpy multi-scale planning needs, and backward chaining through schema preconditions is path search run in reverse from the goal.

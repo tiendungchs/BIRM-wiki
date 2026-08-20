@@ -145,6 +145,7 @@ The last family is the instrument the wiki actually needs: a *controlled* shortc
 
 ## Connections
 
+- **[[wiki/entities/vl-jepa.md]]** — in-domain accuracy and relational sensitivity moving in opposite directions in one run: supervised instruction tuning lifts video classification by 22.9 points and drops every text hard-negative score (SugarCrepe++ 63.9 → 58.4, Swap-Object 42.0 → 29.8).
 - **[[wiki/entities/dinov3.md]]** — the coverage argument at 12× scale with the curation objectives separated: clustering-based balancing buys robustness and retrieval-based curation buys `k`-NN and fine-grained recognition, neither dominates, and the mixture beats both — so a corpus is a set of purchases rather than a size.
 
 

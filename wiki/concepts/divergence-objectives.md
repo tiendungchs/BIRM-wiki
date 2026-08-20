@@ -105,6 +105,7 @@ argmin_{p(z|x)}   I(f(X); Z)  +  β · H(X | Z)
 
 ## Connections
 
+- **[[wiki/entities/vl-jepa.md]]** — the loss choice measured as a read-out choice: InfoNCE beats cosine, L1 and L2 by 7–19 points on retrieval and *loses to cosine by 2.3* on question answering, so the uniformity term builds the space rather than the answer — and it is the only one of the four that permits an unfrozen target encoder.
 - **[[wiki/concepts/prediction-compression-equivalence.md]]** — the same quantity from the coding side: `H(P,Q)` is expected code length under a wrong codebook, and `KL(P‖Q)` is precisely the bits wasted per symbol by using it, so the compression rates on that page are this page's divergence in different units.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — supplies the information-theoretic reading of the residual `e`: prediction error is surprisal, minimising it is minimising cross-entropy against sensation, and the free-energy bound is the *reverse* direction (mode-seeking), which is why that architecture settles into one attractor rather than blurring across several.
 - **[[wiki/concepts/energy-based-models.md]]** — the motivated escape: unnormalised `F(x,y)` is subject to neither direction of the divergence, which is how it represents a one-to-many transition that forward KL would answer with an average of the branches.

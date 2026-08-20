@@ -175,6 +175,7 @@ Distilled from the survey's challenge list, keeping the items that name a missin
 
 ## Connections
 
+- **[[wiki/entities/vl-jepa.md]]** — a world model whose conditioning interface is a natural-language query and whose dynamics query is answered by nearest-neighbour retrieval in a shared embedding space rather than by rollout: SoTA on WorldPrediction-WM inverse dynamics at 65.7 from 1.6B parameters, against GPT-4o's 52.0 and a 400B Llama-4's 53.6.
 - **[[wiki/entities/dinov3.md]]** — the frozen-encoder branch's backbone upgraded, with the dependency made visible: swapping DINOv2 for DINOv3 inside VGGT with the pipeline otherwise unchanged improves camera pose, multi-view depth and two-view matching simultaneously, so the geometry available to a world model built on frozen features is set by the encoder's patch-level consistency.
 
 

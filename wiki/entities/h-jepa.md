@@ -196,6 +196,7 @@ Three qualifications. (i) This is a **difficulty** ordering measured on a conver
 
 ## Connections
 
+- **[[wiki/entities/vl-jepa.md]]** — the configurator's conditioning slot filled by a natural-language query, and the latent-variable clause inverted: target multi-modality is quotiented by the *target encoder* rather than represented by `z` ([[wiki/empirical-tensions.md]] T170); and abstraction-as-long-range-predictability gets its first curve, a coarser target's advantage growing monotonically from 1 s to 10 s anticipation.
 - **[[wiki/concepts/energy-based-models.md]]** — the formalism this architecture is an instance of: a JEPA is an EBM whose energy is prediction error in representation space, and the four training criteria are its collapse-prevention recipe.
 - **[[wiki/concepts/simulation-based-planning.md]]** — the fullest worked version of the *use* half of the framing: Mode-2 is model-predictive control with a learned model and a learned cost, and the hierarchical variant supplies the wiki's first mechanism for jumpy multi-scale planning.
 - **[[wiki/concepts/amortized-inference.md]]** — the Mode-2 → Mode-1 distillation is plan amortisation named as such, plus a second amortisation the wiki did not have: predicting the minimising *latent* rather than the optimal action.

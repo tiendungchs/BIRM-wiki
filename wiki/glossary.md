@@ -400,3 +400,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | LARS | Layer-wise Adaptive Rate Scaling | The large-batch optimiser every ImageNet-scale SSL method in the wiki trains with (BYOL, Barlow Twins) |
 | W-MSE | Whitening Mean Squared Error | Cholesky-whiten each batch of embeddings exactly, then take a cosine similarity — the *hard*-whitening counterpart to Barlow Twins' soft decorrelation; 66.3% ImageNet linear eval |
 | IMAX | — | Becker & Hinton 1992: maximise `log det C(Z^A − Z^B) − log det C(Z^A + Z^B)` between twin networks; a genuine information quantity of the same two-term shape as Barlow Twins, which did not scale to ImageNet |
+| VL-JEPA | Vision-Language JEPA | A JEPA predicting a *text encoder's* embedding of the answer from video + a text query, with the decoder invoked only on demand ([[wiki/entities/vl-jepa.md]]) |
+| VQA | Visual Question Answering | Answer a natural-language question about an image or video; *discriminative* VQA scores a fixed candidate set, *open-ended* VQA generates the answer |
+| CIDEr | Consensus-based Image Description Evaluation | TF-IDF-weighted n-gram agreement between a generated caption and multiple references; the standard captioning metric |
+| SugarCrepe++ / VISLA | — | Text-only hard-negative triplet benchmarks: two paraphrases of one image description plus a negative made by replacing or **swapping** an object, attribute or relation; score = paraphrase similarity above both negative similarities ([[wiki/entities/vl-jepa.md]]) |
+| WorldPrediction-WM | — | Given initial and final world-state images, pick which of four action video clips explains the transition — inverse dynamics scored as a 4-way choice |
+| PE / PE-Core | Perception Encoder | Meta's image–text contrastive encoder family; the strongest CLIP-style baseline in the 2025 comparisons |
+| TOT | Text-Only Task | Evaluation protocol that scores a vision–language model's *text* encoder with no image involved |
