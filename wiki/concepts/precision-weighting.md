@@ -1,0 +1,164 @@
+# Precision Weighting
+
+**Precision — the inverse variance of a prediction error — is a *represented quantity* in its own right, physically carried by synaptic gain, and once a system infers it by the same rule it uses for everything else, attention, salience, value and learning rate stop being separate mechanisms and become one number read in four places.**
+
+> **Primary source.** `raw/friston-2009-free-energy-principle-rough-guide.md` — Friston, *Trends in Cognitive Sciences* 13(7):293–301, 2009. An opinion piece, so most claims below are proposals with supporting anatomy rather than results. Its two page-worthy contributions: the **three-way partition of what a brain represents** (states / parameters / precisions), and the argument that **value is redundant** once priors over sensory trajectories exist.
+
+---
+
+## Why free energy is minimised at all — the existence argument
+
+The step [[wiki/concepts/predictive-coding-free-energy.md]] assumes and this source supplies:
+
+```
+H(Y) = −∫ p(y|m) ln p(y|m) dy = lim_{T→∞} (1/T) ∫_0^T −ln p(y(t)|m) dt      (ergodic assumption)
+       └ entropy of an agent's sensory states ┘   └ long-term average of surprise ┘
+F(y, μ) = −ln p(y|m) + D_KL( q(θ;μ) ‖ p(θ|y,m) )  ≥  −ln p(y|m)
+```
+
+| Step | Claim |
+|---|---|
+| A well-defined agent occupies a limited repertoire of states (a fish in water) | its equilibrium density has **low entropy** |
+| Entropy = time-average surprise (ergodicity) | existing ⇒ avoiding surprising states |
+| Surprise is not evaluable — it needs all hidden states of the world | but `F` **is** evaluable: a function of sensory input and brain states only |
+| `F ≥ surprise`, gap = `D_KL(recognition ‖ true posterior)` | minimising `F` over `μ` makes the gap small (**Bayesian perception is derived, not hypothesised**) and simultaneously tightens the bound so that action on `F` is a good proxy for action on surprise |
+| `F = complexity − accuracy`; **action can only change accuracy** | action must resample the world until the data match the current representation (active inference) |
+
+Two consequences a builder should carry. (i) The **Bayesian-brain hypothesis is a corollary, not an assumption** — the argument runs from persistence to inference, so a system that must maintain itself in a narrow region of state space is *forced* into approximate posterior inference. (ii) Perception's job is instrumental: it exists to make the bound tight enough that action, which is the only channel that touches surprise itself, is not steering on a stale estimate. This is the wiki's cleanest statement of *why* the perception/action loop cannot be cut in half — the same point [[wiki/concepts/expected-free-energy.md]] later reaches as a performative fixed point.
+
+---
+
+## Three represented quantities, three substrates, three timescales
+
+The partition that makes precision a first-class citizen rather than a hyperparameter:
+
+| Represented | Sufficient statistic | Substrate | Dynamics | Cognitive name |
+|---|---|---|---|---|
+| **States** `{x, v}` — environmental causes, ms-scale | `μ^x, μ^v` | synaptic **activity** | first-order (`μ̇ = …`), minimise `F` itself — evidence accumulation | perceptual inference |
+| **Parameters** `θ` — causal regularities, slow | `μ^θ` | synaptic **efficacy** | second-order, minimise the path-integral `A = ∫F dt`; driven by terms that *themselves* accumulate gradients (synaptic traces/tags) | perceptual learning, memory |
+| **Precisions** `λ` — inverse variance of the random fluctuations | `μ^λ` | synaptic **gain** (postsynaptic sensitivity, neuromodulation, local synchrony) | second-order, minimises `A`, so **necessarily slower than the state dynamics** | attention, salience, learning rate |
+
+Three design consequences:
+
+- **The order of the dynamics is derived, not chosen.** Only time-dependent expectations minimise `F`; everything else minimises its path integral, which is *why* weights and gains obey second-order equations and need eligibility-trace-like variables. A builder who wants gain adaptation on the same timescale as activity is contradicting the objective, not just the biology.
+- **Randomness in the world induces a representation.** Precision is not an engineering add-on for numerical stability; it is the sufficient statistic that stochasticity forces into existence. Any world model with noise has a third register whether or not the architect declares one.
+- **The three optimisations are mutually dependent** — each gradient contains the others' expectations — so they cannot be trained as separate heads. This is the formal version of the wiki's recurring complaint that gains, weights and activity are treated as three unrelated subsystems.
+
+---
+
+## Attention *is* precision, not selection
+
+> "Attention is simply the process of optimising precision during hierarchical inference." — the paper's deliberate rejection of the Jamesian "taking possession by the mind".
+
+Under a hierarchical model, the relative precision of the top-down empirical prior and the bottom-up sensory evidence *must* be estimated — it is the analogue of estimating the standard error in a *t*-test, and it controls how much influence each level's expectation has. Neurobiologically that is gain control on error units ([[wiki/concepts/canonical-cortical-microcircuit.md]]: `Π` on the superficial pyramidal cell), and cholinergic modulation of postsynaptic gain is the proposed carrier.
+
+| Prediction | Fits |
+|---|---|
+| Attention is an **emergent property of prediction**, not a channel selector | high-precision prediction errors simply enjoy greater gain; nothing is switched off |
+| Attentional modulation of local competition and contrast gain | measured (biased competition, contrast-gain effects) |
+| Feature integration | falls out of relative precision across levels in a hierarchy |
+
+**Where this collides with the wiki's other account of attention.** [[wiki/concepts/attention.md]] builds selection from a softmax over a query — a *competition* whose denominator is the capacity limit. Precision-weighting is multiplicative and has no denominator: two error populations can both be up-weighted, and nothing is normalised away. The two accounts make opposite predictions for an unattended-but-unpredicted stimulus (T118-adjacent; see the Kok et al. 2011 sign flip on [[wiki/concepts/canonical-cortical-microcircuit.md]]). **(brainstorm)** They may be the same mechanism at two levels: precision sets *how loud* each channel's residual is, and a downstream normalisation over those gains produces the capacity-limited winner-take-most. A machine version — a per-channel learned log-precision, then a softmax over precision-weighted residuals — would be cheap to test and would give the wiki its first attention module whose "capacity" is a derived quantity rather than a hyperparameter.
+
+---
+
+## Value is redundant: goals as priors over sensory trajectories
+
+The strongest architectural claim in the source, and the one that matters for [[wiki/concepts/simulation-based-planning.md]]:
+
+```
+loss           ≡  surprise                 (bounded by F)
+expected loss  ≡  entropy                  (bounded by the path-integral A = ∫F dt)
+```
+
+Because action under value-learning optimises exactly the quantity active sampling optimises, **the value function can be deleted and replaced by prior expectations about sensory trajectories**. Action then simply enforces those priors, and desired states are frequented as a side effect. Optimal priors are installed by perceptual learning in a training environment.
+
+| What this buys | Why |
+|---|---|
+| **Optimal control without access to hidden world states** | the priors are over *sensory* trajectories, which are observed; a value function is over states, which are not |
+| **No Bellman solve** | the intractable step — solving for `V` — is replaced by fitting a generative model, which the system is doing anyway |
+| Demonstration | the mountain-car problem, solved by active sampling with no value learning (Friston et al. 2009) |
+
+| What it costs | Why |
+|---|---|
+| **Re-goaling is model surgery, not a swapped reward** | a new goal means new priors, i.e. editing the generative model — this is gap **G28** stated from the other side rather than closed |
+| Priors must come from a training environment | the source concedes they are *learned in* rather than *derived*, so goal specification is displaced into curriculum design (**G32**) |
+| Precision becomes load-bearing for action itself | action is called on only when predictions are precise |
+
+The last row is a falsifiable clinical prediction: **low precision ⇒ small prediction errors ⇒ poverty of action**, which is the bradykinesia of Parkinson's disease and of neuroleptic administration. A machine analogue — an agent whose action magnitude collapses when its priors' inferred precision drops — is a cheap sanity check that a precision register is doing real work rather than being a fitted scalar.
+
+---
+
+## The dopamine reinterpretation
+
+| Standard view | This proposal |
+|---|---|
+| Dopamine encodes the **prediction error on value** (RPE, `r + γV(s′) − V(s)`) | Dopamine encodes the **value of prediction error** — i.e. its precision, which is the *learning rate* in a Rescorla–Wagner model. Value ≡ precision ≡ incentive salience |
+
+The proposed symmetry: **dopamine** optimises precision in anterior (mesocortical/mesolimbic) systems predicting proprioceptive and interoceptive sensation — which is what value-learning *is* under this reading — while **acetylcholine** optimises precision for hierarchical inference on exteroceptive input in posterior systems, which is attention. One computational role, two territories. This directly contests the Doya-style "one modulator, one distinct function" taxonomy (dopamine = reward error, serotonin = reward timescale, noradrenaline = action randomness, acetylcholine = memory-update speed); the source lists reconciling them as open (see T122).
+
+**Why a builder should care about the disagreement.** The two readings put the same signal in different slots: an RPE dopamine is a *teaching signal* consumed by a plasticity rule, while a precision dopamine is a *gain register* consumed by the inference dynamics — and a gain register is exactly what gaps **G50** (controller cannot set the gain of its own teaching signal) and **G56** (no run-time gain register) say the wiki lacks. Under the precision reading the register is not missing; it is *inferred by gradient descent on the same objective as everything else*, which is the only self-setting proposal the wiki has. What is missing is an implementation.
+
+---
+
+## How to represent a posterior at all: the code taxonomy
+
+The other durable contribution — a menu of probabilistic neuronal codes with an explicit scaling argument. `q(s)` is the recognition density over states `s = {x, v}`, `μ` its sufficient statistics, `Z(μ)` a partition function.
+
+| Family | Code | Form | What encodes what |
+|---|---|---|---|
+| **Free-form** | Particle | `∫(s−c)^n q(s) ds = (1/N) Σ_i (μ_i−c)^n` | moments encoded by *sample* moments of `N` neurons = particles |
+| | Convolution | `q(s) = (1/Z) Σ_i μ_i φ_i(s)` | activity = amplitude of fixed basis functions (tuning curves) |
+| | Probabilistic population code (PPC) | `q(s) ∝ Π_i exp(φ_i(s)) φ_i(s)^{μ_i}/μ_i!` | independent Poisson variability; **precision encoded by firing gain** |
+| **Fixed-form** | Explicit multinomial | `q(s=s_i) ∝ μ_i + c` | activity ∝ probability of each discrete cause |
+| | Logarithmic multinomial | `q(s=s_i) ∝ exp(μ_i) + c` | log-probability; subsumes log-likelihood-ratio codes; the hidden-Markov / evidence-accumulation family |
+| | **φ-normal (Laplace)** | `q(φ(s)) ∝ exp(−½ μᵀ Π(μ) μ)` | **mean encoded explicitly, precision implicitly as a function of the mean** |
+
+The argument for Laplace, which is also the argument a builder is implicitly making whenever they emit a mean and a fixed variance:
+
+- **Free-form does not scale.** Representing a face with ~30 attributes needs a 30-dimensional state space populated with more particles/basis functions than the brain has neurons. Sample-based posteriors are exponential in latent dimensionality; parametric ones are not.
+- **Non-Gaussian is recoverable cheaply.** A nonlinear change of variables `φ(s)` gives log-normal, etc., without leaving the fixed-form family — so the expressiveness objection is weaker than it looks.
+- **Multinomial codes cannot represent dependencies among states** — fine for categorisation and decision tasks, useless for a correlated continuous world.
+- **Laplace is maximally economical**: the conditional precision is derivable *from* the mean, so only the mean needs an explicit substrate.
+- **The price is unimodality — one thing at a time.** Ambiguous figures give *bistable* percepts, not bimodal ones, which the source reads as evidence the brain does the same. But bimodal *priors* are documented in sensorimotor learning, so the claim is confined to the recognition density and is explicitly flagged as the framework's most exposed assumption.
+
+**Convergences worth noting:** in hierarchical hidden-Markov models, belief propagation *is* predictive coding; and PPCs encode precision by firing gain where Laplace encodes it by synaptic gain — the same quantity, two substrates. So the taxonomy is a choice of substrate for one commitment, not four rival theories.
+
+**(brainstorm) Reading the taxonomy against [[wiki/concepts/latent-graph-discovery.md]].** The unimodality constraint is a direct statement about node identity: a Laplace-coded system *cannot hold two candidate graph positions open simultaneously* — it must relax into one. That is a feature for de-aliasing (G2: relaxation commits, so the state is never a blend of two nodes) and a defect for search (G15: you cannot maintain a frontier of candidate paths in the same register). The natural resolution is that the multinomial/log-probability family is the right code for *discrete graph position* and the Laplace family for *continuous content within a node* — which is the `g`/`x` factorisation reappearing as a choice of probabilistic code rather than as a choice of variables.
+
+---
+
+## Empirical coverage claimed (and what it is worth)
+
+The source's Table 1 lists what falls out of the formulation: hierarchical cortical organisation; distinct state and error subpopulations; forward = error (superficial pyramids), backward = predictions (deep pyramids); forward linear / backward nonlinear asymmetry mandated by nonlinearities in the generative model; low-pass dynamics in prediction cells; intrinsic stability from error suppression ("no strong loops"); attentional gain as precision scaling; short-term gain modulation necessarily slower than neuronal dynamics; Hebbian plasticity recovered as the parameter update; event-related potentials as self-limiting transients with late components reflecting top-down suppression; larger responses to surprising stimuli; repetition suppression / mismatch negativity as learned attenuation of error units.
+
+**Assessment.** This is post-hoc coverage, not prediction — the same list is claimed by several frameworks. The parts that are load-bearing here are the ones that are *derived and quantitative*: the frequency asymmetry between error and state units ([[wiki/concepts/predictive-coding-free-energy.md]]), the required timescale separation between gain and activity dynamics, and the attention sign flip. Everything else is compatibility.
+
+---
+
+## Open problems
+
+- **Is one role (precision) enough for all neuromodulators?** The rival taxonomy assigns distinct computations to dopamine, serotonin, noradrenaline and acetylcholine; this account assigns one computation in different territories. No experiment in the wiki separates them (T122).
+- **Bayesian surprise vs. the free-energy bound.** Salience is empirically driven by observations that change beliefs (Bayesian surprise), not by rarity — formally relating that to the bound on Shannon surprise is unfinished, and it is exactly what a curiosity term needs.
+- **Can the system entertain ambiguity?** No electrophysiological or psychophysical evidence for multimodal recognition densities is claimed to exist; the framework predicts there is none. This is a falsifiable, and currently untested, architectural commitment.
+- **Gradient descent or stochastic search?** The whole scheme assumes deterministic descent on `F`, but eye movements look like an optimal *stochastic* search. Whether the optimiser is a descent or a sampler is open, and it is the difference between a relaxation network and a particle filter.
+- **Precision is inferred but never grounded.** Nothing says where the precision of a *prior* comes from at the top of the hierarchy — the same regress as the missing top-level prior, moved into the second-order statistics.
+
+---
+
+## Connections
+
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the parent page: this one supplies the derivation *upstream* of its update rule (why free energy is the thing minimised, via ergodicity and the entropy of sensory states) and unpacks the `α, β, γ` precision gates into a represented quantity with its own substrate and timescale.
+- **[[wiki/concepts/attention.md]]** — the rival account of the same phenomenon: selection by a normalised competition over a query, versus multiplicative gain on a residual with no denominator; the two differ on whether attention has a capacity limit by construction.
+- **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — where precision is physically placed: `Π` on the postsynaptic gain of the superficial pyramidal cell, which is what makes attention and prediction separable, opposed controls on one signal.
+- **[[wiki/concepts/expected-free-energy.md]]** — the forward-looking half: this page says value is redundant because goals are priors over sensory trajectories; that page says what is left once the value function is gone is a linear latent-MDP reward plus one convex epistemic term.
+- **[[wiki/concepts/simulation-based-planning.md]]** — the concrete cash value of deleting the value function: rollouts are scored against prior expectations over sensory trajectories rather than against a `V` that must be solved for, which removes the Bellman solve and moves the difficulty into where the priors come from.
+- **[[wiki/concepts/synaptic-plasticity.md]]** — precision *is* the learning rate: read as the Rescorla–Wagner rate parameter, an inferred gain register is a plasticity rule that sets its own step size from its own uncertainty rather than from a schedule.
+- **[[wiki/concepts/divergence-objectives.md]]** — supplies the quantity whose two readings this page turns on: the `F ≥ surprise` gap is a reverse KL, and the unimodality of the recognition density is that direction's mode-seeking behaviour rather than an independent assumption.
+- **[[wiki/concepts/amortized-inference.md]]** — the code taxonomy is the same choice seen from the representation side: a free-form posterior is sample-based and scales badly, a fixed-form one is a small vector of sufficient statistics and is what an amortised recognition network can actually emit.
+- **[[wiki/concepts/population-geometry.md]]** — the measurement counterpart of the taxonomy: whether a population encodes a distribution by sample moments, by basis amplitudes or by a mean-plus-implicit-precision is a question about the geometry of the recorded activity, and the three codes predict different intrinsic dimensionalities for the same latent.
+- **[[wiki/concepts/dynamic-network-connectivity.md]]** — the biological gain register this page's precision would set: content-free, seconds-reversible multiplicative gating of individual synapses by dopamine, noradrenaline and acetylcholine, i.e. the substrate G56 asks for, here given a normative set-point rule.
+- **[[wiki/entities/pbwm.md]]** — the wiki's implemented dopamine model and the contrast case: its PVLV term is a *teaching signal* delivered from outside the network, whereas precision-dopamine would be an inferred gain consumed by the inference dynamics themselves (T122).
+- **[[wiki/concepts/latent-graph-discovery.md]]** — the code taxonomy lands on the framing as a substrate choice: discrete multinomial codes for graph position, Laplace codes for within-node content, with unimodality buying commitment (G2) at the cost of a maintained search frontier (G15).
+- **[[wiki/concepts/contextual-inference.md]]** — the multimodal-posterior case this page's unimodality claim rules out: there, responsibility is genuinely split across context models and the resulting posterior is a mixture, which a Laplace code cannot express.
+- **[[wiki/concepts/cognitive-control.md]]** — the top-down bias signal read as a precision: raising the gain on one channel's residual and biasing competition toward it are the same operation seen from the inference and the control sides.

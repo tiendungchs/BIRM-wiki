@@ -13,7 +13,7 @@ One INGEST each:
 - [x] `milosevic-2026-active-inference-convex-mdp.md` — predictive-coding · M · 2026
 - [x] `kerjan-2026-predictive-coding-imagenet-eqprop.md` — predictive-coding · M · 2026
 - [x] `nguyen-2025-event-segmentation-mechanisms.md` — predictive-coding · R · 2025
-- [ ] `friston-2009-free-energy-principle-rough-guide.md` — active-inference · S · 2009
+- [x] `friston-2009-free-energy-principle-rough-guide.md` — active-inference · S · 2009
 - [ ] `cooper-2026-efe-belief-dependent-utility.md` — active-inference · F · 2026
 - [ ] `nuijten-2026-what-inference-is-active-inference.md` — active-inference · F · 2026
 - [ ] `champion-2023-deconstructing-deep-active-inference.md` — active-inference · M · 2023

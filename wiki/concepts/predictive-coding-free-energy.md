@@ -228,6 +228,12 @@ Two consequences the wiki should carry:
 
 ---
 
+## Why this objective and not another — the existence argument
+
+> `raw/friston-2009-free-energy-principle-rough-guide.md` — Friston, *Trends in Cognitive Sciences* 13(7):293–301, 2009. Supplies the step this page's update rule assumes: `H(Y) = lim_{T→∞}(1/T)∫ −ln p(y(t)|m) dt` under ergodicity, so an agent that persists in a small repertoire of states is an agent minimising time-averaged surprise; surprise is not evaluable (it needs the world's hidden states) but `F = surprise + D_KL(q‖p(θ|y))` is, being a function of sensory input and brain states alone. **Bayesian perception is therefore derived rather than hypothesised**, and since `F = complexity − accuracy` and action can only touch accuracy, action must resample the world until the data match the representation. The full derivation, the three-way partition of represented quantities (states/parameters/precisions), and the code taxonomy live on [[wiki/concepts/precision-weighting.md]].
+
+---
+
 ## Active inference: where goals come from
 
 | Component | Statement |
@@ -325,3 +331,4 @@ Step 3 is the expensive one and is explicitly acknowledged as intractable in gen
 - **[[wiki/concepts/inter-areal-synchrony.md]]** — where the derived frequency asymmetry becomes a measurement protocol: band-limited coupling types an inter-module link, and the high/low power ratio of two populations says which one is integrating the other's residual.
 - **[[wiki/concepts/objective-identifiability.md]]** — the precision parameters `Σ^(l)` make that page's many-to-one direction a continuum rather than a list: backpropagation, the first principal component and inverse regression are one architecture and one Hebbian rule at three variance ratios, so no representation identifies the objective, but measuring the ratio would (Whittington & Bogacz 2017).
 - **[[wiki/concepts/expected-free-energy.md]]** — the other half of the same loop, and the half this page only sketches: the variational free energy above fits `m = (p,ν)` to data, while EFE optimises the policy against that frozen model in imagination — and once written over state-action occupancies it is a linear latent-MDP reward plus a single convex term, so "goals come from homeostatic divergence" acquires an optimisation class, a `O(1/K)` algorithm, and a named failure mode (performativity) (Milosevic et al. 2026).
+- **[[wiki/concepts/precision-weighting.md]]** — unpacks the `α, β, γ` gates into a represented quantity with its own substrate and timescale: precision is the third thing a brain encodes (gain), it minimises the path-integral rather than `F` itself so it *must* run slower than the activity it scales, and once inferred it does the work of attention, incentive salience, value and learning rate at once (Friston 2009).
