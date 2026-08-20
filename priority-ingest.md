@@ -23,7 +23,7 @@ One INGEST each:
 - [x] `garrido-2025-intuitive-physics-v-jepa.md` — world-models · R · 2025
 - [x] `bordes-2024-vision-language-modeling.md` — ssl-representation · S · 2024
 - [x] `weller-2026-embedding-retrieval-limits.md` — ssl-representation · F · 2026
-- [ ] `grill-2020-byol-self-supervised.md` — ssl-representation · M · 2020
+- [x] `grill-2020-byol-self-supervised.md` — ssl-representation · M · 2020
 - [ ] `zbontar-2021-barlow-twins.md` — ssl-representation · M · 2021
 - [ ] `bardes-2022-vicreg.md` — ssl-representation · M · 2022
 - [ ] `oquab-2023-dinov2.md` — ssl-representation · M · 2023

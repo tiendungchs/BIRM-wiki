@@ -161,6 +161,21 @@ Setting: invertible nonlinear observations of a linear–Gaussian latent system,
 
 ---
 
+## A sixth direction: the system may not descend an objective at all
+
+Every direction above assumes an objective exists and asks whether it can be recovered. BYOL removes the assumption (Grill et al. 2020, [[wiki/entities/byol.md]]). Its per-step loss is a regression `‖q_θ(z_θ) − sg(z′_ξ)‖²` whose global minimum is a **collapsed** constant encoder; its target parameters are updated by `ξ ← τξ + (1−τ)θ`, which is not `−∇_ξ L`; and the trained system reaches 74.3% ImageNet linear-eval top-1 rather than the collapsed solution. The authors state the consequence themselves:
+
+> **"We hypothesize that there is no loss `L_{θ,ξ}` such that BYOL's dynamics is a gradient descent on `L` jointly over `θ, ξ`."** — the stated analogy is a GAN, where no scalar is jointly minimised by both players.
+
+| Consequence | For this page |
+|---|---|
+| **The many-to-one direction has a limit case** | The question is not which of several losses has this representation at its minimum; it is whether the representation is at any loss's minimum. A fixed point of a two-timescale dynamics need not be a stationary point of anything |
+| **The identifiable variables shift again** | What actually moves BYOL's outcome is the *optimality of the predictor relative to the projector*: an exact linear predictor with no EMA target reaches 52.5%, a faster-learning predictor 66.5%, raising both learning rates ≈25%, removing either component 0.3%. None of these is a term in an objective, so an audit that names architecture + loss + data has named nothing that discriminates here |
+| **It bounds the fifth direction's positive result** | Zhang et al.'s recovery theorem is a statement about the *global minimiser* of a loss. It applies to a trained system only via the assumption that training approximates that minimiser — an assumption the EMA lineage ([[wiki/entities/v-jepa-2.md]], and every JEPA that inherited BYOL's stop-gradient) cannot make, because there is no minimiser to approximate |
+| **(brainstorm)** The audit item is cheap and nobody reports it | For any system with a stop-gradient or an EMA branch: **state which parameters the loss is differentiated with respect to, and whether the remaining update is a gradient of anything.** A stop-gradient is not a numerical convenience; it is the point at which the system stops being described by its loss |
+
+---
+
 ## Connections
 
 - **[[wiki/entities/cscg.md]]** — the one instance in the wiki where this page's degeneracy is broken empirically: three architectures reach the same orthogonalized endpoint and only one reproduces the order in which a brain reaches it — bought at the cost of a symbol-encoding choice that flips the result.
@@ -193,3 +208,4 @@ Setting: invertible nonlinear observations of a linear–Gaussian latent system,
 - **[[wiki/entities/v-jepa-2.md]]** — identifiability decided by a *staging* choice rather than by architecture or loss: stage 1 is action-free, so by the theory it can only recover the behaviour-policy-averaged future, and every bit of this system's action sensitivity has to come from stage 2's 62 hours of human teleoperation — data whose conditional action variance is high precisely because it was produced by many noisy operators rather than by a converged policy (Assran et al. 2025).
 - **[[wiki/entities/gcq.md]]** — removes the loss from the grid-cell emergence question entirely: the periodic code is installed before training, the objective is plain reconstruction plus a commitment term, and the representation is what it is regardless — which is this page's "hand-designing a continuous attractor via the loss" reading with the indirection dropped, and which makes the fixed-vs-learnable ablation a rare direct test of whether optimisation would find the installed code (it moves away from it, and scores worse).
 - **[[wiki/concepts/violation-of-expectation.md]]** — an identifiability experiment run by hand on one architecture: three masking objectives and three corpora scored under one protocol, with the corpus *distribution* dominating both the objective and the corpus size.
+- **[[wiki/entities/byol.md]]** — the limit case of this page's many-to-one direction: a system whose authors hypothesise that *no* jointly-descended loss exists, so its representation is a fixed point of a two-timescale dynamics rather than a minimum, and the variables that decide its outcome (predictor optimality, EMA rate) appear in no objective at all.

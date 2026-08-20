@@ -6,6 +6,8 @@
 
 This is the wiki's **small** JEPA. Its interest is not a new capability but a subtraction: every stabiliser the JEPA lineage accumulated — EMA teacher, stop-gradient, frozen foundation encoder, proprioception, action decoders, seven-term VICReg objectives — is removed at once, and the resulting system still plans.
 
+**What is being subtracted has a name and a paper**: the EMA-target-plus-stop-gradient pair is BYOL's, transplanted from two-views-of-an-image to two-timesteps ([[wiki/entities/byol.md]]). The objection LeWM makes — that they correspond to no well-defined objective — is BYOL's own stated hypothesis rather than an outside criticism, and BYOL's ablations say what the subtraction has to replace: removing *either* the predictor or the EMA target collapses that system outright, so the two removed components were doing anti-collapse work that SIGReg now has to do alone.
+
 ---
 
 ## Architecture
@@ -176,3 +178,4 @@ This lands on the neuroscience temporal-straightening hypothesis (Hénaff et al.
 - **[[wiki/concepts/core-knowledge.md]]** — a violation-of-expectation signal that separates physical from visual violations without being told the difference, which is the closest thing in the wiki to an entry condition emerging from a predictability objective alone.
 - **[[wiki/concepts/counterfactual-probing.md]]** — the contrast case: the same family of world model, probed by comparing *perturbed against unperturbed real trajectories* rather than by injecting a counterfactual into the conditioning path, which is why this system needs no special conditioning interface and gets no partition out.
 - **[[wiki/concepts/violation-of-expectation.md]]** — the protocol this page's dissociation result belongs to, and where its prediction (general pretraining should hurt violation detection) is tested against a 1M-hour foundation video model and splits: refuted on scale, confirmed on colour.
+- **[[wiki/entities/byol.md]]** — the paper this system's headline subtraction is aimed at: the EMA teacher and stop-gradient removed here are BYOL's, and BYOL's own ablations say they were doing anti-collapse work (removing either collapses it), so SIGReg is not simplifying a redundancy but replacing a mechanism.

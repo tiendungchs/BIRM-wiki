@@ -138,7 +138,19 @@ For this wiki that is a **type system over the hypothesis space**: a cheap class
 | **Learned initializer for an iterative relaxation** | `q(h\|x)` supplies `h⁰`, then `T` local updates increase a variational bound; a regularizer in the training objective ties the two together so the feed-forward guess stays close to the relaxed answer (Bengio et al. 2015) |
 | Differentiable programming | Make the program-like hypotheses themselves differentiable, so they are learnable by gradient descent |
 
-The fourth row is the architectural proposal: **the neural network is the inference engine, the program is the model.** The alternative reading — the network *is* the causal generative model, if imbued with the right ingredients — is left open by the source as the second of two ways deep learning could play a role.
+**The amortiser's *staleness* is a training-stability variable, not just an accuracy one** (Grill et al. 2020, [[wiki/entities/byol.md]]). BYOL's online predictor `q_θ` amortises the conditional expectation `E[z′_ξ | z_θ]` — an exact linear regression is available in closed form on each batch — and how far behind that exact solution the amortiser is allowed to fall decides whether the entire system learns anything:
+
+| Predictor | Result |
+|---|---|
+| Closed-form optimal linear predictor, recomputed per batch, **no EMA target** | 52.5% |
+| Learned predictor with a **raised** learning rate, no EMA target | 66.5% |
+| Learned predictor, EMA target (the standard design) | 72.5% |
+| Predictor **and** projector learning rates both raised, no EMA target | ≈25% |
+| No predictor | 0.2% (collapse) |
+
+The last two rows are the content: what matters is the amortiser's optimality *relative to the target it chases*, so the EMA on the target branch and the learning-rate ratio on the amortiser are two implementations of the same quantity — slow the target down, or speed the amortiser up. **(brainstorm)** Every architecture in this wiki that pairs a fast learned proposer with a slower structured target (recognition net vs. generative model, policy vs. planner, fast **M** vs. slow **W**) has this ratio as an unnamed hyperparameter, and BYOL is the only case where it has been swept and shown to span the whole range from collapse to state of the art.
+
+The fourth row of the table above is the architectural proposal: **the neural network is the inference engine, the program is the model.** The alternative reading — the network *is* the causal generative model, if imbued with the right ingredients — is left open by the source as the second of two ways deep learning could play a role.
 
 ---
 
@@ -192,3 +204,4 @@ The fourth row is the architectural proposal: **the neural network is the infere
 - **[[wiki/concepts/program-induction.md]]** — the search this page exists to pay down: posterior inference over programs is intractable in general, so a recognition net that proposes hypotheses (or initialises the relaxation) is the family's standing remedy.
 - **[[wiki/concepts/counterfactual-probing.md]]** — a case where this page's compilation step destroys the capability outright: distilling a poke-and-cluster probe into a feedforward segmenter buys speed and deletes the query language, since the distilled model has one output and cannot be asked a different counterfactual.
 - **[[wiki/concepts/retrieval-capacity.md]]** — the wiki's sharpest price tag on amortisation: compiling one side of an interaction into a fixed vector is exactly what buys `O(1)` retrieval and exactly what imposes a rank-`d` ceiling on the compatibility patterns expressible, with a cross-encoder — the un-amortised version — solving at 100% what every embedding model fails.
+- **[[wiki/entities/byol.md]]** — the amortiser's lag made load-bearing: the online predictor approximates a conditional expectation available in closed form, and the gap between it and that exact solution is what keeps the representation off the collapsed fixed point — so a stale amortiser is not merely inaccurate, it changes what the system converges to.
