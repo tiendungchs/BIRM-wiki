@@ -132,6 +132,18 @@ The source's account of what an H-JEPA trained on video *should* learn, level by
 
 This is a claim, not a result. Its value here is that it is a *falsifiable ordering*: abstraction levels should appear in that sequence, and the acquisition ages charted in the source (object permanence ~2–4 months, gravity/inertia ~7–9 months) supply the developmental prediction to check it against ([[wiki/concepts/core-knowledge.md]]).
 
+**It is now partly a result, and the ordering held.** Garrido et al. 2025 score a V-JEPA — one level of this design, trained exactly as specified on natural video — with violation-of-expectation on IntPhys / GRASP / InfLevel, against a null of 20 randomly-initialised networks ([[wiki/concepts/violation-of-expectation.md]]):
+
+| Table row | Predicted | Measured |
+|---|---|---|
+| Objects, permanence | early, easy | Object permanence `g = 9.0`, continuity `g = 11.0`, shape constancy `g = 8.1` (IntPhys); 98% overall |
+| Stability, gravity, momentum | later | Support `g = 3.9`, gravity `g = 4.5`, inertia `g = 1.8` (GRASP) — above the null but a rank below; gravity **fails** on InfLevel, where the disambiguating event precedes the model's memory window |
+| Cause-and-effect | latest | Solidity and collision **at chance**. Colour constancy also at chance |
+
+Three qualifications. (i) This is a **difficulty** ordering measured on a converged model, not the **acquisition** ordering the table predicts — nobody ran the probe over training checkpoints, which is a one-line experiment on data the ablation study already generated. (ii) The design's own explanation for the tail is available and untested: interaction properties may need "higher-order representations" that one level cannot form, which is the argument for the stack, and the authors of the empirical paper reach for it independently. (iii) The other proposed cause is data, not depth — object interactions are rare in HowTo100M — and the two are not separated by anything reported.
+
+**The strongest single fact for this page's position against core knowledge:** the levels above depth and objecthood are reached with no installed abstraction, at 115M parameters, on 128 hours of unique video ([[wiki/empirical-tensions.md]] T12).
+
 ---
 
 ## Position against the two dominant alternatives
@@ -204,3 +216,4 @@ This is a claim, not a result. Its value here is that it is a *falsifiable order
 - **[[wiki/entities/v-jepa-2.md]]** — this design's JEPA core built at scale and driven to a real robot, and therefore the audit of which of its commitments are load-bearing: representation-space prediction and energy-minimisation planning survive contact with hardware, while the stack, the latent, the configurator and the learned cost were all dropped to get there — and every long-horizon limitation reported is the one the stack exists to fix.
 - **[[wiki/entities/adaworld.md]]** — the opposite pair of choices on the two axes this design fixes: predicts in *pixel* space via diffusion where this page predicts in representation space, and *induces* its action vocabulary from video where this page assumes one and learns subgoal costs above it — the wiki's only head-to-head on where an action alphabet comes from.
 - **[[wiki/entities/lewm.md]]** — this design's core at the other extreme of scale, and the sharpest statement of what its four training criteria cost: one distribution-matching term with a single coefficient replaces the collapse machinery entirely, trained end-to-end from pixels with no EMA, no stop-gradient and no frozen encoder — while the stack, the latent `z`, the configurator and the learned cost remain unbuilt here too (Maes et al. 2026).
+- **[[wiki/concepts/violation-of-expectation.md]]** — the instrument that turned this page's developmental table from a claim into a partial result, and the one that priced it: the predicted early levels emerge at `g` 8–11 over an untrained null, the predicted late one (interaction, cause-and-effect) is at chance in the single-level model the stack was proposed to replace.

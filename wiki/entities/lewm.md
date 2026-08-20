@@ -108,6 +108,13 @@ Three environments (TwoRoom, PushT, OGBench-Cube), three trajectories each: unpe
 
 **(brainstorm)** It also inverts the usual reading of the compact latent as a liability. Colour-blindness is an information loss, and here it is exactly what makes the surprise signal a physics detector. A foundation encoder trained for visual discrimination cannot have this property by construction — it is *paid* to notice colour — which predicts that the more general the pretrained representation, the worse it works as a violation detector. That is testable on the numbers already in the table.
 
+**It has since been tested, on a much larger model, and it splits.** Garrido et al. 2025 run VoE on **V-JEPA** — a general-purpose foundation video encoder, 300M–630M parameters, ~1M hours of natural video, the exact "more general pretrained representation" the prediction indicts ([[wiki/concepts/violation-of-expectation.md]]). Two halves of the prediction go opposite ways:
+
+- **Refuted on generality.** V-JEPA is the *best* violation detector in the comparison — the only model significantly above an untrained null on all three of IntPhys, GRASP and InfLevel — and performance **rises** monotonically with encoder size and with corpus breadth. Generality does not cost violation sensitivity.
+- **Confirmed on colour.** V-JEPA's gain over the null on **colour constancy is not significant**, in a model whose surprise otherwise works and whose corpus is full of colour. So the blindness is not an artefact of a 192-d bottleneck; two independent latent predictors, three orders of magnitude apart in data and one in parameters, both report physical violations and both ignore an object changing colour.
+
+**(brainstorm)** What survives is a sharper claim than the original: *predicting in a representation space* — not compactness — is what selects continuity over appearance, because an appearance change is exactly the kind of unpredictable detail the encoder is paid to discard, at any scale. The remaining discriminator between the two accounts is a *capacity* sweep on one architecture, which nobody has run.
+
 ---
 
 ## Temporal straightening, emergent — and the authors call it collapse
@@ -168,3 +175,4 @@ This lands on the neuroscience temporal-straightening hypothesis (Hénaff et al.
 - **[[wiki/concepts/population-geometry.md]]** — supplies that page's temporal geometry entry and a warning attached to it: latent trajectories straighten monotonically over training with nothing asking them to, and the straightening is more plausibly an under-constrained temporal axis collapsing than a property the objective bought.
 - **[[wiki/concepts/core-knowledge.md]]** — a violation-of-expectation signal that separates physical from visual violations without being told the difference, which is the closest thing in the wiki to an entry condition emerging from a predictability objective alone.
 - **[[wiki/concepts/counterfactual-probing.md]]** — the contrast case: the same family of world model, probed by comparing *perturbed against unperturbed real trajectories* rather than by injecting a counterfactual into the conditioning path, which is why this system needs no special conditioning interface and gets no partition out.
+- **[[wiki/concepts/violation-of-expectation.md]]** — the protocol this page's dissociation result belongs to, and where its prediction (general pretraining should hurt violation detection) is tested against a 1M-hour foundation video model and splits: refuted on scale, confirmed on colour.
