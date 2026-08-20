@@ -1,0 +1,668 @@
+
+Introduction
+0:00
+This video was brought to you by Squarespace.
+0:02
+The human brain is a learning powerhouse.
+0:05
+From mastering foreign languages
+0:07
+to performing intricate physical movements,
+0:09
+there seems to be almost no limit what we can learn.
+0:12
+Yet, anyone who has struggled to master a new skill knows
+0:16
+that our brains are not infinitely flexible.
+0:19
+Some abilities come naturally,
+0:20
+while others feel impossible to grasp
+0:23
+no matter how much we practice.
+0:25
+But does it just come down to not trying hard enough?
+0:29
+Or could there be something deeper,
+0:31
+fundamental constraints wired into our neural architecture
+0:35
+that makes certain patterns of brain activity
+0:37
+and thus the resulting behaviors physically impossible to achieve?
+0:41
+In this video, we will explore a groundbreaking study
+0:44
+published in Nature Neuroscience this January
+0:47
+that reveals something remarkable.
+0:49
+There are indeed hardware limitations
+0:51
+built into our neural circuitry
+0:53
+that determine what we can & cannot learn,
+0:56
+no matter how hard we try.
+Temporal sequences
+1:01
+At any given moment,
+1:02
+each nerve cell in your brain is either silent
+1:05
+or firing an electrical impulse,
+1:07
+together creating intricate patterns of activity
+1:10
+across millions of neurons.
+1:12
+These patterns unfold in time
+1:14
+like a carefully orchestrated symphony,
+1:16
+driving our behaviour.
+1:18
+When you reach for a cup of coffee, for example,
+1:21
+your neurons follow a specific sequence
+1:23
+of planning the movement trajectory & executing it,
+1:27
+controlling your muscles with precise timing.
+1:30
+The dynamics of these patterns of neural activity
+1:33
+flows through your brain like water through a landscape.
+1:36
+And just like rivers tend to follow established channels,
+1:40
+neural activity might have preferred pathways
+1:43
+shaped by our brain's physical wiring.
+1:45
+This raises a fundamental question.
+1:48
+How flexible are these patterns?
+1:51
+When learning a new skill,
+1:53
+can our brain generate any sequence of neural activity it needs to?
+1:57
+Or are some sequences much harder than others,
+2:00
+or even outright impossible
+2:02
+because of how our neurons are connected & their underlying biophysics?
+2:07
+But how can we test this idea scientifically?
+The experimental challenge
+2:10
+When you perform any action,
+2:12
+millions of neurons are firing in complex patterns all across your brain.
+2:16
+Even if we could
+2:17
+hypothetically record the activity of all of them,
+2:20
+we would still run into a problem
+2:22
+that lies at the heart of modern neuroscience.
+2:25
+You see, in any scientific field,
+2:27
+to understand the rules of a system,
+2:29
+you need to systematically test different conditions,
+2:32
+formulate hypotheses, and validate them.
+2:35
+For instance,
+2:36
+if you are studying a new chemical reaction,
+2:38
+you might need to separately vary the temperature
+2:41
+& concentrations of individual compounds
+2:44
+to see how they affect the reaction rate.
+2:47
+But when it comes to neural activity,
+2:49
+we face a unique challenge.
+2:51
+To understand what patterns are hard to learn,
+2:54
+we want to systematically test different neural sequences.
+2:58
+Maybe start with simple patterns,
+3:00
+then try increasingly complex ones.
+3:02
+Reverse them, shuffle them,
+3:03
+speed them up, or slow them down.
+3:05
+The point is that we want to carefully control
+3:08
+which neural sequences our subject is trying to learn
+3:11
+to test specific hypothesis about
+3:14
+what makes some patterns harder than others.
+3:17
+But there is a fundamental problem.
+3:19
+While we can do some kind of systematic testing at the behavioral level,
+3:23
+like asking the subject to draw shapes of increasing complexity
+3:27
+or learn to press the buttons in a specific sequence,
+3:31
+we have no way of knowing
+3:33
+what neural pattern each behavior will result in.
+3:36
+For example,
+3:38
+suppose we wanted to know whether the motor cortex,
+3:41
+the movement center of the brain,
+3:43
+can generate neural trajectories in reverse order,
+3:46
+kind of like rewinding a tape.
+3:48
+We might think that
+3:50
+asking someone to do the reaching movement in reverse would work,
+3:54
+but there is a catch.
+3:55
+When you reach forward, your triceps push the arm out,
+3:59
+but during the reverse movement,
+4:01
+it's the biceps that are doing the work.
+4:03
+These are different muscle groups with different neural trajectories,
+4:08
+not simply the same pattern being played in reverse.
+4:11
+In other words,
+4:12
+without direct control & direct access to brain activity,
+4:17
+we can't study and test hypotheses
+4:19
+about what makes certain neural patterns difficult.
+4:22
+So it seems like neuroscience might be hitting a limit.
+4:26
+But turns out there is a very clever solution.
+4:29
+Instead of trying to design behaviors
+4:31
+that might or might not
+4:32
+result in certain brain activity patterns we're interested in,
+4:36
+what if we make
+4:37
+specific neural sequences themselves
+4:40
+the very goal of learning?
+Biofeedback and BCIs as a research tool
+4:43
+Here is the key idea.
+4:45
+What if we could show people their own neural activity in real time?
+4:50
+Now, this isn't as far-fetched as it sounds.
+4:53
+Think about controlling your heart rate or breathing.
+4:56
+Normally these processes happen automatically
+4:59
+without conscious control,
+5:01
+but when you hear or see your heart rate on a monitor,
+5:04
+your brain gains a remarkable ability to control it voluntarily.
+5:09
+This is an example of biofeedback,
+5:11
+a phenomenon when you observe some kind of signal from your body in real time,
+5:17
+your brain learns how to influence it.
+5:19
+And the same principle could work for the neural activity itself.
+5:23
+Imagine you could see the activity of 100 neurons
+5:27
+from your brain on the screen in front of you,
+5:29
+like a 100 tiny lights flickering on and off.
+5:33
+Now suppose you had some kind of target pattern,
+5:37
+a specific sequence of lights.
+5:39
+You need it to match with your own brain.
+5:41
+Even though you have never consciously
+5:43
+controlled individual neurons before,
+5:46
+with enough practice and feedback,
+5:48
+you might learn to generate patterns
+5:50
+closer and closer to the target.
+5:53
+The key insight here is that
+5:55
+our brains are constantly learning through trial & error,
+5:58
+and with this kind of very direct feedback,
+6:01
+it can quickly identify thoughts & mental strategies that work,
+6:05
+developing an intuitive feel
+6:07
+for how to control the lights on the screen.
+6:10
+However, watching a 100 flickering lights
+6:13
+is an overwhelming amount of information to keep track of.
+6:16
+And since we can only study individual neurons
+6:19
+in monkeys rather than humans, as we'll see shortly,
+6:22
+asking them to monitor all these lights is virtually impossible.
+6:26
+What if we could simplify it?
+6:28
+What if we could reduce the complexity of those 100 lights
+6:32
+into something more directly interpretable & intuitive,
+6:36
+for example, a cursor moving on the screen?
+6:39
+This is exactly how brain-computer interfaces, or BCI's, work.
+6:43
+The computer takes in real-time activations of 100 of neurons
+6:48
+& transforms them through mathematical mapping
+6:51
+into a pair of two numbers, X & Y,
+6:54
+that drive the cursor position.
+6:56
+When you think of something,
+6:58
+your neural activity changes & the cursor moves to a new location.
+7:02
+Through trial & error and the direct feedback,
+7:05
+your brain adapts and learns
+7:07
+how to control its own neural activity to align with this mapping
+7:11
+in order to achieve the desired movement.
+7:14
+By carefully designing this mapping,
+7:16
+we can create tasks that require learning
+7:19
+to generate specific neural sequences.
+7:22
+But how exactly would such a task look like
+7:24
+and what can we probe with it?
+7:26
+Let's dive deeper into the paper.
+7:28
+Speaking of fundamental constraints, unlike our neural circuits,
+Sponsor: Squarespace
+7:33
+what if you could build something without limitations?
+7:36
+This is where our today's sponsor Squarespace comes in.
+7:40
+Squarespace is an all-in-one platform that
+7:42
+that transforms the complexity of website creation & management
+7:46
+into something anyone can master.
+7:48
+While starting a website from scratch can be overwhelming to say the least,
+7:52
+Squarespace's new Design Intelligence feature changes everything.
+7:56
+This powerful AI toolkit creates a customized website
+8:00
+based on your business & branding,
+8:02
+complete with tailored content and images,
+8:05
+giving you the perfect foundation to build upon.
+8:08
+Every element could be customized
+8:09
+using their intuitive drag-and-drop interface,
+8:12
+from text content & styling
+8:14
+to dynamic animations that bring your story to life.
+8:17
+Squarespace is your all-in-one destination for everything online
+8:21
+from building beautiful websites & launching newsletters
+8:24
+to setting up online stores & processing payments,
+8:28
+everything integrates seamlessly into one unified system.
+8:31
+Experience it yourself with a free trial at squarespace.com
+8:35
+and when you're ready to launch, head to
+8:39
+to save 10% off your first purchase of a website or domain.
+Experimental setup
+8:46
+Imagine you're teaching someone to play a video game,
+8:49
+but with a bizarre twist.
+8:51
+Instead of using a joystick,
+8:53
+they have to control the game using their thoughts alone.
+8:56
+This is pretty much what researchers did with monkeys in their groundbreaking experiment.
+9:01
+Monkeys sat in front of a screen showing 2 targets
+9:04
+and a cursor that they needed to move between the targets
+9:07
+to obtain rewards.
+9:09
+Tiny electrodes in their motor cortex
+9:12
+were recording the activity of around 90 neurons
+9:15
+and transforming it into the position of the cursor.
+9:18
+But what exactly is this transformation?
+9:21
+How do you turn a complex symphony of 90 neurons
+9:24
+into something as simple as moving the cursor left or right?
+9:28
+To answer this,
+9:29
+we need to understand how to describe
+9:32
+the activity of neural populations.
+9:35
+At any given moment,
+9:36
+each neuron's activity can be described by a single number,
+9:40
+how many electrical impulses it fires per second.
+9:43
+With 90 neurons, we get 90 numbers,
+9:47
+which together define a point in 90 dimensional space.
+9:51
+This is similar to how we can describe the location of an object
+9:54
+in our familiar 3D world using just three numbers
+9:58
+X, Y and Z coordinates.
+10:01
+But for the neural case, we will have 90 coordinates.
+10:04
+As the neural activity changes over time,
+10:08
+it traces out a trajectory in this high-dimensional space.
+10:13
+Now, to turn these trajectories
+10:15
+unfolding in the neural activity space
+10:17
+into two-dimensional cursor movement,
+10:20
+researchers used what's called a linear projection.
+10:24
+Think about how a three-dimensional object
+10:26
+casts different two-dimensional shadows
+10:29
+depending on the angle of the light source.
+10:32
+Similarly. while we can't visualize the full 90 dimensional space,
+10:37
+we can mathematically project it onto different two-dimensional viewing angles,
+10:43
+with each projection giving us a different perspective on the neural activity.
+10:49
+The experimenters began by finding an intuitive mapping
+10:53
+during a calibration session.
+10:55
+They had the monkeys watch a cursor movement on its own
+10:59
+and recorded their neural activity.
+11:02
+This revealed a specific projection,
+11:04
+so-called movement intention view,
+11:07
+where the neural trajectories looked remarkably similar
+11:10
+to the cursor's paths on the screen.
+11:13
+When the researchers turned on the brain-computer interface with this mapping,
+11:17
+the monkeys quickly learned to control the cursor,
+11:20
+moving it smoothly between the targets.
+11:24
+At first glance, the overlapping cursor trajectories
+11:28
+for leftward and rightward movements
+11:30
+might suggest that neural activity is indeed quite flexible.
+11:34
+After all, if we see the same path
+Two 2D projections of neural activity
+11:37
+being traced in opposite directions,
+11:39
+maybe we could just play the same neural tape in any direction.
+11:44
+However, remember that we're only seeing
+11:47
+one particular two-dimensional view of the full 90 dimensional activity,
+11:51
+which doesn't convey the full picture.
+11:54
+For example, imagine looking at a DNA double helix from above.
+11:59
+It appears as a simple circle,
+12:01
+but when viewed from the side,
+12:03
+you see its complex spiral structure.
+12:06
+Similarly, looking at the neural activity
+12:08
+from a different angle might reveal hidden structure.
+12:12
+Indeed, the researchers found another projection,
+12:16
+the separation maximizing view,
+12:18
+where the leftward and rightward trajectories
+12:21
+appeared completely distinct,
+12:23
+curving in different directions.
+12:26
+This revealed something profound.
+12:28
+These movements were not mirror images of each other
+12:32
+at the neural level at all.
+12:33
+Instead of the same neural path being traversed in reverse,
+12:37
+the brain was using an entirely different set of patterns
+12:40
+for leftward versus rightward movements.
+12:44
+Now, what would happen if monkeys could see
+12:47
+this new separation maximizing view instead?
+12:51
+When the group switched the interface to use this mapping,
+Switching BCI mapping reveals activity constraints
+12:54
+the animals initially began to see their cursor
+12:57
+moving in curved paths rather than straight lines.
+13:01
+You might expect them to use this visual feedback
+13:04
+to modify what commands they send to the interface
+13:07
+in order to straighten out the paths.
+13:10
+After all, when reaching for an object,
+13:13
+we naturally move in straight lines
+13:15
+and automatically correct any deviations.
+13:18
+Surprisingly, though,
+13:20
+the monkeys kept moving the cursor in curved paths
+13:23
+showing no signs of trying to strengthen them.
+13:26
+This suggests that these neural trajectories
+13:30
+might be outside their conscious control,
+13:32
+constrained by the underlying brain circuitry.
+13:35
+But an alternative explanation might be that
+13:37
+perhaps the monkeys simply were not
+13:39
+motivated enough to change their activity.
+13:42
+After all, they were still getting rewards
+13:44
+despite taking longer curved paths.
+13:48
+To test this,
+13:49
+researchers tried a modification of the task with a specific constraint.
+13:53
+The cursor had to stay within a narrow corridor between the targets.
+13:57
+The only way to achieve the goal
+13:59
+was to make the cursor move in a way
+14:01
+that looks like a time reversed version
+14:04
+of one of the previous trajectories.
+14:06
+For instance,
+14:07
+we know that when moving from red target to blue one,
+14:10
+monkey's neurons fired in a specific sequence.
+14:13
+Now, to move from blue back to red
+14:16
+while staying in the corridor,
+14:17
+the brain needed to generate these same patterns
+14:20
+but in reverse order.
+14:22
+Even with this strong incentive,
+14:24
+the promise of reward & the clear visual indication of the corridor,
+14:28
+monkeys could not reverse the natural flow of their neural activity.
+14:33
+They consistently failed at the task,
+14:35
+suggesting something profound.
+14:36
+There are fundamental constraints
+14:38
+on how neural activity can flow through the brain,
+14:41
+constraints that even strong motivation & practice cannot overcome.
+Conclusion
+14:46
+What we have seen today reveals something really profound
+14:49
+about how our brains work.
+14:51
+Just like a river has channels that water naturally follows,
+14:55
+physical connections between our neurons
+14:58
+create preferred flows of neural activity.
+15:01
+While we can learn new skills
+15:02
+and adapt our behavior in remarkable ways,
+15:05
+there are still some fundamental constraints on neural dynamics
+15:09
+that we cannot overwrite
+15:10
+because they're built into the very architecture of our neural circuits.
+15:15
+So when we struggle to master new skills,
+15:17
+it may be not because of
+15:19
+lack of motivation or practice,
+15:21
+but because they require playing out
+15:23
+specific sequences of neural patterns
+15:26
+that go against our brain's intrinsic dynamics.
+15:29
+On the flip side, skills that feel natural
+15:32
+might be those that work with those intrinsic dynamics
+15:35
+rather than against them.
+15:36
+But one thing is clear.
+15:38
+Our brains are not infinitely flexible computers
+15:41
+that can be programmed to do anything.
+15:43
+They are biological systems
+15:45
+with their own sets of rules and preferences
+15:48
+and understanding those constraints
+15:50
+might be the key to understanding
+15:52
+why we learn and think the way we do.
