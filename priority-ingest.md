@@ -33,7 +33,7 @@ One INGEST each:
 - [x] `martinet-2011-prefrontal-spatial-planning-model.md` — prefrontal-control · M · 2011
 - [x] `collins-2013-task-set-structure-learning.md` — prefrontal-control · M · 2013
 - [x] `boettiger-2005-frontal-stimulus-response-learning.md` — prefrontal-control · R · 2005
-- [ ] `badre-2010-frontal-abstract-action-rules.md` — prefrontal-control · R · 2010
+- [x] `badre-2010-frontal-abstract-action-rules.md` — prefrontal-control · R · 2010
 - [ ] `matsuzaka-2012-dmpfc-response-tactic-selection.md` — prefrontal-control · R · 2012
 - [ ] `bichot-2015-feature-based-attention-pfc.md` — prefrontal-control · R · 2015
 - [ ] `widge-2019-dbs-internal-capsule-cognitive-control.md` — prefrontal-control · R · 2019

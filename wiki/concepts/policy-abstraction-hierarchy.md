@@ -1,0 +1,148 @@
+# Policy Abstraction Hierarchy
+
+**A rule is abstract to the degree that it selects among *sets of simpler rules* rather than among actions; that ordering is laid out along the rostro-caudal axis of frontal cortex, and — the load-bearing result — every level is searched *in parallel from the first trial*, with a level's involvement withdrawn only when the structure it is looking for fails to be rewarded.**
+
+> **Provenance.** Badre, Kayser & D'Esposito 2010, *Frontal cortex and the discovery of abstract action rules*, Neuron 66:315–326 (`raw/badre-2010-frontal-abstract-action-rules.md`). Human fMRI, `n = 20` (6 further subjects excluded: 4 head motion, 2 never above chance). Unless marked otherwise, everything below is from that source; the rostro-caudal coordinates are inherited from Badre & D'Esposito 2007.
+
+---
+
+## The formalism: policy order
+
+Abstraction here is **policy abstraction** — not sensory abstraction, not temporal scope.
+
+| Order | Object | Form | Example |
+|---|---|---|---|
+| 1st | Policy | `π : s → a` | circle → left hand |
+| 2nd | Policy over policies | `Π : c → π_i` | red border → *use the shape policy*; green → *use the size policy* |
+| n-th | | `Π⁽ⁿ⁾ : c → Π⁽ⁿ⁻¹⁾_i` | |
+
+The definition is worth stating precisely because it is the one that makes the levels *countable*: a rule is one order higher exactly when its output is the identity of a rule rather than the identity of an action. A stimulus that is both circular and small cues opposing responses under two independent 1st-order sets, so a 2nd-order rule is not a convenience — it is what makes the mapping a function at all.
+
+---
+
+## The task: a minimal, machine-runnable discriminator for abstraction
+
+The design's whole force is that the two conditions are **identical in every measurable respect except whether a higher-order regularity exists in the reward table**. Subjects were never told a hierarchy might be present.
+
+| | Both sets |
+|---|---|
+| Stimulus space | 3 shapes × 3 orientations × 2 border colours = **18 unique displays** |
+| Response space | 3 buttons; deterministic, one correct button per display |
+| Exposure | 360 trials per set, 6 runs, each display 20× |
+| Feedback | Auditory, correct/incorrect, after a variable 0/1/2 s delay (so stimulus and feedback BOLD separate) |
+| Instructions | Identical; no hint that structure exists |
+
+| Set | Reward table | Minimal description |
+|---|---|---|
+| **Flat** | The 18 mappings arranged so that no higher-order relation holds | 18 independent 1st-order rules |
+| **Hierarchical** | Colour A ⇒ only shape determines the response; colour B ⇒ only orientation does | 1 second-order rule (colour → dimension) + 2 × 3 first-order rules = **7 rules instead of 18** |
+
+**(brainstorm)** This is a benchmark spec, not just an experiment, and the wiki has nothing equivalent. Every abstraction benchmark here ([[wiki/entities/arc-agi.md]]) varies the *task*; this varies only the *compressibility of the reward table* while holding the observation distribution, action space, trial count and instructions fixed. Any agent — including a language model or an RL agent — can be run on both and scored by the battery below. The Flat condition is the control that almost every claim of "the model learned an abstraction" in the machine literature lacks: it removes the structure without removing anything else.
+
+---
+
+## Behavioural signatures of having found the abstraction
+
+Six measures, all computable from a learning curve alone, and therefore all portable to a machine learner:
+
+| Signature | Prediction | Result (Hierarchical vs Flat) |
+|---|---|---|
+| Terminal accuracy | Generalization acquires more mappings | **84% vs 58%** (`F(1,19)=26.3, p<10⁻⁴`) |
+| Proportion of individual rules learned | Same | **72% vs 43%** (`F(1,19)=14.6, p<.005`) |
+| Learning trial (presentations before a given mapping is known) | Earlier | earlier (`t(19)=2.1, p=.05`) |
+| Max 1st derivative (learning speed) | Larger — generalization is a jump | larger (`F>9.0, p<.01`) |
+| Max 2nd derivative (change in speed) | Larger | larger (`F>9.0, p<.01`) |
+| Sigmoid fit: slope `α`, offset `β` | Steeper, earlier step | `α` larger (`Z=2.5, p<.05`), `β` smaller (`Z=−2.9, p<.005`), goodness-of-fit equal (`Z=−0.75, p=.46`) |
+
+**The specificity control is the part to keep.** A faster overall curve proves nothing — the Hierarchical set is simply easier. So: define a *known 2nd-order set* as a colour for which all 9 constituent 1st-order rules were learned (this never occurred in the Flat set). Then
+
+- members of known 2nd-order sets are learned earlier than Flat rules (`t(19)=3.8, p<.005`);
+- **within the Hierarchical set**, members are learned earlier than non-members (`t(19)=2.5, p<.05`);
+- non-members are indistinguishable from Flat rules (`t(19)=1.5, p=.2`).
+
+So the speed-up is not a property of the condition, it is a property of *those specific edges covered by an acquired abstraction*. **(brainstorm)** This is a per-edge attribution test and it is the honest version of a transfer claim: it demands that the benefit appear only where the abstraction applies, and that the un-covered edges in the *same* run behave like the control condition. No wiki architecture has been scored this way; the closest analogue would be masking a learned rule variable in a trained model and showing the loss increase falls only on the covered subset.
+
+---
+
+## The anatomy: one level per band, fixed by position
+
+Regions of interest defined *a priori* from an independent dataset (Badre & D'Esposito 2007), where they showed parametric increases in 1st- through 4th-order control:
+
+| ROI | Coordinates | Level in the prior study | Hierarchical vs Flat here |
+|---|---|---|---|
+| **PMd** — dorsal premotor | −30 −10 68 (~BA 6) | 1st-order | **no difference** (`F=.4`) |
+| **prePMd** — dorsal anterior premotor | −38 10 34 (~BA 6/44) | 2nd-order | **difference** (`F(1,19)=5.0, p<.05`) |
+| **mid-DLPFC** | −50 26 24 (~BA 9/46) | 3rd-order | no difference (`F<.9`) |
+| **FPC** — frontal polar | −36 50 6 (~BA 10/46) | 4th-order | no difference (`F<.9`) |
+
+The whole-brain task-vs-baseline contrast reproduced the full rostro-caudal band structure plus SMA, anterior insula, superior and inferior parietal lobules, and bilateral caudate and anterior putamen.
+
+**The selectivity is the result, not the activation.** Only the band whose order matches the order actually present in the reward table (2nd) distinguishes the conditions. Two bands *above* it are active but condition-indifferent. So the level is addressed by the structure of the problem, not by its difficulty — and the mapping from "the task has order `k`" to "band `k` differentiates" is precise enough to be a design constraint.
+
+---
+
+## The load-bearing result: levels are searched in parallel, and pruned by reward
+
+Two accounts predict the same endpoint difference in prePMd and are told apart by its *time course*:
+
+| Account | Prediction for prePMd |
+|---|---|
+| **Serial / bottom-up** — search for a 2nd-order rule begins only once 1st-order rules are known | At baseline early; rises late, and only in the Hierarchical set |
+| **Parallel** — all levels are searched from the outset; a level disengages if unrewarded | Above baseline early in **both** sets; sustained in Hierarchical, **declining** in Flat |
+
+The data give the second, three ways:
+
+1. **Beginning phase:** PMd *and* prePMd both above baseline (`t(19)>3.9, p<.001`) with **no** difference between Flat and Hierarchical (`F<1.9`) — prePMd is engaged in the condition where no 2nd-order rule exists to find.
+2. **Middle and End:** the difference emerges (`F(1,19)=4.2`, then `6.4`, `p<.05`) and it is driven by a **decline in the Flat set** (`F(1,19)=4.3, p<.05`) with no change in Hierarchical (`F=.05`). Confirmed on performance-equated rather than time-equated bins (ROI × set `F(1,19)=12.4, p=.002`; ROI × epoch `F(2,38)=12.6, p=.0001`; prePMd differs at PE-2, PE-3 but not PE-1).
+3. **Brain–behaviour:** *early* prePMd activity, **collapsed across both conditions**, predicts across subjects the eventual Hierarchical−Flat difference in learning trial (`R=.51`), terminal accuracy (`R=.56`), max 1st derivative (`R=.51`), max 2nd derivative (`R=.39, p=.09`). PMd predicts none of them (`R<.3, p>.21`). Early activity in the band that searches for abstractions predicts who finds one; early activity in the band that learns the concrete edges does not.
+
+Late in learning PMd *rises* for the Hierarchical set (`F(1,18)=4.9, p<.05`) — the concrete layer ends up carrying more, not less, once the abstraction has pruned it.
+
+**(brainstorm) What this specifies for a builder.** The architecture is a fixed stack of `k` candidate-structure searchers, all running from trial 1 on the same input stream, each hypothesising relations of its own order, with per-level credit assignment that attenuates a level whose hypotheses go unrewarded. This is not a router (nothing decides which level to use), not a curriculum (no level waits for another), and not a bandit over levels (all levels pay their cost every trial). Its cost is `O(k)` in fixed compute and its benefit is that the correct level is found in the time it takes to *reject* the others, rather than after the levels below it converge. Every hierarchical machine architecture in the wiki does the opposite — options/subgoals are trained after or above a converged base policy — and the biology says the expensive thing (running all levels always) is what buys the step-shaped learning curve. The concrete import: give each level its own scalar engagement gain, drive it by the reward attributable to that level's hypotheses, and let it decay rather than gating it on a criterion.
+
+---
+
+## The frontostriatal loop is common across levels
+
+Stimulus-locked striatal activity (caudate and anterior putamen) *increased* with learning for the Hierarchical set but not the Flat (`F(1,19)=6.9, p<.05`; left putamen `t=2.2`, right caudate `t=2.4`, left caudate `t=1.9, p=.07`) — the opposite sign from prefrontal cortex, and consistent with the striatum accumulating what the cortex has found.
+
+Granger causality on the BOLD series:
+
+`putamen → {PMd, prePMd} → caudate`
+
+with putamen → cortex at `p<.05` and cortex → caudate at `p<.0005`, and — the informative null — **no difference between rule sets** (`p>.18`) and no change across the course of learning.
+
+So the *dynamics* of the learning machinery are identical at both levels of abstraction; only the cortical band that participates changes. **(brainstorm)** That is the cheapest possible answer to "what does a second level of abstraction cost": one more copy of the same cortico-striatal loop, wired to a more anterior cortical patch, with the same update rule. It is also a direct answer to the long-running frontal-vs-striatal precedence dispute (Graybiel 1998: cortex finds patterns, striatum consolidates; Houk & Wise 1995: striatum finds contingencies worth cortical processing) — the measured system is bidirectional, with the two striatal territories on opposite sides of the cortex, and stable throughout learning.
+
+---
+
+## Reading in the core framing
+
+| Element | [[wiki/concepts/latent-graph-discovery.md]] reading |
+|---|---|
+| Flat vs Hierarchical reward table | The same observation distribution over two latent graphs, one factorizable and one not |
+| 2nd-order rule | A reified edge-*type* — a node whose value names which relation is live (gap G8) |
+| Parallel multi-level search | Simultaneous hypothesis search at several factorization depths, rather than a routing decision (gap G12, gap G5) |
+| Withdrawal of prePMd in Flat | The learner's own estimate that *no structure exists at this depth* — computed within ~120 trials and without ever being told |
+| Rostro-caudal band | Depth of factorization as an **anatomical address**, not a learned variable |
+
+---
+
+## Open problems
+
+- **The credit signal per level is not named.** Something must decide that prePMd's hypotheses are going unrewarded while PMd's are not. Reward is scalar and shared; the two levels see the same feedback. Nothing in the source says how the reward is attributed to a level, and this is the same unnamed error signal that [[wiki/concepts/arbitrary-sensorimotor-mapping.md]] and [[wiki/concepts/cognitive-control.md]] both record as missing for the abstraction layer. **(brainstorm)** The one clue is asymmetric: the level that *should* disengage is the one whose hypothesis space contains no consistent member, so the natural quantity is not reward but the residual inconsistency of the best hypothesis at that order — computable without knowing the right answer, and untested.
+- **Two bands were active and never differentiated.** Mid-DLPFC and FPC are engaged throughout and distinguish nothing here. Either they search orders 3 and 4 fruitlessly in both conditions (which the parallel account predicts, and which fMRI cannot separate from a task-general signal), or they do something else entirely. The design has no order-3 condition, so the ladder above 2 is untested in this paradigm.
+- **Parallel search is inferred from a decline, not observed.** The evidence that prePMd is *searching* early is that it is active early and its early level predicts later success. No measure shows what hypothesis it holds, and an alternative reading — prePMd is engaged by any unfamiliar task and habituates faster when the task is easier — is only partly excluded (the Hierarchical set is the easier one, and it is the one that does *not* decline).
+- **The stack is fixed, and nothing says where its depth comes from.** Four bands, assigned by anatomy. A learner facing a 5th-order problem has no described mechanism for growing a level, and one facing a 1st-order problem pays for four anyway. Whether the depth is developmental, or whether the bands are a continuum discretised by the ROI choice, is not addressed.
+- **fMRI cannot separate searching for a rule from executing one.** Every contrast here is stimulus-locked activity on correct trials; both processes are present in the same window throughout the middle of learning.
+
+---
+
+## Connections
+
+- **[[wiki/concepts/cognitive-control.md]]** — supplies the axis that page's single controller lacks: control states are ordered by whether their output names an action or names another control state, that order is laid out rostro-caudally, and the band engaged is fixed by the *order of the structure in the task* rather than by its difficulty. It also sharpens that page's unspecified withdrawal criterion — withdrawal is graded, level-specific, and triggered by a level's hypotheses going unrewarded rather than by the behaviour becoming automatic (Badre et al. 2010).
+- **[[wiki/concepts/arbitrary-sensorimotor-mapping.md]]** — the same three-level rule ladder (exemplar / higher-order rule / strategy) re-derived as a policy-order hierarchy with the levels made countable, and it disputes that page's *learning-selective* classification of prefrontal decline: prefrontal activity declines during learning only when the rule being learned is 1st-order, and is **sustained** throughout when a 2nd-order rule is genuinely present — so the classical learning/execution dissociation may be an artefact of studying only flat mappings.
+- **[[wiki/concepts/latent-graph-discovery.md]]** — a measured search policy for the framing's central problem: run hypothesis search at every factorization depth concurrently from the first observation and let unrewarded depths decay, rather than deciding which depth to search. It also supplies the framing's cleanest behavioural discriminator — two reward tables over an identical observation and action space, differing only in whether a compressing latent exists.
+- **[[wiki/entities/c-ts-model.md]]** — the computational model of the same phenomenon and the source of a direct disagreement about its cost: C-TS has subjects *imposing* a context→task-set hierarchy where none is rewarded and paying a measured price for it, while this page's prefrontal signal *withdraws* from a rule set with no higher-order structure within ~120 trials ([[wiki/empirical-tensions.md]] T110). Both agree the hierarchical hypothesis is entertained from the outset.
+- **[[wiki/entities/pbwm.md]]** — the architecture this result constrains: PBWM's stripes are homogeneous, and the biology says the level of abstraction a loop searches is fixed by *which cortical band* sits in it, with all bands running at once and the same striatal update rule at every level — so the machine form is `k` banks of stripes, differing only in what they take as input, all gated from trial one.
+- **[[wiki/concepts/skill-acquisition-efficiency.md]]** — quantifies what abstraction buys in the units that page asks for: with the abstraction available, 7 rules replace 18, terminal accuracy goes 58% → 84%, and the gain is attributable *per edge* to those covered by an acquired higher-order rule.
