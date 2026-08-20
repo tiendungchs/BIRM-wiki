@@ -314,6 +314,24 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 
 ---
 
+## Where the gate sits, and whether it lets go
+
+Every gated design in this page borrows one anatomy — basal-ganglia disinhibition of a cortical store — and the computational literature built on that anatomy has **three incompatible readings of what the gate is gating**, none of which a behavioural datum has separated (Helie, Chakravarthy & Moustafa 2013, `raw/helie-2013-basal-ganglia-cognitive-models.md`, reviewing 19 models).
+
+| Reading | Loop that holds the item | What the module does | Prediction that distinguishes it |
+|---|---|---|---|
+| **Gate a thalamo-cortical loop** (Monchi et al. 2000; FROST, Ashby et al. 2005) | Prefrontal cortex ↔ thalamus reverberation, released when the direct pathway pauses the tonic inhibition of thalamus | Write-enable, then out of the way | Thalamic lesions abolish maintenance; the thalamus needs as many dedicated cells as prefrontal cortex does |
+| **Gate a cortico-cortical loop** (Frank et al. 2001; Moustafa & Maida 2007; [[wiki/entities/pbwm.md]]) | Two prefrontal populations reverberating with each other; the module only flips a switch that must coincide with drive from the partner population | Write-enable, then out of the way | Thalamic lesions spare maintenance; the *coincidence* requirement predicts failures to store when the store is already busy |
+| **Be the loop** (Schroll et al. 2012) | The reverberation runs *through* the direct pathway | Not a gate at all — the maintenance mechanism itself, with the hyperdirect pathway supplying the reset that ends it | The module is occupied for the whole retention interval, so maintaining `k` items should cost selection capacity for other actions |
+
+The third is the recent and most capable one — the only reviewed model that both **learns what deserves maintenance** (dopamine-gated reinforcement on the cortex→striatum *and* cortex→subthalamic weights) and simulates the hard tasks (delayed alternation, 1-2-AX) — and it departs from the other four without arguing for the departure. See [[wiki/empirical-tensions.md]] T130.
+
+**Two things the census settles that the disagreement obscures.** First, **maintenance is always a closed prefrontal loop** — all five models agree on the store and disagree only about the enabling circuit, which makes the gate the contested component and the recurrence the uncontested one. Second, **only two of five learn what to gate at all** (Moustafa & Maida 2007; Schroll et al. 2012, alongside PBWM); the rest assume the relevant items have already been filtered by something upstream that is not modelled. That is the same silent pre-filter this page's `N`-back result exposes from the read side — a store whose contents were chosen for it is not being tested on the operation that makes working memory hard.
+
+**(brainstorm)** The distinguishing experiment is cheap in simulation and nobody has run it: give a single agent a maintenance task and an unrelated action-selection task concurrently. Under the two gating readings, interference should scale with the *rate of writes*; under Schroll's, with the *number of items held*. Any machine architecture makes the same choice implicitly — a transformer's key/value cache is the "gate then let go" design taken to its limit (write cost per token, zero holding cost), and any architecture that maintains by recirculating through its controller pays the other way.
+
+---
+
 ## Open problems
 
 - **Binding and variables.** The DNC demonstrates variable-binding-like behaviour without showing that a reusable variable *representation* exists; whether the binding generalizes to novel structures is untested here.
@@ -375,3 +393,4 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — a phase dissociation no store here can express: the *edge into* the controller is required at encoding while the *region* is required at retrieval, and any lesion design that hits the region cannot detect the difference.
 - **[[wiki/entities/c-ts-model.md]]** — a maintenance mechanism priced by the *errors* it causes rather than by the delay it bridges: persistence of the gated prefrontal stripe across trials is the entire source of switch costs there.
 - **[[wiki/entities/coin-model.md]]** — the experimental basis for identifying working memory with maintenance of the context probabilities: a working-memory distractor task produces evoked recovery of a previously-expressed memory.
+- **[[wiki/entities/basal-ganglia.md]]** — the anatomy underneath every gated design on this page, and the reason the designs disagree: the module's own wiring supports releasing a thalamo-cortical loop, flipping a cortico-cortical switch, or carrying the reverberation itself, and the biology does not choose (T130). It also supplies the write-side operation none of the five models has — a thalamically-triggered cholinergic burst-pause that interrupts on the *arrival of an unmodelled event* rather than on input content.
