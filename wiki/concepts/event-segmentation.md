@@ -94,3 +94,5 @@ Secondary consequence for aliasing (gap G2): because an event is a *set*, two id
 - **[[wiki/entities/hidden-state-inference-remapping.md]]** — shows the timescale question is unavoidable rather than incidental: that model fixes "one observation = one session" by fiat while acknowledging hippocampal map switches at 100 ms–1 s, and names event segmentation as a candidate rule for when the posterior is recomputed at all.
 
 - **[[wiki/concepts/memory-allocation-excitability.md]]** — a purely temporal segmentation running underneath the predictive-encoding one: everything encoded inside an hours-long excitability window is bound into one linked unit whether or not the active encoding set changed, so a boundary detector and an allocation tag can disagree about where an episode ends.
+
+- **[[wiki/concepts/controller-knowledge-vs-process.md]]** — claims this page's episodes as the *contents of the control layer* and adds three properties they lack: a goal, a maintenance window that terminates on goal completion rather than by decay, and a partial-order variant that commits only some of the ordering (Wood & Grafman 2003).
