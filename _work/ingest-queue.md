@@ -201,7 +201,7 @@ One INGEST each:
 - [x] `nanda-2023-linear-representations-othello.md` — world-models · R · 2023
 - [x] `tehenan-2025-linear-spatial-world-models-llms.md` — world-models · R · 2025
 - [x] `garrido-2025-intuitive-physics-v-jepa.md` — world-models · R · 2025
-- [ ] `bordes-2024-vision-language-modeling.md` — ssl-representation · S · 2024
+- [x] `bordes-2024-vision-language-modeling.md` — ssl-representation · S · 2024
 - [ ] `weller-2026-embedding-retrieval-limits.md` — ssl-representation · F · 2026
 - [ ] `grill-2020-byol-self-supervised.md` — ssl-representation · M · 2020
 - [ ] `zbontar-2021-barlow-twins.md` — ssl-representation · M · 2021
