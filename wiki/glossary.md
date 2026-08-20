@@ -57,6 +57,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | K(x) | Kolmogorov complexity | Length of the shortest program printing `x` |
 | LGD | Latent Graph Discovery | The wiki's core problem framing |
 | LSTM | Long Short-Term Memory | Gated recurrent architecture |
+| STSP | Short-Term Synaptic Plasticity | Transient (<1 s) activity-induced change in synaptic efficacy — the Tsodyks–Markram `u`/`a` variables; the carrier of an activity-silent memory ([[wiki/entities/stsp-working-memory-rnn.md]], [[wiki/entities/stp-flickering-cann.md]]) |
+| MUA | Multi-Unit Activity | Spiking pooled across the neurons near one electrode, without spike sorting |
 | GRU | Gated Recurrent Unit | Gated recurrent architecture with one fewer gate than LSTM; the gradient-trained baseline in [[wiki/entities/hag-reservoir.md]] |
 | RC | Reservoir Computing | Map an input stream through a fixed random recurrent network and train only a linear readout ([[wiki/entities/hag-reservoir.md]]) |
 | ESN | Echo State Network | The discrete-time rate-based instance of RC; `x[t+1] = σ(Wx[t] + W_in u[t] + b)` with only `W_out` trained |

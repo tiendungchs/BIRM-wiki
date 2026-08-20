@@ -66,6 +66,8 @@ That converts two of the wiki's mode-switch questions into continuous knobs: *wh
 
 **A third, in the synapses rather than in the activity** ([[wiki/entities/stp-flickering-cann.md]]): short-term plasticity gives the recently-occupied attractor a gain advantage that survives the disappearance of its sensory support, so a "memory" persists in synaptic state while activity correlation with it has essentially vanished. This is the wiki's one worked case of a bias over attractors held somewhere other than the state.
 
+**And the wiki's one case where relaxation loses a like-for-like comparison** ([[wiki/entities/stsp-working-memory-rnn.md]], Kozachkov et al. 2022). Trained on the same working-memory task, fixed-weight recurrent networks converge on this page's default solution — point attractors under `tanh`, line attractors under ReLU, one per remembered item, with the distractor knocking the state out of a basin and the basin recapturing it. They perform the task, and they are *less* like prefrontal cortex than networks that hold nothing in activity at all. Two costs of the attractor solution are measured there rather than argued: the landscape has to be **fine-tuned**, so ablating 10–20% of synapses destroys it (a plastic-synapse network tolerates >50%); and by construction it keeps the item decodable from activity throughout the delay, which the recorded population does not.
+
 ---
 
 ## Relevance to a reasoning model
@@ -93,6 +95,7 @@ That converts two of the wiki's mode-switch questions into continuous knobs: *wh
 - **[[wiki/entities/fcann.md]]** — supplies the orthogonalised regime, the `β`-as-prior-precision reading, and the `J = J^S + J^A` split that separates this page's landscape from its traversal.
 - **[[wiki/entities/adaptive-cann.md]]** — turns the stability-vs-mobility dilemma stated here into one scalar with analytic switching thresholds.
 - **[[wiki/entities/stp-flickering-cann.md]]** — the bias over attractors held in synaptic state rather than in activity, with a theta rhythm as the release mechanism.
+- **[[wiki/entities/stsp-working-memory-rnn.md]]** — the comparison this page loses: trained fixed-weight networks pick point or line attractors for a delay task, and are both more fragile to synapse loss and less like the recorded prefrontal population than a network with no persistent delay activity.
 - **[[wiki/entities/vector-hash.md]]** — the prestructured-scaffold regime: convex spurious-free basins, exponential capacity, graceful overload, and no similarity structure.
 - **[[wiki/entities/context-modular-memory-network.md]]** — the masked regime, where non-applicable attractors are deleted from the dynamics rather than out-competed.
 - **[[wiki/entities/dense-sequence-memory.md]]** — the sequential regime, and the read-out-nonlinearity knob that buys capacity without touching the code or the rule.
