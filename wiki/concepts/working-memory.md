@@ -207,6 +207,16 @@ Four consequences for a machine store:
 
 ---
 
+## The capacity limit can be in the read, not in the store
+
+Every design above locates capacity in the carrier — distinguishable stable states, distinguishable facilitated populations, noisy transitions before the chain blurs. One measurement locates it in the *access* instead (Gong & Zhang 2024, [[wiki/concepts/attention.md]]). Minimal causal transformers (1 layer, 1 head, no feed-forward network, no layer norm; 50 models per condition) trained on the `N`-back task lose accuracy logarithmically as `N` grows, while the whole 24-item sequence sits well inside the context window — the item is present, uncorrupted and addressable, and the model still fails. Over training, attention aggregates onto the `i−N` diagonal; accuracy at `i` tracks the attention mass at `i−N`; and summed row entropy of the attention matrix rises with `N` exactly as accuracy falls.
+
+- **This is the executive-attention account of human capacity, reproduced in an architecture not designed to have it**: the bound comes from the scarcity of selection, not of storage. It predicts that a store can be enlarged without raising capacity, which is what the wiki's key-value designs implicitly assume is false.
+- **The competition is arithmetic.** A softmax row spreads one unit of mass over every candidate, so retrieval precision degrades with occupancy by construction — a capacity model that every attention-based store already has and none reads out (gap G42).
+- **It largely disappears with two layers or a few heads** (>95% at every `N`, with a residual decline), so this is an existence proof that self-attention *can* be the binding constraint, not a measurement of the constraint in a large trained model.
+
+---
+
 ## Mapping to the core framing
 
 | Working-memory element | Latent-graph element |
@@ -254,7 +264,7 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 ## Open problems
 
 - **Binding and variables.** The DNC demonstrates variable-binding-like behaviour without showing that a reusable variable *representation* exists; whether the binding generalizes to novel structures is untested here.
-- **Capacity and interference in the buffer** — no account of what happens when the instance-graph exceeds the memory matrix.
+- **Capacity and interference in the buffer** — no account of what happens when the instance-graph exceeds the memory matrix. And the limit need not be the matrix at all: where reads are by softmax attention, precision falls with the number of competing entries before the store is anywhere near full (Gong & Zhang 2024).
 - **Structural addressing.** Reads are by content similarity; navigation needs addressing by graph position (path-consistent `g`, gap G3).
 - **Interpretability.** Networks with external memory are the case that resists virtual brain analytics most stubbornly.
 
@@ -265,7 +275,7 @@ Two consequences. **Persistence is not free and not binary**: how long a value s
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — derives the `7 ± 2` span from noise-driven transitions between asymmetrically coupled attractors, making capacity a dynamical rather than a slot limit, and puts serial order in the same recurrent network that stores episodes.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the only architecture in this ingest that performs explicit multi-hop graph traversal, and marks the boundary: it navigates a *given* graph, it does not discover one.
-- **[[wiki/concepts/attention.md]]** — attention is the read mechanism of an external memory, and the read is *scheduled*: gamma bursting and object information ramp up several hundred milliseconds before the item is queried, for that item only, and not before an equally predictable event that requires no read (Lundqvist et al. 2018); internal attention and content-addressable retrieval are the same operation — and in prefrontal cortex the two are not separable at the read-out: 61% of delay-tuned cells track the attended location and 16% the remembered one, so the store's persistent signal is mostly its own pointer (Lebedev et al. 2004).
+- **[[wiki/concepts/attention.md]]** — attention is also where this page's capacity limit can sit: in a minimal transformer trained on `N`-back the item stays inside the context window and the *read* is what degrades, logarithmically in the offset and in step with the entropy of the attention matrix (Gong & Zhang 2024). Attention is the read mechanism of an external memory, and the read is *scheduled*: gamma bursting and object information ramp up several hundred milliseconds before the item is queried, for that item only, and not before an equally predictable event that requires no read (Lundqvist et al. 2018); internal attention and content-addressable retrieval are the same operation — and in prefrontal cortex the two are not separable at the read-out: 61% of delay-tuned cells track the attended location and 16% the remembered one, so the store's persistent signal is mostly its own pointer (Lebedev et al. 2004).
 - **[[wiki/concepts/complementary-learning-systems.md]]** — external memory is the engineering form of the fast store; working memory adds the controller that decides what is written and read.
 - **[[wiki/concepts/meta-learning.md]]** — meta-RL's inner learner lives in recurrent activity, i.e. in entangled working memory; its capacity limits are working-memory limits.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — control/storage separation is the transfer that produced graph-traversal-capable networks, and gating is the case where influence ran both ways.

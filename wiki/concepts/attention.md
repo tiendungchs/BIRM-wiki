@@ -57,6 +57,31 @@ Two readings for a builder. **The wiki's spotlight controller (below) has a cand
 
 ---
 
+## Selection is the capacity limit, and the softmax denominator is where it lives
+
+The sections above treat selection as free once the target is known. Gong & Zhang 2024 measure what it costs when the target is *far*, in the smallest model that can express the task: a causal decoder-only transformer with **one layer, one head, no feed-forward network and no layer norm**, trained from scratch on the `N`-back task (24-letter sequences, 8 matches / 16 nonmatches, 50 independently trained models per `N`, 10 epochs).
+
+| Result | Number |
+|---|---|
+| Test accuracy falls as `N` rises (1-layer 1-head) | Logarithmic decline over `N ∈ {1..6}`; Kruskal–Wallis `H` = 38.5, `p` < .001, `ε²` = 0.248 (1 vs 3: `r` = −0.68) |
+| What the model learns | Attention starts near-uniform per row and **aggregates onto the `i−N` diagonal** over epochs; earlier positions converge first |
+| Link between attention and behaviour | Accuracy at position `i` rises with the attention score at position `i−N`, most clearly for `N ≥ 2` |
+| Where dispersion comes from | Attention spreads more at *later* positions — more preceding positions to compete for mass |
+| The scalar that tracks capacity | `H_N = Σ_i H(A_{i,·})`, the summed row entropy of the causal attention matrix, **rises with `N` as accuracy falls** |
+| Scaling it away | With 2 layers or 2–4 heads, most models exceed 95% at every `N` — but a slight decline with `N` survives |
+
+Because a 24-token sequence is far inside any of these models' context, **nothing was forgotten**: the item was present and retrievable, and the model still failed. The limit is in the selection step, which is the executive-attention theory of human working-memory capacity (scarce attentional resource, not scarce storage) arriving intact in an architecture that was not built to have it ([[wiki/concepts/working-memory.md]]).
+
+Three things this changes for a builder.
+
+- **The `N`-back task is structural addressing, and this is what its failure curve looks like.** The model is not retrieving by content — every letter recurs, so content is ambiguous — it is retrieving by a *fixed relative offset* computed from position embeddings, i.e. the "retrieval by structural position rather than content" that this page's open problems and gap G3 ask for. It is learnable, and its reliability decays monotonically in the offset. That is a sharper result than "long chains are unreliable": a **one-hop** read at a known structural distance already degrades with distance.
+- **Softmax normalisation is an implicit capacity model, and it is the one nobody reads.** Row `i` distributes a fixed unit of probability over `i` candidates, so every additional stored item dilutes the mass available to the right one. Precision therefore falls with *occupancy*, not with a hyperparameter — and the degradation is graded, not a cliff (gap G42).
+- **(brainstorm) Row entropy is a free, per-query confidence signal.** `H(A_{i,·})` is computed for nothing extra on every read of every attention-based store in the wiki, and it says how nearly the read resolved to a single item. A controller could gate on it: re-query, widen, or refuse when the read is diffuse — the "know when the store is full / the read failed" instrument that no architecture here exposes. The summed form `H_N` is the store-level version of the same number.
+
+**Caveat.** The models are deliberately crippled (no feed-forward network, no layer norm, one head) to make attention maps interpretable, and the capacity limit largely disappears with two layers or a few heads — so this is a demonstration that self-attention *can* be the binding constraint, not a measurement of the constraint in a trained large language model. The extrapolation to reported `N`-back declines in GPT-3.5/GPT-4 is the authors' hypothesis, not their result.
+
+---
+
 ## Reading in the core framing
 
 | Attention operation | Latent-graph reading |
@@ -74,8 +99,8 @@ Two readings for a builder. **The wiki's spotlight controller (below) has a cand
 ## Open problems
 
 - **What controls attention?** Selection policies here are learned end-to-end for a task; no account of goal-driven control of the spotlight, which is the same gap as "what initiates a rollout" in [[wiki/concepts/simulation-based-planning.md]]. Lebedev et al. 2004 localizes the *state* of the spotlight (persistent, anticipatory, prefrontal) without supplying the policy that sets it — the same shape of partial answer as the configurator below. The one architectural proposal in the wiki is H-JEPA's **configurator** — a module that primes perception, world model and cost for the current task by modulating their parameters and attention circuits, implemented in transformer modules as *extra input tokens* that change the connection graph. It supplies the interface and not the policy: how it chooses a task decomposition is left unspecified by its own author (gap G33).
-- **Hop depth.** Multi-hop retrieval works for a few supporting statements; reliability along long chains is untested here and is the same problem as self-generated intermediate nodes (gap G10).
-- **Content vs. structure addressing.** Attention retrieves by similarity of content; a navigator needs retrieval by structural position.
+- **Hop depth.** Multi-hop retrieval works for a few supporting statements; reliability along long chains is untested here and is the same problem as self-generated intermediate nodes (gap G10). The *one*-hop version now has a curve: accuracy on a read at a known structural offset `N` falls logarithmically in `N` in a minimal transformer, tracked by the entropy of the attention matrix (Gong & Zhang 2024).
+- **Content vs. structure addressing.** Attention retrieves by similarity of content; a navigator needs retrieval by structural position. Position embeddings supply a weak version of the second — a fixed relative offset is learnable — and it is exactly the version that degrades with distance and with the number of competing entries.
 - **Where does the unit of selection come from?** Glimpse models select regions; biological object-based attention selects *objects*, individuated by a prior that runs before selection. Nothing here specifies who computes that individuation, which is gap G23's entry test in another place.
 - **Serial vs. parallel.** Biological attention is serial and resource-bounded; dense machine attention is parallel and quadratic — the biological constraint may carry computational content the import dropped.
 
@@ -83,7 +108,7 @@ Two readings for a builder. **The wiki's spotlight controller (below) has a cand
 
 ## Connections
 
-- **[[wiki/concepts/working-memory.md]]** — attention is the read/write access discipline for an external memory; the controller acts on the store only through it — and the two are confounded in the substrate, since most of the delay-period signal in prefrontal cortex encodes the attended location rather than the remembered one ([[wiki/empirical-tensions.md]] T88).
+- **[[wiki/concepts/working-memory.md]]** — attention is the read/write access discipline for an external memory; the controller acts on the store only through it — and the two are confounded in the substrate, since most of the delay-period signal in prefrontal cortex encodes the attended location rather than the remembered one ([[wiki/empirical-tensions.md]] T88). And the store's *capacity* is a property of this page's mechanism rather than of the store: in a minimal transformer the sequence sits well inside the context window, so nothing is forgotten and the read is what fails, with summed attention-matrix entropy tracking the failure (Gong & Zhang 2024).
 - **[[wiki/concepts/population-geometry.md]]** — supplies the mechanism by which one population can carry both an attended and a remembered location without either being lost: hybrid cells whose preferred location for the two variables *differs* are what resolves the ambiguity that same-preference cells create.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — attention weights are a content-computed soft adjacency, i.e. a one-step graph recomputed per query rather than a persisted structure.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the clearest case of an import that arrived largely unacknowledged, and the source of an open prediction (a neural substrate for memory hops).
@@ -107,3 +132,4 @@ Two readings for a builder. **The wiki's spotlight controller (below) has a cand
 - **[[wiki/entities/pbwm.md]]** — the same selection operation on the write side of the store: basal-ganglia Go/NoGo gating decides what is admitted rather than what is read out, and unlike a read it must be trained against consequences that arrive many steps later.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — the deselection half of internal attention with a named channel: prefrontal beta bursts suppress gamma and informative spiking at the sites holding an item that is no longer needed, so "stop attending to this" is an addressed inhibitory signal rather than the absence of a query (Lundqvist et al. 2018).
 - **[[wiki/entities/differentiable-neural-computer.md]]** — attention used as a memory read, and the wiki's clearest case of attention switching between *address spaces* rather than items: a three-way read mode mixes content lookup with forward and backward traversal of write order, learned per head per step.
+- **[[wiki/concepts/prediction-compression-equivalence.md]]** — the complementary bound on the same store: that page limits the fast level by context *length* (a few kilobytes, quadratic cost), this one by the dispersion of the read inside it, and the second binds first.
