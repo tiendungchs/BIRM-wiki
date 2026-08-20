@@ -191,6 +191,14 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MaxSim | Maximum Similarity | The late-interaction operator of multi-vector retrievers (ColBERT): score a pair by summing, over query tokens, the max similarity to any document token |
 | MRL | Matryoshka Representation Learning | Training so that truncated prefixes of an embedding remain usable, which is how deployed vectors are shrunk below their native dimension |
 
+| OOD / o.o.d. | Out-Of-Distribution | Evaluation on inputs drawn from a distribution the model was not trained on; the wiki's principal certification instrument for structure discovery, and the one every gap-table row falls back to (G17) |
+| SGD | Stochastic Gradient Descent | |
+| BN | Batch Normalization | Per-feature standardisation over the minibatch. Load-bearing beyond optimisation here: it is an implicit cross-branch coupling and an implicit anti-collapse provision that appears in no coefficient count ([[wiki/concepts/representational-collapse.md]]) |
+| MAE | Masked Auto-Encoder | Reconstruct masked patches **in pixel space** from the unmasked remainder; the generative-branch baseline the JEPA lineage is measured against. **Collision:** not Mean Absolute Error anywhere in this wiki |
+| EMA | Exponential Moving Average | `ξ ← τξ + (1−τ)θ` — the trailing copy of the online weights used as a target encoder; the update-rule half of the dynamical anti-collapse provision ([[wiki/entities/byol.md]]) |
+| CHMM | Critic Hidden Markov Model | Champion et al. 2023's third rung: an HMM plus a critic trained on a Bellman backup of expected free energy ([[wiki/entities/deep-active-inference-agent.md]]). **Collision:** unrelated to the *cloned* HMM behind [[wiki/entities/cscg.md]], which this wiki spells out |
+| SIGReg | Sketched Isotropic Gaussian Regularization | LeJEPA's anti-collapse term: score `M` random 1-D projections of the embedding against `N(0,1)` by a univariate normality test ([[wiki/entities/lejepa.md]]) |
+
 ## Neuroscience
 
 | Abbrev. | Expansion | Note |
@@ -338,6 +346,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | VIP | Vasoactive Intestinal Peptide interneuron | Disinhibitory interneuron class (VIP⁺ inhibits SOM⁺/PV⁺); one of the three marker-defined channels through which coding-level control is exerted |
 | MBON | Mushroom Body Output Neuron | *Drosophila* readout neuron whose synaptic weights carry the learned valence; the invertebrate case in the consolidation table ([[wiki/concepts/generalization-optimized-consolidation.md]]) |
 
+| SEC | Structured Event Complex | Grafman's stored unit for a representational controller: a goal-oriented set of events structured in sequence — a plan-shaped episode rather than a rule or a cue→action pair ([[wiki/concepts/controller-knowledge-vs-process.md]]) |
+| BLA | Basolateral Amygdala | |
+| PFv+o | Ventral + orbital prefrontal cortex | The lesion site at which both the arbitrary mappings *and* the abstract strategy over them are lost, where the hippocampal-system lesion removes only the mappings ([[wiki/concepts/arbitrary-sensorimotor-mapping.md]]) |
+
 ## Benchmarks
 
 | Abbrev. | Expansion | Note |
@@ -412,3 +424,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | WorldPrediction-WM | — | Given initial and final world-state images, pick which of four action video clips explains the transition — inverse dynamics scored as a 4-way choice |
 | PE / PE-Core | Perception Encoder | Meta's image–text contrastive encoder family; the strongest CLIP-style baseline in the 2025 comparisons |
 | TOT | Text-Only Task | Evaluation protocol that scores a vision–language model's *text* encoder with no image involved |
+| OTIB | Observation-to-Theory Induction Benchmark | Three domains (GridWorld, arithmetic factorization, string rewriting), trained on i.i.d. phenomena at short lengths and tested on longer compositions; scores the *theory* a model induces rather than its fit ([[wiki/entities/neo-neural-theorizer.md]]) |
+| SSv2 | Something-Something v2 | Fine-grained human–object manipulation video; the motion-sensitive half of the video-encoder evaluation suite, where appearance shortcuts do not solve the task |
+| HBToM | Hierarchically Bayesian Theory of Mind | Not an abbreviation of the wiki's coining — the model page is [[wiki/entities/hbtom.md]]; listed here because it appears as a bare column header in comparison tables |
+| IntPhys / InfLevel / GRASP | — | Proper names, not abbreviations: three violation-of-expectation video batteries for intuitive physics ([[wiki/concepts/violation-of-expectation.md]]) |

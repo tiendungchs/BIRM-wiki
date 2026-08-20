@@ -18,7 +18,7 @@ Why the wiki holds a page on a scientific-machine-learning paper: it is the only
 | Residual path | Swish `b(x) = x·sigmoid(x)` in parallel with the gridded path | Two pathways per layer: gridded (params = in × grid × out) and non-gridded (in × out) |
 | Dynamics | `du/dt = KAN(u(t), θ)`, integrated `u(t) = u₀ + ∫ KAN(u(τ),θ) dτ` | KAN in-dim = out-dim = state dim. Tsit5 integrator, ADAM, Julia (`DifferentialEquations.jl`, `Lux.jl`) |
 | Loss | `L(θ) = MSE(u^KAN(t,θ), u^obs(t))` | Trajectory-level, not one-step |
-| Credit assignment | Adjoint sensitivity through the solver | Chosen over forward sensitivity for scaling in `|θ|` |
+| Credit assignment | Adjoint sensitivity through the solver | Chosen over forward sensitivity for scaling in `\|θ\|` |
 
 The consequence that matters architecturally: **the state variables are the interface**. A KAN-ODE's input and output dimensions are pinned to the dimension of `u`, so the model can only be interpretable to the extent that someone has already decided what the state coordinates are. Nothing in the method discovers them.
 
