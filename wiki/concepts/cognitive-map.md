@@ -9,7 +9,7 @@ The reason this page is not just a neuroscience page: **a cognitive map is a lat
 | Element | What it does | Substrate (human) | LGD role | Machine status |
 |---|---|---|---|---|
 | **Spatial coding** | Represent position and relations | Hippocampus (place-like, distance-preserving), entorhinal cortex (grid-like) | The graph estimate itself; `g` | Partially — codes emerge in trained models |
-| **Anchoring** | Tie map coordinates to perceptual invariants of *this* environment; recover which map and where on it | Retrosplenial complex; boundary/geometry cues | Binding `g` to observations — **gap G39** | Absent |
+| **Anchoring** | Tie map coordinates to perceptual invariants of *this* environment; recover which map and where on it | Retrosplenial complex; boundary/geometry cues | Binding `g` to observations — **gap G39** | Absent, except where the topology is installed and hands over its symmetry group with it ([[wiki/entities/gcq.md]]) |
 | **Route planning** | Compute distance and direction to a goal, detour around obstacles | Hippocampus + entorhinal + prefrontal + posterior parietal | Path search — [[wiki/concepts/simulation-based-planning.md]] | Partially |
 
 ---
@@ -257,6 +257,18 @@ Sun et al. 2025 is the only source in the wiki that records a hippocampal map th
 
 **The price.** The task is one-dimensional, deterministic, and its latent structure is a 26-symbol cycle; nothing here tests whether the same account survives a branching or a two-dimensional environment, and the "state machine" description is fitted post hoc to a task the experimenters designed as a state machine.
 
+### The one machine model that implements all three elements — by installing two of them
+
+[[wiki/entities/gcq.md]] (Peng et al. 2025) is worth a note here because it is the only entry in the wiki where the three-element decomposition above is *completely* covered by one trained system, and because of how cheaply it gets there.
+
+| Element | How GCQ covers it | What that costs |
+|---|---|---|
+| Spatial coding | The map **is** the attractor set of a toroidal continuous attractor network — installed by translation-invariant weights before any data arrive | Topology is a designer's claim about the domain (G47); every dataset was chosen to be a product of cycles |
+| **Anchoring** | `argmax` over the torus's translation group — pick the base bump `e_k` whose action-integrated trajectory best fits the *whole* initialisation observation sequence in L2 | **Batch, not online.** All `n` observations vote once; the rollout never re-anchors afterwards, the opposite of the fly's discrete landmark reset ([[wiki/entities/fly-central-complex.md]]) and of TEM's retrieve-to-correct loop |
+| Route planning | Greedy descent `s_i ⊖ s_j = argmin_{a∈A} ‖s_j + a − s_i‖`, one valid displacement per step, constant cost, terminating on a no-op | The map has **every** edge — a bump on a torus always moves in all four directions — so nothing represents a wall, and the "detour around obstacles" half of Tolman's own criterion has no mechanism (results are qualitative) |
+
+The transferable point is that G39's missing ingredient is a *group*: anchoring is computable here precisely because installing the topology also installs the symmetry group that relates a stored frame to the present one. That is why the operation exists on a torus and nowhere abstract.
+
 ---
 
 ## Open problems
@@ -313,3 +325,4 @@ Sun et al. 2025 is the only source in the wiki that records a hippocampal map th
 - **[[wiki/entities/spacetime-attractor.md]]** — the same structural knowledge indexed by *time-to-arrival* instead of by place, and held in prefrontal rather than hippocampal circuits: one copy of the map per planning step, which is what lets the map be queried about *when* rather than only *where* (Jensen et al. 2026).
 - **[[wiki/entities/pfc-columnar-planning-model.md]]** — supplies a circuit for this page's route-planning read-outs: distance-to-goal as the amplitude of an attenuating retrograde wave rather than a stored quantity, and hierarchical chunking implemented as a second, coarser column population recruited at self-motion change-points (Martinet et al. 2011).
 - **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the read port onto this map: the channel originates in the ventral/anterior pole, whose fields are large enough to code global context, so the controller receives the map's coarse level and never its places.
+- **[[wiki/entities/gcq.md]]** — element 2 implemented, for once: anchoring as `argmax` over the torus's own translation group, the offset being the base bump index chosen by L2 fit over the *whole* initialisation sequence. It is batch anchoring rather than an online reset, the group exists only because the topology was installed, and elements 1 and 3 come free with it — the map is the CANN's state space and route planning is greedy bump displacement at constant cost per step.

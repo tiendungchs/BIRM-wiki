@@ -104,6 +104,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | RC | Recurrent Collateral | The CA3→CA3 axon collaterals, ~1.2×10⁴ per neuron in rat, the substrate of the autoassociative attractor ([[wiki/entities/rolls-treves-hippocampal-model.md]]) |
 | mf / pp | Mossy Fibre / Perforant Path | Dentate→CA3 write path (~46 per CA3 cell, strong, randomizing) and entorhinal→CA3 read path (~3,600, weak, generalizing) |
 | CANN | Continuous Attractor Neural Network | Recurrent network whose weights support a continuum of stable states; the classical path-integration substrate ([[wiki/concepts/attractor-dynamics.md]]) |
+| GCQ | Grid-like Code Quantization | Vector quantisation whose codebook is a CANN's bump-attractor set and whose codeword is selected by the action sequence, compressing space and time jointly ([[wiki/entities/gcq.md]]) |
+| GC | Grid-like Code | Periodic bump-patterned population activity used as a general-purpose code, in entorhinal cortex and beyond ([[wiki/concepts/path-integration.md]]) |
+| STE | Straight-Through Estimator | Copy the gradient across a non-differentiable discrete step (quantisation) as if it were the identity |
+| FSQ | Finite Scalar Quantization | VQ-VAE with a *predefined*, non-learned codebook obtained by per-dimension scalar rounding ([[wiki/empirical-tensions.md]] T150) |
+| FID / FVD | Fréchet Inception / Video Distance | Distance between feature distributions of generated and real images / videos; the standard generative-fidelity metric |
+| PSNR | Peak Signal-to-Noise Ratio | Pixel-level reconstruction fidelity, in decibels |
 | A-CANN | Adaptive Continuous Attractor Neural Network | CANN plus a slow negative-feedback adaptation current `τ_v dV/dt = −V + mU`; `m > τ/τ_v` destabilises the bump into a travelling wave ([[wiki/entities/adaptive-cann.md]]) |
 | SFA | Spike-Frequency Adaptation | Slow activity-dependent hyperpolarising current that suppresses a neuron's own sustained firing; the adaptation substrate in A-CANN |
 | STD | Short-Term Depression | Activity-dependent depletion of releasable synaptic resources; the presynaptic alternative to SFA as an adaptation mechanism |
