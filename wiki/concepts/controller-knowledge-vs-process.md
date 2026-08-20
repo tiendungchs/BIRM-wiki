@@ -107,6 +107,22 @@ The anterior–posterior axis is a **temporal-abstraction gradient stated in uni
 
 ---
 
+## The category axis, tested
+
+> **Provenance (second ingest).** Lieberman & Meyer 2018 (`raw/lieberman-2018-mpfc-social-self-affective.md`). The SEC framework's third storage axis — dorsolateral (mechanistic) vs. ventromedial (social) — is a *prediction*, and its evidence in the review above is lesion neuropsychology plus forward-inference imaging. This source re-runs the question with an instrument that is valid in the required direction ([[wiki/concepts/representation-probing.md]]) and confines itself to the medial wall.
+
+| SEC prediction | What the reverse-inference data say |
+|---|---|
+| SEC categories localize by the posterior/subcortical region supplying their content | **Supported, and finer than predicted.** Within medial Brodmann areas 9–11 alone there are *three* content territories, not one social pole: social/mentalizing dorsally, self and value anteromedially, value and emotion ventrally ([[wiki/entities/medial-prefrontal-cortex.md]]) |
+| Social content is ventromedial | **Half wrong.** The strongest social territory is *dorso*medial; the ventral social cluster is real but small and was invisible to forward inference. A builder taking "ventromedial = social" from the SEC axis would have partitioned the store on the wrong boundary |
+| The controller stores content, so specialization by content class should be the empirical picture | **Supported as a majority-preference, refuted as a modular decomposition.** Only 17% of medial-wall voxels prefer one domain over all four rivals at the strong threshold; 88% do at the weak one |
+
+**This is the sharpest available reading of [[wiki/empirical-tensions.md]] T96 and it does not resolve it — it re-specifies it.** The adaptive-coding position (one homogeneous pool) and the partitioned-by-content position are both true of the same tissue at different thresholds. What a builder gets is a *shape* rather than a verdict: a control layer that is largely shared with domain-preferring gradients laid over it, plus one region that is shared by construction — the non-selective situational cluster every domain reads and none owns.
+
+**(brainstorm) That shape is a concrete architecture and the wiki has not proposed it.** Not a bank of category modules (the SEC axes as stated), not a single undifferentiated controller (adaptive coding), but **one shared situation buffer plus soft domain-preferring read heads over a common substrate** — soft in the measurable sense that ~83% of the substrate is claimed by no single domain. The falsifiable difference from a modular design: ablating a preferred region should degrade its domain *most* but not *only*, and ablating the shared region should degrade every domain roughly equally. Both are cheap in a machine and neither is reported for any control module in the wiki.
+
+---
+
 ## Reading in the core framing
 
 | This page | Latent-graph reading |
@@ -126,6 +142,7 @@ The anterior–posterior axis is a **temporal-abstraction gradient stated in uni
 - **The debate is not decidable by the evidence presented.** Every argument for the representational side is an argument from *consistency* (with connectivity, with neurophysiology, with evolution), not from a discriminating experiment. The review says as much: no single theory explains all the data.
 - **Nothing measures how much is stored.** "The controller has parameters" gives no capacity, no acquisition rate, no forgetting curve. A machine version would need at least the number of SECs storable and the cost per event of one.
 - **The transfer step is missing from every theory in the table.** How a representation formed in the control layer is moved to the posterior store that will later run it automatically is stated as an omission of guided activation, and no theory here supplies it (gap G51).
+- **The category axis's *pole assignment* is now in doubt independently of the axis itself.** Social content's strongest medial territory is dorsal, not ventral, so "storage location follows the connected posterior region" may be right while every specific location the framework names is wrong — and the framework offers no way to derive a location from a connectivity map, only to assert one (Lieberman & Meyer 2018).
 - **The localization axes are four independent claims with no stated interaction.** A long social partial-order SEC should be left-anterior-lateral-ventromedial, which over-determines the anatomy; nothing says how the axes compose or what happens when they conflict.
 - **The SEC has no acquisition story.** The framework specifies what is stored and where, never how a goal-structured sequence is extracted from experience — the same gap [[wiki/concepts/event-segmentation.md]] carries for episodes (no learned boundary detector, no compression criterion).
 - **"Representation" and "process" may not be separable by any experiment.** If a process just *is* a persistently active set of representations, then every processing model can be re-described representationally and the distinction is a modelling convention rather than a fact about the substrate — which would make the five criteria a style guide.
@@ -140,6 +157,8 @@ The anterior–posterior axis is a **temporal-abstraction gradient stated in uni
 - **[[wiki/entities/medial-prefrontal-cortex.md]]** — the same partition question answered from anatomy rather than from theory: that page's dorsal/ventral output-port split is the rat homologue of this page's dorsolateral (mechanistic) / ventromedial (social) storage axis, and both say the controller is factorized by *what it connects to* rather than by what it computes.
 - **[[wiki/concepts/arbitrary-sensorimotor-mapping.md]]** — the smallest possible stored unit, against this page's largest: a cue→action edge with no internal structure versus a goal-oriented event sequence, both claimed to be prefrontal contents, with nothing stating how one scales into the other.
 - **[[wiki/concepts/compositionality.md]]** — the partial-order storage axis is a compositional claim about plans: two partially ordered event sequences can interleave without rewriting either, which is what total-order episodes cannot do.
+- **[[wiki/entities/medial-prefrontal-cortex.md]]** — *(second link, human arm)* the closest thing to a test of this page's category-storage axis: five candidate content domains run head-to-head across three subdivisions of the human medial wall confirm that the controller partitions by content, relocate the social pole from ventromedial to dorsomedial, and put a number on how much of the substrate is domain-preferring at all (17% strong / 88% weak).
+- **[[wiki/concepts/representation-probing.md]]** — the instrument this page's whole evidence base was missing: every localization claim scored here is forward-inference ("damage to X impairs Y", "Y activates X"), and a stored-content partition is a statement in the reverse direction, which needs the candidate functions compared head-to-head on the same activations.
 - **[[wiki/concepts/population-geometry.md]]** — the measurement that would decide the representation/process question in a machine: whether the controller's run-time states lie inside the manifold spanned by retrieval-evoked states, or visit an operating space no stored item produces.
 - **[[wiki/concepts/skill-acquisition-efficiency.md]]** — costs the transfer step this page finds missing: if practice does not move a behaviour *out* of the control layer but only to a different part of it, the controller-capacity release that skill accounting assumes never happens.
 - **[[wiki/concepts/meta-learning.md]]** — the processing controller is the meta-learning default (fixed contentless machinery, task knowledge in activations); the representational controller says the outer loop should be writing *stored plans* into the control module itself, which is a different place to put the meta-graph.

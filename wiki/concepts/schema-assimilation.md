@@ -127,6 +127,31 @@ Against this, lateral prefrontal cortex resolves the *same* competition the othe
 
 ---
 
+## The human substrate, and a wider definition of what is in a schema
+
+> **Provenance (second ingest).** Lieberman & Meyer 2018 (`raw/lieberman-2018-mpfc-social-self-affective.md`). The page above rests on rodent lesion work plus the "rat mPFC ≈ human vmPFC" homology it flags as unfinished. This source supplies the human half from four method families at once, and arrives at the schema from an unexpected direction: a region of ventromedial prefrontal cortex that is *non-selective* across five psychological domains ([[wiki/entities/medial-prefrontal-cortex.md]]).
+
+| Evidence | Result |
+|---|---|
+| Brodmann-area-11 lesions | **Diminished assimilation of new information into existing schemas**; less schema-biased recall |
+| Functional imaging, encoding schema-congruent material | Greater ventromedial activity and connectivity |
+| Disambiguating cue (an ambiguous vignette plus a picture that makes it interpretable) | Higher **inter-subject correlation** in the same region when the cue is the correct one — the situation model is shared across people who have understood the same thing |
+| Reverse inference against 3107 terms | The non-selective cluster's top terms include `scene` and `events`; the neighbouring ventral cluster's top terms are `social`, `social cognitive`, `interpersonal`, `beliefs`, `traits` |
+
+**The definitional move.** The authors call the content **situational processing**, and define it wider than either "scene" or "schema": *how a situation is represented in terms of its spatial, temporal, causal, evaluative and social aspects together, as an integrated set of situational associations.* Scene construction and schema-based cognition are then components of it rather than rivals to it.
+
+| This page's schema | Lieberman & Meyer's situation model |
+|---|---|
+| Defined by three *functional* tests (fit-benefit, modifiability, inference between indirectly related elements) | Defined by *content type* — the five aspect classes an integrated situation must carry |
+| Silent on what a schema is made of | States the slot list, and it includes evaluative and social dimensions that no navigation-derived schema in the wiki has |
+| Selected by prefrontal cortex, retrieved via hippocampus | Same region, plus the claim that this is *why* it shows up in social, self, value, emotion and mental-time-travel studies alike — those are five queries against one representation |
+
+**(brainstorm) The set-difference test is the cheap version of this claim, and it is the one the source did not run.** If the region holds an amodal situation model rather than five domain functions, then within any one domain its engagement should track *situational demand* and not the domain label — a mentalizing task that requires knowing whether the actors are in public or private should recruit it, and one that does not should not. Restated for a builder: **the situation slot is a variable a task either binds or leaves free, and the wiki has no benchmark that manipulates it.** Every reasoning benchmark here specifies the situation completely in the prompt; none tests whether a model *retrieves* the unstated spatial/causal/evaluative/social surround that makes an underdetermined observation interpretable — which is the operation this region is proposed to perform and the one that makes one-trial schema-fitted learning possible at all.
+
+**A caution the tension table now carries.** The claim is an educated guess by the authors' own statement, and its central variable is never manipulated — which is exactly the criticism this page already levels at *integration demand* under Preston & Eichenbaum. Two independent literatures have now named the schema's trigger and neither has measured it.
+
+---
+
 ## Open problems
 
 - **No arbitration between integration and separation** (above). Both are prefrontal, both are triggered by conflict, and nothing predicts which fires.
@@ -135,6 +160,7 @@ Against this, lateral prefrontal cortex resolves the *same* competition the othe
 - **Accommodation has no mechanism.** The review assigns it to prefrontal cortex and describes its behavioural signature; it names no plasticity rule that rewrites an existing structure without destroying it — which is the continual-learning problem ([[wiki/concepts/continual-learning.md]]) stated in memory terms.
 - **Schema identity is unoperationalised.** "The same schema" is defined ostensively — the same arena, the same list. Two experiences overlapping in some features and not others have no defined membership, and property (i) (one-trial learning) was shown to fail across environments, so the boundary is doing real work while remaining undefined (this is G37/G27 in another vocabulary).
 - **Homology.** "mPFC in rats ≈ vmPFC in humans" carries the entire cross-species argument and the source flags it as unfinished.
+- **The schema's slot list is asserted, not derived.** "Spatial, temporal, causal, evaluative and social" is a plausible enumeration with no principle behind it and no test that the five are separable or exhaustive; nothing says what a sixth aspect would look like or how the aspects are bound into one representation (Lieberman & Meyer 2018).
 
 ---
 
@@ -150,6 +176,8 @@ Against this, lateral prefrontal cortex resolves the *same* competition the othe
 - **[[wiki/concepts/generalization-optimized-consolidation.md]]** — a second reason the optimal transport is not "everything": beyond the generalization-error stopping rule, the demand for transport depends on whether the new item conflicts with stored structure, and on whether its episodic detail must survive — two inputs that page's objective does not have.
 - **[[wiki/concepts/cognitive-control.md]]** — extends the controller's job description backwards in time: the same bias signal that selects a task set is here selecting a *memory structure*, and its trigger is measured (mnemonic conflict, with vmPFC recruitment under conflict predicting successful inference).
 - **[[wiki/concepts/continual-learning.md]]** — names the operation neither literature has a rule for: accommodation is a targeted rewrite of an existing structure to admit a conflicting item, which is what importance-gated plasticity is designed to *prevent*, so the two mechanisms want opposite things from the same weights.
+- **[[wiki/entities/medial-prefrontal-cortex.md]]** — *(second link, human arm)* localises this page's schema operations in humans and widens their content: Brodmann-area-11 damage removes schema assimilation and schema-biased recall, and the tissue that does it is the one region of the medial wall that no psychological domain can claim, which is what an amodal situation model should look like (Lieberman & Meyer 2018).
+- **[[wiki/concepts/event-segmentation.md]]** — the same stored object approached from time rather than from overlap: an event model and a situation model have the same slot problem, and the situational reading adds evaluative and social dimensions that a boundary-detection account has no way to produce.
 - **[[wiki/concepts/cognitive-map.md]]** — the long-axis generality gradient in its home domain: item-in-place coding at the dorsal/posterior pole, context-discriminating coding at the ventral/anterior pole, with only the latter projecting to the controller — two grains of one map with a different consumer each.
 - **[[wiki/entities/tolman-eichenbaum-machine.md]]** — the machine version of property (iii) without the conflict machinery: it answers first-presentation transitive inference from a learned structural code, so it delivers the inference that defines a schema while having no assimilation/accommodation distinction and nothing that rewrites a structure when a new observation contradicts it.
 - **[[wiki/entities/nucleus-reuniens.md]]** — supplies the write channel the selection account needs: the controller reaches the hippocampus only through a midline-thalamic relay, and that relay carries a goal-conditioned future path, so "suppress the context-inappropriate candidate" can be implemented as constraining the store's dynamics rather than filtering its output (Jin & Maren 2015).
