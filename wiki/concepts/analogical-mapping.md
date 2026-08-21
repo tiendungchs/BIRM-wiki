@@ -14,7 +14,7 @@
 
 | Process | Question | Cheap? | Wiki page |
 |---|---|---|---|
-| **Retrieval** | which stored episode is the closest analog to this one | Must be, it touches all of memory | [[wiki/concepts/vector-symbolic-binding.md]], [[wiki/concepts/subgraph-matching.md]] |
+| **Retrieval** | which stored episode is the closest analog to this one | Must be, it touches all of memory | [[wiki/entities/macfac.md]], [[wiki/concepts/vector-symbolic-binding.md]], [[wiki/concepts/subgraph-matching.md]] |
 | **Mapping** | which element of the base corresponds to which element of the target | Traditionally not — this page | *here* |
 | **Inference** | which base propositions transfer to the target, and are they any good | Downstream of mapping; needs an acceptance test | *here* + [[wiki/concepts/external-verification.md]] |
 
@@ -35,6 +35,8 @@
 | **DRAMA** (Eliasmith & Thagard 2001) | HRRs | HRRs only *initialise* an ACME network | ACME's | Distributed representation is decorative; the mapping is still localist relaxation |
 | **Copycat / Tabletop / AMBR** | Coalitions of micro-agents | Representation-building and mapping interleaved, context-sensitive | — | Domain-specific knowledge per micro-domain; no domain-general account |
 | **This source (APNN)** | Sparse binary code-vectors | `argmax` of a **dot product** between re-representation codes | **`O(n·n′)` – `O(n²M)`**, `M` constant | See Limits |
+
+**Footnote on SME's price** (Gentner & Forbus 1991, [[wiki/entities/macfac.md]]): the survey's `O(n²)`–`O(n!)` conflates two steps that SME's authors separate. Match-hypothesis *generation* is `O(n²)` in the number of items in base or target; merging them into a global interpretation uses the **greedy merge** algorithm of Forbus & Oblinger 1990, quoted as roughly `O(n² log n²)` (the exponents are conversion-damaged in the source, but the stated form is logarithmic, not combinatorial). SME is therefore polynomial in practice, and the reason it is not run per memory item is the constant and the pool size, not an exponential — which is what makes a *filter* the right remedy rather than a better search.
 
 The point of the table: every mature mapping model computes correspondence by **search or relaxation over a match hypothesis space**, and pays `n⁴`–`n!` for it. The claim under test is that a correspondence can be read off a *similarity ranking* instead, if the codes are built right — the mapping analogue of [[wiki/empirical-tensions.md]] T184.
 
@@ -184,7 +186,7 @@ The wiki's model table prices *mapping* (`n⁴`–`n!`) and treats retrieval as 
 
 **Mapping is domain-blind; retrieval is not.** The entire distance penalty of a "far" analogy is paid at access. Holyoak's explanation is a computational asymmetry the wiki should adopt directly: in mapping, *which two things to compare has already been answered* and both sit in working memory, so relational comparison can run; in retrieval the question is open over all of long-term memory, and using relations as the cue costs working memory that is not available at that stage. Relational structure *does* influence retrieval — more so when some object similarity is also present, and more so for domain experts — but surface similarity dominates.
 
-This is the empirical case for the two-stage MAC/FAC architecture, and simultaneously the case that **stage 1 is where the intelligence has to go**: the human system already has a working stage 2 and fails anyway.
+This is the empirical case for the two-stage MAC/FAC architecture ([[wiki/entities/macfac.md]]), and simultaneously the case that **stage 1 is where the intelligence has to go**: the human system already has a working stage 2 and fails anyway.
 
 ### 2. Three constraints, jointly satisfied — and one of them is not about structure
 
@@ -301,6 +303,7 @@ Isomorphic problems, one schema, a 89-point swing. The relation *as stated* was 
 - **[[wiki/concepts/sparse-distributed-representations.md]]** — supplies the substrate and the null model: CDT is a binding operator built entirely from OR, AND and permutation over sparse binary codes, and the random-overlap baseline that decides "this does not map" is that page's closed-form false-match rate.
 - **[[wiki/concepts/subgraph-matching.md]]** — the rival cost model for the same alignment: an order embedding answers *containment* with a learned encoder, where this answers *correspondence* with a hand-built code and no training, and both replace exponential structure search with a coordinate comparison.
 - **[[wiki/concepts/external-verification.md]]** — supplies the rejector the transfer step needs: candidate inferences are generated blindly by copy-with-substitution and filtered by an acceptance test (fits the whole target better than any part) whose criterion is independent of how the candidate was produced.
+- **[[wiki/entities/macfac.md]]** — the stage before this one, and the bound on it: mapping only ever runs on what a structure-blind functor-count filter passed (measured at 1.5 items per probe from a 36-item pool), so an analogy the filter never surfaces is not a mapping failure at all.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the operation that makes a retrieved graph usable: retrieval returns a similar structure, mapping returns the node correspondence, and without the second the first cannot transfer anything — while the whole scheme presupposes the graph, and discovers none of it.
 - **[[wiki/concepts/schema-assimilation.md]]** — the mechanism a schema needs to bind a new instance to an existing frame: mapping is what fills the schema's slots from the current situation, and copy-with-substitution is what the schema then predicts.
 - **[[wiki/concepts/compositionality.md]]** — the systematicity constraint made operational: correspondence is forced to respect argument structure (parallel connectivity), which is the requirement that makes a structure's meaning a function of its parts *and their arrangement* rather than of its parts alone.
