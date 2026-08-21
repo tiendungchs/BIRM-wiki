@@ -2,7 +2,7 @@
 
 **A benchmark of ~1,000 hand-authored grid-transformation tasks, each specified by ~3 input/output example pairs, designed so that every evaluation task is novel to the *developer* as well as the system, and so that the only knowledge required is an explicitly enumerated set of Core Knowledge priors.**
 
-> **Provenance.** Chollet 2019, *On the Measure of Intelligence* (`raw/chollet-2019-measure-of-intelligence.md`), part III, for the design rationale. **Updated with the benchmark's own five-year record**: Chollet, Knoop, Kamradt & Landers 2024, *ARC Prize 2024: Technical Report* (`raw/chollet-2024-arc-prize-report.md`), plus the ARC Prize series and ARC-AGI-1 overview pages (`raw/arcprize-nd-arc-agi-series.md`, `raw/arcprize-nd-arc-agi-1-overview.md`, both undated site material, `(tentative)` where they are the only source). The benchmark was renamed **ARC-AGI-1** when successors appeared; the successors now have their own pages ([[wiki/entities/arc-agi-2.md]], [[wiki/entities/arc-agi-3.md]]). This page is ARC-AGI-1 from 2019 to the end of 2024.
+> **Provenance.** Chollet 2019, *On the Measure of Intelligence* (`raw/chollet-2019-measure-of-intelligence.md`), part III, for the design rationale. **Updated with the benchmark's own five-year record**: Chollet, Knoop, Kamradt & Landers 2024, *ARC Prize 2024: Technical Report* (`raw/chollet-2024-arc-prize-report.md`), plus the ARC Prize series and ARC-AGI-1 overview pages (`raw/arcprize-nd-arc-agi-series.md`, `raw/arcprize-nd-arc-agi-1-overview.md`, both undated site material, `(tentative)` where they are the only source). **Human-side behavioural data** — the baseline rows, the process trace and the error analysis — come from Johnson, Vong, Lake & Gureckis 2021 (`raw/johnson-2021-human-program-induction-arc.md`), the first behavioural study run on this benchmark. The benchmark was renamed **ARC-AGI-1** when successors appeared; the successors now have their own pages ([[wiki/entities/arc-agi-2.md]], [[wiki/entities/arc-agi-3.md]]). This page is ARC-AGI-1 from 2019 to the end of 2024.
 
 The wiki's first benchmark page, and the first artefact built explicitly to satisfy [[wiki/concepts/skill-acquisition-efficiency.md]]'s requirement list.
 
@@ -74,8 +74,36 @@ Fills the placeholder row in [[wiki/concepts/latent-graph-discovery.md]]:
 | 2019, three high-IQ subjects, independently | Every task solved by at least one; most on first try, no practice, no verbal instruction |
 | Private evaluation set, two testers | **97% and 98%**; together 100% |
 | Public evaluation set, Mechanical Turk, 10 workers per task (NYU study, secondary) | **99%** of tasks solved by at least one worker |
+| **Public *training* set, 40 tasks, 95 Mechanical Turk participants, 10 tasks each, 3 attempts** (Johnson et al. 2021, first-hand) | **83.8%** mean per-task accuracy (SD 16.7); **8.38 of 10** tasks per participant (SD 2.7, modal 10/10); every task solved by at least one participant; 65% of tasks at ≥80% accuracy, the hardest at 38.1% |
+| Average human on the evaluation set, per the 2025 ARC Prize figures | **60.2%** |
 
 The "no large-sample human data" limitation Chollet listed in 2019 is partly closed by the NYU study — but note what it measures: *union over ten workers*, not per-subject rate, so it establishes solvability, not difficulty calibration. The report's own admission is that the four subsets are **not drawn from a consistent human difficulty distribution**, which makes public-eval and private-eval scores not directly comparable.
+
+**There is no single human baseline for this benchmark, and the spread is 60% to 99%** — union-over-testers on the private set, per-subject on the training set, and the reported average on the evaluation set are three different quantities collected on three different task pools ([[wiki/empirical-tensions.md]] T213). Every "above/below human" claim in the wiki inherits the ambiguity, including the ARC Prize's own framing of [[wiki/entities/poe-arc-solver.md]]'s 71.6% as super-human.
+
+**The same-tasks machine comparison, which is the part that does not depend on the choice of baseline.** Johnson et al. ran the 2020 Kaggle winner on their own 40 tasks: **57.5% against 83.8% human**, versus 21% on the hidden test set. Two readings, both worth carrying — the training set is much easier for machines than the score usually quoted for this benchmark, and the residual 26-point gap survives on tasks a machine already handles at more than half.
+
+**Human and machine difficulty orderings barely agree**: Spearman `ρ = 0.35` (`p < .05`) between per-task human accuracy and Kaggle-program accuracy, and the paper attributes even that to the algorithm failing the hardest tasks while catching some of the easiest. Human difficulty was highest on tasks needing **logic, rotations and flips**, lowest on **colour manipulations** (inversion, filling). This is the same finding [[wiki/entities/conceptarc.md]] reports per concept — difficulty is a property of the (solver, task) pair — arrived at independently on the original task set, and it is why a human-calibrated difficulty index (which [[wiki/entities/arc-agi-2.md]] adopts) predicts machine difficulty poorly by construction.
+
+---
+
+## What the human solution process looks like
+
+Johnson et al. logged every editing action, not just the final grid, which makes this the wiki's only trace-level record of anything solving ARC.
+
+| Observation | Number | What it constrains |
+|---|---|---|
+| Time per task | 3 min 06 s (SD 2 min 37 s) | — |
+| **Time before the first action** | **36 s (SD 1 min 07 s)**, ~19% of the solve | Hypothesis formulation happens *before* any output is constructed, and it is a substantial fraction of the budget. No solver in the wiki has a phase that produces nothing |
+| Attempts used | 1.59 of 3 (SD 0.46) | The three-attempt allowance is mostly unused; a `pass@1` human number would be close to the reported one |
+| Pairwise Levenshtein distance between participants' action sequences on a task | 74 edits (SD 53), over correct attempts | Routes to the same grid vary widely — and more than output size alone explains |
+
+**Object-based sub-goals, visible as bottlenecks.** Rendering all participants' action sequences for one task as a state-space graph (nodes = output states, edges = actions) shows heavy convergence on a few paths through common intermediate states, and those bottleneck states are **task-relevant objects**: the first action is almost always either resize-the-output-grid or copy-the-input, and thereafter participants complete one object at a time. The decomposition is into *objects*, not into grid regions or into DSL operations — which is [[wiki/concepts/temporal-abstraction-options.md]]'s bottleneck-subgoal story appearing in human behaviour on this benchmark, with the partition supplied by the object parse rather than by graph connectivity.
+
+**Errors respect the object priors; DSL-search errors do not.** Human wrong answers on the box-alignment task get the shapes, the colours and one of the two alignment axes right. The Kaggle program's wrong answers get the colours right and violate objectness outright — shapes egregiously elongated, one shape wrapped around the grid edge. Two consequences:
+
+- Exact-match binary scoring deletes a **graded, label-free signal about which part of a hypothesis is right**, available from the output alone. Independently replicated at concept level by [[wiki/entities/conceptarc.md]], whose near-miss analysis this predates.
+- A solver whose errors violate the declared priors was never constrained by them, whatever its score. This is the cheapest available audit of whether the four priors are in the system or only in the benchmark description.
 
 ---
 
@@ -237,4 +265,6 @@ The column that matters is the first: it is the only one no benchmark before ARC
 - **[[wiki/concepts/problem-framing.md]]** — the sharpest external critique of this benchmark's format: the transformation-from-Core-Knowledge-operations representation is identical across all 1,000 tasks and demonstration pairs make every candidate free to test, so a high score is evidence about search within a supplied representation and about nothing upstream of it (Pfister & Jud 2025).
 - **[[wiki/entities/raven.md]]** — the multiple-choice benchmark this page's from-scratch output design was aimed at, with the measurement that vindicates it (attribute-wise majority vote over RAVEN's candidate set alone exceeds the human baseline), plus the same concept-variation instrument run here: ARC-Kaggle2 at 19% overall moves to 29% on *top/bottom* and 8% on *boundary*, so the benchmark number is a mean over a concept mixture and per-concept coverage is unmeasured (Odouard & Mitchell 2022).
 - **[[wiki/entities/conceptarc.md]]** — this benchmark's own concepts re-authored as 16 groups of 10 variations each, which converts a task count into per-concept coverage and supplies the measurement this page's difficulty was hiding: the two Kaggle winners, 21% and 19% here and therefore indistinguishable, sit 23 percentage points apart there (Moskvichev et al. 2023).
+- **[[wiki/concepts/nameability.md]]** — the per-task difficulty index this page's limitations list says does not exist, obtained from the *describers* rather than from the solvers: mean human description length correlates `−0.50` with per-task accuracy and is collectable from participants who fail (Johnson et al. 2021).
+- **[[wiki/concepts/temporal-abstraction-options.md]]** — the human trace data read as a subgoal decomposition: participants' action sequences converge on bottleneck states that are task-relevant *objects*, so the partition that makes this benchmark tractable for humans is the object parse and not the grid.
 - **[[wiki/entities/poe-arc-solver.md]]** — the highest open-weights score on this benchmark (71.6% public eval, above the 60.2% average human) at $0.02/task, and the primary source for the 2024 first-place team whose method this page had only second-hand; it also supplies the benchmark's sharpest cost comparison, 850× cheaper than o3 for 11.2 fewer points.

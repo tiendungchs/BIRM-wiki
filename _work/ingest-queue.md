@@ -286,7 +286,7 @@ One INGEST each:
 - [x] `pfister-2025-o3-is-not-agi.md` — arc-benchmarks · F · 2025
 - [x] `moskvichev-2023-conceptarc-benchmark.md` — arc-benchmarks · B · 2023
 - [x] `franzen-2025-product-of-experts-arc.md` — arc-benchmarks · M · 2025
-- [ ] `johnson-2021-human-program-induction-arc.md` — arc-benchmarks · R · 2021
+- [x] `johnson-2021-human-program-induction-arc.md` — arc-benchmarks · R · 2021
 - [ ] `beger-2025-conceptarc-abstract-reasoning-modalities.md` — arc-benchmarks · R · 2025
 - [ ] `barrett-2018-measuring-abstract-reasoning.md` — reasoning-eval · B · 2018
 - [ ] `nie-2020-adversarial-nli.md` — reasoning-eval · B · 2020

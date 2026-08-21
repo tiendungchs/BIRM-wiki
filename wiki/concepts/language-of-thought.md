@@ -4,7 +4,7 @@
 
 The wiki's core framing names *probabilistic language of thought* as one of the rival one-problem reductions to latent graph discovery ([[wiki/concepts/latent-graph-discovery.md]]). This page is that rival stated in full. It is assembled from material the wiki acquired for a different argument — the developmental dispute over where compositional machinery comes from — and its load-bearing content is that **the dispute is not about whether the format exists but about whether it is installed or acquired**, with both horns costed.
 
-> **Provenance.** **Goodman, Gerstenberg & Tenenbaum 2024** (`raw/goodman-2024-probabilistic-programs-language-thought.md`, ch. 18 of *Bayesian Models of Cognition*) is the first-hand statement of the PLoT hypothesis and the source of everything in *The formal core* and *What the formalism buys* below. One ingested source also **builds** an instance: [[wiki/entities/neo-neural-theorizer.md]] names its VQ codebook a *learned Language of Thought* and is the first machine in the wiki whose vocabulary, syntax and semantics are all fitted rather than stipulated. The developmental dispute is folded from Spelke 2022 and Revencu & Csibra 2023 (via [[wiki/concepts/core-knowledge.md]]), Fodor & Pylyshyn 1988 as cited there, and Lake et al. 2017 (via [[wiki/entities/bayesian-program-learning.md]], whose stochastic programs are a PLoT instance in all but name). Fodor 1975 is still not in the wiki.
+> **Provenance.** **Goodman, Gerstenberg & Tenenbaum 2024** (`raw/goodman-2024-probabilistic-programs-language-thought.md`, ch. 18 of *Bayesian Models of Cognition*) is the first-hand statement of the PLoT hypothesis and the source of everything in *The formal core* and *What the formalism buys* below. One ingested source also **builds** an instance: [[wiki/entities/neo-neural-theorizer.md]] names its VQ codebook a *learned Language of Thought* and is the first machine in the wiki whose vocabulary, syntax and semantics are all fitted rather than stipulated. The developmental dispute is folded from Spelke 2022 and Revencu & Csibra 2023 (via [[wiki/concepts/core-knowledge.md]]), Fodor & Pylyshyn 1988 as cited there, and Lake et al. 2017 (via [[wiki/entities/bayesian-program-learning.md]], whose stochastic programs are a PLoT instance in all but name). **Johnson, Vong, Lake & Gureckis 2021** (`raw/johnson-2021-human-program-induction-arc.md`) supplies the two behavioural challenges below and is the wiki's only human-behavioural test of the account on a task whose hypothesis space was *not* generated from the grammar being tested. Fodor 1975 is still not in the wiki.
 
 ---
 
@@ -147,6 +147,18 @@ Three consequences for this page:
 
 ---
 
+## Two challenges from behavioural data (Johnson et al. 2021)
+
+The wiki's only human-behavioural test of the account on an abductive task. 95 participants solving [[wiki/entities/arc-agi.md]] tasks, with their written descriptions and their full editing traces recorded (`raw/johnson-2021-human-program-induction-arc.md`). Both challenges are aimed at *fixed-grammar* LoT accounts, not at the format claim.
+
+**1. The primitive set is not small, and the evidence is lexical.** Standard LoT concept-learning accounts require a hypothesis space with the primitives fixed in advance. The largest classes of *unique* words in participants' descriptions are the **geometric** and **transform** classes — precisely the ones a grid DSL would have to enumerate — and the descriptions also contain items no core-knowledge inventory yields ("tail" for the pixel beside a box, "tetris", "vessel", "flower"). The hypothesis space people draw from looks like retrievable conceptual background knowledge, not a compact stock. The paper's alternative: **natural language is the scaffold on which hypotheses are generated**, either alongside or instead of a symbolic LoT (Carruthers 2002; Andreas, Klein & Levine 2017; Lupyan & Zettersten 2020) — supported by the finding that a task's mean description length predicts failure ([[wiki/concepts/nameability.md]]).
+
+> Note what this does *not* do. Recent work already lets the LoT be modified during learning (Rule et al. 2018; Ellis et al. 2020) — the §4 "effective LoT changes with learning" result above. The challenge is not that the library is fixed but that library *growth by abstraction over solved tasks* starts from a small seed, whereas these participants had no ARC-specific corpus to abstract over: 10 tasks, 41 minutes, and the vocabulary is already broad.
+
+**2. The object parse is a decision, not a given.** Standard LoT accounts assume the stimulus arrives already parsed into symbols the syntax operates on. In ARC, what counts as an object is genuinely ambiguous — occlusion, and whether a set of cells is one object or two — and **humans re-decide the parse per task, according to the task**. The behavioural trace shows this directly: the bottleneck states shared across participants' action sequences are task-relevant *objects*, and participants build one object at a time. So the symbolisation step the format presupposes is itself an inference the account does not model. Recorded as gap **G75**, and it is [[wiki/concepts/problem-framing.md]]'s G73 arriving *inside* a format that supposedly fixes the framing.
+
+---
+
 ## The live dispute: installed or acquired (T8)
 
 Full table and evidence: [[wiki/concepts/core-knowledge.md]]. The compressed form, because it is what makes LoT a *design* question rather than a philosophical one:
@@ -190,6 +202,7 @@ Three things the wiki has already extracted from this, and they are the transfer
 ## Connections
 
 - **[[wiki/entities/pcfg-set.md]]** — the negative control for this page's argument, measured: systems with no discrete recombinable expressions fail exactly where a language of thought predicts they should — recombining unseen constituent pairs (0.53–0.72) and traversing a parse tree (0.46–0.59) — while scoring 0.79–0.92 on the task itself.
+- **[[wiki/concepts/nameability.md]]** — the acquired horn of this page's dispute with a measurement attached: if the ease of *saying* a rule predicts the ease of *finding* it, natural language is doing work in hypothesis generation that a symbolic LoT was supposed to do alone.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the named rival reduction, stated in full; it is the account built for the *non-embeddable symbolic slice* that the graph framing lists as its own untested bet, so the two are closer to complementary than competing.
 - **[[wiki/concepts/program-induction.md]]** — the same machine with the vocabulary relabelled: a sentence in the language of thought is a program, the conceptual stock is the library, and every objection to one lands on the other — overgeneration *is* the prior-over-programs problem (G26).
 - **[[wiki/concepts/core-knowledge.md]]** — the source of the whole dispute: the composition problem, the Spelke / Revencu & Csibra table, the equivocation problem, and the escape hatch that closes.
