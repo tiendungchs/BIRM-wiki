@@ -124,6 +124,24 @@ The review's substantive commitment is that these are **not three systems**:
 
 ---
 
+## The causal test the framework has not passed
+
+> **Second source (260th ingest).** Raccah, Block & Fox 2021, J Neurosci 41(10):2076–2087 (`raw/raccah-2021-pfc-consciousness-stimulation.md`). Written by opponents; read the rates, not the verdict. Method and full gradient: [[wiki/concepts/perturbation-elicitability.md]].
+
+Every row in the evidence tables above is correlational except the mouse feedback-silencing result. Intracranial electrical stimulation is the one causal handle available in humans, and applied to prefrontal cortex it returns the framework's worst result:
+
+| Prediction the framework should make | What stimulation finds |
+|---|---|
+| Perturbing the prefrontal workspace population alters, interrupts or replaces the content currently broadcast | Stimulation of **anterolateral and frontopolar prefrontal cortex — the sites prefrontal theories name — has the lowest elicitation rate in the entire brain** (0% at the frontal pole; ~67% in primary visual and somatomotor cortex; 17% in orbitofrontal cortex across 172 sites) |
+| The elicited change should be *about* the ongoing percept, since the workspace is holding it | The rare prefrontal effects bear **no relation to the immediate environment**: smells, tastes, visceral sensations, emotions, motivational states, content-free thoughts. Fusiform stimulation, by contrast, distorts the face the patient is looking at |
+| Prefrontal cortex is privileged by long-axon density, not by locality | Consistent — but so is the null. Low elicitability is shared with posterior cingulate and the transmodal networks generally, so the gradient tracks hierarchical depth rather than singling prefrontal cortex out |
+
+**What survives, and what it costs the framework.** The result is compatible with prefrontal cortex being the **router** and incompatible with it holding the **payload**: breaking a router degrades throughput without changing what any message says — and lateral prefrontal transcranial magnetic stimulation and lesions do impair perceptual and metacognitive *performance* while stimulation changes no reported content (Rounis et al. 2010; Del Cul et al. 2009; Fleming et al. 2014). Since the framework's own claim is a routing discipline rather than a seat of content, that reading is available to it at a price: the workspace's contents would then be constituted elsewhere, and "ignition in PFC" indexes admission rather than occupancy. The source's authors do not offer this reading. Live limits on the null: sub-reportable effects are untested (the proposed fix is iES *during a task*, scored on performance), and patients may be mind-wandering. Logged as [[wiki/empirical-tensions.md]] T269.
+
+**The one positive prefrontal finding is affective, not perceptual.** Orbitofrontal and anterior cingulate stimulation reliably elicits emotional and motivational states — including a reproducible "push harder … I have to make it through" in anterior midcingulate (Parvizi et al. 2013) — with subjective intensity rising linearly over 2–8 mA (Yih et al. 2019). That dose–response is also the method's positive control: where prefrontal stimulation has power, it is graded, so the anterolateral nulls are not instrument failure.
+
+---
+
 ## Connections
 
 - **[[wiki/concepts/ignition.md]]** — the mechanism this framework is built on, extracted as a reusable primitive: the non-linear all-or-none admission gate, its ~300 ms latency, its AMPA/NMDA two-stage structure, and its identity with a signal-detection threshold.
@@ -144,3 +162,4 @@ The review's substantive commitment is that these are **not three systems**:
 - **[[wiki/entities/h-jepa.md]]** — the wiki's nearest machine analogue: a configurator that modulates every other module for the task at hand, explicitly credited to Dehaene's self-monitoring level — but it has no threshold, no exclusivity and no broadcast, so it is the bus without the gate.
 - **[[wiki/entities/thousand-brains-theory.md]]** — the architectural rival: thousands of parallel models voting to consensus over long-range connections, with no privileged core and no admission threshold, so the two disagree about whether a distinguished global bus is needed at all.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the workspace is the framework's answer to the *navigation* half: Raven's matrices solved by a serial sequence of attentional operations over distributed representations, each step's result broadcast so the next can use it.
+- **[[wiki/concepts/perturbation-elicitability.md]]** — the causal test this framework has not passed: intracranial stimulation of lateral and anterior prefrontal cortex yields the lowest rate of reportable content change in the entire brain (0% at the frontal pole against ~67% in unimodal cortex), and the rare prefrontal effects insert new content rather than perturbing the ongoing percept the workspace is supposed to be holding.

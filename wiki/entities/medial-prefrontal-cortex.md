@@ -290,6 +290,21 @@ Two deconfounds worth carrying: reaction times were **matched** (1.14 s vs 1.12 
 
 **The function claim, graded.** The authors adopt Ingvar's proposal that resting activity is a continuous *"simulation of behaviour"* — inner rehearsal and optimization of behavioural and cognitive serial programs for the individual's future — and assign dorsal medial prefrontal cortex the representations of a temporally extended narrative/autobiographical self. Evidence offered is the replicated contrast plus lesion literature; the self is inferred from the region rather than measured. Note also that the self-referential condition is an *affect* judgment, so nothing here separates "about me" from "about my feelings".
 
+### The causal boundary: which parts of the human medial wall a perturbation can reach
+
+> **Provenance (260th ingest).** Raccah, Block & Fox 2021, J Neurosci 41(10):2076–2087 (`raw/raccah-2021-pfc-consciousness-stimulation.md`), synthesising a century of intracranial electrical stimulation. Method and the whole-cortex gradient: [[wiki/concepts/perturbation-elicitability.md]].
+
+The subdivisions above are drawn from lesion, transcranial magnetic stimulation and multivariate evidence. Focal electrical stimulation cuts the same wall differently — by *perturbability*, not by content domain:
+
+| Subdivision | Reportable effect of focal stimulation |
+|---|---|
+| Anteromedial (medial BA 9/10) | **None**, across dozens of patients in two independent cohorts (Fox et al. 2020; Trevisi et al. 2018, n = 36) |
+| Medial / ventral frontal pole (BA 10) | **None** — the global minimum of the cortex; no effect ever reported |
+| Orbitofrontal (BA 11), mid and posterior | Positive at **17%** of 172 sites: olfactory, gustatory, somatosensory, multimodal, often emotionally coloured; never visual. The most anterior orbitofrontal sites are silent, so the gradient runs anterior→posterior *within* the subdivision |
+| Anterior cingulate | Positive and reliable: visceral and somatic sensation, fear (pregenual), and a reproducible motivational state in anterior midcingulate; mood improvement in depression from lateral orbitofrontal and, less consistently, cingulate stimulation (Rao et al. 2018) |
+
+**What a builder takes from this.** The value and emotion tiers of the medial wall are *drivable* — graded, dose-dependent (2–8 mA linear in subjective intensity, Yih et al. 2019) — while the self/social tiers above them are not reachable by a local edit at all. If the controller's abstract layer is coded densely and distributed, as the elicitation gradient implies, then no local write to it is a legal control signal: the only handles into that layer are its inputs and its own basis. That is the causal counterpart of this page's repeated finding that the controller's content is a *schema*, not a set of locally addressable terms.
+
 ---
 
 ## The monkey medial wall: a region defined by the demand it serves
