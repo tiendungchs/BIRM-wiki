@@ -132,6 +132,23 @@ The preregistered collaboration formalised the framework as predicting **two** i
 
 ---
 
+## The commit with no input change, measured at unit resolution
+
+> Kapoor et al. 2022, Nat Commun 13:1535 (`raw/kapoor-2022-conscious-transitions-pfc.md`). 987 units, macaque ventrolateral prefrontal inferior convexity, no-report binocular rivalry; perception inferred from optokinetic nystagmus, never reported.
+
+Binocular rivalry is the paradigm that isolates this page's claim from every alternative reading: the retinal input is **constant and dichoptic**, and the content switches anyway, on a gamma-distributed dwell time. So a prefrontal signal that tracks the switch cannot be a relayed feedforward response, cannot be a report, and cannot be a decision about which button to press — the animals were never trained to report anything.
+
+| Observation | Consequence for the commit |
+|---|---|
+| Feature-selective prefrontal units follow the *percept*, not the input: ~90% of strongly selective units (`d′ > 1`) fire more when their preferred motion is dominant, whether dominance is externally imposed (flash suppression) or arises spontaneously | The bus carries the winner even when nothing new arrived to win |
+| A **strong transient** accompanies externally induced dominance and is **absent** at spontaneous switches, while the sustained modulation is the same size in both | The feedforward burst is separable from the content signal, and is not its source. The commit does not need an onset |
+| Single-trial decoding of the current percept up to **95%**, with a classifier trained on one trial type generalising to the other | Occupancy is readable per-event, not only in the trial average |
+| Cross-temporal generalisation is broad rather than diagonal | A **static** code during dominance — the property this page attributes to a self-sustaining ignited state, measured directly |
+
+**What this settles and what it does not.** It settles the sign of T272 for prefrontal cortex: the named resolving measurement returns *content present*, so the coarse-scale null licenses nothing. It does **not** measure ignition — no threshold, no dateable take-off and no all-or-none transition is reported here; the paper measures the *held* state, not its admission. The interesting residue is that this is the wiki's only recording of a prefrontal content switch with **no external trigger at all**, which is T271's other half: if the commit fires on change in the attended content rather than change in the input, then rivalry produces a boundary from an internal competition alone — and the internal generator that produces it is exactly what gap `G90` says no architecture here has.
+
+---
+
 ## Connections
 
 - **[[wiki/entities/global-neuronal-workspace.md]]** — the framework this mechanism serves: ignition is the admission gate on the shared bus, and the framework supplies the processors, the long-axon population and the broadcast that make the gate worth having.
@@ -151,4 +168,5 @@ The preregistered collaboration formalised the framework as predicting **two** i
 - **[[wiki/concepts/perturbation-elicitability.md]]** — the commit tested by perturbation rather than by decoding: stimulating the prefrontal population where ignition is claimed to be densest almost never changes what the patient is currently experiencing, which is what a *routing* component predicts and a content-holding one does not, and it leaves the evidence for the gate resting on propagation (`d′`) rather than on its locus.
 - **[[wiki/entities/integrated-world-modeling-theory.md]]** — the same event re-read as a self-organizing harmonic mode: a synchronous complex that is simultaneously a workspace, a Φ-complex and one converged round of message passing, with the prediction that Φ trades off inversely between modules and workspace across the cycle and that entrainment direction flips at the commit.
 - **[[wiki/concepts/population-geometry.md]]** — why the gate cannot be verified by a probe: a mixed-selective code is invisible to field-scale decoders and a columnar one is legible even when unconscious, so where content decodes best tracks the *geometry of the read-out* rather than what is on the bus (Naccache et al. 2025).
+- **[[wiki/concepts/attractor-dynamics.md]]** — the alternative generator for this page's internally driven switch: binocular rivalry's stochastic, gamma-distributed alternation under constant input is competition-plus-adaptation-plus-noise hopping between basins, which produces a content change with no admission event, so a landscape and a threshold are two different stories about the same measured switch (Kapoor et al. 2022).
 - **[[wiki/concepts/loopy-belief-propagation.md]]** — the computation the commit is committing: if the ignited content is the MAP estimate of a converged loopy posterior, then "commit when the loop converges" replaces the threshold, and the number of rounds — hence the latency — becomes a function of input ambiguity rather than a constant.

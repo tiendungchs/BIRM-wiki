@@ -86,6 +86,16 @@ A design instrument built on nulls has to survive its own caveats:
 
 **The unresolved shape of the disagreement.** "No reportable change in content" and "measurable performance cost" are both true of lateral prefrontal perturbation. That is exactly what a *routing* component predicts and what a *content* component does not — breaking a router degrades throughput without changing what any message says. The iES literature is therefore compatible with prefrontal cortex being the bus and incompatible with it holding the payload.
 
+**The reading is now under pressure from the recording side, and the pressure is quantitative.** Kapoor et al. 2022 decode the *current percept* from 987 macaque ventrolateral prefrontal units at up to 95% on single internally generated transitions, with no report and no change in visual input, and with three confound-dissociation transfers ruling out input, epoch and eye-movement codes (`raw/kapoor-2022-conscious-transitions-pfc.md`, [[wiki/entities/global-neuronal-workspace.md]]). **The payload is measurably there and stimulating it changes nothing.** Three ways out, none tested:
+
+| Escape | Claim | What would test it |
+|---|---|---|
+| **Copy, not original** | Prefrontal cortex carries a duplicate of the content for control purposes; editing the copy does not edit the percept | Stimulate during a task and score *performance*, not report — the fix the source itself proposes |
+| **The instrument cannot write to this code** | The same unclustered, mixed-selective geometry that defeats a coarse *decoder* defeats a coarse *stimulator*: an electrode drives a spatial neighbourhood, and in a code whose neighbours prefer opposite things it injects a vector with no meaning. Opposite-preference prefrontal sites are ~0.4 mm apart; the iES electrode is coarser than that | Patterned optogenetic or micro-stimulation of an *identified* selective ensemble, which the source lists as future work |
+| **Species/region mismatch** | The macaque recordings are in the ventrolateral inferior convexity; the human nulls are anterolateral and frontopolar | Record and stimulate the same subregion |
+
+The second escape is the interesting one for this page, because it makes elicitability a joint property of the code's spatial arrangement and the perturbation's spatial kernel — the same product [[wiki/concepts/population-geometry.md]] writes for decoding, run in the causal direction. **If it holds, low elicitation rate is not evidence about content anywhere, and the gradient this page reports measures how clustered a code is rather than how deep in the hierarchy it sits.** That is a falsifiable and unflattering alternative to the page's central reading, and nothing here separates them.
+
 ---
 
 ## What this gives an abstract-reasoning architecture
@@ -102,6 +112,7 @@ A design instrument built on nulls has to survive its own caveats:
 
 ## Connections
 
+- **[[wiki/concepts/population-geometry.md]]** — the confound that may run in this page's direction too: a stimulating electrode has a spatial kernel just as a field-scale decoder does, so in a code whose neighbours prefer opposite things (prefrontal opposite-preference sites sit ~0.4 mm apart) a focal perturbation injects a meaningless vector, and a low elicitation rate would then measure code clustering rather than the site's content.
 - **[[wiki/entities/global-neuronal-workspace.md]]** — the theory this evidence is aimed at: the workspace predicts that perturbing the prefrontal hub alters or interrupts the content currently broadcast, and a century of intracranial stimulation of lateral and anterior prefrontal cortex finds the lowest elicitation rates in the brain instead.
 - **[[wiki/concepts/ignition.md]]** — the commit operation this page tests causally: stimulation should be able to force or corrupt a commit, and in the region where ignition is claimed to be densest it produces no reportable change of content — which relocates the evidence for ignition onto propagation (`d′`) rather than onto the gate's locus.
 - **[[wiki/concepts/population-geometry.md]]** — the causal counterpart of that page's dimensionality measurements: dense mixed-selectivity coding predicts low elicitability, so the cortical gradient measures how much of a representation's support fits under one electrode, in a unit comparable across regions.

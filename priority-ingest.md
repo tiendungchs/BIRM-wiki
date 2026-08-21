@@ -36,7 +36,7 @@ One INGEST each:
 - [x] `raccah-2021-pfc-consciousness-stimulation.md` — consciousness-global-workspace · S · 2021
 - [x] `safron-2022-integrated-world-modeling-theory.md` — consciousness-global-workspace · F · 2022
 - [x] `naccache-2025-gnw-adversarial-testing.md` — consciousness-global-workspace · F · 2025
-- [ ] `kapoor-2022-conscious-transitions-pfc.md` — consciousness-global-workspace · R · 2022
+- [x] `kapoor-2022-conscious-transitions-pfc.md` — consciousness-global-workspace · R · 2022
 - [ ] `dwarakanath-2023-prefrontal-bistability-consciousness.md` — consciousness-global-workspace · R · 2023
 - [ ] `ferrante-2025-gnwt-iit-adversarial-testing.md` — consciousness-global-workspace · R · 2025
 - [ ] `rikhye-2018-thalamic-switching-cognitive-flexibility.md` — thalamocortical · R · 2018
