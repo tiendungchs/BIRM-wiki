@@ -23,7 +23,7 @@ One INGEST each:
 - [x] `alderson-2026-connectome-dynamics-timescales.md` — brain-networks · R · 2026
 - [x] `talk-nd-small-world-graphs.txt` — brain-networks · X · nd
 - [x] `beer-2007-default-self.md` — default-mode · S · 2007
-- [ ] `buckner-2008-default-network-anatomy.md` — default-mode · S · 2008
+- [x] `buckner-2008-default-network-anatomy.md` — default-mode · S · 2008
 - [ ] `menon-2023-default-mode-network-20-years.md` — default-mode · S · 2023
 - [ ] `azarias-2025-default-mode-network-development.md` — default-mode · S · 2025
 - [ ] `satpute-2026-dmn-hierarchical-generative-model.md` — default-mode · S · 2026
