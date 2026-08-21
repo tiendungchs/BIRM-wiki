@@ -518,3 +518,6 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SSv2 | Something-Something v2 | Fine-grained human–object manipulation video; the motion-sensitive half of the video-encoder evaluation suite, where appearance shortcuts do not solve the task |
 | HBToM | Hierarchically Bayesian Theory of Mind | Not an abbreviation of the wiki's coining — the model page is [[wiki/entities/hbtom.md]]; listed here because it appears as a bare column header in comparison tables |
 | IntPhys / InfLevel / GRASP | — | Proper names, not abbreviations: three violation-of-expectation video batteries for intuitive physics ([[wiki/concepts/violation-of-expectation.md]]) |
+| HLE | Humanity's Last Exam | Phan et al. 2025/2026: 2,500 closed-ended expert-authored questions admitted by an automated frontier-model gate ([[wiki/entities/hle.md]]) |
+| MMLU | Measuring Massive Multitask Language Understanding | Hendrycks et al. 2021's 57-subject multiple-choice knowledge benchmark; the saturated instrument HLE was built to replace |
+| RMS calibration error | Root Mean Square calibration error | Deviation of stated confidence from realised accuracy, binned and RMS-averaged; 73–89% across frontier models on HLE |

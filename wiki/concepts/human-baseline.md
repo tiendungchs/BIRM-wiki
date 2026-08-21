@@ -106,3 +106,4 @@ The wiki uses "human baseline" for four different jobs. Conflating them is what 
 - **[[wiki/entities/gsm8k.md]]** — the asserted baseline ("a bright middle-school student"), i.e. none, on a benchmark whose scores drove five years of method development.
 - **[[wiki/entities/bib.md]]** — the infant baseline with no reported ceiling (H5).
 - **[[wiki/entities/mlc.md]]** — the wiki's only response-*pattern* baseline: three named inductive biases matched at human rates, errors included.
+- **[[wiki/entities/hle.md]]** — a benchmark whose abstract is framed against "the expert human frontier" with no human number behind it: its auditors solved sampled items to find label errors, not to produce an accuracy, so the gap it reports is machine score against an assertion (H-class defect: no reference system at all).
