@@ -93,6 +93,21 @@ x̂ = (T/2π) · arg( Σ_k n_k · e^{2πi x_k / T} )      accuracy ∝ 1/√(t·
 
 ---
 
+## Reading time is solved; *scoring* time is not
+
+Everything above is an unsupervised timing detector. The moment a temporal code has to be *trained toward a target*, a second problem appears that has no counterpart in the rate world: **there is no agreed distance between two spike trains**, so there is no loss. Four answers exist (via Tavanaei et al. 2019; [[wiki/entities/spiking-neural-networks.md]]):
+
+| Answer | Quantity minimized | What it assumes |
+|---|---|---|
+| **Output-timing error** (SpikeProp) | Difference between desired and actual spike times | Each output unit emits **exactly one** spike — the code is a single latency, so a multi-spike train has no error at all |
+| **Victor–Purpura distance** (Chronotron) | Minimum cost of transforming one train into the other by **creating, removing or moving** spikes, made piecewise differentiable | Nothing about the neuron model — the only substrate-independent loss in the list |
+| **Alpha-kernel regression** (SPAN) | Squared error after convolving every train with `t·e^{−t/τ}` | That a postsynaptic-potential kernel is the right smoothing — i.e. the error is defined by the *reader*, not by the code |
+| **Widrow–Hoff on trains** (ReSuMe) | `x·(y^d − y^o)`, which expands to STDP against the teacher plus anti-STDP against the output | That the teacher's spike train is available without a physical connection |
+
+**Two things a builder should take from this list.** First, three of the four define the error by converting the spike train into a continuous function — so they measure a *rate-like* discrepancy and inherit exactly the blindness this page argues against; only the Victor–Purpura distance is a metric on timing as such. Second, the move-cost structure of that metric is the operation this page's mechanisms perform physically: **selecting a delay is a "move" of a spike**, so the loss and the mechanism are the same object seen from two sides **(brainstorm)**. Nothing in the wiki has exploited that.
+
+---
+
 ## Why this matters for a reasoning model
 
 - **It is the quantitative core of [[wiki/empirical-tensions.md]] T1.** The claim "spikes carry information a rate specification cannot express" is here a measured 20–25 µs with an explicit account of where the precision comes from — and, critically, a demonstration that the precision is *not* inherited from fast components. A functional specification that abstracts to rates loses the variable that carries the answer.
@@ -107,6 +122,7 @@ x̂ = (T/2π) · arg( Σ_k n_k · e^{2πi x_k / T} )      accuracy ∝ 1/√(t·
 - **Selection, not construction.** The delay repertoire is given. Nothing states where a repertoire adequate for an arbitrary latent comes from, or whether delays can themselves be learned.
 - **One latent per sensitive period.** The rule tunes to *the* stimulus present during learning; a 2 kHz cell and a 5 kHz cell are different cells. There is no mechanism for one population to hold several temporal hypotheses at once, and therefore none for re-tuning after the sensitive period.
 - **Precision is a population property.** Single-unit precision falls 4–5× short of behaviour; the shortfall is closed by averaging over ~100 cells and 100 ms. Any architecture that reads a single spike time as a symbol is claiming more than this evidence supports.
+- **No loss function on timing (gap G76).** Every supervised rule for spike trains either constrains the output to one spike, or smooths the train into a rate-like continuous signal before measuring error. The one exception (Victor–Purpura) is a combinatorial edit distance made "piecewise differentiable" by hand, and nothing says what its create/remove/move costs should be for a given task.
 - **Coherence is assumed at the input.** Mechanism 1 requires an already-phase-locked volley; the model does not explain how the *first* stage in the pathway achieves phase locking.
 
 ---
@@ -114,7 +130,7 @@ x̂ = (T/2π) · arg( Σ_k n_k · e^{2πi x_k / T} )      accuracy ∝ 1/√(t·
 ## Connections
 
 - **[[wiki/concepts/synaptic-plasticity.md]]** — also the source of this page's one direct empirical conflict: delay selection here needs a *multiplicative* window (`ΔJ ∝ J_j`, strong synapses gain most), while the measured window potentiates only weak synapses and depresses independently of strength (Bi & Poo 1998, [[wiki/empirical-tensions.md]] T76). Otherwise it supplies the rule this page uses and receives from it a design constraint the rule family otherwise lacks: the learning window's *peak location* (`s ≈ −t_r/2`, half the postsynaptic rise time) is what makes delay selection self-reinforcing, and the window's *width* turns out to be unrelated to the temporal resolution the rule can achieve.
-- **[[wiki/entities/spiking-neural-networks.md]]** — the substrate whose central claim (timing is the message) this page quantifies: 20–25 µs output precision from 250 µs postsynaptic potentials, with the precision shown to be almost independent of the membrane time constant.
+- **[[wiki/entities/spiking-neural-networks.md]]** — also the source of this page's supervised half and of its sharpest missing piece: training a timing code requires a loss on spike trains, and of the six proposals there only the Victor–Purpura distance scores timing as such — the rest smooth the train into a continuous function first, which is the blindness this page exists to argue against. The substrate whose central claim (timing is the message) this page quantifies: 20–25 µs output precision from 250 µs postsynaptic potentials, with the precision shown to be almost independent of the membrane time constant.
 - **[[wiki/concepts/dendritic-computation.md]]** — the same coincidence-detection primitive one level down: a dendritic segment tests for `θ` co-active synapses in a 1–5 ms window, while here a whole neuron tests for coherent arrival in a sub-millisecond window over selected delays, so the two are the same operation at different spatial scales and different `τ`.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the cheapest existence proof in the wiki that a *latent* variable can be estimated by a purely local unsupervised rule (interaural time difference → azimuth), and the sharpest statement of what that does not buy: a bank of detectors with no relations between them.
 - **[[wiki/concepts/path-integration.md]]** — the same periodicity trade in a different variable: a code with period `T` is precise within a cycle and ambiguous across cycles, so both pages need several coexisting periods to be unique over a range, and neither has a mechanism that builds them.

@@ -66,6 +66,20 @@ This page exists as the wiki's **baseline**. Nine other pages quote "≈`0.14N`"
 
 ---
 
+## The same memory for fewer synapses: the hybrid-Boltzmann equivalence
+
+A **hybrid Boltzmann machine** — a restricted Boltzmann machine whose hidden units take continuous values while the visible units stay binary — is *thermodynamically equivalent* to this page's network once the functions are marginalized over the hidden units (via Tavanaei et al. 2019, citing Barra et al.):
+
+| Hopfield object | Hybrid Boltzmann object |
+|---|---|
+| `N` binary stochastic neurons | `N` binary **visible** units |
+| `P` stored patterns | `P` **hidden** units |
+| `N(N−1)/2` synapses to update | `H·P` synapses to update |
+
+The stored patterns stop being coefficients baked into a dense `N×N` matrix and become *units*. Two consequences for this page. **It is a direct attack on the bits-per-synapse number above**: at `P ≪ N` the same associative memory runs on far fewer synapses, so the wiki's "raise information per synapse" framing has a fourth tactic — **factorize the weight matrix through the pattern set** — alongside sparsifying the code, randomising the address and sharpening the read-out. **And it makes the capacity question visible**: `P` is an explicit architectural quantity here rather than an emergent limit discovered by overload, which is what G42 (no store knows when it is full) asks for — though nothing in the equivalence says how to *choose* `P`, so the parameter is exposed rather than solved.
+
+---
+
 ## The continuous variant is *trainable*, not merely writable (Scellier & Bengio 2017)
 
 This page's network has no learning in the machine-learning sense: `W` is a closed-form function of the patterns to be stored, and there is no input–output mapping to fit. Make the units continuous — `E(u) = ½Σᵢuᵢ² − ½Σ_{i≠j}W_ijρ(uᵢ)ρ(u_j) − Σᵢbᵢρ(uᵢ)`, `ρ` a rate nonlinearity — clamp a subset of units as input, and the same energy becomes a supervised learner under **equilibrium propagation**: relax with the output free (`u⁰`), add an external potential `βC = ½β‖y − d‖²` and relax again (`u^β`), then update `ΔW_ij ∝ (1/β)(ρ(u_i^β)ρ(u_j^β) − ρ(u_i⁰)ρ(u_j⁰))`. That is the *gradient* of the squared output error, for any symmetric connectivity. Permutation-invariant MNIST with 1–3 hidden layers of 500 units: 0.00% training error, 2–3% test error.
@@ -79,11 +93,14 @@ Two consequences for this page. **Symmetry is not purely a cost.** The `W = Wᵀ
 - **Nothing sets the number of stored patterns.** The write rule cannot refuse, so overload is silent and catastrophic (G42).
 - **No similarity structure among memories.** Basins are shaped by pattern correlations, which is exactly the wrong dependence: similar memories should be *distinguishable*, and here they merge.
 - **No mechanism for *which* memory to seek.** Retrieval is decided by whatever the initial state happens to be near; there is no query, no bias, no top-down control (until [[wiki/entities/context-modular-memory-network.md]]'s mask).
+- **The equivalence exposes `P` without setting it.** The hybrid-Boltzmann form makes the number of stored patterns an architectural parameter instead of an emergent breaking point; nothing says how to choose it, and a hidden unit per pattern must still be allocated by some other system.
 - **The stored patterns must be supplied.** As with every store on this wiki, what gets written is another system's problem ([[wiki/concepts/latent-graph-discovery.md]] G1).
 
 ---
 
 ## Connections
+
+- **[[wiki/entities/spiking-neural-networks.md]]** — where the hybrid-Boltzmann equivalence was noticed and why it matters there: the spiking-generative line needs a store that fits on a chip, and re-expressing this network as `H+P` neurons with `H·P` synapses is a device-count argument, not a capacity one (Tavanaei et al. 2019).
 
 - **[[wiki/concepts/energy-based-models.md]]** — the classical network is the simplest complete instance of the formalism: a quadratic `F(s) = −½ sᵀWs` with inference as descent to a minimum, and its Hebbian write is the source of the "overlapping basins and spurious minima" row that page contrasts with orthogonal (Kanter–Sompolinsky) storage.
 - **[[wiki/entities/fcann.md]]** — the same equations with the couplings *measured* rather than learned (`J = −Σ⁻¹` from resting-state fMRI) and the states made continuous, which is what lets a whole brain be treated as one Hopfield landscape; `β → ∞` there recovers exactly this page's binary network.

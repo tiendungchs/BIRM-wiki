@@ -83,6 +83,20 @@ The bipartite form is the same structural move as [[wiki/entities/dense-sequence
 
 ---
 
+## The spiking realization: STDP approximates contrastive divergence
+
+The two-phase rule this page calls its biological weak point has a spiking implementation (Neftci et al. 2014, via Tavanaei et al. 2019). Replace the memoryless stochastic units with **stochastic integrate-and-fire neurons** and a variant of spike-timing-dependent plasticity approximates contrastive divergence closely enough that the learned distributions capture the same statistical properties as the non-spiking machine.
+
+| Consequence | Statement |
+|---|---|
+| **The negative phase becomes free-running network activity** | Nothing has to be scheduled or clamped externally to obtain `⟨s_i s_j⟩_free` — the recurrent spiking dynamics *are* the sampler ([[wiki/entities/spiking-neural-networks.md]]) |
+| **The write rule becomes local in time as well as in space** | `Δw_ij ∝ ⟨s_i s_j⟩_data − ⟨s_i s_j⟩_free` needs two population averages; STDP needs only the inter-spike interval, so the phase difference is carried by the network's state rather than by the update ([[wiki/concepts/synaptic-plasticity.md]]) |
+| **What it does not fix** | The two phases still have to be *distinguishable* — something must say which regime the network is in. This is the same unpaid bill equilibrium propagation carries ([[wiki/concepts/equilibrium-propagation.md]]), and the standing proposal in both cases is an oscillation |
+
+Stacked, this gives the **spiking deep belief network**; the reported implementations, however, are conversions of already-trained DBNs to leaky integrate-and-fire neurons (O'Connor et al. 2013) rather than networks trained in spikes — so the spiking-CD result is an equivalence proof whose consequences have not been cashed out at depth.
+
+---
+
 ## Why this page matters to the wiki's framing
 
 **(brainstorm) Noise is the fourth way to buy back the motion symmetry forbids.** [[wiki/entities/hopfield-network.md]] notes that `W = Wᵀ` guarantees convergence and thereby forbids going anywhere, and the wiki holds three fixes: an asymmetric term ([[wiki/entities/dense-sequence-memory.md]]), a slow adaptation current ([[wiki/entities/adaptive-cann.md]]), short-term depression ([[wiki/entities/stp-flickering-cann.md]]). This is the fourth, and the only one that leaves the energy function untouched: the landscape is exactly the Hopfield landscape, and temperature alone decides whether the state rests in a basin or tours them. It is also the cheapest available answer to that page's "no mechanism systematically cycles through alternative interpretations" (Necker-cube) gap — alternation is what a sampler does by default.
@@ -107,6 +121,8 @@ The bipartite form is the same structural move as [[wiki/entities/dense-sequence
 ---
 
 ## Connections
+
+- **[[wiki/entities/spiking-neural-networks.md]]** — the substrate on which this page's two-phase rule becomes local: stochastic integrate-and-fire units plus an STDP variant approximate contrastive divergence with matching learned statistics, so the negative phase is supplied by free-running recurrent dynamics rather than by a scheduled sampling pass (Neftci et al. 2014).
 
 - **[[wiki/entities/hopfield-network.md]]** — the object this modifies, and by exactly two changes: replace `sgn` with a sampled sigmoid and add unclamped units. The energy function, the symmetry, the locality and the `w_ii = 0` constraint are all inherited unchanged, so every capacity and spurious-minimum property of that page is the starting condition here.
 - **[[wiki/concepts/energy-based-models.md]]** — supplies the mechanism behind that page's central claim that pushing data energy down is trivial and pushing everything else up is the whole problem: `−log Z` is the "everything else", and the free-running negative phase is how a network estimates its gradient. The page's contrastive-vs-regularised table lists MCMC/contrastive divergence; this is that row written out.

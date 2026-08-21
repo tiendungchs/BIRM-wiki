@@ -27,9 +27,79 @@ The wiki's stake in SNNs is not efficiency. It is [[wiki/empirical-tensions.md]]
 | Better energy efficiency; capable of processing noisy and dynamic data; more robust and fault-tolerant computation | Modelling studies. The review is explicit that these follow partly from properties *distinguishing SNNs from ANNs*, not from biological plausibility as such |
 | Scale is reachable | Large spike-based transformer models exist |
 | Trainable by meta-optimized rules | Surrogate gradients make the non-differentiable threshold traversable, enabling a differentiable STDP rule to produce online one-shot continual learning and one-shot image class recognition ([[wiki/concepts/meta-optimized-plasticity.md]]) |
+| Unsupervised STDP has a **named objective** in one configuration | Poisson input neurons + a stochastic winner-take-all circuit make STDP an approximate **online expectation-maximization** for a multinomial mixture: an output spike is a sample from the posterior over hidden causes (E-step), applying STDP to the fired neuron's synapses is the M-step (Nessler et al. 2009, 2013; [[wiki/concepts/synaptic-plasticity.md]]). The only entry in the spike-timing family that answers "what quantity improves" |
 | Trainable by forward-only local rules | Eligibility propagation (e-prop) — a forward-computable eligibility trace `e_ji(t) = dz_j(t)/dW_ji` multiplied by an online error estimate ([[wiki/concepts/biologically-plausible-credit-assignment.md]]) |
 
 **Neuromorphic hardware.** Intel's Loihi, IBM's TrueNorth, SpiNNaker — specialized architectures for executing SNNs and brain-inspired local learning. The hardware and the local-learning constraint are the same design decision seen from two sides: locality is what makes the parallelism physically realizable, and it is why backpropagation-shaped algorithms do not map onto these chips.
+
+---
+
+## Routes to a *deep* SNN, and what each one costs
+
+> Tavanaei, Ghodrati, Kheradpisheh, Masquelier & Maida 2019, *Deep learning in spiking neural networks* (`raw/tavanaei-2019-deep-learning-snn.md`, Neural Networks 111:47–63). A review; every number below is quoted from it, and almost all of them are MNIST.
+
+The limitation "weight optimization is the central open problem" resolves into five distinct routes, which differ in **where the learning happened**:
+
+| Route | How weights are set | Learns *in spikes*? | Best reported |
+|---|---|---|---|
+| **ANN-to-SNN conversion** | Train a rate ANN offline by backpropagation, copy the weights, replace each activation by a firing rate; weight normalization added to stop saturation loss (Diehl et al. 2015) | **No** | The highest of the family, and the only route reported past MNIST — CIFAR-10 and ImageNet (Rueckauer et al. 2017) |
+| **Surrogate-derivative backpropagation** | End-to-end gradient descent with the **membrane potential** used as the differentiable activation value (Lee et al. 2016) | Yes, but offline and non-local | 98.88% MNIST at **~5× fewer operations** than the matched DNN |
+| **Layer-wise local representation learning** | Each convolutional layer trained separately by a spike-based sparse-coding rule (SAILnet) or an STDP variant; classifier stacked on top | Yes | 99.05% MNIST (stacked spiking convolutional autoencoders); 98.4% with a hand-crafted difference-of-Gaussian front end + STDP + SVM readout |
+| **Spike-based backpropagation converted to a local rule** | BP-STDP rewrites the backpropagation update as temporally local STDP; event-driven random backpropagation (eRBP) uses error-modulated plasticity with every quantity local to the neuron and synapse (Neftci et al. 2017) | Yes, online | "comparable to equal-sized conventional and spiking networks" on MNIST — no advantage claimed |
+| **Unsupervised STDP with one trainable layer** | STDP in a two-layer net; classifier readout | Yes | 95% MNIST (Diehl et al. 2015) |
+
+**The load-bearing distinction is not architecture but *when* learning happened.** The review's own summary of its comparison table: offline (converted) models report higher accuracy, online models offer genuine multi-layer learning at lower accuracy. So every headline accuracy that makes SNNs look competitive was produced by gradient descent on a rate network ([[wiki/empirical-tensions.md]] T231).
+
+**"Multi-layer" ≠ "multi-layer learning".** The whole early hierarchical-STDP line (Masquelier & Thorpe 2007, 2010 and successors) has many layers of *processing* — preprocessing, one learning layer, one classifier layer — and exactly **one trainable layer**. This is the same shape as a reservoir with a linear readout ([[wiki/concepts/autonomous-pattern-generation.md]]) and should be scored the same way.
+
+**The efficiency claim, quantified once.** Neil et al. 2016 ran 522 converted SNNs, all with the identical `784-1200-1200-10` architecture and all reaching 98% MNIST, varying only spiking parameters, and measured total operations against the non-spiking net's requirement. The spread across those 522 is entirely a matter of SNN-side hyperparameters — so "SNNs need fewer operations" is a statement about a *tuned* configuration, not a property of the substrate.
+
+---
+
+## Supervised learning directly on spike trains
+
+The unsolved sub-problem is prior to credit assignment: **what is the error between a desired and an observed spike train?** Six answers, and they reduce to two tricks.
+
+| Method | Error definition | Limitation |
+|---|---|---|
+| **SpikeProp** (Bohte et al.) | Output spike-*timing* error, spike-response-model neurons; hidden units' output modelled as continuous postsynaptic potentials so no spike derivative is ever taken. First backpropagation in an SNN; solves temporally-encoded XOR in 3 layers | Each output unit must emit **exactly one** spike; continuous values become long spike delays |
+| **Tempotron** | Binary 0/1 output within a predetermined window | The output carries no timing, so a Tempotron cannot send its output to another Tempotron — the composability failure |
+| **Chronotron** | The **Victor–Purpura distance** — minimum cost of transforming one spike train into the other by creating, removing or moving spikes — made piecewise differentiable and used as the cost | Single neuron |
+| **ReSuMe** | Widrow–Hoff `Δw ∝ x(y^d − y^o)` reformulated for spikes, which expands to `Δw^STDP(pre, desired) + Δw^aSTDP(pre, observed)`. The teacher has no physical connection to the trained synapse — hence "remote" | Single neuron; constrained to STDP eligibility windows |
+| **SPAN** | Widrow–Hoff applied after convolving every spike train with an alpha kernel `t·e^{−t/τ}` — a digital-to-analog conversion of the spike train | Single neuron |
+| **Narrow-support gate** (Huh & Sejnowski 2018) | Replace the hard threshold with `g(v) ≥ 0`, `∫g dv = 1`, so postsynaptic current is released as `v` approaches threshold and spike generation becomes continuous | The first of these to free the *number and times* of output spikes from being prespecified; weight updates concentrate near spike times, "bearing close resemblance to reward-modulated STDP" |
+
+**Trick 1 — convert the spike train to a continuous function before differentiating.** Either by a postsynaptic-potential kernel (SpikeProp, SPAN, and the narrow-support gate) or by reading the membrane potential itself as the activation (Lee et al. 2016; Panda & Roy 2016). Every gradient method on this page is one of these two.
+
+**Trick 2 — make a metric on spike trains the loss.** Only the Chronotron does this, and it is the more interesting move: a spike-train *distance* is defined without reference to any neuron model, so the loss survives a change of substrate that the kernel trick does not ([[wiki/concepts/temporal-coding.md]]).
+
+**What none of them supply.** ReSuMe, Chronotron, SPAN and the Tempotron all train **one** postsynaptic neuron from many presynaptic ones. Deep credit assignment in the timing domain is untouched by the whole family.
+
+---
+
+## Recurrent SNNs
+
+| Model | Construction | Result |
+|---|---|---|
+| **LSNN** (Bellec et al. 2018) | Reservoir `R` (excitatory + inhibitory) + module `A` of **adaptive-threshold** excitatory neurons maintaining excitatory–inhibitory balance in `R` + linear readout `Y`; trained by BPTT with membrane-potential pseudo-derivatives | Matches LSTM on **sequential MNIST** (784 pixels delivered one per step) and on TIMIT, and inherits LSTM's ability to learn a function from a teacher *without weight change*, using short-term memory instead |
+| **subLSTM** (Costa et al. 2017) | The LSTM's **multiplicative** gates replaced by **subtractive** ones, implementable by lateral inhibition in cortex; rate-coded LIF units so it runs in standard deep-learning frameworks | Matches — never beats — LSTM on sequential MNIST and a language benchmark |
+| **Spiking LSTM on TrueNorth** (Shrestha et al. 2017) | Signed values carried on two spike channels; rate coding throughout **except the cell state**, which needed higher precision and got a spike-*burst* code | No accuracy reported; the contribution is the chip mapping |
+| **Phased LSTM** (Neil et al. 2016) — not spiking | Adds a **time gate** on an independent oscillation per unit; closed → hidden and cell vectors are frozen, so different units quantize the input at different timescales | Trains faster than a regular LSTM at equal accuracy on event-driven, asynchronously-sampled data |
+| **NeuCube** | A 3D reservoir whose connectivity is set by *macro-scale* human structural (DTI) and functional (fMRI) connectivity rather than by a microcircuit model, trained by an STDP-like rule | Proposed as a unifying architecture for multimodal spatiotemporal data (EEG); the claim being made is that the brain's macro connectivity itself has reservoir properties |
+
+**(brainstorm) The recurrent row is the cleanest *negative* evidence for T1 on this page.** subLSTM shows that swapping multiplicative gating for the inhibitory-circuit-implementable subtractive version costs nothing and gains nothing — so *that* piece of the substrate really is implementation detail, which is what position A of T1 predicts and what the spiking TEM result contradicts elsewhere. The two results are compatible only if the substrate matters for **what is represented** (grid codes, phase precession) and not for **how a gate is computed**. That is a sharper statement of T1 than either side currently makes.
+
+**(brainstorm) And the TrueNorth LSTM contains the exception that proves it.** Every variable in that model rate-coded fine *except the cell state* — the one variable that has to be held, not computed, needed a burst code. Precision demands concentrate at the **memory**, which is exactly the wiki's target component ([[wiki/concepts/working-memory.md]]).
+
+---
+
+## Spiking generative models
+
+| Model | Statement |
+|---|---|
+| **Spiking RBM** (Neftci et al. 2014) | Stochastic integrate-and-fire neurons replace the memoryless stochastic units; a variant of STDP **approximates contrastive divergence**, and the learned distributions capture the same statistical properties as the non-spiking original ([[wiki/entities/boltzmann-machine.md]]) |
+| **Spiking DBN** (O'Connor et al. 2013) | A trained DBN converted to LIF neurons for MNIST; later made noise-robust and hardware-constrained. Conversion again — nothing learned in spikes |
+| **Hybrid Boltzmann machine ≡ Hopfield network** | An RBM with continuous hidden units and binary visible units is *thermodynamically equivalent* to a Hopfield network once marginalized over the hidden units: `N` visible units ↔ the Hopfield binary neurons, `P` hidden units ↔ the stored patterns. Simulating the same associative memory costs `H·P` synapses instead of `N(N−1)/2` ([[wiki/entities/hopfield-network.md]]) |
 
 ---
 
@@ -37,6 +107,10 @@ The wiki's stake in SNNs is not efficiency. It is [[wiki/empirical-tensions.md]]
 
 - **Weight optimization is the central open problem.** Backpropagation fails on the discrete, sparse nonlinearity of the threshold; every route above (surrogate gradients, e-prop, evolutionary search, plasticity rules) is a workaround with its own cost.
 - **e-prop is blind to the future.** It requires a real-time error signal at each time step and cannot learn from delayed errors extending beyond individual-neuron timescales — unlike REINFORCE / node perturbation, which handle exactly that case.
+- **The accuracy leadership belongs to networks that never learned in spikes.** The best-performing deep SNNs are ANN-to-SNN conversions; the models that actually learn through spikes are the least accurate, and none of them is reported past MNIST (Tavanaei et al. 2019). Every "SNNs are catching up" claim is therefore evidence about spiking *inference*, not spiking *learning* ([[wiki/empirical-tensions.md]] T231).
+- **Most "deep" spiking hierarchies have one trainable layer.** Depth of processing has been repeatedly reported as depth of learning; the preprocessing + single-STDP-layer + classifier shape is a reservoir, not a deep network.
+- **No error metric on spike trains is agreed on (gap G76).** Six proposals exist (timing error, Victor–Purpura distance, alpha-kernel regression, Widrow–Hoff as STDP+anti-STDP, …) and all but one train a *single* neuron.
+- **Some surrogate derivatives are not local, which voids the reason for using them.** Using the presynaptic membrane potential as the substitute derivative makes the update depend on a quantity not available at the synapse (Tavanaei et al. 2019) — such a model keeps the engineering benefit and loses the biological argument entirely.
 - **Early stage.** The review classifies SNNs as not yet ready for wide use.
 - **The efficiency case is partly an artefact of the substrate.** On dense synchronous hardware, sparse binary events are not cheap; the advantage is contingent on neuromorphic deployment.
 
@@ -78,4 +152,9 @@ The wiki's stake in SNNs is not efficiency. It is [[wiki/empirical-tensions.md]]
 - **[[wiki/entities/hami.md]]** — the same neuromorphic constraint pointed at the memory array instead of the compute: a fixed-width discrete key makes episodic retrieval a single-cycle non-volatile content-addressable-memory search (2T2R RRAM/MRAM/PCM/FeFET), which is an argument that the format of the store, not the spiking of the units, is where the energy and latency win lives (Poursiami et al. 2025).
 - **[[wiki/entities/simple-cycle-reservoir.md]]** — the deployment argument this page's efficiency case needs, with a proof attached: a ring of identical weights driven by `±1` input signs stores no weights at all and maps directly onto photonic and delay-line neuromorphic substrates, and Li, Fong & Tiňo 2024 show the constraint costs no expressivity over fading-memory filters — only device count.
 - **[[wiki/entities/ltc.md]]** — the non-spiking half of the same biophysics, and a T1 datum from an unusual direction: the LTC equation *is* the graded-potential *C. elegans* neuron with conductance synapses (`dv/dt = −g_l v + f(v,I)(A − v)`), so the imported detail is the reversal potential in the driving force — which has no rate-model description, is what produces the model's state-stability theorem, and makes its neuromorphic deployment (sparse LTCs as Neural Circuit Policies on Loihi-2) a return to the substrate rather than a port to it.
+- **[[wiki/entities/boltzmann-machine.md]]** — the generative half of this substrate, and its cleanest equivalence result: stochastic integrate-and-fire units replace the memoryless stochastic ones, and a variant of STDP approximates contrastive divergence closely enough that the learned distributions carry the same statistics as the non-spiking machine (Neftci et al. 2014).
+- **[[wiki/entities/hopfield-network.md]]** — a synapse-count argument that arrives from the spiking-generative side: the hybrid Boltzmann machine is thermodynamically equivalent to a Hopfield network with stored patterns as hidden units, so the same associative memory costs `H·P` synapses instead of `N(N−1)/2`.
+- **[[wiki/concepts/autonomous-pattern-generation.md]]** — the shape most "deep" SNNs actually have: many processing layers, one trainable layer, linear readout. Reservoir models make that structure explicit and prove what it can express; the STDP hierarchies inherited it without saying so.
+- **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — what the liquid state machine was built to model: a recurrent excitatory/inhibitory reservoir with ~80:20 ratio and distance-decaying connection probability, offered as the computation running inside the cortical minicolumn — and NeuCube's rival claim that it is the *macro*-scale connectome, not the microcircuit, that has reservoir properties.
+- **[[wiki/concepts/working-memory.md]]** — where the substrate's precision demand concentrates: in the TrueNorth spiking LSTM every variable rate-coded acceptably except the **cell state**, which needed a burst code — so the maintenance component, not the compute, is what a coarse spiking code fails first.
 - **[[wiki/entities/arc-vsa-solver.md]]** — the substrate claim carried by the vector-symbolic line: the same bind/superpose algebra is implementable in spiking neurons (Neural Engineering Framework, Spaun), which is what "cognitively plausible" is doing in that solver's argument — though the solver itself is not spiking.
