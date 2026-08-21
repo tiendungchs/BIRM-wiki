@@ -103,6 +103,53 @@ The value here is not the clinical detail but the shape: the same network appear
 
 ---
 
+## Menon 2023 — what the next fifteen years added
+
+> Menon 2023, *20 years of the default mode network: A review and synthesis*, Neuron 111(16), doi:10.1016/j.neuron.2023.04.023 (`raw/menon-2023-default-mode-network-20-years.md`). A Perspective by the author who, with Greicius, coined "default mode network" in 2003. It reports almost no effect sizes; read it as a hypothesis with an anatomy attached, and grade each claim by the method column below.
+
+**Three of the seven open problems above have moved.**
+
+| Buckner 2008 open problem | Status after Menon 2023 |
+|---|---|
+| "No lesion study has ever been designed against this network" | **Partly answered.** Patients with **left angular gyrus lesions** show markedly reduced mind wandering — the first causal-grade human evidence attaching a default-mode node to an internally generated process. Still one node, one function |
+| The deactivation might be a baseline/threshold or vascular artefact | **Closed.** Intracranial EEG in patients with intractable epilepsy: selective **high-gamma (76–200 Hz)** power increase in medial prefrontal cortex and posterior cingulate/precuneus at rest relative to finger movement, vision and speech; transient high-gamma *suppression* in the same nodes during spatial attention and word reading, and in posterior cingulate/retrosplenial during mental arithmetic. The suppression is neuronal, fast, and visible without any subtraction |
+| "How to activate default nodes *above* their resting baseline" — the reason the direct role was untestable | **Solved for three nodes.** Self-referential trait judgments raise medial prefrontal cortex, posterior cingulate and left angular gyrus above resting baseline; area **PGp** of the angular gyrus is one of the few regions in the brain that exceeds resting baseline during semantic judgment (5-study analysis). The network is no longer defined only by what suppresses it |
+| What controls the switch | **A candidate with an anatomy**: the salience network (anterior insula + dorsal anterior cingulate) as causal outflow hub, validated by rodent optogenetics — [[wiki/entities/salience-network.md]] |
+
+**The node-level dissociation, which is the review's strongest negative result.** Meta-analyses over 8,000+ task fMRI studies give each node a different profile — this is the evidence that the network has no unitary function *as cognitive functions are currently labelled*:
+
+| Node | Preferential engagement |
+|---|---|
+| Posterior cingulate cortex (PCC) | Autobiographical recall; self–other distinction; hub that *upregulates* other default nodes during self-related processing (effective connectivity) |
+| Retrosplenial cortex (RSC) | Spatial memory and navigation |
+| Precuneus | Visual imagery |
+| Medial prefrontal cortex (mPFC) | Value judgments, emotion regulation, cognitive elaboration/reappraisal, generation of stimulus-independent thought; monitoring one's own *and* others' mental states |
+| Hippocampus | Episodic memory formation |
+| Anterior temporal cortex (ATC) | Semantic memory and categorisation |
+| Left angular gyrus (AG) | Language-related semantic judgments; retrieval of personally relevant semantics; elaboration of memory content |
+| Right AG / temporoparietal junction | "Other-relevant" information — others' mental states, beliefs, predicted behaviour |
+| Left middle temporal gyrus (MTG) | Monitoring internal speech; with superior temporal sulcus, speech comprehension |
+
+Two consequences the review draws and the wiki should keep: (i) the same nodes serve *both* internally directed and externally driven processing, so the internal/external dichotomy is not a partition of the anatomy; (ii) the network fractionates into **interdigitated subnetworks** — dorsal PCC, ventral PCC and RSC anchor distinct ones with distinct couplings to the control networks — linked by **convergence zones** acting as connector hubs. The single-hub reading of PCC on this page is therefore too coarse.
+
+**The proposed unifying function: integrate-and-broadcast an internal narrative.** Menon's model is that the network binds episodic memory, semantic memory and language into an ongoing internal narrative — "part monolog and part dialog" — constituting the epistemic self, and *broadcasts* it globally to maintain subjective continuity; the broadcast is paused when external stimuli must be attended to and resumes with updated representations. Four supporting observations, in descending grade:
+
+| Observation | What it supports |
+|---|---|
+| Default nodes have **net causal outflow** exceeding inflow to all other networks, including sensory and motor, at rest *and* during episodic memory formation, with interaction strength **higher during memory formation** (information-theoretic analysis of distributed depth electrodes) | The broadcast direction, and that it is task-modulated rather than idle chatter |
+| PCC activation patterns **persist** through naturalistic movie watching and change at perceived **event boundaries**; patterns generalise across *externally* signalled boundaries and *internally* generated boundaries during unguided recall, most strongly in PCC and RSC | "Frames of thought": the broadcast is discretised, and the same boundary code serves perceived and imagined streams |
+| The network integrates over **slower timescales** than other systems in narrative speech processing | The frame rate is set by an integration window, not by the stimulus |
+| Speaker–listener coupling: listener mPFC activity **predicts** the speaker's activity while listener PCC *lags* it, and prediction strength correlates with narrative comprehension | The narrative machinery runs in *anticipation* during comprehension, i.e. it is a generative model being used predictively — not a passive recall store |
+| Rodent two-photon imaging: task information is shared across areas within **200 ms** and a **global fluctuation mode** conveys the animal's response to every area imaged within **1 s**, in a subspace **orthogonal** to the one carrying sensory data | A concrete broadcast mechanism that does not corrupt the sensory channel — the one mechanistic proposal here a builder can copy directly |
+
+**(brainstorm)** The orthogonality result is the most transferable line in the review. A broadcast that shares a state variable with the representation being broadcast *over* will destroy it; putting the global mode in an orthogonal subspace is a population-geometry solution to a bandwidth-sharing problem ([[wiki/concepts/population-geometry.md]]) and is exactly what a wiki architecture with a shared bus lacks — every residual-stream broadcast in a transformer competes for the same directions as the content. Pairing it with the event-boundary result gives a specification with no wiki instance: *a slow, discretised, orthogonally coded global state that updates only at boundaries*.
+
+**Ontogeny (tentative, speculative in the source).** Menon proposes the internal narrative originates in Vygotskian internalisation — self-directed private speech in early childhood becoming voiceless inner monologue. No developmental data is offered; it is offered as a research programme.
+
+**What the review does not deliver.** No adjudication between its own two directional claims (salience network switches the default network off; default network has the largest net outflow, including *to* frontoparietal, even at rest) — [[wiki/empirical-tensions.md]] T257. No operational definition of "narrative" that would let the model fail. And the measurement obstacle it names is structural: internal mental processes cannot be probed without external stimuli, which alter the state being probed.
+
+---
+
 ## Relevance to a reasoning model
 
 - **A default mode is a resource-allocation policy, not a resting state.** The network's activity is a *default*: what the machine does with a moment when no input demands it. The paper's closing proposal is that this budget is spent constructing, replaying and exploring event scenarios in order to derive expectations about the future — which puts it in direct competition with [[wiki/concepts/offline-replay.md]]'s use of the same idle period for consolidation, and with [[wiki/concepts/default-self-model.md]]'s use of it for competence self-assessment. Three literatures, one budget, no arbitration rule anywhere in the wiki.
@@ -117,7 +164,9 @@ The value here is not the clinical detail but the shape: the same network appear
 
 | Problem | Why it is open |
 |---|---|
-| **No lesion study has ever been designed against this network** | The authors state it directly: unlike every other brain system, this one was characterised entirely by correlational imaging, with no neurological syndrome initiating its study and no behavioural probe motivated by its anatomy. Nothing here is causal |
+| **No lesion study has ever been designed against this network** | The authors state it directly: unlike every other brain system, this one was characterised entirely by correlational imaging, with no neurological syndrome initiating its study and no behavioural probe motivated by its anatomy. Nothing here is causal. **Partly answered since** (Menon 2023): left angular gyrus lesions reduce mind wandering, and rodent optogenetics can drive the switch — one node and one non-human preparation, not a lesion programme |
+| **The two directional claims are not reconciled** | The salience network is said to *cause* default-mode suppression, while the default network is said to have the greatest net causal outflow of any network, at rest and during memory formation, including to frontoparietal cortex. Both estimates come from fitted models on observational data ([[wiki/empirical-tensions.md]] T257) |
+| **Which grain the network is** | Node-level meta-analyses give nine nodes nine different preferential functions, and the posterior medial cortex fractionates into dorsal-PCC / ventral-PCC / RSC subnetworks with distinct control-network couplings — so "the default mode network" may name a family of systems sharing convergence zones rather than one system ([[wiki/concepts/node-definition-problem.md]]) |
 | Mentation vs sentinel is not identified | Passive tasks move mental content and attentional breadth together; no experiment reported here breaks the confound |
 | Whether the intrinsic low-frequency signal is the cognition | It persists in sleep, anaesthesia and primary sensory cortex, and is too slow for cognitive events — so the correlation between default activity and mind-wandering may hold at a different frequency band than the one being measured |
 | What controls the switch | Local competition vs a frontoparietal arbitrator is unresolved, and the only evidence for the arbitrator was preliminary at the time of writing |
@@ -140,4 +189,7 @@ The value here is not the clinical detail but the shape: the same network appear
 - **[[wiki/concepts/integration-segregation-balance.md]]** — anticorrelation between the default and dorsal attention systems is a segregation event with a specific pair of participants, and the missing arbitrator is the same control variable that page says nothing here reads or sets.
 - **[[wiki/concepts/parallel-timescale-streams.md]]** — the default mode is one letter of that page's 126-mask alphabet, and its co-activation with dorsal attention and frontoparietal masks among the most frequent states qualifies the strict anticorrelation reported here.
 - **[[wiki/concepts/cognitive-control.md]]** — the open question this page hands to the control layer: whether a separate controller assigns the network or the two modes settle it locally, with autism (under-use) and schizophrenia (over-use) as the two failure directions of one setting.
+- **[[wiki/entities/salience-network.md]]** — the field's candidate answer to this page's arbitration question: a third system (anterior insula + dorsal anterior cingulate) whose salience detection is claimed to switch this network off and the frontoparietal one on by one mechanism, and which also supplies the intracranial-EEG evidence that the deactivation is neuronal.
+- **[[wiki/concepts/event-segmentation.md]]** — this network carries the boundary code: posterior cingulate patterns persist through a naturalistic stream and change at perceived boundaries, and the same code generalises to *internally* generated boundaries during unguided recall, which is the wiki's only evidence that one segmenter serves perceived and imagined streams alike.
+- **[[wiki/concepts/population-geometry.md]]** — the review's one copyable broadcast mechanism is geometric: a global fluctuation mode reaching every area within ~1 s in a subspace *orthogonal* to the one carrying sensory data, so broadcasting costs no sensory bandwidth.
 - **[[wiki/concepts/node-definition-problem.md]]** — the precuneus dispute is that problem in its most consequential form: whether a canonical network has a member depends on whether "precuneus" names area 7m or a region that includes areas 29/30.
