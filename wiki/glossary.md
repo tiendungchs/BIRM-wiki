@@ -157,7 +157,16 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | FID / FVD | Fréchet Inception / Video Distance | Distance between feature distributions of generated and real images / videos; the standard generative-fidelity metric |
 | PSNR | Peak Signal-to-Noise Ratio | Pixel-level reconstruction fidelity, in decibels |
 | A-CANN | Adaptive Continuous Attractor Neural Network | CANN plus a slow negative-feedback adaptation current `τ_v dV/dt = −V + mU`; `m > τ/τ_v` destabilises the bump into a travelling wave ([[wiki/entities/adaptive-cann.md]]) |
-| SFA | Spike-Frequency Adaptation | Slow activity-dependent hyperpolarising current that suppresses a neuron's own sustained firing; the adaptation substrate in A-CANN |
+| SFA | Spike-Frequency Adaptation | Slow activity-dependent process that lengthens a neuron's inter-spike interval under sustained drive — an intrinsic K⁺-mediated threshold rise, presynaptic vesicle depletion, or delayed feedback inhibition; destabiliser in A-CANN and TRNN, working-memory store in the LSNN/DEXAT line ([[wiki/concepts/spike-frequency-adaptation.md]]) |
+| ALIF | Adaptive-threshold Leaky Integrate-and-Fire | LIF plus one exponentially-decaying threshold variable that jumps at each output spike; the standard SFA neuron, and the model Loihi-2 implements natively |
+| DEXAT | Double EXponential Adaptive Threshold | ALIF with **two** threshold variables (`τ_b1 = 30 ms`, `τ_b2 = 300 ms`, weights `β_1, β_2`), which holds a 1200 ms working memory with time constants far shorter than the span (Shaban et al. 2021) |
+| AdEx | Adaptive Exponential integrate-and-fire | LIF with an exponential spike-onset term `Δ_T e^{(u−v_th)/Δ_T}` and adaptation *currents* `w_k` rather than an adaptive threshold |
+| GLIF | Generalized Leaky Integrate-and-Fire | The Allen Institute's five-model ladder (I–V) adding, in order: biologically fitted reset, after-spike Na⁺/K⁺ currents, both, and a subthreshold-voltage-induced threshold |
+| SRM | Spike Response Model | LIF generalised from coupled ODEs to filters — a refractory kernel `η`, a spike-response kernel `ε` and a current filter `k` — with refractoriness inside the model equation |
+| LSNN | Long Short-term memory Spiking Neural Network | Bellec et al.'s recurrent SNN whose adaptive-threshold module gives it LSTM-level sequential-MNIST and TIMIT performance |
+| NVM | Non-Volatile Memory | RRAM/PCM/CBRAM-class devices; their nonlinear conductance change is proposed as the threshold-adaptation mechanism itself, removing the capacitor ([[wiki/concepts/spike-frequency-adaptation.md]]) |
+| COTS | Commercial Off-The-Shelf | Here: existing neuromorphic chips whose primitive is a plain LIF neuron, so SFA has to be built from several compartments |
+| GSC | Google Speech Commands | Keyword-spotting benchmark; the standard temporal task for adaptive spiking neurons |
 | STD | Short-Term Depression | Activity-dependent depletion of releasable synaptic resources; the presynaptic alternative to SFA as an adaptation mechanism |
 | STP | Short-Term Plasticity | Activity-dependent, seconds-scale modulation of synaptic efficacy `u·x` (Tsodyks–Markram); facilitation `τ_f` and depression-recovery `τ_r`, with `τ_f > τ_r` producing a post-activity rebound ([[wiki/entities/stp-flickering-cann.md]]) |
 | LFP | Local Field Potential | The low-frequency extracellular signal from which theta phase and power are estimated |
