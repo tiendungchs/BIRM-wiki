@@ -81,6 +81,11 @@ This is the wiki's cheapest instance of G68 (everything is a proposer; nothing i
 | **OmniARC** (Barbadillo) | Qwen2.5-0.5B-Instruct | Pretrained on *multiple* program-induction tasks, then TTT; ensembled with program synthesis | 40% private (2nd place) |
 | **Bonnet & MacFarlane** | — | Search the *latent* space rather than the weights | Paper award, 3rd |
 
+**2025 update, on the harder benchmark** ([[wiki/entities/arc-agi-2.md]], Chollet et al. 2026). TTT is still what wins the open competition: NVARC took ARC Prize 2025 at **24.03%** on the ARC-AGI-2 private set at **$0.20/task**, building on the 2024 ARChitects stack with heavy synthetic data generation; MindsAI's TTT pipeline (test-time fine-tuning + augmentation ensembles + tokenizer dropout) took 3rd at 12.64%. Two facts worth separating out of that:
+
+- **The technique transfers across benchmark generations; its tuning does not.** The unmodified 2024 ARChitects system scored 56% on ARC-AGI-1 and **2.5%** on ARC-AGI-2. Their 2025 rebuild — a 2D-aware *masked-diffusion* language model with recursive self-refinement and perspective-based scoring — reached 16.53%.
+- **The technique is now one member of a family rather than the family** ([[wiki/concepts/refinement-loop.md]]): the same propose-and-check-per-task loop runs in symbolic program space, natural-language program space and chain-of-thought, and the zero-pretraining variants (TRM 7M parameters, CompressARC 76K) run it in weight space *from a random initialisation*, which makes "what is the pretrained library for?" an open question about this page's central framing rather than a settled one.
+
 The 0.5B result matters: OmniARC reaches 40% with a model three orders of magnitude smaller than a frontier system, under a 12-hour single-P100 budget with no internet. Whatever TTT buys is not bought with capacity.
 
 ---
@@ -108,3 +113,5 @@ The 0.5B result matters: OmniARC reaches 40% with a model three orders of magnit
 - **[[wiki/concepts/amortized-inference.md]]** — the reverse trade: amortisation compiles a search into a fast forward pass, TTT spends a training run to buy one forward pass' worth of answer, and the two set the same free parameter from opposite ends.
 - **[[wiki/entities/mlc.md]]** — the controlled alternative: meta-training over an episode distribution produces test-time adaptation *in activations*, with no gradient at test time, and reaches 100% on a comparable infer-the-latent-rule task — which makes "is the weight update necessary?" an answerable question.
 - **[[wiki/entities/transformer.md]]** — the substrate all reported instantiations run on, with the ARC-specific modification being 2D attention and 2D positional encodings rather than anything about the training loop.
+- **[[wiki/entities/arc-agi-2.md]]** — the re-authored benchmark where this technique still tops the open leaderboard (NVARC 24.03%, built on the 2024 ARChitects stack plus synthetic data), while the *unmodified* 2024 system scores 2.5% — so the technique transfers across benchmark generations and its tuning does not.
+- **[[wiki/concepts/refinement-loop.md]]** — the generalisation of this page: TTT is the weight-space instance of a per-task propose-and-check loop that also runs in symbolic program space, natural-language program space and chain-of-thought, with the substrate turning out to be the least important variable.

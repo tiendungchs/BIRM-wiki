@@ -266,10 +266,10 @@ One INGEST each:
 
 **Bundle — ARC-AGI 2.** One INGEST pass over all 4 files (~10487 words), in this order.
 
-- [ ] `arcprize-nd-arc-agi-2-overview.md` — arc-benchmarks · B · nd
-- [ ] `chollet-2025-arc-agi-2.md` — arc-benchmarks · B · 2025
-- [ ] `chollet-2025-arc-prize-report.md` — arc-benchmarks · S · 2025
-- [ ] `llmstats-2026-arc-agi-2-leaderboard.md` — arc-benchmarks · X · 2026
+- [x] `arcprize-nd-arc-agi-2-overview.md` — arc-benchmarks · B · nd
+- [x] `chollet-2025-arc-agi-2.md` — arc-benchmarks · B · 2025
+- [x] `chollet-2025-arc-prize-report.md` — arc-benchmarks · S · 2025
+- [x] `llmstats-2026-arc-agi-2-leaderboard.md` — arc-benchmarks · X · 2026
 
 **Bundle — ARC-AGI 3.** One INGEST pass over all 6 files (~16893 words), in this order.
 
