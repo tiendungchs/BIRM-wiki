@@ -175,6 +175,23 @@ Comparison here is not passive accumulation of feature statistics across example
 
 ---
 
+## Relational access is bought by uniform encoding, not by indices
+
+> **Provenance.** Forbus, Gentner & Law 1995 ([[wiki/entities/macfac.md]]). Why some people retrieve the structurally right schema and most people do not.
+
+Retrieval of a stored structure on relational grounds is rare in general (~.12 against ~.53 for surface matches) but rises reliably under two conditions, and the proposed cause is the same in both:
+
+| Condition | Evidence | Mechanism proposed |
+|---|---|---|
+| **Domain expertise** | experts retrieve structurally similar problems more often, and reject surface-similar ones faster (Novick 1988) | experts have a comprehensive domain theory, which promotes a **uniform relational vocabulary**; every item encoded with the same higher-order predicates shares index terms with every other |
+| **Intensive encoding** | comparing two prior analogs rather than reading them (Gick & Holyoak 1983; Catrambone & Holyoak 1987/89), writing out a proverb's meaning, studying themes before judging story pairs (Seifert et al. 1986), intensive LISP training (Faries & Reiser 1988) | the same: encoding operations that force explicit relational structure put those relations into the index for free |
+
+**The claim worth taking: an index that is *computed from* the representation updates automatically when the representation improves, so schema retrieval can be improved by changing how episodes are encoded rather than by building an indexing scheme.** With enough domain structure the behaviour converges on a case-based reasoner with rich hand-built indices, without anyone building indices. The failure route is the same mechanism run backwards — Bassok's finding that a verb's interpretation depends on the nouns attached to it means relational encodings are idiosyncratically tied to surface content, which is offered here as a *cause* of poor relational access rather than a separate defect, and it is the same result this page already records as G23's sharpest measurement (the **get** schema, 89% → 0%).
+
+This is a live disagreement with the case-based reasoning tradition, which buys relational access by indexing on themes and principles: [[wiki/empirical-tensions.md]] T199.
+
+---
+
 ## Open problems
 
 - **No arbitration between integration and separation** (above). Both are prefrontal, both are triggered by conflict, and nothing predicts which fires.
@@ -209,4 +226,4 @@ Comparison here is not passive accumulation of feature statistics across example
 - **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — supplies the cargo type on the channel: the hippocampal long axis is a generality gradient and the controller is wired only to its general end, so what crosses the edge is what all events of a context share rather than an event.
 - **[[wiki/concepts/analogical-mapping.md]]** — the slot-filling mechanism assimilation assumes: mapping binds the current situation's elements to the schema's roles by similarity of role-augmented codes, and copy-with-substitution-and-generation is what the schema then projects onto the new instance, including inventing entities the instance does not yet have.
 - **[[wiki/entities/lisa.md]]** — the only mechanism in the wiki that produces a schema *as an operation* rather than as a consolidation outcome: intersection discovery over a completed analogical mapping, running inside a working-memory budget of two to three propositions.
-- **[[wiki/entities/macfac.md]]** — the retrieval step that decides *which* schema gets assimilated, measured and found structure-blind: humans retrieve mere-appearance matches at .53 against .12 for true analogies and then rate the very matches that came to mind as unsound, so assimilation is routinely triggered by shared object attributes with no shared relational structure.
+- **[[wiki/entities/macfac.md]]** *(also)* — supplies this page's account of why relational retrieval improves with expertise and with intensive encoding: the index is computed from the representation, so uniform relational encoding *is* a good index, and no separate indexing machinery is built. Followed by: the retrieval step that decides *which* schema gets assimilated, measured and found structure-blind: humans retrieve mere-appearance matches at .53 against .12 for true analogies and then rate the very matches that came to mind as unsound, so assimilation is routinely triggered by shared object attributes with no shared relational structure.
