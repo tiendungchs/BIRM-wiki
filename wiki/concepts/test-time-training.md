@@ -2,7 +2,7 @@
 
 **Fine-tune the model's own weights on the demonstration pairs of the single instance being solved, producing a different model for every task, then read the answer straight out of that model — adaptation as a weight update at inference rather than as a search over programs.**
 
-> **Provenance.** Chollet, Knoop, Kamradt & Landers 2024, *ARC Prize 2024: Technical Report* (`raw/chollet-2024-arc-prize-report.md`), which surveys the technique across the 2024 competition; the primary implementations (Akyürek et al., the ARChitects, MindsAI, Barbadillo, Bonnet & MacFarlane) are **secondary here** — reported, not read at source. Also called test-time fine-tuning (TTFT). First observed on ARC by Jack Cole and Mohamed Osman in 2023.
+> **Provenance.** Chollet, Knoop, Kamradt & Landers 2024, *ARC Prize 2024: Technical Report* (`raw/chollet-2024-arc-prize-report.md`), which surveys the technique across the 2024 competition; the primary implementations (Akyürek et al., MindsAI, Barbadillo, Bonnet & MacFarlane) are **secondary here** — reported, not read at source. The ARChitects are the exception: read at source in Franzen, Disselhoff & Hartmann 2025 ([[wiki/entities/poe-arc-solver.md]], `raw/franzen-2025-product-of-experts-arc.md`). Also called test-time fine-tuning (TTFT). First observed on ARC by Jack Cole and Mohamed Osman in 2023.
 
 The wiki's fast-level ([[wiki/concepts/complementary-learning-systems.md]]) written into *weights at deployment*, with no outer loop that trained for it — which is what distinguishes it from [[wiki/concepts/meta-learning.md]] and is the reason it is worth a page.
 
@@ -69,13 +69,17 @@ The ARChitects' contribution is not the fine-tuning but the **selection criterio
 
 This is the wiki's cheapest instance of G68 (everything is a proposer; nothing is a rejector) on this benchmark, and its acceptance test is *not* the generator: the invariance group is supplied from outside, so a model that is confidently wrong in one frame is caught by a frame it did not expect. It is the same move [[wiki/entities/corethink-compositional-reasoner.md]] measures as consensus across demonstrations and [[wiki/entities/arc-vsa-solver.md]] measures as cross-demonstration reuse — three different populations to agree over (augmented frames, demonstrations, samples), one mechanism.
 
+**Read at source, the criterion is sharper than "keep what agrees"** ([[wiki/entities/poe-arc-solver.md]], Franzen et al. 2025). It is a *product* of the candidate's likelihoods under all 16 augmentations — log-linear pooling, `P̄(s) = (1/Z)∏_j [P̂(φ_j(s)|φ_j(p))]^{1/m}` — and the aggregator is not a free choice: on the same candidate set, `max` scores 63.5%, the mean 66.6%, `min` 68.8%, the product **71.6%**. The two rules that let one dissenting view *veto* are the two that win, and believing the most confident view is the worst rule available. The accompanying theorem, `KL(P‖P̄) = (1/m)Σ_j KL(P‖P̂_j) + log Z` with `log Z ≤ 0`, says the ensemble beats a randomly chosen single view *by exactly the amount the views disagree* — so cross-view inconsistency, which is a defect of the learned `P̂`, is the resource the selector runs on. Its stated cause is the autoregressive factorization: the decoder commits to the first cell before computing what determines it, and re-reading the answer in a permuted frame changes which commitment is being tested.
+
+The ablation ladder on ARC-AGI-1 public eval (NeMo-Minitron-8B) also prices the fine-tuning against the machinery around it: baseline 18.3% → **+TTT 44.5%** → +16 augmented frames 62.5% → +product-of-experts selection 67.6% → +threshold DFS search **71.6%**. Test-time training is the single largest component (+26.2) and is still under 40% of the final score; the rest is inference-time machinery over a frozen prior.
+
 ---
 
 ## Instantiations (ARC Prize 2024, as reported)
 
 | System | Base model | What is distinctive | Score |
 |---|---|---|---|
-| **the ARChitects** | NeMo-Minitron-8B | Novel augmentations + stability-under-augmentation selection | 53.5% private (1st place) |
+| **the ARChitects** ([[wiki/entities/poe-arc-solver.md]]) | NeMo-Minitron-8B, 64-token vocabulary | Novel augmentations + product-of-experts selection over them + threshold DFS candidate generation | 53.5% private (1st place); **71.6% public eval** post-competition at $0.02/task |
 | **MindsAI** | Salesforce T5 series, pretrained on public eval + synthetic | Pioneered TTT on ARC (2023); not open-sourced, hence ineligible | 55.5% private (highest of 2024) |
 | **Akyürek et al.** | 8B parameters | The technique's reference paper | 47.5% semi-private · 53% public eval |
 | **OmniARC** (Barbadillo) | Qwen2.5-0.5B-Instruct | Pretrained on *multiple* program-induction tasks, then TTT; ensembled with program synthesis | 40% private (2nd place) |
@@ -115,3 +119,4 @@ The 0.5B result matters: OmniARC reaches 40% with a model three orders of magnit
 - **[[wiki/entities/transformer.md]]** — the substrate all reported instantiations run on, with the ARC-specific modification being 2D attention and 2D positional encodings rather than anything about the training loop.
 - **[[wiki/entities/arc-agi-2.md]]** — the re-authored benchmark where this technique still tops the open leaderboard (NVARC 24.03%, built on the 2024 ARChitects stack plus synthetic data), while the *unmodified* 2024 system scores 2.5% — so the technique transfers across benchmark generations and its tuning does not.
 - **[[wiki/concepts/refinement-loop.md]]** — the generalisation of this page: TTT is the weight-space instance of a per-task propose-and-check loop that also runs in symbolic program space, natural-language program space and chain-of-thought, with the substrate turning out to be the least important variable.
+- **[[wiki/entities/poe-arc-solver.md]]** — the primary source for this page's top-scoring instantiation: the same TTT recipe with the selection step specified exactly (product of augmented likelihoods, with a proof), reaching 71.6% on ARC-AGI-1 public eval at $0.02/task, and 53% on Sudoku *without* TTT — which shows the weight update buys nothing when the rule is shared across instances rather than latent in each one.

@@ -72,6 +72,24 @@ The survey is unusually careful about its own thesis, and two of its negative re
 
 ---
 
+## A rung the ladder was missing: consistency across *problem representations*
+
+[[wiki/entities/poe-arc-solver.md]] (Franzen et al. 2025) adds a rung between majority vote and execution, and it is the cheapest one in the wiki that is not the generator's own confidence:
+
+| Rung | Artifact checked | Signal returned | Cost | Failure it cannot catch |
+|---|---|---|---|---|
+| **Invariance pooling** | One candidate answer, re-read under `m` transformations of the *problem* that provably preserve the solution | Product of `m` likelihoods; one dissenting view vetoes | `m` forward passes per candidate; no second model, no labels | A rule the invariance group does not actually hold for — the veto then rejects the truth |
+
+Why it sits above majority vote: the samples do not merely happen to differ, they are *forced* to differ by a group action the model did not choose, and the acceptance criterion (`P(s|p) = P(φ(s)|φ(p))`) comes from outside the training objective. The accompanying theorem — `KL(P‖P̄) = (1/m)Σ_j KL(P‖P̂_j) + log Z`, `log Z ≤ 0` — makes the ladder's usual intuition precise for this rung: the pooled estimator beats a random single view *by the amount the views disagree*, so the checker's power comes from the generator's own inconsistency.
+
+**Two measurements from that source belong to this page more than to it.**
+
+- **The verifier's power is a property of the domain, not of the verifier.** The identical pooling rule selects the correct answer **100%** of the time it is present on Sudoku, and about **86%** of the time on ARC (71.6 of 83.5 points of coverage). Sudoku has a local consistency law that a wrong grid visibly violates from most views; ARC has none. This is the sharpest instance in the wiki of the page's opening claim read in reverse — the ladder is not a ranking of *checkers*, it is a ranking of *how much of the derivation the domain exposes*.
+- **The rejector, not the proposer, is binding — measured inside one system.** Lowering the candidate-generation threshold from `T=9%` to `T=0.5%` raises the fraction of tasks whose candidate set *contains* the right answer from 76.0% to 83.5% and raises the final score from 71.6% to 71.8%, at 6.5× total runtime. **+7.5 points of coverage buys +0.2 points of score.** Every further point of generator quality is wasted until the selector improves, which is G68's premise as a within-system ablation rather than as an argument — and a point on T204's unmeasured budget/score curve.
+- **Aggregator choice is worth 8.1 points on a fixed candidate set**: `max` 63.5% < mean 66.6% < `min` 68.8% < product 71.6%. The rules that allow a veto beat the rules that average, and trusting the most confident view is the worst rule available — a caution for every majority-vote and reward-model rung above, all of which are averaging rules.
+
+---
+
 ## What a builder should take
 
 1. **The verifier is a first-class architectural component, not an evaluation harness.** The survey's era table reads as: hand-coded schemata → equation templates → supervised expression generation → chain-of-thought → interpreters → debate → RLVR → kernels, with each row's *bottleneck* being what the next row's constraint eliminates. Nothing in that sequence is a better generator.
@@ -89,6 +107,7 @@ The survey is unusually careful about its own thesis, and two of its negative re
 - **What allocates the inference budget?** Adaptive test-time compute is named as the open control problem and no source in the wiki supplies a policy. Note it is the same question as [[wiki/concepts/amortized-inference.md]]'s "how many refinement steps does the cached guess buy" — asked of a *rejection* loop rather than a relaxation.
 - **Does verification survive removal?** No experiment in the survey trains with a verifier and then measures the policy alone against a matched policy trained without one, holding the sample budget fixed — which is what T180 needs to close.
 - **Every rung assumes a rejected candidate is free.** The ladder ranks acceptance tests by how many bits a rejection returns and never by what the rejection *costs*. Where an attempt is irreversible — a physical action, a one-shot decision, an experiment that consumes its subject — the whole ladder is unavailable, and the standard escape (simulate, then act) requires a model good enough to have framed the domain already, i.e. it is available only where the competence exists (Pfister & Jud 2025, [[wiki/concepts/problem-framing.md]], gap G74).
+- **Who validates the invariance group?** The pooling rung's guarantee is conditional on every transformation being solution-preserving, and no system in the wiki tests that per task — a colour permutation is invalid exactly on the counting and "green means go" tasks, and the veto then rejects the correct answer with no way to notice.
 - **Nothing scores partial progress on a non-verifiable domain.** Every rung above outcome assumes the artifact decomposes into checkable steps. For perception, motor skill, or open-ended world modelling, no analogue of a step-level label exists.
 - **The instrument the robustness debate needs is a causal intervention on intermediate steps.** Named by the survey, not built by it; it would also settle whether a chain of thought is a computation or a narration of one.
 
@@ -118,3 +137,4 @@ The survey is unusually careful about its own thesis, and two of its negative re
 - **[[wiki/concepts/refinement-loop.md]]** — the ladder's rungs consumed inside a per-task optimisation trajectory rather than at the end of one: a refinement loop is exactly a proposer plus an acceptance test that returns a *direction* rather than a bit, and "a verifiable feedback signal" is one of the two conditions the ARC Prize 2025 report gives for a domain being automatable with no new science.
 - **[[wiki/entities/arc-agi-2.md]]** — the largest measured value of an acceptance test in the wiki: an application-layer harness around a *frozen* Gemini 3 Pro moves the score 31% → 54% at 38× cost, and the same source's 0-verified/13-self-reported leaderboard discrepancy (T206) is this page's protocol complaint reappearing outside mathematics.
 - **[[wiki/entities/arc-agi-3.md]]** — the control condition for this page: a benchmark that deliberately removes the verifiable signal, giving only a terminal `WIN`/`GAME_OVER` after an unknown number of actions, so no candidate can be accepted or rejected mid-trajectory — and frontier models score below 1% where the same models exceed 30% on the verifiable static version.
+- **[[wiki/entities/poe-arc-solver.md]]** — supplies the invariance-pooling rung above with a proof, the aggregator ordering (`∏ > min > mean > max`, 8.1 points on a fixed candidate set), the domain-dependence result (100% selection on Sudoku vs ~86% on ARC with the same rule), and the wiki's cleanest within-system evidence that the selector is the binding constraint (+7.5 points of coverage → +0.2 points of score).

@@ -88,6 +88,7 @@ The "no large-sample human data" limitation Chollet listed in 2019 is partly clo
 | 2020, post-hoc | *49%* solved by at least one entry | Ensembling all 2020 submissions — see Flaws below |
 | 2021–2023 | 33% | Improved DSLs (notably Hodel's). Advent of GPT-3/3.5/4 changed nothing |
 | 2024 (ARC Prize) | **55.5%** (MindsAI, not open-sourced) · 53.5% (ARChitects, 1st place) | Test-time training; LLM-guided program synthesis; ensembles of both |
+| 2025 | **71.6%** public eval, open weights ([[wiki/entities/poe-arc-solver.md]]) at **$0.02/task** | The 2024 winner rebuilt: TTT + DFS candidate enumeration + product-of-experts selection over 16 augmentations. Above the 60.2% average human, below o3's 82.8% at $17/task |
 | Dec 2024 | 75% (low compute) → **87.5%** (high compute) on semi-private, o3-preview `(tentative — vendor-reported)` | The first Large Reasoning Model. ARC-AGI-1 was the benchmark that isolated the arrival of test-time reasoning |
 
 **The interpretive claim the report makes, and it is the one worth carrying:** ARC-AGI-1 stayed near-flat through a **~50,000× scale-up of LLM pretraining**. If a benchmark's score is insensitive to four orders of magnitude of the field's dominant lever, either the benchmark measures nothing or the lever does not touch what it measures — and every other benchmark of the period moved. This is [[wiki/concepts/skill-acquisition-efficiency.md]]'s unlimited-experience channel closed empirically rather than by argument.
@@ -103,7 +104,7 @@ Three families, and the report's finding is that the first two are complementary
 | **Brute-force DSL search** | Exhaustive enumeration over a hand-built DSL | 40% private (alijs), still competitive in 2024 |
 | **LLM-powered program generation** | Prompt an LLM for thousands of candidate Python programs per task, run them on the demonstration pairs, keep what fits; iteratively debug near-misses (Greenblatt, GPT-4o) | 42–43% |
 | **LLM-guided DSL search** | Use the LLM to prune/steer branching inside a DSL rather than to emit whole programs (Ouellette) | Paper award |
-| **Test-time training (transduction)** | Fine-tune on the task's own demonstration pairs, predict the output grid directly | 53.5–55.5% |
+| **Test-time training (transduction)** | Fine-tune on the task's own demonstration pairs, predict the output grid directly | 53.5–55.5% private; **71.6% public eval** ([[wiki/entities/poe-arc-solver.md]], 2025) |
 | **Ensemble of induction + transduction** | Both, union of solutions | **Every** 2024 top score |
 
 Two facts constrain any solver design here:
@@ -236,3 +237,4 @@ The column that matters is the first: it is the only one no benchmark before ARC
 - **[[wiki/concepts/problem-framing.md]]** — the sharpest external critique of this benchmark's format: the transformation-from-Core-Knowledge-operations representation is identical across all 1,000 tasks and demonstration pairs make every candidate free to test, so a high score is evidence about search within a supplied representation and about nothing upstream of it (Pfister & Jud 2025).
 - **[[wiki/entities/raven.md]]** — the multiple-choice benchmark this page's from-scratch output design was aimed at, with the measurement that vindicates it (attribute-wise majority vote over RAVEN's candidate set alone exceeds the human baseline), plus the same concept-variation instrument run here: ARC-Kaggle2 at 19% overall moves to 29% on *top/bottom* and 8% on *boundary*, so the benchmark number is a mean over a concept mixture and per-concept coverage is unmeasured (Odouard & Mitchell 2022).
 - **[[wiki/entities/conceptarc.md]]** — this benchmark's own concepts re-authored as 16 groups of 10 variations each, which converts a task count into per-concept coverage and supplies the measurement this page's difficulty was hiding: the two Kaggle winners, 21% and 19% here and therefore indistinguishable, sit 23 percentage points apart there (Moskvichev et al. 2023).
+- **[[wiki/entities/poe-arc-solver.md]]** — the highest open-weights score on this benchmark (71.6% public eval, above the 60.2% average human) at $0.02/task, and the primary source for the 2024 first-place team whose method this page had only second-hand; it also supplies the benchmark's sharpest cost comparison, 850× cheaper than o3 for 11.2 fewer points.
