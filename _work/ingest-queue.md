@@ -284,7 +284,7 @@ One INGEST each:
 
 - [x] `odouard-2022-conceptual-abstraction-benchmarks.md` — arc-benchmarks · F · 2022
 - [x] `pfister-2025-o3-is-not-agi.md` — arc-benchmarks · F · 2025
-- [ ] `moskvichev-2023-conceptarc-benchmark.md` — arc-benchmarks · B · 2023
+- [x] `moskvichev-2023-conceptarc-benchmark.md` — arc-benchmarks · B · 2023
 - [ ] `franzen-2025-product-of-experts-arc.md` — arc-benchmarks · M · 2025
 - [ ] `johnson-2021-human-program-induction-arc.md` — arc-benchmarks · R · 2021
 - [ ] `beger-2025-conceptarc-abstract-reasoning-modalities.md` — arc-benchmarks · R · 2025

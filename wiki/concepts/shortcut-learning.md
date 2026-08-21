@@ -129,6 +129,17 @@ The last family is the instrument the wiki actually needs: a *controlled* shortc
 | SCL on RAVEN | 89% | 62% · 68% |
 | ARC-Kaggle2 on ARC | 19% | **29%** (top/bottom, 14 tasks) · 8% (boundary, 12) |
 
+**The instrument at benchmark scale, with the missing baseline collected** (Moskvichev, Odouard & Mitchell 2023, [[wiki/entities/conceptarc.md]]): 16 concept groups × 10 variations × 3 test inputs in the ARC format, authored to be *easy*, plus 415 human participants.
+
+| System | Mean per-concept accuracy | Range across the 16 concepts |
+|---|---|---|
+| Humans (415 participants, 8–14 per test input) | ~0.91 | 0.83 – 0.97 |
+| ARC-Kaggle 1st place (21% on ARC's hidden set) | ~0.51 | 0.23 – 0.77 |
+| ARC-Kaggle 2nd place (19% on ARC's hidden set) | ~0.28 | 0.03 – 0.57 |
+| GPT-4, zero-shot, grids as text | ~0.19 | 0.03 – 0.33 |
+
+Three further findings, each of which is about the *instrument* rather than the solvers. **(a)** Two programs indistinguishable on the parent benchmark (21% vs 19%) are 23 points apart here — a benchmark hard enough to floor everything destroys the rank order it exists to produce, so the diagnostic regime is the one where humans are at ceiling and machines are not. **(b)** Concept difficulty does not transfer across solvers (the first-place program's best concept, *Extend To Boundary* at 0.77, is GPT-4's worst at 0.07), so a per-concept profile is a property of the (solver, concept) pair and cannot be summarised by an ordering of concepts. **(c)** The clause "(iii)" below is now half-closed: the human baseline exists, and the exclusion protocol needed to get it (67 of 482 participants dropped for failed attention checks or nonsensical explanations, because faking failure was faster than solving) is itself a warning that unfiltered crowd baselines on constructed-answer benchmarks are biased downward.
+
 Three things this adds that no other row here supplies. **(i)** It is *not* a harder test set: the ARC program went up on one concept and down by more than half on the other, so a benchmark score is a mean over a concept mixture whose per-concept variance is unmeasured, and the per-concept number is the one that says which structure is held. **(ii)** It needs no distribution-shift design, no generator, and no labels beyond the items themselves — the concept inventory does all the work, which is why it runs on a hand-authored benchmark like ARC where every automated shift procedure is unavailable. **(iii)** Its weakness is the mirror of its cheapness and is the same one this page charges elsewhere: the variations are authored by hand, no human baseline was collected on them, and 12–210 items per concept is small — so the score is against the variation-author's notion of the concept, and the developer-blindness problem is inherited whole.
 
 ---
@@ -217,3 +228,4 @@ Three things this adds that no other row here supplies. **(i)** It is *not* a ha
 - **[[wiki/entities/arc-agi-2.md]]** — a contamination mode this page's literature does not cover: not a spurious feature inside the data but a *distributional* overlap between a public training set and a private test set, which no held-out protocol detects because the held-out protocol is what guarantees it ([[wiki/empirical-tensions.md]] T207).
 - **[[wiki/entities/arc-agi-3.md]]** — shortcuts answered by *reporting policy* instead of by data design: the authors open-source a replay-driven harness that scores 100% on the public environments in order to make public scores unreportable, and refuse harnesses and tools on the official leaderboard after measuring that a harness taking one environment class from 0% to 97.1% moves an unseen environment by 0.0 points.
 - **[[wiki/entities/raven.md]]** — supplies this page's ninth instrument (concept-based evaluation: hold the concept, vary the instantiation, read the drop) and a benchmark-side shortcut worth more than the human baseline, since RAVEN's distractors were built by perturbing one attribute of the correct answer, making attribute-wise majority vote over the *candidate set alone* worth >90% (Odouard & Mitchell 2022).
+- **[[wiki/entities/conceptarc.md]]** — the ninth instrument turned into a standing benchmark (16 concepts × 10 variations × 3 test inputs, 415 participants), which closes the "no human baseline" caveat above and adds the design rule the instrument implies: authored variations only discriminate where the benchmark is *easy* enough that humans sit at ceiling.
