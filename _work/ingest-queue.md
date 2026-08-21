@@ -362,7 +362,7 @@ One INGEST each:
 - [x] `shine-2016-integrated-network-states-cognition.md` — brain-networks · R · 2016
 - [x] `schirner-2023-network-structure-decision-making.md` — brain-networks · R · 2023
 - [x] `vohryzek-2024-long-range-connections-brain-dynamics.md` — brain-networks · R · 2024
-- [ ] `koller-2024-connectome-traveling-waves.md` — brain-networks · R · 2024
+- [x] `koller-2024-connectome-traveling-waves.md` — brain-networks · R · 2024
 - [ ] `alderson-2026-connectome-dynamics-timescales.md` — brain-networks · R · 2026
 - [ ] `talk-nd-small-world-graphs.txt` — brain-networks · X · nd
 - [ ] `beer-2007-default-self.md` — default-mode · S · 2007

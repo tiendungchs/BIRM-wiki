@@ -396,6 +396,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | α7 nAChR | alpha-7 nicotinic Acetylcholine Receptor | Nicotinic receptor located directly on prefrontal spines beside the NMDA synapse; an agonist partially rescues ketamine-induced working-memory deficits |
 | PKA / PKC | Protein Kinase A / C | A transduces cAMP (opens KCNQ); C is driven by Ca²⁺ and α1 adrenergic signalling under stress and is implicated in dendritic spine loss |
 | MEG | Magnetoencephalography | |
+| ECoG | ElectroCorticoGraphy | Electrodes on the cortical surface; the modality most large-scale travelling-wave observations come from, and the one whose alpha wave directions match connectome instrength gradients ([[wiki/concepts/cortical-traveling-waves.md]]) |
+| PLV / PLI | Phase-Locking Value / Phase-Lag Index | Two phase-based functional connectivity measures: PLV counts all consistent phase relations *including* zero-lag (so it is inflated by volume conduction), PLI discards zero-lag entirely (so it also discards genuine zero-lag coupling). Reporting both brackets the volume-conduction artefact ([[wiki/concepts/cortical-traveling-waves.md]]) |
+| IF / EF | Intrinsic / Effective Frequency | The frequency an oscillatory unit shows when *disconnected* versus when *embedded in the network*; only EF is measurable in humans, and instrength suppresses it ([[wiki/concepts/cortical-traveling-waves.md]]) |
+| NMF | Non-negative Matrix Factorisation | Decomposition into non-negative components and loadings; the non-negativity is what lets components be read as additive *sub*networks of a connectome rather than as signed contrasts |
+| CCC | Concordance Correlation Coefficient | Agreement measure that penalises both decorrelation and magnitude mismatch (1 = identical, 0 = unrelated); used where a correlation alone would ignore that two maps are on different scales |
 | MTL | Medial Temporal Lobe | Hippocampus and surrounding cortex |
 | TCM | Temporal Context Model | Howard & Kahana's drifting-context model of episodic recall, extended to the entorhinal place code ([[wiki/entities/temporal-context-model.md]]) |
 | CRP | Conditional Response Probability | Probability of recalling an item at lag `+k`/`−k` from the one just recalled; the standard measure of temporal contiguity in free recall |
