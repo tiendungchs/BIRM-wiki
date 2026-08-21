@@ -142,6 +142,35 @@ Every row in the evidence tables above is correlational except the mouse feedbac
 
 ---
 
+## The adversarial test, and the framework's reply
+
+> **Third source (262nd ingest).** Naccache, Sergent, Dehaene, Wang, Farisco & Changeux 2025, *GNW theoretical framework and the "adversarial testing of global neuronal workspace and integrated information theories of consciousness"*, Neurosci Conscious 2025(1):niaf037 (`raw/naccache-2025-gnw-adversarial-testing.md`). A commentary — **no new data** — written by the framework's authors in reply to the COGITATE consortium's preregistered adversarial collaboration (Cogitate et al. 2025, Nature; fMRI + MEG + iEEG, GNW vs IIT). This is the collaboration the 2020 review announced as "underway". Read the concessions and the *reasons given* for the failures; the verdict is self-assessed.
+
+**What the adversarial test confirmed** — non-trivial, and the first multicentre preregistered support the framework has:
+
+| Prediction | Outcome as reported here |
+|---|---|
+| Transient ignition after stimulus onset, 200–800 ms | Observed |
+| Ignition is **independent of stimulus duration** | Observed (500 / 1000 / 1500 ms) |
+| Ignition is **independent of task relevance** | Observed on task-irrelevant non-target stimuli, i.e. under no-report conditions |
+| Conscious content decodable in visual, ventrotemporal **and inferior frontal** cortex, with sustained responses | Observed, with **content-specific synchronisation between frontal and early visual areas** — the broadcast claim measured as a channel, not just as a frontal activation |
+
+**What it failed, and the reply's three moves.** Each is a different kind of defence and they should not be scored alike:
+
+| Reported failure | Reply | Kind of move |
+|---|---|---|
+| No second ignition at stimulus **offset**, which the collaboration's formalisation of the theory had drawn as a core prediction | Offset ignition is predicted **only if the participant consciously attends the offset**, and no simulation (1998–2011) or recording ever produced one. With long, variable-duration, task-irrelevant stimuli there was no reason to attend the offset | **Deflection with a check**: the claim is auditable against the framework's own published simulations, and the reply names the condition that would make the null count — enforce awareness of the offset, then look |
+| Stimulus **category and orientation could not be decoded from prefrontal cortex** — the collaboration's "key challenge" | The asymmetry is a property of the **read-out**, not of the content: visual areas have mesoscopic columnar organisation (neighbouring cells share selectivity), prefrontal cortex has no strong columnar organisation and **mixed selectivity** instead (Wang 2022). Field-potential-scale instruments (fMRI, MEG, iEEG) average over the mixture. Counter-point with teeth: decoding from visual areas succeeds **even for non-conscious stimuli** (Dehaene et al. 2001; Salti et al. 2015; King et al. 2016), so the posterior decoding read as positive evidence for IIT may index non-conscious processing. Proposed fix: single-cell-resolution recording (Neuropixels) | **Instrumental**, and it cuts both ways — it disarms the negative prefrontal result *and* the positive posterior one. Logged as T272 |
+| Transient "silent states" — gaps in the decoding of an ongoing stimulus | The framework predicts a content is decodable from workspace areas **exactly as long as it occupies the workspace**; long monotonic task-irrelevant stimuli make lapses of awareness likely, and no subjective reports were collected, so occupancy is unknown | **Unfalsifiable as stated** — with no report, any decoding gap can be attributed to a lapse and any decoding to occupancy. The framework's no-report paradigm and its explicit-encoding claim are in tension: the first removes the only measurement that could license the second |
+
+**(brainstorm) The one architectural fact under the offset dispute.** The reply's position is that the commit fires on **change in attended content**, not on change in the input. Those coincide at onset (a new stimulus captures attention) and come apart at offset (nothing new arrives; the old content merely stops being supported). A machine event-segmenter built on input change would emit two boundaries per stimulus; one built on workspace occupancy emits one, and emits a second only when something else wins the bus. This is a testable difference between the two candidate step-boundary generators in [[wiki/concepts/event-segmentation.md]], and the reply commits the framework to the second. Logged as T271.
+
+**The molecular grounding, offered as the framework's distinguishing asset.** Allosteric transitions of postsynaptic receptors, balanced excitatory/inhibitory receptors, the AMPA/NMDA ratio, hierarchical reward and vigilance modulation, and spontaneous activity as the driver of ignition (Dehaene & Changeux 2005). The claim is that this makes the theory testable in animals and in pathology in a way a purely mathematical rival is not. **It also updates this page's harshest limitation row**: the 2020 review conceded nothing had been "implemented in an actual computational device"; two formal models are now cited (Volzhenin et al. 2022; Klatzmann et al. 2025), neither read here.
+
+**The methodological demand, which is the part worth importing.** Adversarial testing should confront the **"formal organisms"** — run each theory's simulation on the same behavioural task and compare outcomes — rather than compare each theory's verbal predictions against one shared dataset. The wiki's version of this complaint: a theory that is only ever fit to neural recordings can absorb a null by renaming a prediction, and the three moves tabulated above are exactly that failure mode in its mild form. A theory that has to *pass the task* cannot.
+
+---
+
 ## Connections
 
 - **[[wiki/concepts/ignition.md]]** — the mechanism this framework is built on, extracted as a reusable primitive: the non-linear all-or-none admission gate, its ~300 ms latency, its AMPA/NMDA two-stage structure, and its identity with a signal-detection threshold.
@@ -164,4 +193,5 @@ Every row in the evidence tables above is correlational except the mouse feedbac
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the workspace is the framework's answer to the *navigation* half: Raven's matrices solved by a serial sequence of attentional operations over distributed representations, each step's result broadcast so the next can use it.
 - **[[wiki/concepts/perturbation-elicitability.md]]** — the causal test this framework has not passed: intracranial stimulation of lateral and anterior prefrontal cortex yields the lowest rate of reportable content change in the entire brain (0% at the frontal pole against ~67% in unimodal cortex), and the rare prefrontal effects insert new content rather than perturbing the ongoing percept the workspace is supposed to be holding.
 - **[[wiki/entities/integrated-world-modeling-theory.md]]** — the framework that accepts this one and constrains it: broadcast is kept wholesale, workspace occupancy is given a computational identity (the MAP estimate of a converged loopy posterior over coupled latents), and sufficiency is denied — integration and availability do not make a world model without spatial, temporal and causal coherence for an embodied controller.
+- **[[wiki/concepts/population-geometry.md]]** — the read-out argument that both rescues and costs this framework: prefrontal mixed selectivity is cancelled by field-scale instruments while columnar visual cortex is legible to them even for non-conscious stimuli, so neither the failed prefrontal decoding nor the successful posterior decoding says what the adversarial collaboration read into it ([[wiki/empirical-tensions.md]] T272).
 - **[[wiki/concepts/loopy-belief-propagation.md]]** — what the bus is claimed to be carrying: the broadcast content becomes the argmax of an approximate joint posterior computed by iterated message passing across chained autoencoder bottlenecks, which supplies the *why now* this framework leaves as a free threshold.

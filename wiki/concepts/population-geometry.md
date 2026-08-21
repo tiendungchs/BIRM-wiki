@@ -287,6 +287,21 @@ Three consequences for this page. (i) `S_straight` is a cheap, label-free geomet
 
 ---
 
+## Geometry decides what an instrument can see — and it differs by region
+
+> Naccache et al. 2025, Neurosci Conscious 2025(1):niaf037 (`raw/naccache-2025-gnw-adversarial-testing.md`), arguing against a null result in the COGITATE adversarial collaboration. Commentary, no new data.
+
+| Region | Code geometry | Consequence for a field-scale decoder (fMRI / MEG / iEEG) |
+|---|---|---|
+| Visual, ventrotemporal | **Mesoscopic columnar organisation** — neighbouring cells share selectivity | Selectivity survives spatial averaging; decoding is easy, and succeeds **even for non-consciously processed stimuli** (Dehaene et al. 2001; Salti et al. 2015; King et al. 2016) |
+| Prefrontal | **No strong columnar organisation; mixed selectivity** (Wang 2022) — neighbours prefer different conjunctions | Averaging over a mixture cancels; decoding fails whether or not the content is present. Fix requires single-cell resolution (Neuropixels-class) |
+
+**The general form, and it applies to every decoding claim on this page.** A linear probe on a pooled signal measures `(code geometry) × (spatial arrangement of the units) × (instrument's averaging kernel)`. Only the first is about content. A code that is *clustered by selectivity* is legible to any coarse instrument; a code that is *mixed at the single-unit scale* — the exact geometry this page argues is computationally desirable, because it makes arbitrary variable combinations linearly separable (the mixed-selectivity sections above) — is close to invisible to one. **So the properties that make a population a good substrate for flexible read-out make it a bad substrate for external read-out.** The failure is one-sided: a decoding *success* still licenses the content claim, a decoding *failure* at coarse scale licenses nothing.
+
+**(brainstorm) The machine-side inversion.** In an artificial system the instrument is not coarse — every unit is observable — so this confound is optional rather than forced. It reappears only where the analysis introduces it: probing a pooled/averaged layer, comparing regions with different unit counts, or reading a mixture through a low-rank adapter. The transferable rule is that **a negative interpretability result must state its averaging kernel**, and that two regions of a model can only be compared for "content" if their codes have comparable clustering — which is measurable (participation ratio, spatial autocorrelation of tuning) and almost never reported. Logged as [[wiki/empirical-tensions.md]] T272.
+
+---
+
 ## Open problems
 
 - **One manifold, one task.** Nothing here says how the manifolds for two tasks relate, whether they share dimensions, or what happens on the transition. That is G40's reuse question and this paper does not touch it.
@@ -330,6 +345,8 @@ Three consequences for this page. (i) `S_straight` is a cheap, label-free geomet
 - **[[wiki/entities/adaptive-cann.md]]** — dimensionality reduction derived rather than measured: projecting a bump-carrying network onto its first two motion modes (height and position) turns `2N` neurons into a 4-D state space that preserves the bifurcation structure, which is what the empirical low-dimensional manifolds on this page would look like if their generating dynamics were known.
 - **[[wiki/entities/fcann.md]]** — the case where the dynamics beat the description: attractor states of a connectome-derived Hopfield network explain more held-out fMRI variance (`R² = 0.396`) than the first two principal components fitted to the data itself (0.364), so the low-dimensional geometry is recovered from the *coupling matrix* rather than from the activity it produces.
 - **[[wiki/concepts/sparse-distributed-representations.md]]** — the regime this page's low-dimensional manifolds trade against: recognition-by-subsampling needs error rates that fall superexponentially in dimension and fails outright on dense codes, so a population optimised for cheap abstraction is by construction not the one optimised for cheap identification (T50).
+- **[[wiki/concepts/ignition.md]]** — where this page's geometry decides a theory's fate: the workspace's content is claimed to be decodable from prefrontal cortex, and the mixed-selective geometry that makes prefrontal populations flexible is the same one that makes them illegible to field-scale decoders, so a null there is uninterpretable (Naccache et al. 2025).
+- **[[wiki/entities/global-neuronal-workspace.md]]** — the framework whose central negative evidence this page's read-out argument disarms, in both directions: the failure to decode category and orientation from prefrontal cortex, and the posterior decoding success that succeeds even for non-conscious stimuli.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the third origin story for mixed selectivity, and the only learned one: a Hebbian term added to random prefrontal connectivity is reported to reach measured mixing levels that random connectivity alone does not, which also imports Hebb's PCA fixed point — mixing directions chosen for variance rather than for task relevance ([[wiki/empirical-tensions.md]] T67).
 - **[[wiki/entities/dendritic-ann.md]]** — a competing origin story for mixed selectivity: in a *small* dendritically wired network, conjunctive coding appears in both hidden layers purely because no unit sees enough of the input to be class-specific, which makes fan-in restriction rather than population expansion the sufficient condition (Chavlis & Poirazi 2025).
 - **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — a wiring-level origin for mixed selectivity that requires no learning: lateral patch diameter scales with basal dendritic spread across areas, so only a cell at a patch centre samples pure patch input and most superficial pyramids receive a patch/non-patch *mixture* by construction — Malach's argument that size matching maximises input diversity ([[wiki/empirical-tensions.md]] T65, Douglas & Martin 2004).

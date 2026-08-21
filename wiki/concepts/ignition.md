@@ -113,6 +113,25 @@ Unresolved in the source, and it matters architecturally rather than philosophic
 
 ---
 
+## What the commit fires on: onset, not offset
+
+> Naccache et al. 2025, Neurosci Conscious 2025(1):niaf037 (`raw/naccache-2025-gnw-adversarial-testing.md`), replying to the COGITATE adversarial collaboration (Cogitate et al. 2025, Nature). Commentary, no new data.
+
+The preregistered collaboration formalised the framework as predicting **two** ignitions per stimulus — one at onset, one at offset — and found only the first. The reply's position:
+
+| | Onset | Offset |
+|---|---|---|
+| Predicted? | **Core prediction**, and confirmed at 200–800 ms, independent of stimulus duration (500/1000/1500 ms) and of task relevance | **Not a prediction.** No simulation from 1998–2011 and no recording produced one; predicted *only* when the participant consciously attends the offset |
+| Why the asymmetry | A new input captures attention and recruits a coalition | Nothing new arrives — the current content merely loses support. A commit is a *win*, and nothing wins by default when the incumbent fades |
+
+**This makes the trigger "change in the attended content", not "change in the input"** — the two coincide at onset and separate at offset. For a machine step-boundary generator the difference is one boundary per stimulus versus two, and it is testable: enforce awareness of the offset (make it task-relevant) and a second ignition should appear. Logged as [[wiki/empirical-tensions.md]] T271.
+
+**The corresponding claim about duration**: as long as a content occupies the workspace it is *explicitly* encoded there, so decoding should be **continuous**, not intermittent. The collaboration's transient "silent states" are attributed to the content having left the bus — plausible under long, monotonic, task-irrelevant stimuli, and unfalsifiable without report. The framework's no-report methodology and its continuous-encoding claim are therefore in direct tension: removing the report removes the only handle on occupancy. **For a builder this is the more useful reading:** if occupancy is exclusive and the bus wanders, "the current content is decodable" is a statement about the *controller*, and any architecture that infers commitment from a decoder needs an independent occupancy signal — which a machine, unlike an experimenter, can simply expose.
+
+**Decoding failure ≠ absence of the content.** The same source's second move: prefrontal cortex has no strong columnar organisation and codes with mixed selectivity, so field-scale instruments (fMRI, MEG, iEEG) average the code away, while visual cortex's columnar clustering makes linear decoding easy — easy enough that it succeeds on **non-conscious** stimuli too. Ignition's evidence therefore rests on propagation and timing rather than on where content decodes best. See [[wiki/concepts/population-geometry.md]] and [[wiki/empirical-tensions.md]] T272.
+
+---
+
 ## Connections
 
 - **[[wiki/entities/global-neuronal-workspace.md]]** — the framework this mechanism serves: ignition is the admission gate on the shared bus, and the framework supplies the processors, the long-axon population and the broadcast that make the gate worth having.
@@ -131,4 +150,5 @@ Unresolved in the source, and it matters architecturally rather than philosophic
 - **[[wiki/concepts/simulation-based-planning.md]]** — a discrete commit gives a planner its step: each broadcast publishes one intermediate state that the next attentional operation consumes, which is the serial control this page's Raven's-matrices example depends on.
 - **[[wiki/concepts/perturbation-elicitability.md]]** — the commit tested by perturbation rather than by decoding: stimulating the prefrontal population where ignition is claimed to be densest almost never changes what the patient is currently experiencing, which is what a *routing* component predicts and a content-holding one does not, and it leaves the evidence for the gate resting on propagation (`d′`) rather than on its locus.
 - **[[wiki/entities/integrated-world-modeling-theory.md]]** — the same event re-read as a self-organizing harmonic mode: a synchronous complex that is simultaneously a workspace, a Φ-complex and one converged round of message passing, with the prediction that Φ trades off inversely between modules and workspace across the cycle and that entrainment direction flips at the commit.
+- **[[wiki/concepts/population-geometry.md]]** — why the gate cannot be verified by a probe: a mixed-selective code is invisible to field-scale decoders and a columnar one is legible even when unconscious, so where content decodes best tracks the *geometry of the read-out* rather than what is on the bus (Naccache et al. 2025).
 - **[[wiki/concepts/loopy-belief-propagation.md]]** — the computation the commit is committing: if the ignited content is the MAP estimate of a converged loopy posterior, then "commit when the loop converges" replaces the threshold, and the number of rounds — hence the latency — becomes a function of input ambiguity rather than a constant.
