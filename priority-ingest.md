@@ -16,6 +16,6 @@ One INGEST each:
 - [x] `gardner-2016-snn-precise-temporal-encoding.md` — spiking-neuromorphic · M · 2016
 - [x] `casanuevamorato-2024-hippocampus-neuromorphic-cam.md` — spiking-neuromorphic · M · 2024
 - [x] `wang-2024-heterogeneous-snn-learning.md` — spiking-neuromorphic · M · 2024
-- [ ] `meszaros-2025-snn-delay-learning.md` — spiking-neuromorphic · M · 2025
+- [x] `meszaros-2025-snn-delay-learning.md` — spiking-neuromorphic · M · 2025
 - [ ] `kleyko-2025-neuromorphic-reservoir-computing.md` — spiking-neuromorphic · M · 2025
 - [ ] `ortner-2025-phase-change-memory-rapid-learning.md` — spiking-neuromorphic · R · 2025
