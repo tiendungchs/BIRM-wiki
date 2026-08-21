@@ -95,6 +95,22 @@ The unsolved sub-problem is prior to credit assignment: **what is the error betw
 
 ---
 
+## The third option at the rate/spike boundary: don't convert, interface
+
+> Zhao et al. 2022 (`raw/zhao-2022-hybrid-neural-networks-framework.md`, Nature Communications 13:3427). Full treatment in [[wiki/concepts/cross-paradigm-interface.md]].
+
+The routes table above offers two ways to relate a rate network to a spiking one — copy the weights (conversion) or train through the threshold (surrogate gradients). A third keeps **both networks** and makes the boundary a trained module `Y = Q·F·H·W(X)`, with a windowing stage reconciling the two clocks and an intermediate representation belonging to neither side. Three consequences for this page:
+
+| | Result |
+|---|---|
+| **Streaming beats offline accuracy** | Under real hardware latency and bandwidth on Tianjic chips, a pure ANN tracker falls from 0.85 mIoU offline to **0.33**; the hybrid holds **0.679** by letting an SNN "where" pathway predict only the feature *change* `ΔDF(Δt)` and an interface add it to the ANN's static features. The efficiency argument is finally cashed as accuracy — the SNN's event-driven throughput buys frames the ANN never got to see, which no offline benchmark on this page can express |
+| **The substrate can be the *controlled* network, not the computing one** | An ANN backbone emits a per-neuron threshold vector into an SNN branch, and that gate — not any weight protection — is what stops catastrophic forgetting across 40 tasks ([[wiki/concepts/continual-learning.md]]) |
+| **A spiking reasoner past MNIST, with nothing learned in spikes** | The HRN scores 91.65 / 95.27 / 85.96 / 78.81% on CLEVRER's four question types with a **hand-authored** graph of integrate-and-fire symbol nodes, Hebbian binding for the object–attribute edges, and all gradient learning in the ANN front ends. A fourth path to the same conclusion as T231, and a different one: the accuracy is not borrowed from a converted rate network, it is borrowed from a designer |
+
+**(brainstorm)** The paper's two claimed substrate wins for the reasoning case do not survive separately. Flat latency in the number of objects is a property of graph propagation, not of spike timing — a rate-valued relaxation over the same graph is equally parallel. Graceful degradation under a corrupted symbol *is* structural, but the structure is the graph's priors, not the spikes. So this result belongs on the ledger as evidence for **graph-shaped execution**, and as a null for T1.
+
+---
+
 ## Recurrent SNNs
 
 | Model | Construction | Result |
@@ -180,3 +196,5 @@ The unsolved sub-problem is prior to credit assignment: **what is the error betw
 - **[[wiki/concepts/spike-frequency-adaptation.md]]** — the one edit to this page's LIF unit that moves its own numbers: an activity-dependent threshold gives the LSNN row its LSTM-matching sequential-MNIST and TIMIT results and a 1200 ms store-and-recall, it supplies a slow path that mitigates the vanishing gradient this substrate otherwise suffers, and at network level it costs a constant `+11` to `+19` arithmetic operations that does not scale with fan-in (Ganguly et al. 2024).
 - **[[wiki/concepts/circuit-size-separation.md]]** — the only rigorous account of what this substrate buys, and a correction to how this page states it: the proven advantage is `Ω(n)` fewer *units* on coincidence-type functions (`≥1663` sigmoidal hidden units for what one neuron does at 10,000 synapses), not a function a rate network cannot express — and postsynaptic-potential shape turns out to be a hard boundary, with rectangular pulses unable to simulate a 3-gate threshold circuit on analog input at any size (Maass 1997).
 - **[[wiki/entities/liquid-state-machine.md]]** — the first stable, generally applicable method for getting complex real-time computation out of a *generic* recurrent circuit on this substrate, and the origin of the reservoir shape that recurs throughout this page (LSNN, NeuCube): fix nothing, train nothing inside the circuit, and fit memoryless readouts to the exponentially-filtered spike trains. It also supplies this page's sharpest measurement of what dynamic synapses buy — removing them at matched firing rate costs the circuit everything but the last 250 ms of its memory.
+- **[[wiki/concepts/cross-paradigm-interface.md]]** — the alternative to conversion, and the only construct in the wiki that treats the rate/spike boundary as a module with its own parameters and its own objective: it is what lets this substrate's event-driven throughput and a rate network's precision appear in one system instead of forcing a choice between them.
+- **[[wiki/concepts/continual-learning.md]]** — the interference problem met at this substrate's own control port: a spiking neuron's threshold gates whether it can participate at all, so raising it protects whatever it holds without an importance estimate, a replay buffer or a weight penalty.

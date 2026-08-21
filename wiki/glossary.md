@@ -166,6 +166,15 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | LSNN | Long Short-term memory Spiking Neural Network | Bellec et al.'s recurrent SNN whose adaptive-threshold module gives it LSTM-level sequential-MNIST and TIMIT performance |
 | NVM | Non-Volatile Memory | RRAM/PCM/CBRAM-class devices; their nonlinear conductance change is proposed as the threshold-adaptation mechanism itself, removing the capacitor ([[wiki/concepts/spike-frequency-adaptation.md]]) |
 | COTS | Commercial Off-The-Shelf | Here: existing neuromorphic chips whose primitive is a plain LIF neuron, so SFA has to be built from several compartments |
+| HNN | Hybrid Neural Network | A network containing both ANN and SNN subnetworks, joined by hybrid units ([[wiki/concepts/cross-paradigm-interface.md]]) |
+| HU | Hybrid Unit | The interface module between an ANN and an SNN: `Y = Q·F·H·W(X)` — window, kernel, nonlinearity, discretisation — each stage parameterisable, designed or learned |
+| HSN / HMN / HRN | Hybrid Sensing / Modulation / Reasoning Network | Zhao et al. 2022's three demonstrations: multi-pathway tracking, threshold-modulated continual learning, and graph-structured spiking reasoning on CLEVRER |
+| MCL | Meta-Continual Learning | Continual learning over a *distribution* of related sub-tasks, where prior sub-tasks must be exploited as well as protected |
+| N-MNIST | Neuromorphic MNIST | MNIST recorded with an event camera on a moving sensor; the standard spiking-network classification set (34×34×2 event streams) |
+| CLEVRER | CoLlision Events for Video REpresentation and Reasoning | Video question-answering benchmark over colliding objects, with descriptive, explanatory, predictive and counterfactual question types |
+| SGM | Sequential Generation Model | The language front end that translates a CLEVRER question into an ordered list of reasoning instructions |
+| XdG | Context-dependent Gating | Continual-learning baseline: a random per-task binary mask over units, applied at both training and test |
+| SI | Synaptic Intelligence | Continual-learning baseline; path-integral estimate of per-parameter importance, computed online rather than at a task boundary as in EWC |
 | GSC | Google Speech Commands | Keyword-spotting benchmark; the standard temporal task for adaptive spiking neurons |
 | STD | Short-Term Depression | Activity-dependent depletion of releasable synaptic resources; the presynaptic alternative to SFA as an adaptation mechanism |
 | STP | Short-Term Plasticity | Activity-dependent, seconds-scale modulation of synaptic efficacy `u·x` (Tsodyks–Markram); facilitation `τ_f` and depression-recovery `τ_r`, with `τ_f > τ_r` producing a post-activity rebound ([[wiki/entities/stp-flickering-cann.md]]) |

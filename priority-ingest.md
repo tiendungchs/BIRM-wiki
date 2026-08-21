@@ -12,7 +12,7 @@ One INGEST each:
 - [x] `ganguly-2024-spike-frequency-adaptation.md` — spiking-neuromorphic · S · 2024
 - [x] `maass-1997-spiking-neurons-third-generation.md` — spiking-neuromorphic · F · 1997
 - [x] `maass-2002-liquid-state-machine.md` — spiking-neuromorphic · F · 2002
-- [ ] `zhao-2022-hybrid-neural-networks-framework.md` — spiking-neuromorphic · F · 2022
+- [x] `zhao-2022-hybrid-neural-networks-framework.md` — spiking-neuromorphic · F · 2022
 - [ ] `gardner-2016-snn-precise-temporal-encoding.md` — spiking-neuromorphic · M · 2016
 - [ ] `casanuevamorato-2024-hippocampus-neuromorphic-cam.md` — spiking-neuromorphic · M · 2024
 - [ ] `wang-2024-heterogeneous-snn-learning.md` — spiking-neuromorphic · M · 2024
