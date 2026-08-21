@@ -296,9 +296,9 @@ One INGEST each:
 
 **Bundle — GSM8K and its two perturbation derivatives.** One INGEST pass over all 3 files (~11964 words), in this order.
 
-- [ ] `cobbe-2021-gsm8k-verifiers-math-word-problems.md` — reasoning-eval · B · 2021
-- [ ] `li-2024-gsm-plus-benchmark.md` — reasoning-eval · B · 2024
-- [ ] `mirzadeh-2024-gsm-symbolic-benchmark.md` — reasoning-eval · B · 2024
+- [x] `cobbe-2021-gsm8k-verifiers-math-word-problems.md` — reasoning-eval · B · 2021
+- [x] `li-2024-gsm-plus-benchmark.md` — reasoning-eval · B · 2024
+- [x] `mirzadeh-2024-gsm-symbolic-benchmark.md` — reasoning-eval · B · 2024
 
 One INGEST each:
 
