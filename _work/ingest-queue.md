@@ -358,7 +358,7 @@ One INGEST each:
 - [x] `hashemi-2025-virtual-brain-twins.md` — brain-networks · F · 2025
 - [x] `yoo-2022-cognitive-state-transformation.md` — brain-networks · M · 2022
 - [x] `hagmann-2008-structural-core-cerebral-cortex.md` — brain-networks · R · 2008
-- [ ] `honey-2009-structural-to-functional-connectivity.md` — brain-networks · R · 2009
+- [x] `honey-2009-structural-to-functional-connectivity.md` — brain-networks · R · 2009
 - [ ] `shine-2016-integrated-network-states-cognition.md` — brain-networks · R · 2016
 - [ ] `schirner-2023-network-structure-decision-making.md` — brain-networks · R · 2023
 - [ ] `vohryzek-2024-long-range-connections-brain-dynamics.md` — brain-networks · R · 2024
