@@ -168,6 +168,8 @@ What it does not supply: `τ` is estimated from signal-to-noise ratios by a hand
 
 ## Connections
 
+- **[[wiki/concepts/epistemic-value.md]]** — the fitted coefficients on the three expected-free-energy terms are precisions, and the human study there returns a null this page has to absorb: the *value of resolving* each uncertainty has a cortical correlate and the *degree* of it has none, which is the opposite of treating uncertainty as a first-class encoded quantity.
+
 - **[[wiki/concepts/core-knowledge.md]]** — supplies the content this page could implement as second-order statistics: an installed prior is a latent whose prior precision is clamped above what evidence can move, which also predicts the impenetrable illusion that certifies the clamp exists (T128).
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the parent page: this one supplies the derivation *upstream* of its update rule (why free energy is the thing minimised, via ergodicity and the entropy of sensory states) and unpacks the `α, β, γ` precision gates into a represented quantity with its own substrate and timescale.
 - **[[wiki/concepts/attention.md]]** — the rival account of the same phenomenon: selection by a normalised competition over a query, versus multiplicative gain on a residual with no denominator; the two differ on whether attention has a capacity limit by construction.

@@ -166,6 +166,8 @@ The flexibility/speed trade-off cited above has a mechanism, and it is a quantit
 
 ## Connections
 
+- **[[wiki/concepts/epistemic-value.md]]** — a representational requirement on the rollout, not a search heuristic: scoring a fixed action *plan* systematically undervalues an action whose worth depends on a response not yet chosen, and marginalising the same joint posterior into a *policy* `q(u_t|x_{t-1})` recovers within-horizon contingency for free.
+
 - **[[wiki/concepts/latent-graph-discovery.md]]** — simulation-based planning is the *use* half of LGD (path search over the discovered graph); LGD is the *discovery* half that planning presupposes.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — replay (backward, for consolidation) and preplay (forward, for planning) are the same hippocampal trajectory-generation machinery serving two functions.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — named as the area where transfer is still aspirational: the biology is suggestive, the mechanism guiding simulation unknown on both sides.

@@ -333,6 +333,8 @@ It also sharpens the picture the illusion is usually used to support. The mask i
 
 ## Connections
 
+- **[[wiki/concepts/epistemic-value.md]]** — the other half of the alternation, and where the distinction this page maintains gets broken: every epistemic quantity there is defined over a distribution that variational fitting produced, and every deep implementation surveyed substitutes a factor of the *generative* model for the variational one inside the expectation, which silently severs the epistemic term from the free-energy bound it is supposed to descend.
+
 - **[[wiki/concepts/continual-learning.md]]** — the claimed payoff of locality: weights driven by a layer-local residual rather than by one global output loss are argued to overwrite prior structure less, an unmeasured claim sitting alongside this page's backpropagation-approximation result.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the named rival reduction, stated in full; its three predictive-encoding types map onto node content, inter-node relations and edges, and its activity/weight split is the fast-**M**/slow-**W** split derived from inference.
 - **[[wiki/concepts/event-segmentation.md]]** — the abstraction layer built on top of this substrate: events are *sets* of active predictive encodings, boundaries are significant changes in that set — and the lesion result above says the segmentation actually comes from the *dynamical* prior (coupling between orders of motion), since cutting it destroys sequential structure while leaving frequency tracking intact (Friston & Kiebel 2009).

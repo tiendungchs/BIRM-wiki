@@ -189,6 +189,10 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 
 ## Connections
 
+- **[[wiki/concepts/nonspatial-maps.md]]** — the evidence deciding whether this framing names one mechanism or a family of analogies: if the hippocampal map is domain-general, latent-graph discovery is a single substrate; if the one relationally-matched control is the true picture, it is a spatial mechanism plus a set of resemblances.
+
+- **[[wiki/concepts/epistemic-value.md]]** — which exploration term this framing actually needs: the unknown here is the graph, which enters a generative model as a *parameter*, so the epistemic quantity that pays (`E3`, information gain about `θ`) is the one the convex-MDP result excludes and the ρ-POMDP identity scores over the wrong object.
+
 - **[[wiki/entities/vl-jepa.md]]** — edge labelling done by coordinate comparison: two world-state images embedded as one code, candidate action clips embedded as label codes in the same space, and inverse dynamics answered by a dot product — with the candidate set supplied, so the edge *vocabulary* (G4) is untouched.
 - **[[wiki/concepts/priority-map.md]]** — the acting-to-observe loop in its cheapest measured form: the argmax over a similarity map fixes the next fixation, hence the next observation and the next query, so the evidence gathered about a scene is selected by a policy the scene's own contents wrote (Bichot et al. 2015) — and the *query* driving that map can be one edge away from the goal, a learned neighbour loaded as the template because it is the easier node to detect, which turns a hard direct search into an easy search plus one known traversal (Zhou & Geng 2025).
 - **[[wiki/entities/hag-reservoir.md]]** — this page's problem run one level down, on the network's own wiring rather than on the environment's states: a local unsupervised rule grows the edge set from co-fluctuation statistics, and inherits both limitations verbatim — correlation is symmetric, so no edge is directed, and nothing carries the discovered structure from one environment to the next.

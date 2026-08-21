@@ -114,7 +114,7 @@ Both errors are upstream of rule reasoning: they are failures to build the scene
 | **Factorises** | `rule_config` = a set of independent `{noun} is {property}` triples over a small vocabulary |
 | **Sparse** | One rewrite per tile push; a plan is 1–3 edits |
 | **Legible** | The rule is *written in the observation*, in words, in the instruction language |
-| **Bounded** | `|nouns| × |properties|` ≈ 15 possible rules, of which a handful are instantiable per level |
+| **Bounded** | `\|nouns\| × \|properties\|` ≈ 15 possible rules, of which a handful are instantiable per level |
 | **Meta-stationary** | The activation predicate (horizontal alignment) never changes, in any level, ever |
 
 Frontier models score 14.7–20.0%. **So satisfying the tractability conditions is not sufficient**, and the wiki's standing position on hardness source 6 — that the lift is the answer where the conditions hold — is downgraded from "solved in principle" to "solved in principle, unrealised in the best case anybody has built" (T229). What the conditions buy is that the *problem is well-posed*; the missing thing is a solver that searches over rewrites at all.

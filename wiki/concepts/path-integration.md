@@ -120,6 +120,8 @@ The second coupling is the important one architecturally: it makes sensory predi
 
 ## Connections
 
+- **[[wiki/concepts/nonspatial-maps.md]]** — which non-spatial domains this mechanism is even available in: displacement must compose, concept space composes (a morph rate ratio is a direction) and a social network does not, and the domains showing grid signatures are largely the composing ones.
+
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — shares the continuous-attractor formalism while declining to place path integration in CA3, and adds two properties of the same network type: many uncorrelated charts coexist, and continuous and discrete patterns can be stored together and retrieved from each other.
 
 - **[[wiki/concepts/abstract-structural-codes.md]]** — supplies the mechanism behind that page's central speculation: `g` is path-consistent because it is *built* by composing displacements, so gap G3 is answered by the update rule rather than by a training signal — at the price of a precondition (the actions must compose) that page did not state.

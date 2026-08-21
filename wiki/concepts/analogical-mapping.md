@@ -22,7 +22,34 @@
 
 ---
 
-## The model landscape, priced
+**Role-based relational reasoning** is the general capacity of which analogy is one case: *inferences about elements depend on commonalities in the roles they play, not on the elements' own features*. Something fills the role `barrier` if it blocks something else — landslide or poverty — and that binding alone licenses the inference that removing it ends the blockage. Analogy is the specific case where the source is a single case rather than a category.
+
+---
+
+## Stage 1 — Retrieval, where the cost actually is
+
+The wiki's model table prices *mapping* (`n⁴`–`n!`) and treats retrieval as the cheap stage. The human data invert this:
+
+| Measurement | Result |
+|---|---|
+| Tumour problem, no source analog (Gick & Holyoak 1980) | ~10% produce the convergence solution |
+| Same, after studying the analogous "general" story, **no hint** | ~20% |
+| Same, with the hint *"one of the stories you read earlier may help"* | **~75%** |
+| Retrieval after 1–3 days: source in the **same** domain (Keane 1987) | **88%** retrieved |
+| Same, source in a **remote** domain | **12%** retrieved |
+| Transfer *once the source is cued*, same vs remote domain | **~86% either way** |
+
+**Mapping is domain-blind; retrieval is not.** The entire distance penalty of a "far" analogy is paid at access. Holyoak's explanation is a computational asymmetry the wiki should adopt directly: in mapping, *which two things to compare has already been answered* and both sit in working memory, so relational comparison can run; in retrieval the question is open over all of long-term memory, and using relations as the cue costs working memory that is not available at that stage. Relational structure *does* influence retrieval — more so when some object similarity is also present, and more so for domain experts — but surface similarity dominates.
+
+This is the empirical case for the two-stage MAC/FAC architecture ([[wiki/entities/macfac.md]]), and simultaneously the case that **stage 1 is where the intelligence has to go**: the human system already has a working stage 2 and fails anyway.
+
+---
+
+## Stage 2 — Mapping
+
+Everything below is one stage. The model landscape prices the operation, the representation and re-representation sections say what a code must supply for the operation to be cheap, and the four human results at the end say what the operation is actually constrained by — which is not only structure.
+
+### The model landscape, priced
 
 | Model | Representation | Mapping mechanism | Complexity | Failure noted by the source |
 |---|---|---|---|---|
@@ -57,7 +84,7 @@ The point of the table: every mature mapping model computes correspondence by **
 
 ---
 
-## The representation: sparse binary code-vectors with a non-invertible binder
+### The representation: sparse binary code-vectors with a non-invertible binder
 
 Each item `x` (object, attribute, relation) is a code-vector `X ∈ {0,1}^N` with `M = |X|` bits set, `M/N ≪ 1` — the regime of [[wiki/concepts/sparse-distributed-representations.md]]. Similarity is normalised overlap:
 
@@ -89,7 +116,7 @@ The last row is the design decision the whole method rests on: because thinning 
 
 ---
 
-## Re-representation: mapping needs a code the retrieval code cannot supply
+### Re-representation: mapping needs a code the retrieval code cannot supply
 
 Mapping by direct similarity of the plain role-filler codes **fails**, and the source is explicit about why: an element's code contains only the codes of its *sub*-elements, whereas its correspondent is determined mostly by the relational system it sits *inside*. So the element code is rebuilt with an upward-looking half:
 
@@ -122,7 +149,7 @@ i.e. **a candidate inference is accepted when it fits the whole target better th
 
 ---
 
-## Results
+### Results
 
 Same probe as the HRR experiments (*Spot bit Jane, causing Jane to flee from Spot*), same taxonomy under different names:
 
@@ -153,57 +180,7 @@ The FOR case is the diagnostic one: the correct correspondence there is *not* ob
 
 ---
 
-## Why this matters to the rest of the wiki
-
-**1. It converts G37's second stage from `n!` to `n²`.** The wiki's answer to "which stored structure applies" was a cheap *score*; the expensive part was always assumed to be the alignment that follows. Here the alignment is `n·n′` dot products over sparse binary vectors, using an index (`lower` codes) that retrieval already built. The two-stage MAC/FAC architecture survives, but stage 2 stops being the bottleneck that motivated it.
-
-**2. It gives the wiki a candidate-inference *acceptance test* that needs no external checker.** `sim(hypothesis, whole episode) > sim(hypothesis, any part)` is computed from the same representation as everything else, and it is what stops copy-with-substitution from flooding the target with junk. This is the cheapest rejector in [[wiki/concepts/external-verification.md]]'s ladder and the only one that is *internal* to a distributed memory — and correspondingly the weakest: it tests coherence with the target, not truth.
-
-**3. Structural context can be a bag of role labels.** Plate makes role co-occurrence a surface feature by blending each filler with the *typical fillers* of its other roles, recovered by unbinding. This source makes it a surface feature by superposing the *role vectors themselves* — no unbinding, no content, no inverse operator required. On the same taxonomy, both work ([[wiki/empirical-tensions.md]] T186).
-
-**4. (brainstorm) The `lower`/`upper` split is a two-index scheme, and only one index needs storing.** `lower` is context-free, identical for every occurrence, and is what long-term memory holds; `upper` is episode-specific and is constructed at mapping time from the retrieved episode's structure. That is an explicit division of labour between a permanent store and a working representation — the source lists "which of the two is actually stored" as an open question, and it is the same question [[wiki/concepts/working-memory.md]] and [[wiki/concepts/complementary-learning-systems.md]] ask about every fast/slow pair in the wiki.
-
-**5. (brainstorm) Sub-random similarity as a free relevance filter.** Nothing in the algorithm decides what to ignore; elements whose best score falls below the random-overlap baseline are dropped, and in the Water-Flow case that alone removed every distractor. A calibrated null distribution is available in closed form for sparse binary codes ([[wiki/concepts/sparse-distributed-representations.md]]), so "below chance overlap ⇒ not a correspondent" is a *computable* abstention criterion — which is more than any of the wiki's approximate matchers ([[wiki/entities/neuromatch.md]], G37 (i)) currently has.
-
----
-
-## Limits, stated or visible
-
-- **Every analog is hand-authored.** Predicate-calculus episodes, hand-chosen roles, hand-chosen decomposition. The source spends several pages calling this the field's real bottleneck ("one of the Holy Grails of AI") and does nothing about it.
-- **Terminal codes are random**, so semantic similarity is all-or-none — the very brittleness the paper criticises symbolic models for. The stated fix (grounded or corpus-derived terminals) is not run.
-- **The `upper` half is order-blind.** It is a *set* of higher-level roles, so two episodes containing identical relations arranged differently can be given identical structural context. The source acknowledges this and proposes binding roles to each other instead — untested.
-- **No competition, no dynamics, no alternatives.** `argmax` commits; there is no mechanism for the same element to map several ways, and no relaxation between competing correspondences (both listed as future work).
-- **One-to-one is enforced by greedy elimination**, not by the representation, so it inherits every ordering pathology of greedy matching.
-- **The similarity threshold is a tuned constant.** Parameters (`M(role) = 2·M(object)`, thinning 0.2) were selected on the retrieval task; the mapping results at `N = 10⁵` are then reported without re-tuning, but the "three mapping groups" case shows the accept/reject boundary doing real work.
-- **No certificate**, same as every approximate matcher in the wiki (G37, G17): a wrong correspondence is indistinguishable from a right one at the score level.
-- **Nothing scales past toy analogs.** The `O(n²)` claim is argued, not measured; the largest tested episode has ~15 elements, and the target application (mapping knowledge-base fragments) is proposed, not run.
-
----
-
----
-
-## The human process, priced (Holyoak 2012)
-
-**Role-based relational reasoning** is the general capacity of which analogy is one case: *inferences about elements depend on commonalities in the roles they play, not on the elements' own features*. Something fills the role `barrier` if it blocks something else — landslide or poverty — and that binding alone licenses the inference that removing it ends the blockage. Analogy is the specific case where the source is a single case rather than a category.
-
-### 1. The cost is in retrieval, and the wiki has the ratio backwards
-
-The wiki's model table prices *mapping* (`n⁴`–`n!`) and treats retrieval as the cheap stage. The human data invert this:
-
-| Measurement | Result |
-|---|---|
-| Tumour problem, no source analog (Gick & Holyoak 1980) | ~10% produce the convergence solution |
-| Same, after studying the analogous "general" story, **no hint** | ~20% |
-| Same, with the hint *"one of the stories you read earlier may help"* | **~75%** |
-| Retrieval after 1–3 days: source in the **same** domain (Keane 1987) | **88%** retrieved |
-| Same, source in a **remote** domain | **12%** retrieved |
-| Transfer *once the source is cued*, same vs remote domain | **~86% either way** |
-
-**Mapping is domain-blind; retrieval is not.** The entire distance penalty of a "far" analogy is paid at access. Holyoak's explanation is a computational asymmetry the wiki should adopt directly: in mapping, *which two things to compare has already been answered* and both sit in working memory, so relational comparison can run; in retrieval the question is open over all of long-term memory, and using relations as the cue costs working memory that is not available at that stage. Relational structure *does* influence retrieval — more so when some object similarity is also present, and more so for domain experts — but surface similarity dominates.
-
-This is the empirical case for the two-stage MAC/FAC architecture ([[wiki/entities/macfac.md]]), and simultaneously the case that **stage 1 is where the intelligence has to go**: the human system already has a working stage 2 and fails anyway.
-
-### 2. Three constraints, jointly satisfied — and one of them is not about structure
+### Three constraints, jointly satisfied — and one of them is not about structure
 
 Multiconstraint theory (Holyoak & Thagard 1989): a mapping is chosen by soft constraint satisfaction over
 
@@ -217,25 +194,13 @@ The Gulf-War/WWII probe is the cleanest demonstration that the constraints leave
 
 **Cross-mapping** is the hard case: when one element maps one way by role and another way by direct similarity, performance drops *below* that of analogies with less semantic overlap. Perceptually rich stimuli lower relational responding; anything that raises attention to relations (mapping three objects at once, relational language) raises it.
 
-### 3. Comparison manufactures the differences
+### Comparison manufactures the differences
 
 Markman & Gentner's three-way split — **commonalities**, **alignable differences** (differences between *mapped* elements), **non-alignable differences** (differences involving unmapped elements) — comes with a counter-intuitive result: people list a difference faster for *hotel–motel* than for *kitten–magazine*. Alignable differences are more salient, more memorable, weigh more in similarity judgments and more in choice.
 
 **(brainstorm) This is a free contrastive signal every wiki architecture throws away.** A mapping does not only output correspondences; it partitions the two structures into shared / aligned-but-different / unaligned. The middle class is exactly the set of *minimal contrasts* — same role, different filler — which is the supervision signal a contrastive learner has to construct by sampling ([[wiki/concepts/divergence-objectives.md]] samples negatives blind; G66 asks for a sampler that draws pairs with respect to the quantity being learned). An alignment-derived negative is guaranteed to differ in one structural place. Nobody in the wiki generates negatives this way.
 
-### 4. What stops copy-with-substitution from flooding the target: a causal model, not a similarity score
-
-CWSG's stated failure mode, in Holyoak's words: without additional constraints, **any** unmapped source proposition generates a target inference, and since the source is essentially never isomorphic to a subset of the target, this produces rampant error. The constraint that works is *causal*:
-
-- **Lassaline 1996.** Source and target animals both have a weak immune system. If the source states the weak immune system **causes** an acute sense of smell, the inference transfers more strongly than if it merely "and"s the two properties — and the boost shrinks if the link is weakened to "develops before".
-- **Lee & Holyoak 2008.** If the source shows the effect **despite** a preventive cause, people judge the effect **more** likely in a target that lacks the preventer — *even though removing the preventer lowers overall source–target similarity*. Inference strength and analog similarity dissociate, with the sign reversed.
-- **Holyoak, Lee & Lu 2010** formalise this: extend a Bayesian causal-strength model so that the source's causal network **plus** the mapping is the input to CWSG, and the output is an elaborated causal model of the target which is then queried for arbitrary inferences.
-
-**This is the single hardest constraint this page carries on the wiki's own acceptance test.** The Slipchenko test — accept a hypothesis iff `sim(C_h, whole target) > sim(C_h, any mapped part)` — is a *coherence-with-the-target* criterion computed from the same similarity that produced the mapping. Lee & Holyoak's result is a case where the correct inference is the one that similarity argues *against*. See [[wiki/empirical-tensions.md]] T192.
-
-The pipeline Holyoak recommends is worth stating as an architecture, because it is not the one the wiki has: **learn the source's causal structure → map → CWSG to augment the target's causal model → query the resulting model**, plus a post-analogical **adaptation** step for goal-relevant target features the source cannot predict. The transferred object is a *model*, not a set of propositions, and it is what makes an open-ended range of later inferences answerable.
-
-### 5. Two routes, and only one of them costs working memory
+### Two routes, and only one of them costs working memory
 
 | | System 2: deliberate mapping | System 1: relational priming |
 |---|---|---|
@@ -249,7 +214,7 @@ The pipeline Holyoak recommends is worth stating as an architecture, because it 
 
 Bassok's **semantic alignment** is the same route made content-specific: two same-category sets (cats, dogs) align with the *addends* of addition and two functionally related sets (birds, cages) do not, and this automatically modulates activation of arithmetic facts — *without helping performance*. Structure selection driven by object type, running below the level of deliberate reasoning.
 
-### 6. The capacity variable is *relational complexity*, and it is prefrontal
+### The capacity variable is *relational complexity*, and it is prefrontal
 
 Relational complexity = the number of relational roles that must be **integrated** for one inference (Halford). It, not item count, is the load variable.
 
@@ -273,7 +238,23 @@ And a **functional dissociation inside prefrontal cortex** (Cho et al. 2010; Chr
 
 **The architectural reading.** Analogy is not one module. It is a *store of relational content* (temporal), a *store of episodes* (hippocampal), an *integrator* whose capacity is the number of simultaneously bound roles (frontopolar), and a *suppressor* of the perceptually obvious wrong answer (inferior frontal) — and the two prefrontal functions are separable by manipulation. [[wiki/entities/lisa.md]] is the model built to have exactly this shape.
 
-### 7. Development: the relational shift, and what causes it
+---
+
+## Stage 3 — Transfer
+
+CWSG's stated failure mode, in Holyoak's words: without additional constraints, **any** unmapped source proposition generates a target inference, and since the source is essentially never isomorphic to a subset of the target, this produces rampant error. The constraint that works is *causal*:
+
+- **Lassaline 1996.** Source and target animals both have a weak immune system. If the source states the weak immune system **causes** an acute sense of smell, the inference transfers more strongly than if it merely "and"s the two properties — and the boost shrinks if the link is weakened to "develops before".
+- **Lee & Holyoak 2008.** If the source shows the effect **despite** a preventive cause, people judge the effect **more** likely in a target that lacks the preventer — *even though removing the preventer lowers overall source–target similarity*. Inference strength and analog similarity dissociate, with the sign reversed.
+- **Holyoak, Lee & Lu 2010** formalise this: extend a Bayesian causal-strength model so that the source's causal network **plus** the mapping is the input to CWSG, and the output is an elaborated causal model of the target which is then queried for arbitrary inferences.
+
+**This is the single hardest constraint this page carries on the wiki's own acceptance test.** The Slipchenko test — accept a hypothesis iff `sim(C_h, whole target) > sim(C_h, any mapped part)` — is a *coherence-with-the-target* criterion computed from the same similarity that produced the mapping. Lee & Holyoak's result is a case where the correct inference is the one that similarity argues *against*. See [[wiki/empirical-tensions.md]] T192.
+
+The pipeline Holyoak recommends is worth stating as an architecture, because it is not the one the wiki has: **learn the source's causal structure → map → CWSG to augment the target's causal model → query the resulting model**, plus a post-analogical **adaptation** step for goal-relevant target features the source cannot predict. The transferred object is a *model*, not a set of propositions, and it is what makes an open-ended range of later inferences answerable.
+
+---
+
+## Where the capacity comes from, developmentally
 
 Young children map by object similarity when similarity and structure conflict; reliance on relational structure grows with age (Gentner & Rattermann's **relational shift**). Two explanations, both with evidence:
 
@@ -282,7 +263,24 @@ Young children map by object similarity when similarity and structure conflict; 
 
 See [[wiki/empirical-tensions.md]] T193. For a builder the distinction is the difference between scaling the relation vocabulary and scaling the binding budget, and the second is a *capacity* parameter no wiki architecture currently exposes.
 
-### 8. Two results that should worry anyone building this
+---
+
+## Limits, stated or visible
+
+- **Every analog is hand-authored.** Predicate-calculus episodes, hand-chosen roles, hand-chosen decomposition. The source spends several pages calling this the field's real bottleneck ("one of the Holy Grails of AI") and does nothing about it.
+- **Terminal codes are random**, so semantic similarity is all-or-none — the very brittleness the paper criticises symbolic models for. The stated fix (grounded or corpus-derived terminals) is not run.
+- **The `upper` half is order-blind.** It is a *set* of higher-level roles, so two episodes containing identical relations arranged differently can be given identical structural context. The source acknowledges this and proposes binding roles to each other instead — untested.
+- **No competition, no dynamics, no alternatives.** `argmax` commits; there is no mechanism for the same element to map several ways, and no relaxation between competing correspondences (both listed as future work).
+- **One-to-one is enforced by greedy elimination**, not by the representation, so it inherits every ordering pathology of greedy matching.
+- **The similarity threshold is a tuned constant.** Parameters (`M(role) = 2·M(object)`, thinning 0.2) were selected on the retrieval task; the mapping results at `N = 10⁵` are then reported without re-tuning, but the "three mapping groups" case shows the accept/reject boundary doing real work.
+- **No certificate**, same as every approximate matcher in the wiki (G37, G17): a wrong correspondence is indistinguishable from a right one at the score level.
+- **Nothing scales past toy analogs.** The `O(n²)` claim is argued, not measured; the largest tested episode has ~15 elements, and the target application (mapping knowledge-base fragments) is proposed, not run.
+
+---
+
+---
+
+### Two results that should worry anyone building this
 
 **(a) An analogical inference is not tagged as an inference.** Blanchette & Dunbar 2002: after reading a target text (marijuana legalisation) and then a source (alcohol prohibition), with *no* instruction to map and *no* statement of correspondences, subjects later "recognised" never-presented CWSG inferences as having been in the target text **50%** of the time, against a **25%** base rate — at 15 minutes and at one week, familiar and unfamiliar materials. Replicated (Perrott, Gentner & Bodenhausen 2005), foreshadowed by Schustack & Anderson 1979.
 
@@ -297,7 +295,23 @@ So: transfer runs spontaneously on mere juxtaposition, its products are written 
 
 Isomorphic problems, one schema, a 89-point swing. The relation *as stated* was overridden by a relation the reasoner already had. This is [[wiki/architectural-gaps.md]] G23 measured: an unconditional prior with no entry test, firing on object *types*, silently re-parsing the input — and the mapping machinery downstream is working perfectly on the wrong parse (G27).
 
-### 9. What Holyoak says is missing, restated as wiki gaps
+## Why this matters to the rest of the wiki
+
+**1. It converts G37's second stage from `n!` to `n²`.** The wiki's answer to "which stored structure applies" was a cheap *score*; the expensive part was always assumed to be the alignment that follows. Here the alignment is `n·n′` dot products over sparse binary vectors, using an index (`lower` codes) that retrieval already built. The two-stage MAC/FAC architecture survives, but stage 2 stops being the bottleneck that motivated it.
+
+**2. It gives the wiki a candidate-inference *acceptance test* that needs no external checker.** `sim(hypothesis, whole episode) > sim(hypothesis, any part)` is computed from the same representation as everything else, and it is what stops copy-with-substitution from flooding the target with junk. This is the cheapest rejector in [[wiki/concepts/external-verification.md]]'s ladder and the only one that is *internal* to a distributed memory — and correspondingly the weakest: it tests coherence with the target, not truth.
+
+**3. Structural context can be a bag of role labels.** Plate makes role co-occurrence a surface feature by blending each filler with the *typical fillers* of its other roles, recovered by unbinding. This source makes it a surface feature by superposing the *role vectors themselves* — no unbinding, no content, no inverse operator required. On the same taxonomy, both work ([[wiki/empirical-tensions.md]] T186).
+
+**4. (brainstorm) The `lower`/`upper` split is a two-index scheme, and only one index needs storing.** `lower` is context-free, identical for every occurrence, and is what long-term memory holds; `upper` is episode-specific and is constructed at mapping time from the retrieved episode's structure. That is an explicit division of labour between a permanent store and a working representation — the source lists "which of the two is actually stored" as an open question, and it is the same question [[wiki/concepts/working-memory.md]] and [[wiki/concepts/complementary-learning-systems.md]] ask about every fast/slow pair in the wiki.
+
+**5. (brainstorm) Sub-random similarity as a free relevance filter.** Nothing in the algorithm decides what to ignore; elements whose best score falls below the random-overlap baseline are dropped, and in the Water-Flow case that alone removed every distractor. A calibrated null distribution is available in closed form for sparse binary codes ([[wiki/concepts/sparse-distributed-representations.md]]), so "below chance overlap ⇒ not a correspondent" is a *computable* abstention criterion — which is more than any of the wiki's approximate matchers ([[wiki/entities/neuromatch.md]], G37 (i)) currently has.
+
+---
+
+---
+
+## Open problems
 
 | Stated limitation | Wiki row |
 |---|---|
@@ -312,6 +326,8 @@ Isomorphic problems, one schema, a 89-point swing. The relation *as stated* was 
 ---
 
 ## Connections
+
+- **[[wiki/concepts/nonspatial-maps.md]]** — the competing explanation for the same data: a code that generalises across domains and a mapping that transfers across domains predict the same signatures, and no experiment in that table separates them.
 
 - **[[wiki/entities/pcfg-set.md]]** — substitutivity is the minimal mapping problem — two atoms with identical roles ought to be interchangeable — and on the measure that excludes competence as an explanation (consistency restricted to *incorrect* outputs) no seq2seq architecture exceeds 0.34.
 - **[[wiki/concepts/vector-symbolic-binding.md]]** — the same problem one step earlier and in the dense/invertible regime: HRR contextualization makes structure a surface feature for *ranking*, this page makes it a surface feature for *correspondence*, and the two disagree about whether the binding operator needs an inverse (T186, T187).

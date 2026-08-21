@@ -134,6 +134,8 @@ Two nested notions of "out of distribution", and only the inner one is bought. T
 
 ## Connections
 
+- **[[wiki/concepts/epistemic-value.md]]** — the slow/fast split appearing as a condition for a sum to converge: per-step information gain about the parameters is additive over a horizon *only* because `θ` is frozen during the rollout, so the slow level must be held still while the fast level plans over it or per-probe gains double-count.
+
 - **[[wiki/concepts/latent-graph-discovery.md]]** — meta-learning is the optimization statement of LGD's two-level hierarchy: the outer loop learns the meta-graph, the inner loop binds the instance-graph.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the same two-timescale factorization realized across two anatomical systems rather than in weights-vs-activity within one network.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — meta-RL is the wiki's clearest AI→neuroscience transfer, supplying a hypothesis about prefrontal recurrent dynamics.

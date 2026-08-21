@@ -123,6 +123,8 @@ Reproduction failed for some claims (e.g. `DAI_MC` on Animal-AI); code was unava
 
 ## Connections
 
+- **[[wiki/concepts/epistemic-value.md]]** — the page this agent's ablation is the central negative result for: five one-step estimators × three action-selection rules, and the only configurations that solve the task are the ones with the epistemic term deleted, by a named mechanism (a self-consistency divergence an agent can zero by freezing its own policy).
+
 - **[[wiki/concepts/expected-free-energy.md]]** — the implementation counterweight to that page's three theory sources: written as five different one-step neural estimators and run against a matched reward-only ablation, the epistemic term never pays and in one form collapses the policy to a single action, so the objective's derivation and its estimator are separately fallible.
 - **[[wiki/concepts/expected-free-energy.md]]** — and the estimator defect that breaks the derivation: deep implementations compute `Q(s_{t+1}|a_t)` from a factor of the *generative* model rather than the variational distribution, so the deep agent's expected free energy is not the expectation of its variational free energy and the free-energy-principle justification does not carry over.
 - **[[wiki/concepts/representation-probing.md]]** — supplies the linear-CKA instrument and the wiki's clearest case of a probe finding nothing where the whole behavioural difference lies: two agents with opposite policies match on every layer except a Gaussian *variance* head, whose activations had to be split by action before the collapse became visible.

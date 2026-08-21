@@ -178,6 +178,8 @@ No spatial supervision, no periodicity prior, no `(x,y)` target; the only loss i
 
 ## Connections
 
+- **[[wiki/concepts/nonspatial-maps.md]]** — the test set this model's central claim needs and has never been run on: if one structural code is reused across worlds, the non-spatial domains are where that must show, and every demonstration to date is spatial.
+
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the same anatomy optimised for the opposite quantity: capacity and one-trial arbitrary binding there, transfer and structural generalisation here, with no model in the wiki supplying both.
 - **[[wiki/entities/vector-hash.md]]** — the capacity substrate this model never states: it freezes `g` and the grid↔hippocampal weights to get exponentially many convex attractors and a graceful `1/N_patts` degradation, then assigns content to them *at random* — so it supplies exactly what this page lacks (a derived capacity, no memory cliff, non-interference across 11 maps with no replay) and lacks exactly what this page supplies (any decision about which structural code a state should receive). The two are stackable; the incompatibility is that learning the grid↔hippocampal weights, as this model does throughout, is reported there to destroy the exponential capacity ([[wiki/empirical-tensions.md]] T41).
 

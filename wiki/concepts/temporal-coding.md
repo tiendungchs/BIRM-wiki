@@ -129,6 +129,8 @@ Everything above is an unsupervised timing detector. The moment a temporal code 
 
 ---
 
+- **Selection is not setting** ([[wiki/architectural-gaps.md]] `G80`). Mechanism 2 is the only delay-learning rule in the wiki and it can only *keep* delays the random bank already contains — so the bank's mean and spread remain design-time hyperparameters, the rule is driven by input coherence rather than by task error, and nothing arbitrates between two competing coherent subsets. A gradient-trained delay would be the wiki's cheapest expressiveness win and the one architecture where `G77`'s missing-time-origin objection does not bite, since a delay is relative by construction.
+
 ## Connections
 
 - **[[wiki/concepts/synaptic-plasticity.md]]** — also the source of this page's one direct empirical conflict: delay selection here needs a *multiplicative* window (`ΔJ ∝ J_j`, strong synapses gain most), while the measured window potentiates only weak synapses and depresses independently of strength (Bi & Poo 1998, [[wiki/empirical-tensions.md]] T76). Otherwise it supplies the rule this page uses and receives from it a design constraint the rule family otherwise lacks: the learning window's *peak location* (`s ≈ −t_r/2`, half the postsynaptic rise time) is what makes delay selection self-reinforcing, and the window's *width* turns out to be unrelated to the temporal resolution the rule can achieve.

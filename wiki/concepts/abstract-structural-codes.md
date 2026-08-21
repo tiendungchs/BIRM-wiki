@@ -138,6 +138,8 @@ The wiki's first *training signal* for abstraction, as opposed to an architectur
 
 ## Connections
 
+- **[[wiki/concepts/nonspatial-maps.md]]** — where this page's claim is actually tested: a code for structural position invariant to content is easy to demonstrate on a plane and hard everywhere else, and that page collects every domain in which the signature has been looked for off the plane, including the one matched control where it fails.
+
 - **[[wiki/entities/dinov3.md]]** — the nearest thing the wiki holds to a trainable objective for the relational half of the `g`/`x` split: a label-free penalty on the token-similarity matrix, invariant to any inner-product-preserving transformation, measured to hold relational structure in place against a content objective that was destroying it — though it carries no path-consistency term and needs a reference network to supply its target (G30).
 
 

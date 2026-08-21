@@ -303,6 +303,8 @@ Three consequences for this page. (i) `S_straight` is a cheap, label-free geomet
 
 ## Connections
 
+- **[[wiki/concepts/nonspatial-maps.md]]** — the strongest cellular entry in that page's table read this page's way: firing fields in a 2-D accumulated-evidence × position space, ~90% genuinely conjunctive, is a claim about the shape of a population code rather than about any named cell type.
+
 - **[[wiki/entities/dinov3.md]]** — this page's similarity-matrix instrument used as a **loss** rather than a measurement: `‖X_S X_Sᵀ − X_G X_Gᵀ‖_F²` pulls one network's patch-level geometry toward another's while leaving the features free up to any inner-product-preserving transformation, and is measured to hold that geometry against a competing objective eroding it.
 
 

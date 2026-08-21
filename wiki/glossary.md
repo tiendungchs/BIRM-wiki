@@ -171,11 +171,15 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | INST / FILT | INSTantaneous-error / FILTered-error plasticity rules | Gardner & Grüning's two derived supervised rules for spiking nets, identical except that FILT exponentially smooths the postsynaptic error before it multiplies the presynaptic eligibility term |
 | SPAN | Spike Pattern Association Neuron | Widrow–Hoff applied after convolving every spike train with an alpha kernel `t·e^{−t/τ}` |
 | PSD (spiking) | Precise-Spike-Driven plasticity | Spike-based Widrow–Hoff variant using the postsynaptic *current* as the presynaptic learning factor; distinct from PSD (Positive Semi-Definite) above |
+| CHRON | Chronotron (E-learning rule) | Gardner & Grüning's benchmark comparator: gradient descent on the Victor–Purpura distance itself, so the loss *is* the spike-train metric rather than a smoothed proxy ([[wiki/concepts/spike-train-error-metrics.md]]) |
+| STBP / SNU / TSSL-BP | Spatio-Temporal BackPropagation / Spiking Neural Unit / Temporal Spike Sequence Learning BackPropagation | The three standard surrogate-gradient trainers used as controls for spike-native learning; all three hold every neuron's time constants fixed and identical ([[wiki/concepts/neuronal-parameter-heterogeneity.md]]) |
+| HIFI | Heterogeneous spIking Framework with self-Inhibiting neurons | Wang et al. 2024: per-neuron membrane and adaptation time constants learned by a bi-level program with orthogonal sub-training sets, rather than swept ([[wiki/concepts/neuronal-parameter-heterogeneity.md]]) |
 | HNN | Hybrid Neural Network | A network containing both ANN and SNN subnetworks, joined by hybrid units ([[wiki/concepts/cross-paradigm-interface.md]]) |
 | HU | Hybrid Unit | The interface module between an ANN and an SNN: `Y = Q·F·H·W(X)` — window, kernel, nonlinearity, discretisation — each stage parameterisable, designed or learned |
 | HSN / HMN / HRN | Hybrid Sensing / Modulation / Reasoning Network | Zhao et al. 2022's three demonstrations: multi-pathway tracking, threshold-modulated continual learning, and graph-structured spiking reasoning on CLEVRER |
 | MCL | Meta-Continual Learning | Continual learning over a *distribution* of related sub-tasks, where prior sub-tasks must be exploited as well as protected |
 | N-MNIST | Neuromorphic MNIST | MNIST recorded with an event camera on a moving sensor; the standard spiking-network classification set (34×34×2 event streams) |
+| SHD / SSC | Spiking Heidelberg Digits / Spiking Speech Commands | The two standard audio-to-spike benchmarks, produced by an inner-ear model; SHD is spoken digits in two languages, SSC the 35-word Speech Commands set. Training on one and testing on the other is the wiki's only cross-*data-set* transfer measurement for spiking networks |
 | CLEVRER | CoLlision Events for Video REpresentation and Reasoning | Video question-answering benchmark over colliding objects, with descriptive, explanatory, predictive and counterfactual question types |
 | SGM | Sequential Generation Model | The language front end that translates a CLEVRER question into an ordered list of reasoning instructions |
 | XdG | Context-dependent Gating | Continual-learning baseline: a random per-task binary mask over units, applied at both training and test |
@@ -295,6 +299,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 
 | Abbrev. | Expansion | Note |
 |---|---|---|
+| PSP | PostSynaptic Potential | The voltage deflection one presynaptic spike produces in the target neuron; its time course is the kernel that both spiking capacity separations and derived spike-train learning rules turn out to be written in ([[wiki/concepts/circuit-size-separation.md]], [[wiki/concepts/spike-train-error-metrics.md]]) |
+| ISI | Inter-Spike Interval | The gap between one neuron's successive spikes; the variable spike-frequency adaptation lengthens, and the signature by which competing adaptation mechanisms are indistinguishable ([[wiki/concepts/spike-frequency-adaptation.md]]) |
 | CHC | Cattell-Horn-Carroll theory | The dominant hierarchical model of human cognitive abilities: `g` factor → broad abilities → task-specific skills; maps onto extreme / broad / local generalization |
 | Gf / Gc | Fluid / Crystallized intelligence | Cattell 1971: skill-acquisition ability vs. accumulated knowledge. ARC targets Gf only |
 | IRT / CTT | Item Response Theory / Classical Test Theory | Psychometric standards for reliability and validity that Chollet 2019 imports into AI evaluation |

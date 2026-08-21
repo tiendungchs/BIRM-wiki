@@ -49,7 +49,13 @@ Rows 1–5 are what Schmidgall et al. 2023 call **backpropagation-derived local 
 
 ---
 
-## Where the error lives: temporal vs. explicit (Whittington & Bogacz 2019)
+---
+
+## Part 1 — Where the error signal comes from
+
+Four mechanism classes, not four papers. Each answers the same question — *what physical quantity in the network stands in for `∂L/∂w`?* — and the last of them turns out to contain the other three as parameter settings.
+
+### Two places the error can live — a temporal difference in activity, or a dedicated error unit
 
 The families above are sorted by *what they do about weight transport*. The sharper cut for a builder is **how the network represents `δ` at all**, and it has two answers — plus a third, added below, that the dichotomy misses.
 
@@ -77,7 +83,43 @@ Three things this buys the wiki:
 - **A cost axis the wiki was not tracking: inference latency.** Predictive coding pays `2L−1` synaptic delays per forward pass *forever*, in exchange for training fast; the dendritic model runs at `L−1` but must pre-train its interneurons. Neither cost shows up in an accuracy table.
 - **The two explicit models are the same equations.** Substituting the error-node definition `ε_l = x_l − W_{l−1}x_{l−1}` into the value-node dynamics yields the dendritic model's pyramidal dynamics directly: decay + feedforward + feedback + a *negative* within-layer recurrent term, which — since pyramidal cells are excitatory — must be supplied by interneurons. **Predictive coding's error node and the pyramidal apical dendrite are one mechanism at two levels of description**; the interneuron is what the wiring costs when you refuse to spend a separate cell on the error.
 
-### A third class: the activations *are* the gradients (Millidge et al. 2020)
+### Inference dynamics *are* the error signal
+
+The families above all keep backpropagation's shape — a global objective whose derivative must reach every synapse somehow. This route drops the shape. Its claim: **the neural dynamics that settle a network into a consistent state are already the credit-assignment computation**, and plasticity only has to read them off locally.
+
+Three steps, each independently reusable:
+
+**1. STDP is stochastic gradient descent, if the dynamics are doing inference.** Posit the update
+
+`ΔW_ij ∝ V̇_j · S_i`
+
+(`S_i` presynaptic spike, `V_j` postsynaptic voltage). The observed STDP curve *falls out of this* by a threshold-crossing argument rather than being assumed: if `V̇_j > 0` the postsynaptic cell reaches threshold after the presynaptic spike, and sooner for larger `V̇_j` — so positive `ΔT` gives positive `ΔW`, decaying with `ΔT`; if `V̇_j < 0` the cell was above threshold *before* the presynaptic spike, giving negative `ΔW` at negative `ΔT`, shrinking in magnitude as `ΔT` grows. Simulation reproduces the Bi & Poo 1998 window. The consequence is conditional and is the whole argument: **if the change `ΔV_j` improves some objective `J`, then STDP is approximate SGD on `J`.** Xie & Seung 2000 had already shown STDP ≡ differential anti-Hebbian plasticity; what is added is a machine-learning `J`.
+
+**2. `J` is a variational bound, so the dynamics are variational E-steps.** With observed `x` and latent `h` (the voltages), take the regularized variational MAP-EM criterion
+
+`J = log p(x|h) + log p(h) + α log q(h|x)`
+
+`h` is a **free variable**, initialized from the feedforward `q(h|x)` and then iteratively updated to increase `J`; parameters of both `p` and `q` follow after. Splitting `h` into layers with `q` running up and `p` running down makes every `h`-update depend only on layers `k−1` and `k+1` — **local by construction**, no weight symmetry required, with all layers still coupled through the iteration. Add noise to the `h` update and the E-step is MCMC rather than MAP. Notably a rejection step is ruled out as implausible on two independent grounds: returning to a previous state, and evaluating a global joint likelihood.
+
+**3. Targetprop removes the last derivative.** Step 2 still needs `∂log p(h^{(k−1)}|h^{(k)})/∂h^{(k)}` — backprop through one layer. Using the denoising-autoencoder score theorem (Alain & Bengio 2013, `r(x) − x ≈ σ² ∂log p(x)/∂x`) twice, once on the `p(h)` autoencoder and once on a **joint autoencoder over `(x,h)`**, gives estimators built only from forward passes: `(f(g(h)) − h)/σ_h²` for `∂log p(h)/∂h`, and `(f(x) − f(g(h)))/σ_h²` for the input's pressure on `h`. Geometrically: the ideal `h̃` satisfies `g(h̃) = x`; since `f` and `g` are approximate inverses, `f∘g` moves by the same small amount near `x`, so the encoder difference measures the needed move in `h`-space.
+
+| What it buys | Detail |
+|---|---|
+| Objections addressed | All of 1–7 above **except 6 (clocking)** — no symmetric weights, no `f'(·)`, no linear backward path, spikes are the corruption noise, targets are the data |
+| Spikes become useful | The spike train is a *quantization* of `V`, i.e. injected noise — so every encoder/decoder pair is automatically a **denoising** autoencoder, hence contractive. Noise level is set by integration time or ensemble size |
+| A different generative procedure | Sampling the directed model `p(x\|h)p(h)` ancestrally scores Parzen LL = 126; running the joint denoising-autoencoder Markov chain (alternate `q(h\|x)`, `p(x\|h)`) scores **236** — comparable to or better than contractive autoencoders (121), GSNs (214) and GANs (225) of the day, on the same trained weights. Iterating encode/decode drags `h` toward the empirical `q*(h)` that the decoder was actually trained on |
+| Inference and generation are the same circuit | Generation = inference with `x` unclamped. Clamping *part* of `x` gives in-painting for free, with `f(x^v, g^m(h)) − f(g(h))` substituted for the visible-only pressure |
+| Empirical check on the mechanism | 20 targetprop iterations monotonically increase `log p(x,h)` on held-out MNIST — the update is verified to climb the objective it claims to, which is the check most local-rule papers omit |
+
+**Why this matters beyond plausibility.** It relocates credit assignment from the weight update to the **activity relaxation**: bottom-up and top-down pressures are reconciled by iterating on `h`, and the synapse then only has to be Hebbian in `(V̇_j, S_i)`. That is the same architectural move predictive coding makes, but derived from a likelihood bound instead of a prediction-error hierarchy, and it inherits the same cost — depth is paid in iterations ([[wiki/concepts/predictive-coding-free-energy.md]], and the "iteration count does not scale" open problem below).
+
+**Where it sits relative to the two-phase problem.** This scheme has no wake/sleep switch, but it does need to know when `x` is clamped, which is objection 6 wearing different clothes. The paper's own residue list is honest about it: operations are backprop-free but "may still require some kinds of synchronizations (or control mechanism)".
+
+**(brainstorm)** The load-bearing assumption is `f ≈ g⁻¹` — targetprop's estimator is a first-order statement that the encoder inverts the decoder locally. That is exactly the condition an autoencoder trained on the data manifold satisfies *on the manifold and nowhere else*, which predicts a specific failure: targetprop should degrade sharply on out-of-distribution inputs, precisely where a reasoning model needs credit assignment most. No result here tests that, and it is a cheap experiment — measure `‖f(g(h)) − h‖` as a function of distance from the training manifold and check whether it tracks the gap to the true gradient.
+
+---
+
+### A third class: the activations *are* the gradients
 
 Both classes above encode `δ` as a **difference** — across time (temporal) or across populations/compartments (explicit). Lillicrap et al. 2020 elevate that to a claim about the whole field, the **NGRAD hypothesis** (Neural Gradient Representation by Activity Differences): every local approximation to backpropagation represents gradients as differences in neural activity. **Activation Relaxation (AR) is a counterexample.**
 
@@ -175,7 +217,7 @@ The correspondence is specific, and it makes the plasticity kernel a design para
 
 So the same substrate implements a *derivative* rule or a *level* rule depending only on whether its window is asymmetric or symmetric. See [[wiki/concepts/synaptic-plasticity.md]], where the same symmetric/asymmetric dial selects successor vs. reversible transition structure (Keck et al. 2025) — two independent results in which STDP kernel symmetry is the parameter that changes *what is computed*, not how fast.
 
-### Objection 3 in practice: what a substitute derivative actually costs (Tavanaei et al. 2019)
+### What a substitute derivative actually costs
 
 Objection 3 — no derivative exists on a sum of Dirac deltas — is answered in practice by replacing `g'(·)` with a *substitute*. The review's audit of that move yields three constraints the wiki should apply to any surrogate:
 
@@ -202,43 +244,13 @@ The review's own conclusion, and the most useful stance for a builder: cortical 
 
 ---
 
-## Inference *is* the error signal (Bengio et al. 2015)
-
-The families above all keep backpropagation's shape — a global objective whose derivative must reach every synapse somehow. This route drops the shape. Its claim: **the neural dynamics that settle a network into a consistent state are already the credit-assignment computation**, and plasticity only has to read them off locally.
-
-Three steps, each independently reusable:
-
-**1. STDP is stochastic gradient descent, if the dynamics are doing inference.** Posit the update
-
-`ΔW_ij ∝ V̇_j · S_i`
-
-(`S_i` presynaptic spike, `V_j` postsynaptic voltage). The observed STDP curve *falls out of this* by a threshold-crossing argument rather than being assumed: if `V̇_j > 0` the postsynaptic cell reaches threshold after the presynaptic spike, and sooner for larger `V̇_j` — so positive `ΔT` gives positive `ΔW`, decaying with `ΔT`; if `V̇_j < 0` the cell was above threshold *before* the presynaptic spike, giving negative `ΔW` at negative `ΔT`, shrinking in magnitude as `ΔT` grows. Simulation reproduces the Bi & Poo 1998 window. The consequence is conditional and is the whole argument: **if the change `ΔV_j` improves some objective `J`, then STDP is approximate SGD on `J`.** Xie & Seung 2000 had already shown STDP ≡ differential anti-Hebbian plasticity; what is added is a machine-learning `J`.
-
-**2. `J` is a variational bound, so the dynamics are variational E-steps.** With observed `x` and latent `h` (the voltages), take the regularized variational MAP-EM criterion
-
-`J = log p(x|h) + log p(h) + α log q(h|x)`
-
-`h` is a **free variable**, initialized from the feedforward `q(h|x)` and then iteratively updated to increase `J`; parameters of both `p` and `q` follow after. Splitting `h` into layers with `q` running up and `p` running down makes every `h`-update depend only on layers `k−1` and `k+1` — **local by construction**, no weight symmetry required, with all layers still coupled through the iteration. Add noise to the `h` update and the E-step is MCMC rather than MAP. Notably a rejection step is ruled out as implausible on two independent grounds: returning to a previous state, and evaluating a global joint likelihood.
-
-**3. Targetprop removes the last derivative.** Step 2 still needs `∂log p(h^{(k−1)}|h^{(k)})/∂h^{(k)}` — backprop through one layer. Using the denoising-autoencoder score theorem (Alain & Bengio 2013, `r(x) − x ≈ σ² ∂log p(x)/∂x`) twice, once on the `p(h)` autoencoder and once on a **joint autoencoder over `(x,h)`**, gives estimators built only from forward passes: `(f(g(h)) − h)/σ_h²` for `∂log p(h)/∂h`, and `(f(x) − f(g(h)))/σ_h²` for the input's pressure on `h`. Geometrically: the ideal `h̃` satisfies `g(h̃) = x`; since `f` and `g` are approximate inverses, `f∘g` moves by the same small amount near `x`, so the encoder difference measures the needed move in `h`-space.
-
-| What it buys | Detail |
-|---|---|
-| Objections addressed | All of 1–7 above **except 6 (clocking)** — no symmetric weights, no `f'(·)`, no linear backward path, spikes are the corruption noise, targets are the data |
-| Spikes become useful | The spike train is a *quantization* of `V`, i.e. injected noise — so every encoder/decoder pair is automatically a **denoising** autoencoder, hence contractive. Noise level is set by integration time or ensemble size |
-| A different generative procedure | Sampling the directed model `p(x\|h)p(h)` ancestrally scores Parzen LL = 126; running the joint denoising-autoencoder Markov chain (alternate `q(h\|x)`, `p(x\|h)`) scores **236** — comparable to or better than contractive autoencoders (121), GSNs (214) and GANs (225) of the day, on the same trained weights. Iterating encode/decode drags `h` toward the empirical `q*(h)` that the decoder was actually trained on |
-| Inference and generation are the same circuit | Generation = inference with `x` unclamped. Clamping *part* of `x` gives in-painting for free, with `f(x^v, g^m(h)) − f(g(h))` substituted for the visible-only pressure |
-| Empirical check on the mechanism | 20 targetprop iterations monotonically increase `log p(x,h)` on held-out MNIST — the update is verified to climb the objective it claims to, which is the check most local-rule papers omit |
-
-**Why this matters beyond plausibility.** It relocates credit assignment from the weight update to the **activity relaxation**: bottom-up and top-down pressures are reconciled by iterating on `h`, and the synapse then only has to be Hebbian in `(V̇_j, S_i)`. That is the same architectural move predictive coding makes, but derived from a likelihood bound instead of a prediction-error hierarchy, and it inherits the same cost — depth is paid in iterations ([[wiki/concepts/predictive-coding-free-energy.md]], and the "iteration count does not scale" open problem below).
-
-**Where it sits relative to the two-phase problem.** This scheme has no wake/sleep switch, but it does need to know when `x` is clamped, which is objection 6 wearing different clothes. The paper's own residue list is honest about it: operations are backprop-free but "may still require some kinds of synchronizations (or control mechanism)".
-
-**(brainstorm)** The load-bearing assumption is `f ≈ g⁻¹` — targetprop's estimator is a first-order statement that the encoder inverts the decoder locally. That is exactly the condition an autoencoder trained on the data manifold satisfies *on the manifold and nowhere else*, which predicts a specific failure: targetprop should degrade sharply on out-of-distribution inputs, precisely where a reasoning model needs credit assignment most. No result here tests that, and it is a cheap experiment — measure `‖f(g(h)) − h‖` as a function of distance from the training manifold and check whether it tracks the gap to the true gradient.
-
 ---
 
-## Which way should alignment run? (Shervani-Tabar & Rosenbaum 2023)
+## Part 2 — What a local rule is worth once you have one
+
+The mechanism classes above are all *derivable*. Whether any of them is worth deriving is a separate question with its own literature, and the answers are mostly negative: the rules diverge from backpropagation in a direction nobody chose, generalize worse for a reason that is structural rather than incidental, and lose to it on every task with a convolutional architecture.
+
+### Which way should alignment run?
 
 Feedback alignment's promise is that forward weights adapt until random `B` carries a useful signal. Its measured failure is *when*: with a deep model, batch size 1 and 250 training samples, it does not begin to learn for ~2000 iterations and plateaus near chance, while backpropagation is already converged. The teaching signals `e^FA_ℓ` are simply not aligned with `e^BP_ℓ` at that stage. Three repairs exist and they differ in **which side of the pair is made to move**:
 
@@ -254,7 +266,7 @@ Two things follow for a builder. First, **alignment is a symmetric requirement a
 
 ---
 
-## The generalization deficit of backpropagation-derived local rules
+### The generalization deficit of backpropagation-derived local rules
 
 The yardstick: **flat minima generalize better** — for a perturbation `ε` in weight space, performance degrades more sharply around *narrow* minima, so a rule that finds flatter minima generalizes better.
 
@@ -266,11 +278,11 @@ Measured against backpropagation through time, backpropagation-derived local rul
 
 ---
 
-## Does any of this scale? (Bartunov et al. 2018)
+### Does any of this scale?
 
 The first head-to-head test of the family on datasets where depth is *required*. Same architectures, independent hyperparameter search per method, 500 epochs, MNIST / CIFAR-10 / ImageNet, in both fully-connected (FC) and **locally-connected** (LC) nets. Result: **largely negative.**
 
-### Two implausibilities removed first, so the test is honest
+#### Two implausibilities removed first, so the test is honest
 
 | Variant | Change | Why it matters |
 |---|---|---|
@@ -280,7 +292,7 @@ The first head-to-head test of the family on datasets where depth is *required*.
 
 Also corrected for the brain: the inverse (autoencoder) loss is trained **de-noising**, not noise-preserving as in the original DTP code, on the grounds that in a brain noise is added *downstream* of a layer (spiking, stochastic vesicle release) and cannot be preserved by construction.
 
-### The numbers
+#### The numbers
 
 | Test error (%) | MNIST FC | MNIST LC | CIFAR-10 LC | ImageNet top-1 / top-5 |
 |---|---|---|---|---|
@@ -295,14 +307,14 @@ Also corrected for the brain: the inverse (autoencoder) loss is trained **de-noi
 
 Chance on ImageNet is 99.9% top-1: **every target-propagation variant is at chance**, and FA — the best biologically motivated method — is 22 points of top-1 behind backpropagation on the same locally-connected architecture. The MNIST-scale ranking says nothing about the ImageNet-scale ranking, which is the methodological point: the whole family had been validated on a dataset that does not discriminate.
 
-### Four findings that transfer
+#### Four findings that transfer
 
 1. **Target diversity, not weight transport, is targetprop's binding constraint.** The DTP→SDTP gap is caused by inverting a *low-entropy* output: one 1-hot vector per class maps back to one penultimate target per class, for a 1000-unit layer. Two independent confirmations — AO-SDTP's random auxiliary features close most of the gap (CIFAR LC 46.63 → 40.05) with no gradient anywhere, and on an MNIST **autoencoder**, where targets are naturally high-dimensional, SDTP's reconstructions are visually indistinguishable from backpropagation's despite underfitting the loss. **(brainstorm)** This inverts the usual reading of targetprop for a reasoning model: the algorithm is starved by classification and should do *better* on the generative, structure-predicting objectives this wiki wants anyway ([[wiki/concepts/prediction-compression-equivalence.md]]) — a cheap and unrun test is SDTP on next-state prediction in a structured environment.
 2. **Locally-connected architectures hurt the biologically motivated methods specifically.** Removing weight sharing costs backpropagation almost nothing (CIFAR LC 32.41 vs. convnet 31.87), so *weight sharing is not what makes convolutions work* — the receptive-field prior is. But TP gains far less from local connectivity than backpropagation does, and more expressive inverses (larger receptive fields, fully-connected inverses) did not help. The plausible architecture and the plausible learning rule interact badly, and nobody knows why.
 3. **DFA does not fit in memory at scale.** Direct feedback alignment needs a dense projection from the output layer to *every* neuron; on 224×224 ImageNet activations this out-of-memories a 16 GB GPU. The "shortest path from error to synapse" variant is the one that is least implementable in a large network — biological or silicon.
 4. **Backpropagation is a special case of target propagation.** Solving for the target that makes the local loss `½‖f(h_l) − ĥ_{l+1}‖²` equivalent to a backpropagation step gives `g_bp(h̃_{l+1}) = (dh_{l+1}/dh_l)·h̃_{l+1}` — i.e. the two differ only in *which backward map* generates the target. This licenses a hybrid: `g = γ·g_bp + (1−γ)·g_inv`, a tunable dial between exact-gradient and inverse-based targets, and suggests using the inverse loss as a *regulariser* on a backpropagation-trained network. Untested, and the cleanest concrete proposal the paper leaves.
 
-### Behavioural realism as a plausibility criterion
+#### Behavioural realism as a plausibility criterion
 
 The paper's stated methodological claim, and the reason the negative result is not dismissible: **physiological realism is not enough — a candidate learning rule must also reach the performance humans reach on tasks unrelated to their evolution.** A model whose adaptive extras are bolted onto a crippled learning rule teaches nothing; showing good performance at least establishes that the rule *is not the limiting factor*. The counter-argument is stated in the paper too — a rule stripped of neuromodulation, evolutionary priors and multiple plasticity types may be failing for a reason other than the rule — so this is a live tension, [[wiki/empirical-tensions.md]] T78.
 
@@ -314,9 +326,11 @@ The paper's stated methodological claim, and the reason the negative result is n
 
 ---
 
-## Why the question cuts both ways
+### Why the question cuts both ways
 
 The motivation is not only biological fidelity. Very deep networks (>20 layers) compound successive nonlinearities in ways that make backpropagation-based optimization itself difficult, so the search for biologically plausible alternatives doubles as a search for **better** learning algorithms — the same virtuous-circle logic that produced temporal-difference learning.
+
+---
 
 ---
 
@@ -331,7 +345,6 @@ The motivation is not only biological fidelity. Very deep networks (>20 layers) 
 ## Open problems
 
 - **No surrogate-derivative proposal is scored on locality.** The literature reports accuracy; the review notes in passing that one common surrogate (presynaptic membrane potential) is not locally available. A locality audit of the surrogate — separate from the accuracy comparison — does not exist, and without it "spiking backpropagation is biologically plausible" is unchecked (Tavanaei et al. 2019).
-
 
 - Do the approximations hold at scale, or only in small networks and shallow hierarchies? (Partly answered: feedback alignment does not reach ImageNet; sign-symmetry does — so **what sign-symmetry transports is apparently the load-bearing part**, and it is the part that is least biologically defensible. Now answered *negatively for the whole tested family*: no target-propagation variant beats chance on ImageNet and feedback alignment is 22 top-1 points behind backpropagation — Bartunov et al. 2018.)
 - **Why do locally-connected architectures hurt target propagation but not backpropagation?** Dropping weight sharing costs backpropagation ~0.5 points on CIFAR-10, while TP gains far less from local connectivity than backpropagation does, and richer inverses (wider receptive fields, fully-connected inverses) do not repair it. Unexplained, and it is the *biologically realistic* architecture that breaks (Bartunov et al. 2018).
