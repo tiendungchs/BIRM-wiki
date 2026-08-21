@@ -373,7 +373,7 @@ One INGEST each:
 - [x] `raichle-2001-default-mode-brain-function.md` — default-mode · F · 2001
 - [x] `gusnard-2001-mpfc-self-referential-default-mode.md` — default-mode · R · 2001
 - [x] `gao-2013-default-mode-network-visual-task.md` — default-mode · R · 2013
-- [ ] `tripathi-2025-dmn-connectivity-biomarker.md` — default-mode · R · 2025
+- [x] `tripathi-2025-dmn-connectivity-biomarker.md` — default-mode · R · 2025
 - [ ] `paquola-2025-dmn-cytoarchitecture-signal-flow.md` — default-mode · R · 2025
 - [ ] `mashour-2020-global-neuronal-workspace.md` — consciousness-global-workspace · S · 2020
 - [ ] `raccah-2021-pfc-consciousness-stimulation.md` — consciousness-global-workspace · S · 2021
