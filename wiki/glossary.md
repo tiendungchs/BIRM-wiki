@@ -166,6 +166,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | LSNN | Long Short-term memory Spiking Neural Network | Bellec et al.'s recurrent SNN whose adaptive-threshold module gives it LSTM-level sequential-MNIST and TIMIT performance |
 | NVM | Non-Volatile Memory | RRAM/PCM/CBRAM-class devices; their nonlinear conductance change is proposed as the threshold-adaptation mechanism itself, removing the capacitor ([[wiki/concepts/spike-frequency-adaptation.md]]) |
 | COTS | Commercial Off-The-Shelf | Here: existing neuromorphic chips whose primitive is a plain LIF neuron, so SFA has to be built from several compartments |
+| vRD | van Rossum Distance | Spike-train distance taken as `∫(Ỹ^ref − Ỹ)² dt` after convolving both trains with an exponential kernel; the error FILT descends ([[wiki/concepts/spike-train-error-metrics.md]]) |
+| VPD | Victor & Purpura Distance | Spike-train distance taken as the minimum cost of transforming one train into the other by creating, removing or **moving** spikes; the Chronotron's cost function |
+| INST / FILT | INSTantaneous-error / FILTered-error plasticity rules | Gardner & Grüning's two derived supervised rules for spiking nets, identical except that FILT exponentially smooths the postsynaptic error before it multiplies the presynaptic eligibility term |
+| SPAN | Spike Pattern Association Neuron | Widrow–Hoff applied after convolving every spike train with an alpha kernel `t·e^{−t/τ}` |
+| PSD (spiking) | Precise-Spike-Driven plasticity | Spike-based Widrow–Hoff variant using the postsynaptic *current* as the presynaptic learning factor; distinct from PSD (Positive Semi-Definite) above |
 | HNN | Hybrid Neural Network | A network containing both ANN and SNN subnetworks, joined by hybrid units ([[wiki/concepts/cross-paradigm-interface.md]]) |
 | HU | Hybrid Unit | The interface module between an ANN and an SNN: `Y = Q·F·H·W(X)` — window, kernel, nonlinearity, discretisation — each stage parameterisable, designed or learned |
 | HSN / HMN / HRN | Hybrid Sensing / Modulation / Reasoning Network | Zhao et al. 2022's three demonstrations: multi-pathway tracking, threshold-modulated continual learning, and graph-structured spiking reasoning on CLEVRER |
