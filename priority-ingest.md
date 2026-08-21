@@ -69,8 +69,8 @@ One INGEST each:
 
 **Bundle — Fluxx — the rule-rewriting game.** One INGEST pass over all 2 files (~1937 words), in this order.
 
-- [ ] `looneylabs-nd-fluxx-rules.md` — rule-induction · B · nd
-- [ ] `smith-2015-batman-fluxx-review.md` — rule-induction · X · 2015
+- [x] `looneylabs-nd-fluxx-rules.md` — rule-induction · B · nd
+- [x] `smith-2015-batman-fluxx-review.md` — rule-induction · X · 2015
 
 One INGEST each:
 
