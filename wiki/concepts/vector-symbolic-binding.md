@@ -139,7 +139,7 @@ LS > AN^cm > AN > SS > FA          in 100/100 runs
 - **Scaling in episode size.** Similarity is a sum of structural-feature matches, which becomes a worse measure as episodes grow — big structures wash out into a mean. The proposed fix is chunking: represent an episode as several HRR chunks, one per node in a spreading-activation network. Unimplemented.
 - **Counter-intuitive rankings are constructible.** The estimator has no certificate; like every approximate matcher in the wiki, it cannot say when it is wrong (G37, G17).
 - **All structure is authored.** Role vocabularies (`bite_agt`, `cause_cnsq`), the decomposition into relations, and the choice of what to superpose at the top level are hand-specified. The algebra makes structure *representable* at fixed width; it discovers none of it.
-- **Not a model of analogy-making.** Explicitly a first-stage reminder, not a mapper. The correspondence itself — which object goes to which — is never computed, only scored.
+- **Not a model of analogy-making.** Explicitly a first-stage reminder, not a mapper. The correspondence itself — which object goes to which — is never computed, only scored. The mapping step, and the cost of doing it in the same algebraic style, is [[wiki/concepts/analogical-mapping.md]]; notably that construction needs neither an inverse nor the *content* of the neighbouring roles, only their labels ([[wiki/empirical-tensions.md]] T186, T187).
 
 ---
 
@@ -160,3 +160,4 @@ LS > AN^cm > AN > SS > FA          in 100/100 runs
 - **[[wiki/concepts/latent-graph-discovery.md]]** — a concrete instance-graph format: a relational graph of arbitrary depth as one fixed-width vector, comparable, decodable, and superposable — with the boundary drawn sharply, since the algebra represents graphs and discovers none.
 - **[[wiki/entities/pbwm.md]]** — the routing answer to the same binding problem: a control signal gates a filler into a memory stripe, so binding is *where* the item is stored, where here it is *how* it is transformed — and the stripe version needs every reader to learn to decode every stripe, while `†` is one fixed permutation.
 - **[[wiki/concepts/working-memory.md]]** — what a fast `M` would hold if built this way: one vector per episode supporting both similarity ranking and slot-level interrogation, rather than a set of unstructured content slots.
+- **[[wiki/concepts/analogical-mapping.md]]** — the operation this page explicitly declines to perform: correspondence rather than ranking, obtained by `argmax` of the same kind of dot product over a *sparse binary* code whose binder (context-dependent thinning) has no inverse, which puts the necessity of `†` in question (T187) and offers a second, content-free way to make role structure a surface feature (T186).
