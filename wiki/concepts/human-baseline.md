@@ -38,6 +38,7 @@ A human baseline is under-determined until five things are fixed. None of the wi
 | [[wiki/entities/anli.md]] | implicit: every test item verified by ≥2 humans | — | — | agreement, not accuracy | Per-item difficulty *at authoring time* (3.4 → 6.4 mean tries, 199 → 355 s), which no accuracy baseline supplies |
 | [[wiki/entities/agent-benchmark.md]] | 300 MTurk raters, 10 per trial, 0–100 surprise slider, each rater sees one member of a pair | 1 | relative-surprise accuracy | single-rater ≈ **.91**, ensemble **1.00** | The **profile**, not the aggregate: a model at .90 vs .91 correlates **0.06** with the human item-type profile |
 | [[wiki/entities/bib.md]] | infants (companion paper) | — | looking time → *direction* | **no ceiling reported** | Nothing as an upper reference point — a direction has no denominator |
+| [[wiki/entities/olymmath.md]] | **none collected**; three Olympiad medallists verified the items and were never scored on them | — | — | — | Nothing — and the omission is unusually stark, because the items are genuine competition problems whose human distribution exists in the world and was not gathered |
 | [[wiki/entities/gsm8k.md]] | "a bright middle-school student" | — | — | asserted | Nothing measurable; the honest reading is that GSM8K has no baseline |
 | [[wiki/entities/mlc.md]] | human participants answering 7 queries on one page | 1 | **modal response pattern**, errors included | 58.6% of participants show all three biases simultaneously | The only baseline in the wiki that is a *distribution over responses including the wrong ones* rather than a score — see below |
 
@@ -101,6 +102,7 @@ The wiki uses "human baseline" for four different jobs. Conflating them is what 
 - **[[wiki/entities/agent-benchmark.md]]** — supplies the profile-vs-aggregate dissociation (0.06 correlation at .90 accuracy) that makes job 4 necessary rather than optional.
 - **[[wiki/entities/frontiermath.md]]** — the only baseline in a different *unit*: expert-hours rather than probability-correct, decomposed into finding the key idea and executing it, estimated by the problem's author with poor rater agreement — and the only human-in-the-loop cost ratio in the wiki (~5× to guide a model versus solving directly).
 - **[[wiki/entities/math-dataset.md]]** — the `n = 1`-per-level baseline; its 40–90% spread across expertise is real and its endpoints are anecdotes.
+- **[[wiki/entities/olymmath.md]]** — the case where the denominator was *available* and skipped: three China Mathematical Olympiad medallists reviewed all 200 numerical items (answers supplied, so the task was verification rather than solving) and no human accuracy, time or attempt count was recorded, on a benchmark whose whole claim is discriminative power at the frontier.
 - **[[wiki/entities/gsm8k.md]]** — the asserted baseline ("a bright middle-school student"), i.e. none, on a benchmark whose scores drove five years of method development.
 - **[[wiki/entities/bib.md]]** — the infant baseline with no reported ceiling (H5).
 - **[[wiki/entities/mlc.md]]** — the wiki's only response-*pattern* baseline: three named inductive biases matched at human rates, errors included.
