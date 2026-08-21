@@ -521,3 +521,5 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | HLE | Humanity's Last Exam | Phan et al. 2025/2026: 2,500 closed-ended expert-authored questions admitted by an automated frontier-model gate ([[wiki/entities/hle.md]]) |
 | MMLU | Measuring Massive Multitask Language Understanding | Hendrycks et al. 2021's 57-subject multiple-choice knowledge benchmark; the saturated instrument HLE was built to replace |
 | RMS calibration error | Root Mean Square calibration error | Deviation of stated confidence from realised accuracy, binned and RMS-averaged; 73–89% across frontier models on HLE |
+| SFT | Supervised Fine-Tuning | Further training on labelled input–output pairs with the loss taken on the output only; distinguished from pre-training (full-sequence loss) — the two leave different leakage signatures ([[wiki/concepts/benchmark-contamination.md]]) |
+| ROUGE-L | Recall-Oriented Understudy for Gisting Evaluation, Longest-common-subsequence variant | Overlap score based on the longest common subsequence of prediction and reference; used as the lenient match rule in instance-level leakage detection |
