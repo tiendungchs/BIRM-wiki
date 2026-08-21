@@ -340,7 +340,7 @@ One INGEST each:
 - [x] `maass-2002-liquid-state-machine.md` — spiking-neuromorphic · F · 2002
 - [x] `zhao-2022-hybrid-neural-networks-framework.md` — spiking-neuromorphic · F · 2022
 - [x] `gardner-2016-snn-precise-temporal-encoding.md` — spiking-neuromorphic · M · 2016
-- [ ] `casanuevamorato-2024-hippocampus-neuromorphic-cam.md` — spiking-neuromorphic · M · 2024
+- [x] `casanuevamorato-2024-hippocampus-neuromorphic-cam.md` — spiking-neuromorphic · M · 2024
 - [ ] `wang-2024-heterogeneous-snn-learning.md` — spiking-neuromorphic · M · 2024
 - [ ] `meszaros-2025-snn-delay-learning.md` — spiking-neuromorphic · M · 2025
 - [ ] `kleyko-2025-neuromorphic-reservoir-computing.md` — spiking-neuromorphic · M · 2025

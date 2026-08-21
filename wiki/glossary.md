@@ -388,6 +388,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | fMRI adaptation | (repetition suppression) | Reduced response to a stimulus similar to its predecessor; recovery from it is used as a proxy for representational distance between the two |
 | CHL | Contrastive Hebbian Learning | Two-phase rule `Δw ∝ ⟨ρρ⟩_clamped − ⟨ρρ⟩_free`; the fully clamped (`β → ∞`) limit of equilibrium propagation ([[wiki/concepts/equilibrium-propagation.md]]) |
 | STDP | Spike-Timing-Dependent Plasticity | Hebbian rule whose sign depends on pre/post spike order |
+| SpiNNaker | Spiking Neural Network Architecture | Manchester many-core neuromorphic platform; runs SNNs in real time at a 1 ms timestep, and its STDP implementation carries a residual >0 term at long inter-spike intervals, so dynamic weights degenerate on every operation ([[wiki/entities/spiking-hippocampal-cam.md]]) |
 | BCM | Bienenstock–Cooper–Munro theory | Stabilised Hebbian rule with a *sliding* modification threshold on postsynaptic activity — potentiation above it, depression below — so the rule is metaplastic by construction ([[wiki/concepts/synaptic-plasticity.md]]) |
 | GHA | Generalized Hebbian Algorithm | Deflation-based extension of Oja's rule that extracts successive principal components rather than only the first |
 | V1 | Primary Visual Cortex | Simple/complex cells; origin of convolutional architecture |
