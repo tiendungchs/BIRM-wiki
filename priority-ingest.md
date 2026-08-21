@@ -38,7 +38,7 @@ One INGEST each:
 - [x] `barrett-2018-measuring-abstract-reasoning.md` — reasoning-eval · B · 2018
 - [x] `nie-2020-adversarial-nli.md` — reasoning-eval · B · 2020
 - [x] `shu-2021-agent-psychological-reasoning-benchmark.md` — reasoning-eval · B · 2021
-- [ ] `gandhi-2021-baby-intuitions-benchmark.md` — reasoning-eval · B · 2021
+- [x] `gandhi-2021-baby-intuitions-benchmark.md` — reasoning-eval · B · 2021
 - [ ] `hendrycks-2021-math-dataset.md` — reasoning-eval · B · 2021
 
 **Bundle — GSM8K and its two perturbation derivatives.** One INGEST pass over all 3 files (~11964 words), in this order.
