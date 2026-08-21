@@ -76,6 +76,24 @@ The paper's own function claim — the one later reviews call the **sentinel** h
 
 ---
 
+## The artefact caught in primary data — a companion experiment
+
+> **Provenance (second ingest).** Gusnard, Akbudak, Shulman & Raichle 2001, *Medial prefrontal cortex and self-referential mental activity: relation to a default mode of brain function*, PNAS 98(7):4259–4264, doi:10.1073/pnas.071043098 (`raw/gusnard-2001-mpfc-self-referential-default-mode.md`). Blocked fMRI, n = 24; two judgments on the same affective pictures — **internally cued** (pleasant/unpleasant) and **externally cued** (indoors/outdoors) — each alternating with **visual fixation**.
+
+The page above argues that a decrease has no sign without an agreed zero. This companion paper *exhibits* the failure, in the same subjects, with the third condition that identifies it:
+
+| Region | vs fixation, internally cued | vs fixation, externally cued | The two tasks contrasted |
+|---|---|---|---|
+| Mid medial prefrontal focus | **no change** | **decrease** | reported as an **increase** for the internally cued task |
+
+The apparent activation is entirely the control task's deactivation. Without the passive third condition — which the prior positron-emission-tomography study of the same paradigm lacked — the contrast is uninterpretable and reads with the wrong sign. The authors' own rule: *"what others report as an increase should on occasion more properly be regarded as a decrease."* The corollary is a design rule, not a caveat: **an experiment with only two active conditions cannot assign a sign to either.** A three-way design (task A / task B / a defined reference) is the minimum for a directional claim, and this is the concrete counterexample to any two-condition contrast in the wiki's interpretability pages, where the "control prompt" is always another task.
+
+**A second, cheaper deconfound from the same experiment.** The dorsal medial prefrontal increase specific to the self-referential task came with **matched reaction times** (1.14 s vs 1.12 s, p = 0.36), so the difference cannot be time-on-task or general effort. Reporting a matched behavioural cost alongside a difference signal is the minimum evidence that a contrast is about content and not about how long the system ran — a check no activation-magnitude method in the wiki performs.
+
+**And the third variable this page's dissociations imply.** The two tiers of medial prefrontal cortex move on different arguments in this experiment: the ventral tier decreases under *both* tasks (attentional demand, content-blind), the dorsal tier increases or decreases depending on *where attention is pointed*. A single "engagement" residual against a per-unit reference — the machine analogue proposed below — would collapse these into one number and lose the distinction. Engagement is at least two-dimensional: how much, and toward what. See [[wiki/entities/default-mode-network.md]].
+
+---
+
 ## Where the claim does not hold
 
 The absolute-baseline argument is weaker than its use in the later literature suggests, and the primary tables above show it:
@@ -108,6 +126,7 @@ The absolute-baseline argument is weaker than its use in the later literature su
 | **No zero across sessions, subjects or instruments** | Global OEF differed by a third between two groups on two scanners. Everything here is a within-brain relative measure, which is what an absolute baseline was supposed to escape |
 | **"Modal level of neural activity" is never operationalised** | The equilibrium is asserted between blood flow and the demand of a long-run modal activity level, but that level is not measured, and no timescale is given for the equilibration — so the theory has no prediction for how fast a baseline moves after a sustained change in use |
 | **The sentinel function is untested by this design** | Every argument for broad monitoring is anatomical, lesion-based or evolutionary; nothing here manipulates monitoring breadth and measures the baseline. Non-identification against the internal-mentation account starts here and is still open |
+| **Nothing states how many dimensions "engagement" has** | The companion experiment shows two medial prefrontal tiers responding to attentional *demand* and attentional *orientation* separately on the same trials, so a scalar residual against a per-unit reference is underspecified — but no source here gives the basis in which engagement should be read |
 | **The machine analogue has no instance** | No architecture in the wiki has a per-unit slow resource normaliser, or reports engagement as a residual against one |
 
 ---
@@ -117,6 +136,7 @@ The absolute-baseline argument is weaker than its use in the later literature su
 - **[[wiki/entities/default-mode-network.md]]** — the network this baseline argument was invented to license: the paper's contribution is not the map (inherited from Shulman's meta-analysis) but the demonstration that the map's regions decrease from a *true* zero rather than returning from an unnoticed activation.
 - **[[wiki/concepts/human-baseline.md]]** — the same defect one level up: there a benchmark score has no meaning until the human denominator's protocol is fixed, here a regional activation has no sign until the control state's status is fixed, and both are solved by specifying the reference rather than by better measurement.
 - **[[wiki/concepts/function-to-structure-inference.md]]** — a function label derived from a contrast is a property of the contrast; this page supplies the physiological attempt to escape that, and the extent to which it fails.
+- **[[wiki/entities/medial-prefrontal-cortex.md]]** — the region where the sign artefact was caught: its dorsal and ventral tiers move on different arguments in the same experiment, which is why a single engagement residual is the wrong readout for it.
 - **[[wiki/concepts/default-self-model.md]]** — the competing account of what the medial prefrontal share of this baseline metabolism is spent on: self-competence modelling rather than salience monitoring, from the companion paper in the same issue.
 - **[[wiki/concepts/priority-map.md]]** — the sentinel claim is a priority map that is never called: broad, low-resolution, task-independent monitoring whose output is an interrupt, against that page's template-driven map that exists only while a search is running.
 - **[[wiki/concepts/dynamic-repertoire.md]]** — the same resting state described by its dynamics rather than its energetics; a repertoire is what the baseline metabolism is *buying*, and neither page's measure constrains the other.

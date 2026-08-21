@@ -28,7 +28,7 @@ One INGEST each:
 - [x] `azarias-2025-default-mode-network-development.md` — default-mode · S · 2025
 - [x] `satpute-2026-dmn-hierarchical-generative-model.md` — default-mode · S · 2026
 - [x] `raichle-2001-default-mode-brain-function.md` — default-mode · F · 2001
-- [ ] `gusnard-2001-mpfc-self-referential-default-mode.md` — default-mode · R · 2001
+- [x] `gusnard-2001-mpfc-self-referential-default-mode.md` — default-mode · R · 2001
 - [ ] `gao-2013-default-mode-network-visual-task.md` — default-mode · R · 2013
 - [ ] `tripathi-2025-dmn-connectivity-biomarker.md` — default-mode · R · 2025
 - [ ] `paquola-2025-dmn-cytoarchitecture-signal-flow.md` — default-mode · R · 2025

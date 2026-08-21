@@ -272,6 +272,26 @@ Two consequences for this page. (i) **The medial/lateral split in this task is a
 
 ---
 
+### The founding human dissociation: the two tiers respond to different arguments
+
+> **Provenance.** Gusnard, Akbudak, Shulman & Raichle 2001, *Medial prefrontal cortex and self-referential mental activity: relation to a default mode of brain function*, PNAS 98(7):4259–4264, doi:10.1073/pnas.071043098 (`raw/gusnard-2001-mpfc-self-referential-default-mode.md`). Blocked fMRI, n = 24, 1.5 T. Same affective pictures judged two ways — **internally cued** (pleasant vs unpleasant) vs **externally cued** (indoors vs outdoors) — each against **visual fixation**.
+
+The subdivision table above is a *content-domain* partition read off reverse inference twenty years later. This is the experiment the partition descends from, and it makes a sharper claim than "these regions prefer these domains": the two tiers are functions of **different arguments**, measured on the same trials.
+
+| Tier | Locus | Responds to | Behaviour |
+|---|---|---|---|
+| Dorsal | medial BA 8, 9, 10 | **orientation of attention** (internal vs external target) | Up in the internally cued task relative to the externally cued one; down under externally directed load; correlates with the count of stimulus-independent thoughts and is highest at rest |
+| Ventral | BA 24/25/32 | **attentional demand**, content-blind | Down vs fixation in *both* tasks; no significant difference between them |
+| (Common) | BA 6/32, dorsal anterior cingulate + pre-SMA/SMA | task execution | Up equally in both (Z = 6.63 / 6.92; interaction n.s.) — motor and attentional, not content |
+
+Two deconfounds worth carrying: reaction times were **matched** (1.14 s vs 1.12 s, p = 0.36), so the dorsal effect is not time-on-task; and one mid-medial focus that read as an *increase* in the two-task contrast was, against fixation, no change in one task and a decrease in the other — a sign artefact caught in primary data ([[wiki/concepts/activity-baseline.md]]).
+
+**(brainstorm) Read against the rat page above, the two axes start to line up in one place and diverge in another.** The rat ventral tier is the one wired to amygdala, hypothalamus and autonomic brainstem; this paper's ventral tier is assigned salience/valence evaluation on exactly that connectivity (wide-band bodily input via orbital cortex, dense limbic and autonomic interconnection). So *ventral = internal-state integration* survives the species jump. What does **not** transfer is the dorsal half: the rat dorsal tier is the sensorimotor-coupled sequencer, and the human dorsal tier here is the self-referential constructor whose activity is highest when nothing external is being processed. Those are not the same job, and the wiki has no source that bridges them.
+
+**The function claim, graded.** The authors adopt Ingvar's proposal that resting activity is a continuous *"simulation of behaviour"* — inner rehearsal and optimization of behavioural and cognitive serial programs for the individual's future — and assign dorsal medial prefrontal cortex the representations of a temporally extended narrative/autobiographical self. Evidence offered is the replicated contrast plus lesion literature; the self is inferred from the region rather than measured. Note also that the self-referential condition is an *affect* judgment, so nothing here separates "about me" from "about my feelings".
+
+---
+
 ## The monkey medial wall: a region defined by the demand it serves
 
 > **Provenance.** Matsuzaka, Akiyama, Tanji & Mushiake 2012, PNAS 109:4633–4638 (`raw/matsuzaka-2012-dmpfc-response-tactic-selection.md`). Two *Macaca fuscata*, chronic single units.
@@ -435,5 +455,6 @@ The assays label states behaviourally, which the wiki normally distrusts. The in
 - **[[wiki/concepts/node-definition-problem.md]]** — the caveat on every group-level claim about this region: inter-individual variability in functional organisation is largest in association cortex, present already in newborns and shared with macaques, so "the" MPFC node of a group connectome averages over the most spatially variable part of the sheet.
 - **[[wiki/concepts/connectome-hubs-and-cores.md]]** — the anatomical fact that most constrains this region's role: it is the only default-network component entirely excluded from the cortical structural core, so its coupling to the posterior core is indirect (via medial orbitofrontal cortex) and whatever it contributes, it contributes from outside the integrative bottleneck.
 - **[[wiki/concepts/function-to-structure-inference.md]]** — the modelling result on this region's default-mode connectivity: a whole-brain model driven by diffusion tractography reproduces the medial-wall coupling to precuneus/posterior cingulate but misses lateral parietal cortex, a failure traced to fibres running perpendicular to the superior longitudinal fasciculus rather than to the dynamics.
+- **[[wiki/concepts/activity-baseline.md]]** — the method constraint this region supplied the counterexample for: a mid-medial-wall focus read as an activation in a two-task contrast turned out to be the control task's deactivation, so no directional claim about this region survives without a passive reference condition.
 - **[[wiki/concepts/default-self-model.md]]** — the human functional claim attached to this region that the rat dorsoventral account does not cover: an idle-time self-evaluation model, co-active with posterior cingulate cortex, whose accuracy is supplied by orbitofrontal cortex rather than by this region.
-- **[[wiki/entities/default-mode-network.md]]** — a second, cross-cutting dorsoventral split of the same medial wall in humans: dorsal medial prefrontal cortex heads the self-referential subsystem while ventral medial prefrontal cortex is a shared hub, a partition by *network role* that has not been reconciled with this page's partition by output port.
+- **[[wiki/entities/default-mode-network.md]]** — a second, cross-cutting dorsoventral split of the same medial wall in humans: dorsal medial prefrontal cortex heads the self-referential subsystem while ventral medial prefrontal cortex is a shared hub, a partition by *network role* that has not been reconciled with this page's partition by output port; its founding measurement is on this page — the two tiers respond to attentional *orientation* and attentional *demand* respectively, on the same trials.
