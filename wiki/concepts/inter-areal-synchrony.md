@@ -95,6 +95,27 @@ The learning row is the one with no machine analogue. Every inter-module connect
 
 ---
 
+## The metric decides the verdict — a preregistered demonstration
+
+> Ferrante et al. (COGITATE consortium) 2025, Nature, doi:10.1038/s41586-025-08888-1 (`raw/ferrante-2025-gnwt-iit-adversarial-testing.md`). `n = 256`, fMRI + MEG + iEEG. Two theories of consciousness staked opposite connectivity predictions on the same data ([[wiki/entities/integrated-information-theory.md]], [[wiki/entities/global-neuronal-workspace.md]]); the outcome is the sharpest available case of an inter-areal connectivity claim being decided by the choice of measure.
+
+| Measure | What it is sensitive to | Verdict on the same recordings |
+|---|---|---|
+| **Pairwise phase consistency** (preregistered, chosen because both theories are stated in terms of oscillatory phase) | Consistency of relative phase, unbiased by trial count | Supported **neither** theory. Content-selective synchrony between category-selective sites and V1/V2 existed but was **early, brief (<0.75 s) and confined to 2–25 Hz**, with no sustained gamma (`BF₀₁ = 1.15–4.9`); no content-selective coupling to prefrontal cortex in the predicted window (`BF₀₁ = 2.62–5.32`) |
+| **Dynamic functional connectivity** (exploratory: amplitude co-modulation, evoked response regressed out) | Envelope covariation, insensitive to phase estimation noise | Found **gamma-band** coupling between prefrontal cortex and both face- and object-selective sites inside the predicted 0.3–0.5 s window, task-independently, plus brief alpha–beta coupling in MEG |
+
+Three rules follow, and they generalise past this experiment.
+
+| Rule | Why |
+|---|---|
+| **State whether your channel claim is a phase claim or an envelope claim** | They are not interchangeable and here they disagree in sign. Phase estimation from macroscopic recordings is noise-sensitive; envelope coupling is robust but says nothing about spike-timing alignment, so it cannot support a *coincidence-detection* mechanism even when it supports a *routing* one |
+| **Regress out the evoked response before calling it connectivity** | Most of the observed low-frequency synchrony here was explained by the stimulus-evoked response — two areas driven by the same input look coupled. This is the "never call a correlation a channel" rule above, in the one form a builder actually meets: the third module is the *stimulus* |
+| **Report the sampling asymmetry** | The strongest null in the study — no sustained posterior gamma coupling — rests on **12 iEEG electrodes in V1/V2** against **472 in prefrontal cortex**. A connectivity null is a statement about the sparser endpoint |
+
+**(brainstorm) What survives for an architecture.** The channel that replicated across metric and modality is not a sustained one: content-specific coupling between frontal and early visual sites is *brief* and *early*. If broadcast is real, it is a **transient hand-off**, not a maintained link — which fits a bus that publishes once and lets consumers latch, and does not fit any design in which downstream modules keep reading a live wire.
+
+---
+
 ## Open problems
 
 - **No content decoding.** Every measure here is a correlation of *amounts*; none states what is on the wire. The wiki's standing gap (G52) is untouched — a context label, a gain signal and an episodic sample all produce coherence.
@@ -130,3 +151,5 @@ The learning row is the one with no machine analogue. Every inter-module connect
 - **[[wiki/entities/integrated-world-modeling-theory.md]]** — the strongest band-to-message-type assignment in the wiki, offered as hypothesis: gamma carries quantised prediction-error packets, beta specific predictions, alpha predictions integrated in an egocentric frame, theta action-conditioned predictions — plus the claim that entrainment direction flips from periphery-drives-core to core-drives-periphery at the commit, which is a dated, measurable signature.
 - **[[wiki/concepts/loopy-belief-propagation.md]]** — synchrony as a *scheduler* rather than a carrier: phase alignment decides which regions participate in the current round of message passing and when that round is allowed to have converged, which is the one role for a band that this page does not otherwise license.
 - **[[wiki/concepts/cortical-state-bistability.md]]** — a third band rule orthogonal to this page's two (direct-drive vs common-input; feedforward vs feedback): beta indexes **occupancy** — spike-field coherence at 25–37 Hz identifies which ensemble currently holds the content — and 1–9 Hz indexes **release**, so a band can type a computational state and not only a channel.
+- **[[wiki/entities/integrated-information-theory.md]]** — the theory that stakes its one distinctive prediction on this page's mechanism: sustained gamma coupling between V1/V2 and category-selective areas throughout an experience, which the preregistered phase measure did not find, on 12 V1/V2 electrodes.
+- **[[wiki/entities/global-neuronal-workspace.md]]** — the rival prediction on the same data: brief late long-range coupling to prefrontal cortex, found on the amplitude metric and absent on the phase metric, so the framework's broadcast channel is currently evidenced as envelope covariation rather than as synchrony.
