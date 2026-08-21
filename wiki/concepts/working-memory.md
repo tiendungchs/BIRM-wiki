@@ -172,71 +172,11 @@ Optogenetic terminal inhibition separates the *edge* from its endpoint (Spellman
 
 ---
 
-## Reading is a separate operation, and something schedules it
+## Reading, clearing and removal have moved
 
-The section above says most of the delay signal is the pointer. Lundqvist et al. 2018 record the operation that pointer serves. Macaque prefrontal cortex, **two-object sequence** delayed match: sample 1 → 1 s → sample 2 → 1 s → test 1 → 1 s → test 2, with the bar release permitted only after the *whole* test sequence (95.5% correct). Because nothing is responded to at test 1, the read-out and evaluation of the first item is observable with no motor confound — the confound that makes most delayed-response recordings unusable for this question.
+Three operations that this page used to carry — the *scheduled, item-specific read* (Lundqvist et al. 2018), the *relevance-addressed clear*, and the finding that deletion is a typed family rather than one primitive (`replace` / `suppress` / `clear`, DeRosa et al. 2024) — are the store's **access protocol** rather than its carrier, and now live on [[wiki/concepts/memory-read-and-erase.md]] together with the gap cluster they generate (G48, G49, G60).
 
-| | **Gamma bursts** (~50–120 Hz) | **Beta bursts** (~20–35 Hz) |
-|---|---|---|
-| Relation to item information | Spiking **and** percent-explained-variance for object identity are higher *inside* bursts (`p` < 0.0001, `p` = 0.02) | Spiking suppressed inside bursts (`p` = 0.004) |
-| Where | 160/188 sites gamma-modulated, overlapping the 130 informative sites (`p` < 6e−6, Fisher) | Same sites, opposite sign; anti-correlated over time **only** at informative sites (`r` = −0.40 vs. `r` = 0.08) |
-| Across-site relation to peak information | `rho` = **+0.49** with stimulus-induced gamma | `rho` = **−0.44** with stimulus-induced beta |
-| Time course | Brief bursts of varying centre frequency, weakly correlated across trials; per-neuron information tracks the gamma rate over time (`r` = 0.23, carried by the most informative neurons) | Elevated during delays and, especially, post-trial |
-
-The trial-averaged "sustained" oscillation is an artefact of averaging — single trials show discrete bursts. So **expression of an item is intermittent even while the item is held**, and if different items burst at different times one store can hold several without interference (time-division multiplexing). The model under test is a short-term-plasticity one, so between bursts the item is in synapses ([[wiki/empirical-tensions.md]] T86, [[wiki/entities/stsp-working-memory-rnn.md]]).
-
-### The read is item-specific, prospective, and gated by relevance rather than by predictability
-
-| Event about to happen | Gamma ramp in the preceding delay? | Information ramp, and about what? |
-|---|---|---|
-| Test 1 (must be compared to sample 1) | **yes** (`p` < 0.0001) | yes, about **sample 1 only** (`p` = 0.003); sample 2 shows a non-significant *decline* |
-| Test 2, after a *matching* test 1 | **yes** | yes, about **sample 2 only** (`p` = 0.0005) |
-| Test 2, after a *non-matching* test 1 — the sequence is already decided | **no**; beta rises instead, at informative sites only | **no** (`p` = 0.001 vs. match trials) |
-| Sample 2 — equally predictable, but nothing to read | **no** (non-significant decrease) | no |
-| Tests 3/4 of the second, always-matching sequence — responded to, never evaluated | **no** (`p` = 0.46, 0.23) | no |
-
-The last two rows carry the argument. Predictability of an event does not trigger a read; a forthcoming *query against the store* does. And the one object that is always responded to (test 4) gets no ramp while the one that is never responded to (test 1) does, so the ramp is not motor preparation.
-
-### Clearing is a signal, and the schedule is where errors live
-
-- **Post-trial.** The single largest time × frequency difference between informative and non-informative sites anywhere in the dataset is beta *elevation* at the informative sites after the response, while information about the last object drops sharply (`p` < 0.0001). Forgetting is a signal delivered to the sites that hold something, not a time constant running out.
-- **Graded comparison in one channel.** Gamma during test 1 was lowest for a match, intermediate for an **order** violation, highest for an **identity** violation — so a single burst-rate channel carries a graded match score, and violating order registers as *less* of a mismatch than violating identity. Beta then separated match from non-match (either kind) and bridged the following second; gamma's distinction died within a few hundred ms.
-- **Errors are control errors.** On non-match trials answered "match", gamma and beta *during* test 1 followed the correct non-match trajectory; the deviation appeared in the following delay, where gamma ramped up and beta was suppressed exactly as on match trials. The comparison was computed correctly and the **read schedule** was wrong. The mirror case (match answered "non-match") went wrong immediately, at test 1.
-
-Four things this changes for fast **M**:
-
-- **Hold, read and clear are three operations with three signatures, and only one of them is expensive.** Every store in the wiki exposes a read as a pure function of the query, available whenever it is called. Here it is a scheduled event with an onset, a specific addressee, and a metabolic cost that is paid only when the read happens — which is what the activity-silent designs predict and this measures directly ([[wiki/entities/stp-flickering-cann.md]]).
-- **The controller's output is an address *plus a time*.** The ramp starts several hundred milliseconds before the item is needed and names which item. A machine controller that emits only "which slot" is under-specified against this; the missing half is *when to have it ready*, which is exactly the state a store needs to be usable at a deadline. (gap G49)
-- **Deletion has a dedicated channel with the right addressing.** Beta rises at informative sites and not elsewhere, i.e. the clear is delivered *to the sites holding the now-irrelevant content*, which is a content-addressed erase — the operation Lebedev's prospective decay implies and no key-value store in the wiki implements (gaps G48, G49; [[wiki/empirical-tensions.md]] T89; [[wiki/entities/differentiable-neural-computer.md]]'s free list is the closest and is addressed by usage, not by relevance).
-- **(brainstorm) The failure mode to design against is a mis-scheduled read, not a corrupted item.** This is the wiki's only case where a memory error is localized to the control layer with the encoding verified intact on the same trials. It suggests a diagnostic no machine memory currently supports: log *when and at what* the store was read, and score the schedule separately from the contents.
-
-**Where the control layer might live.** The authors place beta generation in the mediodorsal thalamus–prefrontal loop and the contents in superficial prefrontal layers, i.e. the scheduler is a different circuit from the store — the same split [[wiki/entities/pbwm.md]] makes on the write side with basal ganglia, and the anatomical version of this page's control/storage separation ([[wiki/concepts/canonical-cortical-microcircuit.md]]).
-
-**Caveat.** Everything here is correlational: burst rates are local-field-potential measures with no causal manipulation, and "volitional" is inferred from the task-relevance contrasts rather than demonstrated by intervention.
-
----
-
-## Removal is at least three operations, and different subsystems cut them differently
-
-The section above treats the clear as one primitive delivered to the right address. DeRosa et al. 2024 (re-analysis of Kim et al. 2020; 55 humans, cued fMRI, 72 trials each of **maintain / replace / suppress / clear**, 360 Glasser parcels) show the primitive is a *family*, and that no single subsystem is responsible for distinguishing its members.
-
-**Instrument.** Per-parcel representational similarity matrices over the 288 trial vectors → parcels clustered by how similar their *similarity structures* are (Spearman correlation → weighted k-nearest-neighbour graph → bagged Leiden community detection). The result is a partition of the brain by **representational geometry rather than by connectivity or by activation level** ([[wiki/concepts/representation-probing.md]]). Four communities fell out, aligned to conventional networks.
-
-| Community | Cut it makes over the four operations | Pairwise classification (area under precision–recall curve; **low = the two operations look alike**) |
-|---|---|---|
-| **Visual** (76 parcels) | Binary: *is an item being held at all* — {maintain, replace} vs. {suppress, clear} | within-pair 0.610–0.698, across-pair 0.985–0.993 |
-| **Somatomotor** (63) | `clear` singled out; everything else weakly separated | maintain vs. replace **0.532**; clear vs. maintain/replace 0.953–0.965 |
-| **Default mode** (121) | Held vs. removed, **plus** suppress ≠ clear | all pairs 0.932–0.988 |
-| **Frontoparietal control** (100) | All four distinct — the only community that does | all pairs 0.968–0.999; across-operation 0.956–0.980 |
-
-Four consequences for a machine store:
-
-- **"Delete" is under-specified as a single primitive.** Overwriting a slot with new content (`replace`), removing one item while the buffer stays occupied (`suppress`), and emptying the buffer (`clear`) are separable in representation, and only one of them is what a free list does. The wiki's stores implement `replace` (write over a matched slot) and a usage-driven approximation of `clear`; **none has `suppress`** — a targeted removal that leaves the rest of the store untouched and is not triggered by an incoming item needing the space (gap G49).
-- **The cheap cut and the expensive cut are made by different subsystems.** Sensory cortex only needs the occupancy bit (held / not held); the control network carries the full 4-way identity. So the *type* of the removal is control-layer information that never reaches the store — an argument for keeping the operation code in the controller and shipping only its effect downstream, rather than tagging memory entries with why they were removed. (brainstorm)
-- **`clear` is not the limit of `suppress`.** Emptying the buffer separates from suppressing one item in three of four communities, and in somatomotor cortex it is the *only* operation that separates at all — consistent with clear involving a shift away from external sensory/motor processing rather than a stronger version of item-targeted deletion. A store whose "clear all" is implemented as a loop over per-item suppressions is making an assumption the biology contradicts.
-- **The operations run in parallel across communities, in different formats.** This is the same content represented under four different quotient maps simultaneously — which is what makes the causal question below undecidable from these data.
-
-**Caveat, and it is the authors'.** The design cannot say whether an operation is implemented by the *conjunction* of the four network codes or by the frontoparietal network alone with the other three patterns as by-products of top-down control ([[wiki/empirical-tensions.md]] T90). Nothing here is causal: no manipulation, and no link between a network's representational pattern on a trial and whether the item was actually removed (the classifier-verified removal is in Kim et al. 2020, not re-linked here). Operations are also *cued*, so this is instructed removal, not self-initiated forgetting.
+What stays here is the consequence for the carrier: hold, read and clear are three operations with three signatures and **only one of them is expensive**, which is what the activity-silent designs above predict and what the burst measurement shows directly. A store whose read is free cannot express the difference.
 
 ---
 
@@ -420,3 +360,4 @@ Two things follow for a builder. **(1) The bound is on simultaneous *bindings*, 
 - **[[wiki/concepts/vector-symbolic-binding.md]]** — what a fast store would hold if its contents were structured: one vector per episode supporting both similarity ranking and slot-level interrogation (`P ⊛ role†` plus cleanup) on the same representation, rather than a set of unstructured content slots.
 - **[[wiki/concepts/analogical-mapping.md]]** — a concrete division of labour between a permanent and an active code: an element's context-free code is what memory stores, while the episode-specific re-representation (the same code superposed with the roles it fills *here*) exists only during the comparison — with which of the two is actually stored left open by the source.
 - **[[wiki/entities/lisa.md]]** — the one model in the wiki whose capacity limit is a consequence rather than a parameter: bindings are phases, so the number of simultaneously maintainable role-filler bindings is the number of resolvable phases, and relational complexity becomes the load variable in place of item count.
+- **[[wiki/concepts/memory-read-and-erase.md]]** — the access protocol split out of this page: this page is the carrier (what holds an item, what holding costs, where the capacity ceiling sits), that one is the read schedule and the typed erase, and the dissociation is measured — a correctly encoded item can still be read at the wrong time, which is where the prefrontal errors live.
