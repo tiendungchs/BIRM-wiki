@@ -8,7 +8,7 @@
 
 One INGEST each:
 
-- [ ] `raiyan-2026-ai-mathematical-reasoning.md` — neurosymbolic · S · 2026
+- [x] `raiyan-2026-ai-mathematical-reasoning.md` — neurosymbolic · S · 2026
 - [ ] `goodman-2024-probabilistic-programs-language-thought.md` — neurosymbolic · F · 2024
 - [ ] `plate-1993-hrr-analogical-similarity.md` — neurosymbolic · M · 1993
 - [ ] `slipchenko-2009-analogical-mapping.md` — neurosymbolic · M · 2009

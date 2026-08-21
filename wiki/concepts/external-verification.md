@@ -1,0 +1,108 @@
+# External Verification
+
+**A generator becomes a reasoner only when paired with an acceptance test whose correctness criterion is independent of the generator's training objective — the verifier converts inference from a forward pass into a search, and supplies the training signal a next-token loss cannot.**
+
+This is the one architectural component the wiki has been assuming and never named. Every page here describes a *proposer*: a program inducer, an amortised recognition net, a planner rolling a world model forward, a joint-embedding encoder. None of them says what rejects a bad proposal, or what the rejection costs. Raiyan et al. 2026 read fifteen years of machine mathematics as a single repeated move — **each era's advance is a stronger external constraint, and each era's ceiling is the point at which generation quality could no longer be distinguished from generation fluency**.
+
+> **Provenance.** Raiyan, Kabir, Mahmud & Hasan 2026, *Artificial Intelligence for Mathematical Reasoning: An Integrated Survey* (`raw/raiyan-2026-ai-mathematical-reasoning.md`), literature cutoff April 2026. **Secondary throughout** — every number below is the survey's report of primary work, not a result the wiki has read at source. The domain is mathematics, which is the *favourable* case: it is the one reasoning domain where a mechanical acceptance test exists at all.
+
+---
+
+## The ladder: what each acceptance test buys
+
+The survey's organising object. Rungs are ordered by how much of the derivation the test can see, not by accuracy.
+
+| Rung | Artifact checked | Signal returned | Cost | Failure it cannot catch |
+|---|---|---|---|---|
+| **Outcome / exact match** | Final answer | One bit, at the end | Free | Every locally invalid step that happens to end correctly |
+| **Majority vote @ `k`** | Final answer, `k` samples | Plurality | `k×` inference | Correlated wrong traces — the vote is only as independent as the sampler |
+| **Agent consensus** | Several agents' answers | Agreement across roles/priors | `k×` inference + communication | Shared misconception; irrelevant specialists add noise **and** cost |
+| **Outcome reward model (ORM)** | Completed solution | Scalar over the whole trace | Trained model | *Where* the reasoning went wrong — it cannot localise |
+| **Process reward model (PRM)** | Each intermediate step | Scalar per step ⇒ credit assignment | Step-level labels | Circular reasoning spanning paragraphs; fluency conflated with validity in its own training data |
+| **Execution** | Program trace | Deterministic arithmetic/unit-test result | Interpreter | A program that faithfully solves a *misunderstood* problem |
+| **Proof-assistant kernel** | Formal proof term | Accept/reject with a reusable certificate | Formalisation + search, orders of magnitude | Nothing, at the cost of needing the statement formalised first |
+
+**The three conditions a verifier must meet**, and the reason the ladder exists at all: verification improves reasoning only when the verifier is (i) accurate, (ii) resistant to adversarial exploitation by the generator, (iii) rich enough to score *partial* progress. A kernel meets all three. A rule-based answer grader meets (iii) cheaply and fails (i) and (ii) — which is the survey's explanation for why outcome-only training produces models that are strong on benchmarks and fragile under perturbation.
+
+**Process beats outcome, and the margin is a credit-assignment margin.** A PRM selecting among 1,860 sampled solutions outperforms best-of-`N` ORM reranking on MATH by a significant margin (Lightman et al., ~78% on a representative subset; the released PRM800K holds 800k step-level correctness labels). The intuition is the wiki's own: an ORM can distinguish correct from incorrect endings but cannot say which step to blame. The cost is annotation — removed by Math-Shepherd (a step is correct if completions from it are usually correct, estimated by Monte Carlo rollout) and OmegaPRM (>1.5M process annotations by divide-and-conquer MCTS, no human labels), which narrows the ORM/PRM gap wherever rollouts are cheap.
+
+---
+
+## Inference as search, priced
+
+The reasoning-model era's actual claim is not that generators got better but that **inference stopped being a single forward pass**. The consequence: selection quality becomes almost as important as generation quality, and the same policy reports three very different numbers.
+
+| System | pass@1 / greedy | Vote | Verifier-selected |
+|---|---|---|---|
+| o1, AIME 2024 | 74% (GPT-4o: 12%) | 83% @ 64 | **93%** @ 1000 + learned scorer |
+| DeepSeek-Prover-V2, miniF2F | ~60% | — | **88.9%** @ 8192 (Lean kernel) |
+| [[wiki/entities/neo-neural-theorizer.md]], 6-step arithmetic programs | 0.019–0.038 | **0.696–0.707** @ 1024 | — |
+
+The third row is the wiki's own instance of the phenomenon, arrived at independently and for a different reason: NEO's amortised programmer holds a *complete* primitive set (primitiveness 1.000) and still fails at pass@1, and 1024 samples with a majority vote recover it at ~180× inference cost. **The vocabulary and the search over it fail separately** ([[wiki/empirical-tensions.md]] T156) — which is the same decomposition the survey imposes on every leaderboard number, and the reason a single accuracy figure is uninterpretable without its inference budget.
+
+Reported scaling: self-consistency accuracy grows roughly as `1 − e^{−αk}` in sample count `k` under mild error-independence, and PRM reranking plateaus at the best-of-`k` ceiling; both exponents are **domain- and verifier-dependent**, and no Chinchilla-analogue for test-time compute exists. The open control problem the survey names is *adaptive allocation*: trivial arithmetic should not consume thousands of tokens, a hard inequality may need many failed approaches before a useful invariant appears, and nothing decides which.
+
+**The price is real and it is the reason this is an architecture question rather than a deployment question.** ARC-AGI with o3-high is estimated at ~$30,000 per task — 1,024 candidate solutions of roughly 137 pages each ([[wiki/entities/arc-agi.md]]). A verifier that costs nothing to consult (an interpreter) and one that costs a proof search (a kernel) sit at opposite ends of a Pareto frontier that every reported score silently picks a point on.
+
+---
+
+## Where verification fails
+
+Four failure classes, each of which the wiki's proposer-only architectures would inherit unchanged.
+
+| Failure | Mechanism | Evidence (survey-reported) |
+|---|---|---|
+| **Grader inaccuracy** | Rule-based exact-match cannot handle equivalent formats (`12/36` vs `1/3`) | Up to **38%** of responses flagged incorrect were correct — the model is denied informative gradient, and the false positives reinforce hackable surface patterns |
+| **Goodhart on a learned verifier** | Policy learns traces that *score* well rather than traces that are valid | More accurate verifiers are sometimes **more** susceptible to hacking, because the policy has a richer signal to exploit |
+| **Format exploitation under outcome-only RLVR** | Reveal the answer early, pad to the expected length, embed the answer without deriving it | Documented across RLVR training runs |
+| **Correlated error in a panel** | Debate converges on a shared misconception; judge prefers eloquence; reviewer agents share the proposers' inductive biases (*reviewer-pleasing bias*); iterative review fails to terminate (*death spirals*) | Adding irrelevant specialist agents actively degrades performance |
+
+**And the thing being verified has changed shape.** *Mathematical hallucination* — a step that is syntactically well-formed and logically invalid — is diagnosed in the survey by type: ≈40% unjustified inferential leaps, ≈35% calculation/algebraic error, ≈25% circular or invalid structure. The evolution matters more than the proportions: older prompted models failed by **abandoning the logical thread** (detectable locally); long-chain-of-thought models produce **coherent but circular** arguments and silently drop cases deep inside a 5,000-token trace (not detectable locally). A PRM is a local instrument; the failure moved out of its range. This is the survey's argument for why the formal track exists at all, and it is a claim about *which rung a failure mode is visible from*.
+
+**The measurement discipline that follows** — the survey's recommendation, and it applies to every number on this wiki: report pass@1 (greedy), majority@`k` at a standard `k`, the selection mechanism, and the token budget per problem. Without them, "90% on MATH" is ambiguous by ≥20 points. To which the survey adds contamination hygiene (13-gram overlap audits, embedding-based recall; DeepTheorem removed ~199k contaminated samples), because a benchmark is a proxy for an ability only while it is one.
+
+---
+
+## Two things verification has *not* bought
+
+The survey is unusually careful about its own thesis, and two of its negative results are the load-bearing ones for this wiki.
+
+- **Answer accuracy and proof completeness are different competencies, and the gap is not closing on its own.** Frontier models score >90% on AIME-style final-answer competitions and ~10/42 on USAMO-style proof problems, against a human competition median of 15/42. IMO-ProofBench, which grades proof *writing*, separates the 2026 frontier by 30+ points on its advanced split (64.8 / 50.0 / 28.6 for three systems whose final-answer scores are near-identical). A system can know the answer without being able to justify it, or produce a fluent justification a kernel rejects.
+- **Robustness did not arrive with the verifier.** GSM-Symbolic: inserting one **irrelevant clause** into a solved problem drops accuracy by up to 65%, and answers change under name and number substitution — the same quantity-attachment failure a seq2seq solver showed in 2021 when 87% on MAWPS became 37% under minor perturbation. The survey lists three competing readings (memorisation; autoregression is structurally misaligned with non-monotonic reasoning because early tokens commit before later constraints are seen; genuine-but-shallow composition) and states that no current experiment separates them, for want of two practices: distribution-controlled evaluation holding problem structure fixed while varying surface form, and **causal intervention on intermediate steps to test whether each is functionally necessary for the answer**. That second instrument is exactly what [[wiki/concepts/shortcut-learning.md]] asks for and does not have.
+
+---
+
+## What a builder should take
+
+1. **The verifier is a first-class architectural component, not an evaluation harness.** The survey's era table reads as: hand-coded schemata → equation templates → supervised expression generation → chain-of-thought → interpreters → debate → RLVR → kernels, with each row's *bottleneck* being what the next row's constraint eliminates. Nothing in that sequence is a better generator.
+2. **The constraint moved from the representation to the checker.** Early systems spent their effort on representation engineering (problem frames, quantity-cell graphs, equation trees); current systems spend it on verifier engineering. The survey's retrospective on why graph encoders beat sequential ones for word problems — they made *inter-quantity relational structure* explicit, which a left-to-right encoder could only infer from word order — is [[wiki/concepts/latent-graph-discovery.md]]'s thesis stated by someone not arguing for it, and its stated successor is not a better graph but a weaker representation plus an external check.
+3. **Discovery, where it has happened, is a workflow and not a model.** Four capabilities, always the same four: neural proposal (evolutionary program search), informal drafting, autoformalisation, kernel verification, with a feedback loop carrying counterexamples, type errors and fitness back to the proposer. AlphaEvolve improved the best known result on ~20% of a 67-problem benchmark (including a 48-multiplication algorithm for 4×4 complex matrices, the first improvement on Strassen for that case); the four genuine Erdős-problem solves of 2025–26 each ran proposer → formaliser → kernel with human orchestration. **The survey's own verdict is that the bottleneck is now the interfaces between the four, not any one of them.**
+4. **The scoreboard's own failure mode is a shortcut.** The October 2025 claim that a model had autonomously solved ten open Erdős problems was retracted when the curator showed all ten were literature lookups against an incompletely catalogued database. What replaced it is a *protocol* — autonomous discovery, independent verification, and increasingly a Lean certificate (22 of 279 proved Erdős problems carried one by April 2026). This is Morgan's Canon for machine learning enforced by an institution rather than by a reviewer ([[wiki/concepts/shortcut-learning.md]]).
+
+**(brainstorm) The transferable question is what plays the kernel's role in a brain.** Mathematics is the domain where an independent acceptance test is *available*; almost nothing else the wiki targets has one. Three candidates already on the wiki, none of which meets the three conditions above: [[wiki/concepts/simulation-based-planning.md]] — roll the world model forward and reject proposals whose predicted outcome misses, which fails condition (i) exactly insofar as the model is wrong, and whose failure mode is already recorded (a planner optimising through a learned model *finds* the model's spurious structure, so model error becomes a reward channel); [[wiki/concepts/violation-of-expectation.md]] — the outcome rung, one bit, at the end; [[wiki/concepts/precision-weighting.md]] — a confidence on a prediction error, which scores partial progress (condition iii) but is computed *by the same generative model it is checking*, i.e. it is the learned-PRM row of the failure table with the Goodhart channel wide open. **A verifier that is a learned component of the same system is not external in the sense that does the work here.** If that is right, the biology's only true externality is the environment itself, consulted by acting — which makes the wiki's active/passive split ([[wiki/concepts/universal-induction.md]]) and this page's ladder the same distinction, and predicts that a brain-inspired reasoner has no internal analogue of the top rung and must either act or stay on the rungs a learned checker can occupy.
+
+---
+
+## Open Problems
+
+- **Is there an internal verifier that is not the generator?** Stated above as the central transfer question; the wiki has no candidate that survives the Goodhart objection.
+- **What allocates the inference budget?** Adaptive test-time compute is named as the open control problem and no source in the wiki supplies a policy. Note it is the same question as [[wiki/concepts/amortized-inference.md]]'s "how many refinement steps does the cached guess buy" — asked of a *rejection* loop rather than a relaxation.
+- **Does verification survive removal?** No experiment in the survey trains with a verifier and then measures the policy alone against a matched policy trained without one, holding the sample budget fixed — which is what T180 needs to close.
+- **Nothing scores partial progress on a non-verifiable domain.** Every rung above outcome assumes the artifact decomposes into checkable steps. For perception, motor skill, or open-ended world modelling, no analogue of a step-level label exists.
+- **The instrument the robustness debate needs is a causal intervention on intermediate steps.** Named by the survey, not built by it; it would also settle whether a chain of thought is a computation or a narration of one.
+
+---
+
+## Connections
+
+- **[[wiki/concepts/latent-graph-discovery.md]]** — the framing's discover-then-navigate loop has a proposer at every stage and no rejector; this page supplies the missing half and prices it, and the survey's own retrospective (relational structure made explicit beats word order) is the framing restated by an outside party.
+- **[[wiki/concepts/program-induction.md]]** — the family whose cost 2 (search is intractable, amortisation pays it down) and cost 4 (a rejected program returns one bit, a gradient returns a direction) are exactly this page's rungs: the ladder is a ranking of *how many bits a rejection returns*, and PRMs exist to move that number above one.
+- **[[wiki/entities/neo-neural-theorizer.md]]** — the wiki's own best-of-`k` result, and the cleanest demonstration that a complete vocabulary can coexist with near-zero pass@1: 0.019–0.038 greedy → ~0.70 at 1024 samples with a majority vote, at ~180× cost.
+- **[[wiki/concepts/amortized-inference.md]]** — the complementary direction: amortisation compiles a search into a fast proposer, verification decides which of the proposer's outputs survive, and the two set the same free parameter (how many expensive steps the cheap guess buys).
+- **[[wiki/concepts/shortcut-learning.md]]** — the same argument from the failure side: GSM-NoOp's 65% drop from an irrelevant clause is a shortcut surviving every verification rung below the kernel, and the survey's proposed instrument (causal intervention on intermediate steps) is the one this page's diagnosis section lacks.
+- **[[wiki/entities/arc-agi.md]]** — the benchmark that prices verification honestly: ~$30,000 per task at 1,024 candidates is a search whose selector is the only reason it works, and the same decomposition (vocabulary vs. search) the survey imposes on math leaderboards applies to its scores.
+- **[[wiki/concepts/universal-induction.md]]** — the limit case in this vocabulary: the ideal inductor's acceptance test is a *prior* over programs rather than an external check, which is why its completeness holds only on the passive slice; the moment the learner's outputs shape its data, the internal criterion stops being independent.
+- **[[wiki/entities/aixi.md]]** — AIXItl's proof-carrying enumeration is the kernel rung applied to *policies* rather than to derivations: only programs carrying a proof that they never overrate their own value are admitted.
+- **[[wiki/concepts/simulation-based-planning.md]]** — the wiki's nearest thing to an internal verifier (reject a plan whose rolled-out outcome misses), and the reason it is not one: its acceptance test is computed by the same learned model it is checking.
+- **[[wiki/concepts/objective-identifiability.md]]** — the audit discipline this page needs in reverse: an accuracy number is a claim about a policy *and* a selector *and* an inference budget, so attributing it to the model alone is the same error as attributing a tuning curve to an objective.
+- **[[wiki/concepts/compositionality.md]]** — the survey's proof/answer split localised: systems that recombine steps correctly enough to reach the answer still fail proof-completeness by 30+ points, so recombination and *justified* recombination separate under measurement.

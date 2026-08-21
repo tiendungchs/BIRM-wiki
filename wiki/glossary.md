@@ -102,6 +102,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | o.o.d. | out-of-distribution | Test data systematically different from training data; the only regime that separates a shortcut from the intended rule |
 | PDP | Parallel Distributed Processing | 1980s movement; origin of distributed representations in cognitive modelling |
 | RL | Reinforcement Learning | |
+| RLVR | Reinforcement Learning from Verifiable Rewards | Online RL whose reward is an automatic acceptance test (exact-answer match, execution, a proof kernel) rather than a human preference model; the training-time half of [[wiki/concepts/external-verification.md]], and the regime in which reward hacking on the *grader* rather than on the task appears |
+| PRM / ORM | Process / Outcome Reward Model | A learned scorer over each intermediate step versus over the completed solution only. The PRM localises the error and so supports credit assignment and targeted reranking, at the price of step-level labels (human, or Monte-Carlo rollout estimates) |
+| CoT / PoT | Chain of Thought / Program of Thought | Emitting a natural-language derivation, or an executable program, before the answer; the two artifact types the rungs of [[wiki/concepts/external-verification.md]] check |
+| pass@k | — | Probability that at least one of `k` samples is correct — a measure of the *generator's coverage*, meaningful only when a reliable selector exists. Distinct from majority@`k` (plurality vote over `k` samples) and from pass@1 / greedy (the policy's modal behaviour) |
+| MWP | Math Word Problem | A natural-language arithmetic problem to be mapped to an expression or program and evaluated; the task family whose perturbation benchmarks (SVAMP, GSM-Symbolic) supply the robustness evidence on [[wiki/concepts/shortcut-learning.md]] |
 | RNN | Recurrent Neural Network | |
 | SNN | Spiking Neural Network | Binary, time-located events instead of real-valued rates |
 | SP / CF / FM / EX | Sequence Prediction / Classification / Function Minimization / supervised learning by EXamples | Hutter 2000's problem classes; the first two are passive, the last two active |
