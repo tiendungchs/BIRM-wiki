@@ -78,7 +78,7 @@ A generative model `G(S₀, Φ, Θ)` fusing an off-the-shelf physics engine with
 | Trajectory | `Γ̂ = argmax_Γ Σ_g r_g δ(s^T_a, s_g) − Σ_t C(s^t_a, s^{t+1}_a)` |
 | Likelihood | `P(Γ \| S₀, Φ, Θ) = e^{−β D(Γ, Γ̂)}`, `β = 0.2`, `D` = dynamic-time-warped Euclidean trajectory distance |
 | Fitting | Uniform priors; posterior `P_train(Φ,Θ)` accumulated over **all training trajectories**, then re-weighted by the familiarization videos of the trial at hand |
-| Surprise | `E_{P(Φ,Θ|X_fam,X_train)}[ D(Γ_test, G(S₀_test, Φ, Θ)) ]`, 10 sampled trajectories, 1–3 s per test video on 16 cores |
+| Surprise | `E_{P(Φ,Θ\|X_fam,X_train)}[ D(Γ_test, G(S₀_test, Φ, Θ)) ]`, 10 sampled trajectories, 1–3 s per test video on 16 cores |
 | Occlusion handling | Occluder removed from the state; the hidden segment of the trajectory filled by **2nd-order curve fitting** |
 
 Two structural notes. Object-oriented goals are a **built-in inductive bias** — nothing else can be a goal. And `β` here is a fixed observation-noise temperature on trajectory distance, *not* the inferred per-agent rationality latent of [[wiki/entities/hbtom.md]]; rationality in BIPaCK is instead absorbed into the inferred cost weights `w`.
@@ -207,3 +207,5 @@ They are complementary instruments and a model should be run on both: BIB tests 
 - **[[wiki/concepts/learned-world-models.md]]** — the negative datum for trajectory-prediction-as-world-model: a next-position regressor trained to convergence predicts motion through solid obstacles, so the training objective does not install the constraint even when every training trajectory obeys it.
 - **[[wiki/entities/conceptarc.md]]** — the same measurement philosophy in a different domain: many easy instantiations per concept, scored per concept, with the aggregate treated as the least informative summary.
 - **[[wiki/entities/bib.md]]** — the concurrent sibling this page contrasts itself against, now paged primarily: gridworld instead of 3-D, one maximally-distant canonical split instead of this page's leave-out lattice, and four competencies (multi-agent binding, inaccessible goals, instrumental action, rational-vs-irrational agents) this page declares out of scope — while lacking the human ceiling and the derenderer ablation this page supplies.
+- **[[wiki/concepts/certification-instruments.md]]** — supplies instrument `I13`, accuracy-profile correlation, and the dissociation that makes it necessary rather than optional: aggregate parity at 0.06 profile correlation.
+- **[[wiki/concepts/human-baseline.md]]** — the sharpest argument that an aggregate baseline is the wrong object — a model at the human aggregate (.90 vs .91) correlating 0.06 with the human item-type profile, and below chance on the type authored to catch its heuristic.

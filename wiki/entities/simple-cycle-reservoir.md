@@ -45,7 +45,7 @@ Each arrow is `ε`-closeness of **outputs for every input stream**, not state is
 | Prop 13 | unitary → cyclic permutation | An `ℓ×ℓ` full-cycle permutation is unitarily equivalent to `diag(R_ℓ)`, the complete set of `ℓ`-th roots of unity. So *perturb* `U`'s eigenvalues onto a subset of `R_{n₁}` and **direct-sum in a diagonal block carrying the missing roots** | `n → n₁ > n` |
 | Thm 14 | ⇒ `W_c = λP` contractive full-cycle, `‖W_c‖ = ‖W‖` | Prop 13 then Prop 12 | as above |
 | Lem 16 | `nk × nk` block-circulant of a full-cycle `P` is itself full-cycle **iff `gcd(n,k) = 1`** | number-theoretic; Example 1 shows `n=2, k=3` failing without it | `n → nk` |
-| Lem 17 / Cor 19 | any real (resp. complex) `V` ≈ `(1/N) Σ_{j=1}^{k} F_j` with `F_j ∈ M({−1,1})` (resp. `M(±1) ∪ M(±i)`), `gcd(k,n)=1` | `M_{n×m}` has a basis of sign matrices; write `V = Σ a_i E_i` and quantise the coefficients. Remark 18: `k > k₀ = Σ|b_i| > nm` | `n → nk`, `k > nm` |
+| Lem 17 / Cor 19 | any real (resp. complex) `V` ≈ `(1/N) Σ_{j=1}^{k} F_j` with `F_j ∈ M({−1,1})` (resp. `M(±1) ∪ M(±i)`), `gcd(k,n)=1` | `M_{n×m}` has a basis of sign matrices; write `V = Σ a_i E_i` and quantise the coefficients. Remark 18: `k > k₀ = Σ\|b_i\| > nm` | `n → nk`, `k > nm` |
 | **Thm 15** | any `R` ≈ **SMCR** | Thm 11 + 14 + 16 + 17 | product of the above |
 | **Thm 20** | any `R` ≈ **C-SCR** (a *single* ring) | Thm 11 + 14 + 16 + Cor 19 | product of the above |
 | **Thm 21** | any `R` ≈ **Twin SCR** | split `V = V_r + iV_i`, apply Lem 17 to each part, run two rings in parallel on the same input | product, ×2 blocks |

@@ -13,7 +13,7 @@ The wiki's second ARC attack held at source, and the exact opposite of the first
 | Stage | What runs | Deterministic? |
 |---|---|---|
 | **1 — Scene abstraction** | Background `c_bg = argmax_c Σ 1[I[y,x]=c]` (mode); 8-connected components by BFS; per object: bounding box, centroid, canonical shape (bbox-origin-normalized coordinate set), 10-bin colour histogram, cavities (maximal connected `B ⊂ B_j` with no cell on `∂B_j`). Output `S(I) = {o_1…o_K}` | **Mostly.** Claude Opus 4 (32K tokens) is called for ambiguous shape/cavity cues and as background-colour fallback; the paper renames the stage *structured symbolic abstraction* rather than a parser to admit this |
-| **2 — Hypothesis proposal** | `q_θ(π | S(I_i), S(O_i))` over programs `π = p_{a_m} ∘ … ∘ p_{a_1}`, `a_ℓ ∈ {1…22}`. Realised as `o4-mini` at temperature 0 emitting structured JSON: per pattern, `{pattern_detected, params, reason}`. **5 repetitions per example**, 5 parallel calls | No — sampled, then counted |
+| **2 — Hypothesis proposal** | `q_θ(π \| S(I_i), S(O_i))` over programs `π = p_{a_m} ∘ … ∘ p_{a_1}`, `a_ℓ ∈ {1…22}`. Realised as `o4-mini` at temperature 0 emitting structured JSON: per pattern, `{pattern_detected, params, reason}`. **5 repetitions per example**, 5 parallel calls | No — sampled, then counted |
 | **3 — Consensus filter** | Stated objective: `Π* = ⋂_i Π_i` where `Π_i = {π ∈ Π_i : render(π(S(I_i))) = O_i}`. Tie-break `π* = argmin_{π∈Π*} depth(π)`. **Operationally:** keep the **top-3 patterns by detection count** across the 5×k detections and forward them as a text hint | No — see T190 |
 | **4 — Guided solution** | `r_ψ(I_test, H_test)`: Grok-4 conditioned on the demonstrations + the hint, sampled 3–10 times, aggregated by **cell-wise majority vote**. Bypassed by a rule-based jigsaw solver when a symmetry score `> 0.70` | Vote is; the sampler is not |
 | **Ensemble** | Grok-4 as meta-classifier picks 1 of 4 candidate grids (2 from this pipeline, 2 from ARC Lang Solver), run twice without replacement to fill `pass@2` | No |
@@ -66,7 +66,7 @@ The paper's stated contribution is *deterministic* cross-example consistency in 
 
 | Stated | Actually run |
 |---|---|
-| `Π* = ⋂_i Π_i` with `π |=_i` iff `render(π(S(I_i))) = O_i` | Patterns ranked by **detection count** over 5 stochastic detections per example; top-3 forwarded. No program is executed against a demonstration output anywhere in the deployed pipeline |
+| `Π* = ⋂_i Π_i` with `π \|=_i` iff `render(π(S(I_i))) = O_i` | Patterns ranked by **detection count** over 5 stochastic detections per example; top-3 forwarded. No program is executed against a demonstration output anywhere in the deployed pipeline |
 | Programs `π` as compositions of deterministic operators `p_r : S → S` | Hypotheses "maintained as ranked UnitPattern descriptions and candidate parameterizations rather than as an exhaustively enumerated program tree". The composition operator `∘` is never applied |
 | Symbolic scene graph from grid structure | Shape labels, cavity coordinates and ambiguous backgrounds come from prompted Claude Opus 4 |
 | `π* = argmin_{π∈Π*} depth(π)` selected "if `Π* = ∅`" | As written the rule is vacuous (an argmin over an empty set); the running selector is the detection-count ranking, and no complexity term is computed |

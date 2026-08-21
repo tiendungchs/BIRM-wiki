@@ -18,7 +18,7 @@ The wiki's third ARC attack held at source, and the first that is neither symbol
 | **DSL** | 11 one-in-one-out operations: `Identity`, `Extract`, `Recolour(COLOUR)`, `Recentre(CENTRE)`, `Reshape(SHAPE)`, `Move(AMOUNT)`, `Gravity(DIRECTION)`, `Grow(DIRECTION)`, `Fill`, `Hollow`, `Generate(COLOUR, CENTRE, SHAPE)` |
 | **Program** | A set of rules `IF (criteria over COLOUR/CENTRE/SHAPE, logically composed) THEN (operation, parameters)`. Conditions may be vacuous. One rule per operation; an object may satisfy several rules and emit several output objects |
 | **Condition predictor `R_O`** | A **single-layer** net: unit-norm weight vector `w`, output `σ(β(w·o − θ))` with `β, θ` learned. `w` is therefore itself a legal VSA vector — a **prototype** of the objects the operation applies to. Initialised as the outcome-weighted superposition of the training objects, then SGD. Applied at an arbitrary 50% threshold. Skipped entirely when all labels are positive |
-| **Learning signal** | Per task only: `2 ≤ |D| ≤ 10` demonstrations, no cross-task transfer, no pre-training |
+| **Learning signal** | Per task only: `2 ≤ \|D\| ≤ 10` demonstrations, no cross-task transfer, no pre-training |
 
 **Three reasoning modes, run in sequence:** *abduction* (find objects + per-demonstration actions) → *induction* (generalise actions into conditioned rules) → *deduction* (execute on the query).
 

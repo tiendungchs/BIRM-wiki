@@ -33,9 +33,9 @@ One consequence worth carrying: **belief-inference and action-prediction are the
 
 Per timestep, the configuration is a product of three authored choices:
 
-| Choice | Options |
-|---|---|
-| Action vs utterance | 2 |
+| Choice | Options | Count |
+|---|---|---|
+| Action vs utterance | action · utterance | 2 |
 | Belief/observation | none · belief of state · belief of interactive state · either + observation | 5 |
 | Goal | action irrelevant to inference · action only · action + goal | 3 |
 
@@ -75,8 +75,8 @@ Context is therefore a **cost recruited on demand, backwards in time** — the o
 | Information extraction (once per question) | Symbol grounding: text → typed observable variables on a timeline |
 | Initial model proposal | Structure prior — which variables plausibly matter, and at what recursion order |
 | Hypothesis sampling per latent | **Amortised proposal** ([[wiki/concepts/amortized-inference.md]]) — a small set of candidate values instead of an enumerable hypothesis space; when `s^t` is not given, the LLM runs as the world model and rolls the state forward |
-| Hypothesis reduction | A **rejector**: drop hypotheses with low local conditional (e.g. `P(o_1^t|s^t) = 0.01`) before the expensive joint is assembled |
-| Local conditional estimation | The numbers in the Bayes net — every `P(a|b,g)`, `P(b|b′,o)`, `P(o|s)` is an LLM likelihood, not a learned or authored distribution |
+| Hypothesis reduction | A **rejector**: drop hypotheses with low local conditional (e.g. `P(o_1^t\|s^t) = 0.01`) before the expensive joint is assembled |
+| Local conditional estimation | The numbers in the Bayes net — every `P(a\|b,g)`, `P(b\|b′,o)`, `P(o\|s)` is an LLM likelihood, not a learned or authored distribution |
 
 Recursion is handled by **sampling one state from `b(s)` at level `l` to stand in for the state at level `l−1`**, recursively down to level 0, then running ordinary BIP there. This is what makes arbitrary order cheap: a nested posterior is replaced by a single sampled world.
 
@@ -172,7 +172,7 @@ The audit this page exists for.
 | Recursion order | **Proposed** by the LLM at initialisation, not searched |
 | The *menu* of variable types (goal, belief, observation, interactive state) | **Authored** — four types, from "typical causal structures in prior decision-making models" |
 | The local-conditional rewrite for each addition (Table A1) | **Authored** — each edit to the graph comes with its factorisation written out by hand |
-| The rationality assumption | **Implicit in the LLM's `P(a|b,g)`.** Unlike [[wiki/entities/hbtom.md]]'s `β_n`, there is no rationality variable and no way to infer that an agent is irrational |
+| The rationality assumption | **Implicit in the LLM's `P(a\|b,g)`.** Unlike [[wiki/entities/hbtom.md]]'s `β_n`, there is no rationality variable and no way to infer that an agent is irrational |
 | Every probability in the network | **LLM-estimated**, never calibrated against anything |
 | The hypothesis set for each latent | **LLM-proposed** — if the true answer is not sampled, no amount of inference recovers it |
 | Perception | **Outside the system.** "AutoToM currently requires a separate process to first fuse information from different modalities into text before inference" — MMToM-QA and MuMA-ToM use the fusion modules from their own papers, and the two cognitive studies were run on **hand-captioned frames** |

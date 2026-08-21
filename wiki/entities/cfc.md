@@ -142,7 +142,7 @@ CfCs "might express vanishing gradient problems"; the recommendation for long-te
 
 | Limitation | Consequence |
 |---|---|
-| **Sharp bound ≠ small error** | The proved envelope `|x − x̃| ≤ |x₀ − A|e^{−w_τ t}` is attained; worst-case relative error is total, and the adversarial signal is a late step change. Only the exponential decay makes it usable |
+| **Sharp bound ≠ small error** | The proved envelope `\|x − x̃\| ≤ \|x₀ − A\|e^{−w_τ t}` is attained; worst-case relative error is total, and the adversarial signal is a late step change. Only the exponential decay makes it usable |
 | **The solved ODE is not quite the LTC** | The symmetry assumption inserts a second `w_τ` into the drive; defended by one MSE-0.006 replay, not by analysis |
 | **Network-level compilation is unbounded** | Theorem 1 is scalar and self-connection-free; Algorithm 1 superposes it across synapses with no error statement |
 | **Tables lost in extraction** | Every per-baseline accuracy/AUC number and the complexity table are absent from the source file; the wiki holds prose claims only |

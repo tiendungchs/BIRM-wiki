@@ -422,6 +422,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 
 | Abbrev. | Expansion | Note |
 |---|---|---|
+| MTurk | Amazon Mechanical Turk | The crowdworking platform supplying the human pool for most non-first-party baselines in the wiki; the pool is the `B1` parameter at [[wiki/concepts/human-baseline.md]], and unfiltered MTurk baselines on constructed-answer tasks are biased *downward* because faking failure is faster than solving |
+| RHAE | Relative Human Action Efficiency | [[wiki/entities/arc-agi-3.md]]'s score: an agent's actions against the human baseline's, squared and capped, so every property of the metric concerns behaviour near the human denominator |
+| ToMnet | Theory-of-Mind neural network | The learned (as opposed to inverse-planning) family of agent-modelling architectures; the graph-encoder variant is the wiki's canonical case of aggregate parity at 0.06 profile correlation ([[wiki/entities/agent-benchmark.md]]) |
 | ARC / ARC-AGI | Abstraction and Reasoning Corpus (for Artificial General Intelligence) | Chollet's grid-transformation benchmark; the wiki page describes the 2019 original ([[wiki/entities/arc-agi.md]]) |
 | RPM | Raven's Progressive Matrices | The 1930s visual IQ format: a 3×3 matrix of figures with the last cell missing, chosen from candidates; the parent of [[wiki/entities/raven.md]] and [[wiki/entities/pgm.md]] |
 | PGM | Procedurally Generated Matrices | Barrett et al. 2018's RPM-style dataset, generated from an explicit `[relation, object, attribute]` triple set so the train/test split can be declared over the abstraction ([[wiki/entities/pgm.md]]) |

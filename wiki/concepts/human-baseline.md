@@ -1,0 +1,100 @@
+# Human Baseline
+
+**The denominator every benchmark score in this wiki is divided by, and the one quantity no benchmark specifies: a "human baseline" is not a number but a *protocol* — a choice of pool, attempt budget, aggregation order and exclusion rule — and the same raw data yields baselines 25 points apart depending on which choices are made.**
+
+The wiki carries ~14 benchmarks. Every one reports, argues for, or explicitly declines a human number, and every claim of the form "at/above/below human" inherits whatever that page's protocol was. Three separate empirical tensions — T210, T213, T214 — are the *same* defect discovered independently on three benchmarks: not disagreement about the world, but two incommensurable statistics quoted against one machine score. This page states the protocol so the defect stops recurring, and prices what the baseline is actually for.
+
+---
+
+## The specification a baseline needs
+
+A human baseline is under-determined until five things are fixed. None of the wiki's benchmarks fixes all five; most fix two.
+
+| # | Parameter | Values seen in the wiki | Why it moves the number |
+|---|---|---|---|
+| B1 | **Pool** | 2 in-house testers · 95–415 crowdworkers · PhDs in-domain vs PhDs in other fields · infants · "a bright middle-school student" (asserted, unmeasured) | Selects the competence being measured; a paid, filtered crowd and two authors are different populations |
+| B2 | **Attempt budget** | 1 attempt (`pass@1`) · 3 attempts · unlimited-until-correct | ConceptARC: **73%** at `pass@1` against **~91%** at 3 attempts, *same participants, same 480 items* (T214) |
+| B3 | **Aggregation order** | union over testers · mean per subject · mean per item then mean per concept · upper-median | ARC-AGI-1: **99%** (union over 10 workers) · **83.8%** (mean per subject) · **60.2%** (crowd mean on the hard split) — three quantities, three task pools (T213) |
+| B4 | **Exclusion rule** | none · attention checks + nonsensical-explanation screen (67 of 482 dropped on ConceptARC) | Faking failure is faster than solving on a constructed-answer task, so *unfiltered crowd baselines are biased downward* |
+| B5 | **Item pool identity** | same items as the machine · a different split · a different benchmark version | ARC-AGI-1's four subsets are explicitly "not drawn from a consistent human difficulty distribution", so public-eval and private-eval scores are not comparable |
+
+**The commensurability rule this implies, and it is one line:** a human number is comparable to a machine number only when B1–B5 are the same for both. In practice B2 is the one that silently breaks — machine scores are almost always `pass@1` and human scores are almost always multi-attempt. The wiki's standing convention, from T214: **quote 73% against machine `pass@1` and ~91% only against a 3-attempt machine score, and say which.**
+
+---
+
+## Instantiations
+
+| Benchmark | Pool (B1) | Budget (B2) | Aggregation (B3) | Reported | What it is good for |
+|---|---|---|---|---|---|
+| [[wiki/entities/arc-agi-2.md]] | 407 participants, 515 sessions, paid $115–150 + $5/task, 13,405 test-pair attempts | per-task | **empirical difficulty index** = proportion achieving full correctness, per task | subsets matched to **≤1pp** mean human accuracy | The wiki's only first-party human study at source, and the only baseline used as a *design constraint* rather than a report |
+| [[wiki/entities/conceptarc.md]] | 415 participants, 8–14 per test input, screened | 3 → also re-scored at 1 | per test input → per concept | **~91%** (3 attempts) · **73%** (`pass@1`) | The only benchmark where the raw data supports both statistics, which is why it is the wiki's worked example (T214) |
+| [[wiki/entities/arc-agi.md]] | 2 testers · 10 MTurk/task · 95 participants | 1–3 | union · per-subject · crowd mean | **97–99%** · **83.8%** · **60.2%** | Nothing, as a single number — the spread *is* the finding (T213) |
+| [[wiki/entities/arc-agi-3.md]] | paid participants, $140/session + $5/environment | first run | **upper-median best first-run**, the scoring denominator | n = 1,614 level completions / 340 sessions | The only baseline that separates **exploration cost** from execution: optimal playthrough vs best first-run vs baseline are three tracked reference points |
+| [[wiki/entities/gpqa.md]] | in-domain PhDs vs PhDs in *other* sciences, paid $30/item bonus, unrestricted web, mean 37 min | 1 | per item | **65%** expert / **34%** non-expert (Extended); **81.3%** / **22.1%** (Diamond) | The only baseline that is itself a *control*: the non-expert arm prices retrievability (T221). Its filtered rows are **selection-biased upward** by the authors' own asterisk |
+| [[wiki/entities/math-dataset.md]] | 5 individuals, 20 items, 1 hour, by hand | 1 | per participant | **40%** → **90%** (IMO gold) | The 50-point spread across expertise, and nothing else — every endpoint is `n = 1` |
+| [[wiki/entities/raven.md]] | Zhang et al. 2018 test set | — | mean | **84%** `(tentative, second-hand)` | The number a context-blind network beats at **>90%** — i.e. the baseline is worth less than the answer-set leak (T210) |
+| [[wiki/entities/pgm.md]] | **none collected** | — | — | — | Nothing — every "notably weak" verdict on PGM is machine-relative by the authors' own admission |
+| [[wiki/entities/anli.md]] | implicit: every test item verified by ≥2 humans | — | — | agreement, not accuracy | Per-item difficulty *at authoring time* (3.4 → 6.4 mean tries, 199 → 355 s), which no accuracy baseline supplies |
+| [[wiki/entities/agent-benchmark.md]] | 300 MTurk raters, 10 per trial, 0–100 surprise slider, each rater sees one member of a pair | 1 | relative-surprise accuracy | single-rater ≈ **.91**, ensemble **1.00** | The **profile**, not the aggregate: a model at .90 vs .91 correlates **0.06** with the human item-type profile |
+| [[wiki/entities/bib.md]] | infants (companion paper) | — | looking time → *direction* | **no ceiling reported** | Nothing as an upper reference point — a direction has no denominator |
+| [[wiki/entities/gsm8k.md]] | "a bright middle-school student" | — | — | asserted | Nothing measurable; the honest reading is that GSM8K has no baseline |
+| [[wiki/entities/mlc.md]] | human participants answering 7 queries on one page | 1 | **modal response pattern**, errors included | 58.6% of participants show all three biases simultaneously | The only baseline in the wiki that is a *distribution over responses including the wrong ones* rather than a score — see below |
+
+---
+
+## Four things the baseline is for, and only one of them is a denominator
+
+The wiki uses "human baseline" for four different jobs. Conflating them is what produces the tensions.
+
+**1. Solvability certificate** — *is this item answerable at all?* Union-over-testers is the right statistic and a small pool suffices (ARC-AGI-1's 2 testers, 100% between them). It says nothing about difficulty. Most "97–99%" citations are this, quoted as if they were job 2.
+
+**2. Difficulty calibration** — *how hard is this item for one person?* Per-subject mean, fixed attempt budget, large pool. This is the only job that yields a comparable denominator, and [[wiki/entities/arc-agi-2.md]] is the only benchmark that runs it at source and then *uses* it — the empirical difficulty index is what makes its three subsets score-comparable to ≤1pp.
+
+**3. A control on what the score depends on** — the baseline as an *ablation over the human*. [[wiki/entities/gpqa.md]] is the only clean instance: the non-expert arm holds motivation, time and web access fixed and removes only domain training, which converts "is this crystallized knowledge?" from an argument into a 31-point measurement (T221). [[wiki/entities/arc-agi-3.md]]'s optimal-vs-first-run subtraction is the same move on the exploration axis.
+
+**4. A target profile rather than a target number** — the human's *pattern of errors* is the thing to match. [[wiki/entities/mlc.md]] scores a model by whether it reproduces three specific human inductive biases at human rates, including where humans are wrong; [[wiki/entities/agent-benchmark.md]] shows why this is not optional — a graph-encoder ToMnet sits **at** the human aggregate (.90 vs .91) with a profile correlation of **0.06** and is *below chance* (.05) on the one item type authored to catch its heuristic, while an inverse planner at .96 correlates 0.55. **Aggregate parity is compatible with an orthogonal mechanism; profile parity is not.** This is the job most relevant to [[wiki/concepts/latent-graph-discovery.md]] and the one least often run.
+
+---
+
+## Why this is load-bearing for building a reasoning model
+
+- **It is the instrument for [[wiki/concepts/skill-acquisition-efficiency.md]]'s central quantity.** Generalization difficulty is defined developer-aware; the human is the only available reference system whose priors are enumerable but not authored by the benchmark's builder. If the reference is mis-specified, `GD` has no scale.
+- **The design rule "easy for humans, hard for AI" is a *statement about the baseline protocol*.** It presupposes a per-item human number, not a benchmark-level one — and [[wiki/entities/conceptarc.md]] shows the diagnostic regime is **humans-at-ceiling**: a benchmark hard enough to floor every solver destroys the ordering it exists to produce (two programs 2 points apart on ARC are 23 apart on ConceptARC). So the baseline is not a scoreboard line; it is what selects the benchmark's usable difficulty band.
+- **Job 4 is the target a brain-inspired model should actually be scored against.** The premise of [[wiki/concepts/neuroscience-ai-transfer.md]] is that the biological solution is worth importing. If so, the evidence that an import worked is a *matched failure profile*, not a matched accuracy — which is exactly [[wiki/concepts/core-knowledge.md]]'s signature-limit instrument applied to the human side of the comparison.
+
+---
+
+## Open problems
+
+| # | Problem | Status |
+|---|---|---|
+| H1 | **No benchmark in the wiki reports B1–B5 as a block.** Recovering them takes reading the paper's methods, and three benchmarks' numbers have been quoted wrongly downstream as a result | Cheap to fix at authoring; nothing enforces it |
+| H2 | **`pass@1` human data usually exists and is usually unpublished.** ConceptARC's 73% came from re-analysing the original study's own per-response data four years later. Every multi-attempt baseline in the wiki plausibly hides one | Open — a reporting norm, not a research problem |
+| H3 | **The baseline is a fixed point being compared against a moving one.** Machines improve; the human pool does not. A baseline collected once in 2018 (RAVEN's 84%) is quoted against 2025 systems, and no benchmark re-collects | Open, and it interacts with G17's depleting-stock failure mode |
+| H4 | **Nothing supplies a *per-item* human profile for the profile-matching job.** AGENT and MLC have it; the ARC family and the mathematics benchmarks report only aggregates, so job 4 is unavailable on the wiki's central benchmarks | Open — the missing measurement is per-item human error *types*, which ConceptARC collected (near-misses that presuppose the concept) and did not release as a profile |
+| H5 | **The infant baselines yield a direction, not a rate.** [[wiki/entities/bib.md]]'s looking-time measure has no upper reference point, so "above chance" on a developmental benchmark is unbounded above | Open, and it is why [[wiki/concepts/violation-of-expectation.md]] needs its random-init control (T161) to get a *lower* reference instead |
+
+---
+
+## Connections
+
+- **[[wiki/concepts/certification-instruments.md]]** — the baseline is the reference system every instrument in that inventory is scored against; H3 is that page's depleting-stock failure mode arriving on the human side of the comparison, and job 4 (profile matching) is instrument I13 stated as a requirement rather than as one benchmark's result.
+- **[[wiki/concepts/skill-acquisition-efficiency.md]]** — supplies the quantity (`GD`, developer-aware) whose scale this page's protocol sets; the human is the only reference system with enumerable priors not authored by the benchmark builder.
+- **[[wiki/concepts/shortcut-learning.md]]** — the concept-variation instrument's standing weakness is precisely a missing baseline (hand-authored variations, "believed easy for humans", never measured), and ConceptARC closing it is what turned that instrument into a standing benchmark.
+- **[[wiki/concepts/rule-level-evaluation.md]]** — the only instrument that scores the *rule*, and it needs a human baseline of the same kind: humans reach the intended abstraction on 476/480 tasks against o3's 412, which is a coverage baseline rather than an accuracy one.
+- **[[wiki/concepts/core-knowledge.md]]** — signature limits are the human-side analogue of job 4: certify a prior by an invariant failure profile, which is what a per-item human profile would supply for the machine comparison.
+- **[[wiki/concepts/violation-of-expectation.md]]** — the developmental protocol whose human data is a *direction* rather than a rate (H5), which is why it needs a randomly-initialised-network null to recover a reference point at all.
+- **[[wiki/concepts/problem-framing.md]]** — a human and a machine given the same benchmark are not given the same problem representation, so B5 (item pool identity) does not by itself make the comparison fair.
+- **[[wiki/entities/arc-agi.md]]** — the benchmark whose baseline spread (60% to 99%) is the wiki's canonical instance of B3 aggregation ambiguity (T213).
+- **[[wiki/entities/arc-agi-2.md]]** — the only first-party human study at source, and the only case where the baseline is a *design constraint* (subsets matched to ≤1pp) rather than a reported number.
+- **[[wiki/entities/arc-agi-3.md]]** — the only baseline that decomposes into exploration and execution, via optimal-playthrough vs best-first-run vs upper-median.
+- **[[wiki/entities/conceptarc.md]]** — the worked example: same participants, same items, 73% vs ~91% depending on B2 alone (T214).
+- **[[wiki/entities/gpqa.md]]** — the baseline run as a control (job 3), and the wiki's clearest instance of selection bias in a released subset's human number.
+- **[[wiki/entities/raven.md]]** — the baseline worth less than the benchmark's answer-set leak; a context-blind network exceeds it (T210).
+- **[[wiki/entities/pgm.md]]** — the null case: no baseline collected on any regime, which makes every verdict on it machine-relative.
+- **[[wiki/entities/anli.md]]** — replaces the accuracy baseline with a per-item authoring cost (tries and seconds), the only difficulty measurement in the wiki taken at collection time.
+- **[[wiki/entities/agent-benchmark.md]]** — supplies the profile-vs-aggregate dissociation (0.06 correlation at .90 accuracy) that makes job 4 necessary rather than optional.
+- **[[wiki/entities/math-dataset.md]]** — the `n = 1`-per-level baseline; its 40–90% spread across expertise is real and its endpoints are anecdotes.
+- **[[wiki/entities/gsm8k.md]]** — the asserted baseline ("a bright middle-school student"), i.e. none, on a benchmark whose scores drove five years of method development.
+- **[[wiki/entities/bib.md]]** — the infant baseline with no reported ceiling (H5).
+- **[[wiki/entities/mlc.md]]** — the wiki's only response-*pattern* baseline: three named inductive biases matched at human rates, errors included.
