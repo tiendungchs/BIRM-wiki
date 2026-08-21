@@ -474,6 +474,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | EB | Ellipsoid Body | Toroidal neuropil of the CX whose columnar (EBw.s) neurons tile a ring and carry a single heading bump |
 | PVA | Population Vector Average | Circular mean of a ring population's activity, weighted by rate; the decoder that reads heading off the EB bump |
 | GCaMP | Genetically encoded Calcium indicator (GFP + Calmodulin + M13) | Fluorescent activity reporter; GCaMP6f is the fast variant used for two-photon population imaging |
+| LP | Lateral Posterior nucleus | Mouse higher-order visual thalamus, analogue of the primate pulvinar; driven mainly by cortex rather than retina ([[wiki/concepts/transthalamic-context-routing.md]]) |
+| PM | Posterior Medial visual area | Mouse higher-order visual cortical area, high in the visual hierarchy; the receiver in the two-stream transthalamic experiment |
+| LM | LateroMedial visual area | Mouse higher visual area one step above V1; with V1 supplies 72–90% of cortico-cortical input to PM |
+| dLGN | dorsal Lateral Geniculate Nucleus | First-order visual thalamus — retinally driven relay; sends no projection to PM |
+| eOPN3 | enhanced Opsin from *Platynereis* (OPN3) | Inhibitory opsin acting presynaptically to suppress vesicle release at terminals; ~5–6 min half-life, so it forces block designs rather than interleaved controls |
 | GABA | γ-aminobutyric acid | The principal inhibitory transmitter; "GABAergic" = inhibitory interneuron ([[wiki/concepts/inhibitory-control-of-coding.md]]) |
 | ACG | Autocorrelogram | Spike-train autocorrelation; its *rise time* is one of the six features that separate interneuron families physiologically |
 | CV2 | Second coefficient of variation of interspike intervals | `2\|ISI_{i+1} − ISI_i\|/(ISI_{i+1} + ISI_i)`, averaged over spikes — a local firing-irregularity measure, the single most informative cell-class feature |
