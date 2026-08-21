@@ -2,7 +2,7 @@
 
 **A standard 1.4M-parameter sequence-to-sequence transformer, meta-trained over a stream of episodes each defined by a randomly generated *interpretation grammar* that the network never sees, so that at test — weights frozen, no task-specific parameters — it infers word meanings from in-context study examples and composes them systematically (Lake & Baroni 2023).**
 
-> **Provenance.** `raw/lake-2023-meta-learning-compositionality.md`, *Nature* 623 (2023). Framed as an answer to Fodor & Pylyshyn 1988's systematicity challenge ([[wiki/concepts/language-of-thought.md]]). Supplementary Information is a separate source and is not yet ingested; Tables 1–2 are figure-only in the source text, so the log-likelihood comparisons below are recorded as an *ordering* with the paper's own significance thresholds, not as numbers.
+> **Provenance.** `raw/lake-2023-meta-learning-compositionality.md` and `raw/lake-2023-meta-learning-compositionality-si.md`, *Nature* 623 (2023). Framed as an answer to Fodor & Pylyshyn 1988's systematicity challenge ([[wiki/concepts/language-of-thought.md]]). Tables 1–2 are figure-only in the source text, so the log-likelihood comparisons below are recorded as an *ordering* with the paper's own significance thresholds, not as numbers. Everything from the Supplementary Information is marked **(SI)**.
 
 The reason this page exists: [[wiki/entities/pcfg-set.md]] measured systematicity in three standard sequence architectures trained i.i.d. and got 0.53 / 0.56 / 0.72 on data generated *by* the intended compositional rule. MLC holds the architecture class fixed, changes only what the outer loop samples, and gets 100%. **The wiki's locus for systematicity therefore moves from the architecture slot to the objective slot** ([[wiki/concepts/neuroscience-ai-transfer.md]]'s three-slot sort, G30).
 
@@ -89,6 +89,63 @@ Two readings the wiki should carry. First, **the rigid-symbolic model is not the
 
 ---
 
+## What the Supplementary Information adds
+
+**1. The headline 100% is a best run; the modal run is ~93% (SI-1.1).** Optimization is not reliable — "not every run optimizes successfully" — and successful runs are identifiable *without test labels*, by loss on the prescribed grammatical outputs or by validation loss.
+
+| Variant | Runs | Few-shot exact match, mean (SD) | Validation episodes, mean (SD) |
+|---|---|---|---|
+| MLC | 10 | 92.9% (8.2) | 95.3% (0.4) |
+| MLC (algebraic only) | 10 | 93.6% (9.0) | 94.7% (2.4) |
+| MLC (joint) | 15 (5 splits × 3) | 96.8% (5.2) | 95.8% (0.4) |
+
+The SDs are the number to carry: 8–9 points on the task against 0.4–2.4 on validation, i.e. **run-to-run variance is concentrated in the competence, not in the fit**. A meta-learner either acquires the algebraic behaviour or does not, and the outer-loop objective does not guarantee which — the same all-or-nothing profile the wiki records for seed-dependent structure elsewhere. On predicting *human* behaviour, MLC (joint) beats MLC only marginally across arbitrary runs (Mann-Whitney `U = 109.0, p = 0.062, d = 0.69`); on the open-ended task the advantage is real but small next to the split (two-way ANOVA: model `F(1,24) = 8.0, p < 0.01`; cross-validation split `F(4,24) = 185.7, p < 0.0001`) — **which participants you hold out matters ~23× more than which model you run.**
+
+**2. Novel rules: the inner loop applies rules whose *semantics* were never meta-trained (SI-1.2).** 26 rules were held out from the 100,000 training episodes under a **semantic-equivalence quotient** — a test rule counts as novel only if no meta-training rule is equivalent to it *modulo rule name and renaming of the variables* `u₁,u₂,x₁,x₂`. 130 test episodes (5 replications × 26 rules), each drawn from the ordinary meta-training grammar distribution with one rule forced novel and maximal (right-hand side of the maximum length 8), queried on the novel rule applied to every primitive combination.
+
+| Variant | Exact match on novel rules |
+|---|---|
+| MLC | 99.3% |
+| MLC (joint) | 99.8% |
+| MLC (algebraic only) | 99.4% |
+
+This is the sharpest available answer to [[wiki/concepts/meta-learning.md]]'s open problem *"does the inner loop learn structure or select among encoded rules?"* — with weights frozen and no episode-specific parameters, selection from a stored rule inventory is ruled out at the level of rule *content*, because the content was quotiented out of meta-training. What is **not** ruled out is selection at the level of rule *form*: the novel rules are still ≤8-symbol mixes of the same two argument types drawn from the same meta-grammar, so the demonstration is of the inner OOD level (novel item within an in-distribution episode), exactly where the paper's own boundary statement says the win lives.
+
+**3. The bias-nuance probe: what installed-by-sampling actually buys (SI-2).** A separate experiment (n = 22 after catch-trial exclusion, 14 independent trials, words and colours re-randomized per trial from 20 words × 8 colours, no memory quiz) probes whether the three biases are *graded*. They are — and the frozen model's are not.
+
+| Probe | Humans | MLC (joint), not re-optimized | MLC (within-sample) |
+|---|---|---|---|
+| Responses consistent with **mutual exclusivity** (N = 132) | **68.2%** | **98.0%** | 68.6% |
+| Responses consistent with **iconic concatenation** (N = 66, no concatenation examples shown) | **93.9%** | **66.7%** | 93.8% |
+| Favour one-to-one when ME and one-to-one *conflict* (N = 66) | 50.0% | 56.2% | 53.2% |
+
+Human ME is context-sensitive along two axes, both significant in a logistic mixed model (`y ~ n_contra_examples + pool_size + (1|participant)`): the number of counter-examples shown (0/1/2; `β = 1.76, SE = 0.483, Z = 3.64, p < 0.001`) and the number of output symbols available in the response pool (2 vs 6; `β = 2.05, SE = 0.698, Z = 2.93, p < 0.01`), with ME-consistent responding declining as either rises. The authors' conjecture for the pool-size effect is **pragmatic**: with five yet-to-be-named objects available, ME is such a weak heuristic that participants infer the experiment is not asking them to use it — i.e. the bias is applied conditional on an inference about the task, not unconditionally.
+
+Three consequences:
+
+- **A prior installed by sampling arrives at the right *marginal* rate and the wrong *conditional* rate.** The 80/20 sampler reproduces human bias frequencies in the setting it was calibrated on (66.0 / 85.0 / 99.0 vs 62.1 / 79.3 / 93.1) and, in a setting it was not, applies ME essentially absolutely (98.0% vs 68.2%) while *losing* iconic concatenation (66.7% vs 93.9%) on mappings that violate one-to-one. Calibrating a rate is not the same as acquiring the bias's context-dependence ([[wiki/empirical-tensions.md]] T202).
+- **The gradedness is nonetheless learnable by the same machinery.** MLC (within-sample), re-optimized across the 22 participants with the same architecture and optimizer, recovers 68.6% / 93.8% / 53.2% — a close recapitulation of the human distribution over 220 samples per trial. But it needed a **new input channel**: the available colour pool had to be written into the source sequence as a special study example (`[] → 🔴🔵` for pool size 2), because the model had no other way to condition on it. The doctrine the authors draw: *"it must be optimized for the kinds of generalizations it will be asked to make."*
+- **The direction of the ME bias is itself bought by the sampler.** Neural networks typically show an *anti*-ME bias (novel words attracted to already-used meanings); MLC shows a strong ME bias without being told the rule. The sampler's without-replacement primitive pairing is what installs it ([[wiki/concepts/core-knowledge.md]]).
+
+**4. The hypothesis space is bounded by the tokenizer (SI-1.3).** Among held-out participants, one assigned **one colour per letter** of the pseudoword — a hypothesis *no MLC variant can entertain*, since words enter as arbitrary atomic tokens with no sub-token structure. The model's inductive-bias failures are therefore of two different kinds: biases that were not sampled (repairable by changing `p(T)`) and hypotheses that are not expressible (not repairable without changing the input representation).
+
+**5. GPT-4 and GPT-3.5 on the same task, and the fragility number (SI-3).** Ten replications per condition with re-randomized word/colour assignments, temperature 0.
+
+| Model / condition | Exact match, mean (SD) |
+|---|---|
+| GPT-4, batched queries, **sorted** shortest-to-longest, no extra episodes | **58.0% (14.0)** |
+| GPT-4, individualized queries (one prompt per query), sorted | 39.0% (3.2) |
+| GPT-4, batched, **random order** | **14.0% (19.0)** |
+| GPT-4, plus five full meta-training episodes in the prompt | 33.0% (17.7) |
+| GPT-3.5 (`text-davinci-003`, completion API), sorted | 27.0% (7.8) |
+| GPT-3.5, random order | 17.0% (6.4) |
+| Human participants | 80.7% |
+| MLC (variant-dependent run average) | 92.9–96.8% |
+
+Two things worth keeping beyond the scoreboard. First, the best number is the *generous* one: sorting the batched examples shortest-to-longest leaks information about expected output length at test, so 58.0% is an upper bound on a setting no one would have at deployment. Second, **the 58 → 14 collapse from shuffling example order is larger than the gap between GPT-4 and GPT-3.5**, and the SDs (14.0, 19.0) are of the same magnitude as the means — a model whose answer to a rule-induction problem depends this strongly on presentation order is not applying a rule it inferred; the induction is entangled with the surface arrangement of the support set. **(brainstorm)** That is a cheap, general diagnostic the wiki can reuse on any in-context reasoner: **permute the support set and report the variance**, not just the mean — a system that has recovered a latent rule must be invariant to support-set order, and MLC's episode sampler shuffles study order per episode precisely to force that invariance. Adding five worked episodes *hurts* (58% → 33%), so in-prompt meta-training is not a substitute for meta-training.
+
+---
+
 ## Machine-learning benchmarks: the facet split
 
 SCAN (Systematic Compositionality benchmark: instructions → action sequences) and COGS (Compositional Generalization Challenge based on Semantic Interpretation: sentences → logical forms). Here the meta-learning is far cruder — **surface-level word-type permutation** of an existing corpus, no new data:
@@ -126,11 +183,11 @@ Cost drops from `O(S²)` to `m·O((q+s)²)`. **The architectural content is that
 
 - **The boundary, stated precisely.** "Meta-learning succeeds when generalization makes a new episode **in-distribution with respect to the training episodes**, even when the specific test items are out-of-distribution with respect to the study examples **in the episode**. However, meta-learning alone will not allow a standard network to generalize to episodes that are in turn out-of-distribution with respect to the ones presented during meta-learning." Two nested notions of OOD, and only the inner one is bought. This is [[wiki/concepts/meta-learning.md]]'s knowledge-boundedness limit measured rather than asserted.
 - **No mechanism for emitting new symbols** (Marcus's version of the challenge). Symbols introduced through the study examples would need an added pointer/copy mechanism.
-- **Biases it was not optimized for do not transfer** — an additional behavioural experiment in the Supplementary Information shows MLC failing to generalize to nuances of the biases outside its meta-training. The installed-by-sampling route buys exactly what was sampled.
+- **Biases it was not optimized for do not transfer** — quantified above (SI-2): human mutual exclusivity is graded by counter-evidence and pool size (68.2% overall), MLC (joint) applies it absolutely (98.0%), and its iconic concatenation drops to 66.7% on mappings violating one-to-one that it never saw. The installed-by-sampling route buys exactly what was sampled, at the marginal rate it was sampled, in the context it was sampled in.
 - **Developmentally implausible as stated.** Optimizing over many random grammar tasks is not what a child does; the defended claim is the weaker one — that systematicity can be honed by incentive and practice.
 - **Untested on natural language, at scale, or in any other modality.** The proposal for scale is to alternate next-token pretraining with MLC meta-training episodes that continually introduce novel words.
-- **The behavioural comparison is generous to humans in one respect and to MLC in another**: study items stayed on screen (no memory load), while MLC's 82.4% is an average over 100 random word/colour assignments and its 100% is the best of 10 runs.
-- **GPT-4 is still challenged** on this material (Supplementary Information 3), so the result is not that scale solved it.
+- **The behavioural comparison is generous to humans in one respect and to MLC in another**: study items stayed on screen (no memory load), while MLC's 82.4% is an average over 100 random word/colour assignments and its 100% is the best of 10 runs — a typical run scores 92.9% (SD 8.2) on the gold outputs (SI-1.1), and runs are selected on grammatical-output or validation loss, so the selection is legitimate but the *modal* model is not the headline model.
+- **GPT-4 is still challenged** on this material: 58.0% at best against 80.7% human and 92.9–96.8% MLC, collapsing to 14.0% when the support examples are shuffled (SI-3). Scale did not solve it, and the authors concede the possibility that better prompting or later models will — arguing only that a small targeted model clarifies *what is needed*.
 
 ---
 
