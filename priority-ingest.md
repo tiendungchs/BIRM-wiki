@@ -52,7 +52,7 @@ One INGEST each:
 - [x] `rein-2023-gpqa-benchmark.md` — reasoning-eval · B · 2023
 - [x] `glazer-2024-frontiermath-benchmark.md` — reasoning-eval · B · 2024
 - [x] `sun-2025-olymmath-benchmark.md` — reasoning-eval · B · 2025
-- [ ] `huang-2025-math-perturb-benchmark.md` — reasoning-eval · B · 2025
+- [x] `huang-2025-math-perturb-benchmark.md` — reasoning-eval · B · 2025
 
 **Bundle — Humanity's Last Exam (preprint + Nature version).** One INGEST pass over all 2 files (~9661 words), in this order.
 
