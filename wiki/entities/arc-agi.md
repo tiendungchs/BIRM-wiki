@@ -121,6 +121,15 @@ The report's sharpest methodological claim, and it generalizes past ARC: **any s
 
 Against which the same report reports the opposite: the two 2024 leaderboards differed by **~1,000× in compute per task** ($10 of Kaggle compute vs. up to $10,000 in API credits) and their top scores landed within 0.1 points of each other (53.5% vs. 53.6%). Logged as [[wiki/empirical-tensions.md]] T204 — the two claims are not formally contradictory (one is about the shape of the tail, the other about the current frontier) but they license opposite research bets, and the report draws the optimistic one: *"algorithmic improvements towards AGI hold significant power and massive compute may not be necessary."*
 
+**The o3 line, priced** `(tentative — cost estimates are ARC Prize's, reported second-hand by Pfister & Jud 2025)`:
+
+| Setting | Semi-private score | Total compute cost | Per task |
+|---|---|---|---|
+| o3 low-compute | 75.7% | ~$2,012 | **~$20** |
+| o3 high-compute | 87.5% | ~$346,000 | **~$3,460** |
+
+**A number conflict the wiki was carrying.** [[wiki/concepts/external-verification.md]] quotes ~**$30,000** per task for o3-high on this benchmark; the ARC Prize figures above give ~$3,460, and they are internally consistent (the high-compute run is reported as ~172× the low-compute run's $20). The order of magnitude is not settled here — both figures are second-hand and neither source states its accounting — so any argument that turns on the exact price should be read as turning on "thousands of dollars per task", which both support. Flagged rather than reconciled.
+
 Consequence for the wiki: every benchmark row here needs an inference-budget column, which is the same discipline [[wiki/concepts/external-verification.md]] extracts from the mathematics literature (report pass@1, majority@`k`, the selection mechanism, and the token budget).
 
 ---
@@ -135,6 +144,15 @@ The report's own list, all of which bear on the wiki's use of ARC as its G17 ins
 | **The private set is being eroded by measurement** | 100 tasks, unchanged since 2019, with ~10,000 scores reported across four competitions; each score leaks a small amount of information about hidden task content | Developer-blindness has a **half-life proportional to leaderboard queries**. The fix adopted for ARC-AGI-2: separate the leaderboard set from the final-scoring set, and enlarge both |
 | **Inconsistent human difficulty across subsets** | Anecdotal, per the report | Cross-subset score comparisons are not licensed |
 | **Only 100 private tasks** | — | Sampling noise of several points is structural |
+
+**A second flaw list, from outside the ARC Prize Foundation** (Pfister & Jud 2025, `raw/pfister-2025-o3-is-not-agi.md`). These are not defects of execution but of the *format*, and the authors state that none is removable by adjustment within it.
+
+| Flaw | Mechanism | Consequence |
+|---|---|---|
+| **The problem representation is supplied, identically, by every task** | Every task is "find the simplest transformation composed from a finite, small set of Core Knowledge operations, mapping input grid to output grid". Only the selection and ordering vary | The benchmark scores optimisation within a given representation and never the *construction* of one, which the source argues is the harder half of most real problems ([[wiki/concepts/problem-framing.md]], gap G73) |
+| **Candidates are free to test before submission** | Single correct output per input + given demonstration pairs ⇒ a rule is verifiable exactly when it reproduces every pair | Massive trialling of low-quality candidates is a complete method. Domains where an attempt is irreversible (a physical action, a one-shot decision) admit none of the wiki's search or refinement mechanisms (gap G74) |
+| **Training cost is not charged** | Competition rules cap *inference* compute (one P100, 12 h) and say nothing about pretraining or synthetic-task generation; 2024 entrants trained on large volumes of artificially generated ARC-like tasks | The unlimited-priors channel [[wiki/concepts/skill-acquisition-efficiency.md]] names, relocated to a line item the rules do not read. Training on generated ARC tasks is by the source's own definition the acquisition of a *skill*, which is the thing the benchmark intends to exclude |
+| **Goodhart's Law, observed** | Prize money made the score the target: optimised core-knowledge representations, synthetic ARC training corpora, hundreds of submissions used to probe the private set | The measure/target gap becomes an optimisation surface. The source's prescription is not a better benchmark but *maximal correspondence between measure and target* — "the best benchmark for intelligence is intelligence itself" |
 
 **Reading.** These are not incidental defects: the first is Chollet's own 2019 "a shortcut may exist that clears the set without abstraction" objection *confirmed at 49%*, and the second is a failure mode intrinsic to the developer-aware design — a hidden set is a depleting resource, and nothing in [[wiki/concepts/skill-acquisition-efficiency.md]]'s checklist prices its depletion.
 
@@ -215,4 +233,5 @@ The column that matters is the first: it is the only one no benchmark before ARC
 - **[[wiki/entities/arc-agi-2.md]]** — the successor built from this page's own flaw table: brute-forceable tasks removed (icecuber 17% → 1.6%), 407-participant first-party human calibration, leaderboard and final-scoring sets separated, cost-per-task made mandatory — and the 2024 winner here (56%) carrying over at 2.5% is the certificate that the repair changed what is being measured.
 - **[[wiki/concepts/refinement-loop.md]]** — what this benchmark's 2024 report predicted (learned guidance of *branch* decisions inside a search) arriving in a different form in 2025 (learned guidance of *edits* to a complete candidate), against this page's blind-search ≈ LLM-guided-search ≈ 40% control.
 - **[[wiki/entities/arc-agi-3.md]]** — this page's own limitations list delivered: the "binary, close-ended scoring" bullet proposes an *interactive* format in which the solver acts, receives feedback, iterates, and is scored on the amount of interaction needed, which is exactly what ARC-AGI-3 does with actions as the interaction unit and a human's action count as the denominator.
+- **[[wiki/concepts/problem-framing.md]]** — the sharpest external critique of this benchmark's format: the transformation-from-Core-Knowledge-operations representation is identical across all 1,000 tasks and demonstration pairs make every candidate free to test, so a high score is evidence about search within a supplied representation and about nothing upstream of it (Pfister & Jud 2025).
 - **[[wiki/entities/raven.md]]** — the multiple-choice benchmark this page's from-scratch output design was aimed at, with the measurement that vindicates it (attribute-wise majority vote over RAVEN's candidate set alone exceeds the human baseline), plus the same concept-variation instrument run here: ARC-Kaggle2 at 19% overall moves to 29% on *top/bottom* and 8% on *boundary*, so the benchmark number is a mean over a concept mixture and per-concept coverage is unmeasured (Odouard & Mitchell 2022).
