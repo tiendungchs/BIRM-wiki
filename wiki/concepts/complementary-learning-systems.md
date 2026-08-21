@@ -15,6 +15,16 @@ A single distributed learner trained on temporally correlated experience overwri
 
 CLS was proposed as the solution to this problem, which makes it a *derived* architecture rather than an anatomical accident: given correlated experience and a distributed slow learner, something with the hippocampus's properties is forced (Hassabis et al. 2017, reviewing McClelland, McNaughton & O'Reilly).
 
+**The argument, measured in a seq2seq model, with the interference frequency-resolved** (Hupkes et al. 2020, [[wiki/entities/pcfg-set.md]]). Insert exceptions to an otherwise exceptionless rule at 0.01 / 0.05 / 0.1 / 0.5% of a function's occurrences, and track per epoch what fraction of exceptions the model answers with the *rule* (overgeneralisation) versus the *memorised* target:
+
+| Exception rate | Behaviour of a single distributed learner |
+|---|---|
+| 0.01% | Both LSTMS2S and Transformer *never* learn the exception — they converge still applying the rule |
+| 0.05–0.1% | Overgeneralise early, then trade smoothly into memorisation (ConvS2S, Transformer) |
+| 0.5% | No overgeneralisation at all — the rule is not internalised as a rule |
+
+Three things this buys the page. (i) The rule/exception trade-off has a **measured switching point** in a specific architecture class, which the interference argument predicts qualitatively and never quantifies. (ii) Overgeneralisation is *positive* evidence that the slow learner extracted the regularity — applying a rule where the data contradict it is the past-tense-debate signature (`goed`, `breaked`) and can only come from a rule. (iii) **One architecture demonstrably cannot host both.** After LSTMS2S detects that a sequence does not follow the rule, its overgeneralisation score falls without its memorisation score rising: it emits neither the rule output nor the exception target, for the rest of training. That is the interference argument's failure mode observed rather than assumed, and it is the case a second fast store exists to prevent.
+
 ## The two systems
 
 | Property | Hippocampus / medial temporal lobe | Neocortex |
@@ -160,6 +170,7 @@ Consequences this page did not state:
 
 ## Connections
 
+- **[[wiki/entities/pcfg-set.md]]** — the interference argument run as an experiment in a single distributed learner: exceptions below 0.5% of a rule's occurrences are overgeneralised away, and one of the three architectures cannot hold a rule and its exception simultaneously at any rate, degrading to outputs that match neither.
 - **[[wiki/concepts/priority-map.md]]** — the fast/slow split appearing inside the *control* layer rather than inside memory: repeating a search cue in blocks removes the need for the template-switching stage entirely and part of the need for the matching stage, so a recurring query is progressively absorbed into slower structure (Bichot et al. 2015).
 - **[[wiki/entities/vector-hash.md]]** — the fast store built and priced, with an explicit verdict against content compression: the hippocampal state is a content-independent *pointer* into cortex, and an autoencoder bottleneck that compresses the content instead loses capacity, forgetting-resistance and sequence memory at matched size (Chandra et al. 2023).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the biological derivation of the slow-W / fast-M split, and maps hippocampal sparse coding onto the de-aliasing requirement.

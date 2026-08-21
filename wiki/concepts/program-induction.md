@@ -98,6 +98,7 @@ The last two rows are what a builder should carry. Program induction is *complet
 
 ## Connections
 
+- **[[wiki/entities/pcfg-set.md]]** — the behavioural signature of a *non*-program-like solution to a program-like task: feeding a seq2seq model its own intermediate results changes the final answer 41–54% of the time, and functions fail outright on arguments longer than those seen in training, so the model holds length-indexed behaviours rather than operators over variables (G69, G70).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the named rival reduction, stated in full: program ↔ path, DSL ↔ edge vocabulary, library ↔ meta-graph, and the two places the dictionary breaks (binding/recursion on one side, aliasing and simultaneity on the other).
 - **[[wiki/concepts/language-of-thought.md]]** — the same reduction with the DSL identified as the mind's own concept format rather than as a modeller's choice; the probabilistic version *is* this page's posterior over programs, and its overgeneration objection is this page's prior problem (G26) in developmental clothing. It also supplies the family's formal ceiling from the other direction: **any** computable distribution is a stochastic λ-term, so the program class is never the binding constraint and cost 3 is where all the content sits.
 - **[[wiki/concepts/universal-induction.md]]** — the limit case: the full computable program class with a length prior, which supplies both the completeness result on the passive slice and the proof that no such guarantee survives on the active one.

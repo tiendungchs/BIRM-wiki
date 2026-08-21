@@ -144,6 +144,7 @@ The three baselines are not straw men: they are re-implementations of the wiki's
 
 ## Connections
 
+- **[[wiki/entities/pcfg-set.md]]** — the matched negative result on the same productivity split (train on short compositions, test on longer): an inducer with an explicit vocabulary and a shared executor transfers at 0.845, while three end-to-end seq2seq models score 0.30–0.50, which prices the explicit-executor design against gradient learning on the one facet both measure.
 - **[[wiki/concepts/program-induction.md]]** — the wiki's first ingested primary source in this family, and the first payment on its cost 1: the library is induced from raw observation pairs with no DSL, no program labels and no task grouping, with primitiveness 1.000 including primitives never observed in isolation.
 - **[[wiki/concepts/language-of-thought.md]]** — a *learned* language of thought with the innateness question dissolved into an engineering one: the symbols are VQ codes with no stipulated meaning, the syntax is the theory programmer, the semantics is one shared executor, and MDL is the prior that does the pruning the overgeneration argument demands.
 - **[[wiki/concepts/compositionality.md]]** — answers its "where does the primitive library come from" open problem in the toy case, and supplies the parse-based instrument it proposed for G17 as a working protocol (support/query transferability).

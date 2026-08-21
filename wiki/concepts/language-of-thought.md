@@ -189,6 +189,7 @@ Three things the wiki has already extracted from this, and they are the transfer
 
 ## Connections
 
+- **[[wiki/entities/pcfg-set.md]]** — the negative control for this page's argument, measured: systems with no discrete recombinable expressions fail exactly where a language of thought predicts they should — recombining unseen constituent pairs (0.53–0.72) and traversing a parse tree (0.46–0.59) — while scoring 0.79–0.92 on the task itself.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the named rival reduction, stated in full; it is the account built for the *non-embeddable symbolic slice* that the graph framing lists as its own untested bet, so the two are closer to complementary than competing.
 - **[[wiki/concepts/program-induction.md]]** — the same machine with the vocabulary relabelled: a sentence in the language of thought is a program, the conceptual stock is the library, and every objection to one lands on the other — overgeneration *is* the prior-over-programs problem (G26).
 - **[[wiki/concepts/core-knowledge.md]]** — the source of the whole dispute: the composition problem, the Spelke / Revencu & Csibra table, the equivocation problem, and the escape hatch that closes.

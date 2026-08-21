@@ -117,6 +117,7 @@ The column that matters is the first: it is the only one no benchmark before ARC
 
 ## Connections
 
+- **[[wiki/entities/pcfg-set.md]]** — the complementary instrument: ARC withholds the tasks from the developer and returns one number, PCFG SET withholds combinations, lengths and contexts from the model and returns five facet scores, so a failure can be attributed to systematicity, productivity, substitutivity, localism or overgeneralisation rather than to "reasoning".
 - **[[wiki/concepts/skill-acquisition-efficiency.md]]** — the theory this benchmark instantiates; ARC is the checklist made concrete, and its unquantified `GD` is the checklist's one unmet item.
 - **[[wiki/concepts/core-knowledge.md]]** — supplies ARC's entire prior set; ARC is in turn the first machine-side operationalization of the four systems, listing what each looks like as a grid operation.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the pure edge-label-latent task with a co-latent vocabulary: hardness sources 1 and 2 isolated, 3–6 designed out.

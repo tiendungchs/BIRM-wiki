@@ -184,6 +184,7 @@ Every direction above assumes an objective exists and asks whether it can be rec
 
 ## Connections
 
+- **[[wiki/entities/pcfg-set.md]]** — the limiting case: training data generated *by* the intended compositional rule, with no non-compositional phenomena and memorisation designed out, on which a transformer still reaches 0.92 by learning function pairs as units — so unidentifiability is not a consequence of naturalistic data.
 - **[[wiki/entities/cscg.md]]** — the one instance in the wiki where this page's degeneracy is broken empirically: three architectures reach the same orthogonalized endpoint and only one reproduces the order in which a brain reaches it — bought at the cost of a symbol-encoding choice that flips the result.
 - **[[wiki/concepts/path-integration.md]]** — the direct target: this page shows the task on that page does not by itself produce the code, so path-consistency of `g` remains an architectural commitment rather than something a loss discovers (T38).
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the strongest limit on the reverse channel: matched tuning curves and high linear predictivity certify neither the objective nor the algorithm, so a "validation" entry in that page's track record can be an artefact of the modeller's target choice or of representational dimensionality.

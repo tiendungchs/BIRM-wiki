@@ -296,6 +296,7 @@ Isomorphic problems, one schema, a 89-point swing. The relation *as stated* was 
 
 ## Connections
 
+- **[[wiki/entities/pcfg-set.md]]** — substitutivity is the minimal mapping problem — two atoms with identical roles ought to be interchangeable — and on the measure that excludes competence as an explanation (consistency restricted to *incorrect* outputs) no seq2seq architecture exceeds 0.34.
 - **[[wiki/concepts/vector-symbolic-binding.md]]** — the same problem one step earlier and in the dense/invertible regime: HRR contextualization makes structure a surface feature for *ranking*, this page makes it a surface feature for *correspondence*, and the two disagree about whether the binding operator needs an inverse (T186, T187).
 - **[[wiki/concepts/sparse-distributed-representations.md]]** — supplies the substrate and the null model: CDT is a binding operator built entirely from OR, AND and permutation over sparse binary codes, and the random-overlap baseline that decides "this does not map" is that page's closed-form false-match rate.
 - **[[wiki/concepts/subgraph-matching.md]]** — the rival cost model for the same alignment: an order embedding answers *containment* with a learned encoder, where this answers *correspondence* with a hand-built code and no training, and both replace exponential structure search with a coordinate comparison.
