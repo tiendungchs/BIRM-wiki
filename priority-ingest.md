@@ -17,7 +17,7 @@ One INGEST each:
 - [x] `das-2025-compositional-neurosymbolic-arc.md` — neurosymbolic · M · 2025
 - [x] `joffe-2025-vector-symbolic-algebras-arc.md` — neurosymbolic · M · 2025
 - [x] `holyoak-2012-analogy-relational-reasoning.md` — analogy-abstraction · S · 2012
-- [ ] `jaeger-2014-conceptors.md` — analogy-abstraction · F · 2014
+- [x] `jaeger-2014-conceptors.md` — analogy-abstraction · F · 2014
 - [ ] `hupkes-2020-compositionality-decomposed.md` — analogy-abstraction · F · 2020
 - [ ] `gentner-1991-macfac-similarity-retrieval.md` — analogy-abstraction · M · 1991
 - [ ] `forbus-1995-macfac-similarity-retrieval.md` — analogy-abstraction · M · 1995

@@ -136,6 +136,23 @@ The source's Table 1 lists what falls out of the formulation: hierarchical corti
 
 ---
 
+## The same quantity, derived without Bayes
+
+The strongest independent support for this page's central claim comes from a source with no probability distribution in it anywhere ([[wiki/entities/conceptor.md]], Jaeger 2014). A three-layer signal-processing hierarchy de-noises a pattern at SNR = 0.5 while classifying which of four generators produced it. Each inter-layer link carries one scalar `τ_{[l,l+1]} ∈ [0,1]`, adapted online from **locally observable noise ratios**, and it is read in exactly two places:
+
+```
+u_{[l]} = τ_{[l−1,l]}·y^auto_{[l]} + (1−τ_{[l−1,l]})·y_{[l−1]}     which signal the layer believes
+c_{[l]} = (1−τ_{[l,l+1]})·c^auto_{[l]} + τ_{[l,l+1]}·c_{[l+1]}     which hypothesis the layer believes
+```
+
+`τ → 1` makes the layer ignore the input and self-generate; the author names the failure mode outright as **confabulation** — an entirely noise-free output produced under a possibly wrong top-level hypothesis. In the run, `τ` drops briefly at each change of generator, letting the outside permeate upward, then returns to ~1.
+
+Two things this adds. First, the author's own generalisation is this page's thesis with the Bayesian scaffolding removed: *maintaining a measure of trust is an intrinsically necessary component in any signal processing architecture which hosts a top-down pathway of guiding hypotheses.* If that is right, precision is not a consequence of doing variational inference — it is a requirement of having a top-down pathway at all, and the free-energy derivation explains *a* system that needs it rather than *why* it is needed. Second, it is a **worked machine instance** of the reversal this page describes in the abstract: at high `τ` the prior wins outright and the data are discarded, and the architecture beats a linear filter with the same number of trainable parameters precisely because it is willing to do that.
+
+What it does not supply: `τ` is estimated from signal-to-noise ratios by a hand-written online rule, not inferred by the same machinery that infers everything else — so the "one rule, three represented quantities" partition above is not replicated, only the role.
+
+---
+
 ## Open problems
 
 - **Is one role (precision) enough for all neuromodulators?** The rival taxonomy assigns distinct computations to dopamine, serotonin, noradrenaline and acetylcholine; this account assigns one computation in different territories. No experiment in the wiki separates them (T122).
@@ -173,3 +190,4 @@ The source's Table 1 lists what falls out of the formulation: hierarchical corti
 - **[[wiki/concepts/energy-based-models.md]]** — the page that arrives at this page's knob empirically from the other side: its top-down/bottom-up balance is a fixed temperature, and reading that temperature as a ratio of inverse variances is what turns it into a state-dependent, inferred gain.
 - **[[wiki/concepts/reward-prediction-error.md]]** — the rival identity for the same firing record, stated as a page: an error on value consumed by a plasticity rule versus this page's inferred inverse variance consumed by the inference dynamics (T122), with the striatal mechanism indifferent between them.
 - **[[wiki/entities/autotom.md]]** — confidence promoted from a weight to an *objective*: the negative entropy of a query's posterior, minus a variable count, is the whole criterion by which an agent model is grown and stopped — which is this page's Goodhart problem with nothing beside it, since no likelihood term ties the selected model back to the observations ([[wiki/empirical-tensions.md]] T189).
+- **[[wiki/entities/conceptor.md]]** — precision arrived at from control theory rather than from variational inference: a per-link trust scalar adapted from local noise ratios, mixing bottom-up signal against a top-down hypothesis in a hierarchy with no generative model and no free energy — including this page's confabulation failure mode, named and demonstrated at `τ → 1` (Jaeger 2014).
