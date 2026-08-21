@@ -30,7 +30,7 @@ The hypothesis is old (word-vector arithmetic) and was long asserted without a c
 | Word embeddings, iGPT | Analogy directions; linearly separable image classes from a next-pixel objective | The original observations; no causal test |
 | Language-model steering | "Truthfulness" vectors, task vectors, steering vectors | Behavioural effect established; the *feature* is named by the intervention rather than verified against ground truth |
 | AlphaZero (chess, Hex) | Human chess concepts linearly decodable | Correlational |
-| Biology | Linear decodability of task variables from neural populations; CCGP as the format test | See [[wiki/concepts/population-geometry.md]] — the biological literature reached the same instrument independently, and found that *decodability* and *linear generalisability* dissociate |
+| Biology | Linear decodability of task variables from neural populations; CCGP as the format test | See [[wiki/concepts/population-geometry.md]] — the biological literature reached the same instrument independently, and found that *decodability* and *linear generalisability* dissociate. The convergence is explicit rather than coincidental: Bernardi et al. 2020 name word-embedding parallelogram analogies (`king − queen ≈ man − woman`) as the same coding principle as their parallelism score — one direction that can be translated across content to change one feature consistently — so this page's parallelogram and that page's coding-vector alignment are one measurement stated twice |
 
 ---
 

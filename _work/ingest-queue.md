@@ -254,7 +254,7 @@ One INGEST each:
 - [x] `forbus-1995-macfac-similarity-retrieval.md` — analogy-abstraction · M · 1995
 - [x] `lake-2023-meta-learning-compositionality.md` — analogy-abstraction · M · 2023
 - [x] `lake-2023-meta-learning-compositionality-si.md` — analogy-abstraction · M · 2023
-- [ ] `bernardi-2020-geometry-of-abstraction.md` — analogy-abstraction · R · 2020
+- [x] `bernardi-2020-geometry-of-abstraction.md` — analogy-abstraction · R · 2020
 
 ## Wave 10 — benchmarks · ARC-AGI family, reasoning evaluation, rule induction
 
