@@ -23,6 +23,18 @@ Let `Ψ` be a generative model of a scene's response, `x` an observation, `k` a 
 
 Steps 4 and 6 are what "statistical" means: the object is a property of the *ensemble* of imagined futures, not of any one of them.
 
+### The step this procedure omits
+
+The probabilistic-programming statement of counterfactual evaluation has **three** steps, and step 1 has no counterpart above (Goodman, Gerstenberg & Tenenbaum 2024, following Pearl 2000):
+
+1. **Condition every random choice in the program on what actually happened** — recover the execution trace of the actual world.
+2. **Intervene** mid-execution, breaking the normal control flow by setting a function's input to the counterfactual value.
+3. **Re-evaluate everything downstream** of the intervention point.
+
+Steps 2–3 are this page's steps 3–4. Step 1 is missing, and the difference is not cosmetic: **conditioning on the trace asks "what would have happened *in this world*", while clamping an unconditioned model asks "what happens in a typical world where the clamp holds".** The first is a counterfactual, the second is an interventional marginal. For segmentation the gap is small because the observation is fully given and the nuisance cause is neutralised by hand (step 2 of the table); for any domain with unobserved latents that persist — an agent's disposition, a hidden state, an object property already sampled — they come apart, and the probe answers the wrong question.
+
+The precondition step 1 imposes is an **execution trace**, not merely a distribution: a monolithic `p(x)` records no steps, so there is nothing to condition and nothing to intervene on. That is a second, sharper argument for the generative-program form than compositionality — and it is the same requirement as this page's "addressable at a point", arrived at from the semantics rather than from the architecture.
+
 ---
 
 ## Three requirements, each with a measured failure when it is missed
@@ -73,6 +85,7 @@ Steps 4 and 6 are what "statistical" means: the object is a property of the *ens
 - **[[wiki/concepts/core-knowledge.md]]** — supplies the entry condition this method computes: cohesion under applied force is exactly the object system's admission test, and it is learned here rather than stipulated (gap G23).
 - **[[wiki/concepts/event-segmentation.md]]** — the temporal sibling for gap G27: both carve a continuous signal into discrete units without labels, one by change in the active predictive-encoding set over time, the other by co-response to an imagined intervention across space.
 - **[[wiki/concepts/affordance-grounded-symbols.md]]** — the same carving criterion executed in the world instead of imagined: effect-equivalence needs a body and recovers only distinctions the repertoire makes, this needs neither and validates against nothing.
+- **[[wiki/concepts/language-of-thought.md]]** — the semantics this procedure is a truncation of: counterfactual evaluation there is abduction over the execution trace, then intervention, then re-execution, and the missing abduction step is what separates a counterfactual from an interventional marginal.
 - **[[wiki/concepts/simulation-based-planning.md]]** — the same forward model, queried for structure rather than for value: a rollout scored by *what co-varies* rather than by *where it ends up*, which is a use of imagination the planning literature has no slot for.
 - **[[wiki/concepts/amortized-inference.md]]** — names the cost of the proposed fix: distilling the probe's outputs into a feedforward segmenter is Mode-2 → Mode-1 compilation, and it fixes the question the model can answer.
 - **[[wiki/concepts/attention.md]]** — supplies a candidate origin for the units attention selects among: object-based attention presupposes objects, and this produces them from a model trained on nothing but video.
