@@ -92,6 +92,21 @@ Evidence cited across three domains in one year, all with both conditions met: A
 
 ---
 
+## The biological version keeps the verifier disconnectable
+
+> Tripathi et al. 2025, Biol Psychiatry Cogn Neurosci Neuroimaging 10(4):359–368 (`raw/tripathi-2025-dmn-connectivity-biomarker.md`) — a narrative review, direction-of-effect only. See [[wiki/entities/default-mode-network.md]].
+
+The two-phase structure above — an exploration phase generating candidates, a verification phase scoring them — appears in the brain not as two stages of one program but as **two wirings of the same two systems, with the coupling sign as the variable**:
+
+| Phase | Default-mode ↔ frontoparietal coupling |
+|---|---|
+| Creative **idea generation** (bottom-up) | Negative (anticorrelated) |
+| Creative **idea evaluation** (filtering candidates) | Correlation *increases* — the two cooperate |
+| Sustained attention, between-subject | Negative; stronger negativity → less variable reaction time |
+| Goal-directed self-generated thought, semantic retrieval, scene construction | Positive; the control network tracks trial-to-trial difficulty of the *internal* operation |
+
+**(brainstorm) What this costs the systems on this page.** Every substrate in the table above holds the generator and the feedback signal permanently wired: the loss, the executor, the verifier model or the harness is attached at all times, and each candidate is born under evaluation. The biological arrangement decouples them for the generation phase and couples them for the filtering phase. If that is functional rather than incidental, the prediction is specific and testable in an ordinary ablation: an always-coupled critic costs **candidate diversity**, not filtering quality — a proposer that is scored while proposing regresses to whatever the scorer already ranks highly, which is the failure mode evolutionary program synthesis spends population size to avoid. It also adds a scheduling variable no loop here has: *when* the verifier is connected, as distinct from how strong its signal is.
+
 ## Open problems
 
 - **Nothing consolidates.** The loop runs per task and its product is discarded — G14 in the same form [[wiki/concepts/test-time-training.md]] has it. **One 2025 exception, and it is the most important system on this page for that reason**: SOAR (Pourcel, Colas & Oudeyer, Paper Award 2nd) **fine-tunes the LLM on its own search traces**, improving open-source ARC-AGI-1 performance by up to 52% with no human-engineered DSL and no solution dataset. That is the instance level writing back to the meta level, closing the loop the rest of the table leaves open — and it is the wiki's first measured consolidation channel of that shape.
@@ -105,6 +120,7 @@ Evidence cited across three domains in one year, all with both conditions met: A
 
 ## Connections
 
+- **[[wiki/entities/default-mode-network.md]]** — the loop's two phases measured as two network configurations rather than two stages: default↔frontoparietal coupling is negative while ideas are generated and rises while they are evaluated, so biology treats the proposer–verifier link as a per-phase gain where every substrate in the table above leaves it permanently closed.
 - **[[wiki/entities/arc-agi-2.md]]** — the benchmark where the mechanism was isolated: every 2025 top score is a refinement loop in some substrate, and the harness result (31% → 54% on a frozen model) is the cleanest evidence that the loop, not the model, is doing the work.
 - **[[wiki/concepts/test-time-training.md]]** — the weight-space instance, and the first one discovered; this page's claim is that TTT, evolutionary program synthesis and chain-of-thought self-correction are the same loop with different mutation operators, which makes "gradient or symbol?" the wrong question about it.
 - **[[wiki/concepts/program-induction.md]]** — the symbolic substrate, with the 2025 change being that programs are *edited under feedback* rather than enumerated, and that the LLM supplies the edit metric that discrete program space lacks.
