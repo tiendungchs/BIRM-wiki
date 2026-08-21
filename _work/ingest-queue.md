@@ -309,8 +309,8 @@ One INGEST each:
 
 **Bundle — Humanity's Last Exam (preprint + Nature version).** One INGEST pass over all 2 files (~9661 words), in this order.
 
-- [ ] `phan-2025-humanitys-last-exam.md` — reasoning-eval · B · 2025
-- [ ] `phan-2026-humanitys-last-exam.md` — reasoning-eval · B · 2026
+- [x] `phan-2025-humanitys-last-exam.md` — reasoning-eval · B · 2025
+- [x] `phan-2026-humanitys-last-exam.md` — reasoning-eval · B · 2026
 
 One INGEST each:
 
