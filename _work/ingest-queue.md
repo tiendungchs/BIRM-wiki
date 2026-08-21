@@ -246,7 +246,7 @@ One INGEST each:
 - [x] `rocha-2024-ilp-program-synthesis-arc.md` — neurosymbolic · M · 2024
 - [x] `zhang-2025-autotom-mental-inference.md` — neurosymbolic · M · 2025
 - [x] `das-2025-compositional-neurosymbolic-arc.md` — neurosymbolic · M · 2025
-- [ ] `joffe-2025-vector-symbolic-algebras-arc.md` — neurosymbolic · M · 2025
+- [x] `joffe-2025-vector-symbolic-algebras-arc.md` — neurosymbolic · M · 2025
 - [ ] `holyoak-2012-analogy-relational-reasoning.md` — analogy-abstraction · S · 2012
 - [ ] `jaeger-2014-conceptors.md` — analogy-abstraction · F · 2014
 - [ ] `hupkes-2020-compositionality-decomposed.md` — analogy-abstraction · F · 2020

@@ -44,6 +44,37 @@ Token vectors are themselves superpositions of a type and an identity: `jane = �
 
 ---
 
+## Extension: fractional binding, and continuous quantities in the same algebra
+
+> **Provenance.** Joffe & Eliasmith 2025 (`raw/joffe-2025-vector-symbolic-algebras-arc.md`), reporting Komer & Eliasmith's **Spatial Semantic Pointers (SSPs)**; used as the object representation of [[wiki/entities/arc-vsa-solver.md]].
+
+Plain HRRs encode discrete structure. The `n`-th element of a sequence is `ONE^n = ONE ⊛ … ⊛ ONE`, which in the Fourier domain is `F⁻¹{F{ONE}^n}` — element-wise exponentiation. **Nothing in that expression requires `n` to be an integer.** Letting the exponent be real gives an encoding of a continuous space:
+
+```
+φ(x) = F⁻¹{ e^{iΘx/l} },        Θ ∈ ℝ^{D×N}  (phase matrix),  l  (length scale)
+φ(x,y) = X^x ⊛ Y^y              (D = 2: bind one axis vector per dimension)
+```
+
+| Property | Statement | Consequence |
+|---|---|---|
+| Binding = addition | `φ(x₁) ⊛ φ(x₂) = φ(x₁+x₂)` | Translation is one bind; a displacement and a position have the same type |
+| Origin = identity | `φ(0) = I` | The zero of the feature space is the algebra's own unit — no separate convention |
+| Inversion = negation | `φ(x)⁻¹ = φ(−x)` | Moving back is unbinding |
+| Similarity = kernel | `φ(x₁)·φ(x₂) = k(x₁,x₂)`, shape set by the distribution `Θ` is sampled from | The metric on the encoded space is a **design parameter**, not an accident; `l` is a bandwidth |
+| Grid codes | Particular `Θ` produce grid-cell-like activity | The same construction is a model of entorhinal grid cells |
+| Scenes | `a = Σ_i ITEM_i ⊛ φ(x_i)` | "What is at `x`" and "where is `ITEM`" are both single unbind + cleanup |
+
+**Why this belongs on this page rather than beside it.** It is the same operator: exponentiating in the Fourier domain *is* repeated convolution, continued to the reals. So one algebra now covers discrete roles, nested relations and continuous magnitudes, with a tunable similarity kernel over the last — which is what a code needs if a "position" and a "part-of" relation are to be superposed in one vector.
+
+**Two things it buys the rest of the wiki.**
+
+1. **A path-integrable code with an explicit construction.** [[wiki/concepts/path-integration.md]] separates the abelian special case (phase addition) from the general order-sensitive one; SSPs *are* the abelian case, written down as a data structure rather than learned — distinctness and path-invariance both hold by algebra, not by training ([[wiki/concepts/abstract-structural-codes.md]], G3).
+2. **A continuous knob on graded similarity.** The blur/length-scale `l` sets how much two nearby positions overlap. [[wiki/entities/arc-vsa-solver.md]] measures the cost of not setting it: rule conditions over near-orthogonal colour vectors generalise strictly (100%), the same learner over overlapping shape codes abstracts *and* over-generalises (89%). Same mechanism, opposite sign, one fixed hyperparameter (G38, G40).
+
+**Limits.** The kernel is stationary — `k` depends on `x₁−x₂` only, so an SSP space has no place where similarity behaves differently, and no way to express that one region is more finely discriminated than another. Magnitudes are similarities and not counted symbols, which is a plausible reason the solver built on them fails ARC's counting and ordering tasks. And `Θ` and `l` are chosen, never fitted.
+
+---
+
 ## The task: analogical retrieval, and the four kinds of similarity
 
 Probe: *Spot bit Jane, causing Jane to flee from Spot.* Memory:
@@ -160,4 +191,6 @@ LS > AN^cm > AN > SS > FA          in 100/100 runs
 - **[[wiki/concepts/latent-graph-discovery.md]]** — a concrete instance-graph format: a relational graph of arbitrary depth as one fixed-width vector, comparable, decodable, and superposable — with the boundary drawn sharply, since the algebra represents graphs and discovers none.
 - **[[wiki/entities/pbwm.md]]** — the routing answer to the same binding problem: a control signal gates a filler into a memory stripe, so binding is *where* the item is stored, where here it is *how* it is transformed — and the stripe version needs every reader to learn to decode every stripe, while `†` is one fixed permutation.
 - **[[wiki/concepts/working-memory.md]]** — what a fast `M` would hold if built this way: one vector per episode supporting both similarity ranking and slot-level interrogation, rather than a set of unstructured content slots.
+- **[[wiki/entities/arc-vsa-solver.md]]** — the algebra put to work as a *working representation* rather than a memory index: objects encoded as colour ⊕ SSP centre ⊕ SSP shape, search heuristics that are dot products, and a learned rule condition that is itself a unit-norm vector in the same space — so the concept a classifier learned can be decoded with `†` like any other filler.
+- **[[wiki/concepts/path-integration.md]]** — fractional binding is that page's abelian case supplied as a construction: `φ(x)⊛φ(y) = φ(x+y)` makes a position code path-integrated by algebra, with distinctness and path-invariance holding without any training.
 - **[[wiki/concepts/analogical-mapping.md]]** — the operation this page explicitly declines to perform: correspondence rather than ranking, obtained by `argmax` of the same kind of dot product over a *sparse binary* code whose binder (context-dependent thinning) has no inverse, which puts the necessity of `†` in question (T187) and offers a second, content-free way to make role structure a surface feature (T186).
