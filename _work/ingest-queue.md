@@ -327,7 +327,7 @@ One INGEST each:
 
 One INGEST each:
 
-- [ ] `suber-1990-nomic-self-amendment.md` — rule-induction · X · 1990
+- [x] `suber-1990-nomic-self-amendment.md` — rule-induction · X · 1990
 
 ## Wave 11 — neuromorphic implementation · spiking networks and hardware
 
