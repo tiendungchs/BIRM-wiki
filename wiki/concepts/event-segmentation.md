@@ -112,6 +112,26 @@ Secondary consequence for aliasing (gap G2): because an event is a *set*, two id
 
 ---
 
+## A boundary is a licence to update globally, and something has to grant it
+
+Satpute et al. 2026 (`raw/satpute-2026-dmn-hierarchical-generative-model.md`, via [[wiki/entities/default-mode-network.md]]) attach a *consequence* to the boundary that the detectors above do not specify — how far the resulting update is allowed to propagate:
+
+| Regime | Condition | Update |
+|---|---|---|
+| Autopilot | the immediate past predicts the incoming input well | local adjustments only; the global model is held steady |
+| Global revision | the immediate past predicts it poorly | the whole generative model is reconstructed, **sourced from stored prior knowledge rather than from the input** |
+
+Their listed triggers for the second regime are this page's boundary types under other names: scene changes in naturalistic film (shifts of time, place or goal), goal changes, a switch in which agent is being modelled, and affective state changes. Two things follow that the detectors above leave open.
+
+- **The boundary and the broadcast are claimed to be one subsystem.** The same network that carries the boundary code (posterior cingulate patterns changing at perceived *and* internally generated boundaries, Menon 2023) is the one with diffuse multilevel output ([[wiki/concepts/broadcast-hierarchy.md]]). So detecting the boundary and having the reach to act on it globally are not two components here.
+- **The replacement comes from priors, not from the stream.** Every detector on this page says *when* to cut; none says where the next event model comes from. The claim here is that at a genuine boundary the input is by definition uninformative about the new model — it is what just failed to be predicted — so the successor must be retrieved endogenously. That makes boundary detection and [[wiki/concepts/schema-assimilation.md]]-style retrieval a single loop rather than two stages.
+
+**(brainstorm)** Combined with the typed-boundary result above, this gives a three-slot boundary signature the wiki can specify but has no instance of: *trigger* (error vs uncertainty) × *scope* (how many levels the update reaches) × *source* (input-driven vs prior-driven replacement). Current architectures fix all three by construction — every update is error-triggered, reaches every parameter, and is sourced from the current batch.
+
+No threshold is offered for "predicts poorly", so the regime boundary is not yet a measurable condition.
+
+---
+
 ## Open problems
 
 - **The boundary criterion itself is contested.** Every mechanism above thresholds the output of a *predictor*; the batch optimal-transport route segments high-dimensional pixel streams competitively with no dynamics model at all, by clustering plus a temporal-smoothness penalty ([[wiki/empirical-tensions.md]] T139). If clustering suffices, the discretisation can precede the world model rather than depend on it.
@@ -173,5 +193,6 @@ Secondary consequence for aliasing (gap G2): because an event is a *set*, two id
 - **[[wiki/concepts/synaptic-plasticity.md]]** — a recurrence detector that needs no boundary computation and no clock: spike-timing plasticity concentrates weight on afferents that fire consistently early, so the postsynaptic latency *shortens* with each repetition of a spatio-temporal pattern and "this segment recurred" becomes a timing difference a downstream coincidence detector reads for free (Guyonneau et al. 2005, via Tavanaei et al. 2019).
 - **[[wiki/concepts/spike-encoding-schemes.md]]** — this page's boundary test relocated into the sensor: a temporal-contrast encoder (event camera) emits a signed event exactly when a signal departs from its own recent baseline past a threshold, so an architecture reading it receives pre-segmented change events without running any predictive model **(brainstorm)**.
 - **[[wiki/concepts/node-definition-problem.md]]** — the spatial counterpart of this page's temporal carving, and the wiki's other answer to G27: parcellation cuts the cortical sheet into units as event segmentation cuts the stream into events, and both inherit the same unanswered question of whether the boundaries are found or imposed — with the connectome literature's verdict that refining the cut does not settle it.
-- **[[wiki/entities/default-mode-network.md]]** — the wiki's only evidence that one boundary code serves perceived *and* imagined streams: posterior cingulate patterns persist through a naturalistic movie and change at perceived boundaries, and the same patterns generalise to internally generated boundaries during unguided narrative recall (Menon 2023).
+- **[[wiki/entities/default-mode-network.md]]** — the wiki's only evidence that one boundary code serves perceived *and* imagined streams: posterior cingulate patterns persist through a naturalistic movie and change at perceived boundaries, and the same patterns generalise to internally generated boundaries during unguided narrative recall (Menon 2023) — and the system to which a boundary licenses a *global* model revision sourced from stored priors, so the detector and the broadcaster are claimed to be one subsystem (Satpute et al. 2026).
 - **[[wiki/entities/salience-network.md]]** — a boundary detector keyed to behavioural relevance rather than to predictive-encoding change, and the only one in the wiki whose output is a *mode assignment* (internal vs external) rather than a segment index.
+- **[[wiki/concepts/broadcast-hierarchy.md]]** — where the update goes once a boundary fires: an apex with diffuse multilevel output can revise every level in one act, which is what makes the autopilot/global-revision distinction an architectural setting rather than a description.

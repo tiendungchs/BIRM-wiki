@@ -199,6 +199,50 @@ Two consequences the review draws and the wiki should keep: (i) the same nodes s
 
 ---
 
+## Satpute et al. 2026 — the network read as a *shape* rather than a function
+
+> Satpute et al. 2026, *The default mode network in a hierarchical generative model of the brain*, Current Opinion in Behavioral Sciences 69:101656, doi:10.1016/j.cobeha.2026.101656 (`raw/satpute-2026-dmn-hierarchical-generative-model.md`). A theoretical review with **no new data**; its anatomy is inherited (Paquola et al. on laminar profiles of cortical networks, Barbas' structural model of cortico-cortical connections) and its architecture is an argument. Its move is to stop asking which psychological category the network maps onto and ask what its wiring *can compute* — which is the one strategy the four reviews above do not try.
+
+**The diagnosis of why the function question is stuck is methodological, and it is the right one.** The competing accounts (social cognition vs emotion vs memory; self vs other; episodic vs semantic) are drawn from **incommensurate ontologies** — they are not rival answers to one question but answers phrased in currencies that cannot be exchanged, which is why the same node (anteromedial prefrontal cortex) is claimed by self-representation, fear and semantic processing at once. Adding parcellation grain does not help: finer parts make the synthesis problem worse unless the parts are described in a shared *neurocomputational* vocabulary. This is the same defect [[wiki/concepts/function-to-structure-inference.md]] names, one level up — not "which structure implements this function" but "the function labels do not form a space".
+
+**The architectural claim: conductor, not commander.** Given as two rival readings of the same hierarchical position, with the second endorsed — see [[wiki/concepts/broadcast-hierarchy.md]] for the full treatment.
+
+| | Chain of command | **Orchestra conductor** (endorsed) |
+|---|---|---|
+| Downward | sequential, layer by layer | **diffuse long-range output across multiple networks and laminar types simultaneously** |
+| Upward | from the level immediately below | **selective — proportionally more input from high-level association cortex (eulaminate I) than from sensory areas** |
+| Global model revision | `O(L)` relays | one act |
+
+The supporting anatomy: the network is not more densely connected than other networks, it is **broader** in cross-network reach; and it is the only network whose laminar composition spans agranular, dysgranular *and* eulaminate I–III while containing **no koniocortex** — high hierarchical position (no primary sensory tissue) with unusually wide laminar coverage. For comparison, the visual network is dominated by koniocortex and eulaminate III, the frontoparietal network by eulaminate II and I.
+
+| Global feature | Reported characteristic |
+|---|---|
+| Laminar profile | Mixed agranular / dysgranular / eulaminate I–III; less granular than most networks on average, and *more varied* than limbic cortex (largely agranular) |
+| Connectivity | Selective input from mid-to-high association areas; broad, multilevel output |
+| Neuron / neurite density | Lower than primary sensory — reduced local processing, enhanced integrative capacity |
+| Myelination | Hypomyelinated relative to primary sensory and motor cortex → slower, temporally extended integration |
+| Macroscale gradients | At or near the apex of structural and functional gradients, measured as distance from visual sensory input |
+
+**Three axes of internal organisation** — offered as an anatomical alternative to fMRI-derived parcellations, whose membership varies with data quantity, fixed-vs-dynamic assignment, individual-vs-group level, task demand and mood:
+
+| Axis | Content | Architectural reading |
+|---|---|---|
+| **Longitudinal (anterior–posterior)** | Posterior medial complex (precuneus, PCC, retrosplenial) is more connected to **visual cortex**, higher neuron density, more myelinated, faster, MEG alpha-dominant. Anterior medial complex (perigenual anterior cingulate, vm/am/dmPFC) is more connected to **subcortical autonomic structures (e.g. hypothalamus)**, lower density, hypomyelinated, slower, MEG delta/theta-dominant | The two ends face different data sources — high-dimensional exteroceptive input vs interoceptive/bodily state — and run at different integration timescales *by conduction physics*, not by a decay parameter |
+| **Local hierarchical** | Each complex contains its own agranular→eulaminate III gradient: retrosplenial (agranular) → PCC (intermediate) → precuneus (Eu-III); perigenual anterior cingulate (agranular) → dmPFC / amPFC / vmPFC | Each complex is a *self-contained* generative model over its own nearby cortical and subcortical targets — the apex is recursive, not flat |
+| **Layered communication** | Barbas' **laminar type rule**: areas preferentially connect to areas of similar laminar profile. Applied within the network, anterior and posterior complexes exchange **level-matched and in parallel**, not through a single serial pathway — a **heterarchy** | Coupling eligibility is set by a property of the endpoints' own internal structure; no wiki architecture types edges this way |
+
+**What the three axes are for.** The prediction is that the fMRI literature's disagreement about how many default networks there are is a **projection artefact**: a task that emphasises one axis yields a partition along that axis, and the resulting "networks" are configurations rather than parts. Person-specific interdigitated networks (DMNa/DMNb) are attributed, speculatively, to individual variation in laminar organisation. This is a testable reframe of [[wiki/concepts/node-definition-problem.md]] as applied to this network — the parts are not being mis-drawn, they are being drawn on a system with more than one legitimate decomposition.
+
+**The function, restated in one variable: depth of update.** Most of the time the immediate past predicts the present well and only local adjustments are needed — the network is on **autopilot**, holding the global model steady. When the immediate past predicts badly, a **global** revision is required, sourced from *endogenous* prior knowledge rather than from the input. The listed triggers — scene changes in film (time, place or goal shifts), goal changes (thermoregulatory → metabolic), switching which agent is being modelled, affective state changes — are all [[wiki/concepts/event-segmentation.md]] boundaries. The heterogeneity of the domains (memory, social cognition, semantics, emotion, arousal) then reduces to one claim: they are the domains in which a large model revision is frequently required.
+
+**Precuneus.** Treated here as a full member — the eulaminate III end of the posterior medial complex's local laminar gradient — with Table 2 assigning it neurite density, myelination and non-DMN connectivity values alongside PCC and retrosplenial. Against the anchor review's provisional exclusion; added to [[wiki/empirical-tensions.md]] T256 Position A.
+
+**What it does not deliver.** No data. The layered-communication axis — the one that carries the heterarchy claim — is conceded to be untestable with current methods, since parsing laminar types in a way that informs task fMRI is still developing. The autopilot/global-update distinction has no threshold, so "poorly predicted by the immediate past" is not yet a measurable condition. And the source simultaneously places the network at the **apex** of macroscale gradients and denies it a chain-of-command position, without measuring both on one graph.
+
+**The methodological demand it makes on everyone else** is worth recording because it applies to the wiki's benchmark habits: if psychological categories are *products* of generative processes, then (i) predictions are not separable from the mental phenomena they constitute, (ii) predictions are trained in naturalistic multisensory environments and stripped-down laboratory tasks may not engage their dynamics at all, and (iii) prediction and prediction error depend on skeletomotor and visceromotor activity, so action is not downstream of the generative model but inside it.
+
+---
+
 ## Relevance to a reasoning model
 
 - **A default mode is a resource-allocation policy, not a resting state.** The network's activity is a *default*: what the machine does with a moment when no input demands it. The paper's closing proposal is that this budget is spent constructing, replaying and exploring event scenarios in order to derive expectations about the future — which puts it in direct competition with [[wiki/concepts/offline-replay.md]]'s use of the same idle period for consolidation, and with [[wiki/concepts/default-self-model.md]]'s use of it for competence self-assessment. Three literatures, one budget, no arbitration rule anywhere in the wiki.
@@ -224,6 +268,9 @@ Two consequences the review draws and the wiki should keep: (i) the same nodes s
 | Anticorrelation may be partly manufactured | Global-signal normalisation centres correlations at zero and forces negatives; the effect's magnitude without it is unknown |
 | Precuneus membership | Connectional anatomy says area 7m is not a member; the structural-core literature ranks precuneus among the highest-degree cortical nodes ([[wiki/empirical-tensions.md]] T256) |
 | Boundaries are approximate | Every region in the anatomy table spans multiple architectonic areas with uncertain borders, and LTC is the authors' own most tentative estimate |
+| **Whether the function question is even well-posed** | The competing accounts are drawn from incommensurate ontologies (psychological domain, within-domain contrast, unifying construct), so they are not rival answers in one currency; and refining the parcellation makes synthesis harder rather than easier unless the parts get a shared neurocomputational description. Satpute et al. 2026's proposal — describe the parts by what their anatomy can compute — is untested |
+| **Is the network at the apex, or off the chain?** | Satpute et al. 2026 assert both: at or near the apex of macroscale structural and functional gradients (by distance from sensory input), *and* not in a chain-of-command hierarchy at all (diffuse multilevel output, selective high-level input, laminar-type-matched lateral exchange). Nothing measures hierarchical position and connection type on the same graph ([[wiki/concepts/broadcast-hierarchy.md]]) |
+| **The heterarchy claim rests on the one axis that cannot currently be tested** | The layered communication axis needs laminar-type parsing that informs task fMRI, which the source concedes does not yet exist; the anterior–posterior and local-hierarchical axes have functional dissociations, this one has none |
 
 ---
 
@@ -246,4 +293,6 @@ Two consequences the review draws and the wiki should keep: (i) the same nodes s
 - **[[wiki/concepts/learnable-synaptic-delays.md]]** — the developmental route into that page's parameter: chronic childhood cortisol inhibits oligodendrocyte proliferation and differentiation, so conduction delay and integration timescale are altered by *myelination* rather than by any synaptic weight, on a schedule set by the environment.
 - **[[wiki/concepts/dynamic-repertoire.md]]** — the Alzheimer's finding that survives translation: what degrades with cognitive impairment is the network's **temporal variability**, i.e. its capacity to change state, not its mean activation level.
 - **[[wiki/concepts/meta-learning.md]]** — the only wiki machinery with a control parameter learned on a slower schedule than the policy it gates, and therefore the nearest thing to the developmentally trained arbitration set-point this page now requires — but it optimises the whole fast learner rather than a single gain, and has no critical window.
+- **[[wiki/concepts/broadcast-hierarchy.md]]** — the shape this network is the wiki's evidence for: selective input from high-level association cortex, diffuse output across many networks and laminar types, so a global model revision costs one hop rather than `L` relays — and the laminar-type rule that turns its internal "levels" into a heterarchy.
+- **[[wiki/concepts/prediction-compression-equivalence.md]]** — the anatomy that implements it here: fewer, less dense, hypomyelinated units with convergent input and long integration windows recode high-dimensional input into the low-dimensional priors this network broadcasts — lossily, into approximations sufficient for action rather than reconstructions.
 - **[[wiki/concepts/node-definition-problem.md]]** — the precuneus dispute is that problem in its most consequential form: whether a canonical network has a member depends on whether "precuneus" names area 7m or a region that includes areas 29/30.
