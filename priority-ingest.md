@@ -50,7 +50,7 @@ One INGEST each:
 One INGEST each:
 
 - [x] `rein-2023-gpqa-benchmark.md` — reasoning-eval · B · 2023
-- [ ] `glazer-2024-frontiermath-benchmark.md` — reasoning-eval · B · 2024
+- [x] `glazer-2024-frontiermath-benchmark.md` — reasoning-eval · B · 2024
 - [ ] `sun-2025-olymmath-benchmark.md` — reasoning-eval · B · 2025
 - [ ] `huang-2025-math-perturb-benchmark.md` — reasoning-eval · B · 2025
 
