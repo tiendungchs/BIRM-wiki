@@ -332,6 +332,22 @@ The third is the recent and most capable one — the only reviewed model that bo
 
 ---
 
+## The load variable for reasoning is relations integrated, not items held
+
+Every capacity account above counts *items*. The analogy literature counts something else and gets a cleaner dissociation (Holyoak 2012, [[wiki/concepts/analogical-mapping.md]]): **relational complexity**, the number of relational roles that must be integrated to license one inference (Halford).
+
+| Manipulation | Effect |
+|---|---|
+| Frontal-lobe damage, **two-relation** Raven's-type problems | Marked deficit |
+| Same patients, **zero- or one-relation** problems | **Normal** |
+| Dual task (random digit generation) during a mapping task | Relational responses ↓, similarity-based responses ↑ |
+| Induced anxiety before the task | The same shift |
+| Preschoolers, two relations to integrate *or* a perceptually similar distractor present | Relational responses ↓; reliable by 13–14 years |
+
+Two things follow for a builder. **(1) The bound is on simultaneous *bindings*, not on stored symbols** — [[wiki/entities/lisa.md]] derives it rather than stipulating it, by carrying role-filler bindings in mutually out-of-phase time slots, so ~2–3 propositions can be live and a complex mapping must be serialised across load cycles. **(2) Exceeding the bound does not produce a miss, it produces a confident wrong answer** drawn from direct similarity — the degradation mode is a fallback onto the cheaper route, which no capacity curve in this page's designs predicts and every one of them could be tested for.
+
+---
+
 ## Open problems
 
 - **Binding and variables.** The DNC demonstrates variable-binding-like behaviour without showing that a reusable variable *representation* exists; whether the binding generalizes to novel structures is untested here.
@@ -403,3 +419,4 @@ The third is the recent and most capable one — the only reviewed model that bo
 - **[[wiki/entities/transformer.md]]** — this page's negative case in its most explicit architectural form: nothing in the layer stack is a register — the query is recomputed from the current token at every step, the key/value cache is append-only and never rewritten, and the only state surviving a step is the token sequence itself — so the architecture has a growing verbatim log and no maintained variable, which is the distinction long-range benchmark results do not test (Vaswani et al. 2017).
 - **[[wiki/concepts/vector-symbolic-binding.md]]** — what a fast store would hold if its contents were structured: one vector per episode supporting both similarity ranking and slot-level interrogation (`P ⊛ role†` plus cleanup) on the same representation, rather than a set of unstructured content slots.
 - **[[wiki/concepts/analogical-mapping.md]]** — a concrete division of labour between a permanent and an active code: an element's context-free code is what memory stores, while the episode-specific re-representation (the same code superposed with the roles it fills *here*) exists only during the comparison — with which of the two is actually stored left open by the source.
+- **[[wiki/entities/lisa.md]]** — the one model in the wiki whose capacity limit is a consequence rather than a parameter: bindings are phases, so the number of simultaneously maintainable role-filler bindings is the number of resolvable phases, and relational complexity becomes the load variable in place of item count.

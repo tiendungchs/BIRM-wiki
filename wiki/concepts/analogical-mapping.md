@@ -4,6 +4,8 @@
 
 [[wiki/concepts/subgraph-matching.md]] decides *whether* a stored structure applies; [[wiki/concepts/vector-symbolic-binding.md]] scores *how much* two structures resemble each other and explicitly stops there ("the correspondence itself is never computed, only scored"). This page holds the next operation: computing the correspondence, and using it to generate and *validate* new propositions about the target.
 
+> **Provenance (second ingest, wave 9.9).** Holyoak, K. J. (2012), *Analogy and relational reasoning*, in Holyoak & Morrison (eds.), *The Oxford Handbook of Thinking and Reasoning*, ch. 13 (`raw/holyoak-2012-analogy-relational-reasoning.md`). A review of the human literature — where the cost actually falls, what constrains inference, and what the prefrontal cortex contributes. Everything from it is marked in place; the section **The human process, priced** below carries the bulk.
+
 > **Provenance.** Slipchenko & Rachkovskij, *Analogical mapping using similarity of binary distributed representations*, Int. J. Information Theories & Applications 16(3), 2009 (`raw/slipchenko-2009-analogical-mapping.md`). It also contains the wiki's most complete survey of the analogy-model landscape, reproduced in condensed form below. Some equations in the source are conversion-mangled and are restated here.
 
 ---
@@ -161,6 +163,137 @@ The FOR case is the diagnostic one: the correct correspondence there is *not* ob
 
 ---
 
+---
+
+## The human process, priced (Holyoak 2012)
+
+**Role-based relational reasoning** is the general capacity of which analogy is one case: *inferences about elements depend on commonalities in the roles they play, not on the elements' own features*. Something fills the role `barrier` if it blocks something else — landslide or poverty — and that binding alone licenses the inference that removing it ends the blockage. Analogy is the specific case where the source is a single case rather than a category.
+
+### 1. The cost is in retrieval, and the wiki has the ratio backwards
+
+The wiki's model table prices *mapping* (`n⁴`–`n!`) and treats retrieval as the cheap stage. The human data invert this:
+
+| Measurement | Result |
+|---|---|
+| Tumour problem, no source analog (Gick & Holyoak 1980) | ~10% produce the convergence solution |
+| Same, after studying the analogous "general" story, **no hint** | ~20% |
+| Same, with the hint *"one of the stories you read earlier may help"* | **~75%** |
+| Retrieval after 1–3 days: source in the **same** domain (Keane 1987) | **88%** retrieved |
+| Same, source in a **remote** domain | **12%** retrieved |
+| Transfer *once the source is cued*, same vs remote domain | **~86% either way** |
+
+**Mapping is domain-blind; retrieval is not.** The entire distance penalty of a "far" analogy is paid at access. Holyoak's explanation is a computational asymmetry the wiki should adopt directly: in mapping, *which two things to compare has already been answered* and both sit in working memory, so relational comparison can run; in retrieval the question is open over all of long-term memory, and using relations as the cue costs working memory that is not available at that stage. Relational structure *does* influence retrieval — more so when some object similarity is also present, and more so for domain experts — but surface similarity dominates.
+
+This is the empirical case for the two-stage MAC/FAC architecture, and simultaneously the case that **stage 1 is where the intelligence has to go**: the human system already has a working stage 2 and fails anyway.
+
+### 2. Three constraints, jointly satisfied — and one of them is not about structure
+
+Multiconstraint theory (Holyoak & Thagard 1989): a mapping is chosen by soft constraint satisfaction over
+
+| Constraint | Content | Where it comes from |
+|---|---|---|
+| **Structural** | Parallel connectivity + one-to-one + systematicity | Gentner 1983; already on this page |
+| **Semantic** | Prefer mappings that place *similar* elements in correspondence | Direct similarity predicts similar causal properties, so it is evidence, not noise |
+| **Pragmatic centrality** | Prefer elements that are *relevant to the reasoner's current goal* | Holyoak 1985 — and it is decisive exactly when the analogy is ambiguous |
+
+The Gulf-War/WWII probe is the cleanest demonstration that the constraints leave real residual ambiguity: undergraduates who mapped Saddam Hussein→Hitler split into **two internally coherent, mutually incompatible** solutions (US→US with Bush→Roosevelt, or US→Britain with Bush→Churchill). A **bistable** mapping — the analogy analogue of a Necker cube, and something no `argmax` mapper can produce.
+
+**Cross-mapping** is the hard case: when one element maps one way by role and another way by direct similarity, performance drops *below* that of analogies with less semantic overlap. Perceptually rich stimuli lower relational responding; anything that raises attention to relations (mapping three objects at once, relational language) raises it.
+
+### 3. Comparison manufactures the differences
+
+Markman & Gentner's three-way split — **commonalities**, **alignable differences** (differences between *mapped* elements), **non-alignable differences** (differences involving unmapped elements) — comes with a counter-intuitive result: people list a difference faster for *hotel–motel* than for *kitten–magazine*. Alignable differences are more salient, more memorable, weigh more in similarity judgments and more in choice.
+
+**(brainstorm) This is a free contrastive signal every wiki architecture throws away.** A mapping does not only output correspondences; it partitions the two structures into shared / aligned-but-different / unaligned. The middle class is exactly the set of *minimal contrasts* — same role, different filler — which is the supervision signal a contrastive learner has to construct by sampling ([[wiki/concepts/divergence-objectives.md]] samples negatives blind; G66 asks for a sampler that draws pairs with respect to the quantity being learned). An alignment-derived negative is guaranteed to differ in one structural place. Nobody in the wiki generates negatives this way.
+
+### 4. What stops copy-with-substitution from flooding the target: a causal model, not a similarity score
+
+CWSG's stated failure mode, in Holyoak's words: without additional constraints, **any** unmapped source proposition generates a target inference, and since the source is essentially never isomorphic to a subset of the target, this produces rampant error. The constraint that works is *causal*:
+
+- **Lassaline 1996.** Source and target animals both have a weak immune system. If the source states the weak immune system **causes** an acute sense of smell, the inference transfers more strongly than if it merely "and"s the two properties — and the boost shrinks if the link is weakened to "develops before".
+- **Lee & Holyoak 2008.** If the source shows the effect **despite** a preventive cause, people judge the effect **more** likely in a target that lacks the preventer — *even though removing the preventer lowers overall source–target similarity*. Inference strength and analog similarity dissociate, with the sign reversed.
+- **Holyoak, Lee & Lu 2010** formalise this: extend a Bayesian causal-strength model so that the source's causal network **plus** the mapping is the input to CWSG, and the output is an elaborated causal model of the target which is then queried for arbitrary inferences.
+
+**This is the single hardest constraint this page carries on the wiki's own acceptance test.** The Slipchenko test — accept a hypothesis iff `sim(C_h, whole target) > sim(C_h, any mapped part)` — is a *coherence-with-the-target* criterion computed from the same similarity that produced the mapping. Lee & Holyoak's result is a case where the correct inference is the one that similarity argues *against*. See [[wiki/empirical-tensions.md]] T192.
+
+The pipeline Holyoak recommends is worth stating as an architecture, because it is not the one the wiki has: **learn the source's causal structure → map → CWSG to augment the target's causal model → query the resulting model**, plus a post-analogical **adaptation** step for goal-relevant target features the source cannot predict. The transferred object is a *model*, not a set of propositions, and it is what makes an open-ended range of later inferences answerable.
+
+### 5. Two routes, and only one of them costs working memory
+
+| | System 2: deliberate mapping | System 1: relational priming |
+|---|---|---|
+| Mechanism | Retrieve → align → CWSG | Activation of one or more relational concepts |
+| Evidence | Everything above | BIRD–NEST primes BEAR–CAVE at 400 ms SOA (Spellman, Holyoak & Morrison 2001); Schunn & Dunbar 1996: subjects exposed to enzyme *inhibition* solve a molecular-genetics problem by inhibition a day later **with no awareness of the earlier problem**; Day & Goldstone 2011: strategy transfer uncorrelated with recognising the analogy |
+| Cost | Heavy — working memory, prefrontal cortex | Cheap, automatic |
+| Systematicity | Full correspondence | **None** — "piecemeal transfer based on activation of one or more key relational concepts" |
+| Fragility | Fails under load, anxiety, frontal damage | Needed explicit instructions to attend to relations at short SOA; robust when the prime was processed deeply |
+
+**Traditional connectionist systems, lacking variable binding, model the second route and not the first** — Holyoak's explicit concession, and a useful one: it says the wiki's distributed-similarity machinery is not failing at analogy, it is succeeding at a *different, real* analogy-adjacent mechanism, and the two are separately measurable in humans.
+
+Bassok's **semantic alignment** is the same route made content-specific: two same-category sets (cats, dogs) align with the *addends* of addition and two functionally related sets (birds, cages) do not, and this automatically modulates activation of arithmetic facts — *without helping performance*. Structure selection driven by object type, running below the level of deliberate reasoning.
+
+### 6. The capacity variable is *relational complexity*, and it is prefrontal
+
+Relational complexity = the number of relational roles that must be **integrated** for one inference (Halford). It, not item count, is the load variable.
+
+| Manipulation | Effect | Source |
+|---|---|---|
+| Dual task (random digit generation) during mapping | Relational responses ↓, similarity-based responses ↑ | Waltz et al. 2000 |
+| Induced anxiety (timed arithmetic beforehand) | Same shift | Tohill & Holyoak 2000 |
+| Frontal-lobe damage | Marked deficit on **two-relation** Raven's-type problems; **normal** on zero- or one-relation problems | Waltz et al. 1999 |
+| Anterior temporal damage | Uniform decline across all analogy conditions — loss of the *conceptual content* needed to encode the relations | Morrison et al. 2004 |
+| Frontal damage + semantically related distractor (negative semantic facilitation) | **Selective** impairment relative to neutral/positive | Morrison et al. 2004; Krawczyk et al. 2008 |
+
+And a **functional dissociation inside prefrontal cortex** (Cho et al. 2010; Christoff et al. 2001; Kroger et al. 2002; Bunge et al. 2005; Green et al. 2006, 2010):
+
+| Demand | Region |
+|---|---|
+| Integrating **multiple relations** | **Frontopolar / rostrolateral** prefrontal cortex — still selectively active after controlling for solution time, and rising with the *semantic distance* between the A:B and C:D pairs |
+| Controlling **interference** from goal-irrelevant relations | Inferior frontal gyrus |
+| Storing the relations themselves | Anterior temporal cortex |
+| Spatial relations | Parietal cortex |
+| Episodic access to the source | Hippocampus |
+
+**The architectural reading.** Analogy is not one module. It is a *store of relational content* (temporal), a *store of episodes* (hippocampal), an *integrator* whose capacity is the number of simultaneously bound roles (frontopolar), and a *suppressor* of the perceptually obvious wrong answer (inferior frontal) — and the two prefrontal functions are separable by manipulation. [[wiki/entities/lisa.md]] is the model built to have exactly this shape.
+
+### 7. Development: the relational shift, and what causes it
+
+Young children map by object similarity when similarity and structure conflict; reliance on relational structure grows with age (Gentner & Rattermann's **relational shift**). Two explanations, both with evidence:
+
+- **Knowledge accretion** (Goswami): the capacity is present in infancy (some analogical ability at 1 year); what grows is knowledge of the relevant relations. Expertise predicts analogical skill even in adults.
+- **Executive maturation** (Richland, Morrison & Holyoak 2006): preschoolers give fewer relational responses when *either* a similar distractor is present *or* two relations must be integrated — the two manipulations that load the maturing prefrontal cortex. By 13–14 years, relational responding is reliable even with both. Children with autism matched on executive function show comparable trends.
+
+See [[wiki/empirical-tensions.md]] T193. For a builder the distinction is the difference between scaling the relation vocabulary and scaling the binding budget, and the second is a *capacity* parameter no wiki architecture currently exposes.
+
+### 8. Two results that should worry anyone building this
+
+**(a) An analogical inference is not tagged as an inference.** Blanchette & Dunbar 2002: after reading a target text (marijuana legalisation) and then a source (alcohol prohibition), with *no* instruction to map and *no* statement of correspondences, subjects later "recognised" never-presented CWSG inferences as having been in the target text **50%** of the time, against a **25%** base rate — at 15 minutes and at one week, familiar and unfamiliar materials. Replicated (Perrott, Gentner & Bodenhausen 2005), foreshadowed by Schustack & Anderson 1979.
+
+So: transfer runs spontaneously on mere juxtaposition, its products are written into the target representation, and **provenance is lost**. That is a confabulation mechanism with a measured rate, and it is the same failure a retrieval-augmented generator exhibits when a retrieved passage's content resurfaces as asserted fact. Gap **G71**.
+
+**(b) A pre-existing schema silently rewrites the mapping, and can take transfer to zero.** Bassok, Wu & Olseth 1995: formally isomorphic permutation problems, differing only in whether objects were assigned to people (OP) or people to objects (PO). People interpret "assign an object to a person" through an overlearned **get** schema in which the person is the recipient — regardless of which entity the stated relation puts in which role.
+
+| Source | Target | Transfer accuracy |
+|---|---|---|
+| OP | OP | **89%** |
+| OP | PO | **0%** |
+
+Isomorphic problems, one schema, a 89-point swing. The relation *as stated* was overridden by a relation the reasoner already had. This is [[wiki/architectural-gaps.md]] G23 measured: an unconditional prior with no entry test, firing on object *types*, silently re-parsing the input — and the mapping machinery downstream is working perfectly on the wrong parse (G27).
+
+### 9. What Holyoak says is missing, restated as wiki gaps
+
+| Stated limitation | Wiki row |
+|---|---|
+| "Knowledge representations typically must be hand-coded by the modeler … an indefinite number of free parameters to facilitate data-fitting" | G4, and this page's own Limits |
+| Flexible **re-representation** is needed: `lift(John, hammer)` ≡ `cause(John, rise(hammer))`; people see analogies across such forms, models cannot | G4/G27 — the chunked-predicate case of choosing a discretisation |
+| The stage decomposition (retrieve→map→infer→abstract) is "oversimplified"; real use is cyclic, interactive, open-ended, with the source's representation *developed during* reasoning, and multiple or imagined sources | G5 (no joint discover-and-navigate loop) |
+| "Typically there is no firm boundary around the information that counts as an individual analog" | G37/G27 — the same undefined-membership problem [[wiki/concepts/schema-assimilation.md]] has for "the same schema" |
+| No integration with problem solving: sequencing operators, subgoals, combining rules for non-isomorphic problems are "beyond the capabilities of current computational models of analogy" | G33 |
+| Perceptual encoding difficulty drives transfer difficulty (Tower-of-Hanoi isomorphs) and no analogy model accounts for it | G27 |
+| A full Bayesian computational-level account is "challenging, perhaps even intractable" because relation types are indefinitely diverse; needs role-based representations integrated with probabilistic inference | G26/G11 |
+
+---
+
 ## Connections
 
 - **[[wiki/concepts/vector-symbolic-binding.md]]** — the same problem one step earlier and in the dense/invertible regime: HRR contextualization makes structure a surface feature for *ranking*, this page makes it a surface feature for *correspondence*, and the two disagree about whether the binding operator needs an inverse (T186, T187).
@@ -173,4 +306,7 @@ The FOR case is the diagnostic one: the correct correspondence there is *not* ob
 - **[[wiki/concepts/working-memory.md]]** — where the `upper` half of a re-representation would live: an episode-specific, context-dependent recode of items whose permanent codes are context-free, which is the same fast/slow division working memory imposes on content.
 - **[[wiki/concepts/retrieval-capacity.md]]** — the bound this method is exploiting rather than evading: correspondence is decided by `argmax` of a bilinear score, so what makes it work is the re-encoding (the `upper` half), not the comparator.
 - **[[wiki/entities/tolman-eichenbaum-machine.md]]** — the same structure/content factorisation with the opposite arrow: TEM binds a content code into a *learned* structural address, where re-representation superposes structural role labels into the content code at use time, with no learning anywhere.
+- **[[wiki/entities/lisa.md]]** — the model built to the shape the human data imply: role bindings carried by synchrony, so the capacity limit *is* the number of relations that can be integrated at once, correspondence grown Hebbian rather than searched, and inhibition of the featurally-similar distractor a required step rather than an afterthought.
+- **[[wiki/concepts/causal-model-building.md]]** — what analogical transfer actually moves, on the human evidence: the source's causal network is mapped and used to elaborate the target's, which is why an inference can strengthen while overall similarity falls (Lee & Holyoak 2008) and why a similarity-based acceptance test is the wrong filter (T192).
+- **[[wiki/concepts/cognitive-control.md]]** — the two prefrontal contributions the mapping process needs, dissociated by manipulation: frontopolar cortex integrating multiple relations and inferior frontal gyrus suppressing goal-irrelevant ones, with frontal damage collapsing relational responses onto direct similarity exactly as a removed bias signal predicts.
 - **[[wiki/entities/neuromatch.md]]** — the trained counterpart of the same abstention problem: both return a graded score with no certificate, but a sparse binary code has a computable chance baseline where a learned embedding has only a validation-set threshold.

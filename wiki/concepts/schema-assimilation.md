@@ -152,6 +152,29 @@ Against this, lateral prefrontal cortex resolves the *same* competition the othe
 
 ---
 
+## A schema can be induced from two examples, and comparison is the operation that does it
+
+> **Provenance (third ingest).** Holyoak 2012 (`raw/holyoak-2012-analogy-relational-reasoning.md`). This page's schemas arrive by consolidation over many episodes; the analogy literature builds one from **two**, in minutes, by aligning them.
+
+Comparison here is not passive accumulation of feature statistics across examples — it is active generation of structural correspondences ([[wiki/concepts/analogical-mapping.md]]), and the schema is the *intersection* the mapping exposes.
+
+| Result | Number |
+|---|---|
+| Schema induced by comparing **two** disparate analogs, improving transfer to a third (Gick & Holyoak 1983) | — |
+| Schemas form as a *side effect* of applying one solved problem to an unsolved one (Novick & Holyoak 1991; Ross & Kennedy 1990) | — |
+| Abstraction training over three convergence analogs, then the tumour problem **one week later, in a different experiment, with no hint** (Catrambone & Holyoak 1989) | **>80%** solve |
+| Stating the solution principle abstractly alongside each story | Facilitates induction (Gick & Holyoak 1983) |
+| A schema acquired *later* makes analogous episodes stored *earlier* easier to retrieve (Gentner et al. 2009) | Works backwards in memory |
+
+**Two mechanisms worth importing.**
+
+- **Progressive alignment** (Kotovsky & Gentner 1996): order the comparisons easy-to-hard, where early pairs share salient surface similarity **and** the relational match, and later pairs share only the relational match. Surface similarity bootstraps the correspondence, which then survives its own removal. This is a curriculum specified by the *relation between consecutive examples* rather than by difficulty — the concrete proposal gap G32 asks for, and it is cheap to run.
+- **Focus determines schema quality**: schemas built while attending to goal-relevant relations transfer; schemas built on incidental detail do not.
+
+**And the counterweight — a schema you already have can silently rewrite the situation.** Bassok, Wu & Olseth 1995: formally isomorphic permutation problems where an "assign" relation is read through an overlearned **get** schema (the person receives the object) regardless of the roles the stated relation assigns. Transfer is **89%** when source and target share the object→person direction and **0%** when they do not. Assimilation is not a benign fit-benefit here: the schema fires unconditionally on object *types* and re-parses the input, and every downstream step then works correctly on the wrong structure. This is the sharpest measurement in the wiki of gap G23 (a prior with no entry test) and it lands squarely on this page's unresolved item — **schema identity is unoperationalised**, so nothing decides whether the get schema applies.
+
+---
+
 ## Open problems
 
 - **No arbitration between integration and separation** (above). Both are prefrontal, both are triggered by conflict, and nothing predicts which fires.
@@ -185,3 +208,4 @@ Against this, lateral prefrontal cortex resolves the *same* competition the othe
 - **[[wiki/entities/nucleus-reuniens.md]]** — supplies the write channel the selection account needs: the controller reaches the hippocampus only through a midline-thalamic relay, and that relay carries a goal-conditioned future path, so "suppress the context-inappropriate candidate" can be implemented as constraining the store's dynamics rather than filtering its output (Jin & Maren 2015).
 - **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — supplies the cargo type on the channel: the hippocampal long axis is a generality gradient and the controller is wired only to its general end, so what crosses the edge is what all events of a context share rather than an event.
 - **[[wiki/concepts/analogical-mapping.md]]** — the slot-filling mechanism assimilation assumes: mapping binds the current situation's elements to the schema's roles by similarity of role-augmented codes, and copy-with-substitution-and-generation is what the schema then projects onto the new instance, including inventing entities the instance does not yet have.
+- **[[wiki/entities/lisa.md]]** — the only mechanism in the wiki that produces a schema *as an operation* rather than as a consolidation outcome: intersection discovery over a completed analogical mapping, running inside a working-memory budget of two to three propositions.
