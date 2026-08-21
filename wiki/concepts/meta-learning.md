@@ -105,6 +105,21 @@ Three exports:
 
 ---
 
+## A third thing the outer loop buys: tolerance of the machine the inner loop runs on
+
+> Ortner et al. 2025 (`raw/ortner-2025-phase-change-memory-rapid-learning.md`, Nature Communications 16). Full treatment in [[wiki/concepts/analog-in-memory-computing.md]].
+
+Both experiments there meta-train **entirely in software at full precision, with no model of the hardware**, then deploy onto analog phase-change-memory crossbars whose weights carry ≈4 bits and drift — and the deployed models are on par with their software equivalents. Two of the results bear on this page directly:
+
+| Finding | Consequence here |
+|---|---|
+| **Meta-training with 4-bit stochastically-rounded weights does not beat 32-bit meta-training** on either Omniglot or CIFAR100-FS, on chip or in a device emulator calibrated on 10⁶ devices | The outer loop's product is robust to a perturbation it was never shown. Whether that is *caused* by meta-learning (flat minima) or is a property of these two architectures is explicitly unresolved by the authors |
+| **The control that isolates what the outer loop paid for**: backpropagation from scratch on the same 25 support images fits them in a few steps and generalizes poorly to the query images | The `n = 4` cheap updates are not the source of few-shot generalization; the 30,000 expensive ones are. Adaptation speed and adaptation *quality* come from different loops, and only the second is bought by `p(T)` |
+
+**The deployment shape this enables is new to the page.** One software meta-training run → many hardware instances, each running the inner loop alone against its own task from the family. That makes `p(T)` an economic object as well as an epistemic one: the outer loop amortizes over deployment sites, and a site whose task falls outside the family pays the full cost with no way to detect it in advance (the limit below, with an energy bill attached).
+
+---
+
 ## The knowledge-boundedness limit
 
 The inner learner adapts only within the envelope the outer loop sampled. `p(T)` is a hard boundary: a family the outer loop never saw is not "few-shot hard", it is out of scope. Any claim that a meta-learned system generalizes structurally has to specify the task distribution it was trained over.
@@ -176,3 +191,4 @@ Two nested notions of "out of distribution", and only the inner one is bought. T
 - **[[wiki/concepts/refinement-loop.md]]** — the inner loop with no outer loop, generalised past weights: every 2025 ARC system hand-designs its own mutation operator and stopping rule, which is meta-learning's job left to the developer in four different substrates at once.
 - **[[wiki/entities/anli.md]]** — the environment family generated in closed loop on the learner rather than sampled from a fixed distribution: a human adversary is paid to find inputs the *current* model misclassifies, and at matched training-set size that substitution is worth +27.5 / +16.8 / +14.9 points on the three rounds with i.i.d. scores unmoved — the failure-conditioned task sampler no outer loop in the wiki implements (Nie et al. 2020).
 - **[[wiki/concepts/neuronal-parameter-heterogeneity.md]]** — the two-level split drawn along a substrate boundary instead of a task boundary: the slow loop optimises each neuron's biophysical constants `[τ, γ, C, u_th, u_re]` on a held-out split while the fast loop optimises weights on the training split, alternating, with the second-order `∇_α W*(α)` term dropped to first order at no measured accuracy cost — an outer loop with no task distribution at all, whose product is insensitivity to the inner learner's initialisation.
+- **[[wiki/concepts/analog-in-memory-computing.md]]** — the outer loop priced against a substrate: on a crossbar where a weight write is the dominant energy cost, meta-learning is what shrinks the inner loop to 1120 of 342,720 devices and four steps — and it transfers to ≈4-bit drifting analog weights with no hardware model in the loop, so the same optimization also appears to buy device tolerance (Ortner et al. 2025).

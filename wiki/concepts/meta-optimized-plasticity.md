@@ -76,6 +76,32 @@ The page's open problem — *which restrictions buy generalization and which mer
 
 ---
 
+## A fifth family: meta-learn the *third factor* itself, and run one update
+
+> Ortner et al. 2025 (`raw/ortner-2025-phase-change-memory-rapid-learning.md`, Nature Communications 16), applying natural e-prop. Full treatment in [[wiki/concepts/analog-in-memory-computing.md]].
+
+The four families above meta-optimize the rule's *coefficients* or its *equation*, with the modulatory signal either global, retroactive or absent. Natural e-prop keeps the rule fixed — an e-prop product of a local eligibility trace and a modulatory term — and hands the outer loop the **modulator**, as a full per-neuron, per-millisecond time series emitted by a second network:
+
+```
+θ¹ = θ − α Σ_t L^t ⊙ e^t                        one update, per synapse
+e_ji^{t+1} = h_j^t Σ_{t′≤t} γ^{t−t′} z_i^{t′}     local, forward-computable
+L_j^t = α_e L_j^{t−1} + Σ_i ψ_ji^out ξ_i^t        the learning signal generator's low-pass filtered output
+θ, ψ = argmin_{θ,ψ} Σ_{T_i∼F(T)} L_{T_i}(θ − α Σ_t L^t ⊙ e^t)
+```
+
+| | Consequence for this page |
+|---|---|
+| **The third factor becomes a learned function of the task, not a scalar** | The neuromodulated row's "global" variant broadcasts one number; here `L_j^t` is 250 neurons × 250 ms of structured signal, produced by a spiking generator (800 neurons, 30% adaptive-threshold) that sees the *target* and never sees a loss |
+| **The trainee's target never enters its own loss** | The trajectory to be produced is an **input to the generator**. So the outer loop is not distilling an error signal, it is learning a mapping from goal → weight update — parameter generation wearing a plasticity rule's clothes |
+| **One inner step, not a trajectory** | The outer objective is written directly on `θ¹`, so the meta-gradient passes through exactly one application of the rule. That is the cheapest inner loop of any family on this page and the reason it is deployable on hardware where writes are expensive |
+| **Cost** | The generator is **3.2×** the size of the network it teaches, and is itself trained by backpropagation through time in software — the implausibility is relocated to the teacher, not removed |
+
+Measured: a recurrent spiking network with 250 leaky integrate-and-fire neurons produces the motor commands for a previously unseen 3D robot-arm trajectory after **a single** weight update, with the adapted matrices held in analog phase-change memory (end-effector deviation 6.69 ± 3.40 cm on chip vs 2.21 ± 1.10 cm in full-precision software; the physical arm 7.82 ± 2.50 cm). Before the update the trainee's output is ≈ 0, so the behaviour is written entirely by one application of `L ⊙ e`.
+
+**(brainstorm)** This is the *only* construct in the wiki where the wiki's own G50 — the controller cannot set the gain of its own teaching signal — is answered from the wrong side: nothing sets its own gain, but an outer loop installs a dedicated organ whose entire job is to emit teaching signals with the right gain for this task family. The obvious composition, unrun: give the generator the *outcome* as well as the target, so the teacher can be corrected within a lifetime instead of only across `p(T)`.
+
+---
+
 ## Generalization: the binding constraint
 
 | Finding | Consequence |
@@ -128,3 +154,4 @@ The open question the review states plainly: **when should a discovered rule rep
 - **[[wiki/concepts/neuromodulatory-metaparameters.md]]** — supplies an online estimator for the one coefficient this page's outer loop always has to search for offline: frequent reversals in the sign of the global error signal mean the step size is too large (delta-bar-delta), so the learning rate is computed from the same scalar the rule already consumes rather than discovered over a task distribution (Doya 2002).
 - **[[wiki/entities/nomic.md]]** — the same expressiveness reached by the opposite restriction: self-referential meta-learning lets the update rule modify all its own parameters and must truncate the search space to stay tractable, where that specification restricts by *operator arity* — four rule-change operators over discrete rule-nodes, with the meta-tower left implicit because a rule-change can transmute the transmutation rule.
 - **[[wiki/concepts/neuronal-parameter-heterogeneity.md]]** — the adjacent slot in the same hierarchy: that page's outer loop optimises the *cell*'s constants rather than the *rule*'s coefficients, using the identical bi-level machinery (held-out split for the outer variable, one-step approximation of the inner optimum), so a learned rule updating weights inside a learned neuron is a composition both pages make available and neither has run.
+- **[[wiki/concepts/analog-in-memory-computing.md]]** — the substrate that makes this page's cost table decisive rather than academic: on a crossbar a weight write is the dominant energy cost and is stochastic, which is why the deployable member of this family is the one whose inner loop is a single application of the rule to two matrices (Ortner et al. 2025).
