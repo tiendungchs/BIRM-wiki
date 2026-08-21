@@ -343,7 +343,7 @@ One INGEST each:
 - [x] `casanuevamorato-2024-hippocampus-neuromorphic-cam.md` — spiking-neuromorphic · M · 2024
 - [x] `wang-2024-heterogeneous-snn-learning.md` — spiking-neuromorphic · M · 2024
 - [x] `meszaros-2025-snn-delay-learning.md` — spiking-neuromorphic · M · 2025
-- [ ] `kleyko-2025-neuromorphic-reservoir-computing.md` — spiking-neuromorphic · M · 2025
+- [x] `kleyko-2025-neuromorphic-reservoir-computing.md` — spiking-neuromorphic · M · 2025
 - [ ] `ortner-2025-phase-change-memory-rapid-learning.md` — spiking-neuromorphic · R · 2025
 
 ## Wave 12 — large-scale brain organisation · networks, default mode, consciousness
