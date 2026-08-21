@@ -318,6 +318,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | IRT / CTT | Item Response Theory / Classical Test Theory | Psychometric standards for reliability and validity that Chollet 2019 imports into AI evaluation |
 | CS / US | Conditioned Stimulus / Unconditioned Stimulus | Conditioning terminology; second-order conditioning motivated TD learning |
 | fMRI | functional Magnetic Resonance Imaging | |
+| RSN | Resting-State Network | A set of regions whose spontaneous BOLD fluctuations co-vary in the absence of a task; on the wiki's reading a frequently-visited region of a dynamic repertoire rather than a fixed object ([[wiki/concepts/dynamic-repertoire.md]]) |
+| DMN | Default Mode Network | The RSN that *de*activates during externally-directed tasks — PCC/precuneus, medial prefrontal cortex, medial temporal lobes; a collection of structural hubs, and its self-referential interpretation is disputed ([[wiki/empirical-tensions.md]] T241) |
+| SC / FC | Structural / Functional Connectivity | Anatomical tracts (diffusion imaging, tracer studies) versus statistical dependence between regional time series; SC implies FC but not conversely ([[wiki/concepts/dynamic-repertoire.md]]) |
+| CoCoMac | Collation of Connectivity data on the Macaque brain | The tracer-derived macaque connectivity database that supplies the anatomical skeleton for most whole-brain models in the wiki |
 | BOLD | Blood-Oxygen-Level-Dependent | The fMRI contrast; driven more by perisynaptic activity than by spiking, which is why it cannot resolve dentate gyrus from CA3 ([[wiki/concepts/pattern-separation-completion.md]]) |
 | DG | Dentate Gyrus | Sparse-firing granule-cell layer receiving entorhinal input; the hippocampus's pattern separator, and the only site of adult neurogenesis in the hippocampus |
 | CA1 / CA3 | Cornu Ammonis fields 1 and 3 | CA3 is the recurrent auto-associative field (pattern completion), with *diluted* recurrence (~2–4%); CA1 carries hippocampal output — as a linear relay (Yassa & Stark 2011) or as a competitive recombination stage (Rolls 2013), [[wiki/empirical-tensions.md]] T33 |

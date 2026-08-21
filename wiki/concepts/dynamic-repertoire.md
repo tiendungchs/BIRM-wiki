@@ -1,0 +1,87 @@
+# Dynamic Repertoire — Spontaneous Activity as Noise-Driven Exploration of Reachable Network Configurations
+
+**A structural connectome plus its conduction delays does not specify a functional network; it specifies a *manifold* of network configurations, and the system's ongoing job at rest is to wander that manifold. Noise supplies the kinetic energy, the delays and weights supply the geometry of the flow, and the operating point has to sit close to an instability or the wandering cannot express itself. A "resting-state network" is then not an object but a frequently-visited region of the repertoire — which is why functional connectivity is a function of the observation window and has poor test–retest reliability while the anatomy underneath is fixed.**
+
+> **Provenance.** Deco, Jirsa & McIntosh 2011, *Emerging concepts for the dynamical organization of resting-state activity in the brain*, Nature Reviews Neuroscience 12:43–56, doi:10.1038/nrn2961 (`raw/deco-2011-resting-state-dynamical-organization.md`). A review that compares three whole-brain models built on the same macaque (CoCoMac) connectivity mapped to 38–47 human regions, differing only in where the complexity was put. Sits one rung up from [[wiki/concepts/mean-field-reduction.md]] — that page gives the node model and the delay/stability analysis; this page is what the assembled network *does* when nothing is asked of it.
+
+---
+
+## Three models, one connectome, three places to put the complexity
+
+All three take the same anatomical skeleton and produce two anticorrelated clusters whose ultraslow (<0.1 Hz) BOLD envelope matches the empirical resting-state literature. What differs is which ingredient is load-bearing.
+
+| | **Model 1** — Honey et al. 2007 | **Model 2** — Ghosh et al. 2008 | **Model 3** — Deco et al. 2009 |
+|---|---|---|---|
+| Local node | **Chaotic** oscillator | Noisy oscillator, damped | Wilson–Cowan E/I pair, **silent if disconnected**, parked just below a Hopf bifurcation; oscillates at ~40 Hz only once coupled |
+| Delays | **None** (instantaneous coupling) | Explicit, `τ_ij = d_ij / v`, `v` swept | Explicit, same space–time coupling as model 2 |
+| Noise | **None** | Constant level | **Swept** — the free parameter |
+| Fast carrier | chaotic, ~10 Hz | ~10 Hz alpha, amplitude-modulated | 40 Hz gamma |
+| Slow (<0.1 Hz) timescale comes from | alternating cluster synchronisation / desynchronisation driven by chaos | stochastic amplitude modulation of a travelling alpha wave | noise-driven transitions between two multistable cluster-synchronisation states |
+| Mechanism in one line | complexity at the **node** | complexity in the **couplings** (noise kicks a system near a critical line; each kick is followed by an oscillatory return along a manifold) | complexity from **coupling + noise level**; each node is trivial alone |
+
+**The complementarity is the result.** Networks of *simple* coupled oscillators with no delays go to full synchronisation — trivial global dynamics (also shown by Zhou et al., who had to replace their neural-mass nodes with small-world recurrent excitable networks to get anything non-trivial). You buy non-trivial global structure by paying at exactly one of three counters: chaotic/complex node dynamics (model 1, Zhou), transmission delay (models 2, 3), or noise at the right amplitude (model 3). **A builder assembling a modular network gets to choose which counter to pay at, and the paper's own summary is that models 2 and 3 buy it more cheaply**, because the delay and the noise are already physically there.
+
+**The delay ablation is the sharpest single datum.** Model 3 rerun with `τ_ij = 0` and everything else fixed: the ultraslow oscillations and the anticorrelation structure are *completely distorted or disappear*. Same weights, same noise, same nodes. In model 2, scaling transmission speed toward infinity likewise breaks the cross-correlation structure. Delay is not a nuisance parameter of a whole-brain model; it is a generator of the phenomenon.
+
+---
+
+## The four ingredients, as a design specification
+
+| Ingredient | Role | What breaks without it |
+|---|---|---|
+| **Structural skeleton** (small-world, hub-rich; PCC/precuneus the densest core) | Defines *which* configurations are reachable — the manifold and the preferential paths through it | Functional networks lose their spatial identity; the RSN topography is anatomy's fingerprint |
+| **Conduction delay** `τ_ij = d_ij / v` | Shapes the manifold's geometry and the flow on it; sets which clusters can lock | Full synchronisation (one global state, no repertoire); ultraslow structure and anticorrelation vanish |
+| **Noise** | The kinetic energy: continuously pushes the state off equilibrium so the deterministic flow can be sampled | Nothing moves; the system sits at its (stable) equilibrium and the repertoire is never visited |
+| **Criticality** — operating point near the onset of oscillatory instability | Makes the excursions *expressible*: far inside the stable region the oscillatory return is suppressed and the noise produces nothing structured | The stochastic component cannot express itself at all. The authors' own phrasing: the instability may have no direct functional role, but its presence is imperative for the fluctuations to occur |
+
+The mechanism in model 2's terms — **noise drive → critical line → oscillatory return** — is a complete and small recipe. Note it needs no attractor at all: the equilibrium is *stable*, and all the structure lives in the transients on the way back to it. Model 3 gives the alternative with multistability, where noise drives transitions between attractor basins.
+
+**Stochastic resonance.** In model 3, at the transmission velocity between the two synchronisation peaks (`v = 1.65 m/s`), there is an **optimal noise level** — the classic inverted-U — at which transitions between the two cluster states occur, and it is *at that level* that ultraslow global oscillations and inter-network anticorrelation emerge. Noise amplitude is therefore a tunable resource with an interior optimum, not a quantity to minimise.
+
+---
+
+## Four claims that revise how the wiki reads a functional connectome
+
+**1. Structure → function is one-way and window-dependent.** If there is a direct anatomical connection there is a functional one; the converse fails — robust functional connectivity appears between regions with no direct tract (the DMN's MPFC↔MTL pair being the standard example: both connect to PCC/precuneus, not to each other). Test–retest reliability of functional connectivity within a subject is surprisingly low — *and the model built on a realistic skeleton reproduces that low reliability*, which converts an apparent measurement defect into a prediction of the theory. At long windows FC recapitulates SC; at short windows it does not, and short-lived configurations appear that the anatomy does not predict. **The number of "functional networks" is therefore an artefact of the integration window, not a property of the brain.** Against the wiki's operative practice of fitting to a group-averaged connectome — logged as [[wiki/empirical-tensions.md]] T240.
+
+**2. Anticorrelation is emergent, not antagonistic.** All three models produce two anticorrelated clusters without any inhibitory link between them. The anticorrelation "does not arise from a direct antagonistic relation between networks, but rather embodies the different spatiotemporal structure of coherent networks in a larger anatomical skeleton." This both defends the empirical anticorrelation against the global-signal-regression artefact charge and removes the temptation to build a mutual-inhibition module to explain it.
+
+**3. Synchronisation predicts BOLD.** Across nearly all of parameter space, mean population activity and synchronisation are tightly coupled, so a synaptic-activity measure such as fMRI is *also* sensitive to changes in synchronous coupling — the reason a metabolic signal can track a coherence phenomenon at all. Corollary for the wiki: a BOLD-derived coupling matrix ([[wiki/entities/fcann.md]]) is a coherence measurement in disguise, and inherits the inference limits on [[wiki/concepts/inter-areal-synchrony.md]].
+
+**4. The DMN's cognitive interpretation is under-determined.** The DMN is a collection of structural hubs, and it *persists under anaesthesia and early sleep* — states with no self-referential cognition. The authors name the general fallacy (reverse inference: a task activates a region, therefore the region's activity implies the task) and propose instead that the DMN's role is dynamical — its nodes are the ones that move the system into the metastable regime. Logged as [[wiki/empirical-tensions.md]] T241.
+
+---
+
+## Relevance to a reasoning model
+
+- **Exploration becomes intrinsic rather than scheduled.** [[wiki/architectural-gaps.md]] `G61` says exploration in the wiki is always an external schedule (ε, temperature, an entropy bonus) and never part of the selector. Here it is neither: exploration is a *property of the substrate's operating point*. Set the coupling near criticality, inject noise, and the system samples its own reachable configurations with no exploration parameter anywhere. The equivalent for a modular reasoning architecture is that the inter-module gain should sit near the instability boundary, not comfortably inside it — a set-point rule, and one that costs no extra module.
+- **A prior over network configurations, generated by running.** The authors' own reading is Bayesian: by wandering, the brain *generates predictions about which network configuration will be needed next*, so that an input arrives at a system already in the neighbourhood of an appropriate state (their tennis-returner metaphor). This is [[wiki/concepts/amortized-inference.md]]'s question posed at the level of *architecture selection* rather than parameter inference — what is amortised is not a posterior over a latent but a distribution over which subnetwork will be assembled. **(brainstorm)** The buildable version: a router that, between queries, keeps sampling module-coalition configurations from its own dynamics, so the first step of a new query is a *correction* to an already-live configuration rather than a cold assembly. The cost model is favourable exactly when assembly latency dominates, which is the regime a delayed modular network is in by construction.
+- **It supplies the missing half of `G52`/`G54`.** Those gaps ask for an inter-module connection with state of its own and for channels that carry timing rather than content. This page says what the timing is *for* at network scale: the delay matrix is what makes the repertoire larger than one point. An architecture with instantaneous inter-module wiring has, provably in these simulations, a repertoire of size one.
+- **Noise is a parameter with an interior optimum.** Stochastic resonance at the working point means the right amount of injected noise is neither zero nor maximal, and it is set jointly with the delay. Every noise term in the wiki is either regularisation or an exploration hack; none is dimensioned.
+- **Do not fit a controller to a window-averaged functional connectome.** If the configuration a network is in depends on the window, then a coupling matrix estimated over minutes is a *time-average over the repertoire* and its attractors are averages of visited states. This is a direct caution on [[wiki/entities/fcann.md]] and on any wiki architecture whose graph is estimated from long-run correlations ([[wiki/concepts/latent-graph-discovery.md]] — the discovery side inherits the same window parameter, and nothing in the wiki sets it).
+
+---
+
+## Open problems
+
+- **The window is a free parameter and nothing sets it.** The whole structure–function relationship is a function of integration time, and no source in the wiki supplies a principled choice. This is [[wiki/architectural-gaps.md]] `G67` (how many timescales, where the boundaries go) reappearing as an *estimation* problem rather than an architecture problem.
+- **Three mechanisms, all consistent with the same fMRI data.** Chaotic nodes, delayed noisy oscillators near criticality, and noise-driven multistable transitions each reproduce two anticorrelated ultraslow clusters. The review states they are not mutually exclusive and that discriminating them requires spatiotemporal (not merely temporal) analysis of BOLD and M/EEG together. As of the source, unrun — an identifiability failure of exactly the kind [[wiki/concepts/objective-identifiability.md]] catalogues.
+- **Nothing learns anything.** The skeleton is anatomy, the delays are Euclidean distance over a swept velocity, the noise level is a swept scalar. No plasticity anywhere; the repertoire is never shaped by experience. This is the same terminal limitation as [[wiki/concepts/mean-field-reduction.md]]'s.
+- **Delays are Euclidean and therefore underestimates.** Distances are straight-line, real fibres are not, so at `v = 1 m/s` the quoted mean delay of ~70 ms is a lower bound — and since the phenomena depend sharply on `v`, the fitted velocities are not to be read as physiology.
+- **No functional test.** Everything here is a claim about resting dynamics; nothing in the three models performs a task, so "the repertoire is the space of useful configurations" is asserted by analogy and never measured against a behavioural readout.
+
+---
+
+## Connections
+
+- **[[wiki/concepts/mean-field-reduction.md]]** — the rung below: it supplies the node model (Wilson–Cowan mass, neural field) and proves that conduction delay is a first-class stability parameter; this page is the same machinery assembled on a real connectome and left to run, where that delay stops being a stability nuisance and becomes the generator of the repertoire.
+- **[[wiki/entities/fcann.md]]** — the wiki's whole-brain attractor model, and the page most revised here: its coupling matrix is estimated from long-window resting fMRI, which this source shows is a time-average over a window-dependent repertoire, and its BOLD-derived correlations are partly a coherence measurement rather than an activity one.
+- **[[wiki/concepts/attractor-dynamics.md]]** — model 3's mechanism is exactly noise-driven hopping between multistable basins, but models 1 and 2 produce the same phenomenology with a *stable* equilibrium and no attractor structure at all, so ultraslow network dynamics are not evidence for an attractor landscape.
+- **[[wiki/concepts/inter-areal-synchrony.md]]** — supplies the caution this page's mechanism demands: cluster synchronisation here waxes and wanes under constant weights and constant noise, so a change in coherence between two modules licenses no inference about a change in the connection between them.
+- **[[wiki/concepts/learnable-synaptic-delays.md]]** — the network-scale argument for why the delay matrix deserves to be a trained object: zeroing it in an otherwise identical whole-brain model destroys the ultraslow structure and the anticorrelation, so delays carry macroscopic dynamical content and not only per-neuron coincidence content.
+- **[[wiki/concepts/amortized-inference.md]]** — the authors' Bayesian reading of rest: continuous sampling of network configurations is amortisation at the level of *which subnetwork to assemble*, so the cost paid ahead of a query is architectural rather than parametric.
+- **[[wiki/concepts/latent-graph-discovery.md]]** — a hard constraint on the discovery side: the graph recovered from correlations is a function of the observation window, and structure does not determine function even when the structure is known exactly, so an inferred graph plus a navigation rule underspecifies the system's behaviour.
+- **[[wiki/concepts/precision-weighting.md]]** — a second candidate set-point, adjacent to the `C_sens/C_sheet` ratio already on that page: here the quantity to be regulated is distance to the oscillatory-instability line, and being too *stable* is a failure mode, not a safety margin.
+- **[[wiki/entities/medial-prefrontal-cortex.md]]** — MPFC is one of the three DMN components identified structurally (with PCC/precuneus and the medial temporal lobes), and it is functionally coupled to the MTL with no direct white-matter tract between them, so at least one of its strong functional partnerships is indirect.
+- **[[wiki/concepts/population-geometry.md]]** — the geometry this page's manifold is: the flow and the manifold are the deterministic part of the network's state-space structure, and the noise is what makes the manifold observable by sampling it.
+- **[[wiki/concepts/temporal-coding.md]]** — the fast/slow bridge stated three ways: a ~10 Hz carrier whose amplitude modulation *is* the 0.1 Hz signal (model 2), versus 10/40 Hz clusters whose *identity* switches on the slow timescale (models 1, 3) — so the same slow envelope can be an amplitude code or a switching code, and BOLD cannot tell them apart.

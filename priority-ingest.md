@@ -8,7 +8,7 @@
 One INGEST each:
 
 - [x] `deco-2008-dynamic-brain-neural-masses-fields.md` — brain-networks · S · 2008
-- [ ] `deco-2011-resting-state-dynamical-organization.md` — brain-networks · S · 2011
+- [x] `deco-2011-resting-state-dynamical-organization.md` — brain-networks · S · 2011
 - [ ] `cabral-2013-resting-state-network-dynamics.md` — brain-networks · S · 2013
 - [ ] `bijsterbosch-2021-connectome-representations.md` — brain-networks · S · 2021
 - [ ] `li-2022-mechanistic-connectome-generative-models.md` — brain-networks · S · 2022
