@@ -367,7 +367,7 @@ One INGEST each:
 - [x] `talk-nd-small-world-graphs.txt` — brain-networks · X · nd
 - [x] `beer-2007-default-self.md` — default-mode · S · 2007
 - [x] `buckner-2008-default-network-anatomy.md` — default-mode · S · 2008
-- [ ] `menon-2023-default-mode-network-20-years.md` — default-mode · S · 2023
+- [x] `menon-2023-default-mode-network-20-years.md` — default-mode · S · 2023
 - [ ] `azarias-2025-default-mode-network-development.md` — default-mode · S · 2025
 - [ ] `satpute-2026-dmn-hierarchical-generative-model.md` — default-mode · S · 2026
 - [ ] `raichle-2001-default-mode-brain-function.md` — default-mode · F · 2001
