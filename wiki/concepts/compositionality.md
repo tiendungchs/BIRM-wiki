@@ -154,6 +154,27 @@ Three consequences for this page:
 
 ---
 
+## Recombination and vocabulary extension are separately failable, and only the first is trainable
+
+Barrett et al. 2018 ([[wiki/entities/pgm.md]]) run the facet split above on a *visual* benchmark whose abstract content is an explicit symbolic object — a set of triples `[relation, object, attribute]` — so the held-out set can be specified at the level of the abstraction. Eight regimes, one architecture (WReN), all against a measured 22.4% answer-set baseline (chance 12.5%):
+
+| Held out | Test (%) | + symbolic auxiliary loss (%) |
+|---|---|---|
+| Nothing (neutral) | 62.6 | 76.9 |
+| **Pairs** of triples never co-occurring | 41.9 | **56.3** |
+| **Pairs** of attributes never co-occurring | 27.2 | **51.7** |
+| A **triple** (7 of 29) | 19.0 | 20.1 |
+| A relation on an **unseen attribute** (line-type, shape-colour) | 14.4 / 12.5 | 16.4 / 13.0 |
+| The upper half of a **value range** | 17.2 | 15.5 |
+
+Two exports.
+
+**1. The boundary is between recombining seen constituents and acquiring an unseen one, and it is a cliff, not a gradient.** Both pair regimes stay far above the blind baseline; every constituent-novelty regime lands at or below it. A relation the model applies perfectly to the colour of lines is at chance on the colour of shapes — which is Fodor & Pylyshyn's systematicity failing not at recombination but one level down, at the point where a *known* function must accept a *new* argument type. This page's productivity failures (early `<eos>`, `copy-for-length-≤5`) are the same shape in the sequence domain: the operation was learned bound to the argument set it was trained on.
+
+**2. Supervising the symbolic explanation buys recombination and nothing else.** Adding a 12-bit "meta-target" naming which relations, objects and attributes are present (`L = L_target + β·L_meta-target`) nearly doubles the attribute-pair regime and adds ~14 to the triple-pair regime — and moves the four constituent-novelty regimes by ≤ +2.0, one of them negative. So a discrete-symbol decoding pressure makes existing pieces composable; it does not manufacture pieces. That is the strongest available statement of where the loss-slot lever ends, and it is why the wiki's vocabulary-origin open problem below cannot be answered by better supervision on a fixed vocabulary.
+
+---
+
 ## Open problems
 
 - **Coherence has no operational definition.** "Causality is the glue" names the requirement without saying what computes it. The wiki's only mechanised candidate is composition-as-relaxation to a joint free-energy minimum, where a composition that has no low-energy state is simply never built ([[wiki/concepts/predictive-coding-free-energy.md]], gap G22).
@@ -224,3 +245,4 @@ Three consequences for this page:
 - **[[wiki/entities/mlc.md]]** — the counter-experiment to this page's architecture-centred framing: a standard transformer meta-trained over a stream of latent grammars reaches 100% systematicity where the same architecture trained i.i.d. reaches 0%, and its productivity is non-zero exactly where the episode sampler varied length — so the facets are properties of `p(T)` (Lake & Baroni 2023).
 - **[[wiki/entities/arc-vsa-solver.md]]** — a case where the *code* composes and the *search* does not: fixed-width binding permits arbitrary nesting, while the solver's one-operation-per-object restriction forbids chained transforms on a persistent object, so the compositional ceiling sits in the synthesiser rather than the representation.
 - **[[wiki/entities/arc-agi-2.md]]** — a four-way taxonomy of compositional failure authored specifically against systems that already handle single-rule composition: simultaneous interacting rules, sequential state dependence (step `N` requires executing step `N−1`), contextual gating of a rule by a cue, and in-context symbol definition.
+- **[[wiki/entities/pgm.md]]** — the facet split measured on a visual benchmark with the held-out set declared over the abstraction: recombining seen `[relation, object, attribute]` triples costs 20 points, while a relation carried onto an unseen attribute or an unseen value range falls to the answer-set baseline — and a symbolic auxiliary loss moves the first and not the second.

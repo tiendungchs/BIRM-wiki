@@ -14,7 +14,7 @@
 | Generation | Sampled from a hierarchical stochastic image grammar — layout (Center, 2×2Grid, 3×3Grid, Out-InCenter, Out-InGrid, Left-Right, Up-Down) → shapes (circle, square, triangle, pentagon…) → attributes (colour/grey-scale, size, angle, number, position) → row relation (constant, progression, arithmetic) |
 | Size | 70,000 problems: 42,000 train / 14,000 validation / 14,000 test |
 | Human baseline | **84%** mean on the test set (Zhang et al. 2018) |
-| Sibling | PGM — same idea, a different generator |
+| Sibling | PGM — same idea, a different generator, and the one with a primary source in the wiki ([[wiki/entities/pgm.md]]) |
 
 The generator is the point of contrast with [[wiki/entities/arc-agi.md]]: a master program that emits arbitrarily many i.i.d. items is what makes deep-network training possible *and* what sets the benchmark's generalization difficulty near zero for any solver that reverse-engineers it ([[wiki/concepts/skill-acquisition-efficiency.md]]).
 
@@ -96,3 +96,4 @@ Applied to ARC-Kaggle2 (the 2020 Kaggle competition's second-place program, 19% 
 - **[[wiki/concepts/analogical-mapping.md]]** — matrix completion is the psychometric form of the mapping problem, and the measured failure is on exactly the axis that page calls load-bearing: transfer of a relation across a change in the objects and attributes carrying it.
 - **[[wiki/concepts/core-knowledge.md]]** — the concepts probed on the ARC side (*top/bottom*, *boundary*) are instances of the geometry-and-topology prior, and the 8% boundary score is evidence that solving items which *use* a prior does not mean the prior is installed.
 - **[[wiki/entities/conceptarc.md]]** — this page's instrument scaled into a standing benchmark by the same group: 16 concepts × 10 variations × 3 test inputs, and a 415-participant human study that closes the exact caveat recorded above (variations "believed easy for humans", baseline never collected).
+- **[[wiki/entities/pgm.md]]** — the sibling generator with its own primary source, and the measurement that prices this page's answer-set shortcut: PGM builds distractors without perturbing the correct answer, and its context-blind baseline is 22.4% against RAVEN's >90% — plus the axis this page has no version of, a train/test split declared over the abstraction (held-out triples, attributes, value ranges) rather than over pixels.
