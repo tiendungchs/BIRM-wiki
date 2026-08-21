@@ -241,7 +241,7 @@ One INGEST each:
 
 - [x] `raiyan-2026-ai-mathematical-reasoning.md` — neurosymbolic · S · 2026
 - [x] `goodman-2024-probabilistic-programs-language-thought.md` — neurosymbolic · F · 2024
-- [ ] `plate-1993-hrr-analogical-similarity.md` — neurosymbolic · M · 1993
+- [x] `plate-1993-hrr-analogical-similarity.md` — neurosymbolic · M · 1993
 - [ ] `slipchenko-2009-analogical-mapping.md` — neurosymbolic · M · 2009
 - [ ] `rocha-2024-ilp-program-synthesis-arc.md` — neurosymbolic · M · 2024
 - [ ] `zhang-2025-autotom-mental-inference.md` — neurosymbolic · M · 2025

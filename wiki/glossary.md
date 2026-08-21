@@ -6,6 +6,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 
 | Abbrev. | Expansion | Note |
 |---|---|---|
+| HRR | Holographic Reduced Representation | Nested relational structures encoded as fixed-width vectors: bind role to filler by circular convolution, superpose by addition, decode by an approximate inverse ([[wiki/concepts/vector-symbolic-binding.md]]) |
+| VSA | Vector-Symbolic Architecture | The family of representations built from a bind/superpose/unbind algebra over high-dimensional vectors; HRR is the circular-convolution member ([[wiki/concepts/vector-symbolic-binding.md]]) |
+| SME | Structure Mapping Engine | Gentner's alignment search: mapped relations must match, arguments must map consistently, objects map one-to-one — the expensive second stage of analogical retrieval ([[wiki/concepts/vector-symbolic-binding.md]]) |
+| MAC/FAC | Many Are Called / Few Are Chosen | Two-stage analogical retrieval: a cheap surface-feature score over the whole memory, then SME on the survivors ([[wiki/concepts/vector-symbolic-binding.md]]) |
+| LS / AN / SS / FA | Literal Similarity / Analogy / Surface Similarity / False Analogy | The 2×2 similarity taxonomy over shared object attributes × shared higher-order structure, used to grade any structural similarity estimator ([[wiki/concepts/vector-symbolic-binding.md]]) |
 | PCA | Principal Component Analysis | Projection onto the leading eigenvectors of the input correlation matrix; the fixed point of plain Hebbian learning on a linear unit, and of a Hebbian layer with lateral inhibition ([[wiki/concepts/synaptic-plasticity.md]]) |
 | BHN | Binary Hopfield Network | The classical bipolar-state network with symmetric weights and asynchronous threshold updates ([[wiki/entities/hopfield-network.md]]) |
 | LTI | Linear Time-Invariant | A system whose operator does not depend on position in the sequence: the same kernel convolves every step regardless of content. The property that makes [[wiki/entities/s4.md]] trainable as one FFT and that structurally excludes content-dependent reads (copying, binding, retrieval on demand) |
