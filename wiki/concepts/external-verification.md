@@ -55,6 +55,7 @@ The reasoning-model era's actual claim is not that generators got better but tha
 | System | pass@1 / greedy | Vote | Verifier-selected |
 |---|---|---|---|
 | o1, AIME 2024 | 74% (GPT-4o: 12%) | 83% @ 64 | **93%** @ 1000 + learned scorer |
+| *human reference*: AIME 2024 qualifier mean | **≈38%** (5.89 / 5.45 of 15) | — | — |
 | DeepSeek-Prover-V2, miniF2F | ~60% | — | **88.9%** @ 8192 (Lean kernel) |
 | [[wiki/entities/neo-neural-theorizer.md]], 6-step arithmetic programs | 0.019–0.038 | **0.696–0.707** @ 1024 | — |
 | [[wiki/entities/olymmath.md]]-HARD (EN), R1-Distill-Qwen **7B** | 11.1% | 22.0% @ 64 | **74.0%** pass@64 |
@@ -176,3 +177,4 @@ Why it sits above majority vote: the samples do not merely happen to differ, the
 - **[[wiki/entities/math-perturb.md]]** — a failure the ladder is silent on below a proof kernel: every step of the derivation can be locally valid while the derivation answers a problem that was not asked (the model reverts the edited condition, or returns the original question's quantity), so what is missing is a *precondition* check on the method rather than a check on any step.
 - **[[wiki/entities/hle-verified.md]]** — the supply-side audit of the material this ladder's upper rungs consume: benchmark **reference rationales** are majority-invalid where they have been checked (65.9–70.3% invalid in mathematics, biology/medicine and chemistry), and the dominant defects are missing intermediate structure and notation corruption rather than contradiction, so a process reward model trained on them learns to accept exactly the gaps the ladder exists to reject. It also supplies the wiki's cleanest **fail-closed** acceptance test: an LLM adjudicator instructed to "prefer EMPTY over fabrication" and to set `empty_answer` when uncertain.
 - **[[wiki/entities/hle.md]]** — a turn-down in inference budget that the ladder cannot be responsible for: accuracy grows log-linearly in output tokens and reverses past 2^14 with no checker, no candidate set and no selection, which separates Goodhart-on-a-learned-scorer from a per-step-reliability ceiling as causes of the inverted-U (T220).
+- **[[wiki/entities/aime.md]]** — the instrument the first row's 74 → 83 → 93 ladder is measured on, read as an instrument rather than as a number: 15 items per contest (so the ladder's rungs are quoted past the resolution `1/n` supports), a fresh item set every year (so the three rungs are not on a fixed scale across administrations), and a qualifier-population mean of ≈38% that dates the crossing to the GPT-4o → o1 generation.

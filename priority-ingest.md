@@ -62,7 +62,7 @@ One INGEST each:
 One INGEST each:
 
 - [x] `zhai-2026-hle-verified.md` — reasoning-eval · B · 2026
-- [ ] `wikipedia-nd-aime-competition.md` — reasoning-eval · B · nd
+- [x] `wikipedia-nd-aime-competition.md` — reasoning-eval · B · nd
 - [ ] `xu-2024-benchmark-leakage-llms.md` — reasoning-eval · R · 2024
 - [ ] `yuan-2024-llm-shortcut-learning.md` — reasoning-eval · R · 2024
 - [ ] `cloos-2024-baba-is-ai-benchmark.md` — rule-induction · B · 2024
