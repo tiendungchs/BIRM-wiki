@@ -17,7 +17,7 @@ One INGEST each:
 - [x] `hagmann-2008-structural-core-cerebral-cortex.md` — brain-networks · R · 2008
 - [x] `honey-2009-structural-to-functional-connectivity.md` — brain-networks · R · 2009
 - [x] `shine-2016-integrated-network-states-cognition.md` — brain-networks · R · 2016
-- [ ] `schirner-2023-network-structure-decision-making.md` — brain-networks · R · 2023
+- [x] `schirner-2023-network-structure-decision-making.md` — brain-networks · R · 2023
 - [ ] `vohryzek-2024-long-range-connections-brain-dynamics.md` — brain-networks · R · 2024
 - [ ] `koller-2024-connectome-traveling-waves.md` — brain-networks · R · 2024
 - [ ] `alderson-2026-connectome-dynamics-timescales.md` — brain-networks · R · 2026
