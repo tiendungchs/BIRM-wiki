@@ -74,6 +74,21 @@ The source's proposal, kept here because it is the only concrete design in the w
 
 ---
 
+## The split, measured
+
+The page's two stages are ordinarily inseparable in a score. Beger et al. 2025 separate them on [[wiki/entities/conceptarc.md]] by requiring the solver to emit its rule alongside its answer and classifying the rule against the concept the task was authored around ([[wiki/concepts/rule-level-evaluation.md]]). The 2×2 of (rule intended?) × (grid correct?) is the decomposition:
+
+| Cell | Reading in this page's terms | o3, medium + tools |
+|---|---|---|
+| Intended rule, correct grid | Both stages succeeded | 55.0% textual / 20.4% visual |
+| **Intended rule, wrong grid** | **Framing succeeded, optimisation failed** | 2.3% textual / **19.6% visual** |
+| Unintended rule, correct grid | Optimisation succeeded inside a different framing that happens to fit the demonstrations | **15.8% textual** / 5.6% visual |
+| Wrong rule, wrong grid | Neither | 8.8% textual / 32.5% visual |
+
+Two things this does to the page's argument. **It supports the claim in text and complicates it in vision.** In the textual modality the residual framing decision is where the failures concentrate — the model settles on a representation (colours as *ordinal integers*, cells rather than objects, bounding boxes rather than shapes) that reproduces the demonstrations and is not the intended one, and its optimisation inside that representation is near-perfect (rule–grid alignment 98.1%). That is exactly "no criterion decides that a framing is wrong": nothing in the demonstration pairs distinguishes the two framings, so the free-retry channel this page identifies as the benchmark's gift is *silent* on precisely the stage this page says is harder. **In the visual modality the roles invert** — the intended framing is found on 40% of tasks and lost in application, mostly to perception (grid dimensions misread; visual-error rate 49%), which is a stage this page's two-way split does not have a name for and which sits *upstream* of framing rather than downstream.
+
+---
+
 ## Where the framing comes from in each wiki architecture
 
 | Source of the representation | Instances |
@@ -113,3 +128,4 @@ The last row is the gap. The nearest partial mechanisms the wiki holds are [[wik
 - **[[wiki/entities/arc-agi-3.md]]** — the partial delivery: the objective is withheld and the action semantics are latent, so one element of the framing is genuinely constructed by the agent, while the state space (64×64 grid, 16 colours) and the action alphabet's *size* are still supplied.
 - **[[wiki/concepts/objective-identifiability.md]]** — the measurement-side twin: attributing a behaviour to an objective requires the architecture and constraints to be specified, just as attributing a score to intelligence requires knowing who supplied the representation.
 - **[[wiki/concepts/program-induction.md]]** — the reduction that presupposes this page's first stage: a library of primitives *is* a framing, so "the library may not be authored" (G4) is the framing problem stated one level down.
+- **[[wiki/concepts/rule-level-evaluation.md]]** — the only measurement in the wiki that separates this page's two stages: classifying the solver's stated rule against the intended abstraction puts numbers on "framing right, optimisation wrong" (o3 visual, 19.6% of tasks) and "framing wrong, optimisation right" (o3 textual, 15.8%), and shows that the demonstration-pair verifier this page calls the benchmark's free-retry channel cannot see the framing error at all.

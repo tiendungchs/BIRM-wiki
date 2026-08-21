@@ -56,6 +56,21 @@ Summary statistics the paper draws:
 
 **Later scores on this benchmark, for the record.** [[wiki/entities/poe-arc-solver.md]] (Franzen et al. 2025) reports **73.3%** 2-guess accuracy over the 480 tasks, run zero-shot at the hyperparameters tuned on ARC-AGI-1 and with ConceptARC explicitly *excluded* from its training data to avoid conceptual leakage — so it is a clean transfer measurement and not a fit. That closes most of the 40-point human−machine gap this paper opened (humans ~0.91 mean per concept), on the two-guess protocol rather than the paper's per-test-input one, and it is a transduction system with no object parse and no concept vocabulary: the score says nothing about *coverage* of the 16 concepts, which is the quantity this benchmark was built to report. Per-concept numbers are not given, so the discriminability the design buys is unused.
 
+**The 2025 frontier re-run, and the first evaluation to use the concept labels as a *scoring target*** (Beger et al. 2025, `raw/beger-2025-conceptarc-abstract-reasoning-modalities.md` — see [[wiki/concepts/rule-level-evaluation.md]]). All 480 test inputs, `pass@1`, both modalities, with the solver required to state its rule and each rule hand-classified against the concept group's intended abstraction.
+
+| | Textual accuracy | Visual accuracy | Intended rule stated (any grid) | Correct-unintended share of correct rules |
+|---|---|---|---|---|
+| o3, medium + tools | **75.6** | 29.2 | 57.3% t / 40.0% v | **29%** |
+| o4-mini, medium + tools | **77.7** | 25.0 | not classified | — |
+| Gemini 2.5 Pro, medium + tools | 60.4 | 5.8 | 46.1% t / 23.6% v | 22% |
+| Claude Sonnet 4, medium + tools | 55.0 | 6.9 | 57.5% t / 14.4% v | 15% |
+| GPT-4o / Llama 4 Scout / Qwen 2.5 VL 72B | 14.6 / 6.7 / 9.2 | **0.0** for all three | — | — |
+| **Humans** (same 480 items, images) | | **73** | 90.3% of classifiable | **2.7%** |
+
+Four things this adds to the page. **(i)** The 40-point gap this benchmark opened is closed *on accuracy* in the textual modality — and reopened on the quantity the benchmark exists to measure, since a solver at or above human accuracy reaches ~27% of its correct answers by a rule the concept group is not about, against ~8% for humans. **(ii)** The human baseline now has a second, much lower number attached: **73% `pass@1`** on the same items, from an unpublished re-analysis of the 2023 study's own data, against the ~91% mean-per-concept 3-attempt figure this page reports — logged as [[wiki/empirical-tensions.md]] T214. **(iii)** Coverage, the per-concept quantity this design was built for, finally measured: humans cover **476/480** tasks with at least one intended rule; o3 covers 412 (85.8%) in text and 281 (58.5%) in vision; pooling all three frontier models adds only +9 points over the best of them, so their intended-rule failures are **correlated**. **(iv)** The per-concept profile is used as intended and returns two extremes — *Count* (small outputs) where o3 beats humans by 32.3 points in text, and *Clean Up* (reproduce the whole grid minus some cells) where it loses by 46.3 in text and 65.7 in vision. Output-grid **construction cost** is therefore a confound in every score on this page, and nothing separates it from rule discovery.
+
+One corpus defect the re-run found and this page should carry: **task 5 of the *Order* group contains a training demonstration with a misplaced grid cell.** Removing it changes nothing above 0.5 points.
+
 ---
 
 ## The three things this design buys that a task count does not
@@ -149,3 +164,4 @@ These are second-hand but load-bearing for the wiki and appear nowhere else in i
 - **[[wiki/concepts/nameability.md]]** — the LARC numbers this page puts on record (~88% human receiver vs ~12% machine receiver of the same written instruction) are that page's transmission measurement, and its per-task difficulty index would be scorable *per concept* on this benchmark, which nobody has run.
 - **[[wiki/concepts/skill-acquisition-efficiency.md]]** — the prior term `P` is held fixed as in ARC, but the *experience* term is what this benchmark manipulates: 10 instantiations of one concept is the minimum sample at which a claim about `GD` for that concept can be made at all.
 - **[[wiki/entities/poe-arc-solver.md]]** — the highest machine score on this benchmark in the wiki (73.3% 2-guess, zero-shot at ARC-AGI-1 hyperparameters, with ConceptARC deliberately kept out of training), which closes most of the 40-point gap this page opened while reporting only a scalar — the per-concept profile the design exists to produce is not measured.
+- **[[wiki/concepts/rule-level-evaluation.md]]** — the instrument this benchmark's concept labels make possible and that nobody had run on it: classify the solver's *stated rule* against the group's intended abstraction, which converts "coverage of 16 named concepts" from a design intention into a measured quantity (humans 476/480, o3 412/480 in text, 281/480 in vision) and shows that the frontier's textual accuracy overstates its abstraction while its visual accuracy understates it.
