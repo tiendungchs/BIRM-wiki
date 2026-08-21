@@ -260,9 +260,9 @@ One INGEST each:
 
 **Bundle — ARC-AGI 1 (with the cross-generation series overview).** One INGEST pass over all 3 files (~5926 words), in this order.
 
-- [ ] `arcprize-nd-arc-agi-series.md` — arc-benchmarks · X · nd
-- [ ] `arcprize-nd-arc-agi-1-overview.md` — arc-benchmarks · B · nd
-- [ ] `chollet-2024-arc-prize-report.md` — arc-benchmarks · S · 2024
+- [x] `arcprize-nd-arc-agi-series.md` — arc-benchmarks · X · nd
+- [x] `arcprize-nd-arc-agi-1-overview.md` — arc-benchmarks · B · nd
+- [x] `chollet-2024-arc-prize-report.md` — arc-benchmarks · S · 2024
 
 **Bundle — ARC-AGI 2.** One INGEST pass over all 4 files (~10487 words), in this order.
 

@@ -2,7 +2,7 @@
 
 **A benchmark of ~1,000 hand-authored grid-transformation tasks, each specified by ~3 input/output example pairs, designed so that every evaluation task is novel to the *developer* as well as the system, and so that the only knowledge required is an explicitly enumerated set of Core Knowledge priors.**
 
-> **Provenance.** Chollet 2019, *On the Measure of Intelligence* (`raw/chollet-2019-measure-of-intelligence.md`), part III. Numbers and design rationale as of the 2019 release; ARC has been revised since (`ARC-AGI-1/2/3`, queued in `raw/`) and this page describes the original.
+> **Provenance.** Chollet 2019, *On the Measure of Intelligence* (`raw/chollet-2019-measure-of-intelligence.md`), part III, for the design rationale. **Updated with the benchmark's own five-year record**: Chollet, Knoop, Kamradt & Landers 2024, *ARC Prize 2024: Technical Report* (`raw/chollet-2024-arc-prize-report.md`), plus the ARC Prize series and ARC-AGI-1 overview pages (`raw/arcprize-nd-arc-agi-series.md`, `raw/arcprize-nd-arc-agi-1-overview.md`, both undated site material, `(tentative)` where they are the only source). The benchmark was renamed **ARC-AGI-1** when successors appeared; ARC-AGI-2 and -3 are queued separately in `raw/`. This page is ARC-AGI-1 from 2019 to the end of 2024.
 
 The wiki's first benchmark page, and the first artefact built explicitly to satisfy [[wiki/concepts/skill-acquisition-efficiency.md]]'s requirement list.
 
@@ -12,14 +12,16 @@ The wiki's first benchmark page, and the first artefact built explicitly to sati
 
 | Property | Value |
 |---|---|
-| Tasks | 400 training · 400 public evaluation · 200 private evaluation; all unique, disjoint |
-| Per task | ~3.3 demonstration pairs, usually 1 test input |
+| Tasks | 1,000 total, all unique and disjoint. **As of 2024**: 400 public training (easy) · 400 public evaluation (hard) · 100 **semi-private** evaluation (hard, introduced mid-2024) · 100 private evaluation (hard). The 2019 paper's split was 400/400/200 — the 200 was later halved to create the semi-private set |
+| Per task | Two or more demonstration pairs, **median 3**, one or more test inputs |
 | Grid | Symbols from a 10-value alphabet ("colours"), size 1×1 to 30×30, median 9×10 |
 | Output | Constructed from scratch — the solver chooses the output grid's height, width and every cell |
-| Scoring | Exact match, binary, 3 attempts per test input; feedback is correct/incorrect only |
+| Scoring | Exact match, binary; **2 attempts** per test input in competition (the 2019 paper specified 3); feedback is correct/incorrect only |
 | Training set role | Development/validation for the builder, or familiarization with the priors — *not* required; the evaluation set assumes nothing learned from it |
 
 The from-scratch output construction is load-bearing: there is no answer set to discriminate over, so the solver must *produce* the transformation's result rather than recognize it. A multiple-choice version would admit elimination shortcuts.
+
+**Why there are two hidden sets.** The **private** set evaluates standalone submissions running offline (Kaggle: one P100, 12 hours, no internet) and is theoretically leakage-free. The **semi-private** set exists because evaluating a closed commercial API means *sending the tasks to the vendor*, so those 100 tasks are assumed compromised by construction and are used only where that is unavoidable. Public-eval and semi-private scores are reported together, and a submission is called overfit if they differ by more than ±10 absolute points — a cheap, generalizable contamination check any benchmark could adopt.
 
 ---
 
@@ -65,13 +67,87 @@ Fills the placeholder row in [[wiki/concepts/latent-graph-discovery.md]]:
 
 ---
 
-## Results and status (2019)
+## Human baseline
 
-| Result | Note |
+| Sample | Result |
 |---|---|
-| Fully solvable by humans | Every task solved by at least one of three high-IQ subjects working independently, without practice or verbal instruction. Most solved on first try |
-| Not approachable by any machine learning technique, including deep learning | Chollet's claim at publication — the evaluation tasks do not appear in training, and few-shot broad generalization is what deep learning does not do |
-| No large-sample human data | Validity not established; the psychometric standard ARC invokes is not yet met by ARC |
+| 2019, three high-IQ subjects, independently | Every task solved by at least one; most on first try, no practice, no verbal instruction |
+| Private evaluation set, two testers | **97% and 98%**; together 100% |
+| Public evaluation set, Mechanical Turk, 10 workers per task (NYU study, secondary) | **99%** of tasks solved by at least one worker |
+
+The "no large-sample human data" limitation Chollet listed in 2019 is partly closed by the NYU study — but note what it measures: *union over ten workers*, not per-subject rate, so it establishes solvability, not difficulty calibration. The report's own admission is that the four subsets are **not drawn from a consistent human difficulty distribution**, which makes public-eval and private-eval scores not directly comparable.
+
+---
+
+## Five-year record: what actually moved
+
+| Year | State of the art (private eval) | What produced it |
+|---|---|---|
+| 2019 | — | Benchmark released. GPT-3 by direct prompting: **0%** on public eval |
+| 2020 | **20%** (icecuber, Kaggle) | Brute-force search over a DSL. **No deep-learning entry above 1%** |
+| 2020, post-hoc | *49%* solved by at least one entry | Ensembling all 2020 submissions — see Flaws below |
+| 2021–2023 | 33% | Improved DSLs (notably Hodel's). Advent of GPT-3/3.5/4 changed nothing |
+| 2024 (ARC Prize) | **55.5%** (MindsAI, not open-sourced) · 53.5% (ARChitects, 1st place) | Test-time training; LLM-guided program synthesis; ensembles of both |
+| Dec 2024 | 75% (low compute) → **87.5%** (high compute) on semi-private, o3-preview `(tentative — vendor-reported)` | The first Large Reasoning Model. ARC-AGI-1 was the benchmark that isolated the arrival of test-time reasoning |
+
+**The interpretive claim the report makes, and it is the one worth carrying:** ARC-AGI-1 stayed near-flat through a **~50,000× scale-up of LLM pretraining**. If a benchmark's score is insensitive to four orders of magnitude of the field's dominant lever, either the benchmark measures nothing or the lever does not touch what it measures — and every other benchmark of the period moved. This is [[wiki/concepts/skill-acquisition-efficiency.md]]'s unlimited-experience channel closed empirically rather than by argument.
+
+---
+
+## What the top approaches are
+
+Three families, and the report's finding is that the first two are complementary rather than competing ([[wiki/concepts/test-time-training.md]]).
+
+| Family | Mechanism | Best reported |
+|---|---|---|
+| **Brute-force DSL search** | Exhaustive enumeration over a hand-built DSL | 40% private (alijs), still competitive in 2024 |
+| **LLM-powered program generation** | Prompt an LLM for thousands of candidate Python programs per task, run them on the demonstration pairs, keep what fits; iteratively debug near-misses (Greenblatt, GPT-4o) | 42–43% |
+| **LLM-guided DSL search** | Use the LLM to prune/steer branching inside a DSL rather than to emit whole programs (Ouellette) | Paper award |
+| **Test-time training (transduction)** | Fine-tune on the task's own demonstration pairs, predict the output grid directly | 53.5–55.5% |
+| **Ensemble of induction + transduction** | Both, union of solutions | **Every** 2024 top score |
+
+Two facts constrain any solver design here:
+
+- **Induction-only ≈ 40%, transduction-only ≈ 40%, and they solve different tasks.** Only the ensemble competes for state of the art (Li et al., 1st-place paper).
+- **Deep-learning-guided program synthesis does not yet beat brute force** — both are around 40% at comparable budgets. The advertised advantage of learned search is unrealized on this benchmark.
+
+The one approach the report names as untried and expects to work: **specialist deep models guiding the branching decisions of a discrete search**, AlphaProof-style. That is [[wiki/concepts/amortized-inference.md]] applied to the search tree rather than to the hypothesis, and it remains the field's open bet.
+
+---
+
+## Score is not a property of an approach
+
+The report's sharpest methodological claim, and it generalizes past ARC: **any search-based method scores higher with more compute, so a score attaches to (approach, compute budget) and never to an approach alone.** Its worked estimate: Greenblatt's method would reach ~85% at roughly **10⁸ generated-and-evaluated programs per task** — a multi-million-dollar bill for 100 tasks.
+
+Against which the same report reports the opposite: the two 2024 leaderboards differed by **~1,000× in compute per task** ($10 of Kaggle compute vs. up to $10,000 in API credits) and their top scores landed within 0.1 points of each other (53.5% vs. 53.6%). Logged as [[wiki/empirical-tensions.md]] T204 — the two claims are not formally contradictory (one is about the shape of the tail, the other about the current frontier) but they license opposite research bets, and the report draws the optimistic one: *"algorithmic improvements towards AGI hold significant power and massive compute may not be necessary."*
+
+Consequence for the wiki: every benchmark row here needs an inference-budget column, which is the same discipline [[wiki/concepts/external-verification.md]] extracts from the mathematics literature (report pass@1, majority@`k`, the selection mechanism, and the token budget).
+
+---
+
+## Known flaws of ARC-AGI-1
+
+The report's own list, all of which bear on the wiki's use of ARC as its G17 instrument.
+
+| Flaw | Evidence | Consequence |
+|---|---|---|
+| **A large fraction of the set is brute-forceable** | 49% of the private eval set was solved by *some* 2020 submission, all of them brute-force DSL search | Roughly half the benchmark "does not carry a useful signal towards AGI". Any score below ~50% may be measuring coverage of the tractable half — [[wiki/empirical-tensions.md]] T205 |
+| **The private set is being eroded by measurement** | 100 tasks, unchanged since 2019, with ~10,000 scores reported across four competitions; each score leaks a small amount of information about hidden task content | Developer-blindness has a **half-life proportional to leaderboard queries**. The fix adopted for ARC-AGI-2: separate the leaderboard set from the final-scoring set, and enlarge both |
+| **Inconsistent human difficulty across subsets** | Anecdotal, per the report | Cross-subset score comparisons are not licensed |
+| **Only 100 private tasks** | — | Sampling noise of several points is structural |
+
+**Reading.** These are not incidental defects: the first is Chollet's own 2019 "a shortcut may exist that clears the set without abstraction" objection *confirmed at 49%*, and the second is a failure mode intrinsic to the developer-aware design — a hidden set is a depleting resource, and nothing in [[wiki/concepts/skill-acquisition-efficiency.md]]'s checklist prices its depletion.
+
+---
+
+## Status of the 2019 claims
+
+| 2019 claim | 2024 status |
+|---|---|
+| Not approachable by any ML technique | **Falsified in the strong form.** Approachable, unsolved: 55.5% vs. an 85% target, against ~98% human |
+| Deep learning cannot do it | Holds for *frozen* deep learning: no static-inference transduction solution exceeds 11% |
+| A public competition will surface any shortcut fast | **Vindicated** — the shortcut (brute-force reach) was surfaced by ensembling the first competition's entries |
+| Validity not established | Still open; no demonstrated predictiveness outside ARC |
 
 ---
 
@@ -92,7 +168,7 @@ Chollet frames ARC as a **program synthesis** benchmark, and sketches the solver
 
 - **Generalization difficulty is not quantified** — for the set or per task. The benchmark built to operationalize `GD` does not measure it. Proposed fix: use human success rates as an empirical proxy and correlate with an AIT approximation, once solvers exist to supply one.
 - **Validity not established** — no large-sample human study, no demonstrated predictiveness for anything outside ARC.
-- **Scale and diversity may be too small** — 1,000 tasks with conceptual overlap leaves room for a shortcut that clears the set without abstraction. Mitigation is a public competition on the private set: if a shortcut exists, a competition surfaces it fast.
+- **Scale and diversity may be too small** — 1,000 tasks with conceptual overlap leaves room for a shortcut that clears the set without abstraction. Mitigation is a public competition on the private set: if a shortcut exists, a competition surfaces it fast. **Confirmed, and the mitigation worked**: the 2020 competition's pooled entries reached 49% by brute force, which is the shortcut arriving on schedule and being detected by exactly the mechanism proposed (Chollet et al. 2024).
 - **Binary, close-ended scoring** — 0 or 1 per task, no partial credit. The proposed better format is *interactive*: the solver requests new test inputs at will, proposes, receives feedback, iterates, and is scored on the *amount of interaction* needed. That is a direct measurement of `E` (experience) rather than of skill.
 - **The priors may be wrong** — the actual inventory of innate human knowledge is unsettled ([[wiki/concepts/core-knowledge.md]] open problems), and whether the four systems are faithfully captured in grid form is untested.
 
@@ -135,3 +211,4 @@ The column that matters is the first: it is the only one no benchmark before ARC
 - **[[wiki/entities/corethink-compositional-reasoner.md]]** — this benchmark's successor version (ARC-AGI-2, `pass@2`) attacked with no training at all, and a measurement of where the difficulty sits now: a 22-item authored pattern menu plus cross-example consensus lifts a frozen LLM from 15–18% to 24.4%, and the residual failures are the compositional tasks the menu cannot name.
 - **[[wiki/entities/arc-vsa-solver.md]]** — the first attack on this benchmark that supplies two of its four declared priors as properties of the *representation format* (geometry and number arrive with the SSP encoding, where binding is translation) rather than as DSL entries; also the source of the wiki's sharpest price on demonstration-consistency, reporting demonstrations and queries separately (48.8 → 10.8 on Train, 33.5 → 3.0 on Eval).
 - **[[wiki/entities/mlc.md]]** — the same task shape (infer a latent transformation from a handful of demonstrations, apply it to a held-out input) with an episode generator supplied, which is exactly what ARC withholds: MLC's result is an argument that part of ARC's difficulty is the absence of a `p(T)` to meta-train on, and its 100% error on length-extrapolation splits is the warning that a sampler buys only the facets it varies.
+- **[[wiki/concepts/test-time-training.md]]** — the technique this benchmark produced and the measurement that makes it load-bearing: no frozen-inference transduction solution exceeds 11% here, while fine-tuning on each task's own demonstration pairs reaches 53.5%, so the benchmark's five-year resistance is specifically a resistance to *static* deep learning (Chollet et al. 2024).
