@@ -385,7 +385,7 @@ One INGEST each:
 - [x] `rikhye-2018-thalamic-switching-cognitive-flexibility.md` — thalamocortical · R · 2018
 - [x] `neske-2025-higher-order-thalamic-state-input.md` — thalamocortical · R · 2025
 - [x] `carandini-2005-early-visual-system.md` — visual-cortex · S · 2005
-- [ ] `dicarlo-2012-brain-visual-object-recognition.md` — visual-cortex · S · 2012
+- [x] `dicarlo-2012-brain-visual-object-recognition.md` — visual-cortex · S · 2012
 - [ ] `park-2025-near-random-connections-attention.md` — visual-cortex · R · 2025
 
 ## Wave 13 — learning over time and interpretability
