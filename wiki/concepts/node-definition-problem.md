@@ -103,6 +103,21 @@ Brain–behaviour correlations from small samples are inflated and inconsistent 
 
 ---
 
+## The state index: membership changes while the vertex set stays fixed
+
+> Gao, Gilmore, Alcauter & Lin 2013, Front Syst Neurosci 7:34 (`raw/gao-2013-default-mode-network-visual-task.md`), `N = 19`. See [[wiki/entities/default-mode-network.md]].
+
+Everything above concerns *where the boundaries are drawn*. A second, orthogonal indeterminacy: with the parcellation, the atlas and the seed all held fixed, **which units belong to a named network is a function of the brain state at scan time**. Over four 5 min runs (rest → relaxed task → speeded task → rest), one third of a default-mode map changes class and changes back — precuneus, angular gyrus and cerebellar vermis drop out under external load (core coupling `0.43 → 0.24`), insula/inferior frontal, anterior and middle cingulate join it (`0.05 → 0.34`), and the two rest runs differ on no measure.
+
+Consequences for anything built on a group functional network:
+
+- **A region list carries a hidden state index.** "The default mode network" as usually cited is the resting-state membership; the same fixed vertex set under load gives a partly different list, so a network label is `(atlas, estimator, **state**)` and the third argument is normally suppressed.
+- **The direction of the definitional arrow is not fixed by data.** The source assumes the resting topology is the network and the task topology is transient coupling, then names the changes "desynchronization" and "outside-network integration". The reverse assumption fits the same numbers as a task network that sheds nodes at rest. Nothing in a coupling-only design chooses between them — this is the [[wiki/concepts/objective-identifiability.md]] problem applied to membership rather than to edge weight.
+- **The obvious repair fails.** Refining the parcellation does not help (state-dependence is orthogonal to granularity), and averaging over states manufactures a network that exists in none of them — the same defect as a hard partition over multiplicity, but along time.
+- **For a builder (brainstorm).** If a discovered module's membership is state-conditioned in the substrate, then a system that discovers modules from a stream and *freezes* them has fixed an average. The soft-node prescription above extends to it: membership should be a graded, state-conditioned weight `m_i(s)` rather than an assignment, which is a per-state participation vector — and is what [[wiki/concepts/integration-segregation-balance.md]] already measures without treating it as membership.
+
+---
+
 ## For a builder
 
 - **The vertex set is a hyperparameter with a conservation law attached.** Any system that discovers a graph from a continuous stream is making this choice implicitly (G27, G75). The review's contribution is that the choice is *not* asymptotically innocuous: it does not converge as granularity increases, and the same relational content appears as node-internal structure or as an edge depending on where the line was drawn.
@@ -117,6 +132,7 @@ Brain–behaviour correlations from small samples are inflated and inconsistent 
 
 - **No criterion selects among representations.** Parcellated, overlapping-mode, gradient and time-resolved representations are complementary, and a result obtained in one has no clear implication for another — the review's explicit worry about siloing, and its call for comparative benchmarking before clinical translation.
 - **The optimal amount, paradigm (rest vs task vs naturalistic movie) and field strength of data for individual areal classification is uncharacterised.**
+- **Whether a state-conditioned membership function can be estimated at all from short runs.** The state-dependence result above is a group-level average over 19 subjects and two task levels; nothing shows a per-subject, per-window membership weight is identifiable from data of realistic length.
 - **Is the node count a per-individual variable?** Unanswered, and gated by denoising quality.
 - **Directionality remains out of reach from fMRI.** The temporal slowness of BOLD and regional variability in the haemodynamic response function undermine lag-based causal estimates specifically; Bayesian nets and resting-state dynamic causal modelling are the live hopes. Every connectome in the wiki is therefore **undirected by instrument**, which is a hard limit for a framing whose edges are transitions ([[wiki/concepts/latent-graph-discovery.md]]).
 - **The biological meaning of an fMRI edge is still open** — validating against invasive tracing and invasive recording in non-human primates is the proposed route.
@@ -146,4 +162,4 @@ Brain–behaviour correlations from small samples are inflated and inconsistent 
 - **[[wiki/concepts/anatomical-harmonic-modes.md]]** — a partial escape: the Laplacian decomposition runs on 32,492 surface vertices with no parcellation and the atlas enters only when scoring reconstruction error, so the *basis* is parcellation-free even though every reported number is not (Vohryzek et al. 2024).
 - **[[wiki/concepts/cortical-traveling-waves.md]]** — the parcellation choice stated as a method requirement rather than a caveat: wave analysis needs many approximately equal-area parcels (≥400, here 1000), and instrength topography is the wiki's most pipeline-sensitive quantity — 1760 diffusion pipelines give materially different maps, with tractography algorithm and parcellation the dominant factors (Koller et al. 2024).
 - **[[wiki/concepts/parallel-timescale-streams.md]]** — the problem propagated into a state alphabet: 126 blueprint states are all subsets of seven Yeo networks over 68 Desikan regions assigned by geometric distance, so every occupancy, lifetime and transition statistic there is conditioned on a parcellation and network assignment that nothing learns (Alderson et al. 2026).
-- **[[wiki/entities/default-mode-network.md]]** — the problem deciding a network's membership list: whether precuneus belongs to the default network depends on whether the label names area 7m (visual/motor-planning connections, excluded) or a region extending into areas 29/30 (included).
+- **[[wiki/entities/default-mode-network.md]]** — the problem deciding a network's membership list: whether precuneus belongs to the default network depends on whether the label names area 7m (visual/motor-planning connections, excluded) or a region extending into areas 29/30 (included). The same page supplies this page's temporal case: precuneus and angular gyrus *leave* that network under external load and rejoin it at rest with the atlas unchanged, so membership is state-conditioned as well as atlas-conditioned (Gao et al. 2013).

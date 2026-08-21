@@ -42,6 +42,30 @@ So the default network is simultaneously (i) the system a salience detector swit
 
 ---
 
+## The arbitrator *joins* the network it is said to switch off
+
+> Gao, Gilmore, Alcauter & Lin 2013, Front Syst Neurosci 7:34 (`raw/gao-2013-default-mode-network-visual-task.md`); `N = 19`, four 5 min runs, rest → relaxed task → speeded task → rest, posterior-cingulate-seeded functional connectivity cross-checked by independent component analysis. See [[wiki/entities/default-mode-network.md]] for the full result and its limits.
+
+Measured as functional coupling rather than as activation, this network's three cortical nodes behave as **recruited members** of the default mode network during an externally directed visual classification task:
+
+| Coupling to the stable default core | Rest `R1` | Relaxed task `T1` | Speeded task `T2` | Rest `R2` |
+|---|---|---|---|---|
+| Bilateral insula/inferior frontal, anterior cingulate, middle cingulate | `0.05 ± 0.028` (several pairs negative) | `0.30 ± 0.037` (`p < 0.001`) | `0.34 ± 0.035` | `0.03 ± 0.028` (`p < 0.001`) |
+
+And the size of that increase is the **only** connectivity change in the experiment that predicts **accuracy** (`r = 0.49` / `0.59`, `T1` / `T2`); the concurrent within-network desynchronization predicts reaction time and nothing else.
+
+**Why this is not simply the switching model in a different measure.** A detector that disengages a target does not need to become correlated with it, and the sign here is the opposite of anticorrelation. Three readings, none excluded by the data:
+
+| Reading | Claim | Cost |
+|---|---|---|
+| **Common drive** | Both systems are driven by the same task-demand signal; the correlation is shared input, not communication | Then the coupling statistic says nothing about switching either way, and the accuracy correlation is a demand effect |
+| **Working coalition** | The default core supplies internal-state information to the salience computation (is anything internally urgent?) and reads its output — the two exchange content rather than commanding each other | Requires the salience estimate to range over internal *and* external events, which is what "salience" would have to mean; not tested |
+| **Two regimes with independent signs** | The insula switches the network's *activity* down while raising its *coupling* to the control side — a gain change and a routing change on the same event | Nothing in either source measures activation and coupling in one design well enough to check |
+
+**(brainstorm)** The third reading is the one a builder should take seriously, because it keeps both bodies of evidence and names a design the wiki does not have: **turning a module's output amplitude down and raising its bandwidth to another module are separate operations**, and biology appears to run them together on the same event. Every gating scheme here conflates them — turning a module down turns its influence down.
+
+---
+
 ## Relevance to a reasoning model
 
 - **An arbitrator is a *detector*, not a scheduler (brainstorm).** The architectural content of the triple-network model is that mode assignment is delegated to a system whose only job is estimating behavioural relevance of the current input — not to a policy, not to a task-set signal, not to competition between the modes. That is cheap to build: one scalar salience estimate with two opposed output gains. Every wiki controller instead selects among *externally directed* tasks ([[wiki/concepts/cognitive-control.md]]'s bias signal) and has nothing to say when there is no task.
@@ -59,12 +83,13 @@ So the default network is simultaneously (i) the system a salience detector swit
 | No human causal manipulation | The only interventional evidence is rodent optogenetics, in a species whose default-mode homology is unsettled and which cannot supply the mind-wandering, language and semantic functions the switch is supposed to be gating |
 | What the switch reads | "Salience" is not operationalised in the review; without a definition, the model predicts a switch whenever a switch is observed |
 | Is one detector enough | The default network fractionates into subnetworks with distinct couplings to control networks, so a single scalar switch may be the wrong shape — the mode variable could be per-subnetwork |
+| Whether "switch off" and "couple to" are the same event | This network's nodes become *positively* coupled to the default core under task (≈0 → `0.30–0.34`) and the size of that increase predicts accuracy, while the switching model has the same nodes disengaging it. No design measures activation and coupling together, so the two claims coexist unreconciled (Gao et al. 2013, [[wiki/empirical-tensions.md]] T262) |
 
 ---
 
 ## Connections
 
-- **[[wiki/entities/default-mode-network.md]]** — the system this one is proposed to switch off; that page states the arbitration question (separate controller vs local mutual inhibition) and this page supplies the field's leading answer to it, along with the intracranial-EEG evidence that the deactivation being arbitrated is neuronal.
+- **[[wiki/entities/default-mode-network.md]]** — the system this one is proposed to switch off; that page states the arbitration question (separate controller vs local mutual inhibition) and this page supplies the field's leading answer to it, along with the intracranial-EEG evidence that the deactivation being arbitrated is neuronal. The counter-measurement is on this page: during an external task these nodes join the default core as coupled members rather than leaving it, and that joining is what indexes accuracy.
 - **[[wiki/concepts/cognitive-control.md]]** — both describe a control layer that biases rather than routes, but that page's controller selects among externally directed task sets and this one selects *whether the system is externally directed at all*, which is the level above it.
 - **[[wiki/concepts/integration-segregation-balance.md]]** — the switch is a concrete driver for the axis that page measures: an event-driven, anatomically localised cause of a segregation/integration change, where that page's driver candidate is diffuse ascending neuromodulatory gain.
 - **[[wiki/concepts/priority-map.md]]** — salience detection is the same quantity a priority map computes; this page is the claim that the map's output is also used to assign the internal/external mode, not only to select a target.
