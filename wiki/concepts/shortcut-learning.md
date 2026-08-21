@@ -181,6 +181,25 @@ The instruments above need a human rater, a declared intended rule, or a control
 
 ---
 
+## The fourth cheap instrument: a shortcut installed by logical conjunction
+
+The three above rewrite the item and must then *establish* that the answer survived — GSM-Plus needed human revision on 18.85% of its drafted variants, MATH-Perturb needs two expert rewrites. **Conjoining the source text with a universally true statement removes that cost entirely** (Yuan et al. 2024, [[wiki/entities/shortcut-suite.md]]): if `q ∧ s ≡ q ∧ ⊤ ≡ q`, the label is preserved by a theorem about `∧` rather than by a rater, and the item now carries two sufficient mappings to the label — the semantic relation `x → l` and the injected cue `s → l`. The drop *is* the share of the decision resting on the cue. Three of the six shortcuts in that suite are a string concatenation.
+
+What it buys that the rewrite instruments do not:
+
+- **A content-identical positional control.** Append the same tautology at four sites (premise/hypothesis × start/end) and everything but the insertion point is held fixed, so whatever moves cannot be semantics. The lowest score usually falls when the filler is *prepended to the premise* (Gemini-Pro 50.7 vs 62.8; LLaMA2-70B 51.8 vs 62.0) — relevance allocation is primacy-biased. Majority pattern, not a law: GPT-3.5-Turbo inverts it on the premise.
+- **`E`/`¬E` reported separately, which catches a constant classifier.** Under few-shot ICL, ChatGLM3-6B answers `entailment` on **100.0 / 0.0** for all three HANS heuristics and LLaMA2-Chat-70B on 100.0 / 3.6; a balanced mean would report both as chance-level competence rather than as the absence of any decision rule.
+- **A label-free chain diagnostic.** The **Internal Consistency Score** — fraction of chain-of-thought traces with no pair of steps the NLI classifier scores as contradictory — sits below 50% for most models and *collapses on the shortcut-answering subset specifically* (Lexical Overlap `¬E`: 4.1–11.3 against 20–45 on the standard set). It needs no labels, no shift, no rater and no declared invariance, which is less than any other instrument here requires.
+- **Overconfidence localised.** Self-reported confidence rarely drops below 60% and the confidence–accuracy gap is *wider on the shortcut arm than on the matched standard arm* — so miscalibration is conditional on shortcut availability rather than a uniform offset.
+
+**And the same negative result as GSM-NoOp, obtained by the manipulation GSM-Symbolic did not run.** Demonstrations drawn from the *shortcut-laden distribution itself* recover most of the damage that mismatched demonstrations do (GPT-3.5-Turbo on Constituent `¬E`: 40.2 zero-shot → 9.3 with MultiNLI shots → 35.0 with matched shots) and still never reach zero-shot. Three benchmarks now agree that in-context examples contribute zero or negative amounts to shortcut resistance, which places the relevance-selection defect below the in-context-learning layer in a second task family.
+
+**Its cost is realism.** `and red is red` repeated five times is a conspicuous distractor where GSM-NoOp's clause looks pertinent, so this construction buys legibility at the expense of the harder test. And its one non-tautological row — Bible-English style transfer — is the only one whose label preservation is not a theorem, so a Style drop may partly measure the transfer model.
+
+**Scale is not a defence and its sign depends on the prompt.** Under few-shot ICL, LLaMA2-Chat `¬E` accuracy falls monotonically with parameter count (Lexical Overlap 75.3 → 48.5 → 3.6 for 7B → 13B → 70B) while Standard accuracy rises; under CoT the ordering reverses ([[wiki/empirical-tensions.md]] T228).
+
+---
+
 ## Routes beyond shortcuts
 
 | Route | Mechanism | Relation to the framing |
@@ -281,3 +300,5 @@ The instruments above need a human rater, a declared intended rule, or a control
 - **[[wiki/concepts/certification-instruments.md]]** — this page states the problem the whole inventory exists to detect (shortcut and intended rule equally consistent with the observations) and supplies two of its instruments, `I1` (controlled-shortcut datasets) and `I10` (concept-based evaluation).
 - **[[wiki/concepts/human-baseline.md]]** — the concept-variation instrument's standing weakness is a missing baseline — variations hand-authored, "believed easy for humans", never measured — and ConceptARC closing it is what turned the instrument into a standing benchmark.
 - **[[wiki/concepts/benchmark-contamination.md]]** — the limiting case of this page's problem: the cheapest rule consistent with the observations is *retrieve the answer*, which no i.i.d. metric can see, and which is why the cheap o.o.d. instruments listed here (template re-instantiation, named perturbations) double as contamination tests — and why a robustness drop and a leakage signal are the same measurement read twice.
+
+- **[[wiki/entities/shortcut-suite.md]]** — supplies this page's cheapest construction: conjoin the premise with a universally true statement, so label preservation is a theorem about `∧` and a controlled shortcut costs a string concatenation rather than an expert rewrite; plus a content-identical positional control, a label-free intra-chain contradiction rate that collapses on the shortcut-answering subset, and a confidence–accuracy gap that widens where a shortcut is available.
