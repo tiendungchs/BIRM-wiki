@@ -82,9 +82,36 @@ The last row is the one to steal. Learning-to-learn occurring **at multiple leve
 
 ---
 
+## The outer loop can buy a *competence*, not just a speed-up
+
+Every instance above uses meta-learning to make adaptation cheap. Lake & Baroni 2023 ([[wiki/entities/mlc.md]]) use it to make a behaviour *exist at all*: a 1.4M-parameter seq2seq transformer trained over 100,000 episodes — each a different randomly generated **interpretation grammar**, never observed, inferable only from 14 in-context study examples — reaches 100% exact-match systematic generalization on a task the identical architecture scores **0% on in 10/10 runs** when trained on the same examples as a static corpus.
+
+| Lever | Setting |
+|---|---|
+| `p(T)` | A hand-written **meta-grammar**: sample 4 primitive rewrite rules (random symbol pairing without replacement) + 3 function rules (name symbol, arity 1–2, argument type `u` = primitives only vs `x` = arbitrary string, body an arbitrary ≤8-symbol mix of the arguments, evaluated recursively) |
+| Inner loop | In-context, weights frozen at test, no task-specific parameters |
+| Auxiliary objective | Each study *input* is also passed as a query — an identity-match copy task solved jointly with generalization, and reported as necessary for optimization to work |
+| Leakage control | Validation grammars must differ from every training grammar **under any permutation of rule order**, and the held-out gold grammar additionally under any permutation of symbol assignments |
+
+Three exports:
+
+**1. `p(T)` gets its first concrete generator in the wiki, and it is cheap.** A meta-grammar — a generator of task generators — costs a few dozen lines and answers this page's first open problem in one domain. It is still authored, so the third-level recursion is unresolved, but the recursion now has a worked base case.
+
+**2. Any static corpus can be converted into a task distribution by permutation.** For SCAN and COGS, MLC's episodes are made by permuting content-word meanings within lexical classes per episode, leaving functional words (`twice`, `around`, `after`) stable. This is the **slow-W / fast-M split imposed by the sampler**: whatever the permutation destroys must be inferred in-context, whatever it leaves alone may live in the weights. Nothing else in the wiki lets a designer place that boundary directly.
+
+**3. An inductive bias can be installed *at a measured rate*.** 80% of queries are paired with the grammar's algebraic output and 20% with a human-like heuristic, the ratio set to the measured human accuracy of 80.7%. Meta-learning is used here as hierarchical Bayes with neural expressive power — reverse-engineering a prior rather than tuning one ([[wiki/entities/hbtom.md]] is the conjugate-closed-form version of the same two-level shape).
+
+---
+
 ## The knowledge-boundedness limit
 
 The inner learner adapts only within the envelope the outer loop sampled. `p(T)` is a hard boundary: a family the outer loop never saw is not "few-shot hard", it is out of scope. Any claim that a meta-learned system generalizes structurally has to specify the task distribution it was trained over.
+
+**The limit now has a precise two-level statement and a measurement** (Lake & Baroni 2023):
+
+> Meta-learning succeeds when generalization makes a new episode **in-distribution with respect to the training episodes**, even when the specific test items are out-of-distribution with respect to the study examples **within** the episode. Meta-learning alone will not let a standard network generalize to episodes that are themselves out-of-distribution with respect to those presented during meta-training.
+
+Two nested notions of "out of distribution", and only the inner one is bought. The measurement is the cost of the outer one: the same method that scores 77.8% on longer-than-trained outputs in the instruction task — where episodes varied length — scores **100% error** on SCAN's length split and on three COGS structural types, where the episode transform was a symbol permutation that never varied structure. So `p(T)` does not merely bound *how far* the inner learner generalizes; it decides **which kind** of generalization the system has at all, and no procedure here audits that coverage ([[wiki/architectural-gaps.md]] G66).
 
 **(brainstorm)** This makes the wiki's target *not* "better meta-learning" but a **third level**: the outer loop's task distribution should itself be discoverable rather than given. That is the same recursion as the rewrite-graph in hardness source 6, and the same problem as gap G9 — two levels suffice while the family is fixed.
 
@@ -94,7 +121,8 @@ The inner learner adapts only within the envelope the outer loop sampled. `p(T)`
 
 ## Open problems
 
-- **Where does `p(T)` come from?** Every result above assumes a hand-built task distribution; self-generated curricula are the unaddressed half.
+- **Where does `p(T)` come from?** Every result above assumes a hand-built task distribution; self-generated curricula are the unaddressed half. The wiki now has one worked generator — a meta-grammar sampling latent interpretation grammars ([[wiki/entities/mlc.md]]) — and a demonstration that a static corpus can be converted into one by within-class symbol permutation, but both are authored and neither audits its own coverage.
+- **Nothing measures what a task sampler covers.** A held-out set drawn from the same sampler cannot see the hole: MLC's validation episodes are new grammars and pass, while an entire facet (length extrapolation) is absent from the sampler and fails at 100%. Coverage of `p(T)` is a design object with no instrument (G66).
 - **Does the inner loop learn structure or select among encoded rules?** Recurrent inner learners are not shown to acquire *new* transition rules.
 - **Weights vs. activity for the fast level** — CLS and meta-RL disagree, and they may be complementary (episodic fast-M for bindings, recurrent fast-M for policies).
 - ~~**Meta-learning the plasticity rule** rather than the initialization is a distinct, less-explored branch.~~ **Now paged:** [[wiki/concepts/meta-optimized-plasticity.md]] (Schmidgall et al. 2023). It inherits this page's knowledge-boundedness limit and adds a sharper version — the *larger* the rule search space, the *worse* the discovered rule generalizes, so the branch's expressiveness is in direct tension with its transfer.
@@ -139,3 +167,4 @@ The inner learner adapts only within the envelope the outer loop sampled. `p(T)`
 - **[[wiki/entities/coin-model.md]]** — the two-level split expressed as a prior rather than as an optimisation loop: a shared `β` across contexts with per-context `π_j`, under a hierarchical Dirichlet process.
 - **[[wiki/entities/tolman-eichenbaum-machine.md]]** — an outer loop over an environment family shaping a fast inner binder whose inner step is a memory write rather than a gradient step.
 - **[[wiki/concepts/neuromodulatory-metaparameters.md]]** — the same job — setting the parameters that govern how the inner learner learns — done by feedback instead of by an outer loop: no task distribution, no episodes, no gradient through the inner learner, with `γ` set from the variance of the TD error, `α` from its sign oscillation and `β` from the value estimate, so the setting tracks non-stationarity inside one lifetime. The natural composition is to meta-learn the *gains* of those control laws rather than the metaparameters themselves (Doya 2002).
+- **[[wiki/entities/mlc.md]]** — the case where the outer loop buys a structural competence rather than a speed-up (0% → 100% systematic generalization with the architecture unchanged), the wiki's first concrete `p(T)` generator, and the sharpest statement of this page's boundedness limit: episodes in-distribution, items out-of-distribution, and a facet the sampler never varied failing at 100%.

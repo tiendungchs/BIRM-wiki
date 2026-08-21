@@ -252,7 +252,7 @@ One INGEST each:
 - [x] `hupkes-2020-compositionality-decomposed.md` — analogy-abstraction · F · 2020
 - [x] `gentner-1991-macfac-similarity-retrieval.md` — analogy-abstraction · M · 1991
 - [x] `forbus-1995-macfac-similarity-retrieval.md` — analogy-abstraction · M · 1995
-- [ ] `lake-2023-meta-learning-compositionality.md` — analogy-abstraction · M · 2023
+- [x] `lake-2023-meta-learning-compositionality.md` — analogy-abstraction · M · 2023
 - [ ] `lake-2023-meta-learning-compositionality-si.md` — analogy-abstraction · M · 2023
 - [ ] `bernardi-2020-geometry-of-abstraction.md` — analogy-abstraction · R · 2020
 
