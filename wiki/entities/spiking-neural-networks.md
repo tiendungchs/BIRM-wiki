@@ -56,6 +56,24 @@ The limitation "weight optimization is the central open problem" resolves into f
 
 ---
 
+## How many of these units a function costs
+
+> Maass 1997, *Networks of Spiking Neurons: The Third Generation of Neural Network Models* (`raw/maass-1997-spiking-neurons-third-generation.md`) — the origin of the "generations" framing and the only rigorous statement in the wiki of what this substrate buys. Full treatment in [[wiki/concepts/circuit-size-separation.md]].
+
+| Function | Spiking units | Threshold gates | Sigmoidal hidden units |
+|---|---|---|---|
+| `CD_n` — coincidence detection (`∃i: x_i = y_i = 1`) | **1**, delays only, all weights 1, noise-robust | `≥ n/log(n+1)` | `Ω(n^{1/2})` piecewise-polynomial, `Ω(n^{1/4})` sigmoid |
+| `ED_n` — element distinctness (`∃i≠j: x_i = x_j`) | **1**, equal delays, temporal coding | `Ω(n log n)` on the first hidden layer | `≥ n − 1` |
+| `ED′_n` — the dendritically realistic version (six EPSPs synchronous across two blocks of three adjacent synapses) | **1** | — | `≥ 1663` at `n = 10 000` synapses |
+
+**Three things this changes on this page.** First, the substrate's proven advantage is **unit count**, not accuracy — and no benchmark in the tables above reports units-to-competence. Second, the advantage is not expressibility: spiking neurons with piecewise-linear postsynaptic potentials simulate any `s`-gate threshold circuit on real-valued input in `O(s)` neurons and approximate any continuous `F: [0,1]^n → [0,1]^k` with **one hidden layer**, so the two classes are mutually simulable and only the constants differ ([[wiki/empirical-tensions.md]] T234). Third, all of it is cashed in **linear temporal coding** (`x_i` ↦ firing time `T_in − x_i·c`), where Eq. 1 makes a firing time an affine function of a weighted sum — so weights keep their generation-1/2 meaning, and the code keeps time-to-first-spike's need for an onset reference ([[wiki/architectural-gaps.md]] G77).
+
+**Postsynaptic-potential shape is a hard boundary inside this substrate.** Rectangular pulses (type A — what pulse-stream neuromorphic hardware natively emits) *cannot* simulate the 3-gate threshold circuit computing `x₁ + x₂ ≤ x₃` on `[0,1]³` at **any** network size or runtime; triangular ones (type B) do it in `O(s)`. The dividing capability is that a continuous PSP shifts a firing time continuously. Type B pays for it with a **synchronization defect**: the slope of `P_v(t)` depends on how many EPSPs arrived, so a layer fed a synchronized boolean volley does not fire synchronously, and multi-layer boolean simulation needs an explicit re-synchronization stage between layers — one that appears in no size bound and in no model on this page.
+
+**The motivating budget argument, which the review-based rows above only gesture at.** Human visual categorization completes in 100 ms over ≥10 synaptic stages (~10 ms per stage), a single visual cortical area completes in 20–30 ms, and the neurons involved fire below 100 Hz — so 20–30 ms is what it costs merely to *sample* one rate. The case against rate coding here is a timing budget, not a plausibility appeal.
+
+---
+
 ## Supervised learning directly on spike trains
 
 The unsolved sub-problem is prior to credit assignment: **what is the error between a desired and an observed spike train?** Six answers, and they reduce to two tricks.
@@ -160,3 +178,4 @@ The unsolved sub-problem is prior to credit assignment: **what is the error betw
 - **[[wiki/entities/arc-vsa-solver.md]]** — the substrate claim carried by the vector-symbolic line: the same bind/superpose algebra is implementable in spiking neurons (Neural Engineering Framework, Spaun), which is what "cognitively plausible" is doing in that solver's argument — though the solver itself is not spiking.
 - **[[wiki/concepts/spike-encoding-schemes.md]]** — the input stage this page's architecture table leaves blank, and the reason two of its rows need re-reading: the conversion route's accuracy lead belongs to the **count rate** code specifically (the only scheme equivalent to a ReLU activation), while the same converted networks re-coded as time-to-first-spike or phase preserve accuracy at fewer spikes and lower latency — so code and training route are separable choices the literature has been varying together — which is also why no published accuracy comparison can arbitrate between codes ([[wiki/empirical-tensions.md]] T232; Auge et al. 2021).
 - **[[wiki/concepts/spike-frequency-adaptation.md]]** — the one edit to this page's LIF unit that moves its own numbers: an activity-dependent threshold gives the LSNN row its LSTM-matching sequential-MNIST and TIMIT results and a 1200 ms store-and-recall, it supplies a slow path that mitigates the vanishing gradient this substrate otherwise suffers, and at network level it costs a constant `+11` to `+19` arithmetic operations that does not scale with fan-in (Ganguly et al. 2024).
+- **[[wiki/concepts/circuit-size-separation.md]]** — the only rigorous account of what this substrate buys, and a correction to how this page states it: the proven advantage is `Ω(n)` fewer *units* on coincidence-type functions (`≥1663` sigmoidal hidden units for what one neuron does at 10,000 synapses), not a function a rate network cannot express — and postsynaptic-potential shape turns out to be a hard boundary, with rectangular pulses unable to simulate a 3-gate threshold circuit on analog input at any size (Maass 1997).
