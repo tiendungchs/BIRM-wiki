@@ -8,7 +8,7 @@
 One INGEST each:
 
 - [x] `tavanaei-2019-deep-learning-snn.md` — spiking-neuromorphic · S · 2019
-- [ ] `auge-2021-snn-encoding-techniques.md` — spiking-neuromorphic · S · 2021
+- [x] `auge-2021-snn-encoding-techniques.md` — spiking-neuromorphic · S · 2021
 - [ ] `ganguly-2024-spike-frequency-adaptation.md` — spiking-neuromorphic · S · 2024
 - [ ] `maass-1997-spiking-neurons-third-generation.md` — spiking-neuromorphic · F · 1997
 - [ ] `maass-2002-liquid-state-machine.md` — spiking-neuromorphic · F · 2002
