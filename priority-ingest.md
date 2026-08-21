@@ -20,12 +20,12 @@
 
 **Bundle — ARC-AGI 3.** One INGEST pass over all 6 files (~16893 words), in this order.
 
-- [ ] `arcprize-nd-arc-agi-3-overview.md` — arc-benchmarks · B · nd
-- [ ] `arcprize-2026-arc-agi-3-paper.md` — arc-benchmarks · B · 2026
-- [ ] `arcprize-2026-arc-agi-3-data.md` — arc-benchmarks · B · 2026
-- [ ] `arcprize-2026-arc-agi-3-leaderboard.md` — arc-benchmarks · X · 2026
-- [ ] `arcprize-2026-kaggle-competition-overview.md` — arc-benchmarks · X · 2026
-- [ ] `arcprize-2026-kaggle-competition-rules.md` — arc-benchmarks · X · 2026
+- [x] `arcprize-nd-arc-agi-3-overview.md` — arc-benchmarks · B · nd
+- [x] `arcprize-2026-arc-agi-3-paper.md` — arc-benchmarks · B · 2026
+- [x] `arcprize-2026-arc-agi-3-data.md` — arc-benchmarks · B · 2026
+- [x] `arcprize-2026-arc-agi-3-leaderboard.md` — arc-benchmarks · X · 2026
+- [x] `arcprize-2026-kaggle-competition-overview.md` — arc-benchmarks · X · 2026
+- [x] `arcprize-2026-kaggle-competition-rules.md` — arc-benchmarks · X · 2026
 
 One INGEST each:
 
