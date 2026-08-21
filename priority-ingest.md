@@ -39,7 +39,7 @@ One INGEST each:
 - [x] `kapoor-2022-conscious-transitions-pfc.md` — consciousness-global-workspace · R · 2022
 - [x] `dwarakanath-2023-prefrontal-bistability-consciousness.md` — consciousness-global-workspace · R · 2023
 - [x] `ferrante-2025-gnwt-iit-adversarial-testing.md` — consciousness-global-workspace · R · 2025
-- [ ] `rikhye-2018-thalamic-switching-cognitive-flexibility.md` — thalamocortical · R · 2018
+- [x] `rikhye-2018-thalamic-switching-cognitive-flexibility.md` — thalamocortical · R · 2018
 - [ ] `neske-2025-higher-order-thalamic-state-input.md` — thalamocortical · R · 2025
 - [ ] `carandini-2005-early-visual-system.md` — visual-cortex · S · 2005
 - [ ] `dicarlo-2012-brain-visual-object-recognition.md` — visual-cortex · S · 2012
