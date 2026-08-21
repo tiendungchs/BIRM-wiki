@@ -149,8 +149,27 @@ Binocular rivalry is the paradigm that isolates this page's claim from every alt
 
 ---
 
+## The admission event, measured — and it fires with no request
+
+> Dwarakanath et al. 2023, Neuron 111(10):1666–1683.e4 (`raw/dwarakanath-2023-prefrontal-bistability-consciousness.md`). Same preparation as the row above, one level down: local field potentials from the same macaque ventrolateral prefrontal arrays, 573 spontaneous no-report rivalry transitions. Full treatment: [[wiki/concepts/cortical-state-bistability.md]].
+
+The companion recording measured the *held* state and explicitly not its admission. This one measures the admission, and it turns out to be a **content-free** event in a different signal:
+
+| | Measured |
+|---|---|
+| What precedes a spontaneous switch | A 1–9 Hz burst regime that suppresses the ongoing 20–40 Hz beta regime, peaking at **−60 ± 222 ms** and with the last burst at **−198 ± 133 ms** — earlier than the end of the incumbent's own dominance (−97.4 ± 140 ms, `p < 10⁻⁶⁷`) |
+| When the content-selective units change | Ensemble crossover at **+209 ± 295 ms**; the state event leads it in 86–89% of transitions |
+| Both ignition modes, separated | Low-frequency burst *amplitude* ramps **linearly** (slope 0.61, `R² = 0.34`), while the *number of recruited sites* jumps **non-linearly** just before the switch. Neither is present before a physical switch |
+| That the threshold is real | Sub-threshold release produces **piecemeal** perception — a failed switch, burst rate 0.147 vs 0.17 for a completing one, with the beta antagonism absent — against a sustained-dominance noise floor of **0.015** and site recruitment of 51% vs **100%** |
+| Ordering flip | The identical low-frequency-suppresses-beta motif follows a *physical* stimulus change (+64 ms, the visual evoked potential) and precedes a *spontaneous* one |
+
+Three consequences for this page. **(i) The commit does not require an admission request.** Every formulation above derives the take-off from sensory evidence crossing a criterion; here the take-off is generated internally, ramps with no input change, and the same oscillator free-runs at a matched rate in resting state with no stimulus at all (gamma-distributed beta dwell 1.2 s vs 1.54 s perceptual dominance). **(ii) The gate and the content are different signals.** The releasing event carries no information about what will be admitted — it dissolves the beta coherence that binds the incumbent ensemble and lets whoever is phase-advantaged win — which means "commit" and "which content" are separately schedulable, and no wiki architecture separates them. **(iii) The all-or-none claim gains its missing intermediate case:** piecemeal is what a half-executed commit looks like from the outside, and it is a state a continuous mixture cannot produce.
+
+---
+
 ## Connections
 
+- **[[wiki/concepts/cortical-state-bistability.md]]** — the admission event this page could not see, measured: a content-free 1–9 Hz release regime antagonistic to a 20–40 Hz hold regime, leading the content change by ~300 ms, thresholded (piecemeal = failed commit), and free-running in resting state — which makes the commit generable with no evidence to admit.
 - **[[wiki/entities/global-neuronal-workspace.md]]** — the framework this mechanism serves: ignition is the admission gate on the shared bus, and the framework supplies the processors, the long-axon population and the broadcast that make the gate worth having.
 - **[[wiki/concepts/excitation-inhibition-balance.md]]** — the stability condition: balanced amplification is what makes a reciprocal network ignite rather than die or run away, so the admission threshold and the speed–accuracy point are set by the same knob — and the ordering flip that page reports between prefrontal and parietal ramping is the same signature read at a lower dose.
 - **[[wiki/concepts/evidence-accumulation.md]]** — supplies the threshold that page lists as unmodelled: the criterion is a bifurcation point, the bias term is the pre-stimulus distance from it, and both are measurable before the stimulus arrives.

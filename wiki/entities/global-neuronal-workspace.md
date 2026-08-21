@@ -195,8 +195,26 @@ Decoding reaches **95%** on single transitions pooled across animals, 86–96% w
 
 ---
 
+## The missing half: the admission event, at the same electrodes
+
+> **Fifth source (264th ingest).** Dwarakanath, Kapoor, Werner, Safavi, Fedorov, Logothetis & Panagiotaropoulos 2023, *Bistability of prefrontal states gates access to consciousness*, Neuron 111(10):1666–1683.e4 (`raw/dwarakanath-2023-prefrontal-bistability-consciousness.md`). Same arrays, same paradigm, the perisynaptic (local field potential) level: 573 spontaneous transitions, 1322 physical alternations, plus piecemeal, sustained-dominance and resting-state controls. Full treatment: [[wiki/concepts/cortical-state-bistability.md]].
+
+The section above closed with *"no ignition is measured"*. This one measures it, and the framework gains and loses something:
+
+| | What it supplies the framework |
+|---|---|
+| **A take-off with the right shape** | Low-frequency (1–9 Hz) burst amplitude ramps **linearly** before a spontaneous switch (`R² = 0.34`, flat before a physical one) while the number of recruited prefrontal sites jumps **non-linearly** — the graded-plus-all-or-none pair the framework predicts, in one process |
+| **A threshold with a visible sub-threshold case** | Piecemeal perception (a switch that starts and does not complete) has a lower burst rate (0.147 vs 0.17) and *loses* the low-frequency/beta antagonism, against a sustained-dominance floor of 0.015 and 51% vs **100%** site recruitment |
+| **The broadcast that follows** | Feature-selective ensembles rise non-linearly **130–220 ms after** the mean low-frequency burst, then sustain and slowly decay — the framework's own predicted profile, here triggered internally |
+| **A gating substrate** | Beta (20–40 Hz) bursts selectively synchronise the ensemble coding the *dominant* percept (spike-field coherence 25–37 Hz, dominant > suppressed); the low-frequency transient dissolves that coherence. Occupancy is maintained by synchrony, and release is desynchronisation |
+
+**What it costs.** The framework derives ignition from sensory evidence crossing a criterion. Here the whole cycle runs with **no evidence and no input**: the same low-frequency/beta alternation is present in resting state, gamma-distributed with a 1.2 s beta dwell against 1.54 s perceptual dominance. So the workspace's admission gate is not idle-until-summoned — it is a free-running oscillator that input samples, and *"what determines the threshold"* is joined by *"what determines the period"*, which the framework does not address at all. It also relocates the driver: the content-selective ensembles cross over **+209 ms**, *after* the state event, in 86–89% of transitions, so on this recording the workspace's occupant does not win the bus — the bus is vacated and it moves in ([[wiki/empirical-tensions.md]] T273).
+
+---
+
 ## Connections
 
+- **[[wiki/concepts/cortical-state-bistability.md]]** — the framework's admission event measured at the perisynaptic level: a content-free 1–9 Hz release regime antagonistic to a 20–40 Hz hold regime that synchronises the currently broadcast ensemble, with both ignition modes (linear ramp, non-linear recruitment) separated and the whole cycle free-running with no input.
 - **[[wiki/concepts/ignition.md]]** — the mechanism this framework is built on, extracted as a reusable primitive: the non-linear all-or-none admission gate, its ~300 ms latency, its AMPA/NMDA two-stage structure, and its identity with a signal-detection threshold.
 - **[[wiki/concepts/broadcast-hierarchy.md]]** — the same selective-in/diffuse-out saving derived from anatomy rather than dynamics; this page adds the *gate* that page lacks (which of the competing contents gets to use the diffuse output) and that page adds the laminar-type routing prior this one leaves unspecified.
 - **[[wiki/concepts/connectome-hubs-and-cores.md]]** — supplies the structural warrant: the bow-tie core of high-density parietal/prefrontal areas (Markov et al. 2013) is a routing bottleneck given by the wiring, so the workspace's fan-out is a prior rather than a learned adjacency.
