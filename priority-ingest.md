@@ -13,7 +13,7 @@ One INGEST each:
 - [x] `tomasello-2007-shared-collective-intentionality.md` — evolution-comparative · F · 2007
 - [x] `penn-2008-darwins-mistake-discontinuity.md` — evolution-comparative · F · 2008
 - [x] `somel-2009-transcriptional-neoteny-human-brain.md` — evolution-comparative · R · 2009
-- [ ] `chat-nd-convergent-spatial-memory.md` — evolution-comparative · X · nd
+- [x] `chat-nd-convergent-spatial-memory.md` — evolution-comparative · X · nd
 - [ ] `ihadnoclue-nd-jumping-spiders-spatial-cognition.md` — evolution-comparative · X · nd
 
 *Wave 13 (learning over time and interpretability) fully ingested — see gitlog.*
