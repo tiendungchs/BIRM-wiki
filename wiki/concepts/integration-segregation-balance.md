@@ -124,6 +124,8 @@ Task-behaviour relations replicate at `r > 0.610`. This is a stronger reproducib
 
 ---
 
+- **`G85` — no architecture in the wiki reads its own network topology, and none treats it as a demand-graded control variable.** This page supplies the evidence that biology does grade it by demand; the gap is that every architecture here has a graph fixed at design time and no read access to it.
+
 ## Connections
 
 - **[[wiki/concepts/metastability.md]]** — the same axis with a different order parameter and an unresolved conflict at the endpoint: `σ_R` says a fully coherent network has a repertoire of size one and is useless, while this page's most-integrated states are the best-performing ones — logged as [[wiki/empirical-tensions.md]] T249; the shared claim is that one global coupling gain moves every graph statistic without any edge changing.

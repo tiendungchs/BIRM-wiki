@@ -198,6 +198,8 @@ The picture is **one control mechanism with an extra content stream**, not two c
 
 ---
 
+- **`G55` — every machine controller is either one resource or `n` independent ones.** None is shared-plus-specific in the bifactor sense this page measures, so the unity/diversity structure has no architectural counterpart anywhere in the wiki. It is as much a measurement protocol as an architecture: fit a bifactor model over a population of trained controllers and see whether a common factor exists.
+
 ## Connections
 
 - **[[wiki/concepts/priority-map.md]]** — an anatomical instance of the shifting-specific factor, isolated by lesion rather than by factor analysis: inactivating the ventral bank of the principal sulcus costs nothing when the search cue is repeated in blocks and impairs search when it changes trial-to-trial, while the adjacent prearcuate region's loss impairs both (Bichot et al. 2015).

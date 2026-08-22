@@ -190,6 +190,8 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 
 ---
 
+- **`G13` — no tractable system covers all six hardness sources.** The registry row for the table above: [[wiki/entities/aixi.md]] covers every source and is uncomputable, every tractable system covers a subset, and nothing in the wiki reports *which* subset it covers. `P11` is the instrument this needs.
+
 ## Connections
 
 - **[[wiki/concepts/nonspatial-maps.md]]** — the evidence deciding whether this framing names one mechanism or a family of analogies: if the hippocampal map is domain-general, latent-graph discovery is a single substrate; if the one relationally-matched control is the true picture, it is a spatial mechanism plus a set of resemblances.

@@ -143,6 +143,8 @@ The row that only this page can fill is the last-but-one. Every other nonparamet
 
 ---
 
+- **`T283` — must the router be generative, or may it be discriminative?** This page takes position A and rejects a learned gate outright: `p(z∣x)` is a classifier over a *growing* label set. [[wiki/entities/ch-hnn.md]] trains exactly the rejected object and gets away with it by holding the output space fixed, so the disagreement is narrower than it looks and has never been run head-to-head.
+
 ## Connections
 
 - **[[wiki/entities/continual-dreamer.md]]** — the opposite extreme of the same task-agnostic problem: a world model that shares *everything* across tasks has no gate to fail and therefore no retrieval loss, and pays instead in interference — a buffer holding the old goal prevents learning a new one in an identical environment.

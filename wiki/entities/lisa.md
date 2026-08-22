@@ -93,6 +93,8 @@ The authors' own verdict on the model is worth keeping beside the limitations be
 
 ---
 
+- **`G104` — the one gap this model closes and nothing else does.** Role-filler independence *during* binding: a role and its filler fire in phase, simultaneously and separably active, so both stay addressable while bound. The cost is the capacity ceiling below, which is why the gap stays `OPEN` despite having a worked instance.
+
 ## Connections
 
 - **[[wiki/concepts/analogical-mapping.md]]** — the operation this model exists to perform, and the alternative cost model: mapping by Hebbian growth of correspondence links under a phase-capacity bound, against mapping by `argmax` of a similarity between re-represented codes.

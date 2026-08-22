@@ -86,6 +86,8 @@ The primary source behind the meta-RL section of [[wiki/concepts/meta-learning.m
 
 ---
 
+- **`T105` is this page's contribution to the wiki, and it is negative.** A network trained *only* by a model-free policy-gradient algorithm, tested with weights frozen, reproduces the two-step task's model-based stay pattern and its multi-lag regression signature. That makes the wiki's cleanest evaluation protocol a test of input–output behaviour rather than of mechanism, and it is the counterexample `G17`/`G31` have to survive.
+
 ## Connections
 
 - **[[wiki/concepts/meta-learning.md]]** — the primary source for this page's parent concept: the outer loop over `p(T)` is dopaminergic RL on the recurrent weights, and the inner loop is the frozen-weight activity dynamics, so "learning to learn" is instantiated with both levels named biologically.

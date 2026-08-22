@@ -111,6 +111,8 @@ The first is the more useful export: it makes *number of relations that must be 
 
 ---
 
+- **`G104` is the architectural residue of this page.** Of the eight properties, the four claimed human-only reduce to one requirement — the compound preserves its constituents' identity while bound — and no structural code in the wiki meets it. [[wiki/entities/lisa.md]] meets it with synchrony at a stated capacity that does not scale.
+
 ## Connections
 
 - **[[wiki/entities/lisa.md]]** — the existence proof this page's hypothesis rests on, and the source of its evolutionary argument: synchrony grafts role-filler independence onto a conjunctive long-term store, and the fact that this is *hard* to do in a network is read as why only one lineage did it.

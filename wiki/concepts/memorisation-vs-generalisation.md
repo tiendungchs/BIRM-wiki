@@ -128,6 +128,8 @@ Two directions they name for when circuits run out:
 
 ---
 
+- **`T285` — is the floor on mechanistic description a property of the task, or of the interpreter?** This page argues A from the absence of macrofeatures; the wiki's own record argues B, since every previous "not decomposable" verdict here dissolved under a better-chosen frame. Neither side has an operational test for which side a given subnetwork falls on, which is what makes the row `LIVE` rather than settled.
+
 ## Connections
 
 - **[[wiki/concepts/predictive-adequacy.md]]** — the same question one level down and with the opposite answer: that page finds description quality falling with hierarchical *depth* and diagnoses a wrong unit of description (single neuron vs. population); this page finds a case where no unit of description works at any depth, because the failure is a property of the **task** rather than of the component. Its residual diagnostic (correlated residual = missing term, uncorrelated = missing mechanism) has no analogue here, since a pure lookup has no mechanism to miss.

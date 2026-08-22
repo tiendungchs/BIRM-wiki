@@ -175,6 +175,8 @@ LS > AN^cm > AN > SS > FA          in 100/100 runs
 
 ---
 
+- **`G104` — no structural code here holds role-filler independence *during* binding.** Once a role and a filler are bound by circular convolution (or any conjunctive product), neither is separately addressable without an unbinding step that destroys the compound. [[wiki/concepts/relational-reinterpretation.md]] makes this the one property separating the four representational features every taxon has from the four claimed human-only; `T293` asks whether a scheduled unbinding step is an adequate substitute for genuine persistence.
+
 ## Connections
 
 - **[[wiki/concepts/subgraph-matching.md]]** — the same retrieval question with the labour placed at the opposite end: matching keeps the code plain and makes the comparator structural (order embedding, anchored neighbourhoods, voting), where this page keeps the comparator a dot product and makes the *code* structural via contextualization; MAC/FAC is the two-stage architecture both are trying to collapse.

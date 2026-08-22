@@ -124,6 +124,8 @@ And in the other direction (3-task Minigrid, buffer ∈ {10⁴, 10⁵, 10⁶, 2�
 
 ---
 
+- **`T284` — does a world model's own predictive uncertainty help or hurt across a task sequence?** This page holds both halves of the answer from one architecture: latent disagreement works as an exploration bonus and fails as a replay priority. The cheapest hypothesis that fits both is that an exploration bonus is *consumed* by acting on it while a replay priority is not, which nothing here tests.
+
 ## Connections
 
 - **[[wiki/concepts/continual-learning.md]]** — the rehearsal row instantiated in reinforcement learning with the selection rule specified and the task-aware alternative measured *and beaten*: `L²` protection with a grid-searched coefficient underperforms plain reservoir replay, so the supervision the weight-protection family requires does not pay for itself over a long task sequence.

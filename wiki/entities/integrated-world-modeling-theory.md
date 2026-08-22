@@ -128,6 +128,8 @@ Against the argument that any recurrent network is functionally equivalent to it
 
 ---
 
+- **`G92` — no architecture in the wiki derives the agent/world boundary.** This page's Markov-blanket construction is the only place the boundary is even posed as something derivable; in every architecture here it is drawn by hand before training starts.
+
 ## Connections
 
 - **[[wiki/entities/global-neuronal-workspace.md]]** — the framework this one accepts and then constrains: it keeps ignition and broadcast wholesale, supplies the computational definition of workspace occupancy the workspace account lacks (the MAP estimate of a converged loopy posterior), and denies that broadcast is sufficient without spatial/temporal/causal coherence and an embodied controller.
