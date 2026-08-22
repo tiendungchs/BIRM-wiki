@@ -191,6 +191,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CLEVRER | CoLlision Events for Video REpresentation and Reasoning | Video question-answering benchmark over colliding objects, with descriptive, explanatory, predictive and counterfactual question types |
 | SGM | Sequential Generation Model | The language front end that translates a CLEVRER question into an ordered list of reasoning instructions |
 | XdG | Context-dependent Gating | Continual-learning baseline: a random per-task binary mask over units, applied at both training and test |
+| CH-HNN | CorticoHippocampal Hybrid Neural Network | Shi et al. 2025: an ANN emitting a per-sample binary mask over a spiking learner, trained on input similarity rather than task identity ([[wiki/entities/ch-hnn.md]]) |
+| EIF / LIF / IF | Exponential Integrate-and-Fire / Leaky Integrate-and-Fire / Integrate-and-Fire | The three standard spiking neuron models in decreasing order of nonlinearity and cost; CH-HNN's accuracy is monotone in that order |
+| DG / CA3 / CA1 | Dentate Gyrus / Cornu Ammonis 3 / Cornu Ammonis 1 | Hippocampal subfields; DG-CA3 is the specific-memory store and CA1 the interface to cortex in the corticohippocampal dual-representation account |
+| LPC / ANG / lPFC | Lateral Parietal Cortex / ANgular Gyrus / lateral PreFrontal Cortex | Regions representing recalled content-specific memories, proposed by Shi et al. 2025 as the source of the metaplasticity signal onto DG-CA3 |
+| iCaRL / FOSTER | Incremental Classifier and Representation Learning / Feature bOoSting and comprEssion foR class-incremental leaRning | The two class-incremental baselines CH-HNN is compared against, both ResNet32 with exemplar memory |
 | SI | Synaptic Intelligence | Continual-learning baseline; path-integral estimate of per-parameter importance, computed online rather than at a task boundary as in EWC |
 | GSC | Google Speech Commands | Keyword-spotting benchmark; the standard temporal task for adaptive spiking neurons |
 | STD | Short-Term Depression | Activity-dependent depletion of releasable synaptic resources; the presynaptic alternative to SFA as an adaptation mechanism |
