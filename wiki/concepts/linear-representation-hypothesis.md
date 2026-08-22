@@ -76,6 +76,18 @@ Inverse relations behave the same way: `r_right ≈ −r_left` holds at cos 0.99
 
 ---
 
+## When the model's *read* is provably linear, the direction can be read off the weights
+
+The usual evidence for a linear feature is a fitted probe, which is a claim about decodability. There is a special case where the claim can be made about the parameters instead, and it is worth naming because it is the cheapest fully-mechanistic version of this page's hypothesis (Rajamanoharan et al. 2023, `raw/rajamanoharan-2023-fact-finding-2-circuit.md`, [[wiki/concepts/multi-token-embedding.md]]):
+
+- **Condition.** An attention head's pattern is (near-)constant across inputs — here, L16H20 always attends from the final token to the final name token. A head with a fixed pattern is not a nonlinearity at all; it is the linear map `W_O W_V` applied to the source residual stream.
+- **Construction.** Compose that map with the model's unembedding rows for the answer tokens: `p_c = W_U[c]ᵀ W_O W_V`. This is a classifier over the source position, defined entirely by weights, with no data and no fit.
+- **Result.** Substituting it for the entire model above layer 16 costs 2% task accuracy — so on this task the feature is not merely *decodable* as a direction, the model's own read of it **is** an inner product with a direction you can print.
+
+Two limits. The condition is rare — it holds because the prompt template fixes where the answer lives, and any head whose pattern depends on content fails it. And it certifies the *read*, not the *write*: the direction is the one the model consumes, which says nothing about whether the layers below it encoded the feature linearly, and the next section measures that they increasingly do not.
+
+---
+
 ## Depth destroys the decomposition, and the rate is measurable
 
 The residual stream is a sum, which is what licenses per-component attribution — but every MLP writes a non-linear function into that sum, so the decomposition degrades with depth. Nanda et al. 2023 put a number on it in Pythia 2.8B by testing the defining property of a linear map on two-token names: if `f` is linear then `f(Michael Jordan) + f(Tim Duncan) = f(Michael Duncan) + f(Tim Jordan)`, so measure the distance between the two midpoints and normalise by the distance to arbitrary unknown names.
@@ -145,4 +157,4 @@ Two consequences, and the second is the uncomfortable one.
 - **[[wiki/entities/ventral-visual-stream.md]]** — the hypothesis' strongest biological warrant and the reason a capped reader is a method rather than a convenience: no information is created along a sensory cascade, so a fixed-complexity decoder measures *format*, and by that measure identity decodability rises monotonically V1 → V4 → inferior temporal cortex.
 - **[[wiki/concepts/manifold-untangling.md]]** — states what "linearly decodable" buys geometrically (flat, separated, aligned object manifolds) and what it costs to test honestly (held-out transformation conditions, not held-out samples).
 - **[[wiki/concepts/memorisation-vs-generalisation.md]]** — the rate at which this page's premise decays with depth, plus the regime where the premise is beside the point: trained MLPs break the residual stream's additive structure two to three times harder than shuffled weights do, so conjunctive "feature A in context B" directions are the expected by-product of depth rather than evidence of computation — and for a task with no macrofeatures, a direction can be exactly recovered and still name nothing.
-- **[[wiki/concepts/multi-token-embedding.md]]** — this page's premise doing load-bearing work and being undermined in the same circuit: an entity's attributes are read by projection from the residual stream (linear, and the model's own extraction head agrees with a fitted probe to 86%), while the layers that *build* that representation are the ones measured to destroy additive decomposability fastest.
+- **[[wiki/concepts/multi-token-embedding.md]]** — this page's premise doing load-bearing work and being undermined in the same circuit: an entity's attributes are read by projection from the residual stream (linear, and the model's own extraction head agrees with a fitted probe to 86%), while the layers that *build* that representation are the ones measured to destroy additive decomposability fastest. It also supplies this page's one case where a feature direction is derived from the weights rather than fitted, because the extraction head's attention pattern does not vary with the input and the head therefore reduces to its OV matrix.

@@ -3,23 +3,17 @@
 **One ingest per pass** - never batch ingests.
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
-## Wave 13 — learning over time and interpretability
+## Wave 14 — evolution and comparative cognition
 
 One INGEST each:
 
-- [x] `oreilly-2011-complementary-learning-systems.md` — continual-learning · S · 2011
-- [x] `mei-2025-neuromodulation-continual-learning.md` — continual-learning · S · 2025
-- [x] `lee-2020-neural-dirichlet-continual-learning.md` — continual-learning · M · 2020
-- [x] `shi-2025-corticohippocampal-hybrid-continual-learning.md` — continual-learning · M · 2025
-- [x] `kessler-2023-world-models-continual-rl.md` — continual-learning · R · 2023
+- [ ] `hauser-2002-faculty-of-language.md` — evolution-comparative · S · 2002
+- [ ] `sherwood-2008-natural-history-human-mind.md` — evolution-comparative · S · 2008
+- [ ] `maclean-2016-evolution-human-cognition.md` — evolution-comparative · S · 2016
+- [ ] `tomasello-2007-shared-collective-intentionality.md` — evolution-comparative · F · 2007
+- [ ] `penn-2008-darwins-mistake-discontinuity.md` — evolution-comparative · F · 2008
+- [ ] `somel-2009-transcriptional-neoteny-human-brain.md` — evolution-comparative · R · 2009
+- [ ] `chat-nd-convergent-spatial-memory.md` — evolution-comparative · X · nd
+- [ ] `ihadnoclue-nd-jumping-spiders-spatial-cognition.md` — evolution-comparative · X · nd
 
-**Bundle — Fact Finding posts 3-5 — the follow-up probes.** One INGEST pass over all 3 files (~10539 words), in this order.
-
-- [x] `nanda-2023-fact-finding-3-early-mlps.md` — mech-interp · R · 2023
-- [x] `rajamanoharan-2023-fact-finding-4-memorisation.md` — mech-interp · F · 2023
-- [x] `nanda-2023-fact-finding-5-early-layers.md` — mech-interp · R · 2023
-
-One INGEST each:
-
-- [x] `nanda-2023-fact-finding-1-factual-recall.md` — mech-interp · R · 2023
-- [ ] `rajamanoharan-2023-fact-finding-2-circuit.md` — mech-interp · R · 2023
+*Wave 13 (learning over time and interpretability) fully ingested — see gitlog.*
