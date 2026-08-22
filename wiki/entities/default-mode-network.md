@@ -43,7 +43,7 @@ Seeding intrinsic correlations separately on HF+, dMPFC and vMPFC gives a struct
 | Members | HF, parahippocampal cortex | dMPFC |
 | Job (authors' hypothesis) | Supplies associations, relational detail and prior episodes — the **building blocks** | Constructs the **self-referenced** simulation from them |
 | Coupling to hubs (PCC/Rsp, vMPFC, IPL) | Strong | Strong |
-| Coupling to each other | **Negative** — functionally dissociated |
+| Coupling to each other | **Negative** — functionally dissociated | **Negative** — the same edge, read from the other side |
 | Task signature | Rises with retrieval of strong traces carrying remembered associations and details | Rises with judgments about agents conceived as social/interactive/emotive *like oneself*; does **not** rise for an inanimate object (a camera), an unfamiliar public figure, or a person described as socio-politically dissimilar |
 
 Two tasks separate them: **theory-of-mind** engages the dMPFC subsystem with minimal medial temporal involvement, while **autobiographical memory and future-imagining** engage both. The authors' proposal is that the dMPFC subsystem recruits the medial temporal one *to the degree that past episodic information constrains the simulation being built*, and that PCC exists to hold the interface open for that recruitment.

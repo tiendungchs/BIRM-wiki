@@ -133,7 +133,7 @@ The routes table above has five entries and every one of them either learns outs
 |---|---|
 | **No surrogate anywhere** | The threshold's non-differentiability is handled by splitting the loss integral at spike times, not by smoothing the threshold. The "weight optimization is the central open problem" limitation below is a statement about *approximate* gradients; this route does not need one |
 | **Memory does not scale with sequence length** | Surrogate-gradient BPTT stores every neuron state at every timestep, capping trials at a few hundred steps. EventProp stores spike times, so long sequences and fine timesteps are affordable — which is what made 150 ms delay ranges at 1 ms resolution practical |
-| **Delays become trainable parameters** | Extending the event set with spike *arrival* times yields `dL/dd_ji = −w_ji Σ_k (λ_I,j − λ_V,j)|_{t_k+d_ji}` off the same adjoint trajectories, closing the mechanism half of [[wiki/architectural-gaps.md]] `G80` |
+| **Delays become trainable parameters** | Extending the event set with spike *arrival* times yields `dL/dd_ji = −w_ji Σ_k (λ_I,j − λ_V,j)\|_{t_k+d_ji}` off the same adjoint trajectories, closing the mechanism half of [[wiki/architectural-gaps.md]] `G80` |
 | **Multi-layer, multi-spike, recurrent** | This is the family's first deep credit assignment in the timing domain — every rule in the "supervised learning directly on spike trains" section below trains one postsynaptic neuron |
 | **Implementable on the hardware** | EventProp has been run on SpiNNaker 2; the GPU implementation (mlGeNN/GeNN) uses a hybrid schedule — neurons updated every timestep, synapses only when a presynaptic spike occurs |
 
