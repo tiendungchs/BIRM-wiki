@@ -7,7 +7,7 @@
 
 One INGEST each:
 
-- [ ] `oreilly-2011-complementary-learning-systems.md` — continual-learning · S · 2011
+- [x] `oreilly-2011-complementary-learning-systems.md` — continual-learning · S · 2011
 - [ ] `mei-2025-neuromodulation-continual-learning.md` — continual-learning · S · 2025
 - [ ] `lee-2020-neural-dirichlet-continual-learning.md` — continual-learning · M · 2020
 - [ ] `shi-2025-corticohippocampal-hybrid-continual-learning.md` — continual-learning · M · 2025

@@ -125,6 +125,73 @@ Consequences this page did not state:
 
 ---
 
+## The 15-year retrospective: four revisions to the original statement
+
+O'Reilly et al. 2011 is the CLS authors' own audit of McClelland, McNaughton & O'Reilly 1995 (MMO95). Their verdict is that the framework held; the interesting content is in what they *changed*.
+
+### 1. The sparse store needs a sparse decoder, and that is what CA1 is for
+
+The wiki has been treating pattern separation in DG/CA3 as sufficient to defeat interference. It is not, and the argument is short:
+
+| Step | Claim |
+|---|---|
+| Suppose CA3 projected **directly** back to entorhinal cortex | The CA3 pattern for a new episode is pattern-separated, hence unrelated to anything seen before |
+| So entorhinal cells must rapidly learn to associate that novel CA3 pattern with the current cortical input | But entorhinal activity is **dense** (~15% vs 0.05% in DG), so the same cells participate in very many memories |
+| Therefore the write needed for the new episode has a substantial chance of corrupting an old one | **Catastrophic interference returns at the read-out**, however good the separation upstream was |
+| CA1 is *relatively sparse*, so its cells participate in far fewer memories | Interposing CA1 as a **sparse, invertible mapping** of the entorhinal pattern makes the return path cheap |
+
+**"Invertible" is the operative word**: CA1's job is to hold a code from which the *original cortical pattern* can be regenerated, not merely a code that identifies the episode. This is a different function from Rolls' CA1-as-recombiner and from Yassa & Stark's CA1-as-relay ([[wiki/empirical-tensions.md]] T33) — it is a **learned codec**, and the review is explicit that it is the *least* well-understood part of the circuit.
+
+Two costs the review states and does not pay:
+
+- The mapping must generalise to novel inputs, which requires a **combinatorial/componential** code — novel patterns represented as recombinations of existing elements ([[wiki/concepts/compositionality.md]]). Building one takes substantial learning.
+- **In every CLS model to date this code is installed by hand**, through architecture design and pretraining. How the real system develops it is called a long-standing, still-unsatisfied goal.
+
+**(brainstorm) The machine reading is a design rule the wiki's memory architectures violate uniformly.** Every external-memory system here (differentiable neural computer, HAMI, episodic control, retrieval-augmented transformers) writes a sparse or hashed key and reads back through a **dense** decoder — a linear read into a dense residual stream. This says the decoder's density is where the interference you removed at the encoder comes back, and that the fix is a sparse, *separately trained*, invertible intermediate layer between the store and the model (gap G97). It also composes with Rolls' fan-out constraint above: the reverse hierarchy is expensive *and* each stage of it must stay sparse.
+
+### 2. Conjunctive coding is not the hippocampus's monopoly — *rapid incidental* conjunctive coding is
+
+The original Sutherland & Rudy 1989 configural theory predicted that any task requiring a conjunction of cues be hippocampus-dependent. The data refused (Rudy & Sutherland 1996). The repaired claim (O'Reilly & Rudy 2001):
+
+| System | Can learn conjunctions? | Under what conditions |
+|---|---|---|
+| Neocortex | **Yes** | When task contingencies *force* it — i.e. when gradient pressure over many trials makes the elemental solution fail |
+| Hippocampus | Yes | **Rapidly and incidentally**, with no task demand at all — a rat briefly pre-exposed to a context forms a bound representation of it, which later shows up as elevated fear conditioning (Rudy & O'Reilly 1999) |
+
+So the fast/slow distinction in the table above is not *what can be represented* but **what is represented without being asked**. For a builder that is a sharper specification than "conjunctive vs distributed": the fast store is the component that binds co-occurring content **unsupervised and in one pass**, and the slow learner will reach the same code only if the objective happens to require it.
+
+### 3. Consolidation is **transformation**, not transfer
+
+Winocur et al. 2010, endorsed by the CLS authors as what MMO95 should have said:
+
+| Original framing | Revised |
+|---|---|
+| The memory moves from hippocampus to cortex | Nothing moves. Cortex **learns its own version** of what the hippocampus encoded |
+| The hippocampal trace is transient | The episodic trace **stays in the hippocampus for as long as the memory is retained at all**; CLS is *agnostic* about transience, and MMO95's transient reading rested on data now much less certain |
+| The consolidated copy is the same content, differently stored | The consolidated copy is **semanticised gist** with a similarity structure the hippocampal trace never had — which is what makes it generalise |
+| One system hands off to the other | Dynamic interplay; either may dominate depending on circumstance |
+
+This is the same conclusion [[wiki/concepts/generalization-optimized-consolidation.md]] reaches from a model (partial and permanent hippocampal residence is the predicted normal case), arriving from the lesion literature instead — two independent routes to "consolidation does not empty the fast store".
+
+**And the standard evidence for consolidation is in worse shape than in 1995.** Retrograde gradients — recent memories more impaired by hippocampal damage than remote ones — are the signature finding, and they appear in some studies and not others. Sutherland et al. 2008's well-controlled rat fear-conditioning series found gradients **flat at every lesion size**, with only a main effect of lesion size on overall memory. That is inconsistent with standard consolidation theory *and* with multiple trace theory, which predicts steeper gradients for smaller lesions ([[wiki/empirical-tensions.md]] T280).
+
+### 4. The two systems are **synergistic**, not merely complementary
+
+The division-of-labour framing predicts the cortex should *drag down* episodic performance. Run together, it does the opposite (Bhattacharyya, Howard & O'Reilly, unpublished data in the review; AB–AC paired-associate task, the canonical catastrophic-interference benchmark):
+
+| Network | AB retention after AC training |
+|---|---|
+| Cortex alone, **AB and AC trained concurrently** | Learns both — so capacity is not the issue |
+| Cortex alone, AB then AC | **>50% of AB trials wrong** — catastrophic interference |
+| Hippocampus alone | ~70–80% of AB associates retained |
+| **Cortex + hippocampus** | Learns **faster** *and* forgets **less** than either alone |
+
+**The proposed mechanism is a cue-quality argument, and it is quantitative in origin.** Completion in CA3 is very sensitive to how much of the pattern the cue supplies (O'Reilly & McClelland 1994). The cortical network — even while confused between the AB and AC associations — settles toward an attractor near the target, and that coarse partial answer is enough to move the hippocampus into a regime where completion succeeds. So the slow learner's *interference-corrupted* output is still a useful cue.
+
+**(brainstorm) This inverts the usual arbitration question.** [[wiki/concepts/latent-graph-discovery.md]] and the open problem below ("when to trust the fast system") both assume the two systems produce competing answers that something must select between. Here they are **staged**: the slow system's output is the fast system's *input*, so there is nothing to arbitrate. The machine form is cheap and nobody runs it — use the parametric model's top-1 output as the retrieval query into the episodic store rather than as a competitor to it, and expect the largest gain exactly where the parametric model is interfering, because a wrong-but-nearby answer is still a good address. The AB–AC numbers say the composition beats both components on the benchmark designed to break the parametric one.
+
+---
+
 ## Machine instantiations
 
 | System | Mechanism | What it borrows | What it drops |
@@ -162,7 +229,8 @@ Consequences this page did not state:
 - **What gets replayed** — **partly answered, and against the machine version.** Reward-prioritisation is what machine replay copies; biology's demonstrated criteria run the other way (upsample the under-visited, suppress the non-recurring, prefer remote to imminent), and the proposed principle is an inductive bias toward *transferable* content rather than toward valuable content (Liao & Losonczy 2024; [[wiki/concepts/offline-replay.md]]). What remains open is the mechanism — inhibitory plasticity is predicted by modelling and not established — and whether the criterion is structural in the graph-disambiguating sense.
   - **Now with a normative derivation and a computable statistic.** Lindsey & Litwin-Kumar 2024 show that "keep what recurs" is the *optimal* filter when experience mixes reliably recurring update patterns with one-off ones, and that the separating statistic is the fast store's own recall of the proposed update — realised as prediction accuracy, decision confidence or familiarity depending on the learning problem. The filter therefore needs no offline pass at all ([[wiki/concepts/recall-gated-consolidation.md]]).
 - **One mechanism, five sampling policies.** Interleaving, consolidation, planning, offline state-space construction and amortization each imply a different replay distribution, and nothing arbitrates between them ([[wiki/concepts/offline-replay.md]]).
-- **When to trust the fast system.** Episodic control wins early and loses late; nothing arbitrates the handover.
+- **When to trust the fast system.** Episodic control wins early and loses late; nothing arbitrates the handover. **A staging answer that dissolves the question**: if the slow system's output is used as the *cue* for the fast system rather than as a rival answer, the integrated network beats both components on AB–AC (section 4 above), and no arbiter is needed. Untested outside one unpublished simulation.
+- **Nobody builds the decoder.** The fast store's read-out must itself be sparse and invertible or the interference removed at the encoder returns at the read-out (section 1 above). CLS models install this code by pretraining; how it develops, and what the machine equivalent is, is open.
 - **When does transport happen?** The standard answer is sleep. Rolls 2013 argues for *waking*: recall during waking retrieves the relevant memories under rational guidance, so only useful episodes seed semantic structure, whereas noise-driven stochastic firing in sleep risks consolidating confabulation — the dream argument. [[wiki/empirical-tensions.md]] T34.
 - **Capacity and generalisation are optimised by different models of the same tissue.** The most quantitative hippocampal model in the wiki ([[wiki/entities/rolls-treves-hippocampal-model.md]]) has no transfer story at all; the models with a transfer story state no capacity. Nothing has both.
 
@@ -226,3 +294,5 @@ Consequences this page did not state:
 - **[[wiki/entities/bib.md]]** — a fast-**M** probe in benchmark form: its Multi-Agent task requires a per-entity latent written from eight observations, retrieved by identity and *not* transferred when the identity changes, and the benchmark scores the non-transfer explicitly as a "no expectation" outcome.
 - **[[wiki/concepts/analog-in-memory-computing.md]]** — an independent, non-biological derivation of this page's split: where a weight write costs far more than a read, storing structure in a rarely-written slow matrix and binding instances in a small frequently-written region is an energy-minimising layout — and it predicts fast-**M** size should scale with the write/read cost ratio, which no interference argument mentions.
 - **[[wiki/entities/default-mode-network.md]]** — the same fast-store/slow-constructor division observed at rest rather than during consolidation: a medial temporal subsystem supplying associations and episodic detail to a dorsomedial prefrontal constructor, recruited in proportion to how much the simulation must be constrained by real episodes.
+- **[[wiki/concepts/encoding-retrieval-alternation.md]]** — makes this page's fast store a *learner* rather than a buffer: at 4–8 Hz the hippocampus alternates completion (a prediction) with encoding (its outcome), and the difference is an error signal, so the store writes what it got wrong instead of writing what it was given — and the alternation is fast enough that no controller has to decide when to encode and when to recall (O'Reilly et al. 2011, reviewing Hasselmo et al. 2002).
+- **[[wiki/concepts/compositionality.md]]** — the precondition for the CA1 codec above: a mapping that regenerates *novel* cortical patterns needs a componential code in which new patterns are recombinations of existing elements, which is why the decoder is the part of the CLS circuit no model learns from scratch.
