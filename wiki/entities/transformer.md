@@ -108,6 +108,21 @@ Row (A) is the wiki's cleanest statement that the number of parallel read channe
 
 The wiki keeps discovering that transformers lack a persistent controller state, and this page is where that is architecturally explicit: there is no register anywhere in the layer stack. The query is recomputed from the current token at every step, the KV cache is append-only and never rewritten, and the only state that survives a step is the tokens themselves. Compare the biology on [[wiki/concepts/attention.md]] — a template held through an 800 ms delay *and across saccades that replace the entire input* — and the gap is not a matter of degree.
 
+### 5. Early layers softly specialise in local processing — measured, in a trained model
+
+The architecture gives every layer the same `O(1)` reach over the whole context. It does not use it uniformly. Nanda et al. 2023 (`raw/nanda-2023-fact-finding-5-early-layers.md`) take Pythia 2.8B on Pile text, recompute each token's residual stream with the prompt **truncated** to the most recent `k ∈ [1,10]` tokens (plus a BOS token, so that attention heads keep their resting position), subtract the per-layer mean residual, and take the cosine similarity with the full-context residual.
+
+| Finding | Detail |
+|---|---|
+| **Early layers are near-local, late layers are not** | With `k = 5`, cosine similarity is high in early layers and falls gradually from layer 0 to ~10, then plateaus. It is never 1, so the specialisation is **soft** — some prior context is admitted from the first layer |
+| **Not a trivial consequence of residual dominance** | `k = 5` is much closer to full context than `k = 1` already *after layer 0*, so the layers are genuinely integrating nearby tokens rather than leaving the current-token embedding untouched |
+| **Locality is token-class dependent, and the split is large** | After layer 0 with `k = 10`: word fragments and ordinary alphabetic tokens are extremely local; punctuation is substantially non-local; common function words (`the`, `of`, `they`, …) and residual "other" tokens are notably non-local |
+| **An uptick in the final layer** | Long-range content is *removed* at the end. The authors' reading: a residual stream serves both the literal next token and future tokens, and the last layer discards the latter |
+
+Squared cosine similarity is the usable intuition: 0.9 means ~81% of the residual's norm is shared with the truncated version.
+
+**Two things this adds to the architecture page.** First, **depth is a soft proxy for context radius in a trained transformer**, with no mechanism enforcing it — the layer stack discovers a division of labour the design does not encode, which is why "the first 10–20% of layers" is a usable heuristic for locating detokenization and why a multi-token entity's "embedding" is assembled before any long-range circuitry runs. Second, **the unit of locality is the token class, not the layer**: a comma and a word fragment at the same depth are doing computations with radii differing by an order of magnitude, so any claim of the form "layer `L` is local" is an average over a bimodal population. `(brainstorm)` The proposed causes are all consequences of the tokeniser and of the [summarisation motif](https://arxiv.org/abs/2310.15154) — fragments must be detokenized before long-range work is worth doing, punctuation carries clause-level summaries, pronouns track entities — which makes context radius a property of the *input format* rather than of the architecture. A model with a semantically clean input alphabet should show a flatter curve, and nobody has run that control.
+
 ---
 
 ## Comparison
@@ -164,3 +179,4 @@ The wiki keeps discovering that transformers lack a persistent controller state,
 - **[[wiki/concepts/test-time-training.md]]** — the substrate modification this architecture needs for grid reasoning, and it is not in the training loop: 2D attention and 2D positional encodings in place of the 1D sequence assumption, which is what the ARC Prize 2024 test-time-training entries converged on (Chollet et al. 2024).
 - **[[wiki/concepts/refinement-loop.md]]** — the substrate for the LLM-driven variants and, in the harness case, the object being refined while frozen: +23 points on ARC-AGI-2 from application-layer code that never touches the weights, which locates the 2025 gain outside the architecture entirely.
 - **[[wiki/entities/poe-arc-solver.md]]** — the autoregressive factorization named as a *causal* defect rather than a design choice: a left-to-right decoder must commit to the first output cell before computing what determines it, then conditions on its own error, and the repair applied is external (re-score the finished answer under 16 problem transformations and take the product) rather than architectural.
+- **[[wiki/concepts/memorisation-vs-generalisation.md]]** — what this architecture's MLP sublayers turn out to be doing in the one case where a subnetwork was isolated and probed to exhaustion: five consecutive `FFN` blocks implementing a name→attribute lookup that resisted circuit decomposition entirely, plus the measurement that they break the residual stream's additive structure two to three times harder than shuffled weights would, and the locality result of section 5 above.

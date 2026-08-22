@@ -76,6 +76,23 @@ Inverse relations behave the same way: `r_right ≈ −r_left` holds at cos 0.99
 
 ---
 
+## Depth destroys the decomposition, and the rate is measurable
+
+The residual stream is a sum, which is what licenses per-component attribution — but every MLP writes a non-linear function into that sum, so the decomposition degrades with depth. Nanda et al. 2023 put a number on it in Pythia 2.8B by testing the defining property of a linear map on two-token names: if `f` is linear then `f(Michael Jordan) + f(Tim Duncan) = f(Michael Duncan) + f(Tim Jordan)`, so measure the distance between the two midpoints and normalise by the distance to arbitrary unknown names.
+
+| Object | Fraction of the way to fully broken linear structure |
+|---|---|
+| MLP outputs, layers 2–6 | 60–70% |
+| The same layers, weights and biases **randomly shuffled** | 20–40% |
+| Residual stream after layer 2 → after layer 6 | 30% → 50% |
+
+Two consequences, and the second is the uncomfortable one.
+
+- **Breaking linear structure is a trained behaviour, not an artefact of nonlinearity.** The shuffled-weight control breaks it two to three times less, so the model is *using* its MLPs to destroy the additive structure of its own input — the hash half of hash-and-lookup ([[wiki/concepts/memorisation-vs-generalisation.md]], [[wiki/concepts/pattern-separation-completion.md]]).
+- **Interference between linearly represented features accumulates over depth, and it is mistakable for computation.** If `is_a_mathematical_text` and `is_the_token_"the"` are both directions, an MLP that mixes them will produce a direction for their conjunction whether or not anything downstream reads it. Sparse-autoencoder dictionaries report exactly such features ("the token 'the' in mathematical texts"), and this measurement says the null hypothesis for any conjunctive feature is that depth manufactured it. The instrument that separates the two cases is **non-linear excess** across a single nonlinearity ([[wiki/concepts/memorisation-vs-generalisation.md]]): a unit that *computes* a conjunction shows a positive change in `E[a|A∧B] − E[a|¬A∧B] − E[a|A∧¬B] + E[a|¬A∧¬B]` across its own GELU; a unit that merely inherits one does not. In the sports circuit the median ratio of GELU-formed to total conjunction effect at the output head was **23%**, i.e. most of the AND arrived pre-formed.
+
+---
+
 ## What a linear feature does *not* buy
 
 - **It does not say the feature is used.** Directions can be present and behaviourally inert ([[wiki/empirical-tensions.md]] T25); only intervention settles it, and this page's central case is valuable precisely because it did the intervention.
@@ -127,3 +144,4 @@ Inverse relations behave the same way: `r_right ≈ −r_left` holds at cos 0.99
 - **[[wiki/entities/conceptor.md]]** — the same commitment with the represented object enlarged from a direction to a weighted *set* of directions: a positive semi-definite `C` with singular values in `[0,1]` is a soft subspace, reads are the quadratic form `x'Cx`, and the operations defined on it are logical (`∧ ∨ ¬`, Löwner abstraction) rather than arithmetic — which is what a direction alone cannot support (Jaeger 2014).
 - **[[wiki/entities/ventral-visual-stream.md]]** — the hypothesis' strongest biological warrant and the reason a capped reader is a method rather than a convenience: no information is created along a sensory cascade, so a fixed-complexity decoder measures *format*, and by that measure identity decodability rises monotonically V1 → V4 → inferior temporal cortex.
 - **[[wiki/concepts/manifold-untangling.md]]** — states what "linearly decodable" buys geometrically (flat, separated, aligned object manifolds) and what it costs to test honestly (held-out transformation conditions, not held-out samples).
+- **[[wiki/concepts/memorisation-vs-generalisation.md]]** — the rate at which this page's premise decays with depth, plus the regime where the premise is beside the point: trained MLPs break the residual stream's additive structure two to three times harder than shuffled weights do, so conjunctive "feature A in context B" directions are the expected by-product of depth rather than evidence of computation — and for a task with no macrofeatures, a direction can be exactly recovered and still name nothing.

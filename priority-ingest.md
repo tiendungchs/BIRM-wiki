@@ -15,9 +15,9 @@ One INGEST each:
 
 **Bundle — Fact Finding posts 3-5 — the follow-up probes.** One INGEST pass over all 3 files (~10539 words), in this order.
 
-- [ ] `nanda-2023-fact-finding-3-early-mlps.md` — mech-interp · R · 2023
-- [ ] `rajamanoharan-2023-fact-finding-4-memorisation.md` — mech-interp · F · 2023
-- [ ] `nanda-2023-fact-finding-5-early-layers.md` — mech-interp · R · 2023
+- [x] `nanda-2023-fact-finding-3-early-mlps.md` — mech-interp · R · 2023
+- [x] `rajamanoharan-2023-fact-finding-4-memorisation.md` — mech-interp · F · 2023
+- [x] `nanda-2023-fact-finding-5-early-layers.md` — mech-interp · R · 2023
 
 One INGEST each:
 
