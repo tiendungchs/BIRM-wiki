@@ -63,6 +63,25 @@ The scene-analogy case is the sharpest: for a reasoner to map the *chasing cat* 
 
 ---
 
+## What Penn, Holyoak & Povinelli 2008 read off this model
+
+> `raw/penn-2008-darwins-mistake-discontinuity.md` — the same laboratory's comparative argument, which uses LISA as its existence proof and takes three claims out of it that the review above does not state.
+
+| Claim | Statement |
+|---|---|
+| **The architecture is a *graft*, not a design** | LISA implements the higher-order relational capabilities "via an additional representational system that has been grafted onto a simpler system of conjunctive representations used for long-term storage." That simpler system is functionally but **not concatenatively** compositional — which the authors argue is exactly the representational level of nonhuman cognition ([[wiki/concepts/relational-reinterpretation.md]]) |
+| **What the graft buys is one property** | Not capacity, not depth: **role-filler independence maintained *while* the role and filler are dynamically bound**. Synchrony is the only mechanism in the wiki that delivers both at once, because two units in phase are simultaneously and separably active |
+| **The local-minimum argument** | Because it is hard to get P5–P8 into a network and easy to get P1–P4, "there is no simple next step that will transform a clever PDP model into a full-fledged PSS complete with dynamic role-filler binding." Nonhuman architectures are therefore read as local minima whose exit cost was paid by one lineage |
+
+Two consequences for a builder, and the second is the uncomfortable one:
+
+- **The claim is falsifiable at the neural level and stated as such.** If LISA is right, the human/nonhuman difference is *synchronised activity among prefrontal populations* supporting dynamic binding, and among frontal–posterior populations — neural synchrony being used by many species for contextual association, with the human innovation being its **co-option for role-based coding** rather than its existence ([[wiki/concepts/inter-areal-synchrony.md]]). The authors concede this "requires much further empirical support before it can be deemed anything more than a plausible possibility."
+- **The wiki's other binding schemes are, on this reading, below the line.** A compressed conjunctive code (HRR) is precisely the *long-term store* half of LISA's two-system architecture — the half the graft was needed on top of. Whether a scheduled unbinding operator substitutes for the graft is unresolved and is logged as [[wiki/empirical-tensions.md]] T293.
+
+The authors' own verdict on the model is worth keeping beside the limitations below: "LISA is the worst model of higher-order reasoning currently on offer, except for all the others."
+
+---
+
 ## Limitations
 
 - **Does not scale.** Reviewed as failing on large analogs; the demonstrations are laboratory-scale propositions.
@@ -83,4 +102,5 @@ The scene-analogy case is the sharpest: for a reasoner to map the *chasing cat* 
 - **[[wiki/concepts/cognitive-control.md]]** — supplies the second prefrontal function the model needs: mapping against a featurally similar distractor requires the correct proposition's units to inhibit the competitor's, so relational responding is an inhibition outcome and its failure mode is a confident perceptual answer.
 - **[[wiki/concepts/inter-areal-synchrony.md]]** — the same coding assumption at the systems scale: if bindings are phases, then routing a binding between areas is a phase-alignment problem, and the wiki's synchrony-as-communication evidence is what LISA's implementation claim would have to rest on.
 - **[[wiki/concepts/schema-assimilation.md]]** — the terminal step of the pipeline: intersection discovery over a completed mapping is the model's mechanism for turning two analogs into a schema, which is the abstraction operation the schema literature assumes and does not implement.
+- **[[wiki/concepts/relational-reinterpretation.md]]** — the comparative argument this model is the existence proof for: it is the wiki's only architecture that holds role-filler independence *during* binding, which is the one property the whole human/nonhuman decomposition turns on, and its non-scaling is read there as the reason the exit from the PDP local minimum was paid only once.
 - **[[wiki/entities/macfac.md]]** — the rival division of labour for the same pipeline: both run retrieval on a non-structural pathway and mapping on a structural one, but LISA's limit on what reaches mapping is derived from the phase code's capacity while MAC/FAC's is a fitted 10% band around the best score.

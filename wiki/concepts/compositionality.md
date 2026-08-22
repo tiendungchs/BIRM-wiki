@@ -175,6 +175,27 @@ Two exports.
 
 ---
 
+## Functional vs concatenative composition — the split every facet test above misses
+
+> Penn, Holyoak & Povinelli 2008 (`raw/penn-2008-darwins-mistake-discontinuity.md`), reading van Gelder 1990 and Horgan & Tienson 1996 against the comparative record. Full decomposition at [[wiki/concepts/relational-reinterpretation.md]].
+
+| Kind | Criterion | Who has it |
+|---|---|---|
+| **Functional** (van Gelder 1990) | Reliable, effective mechanisms exist to (1) *produce* a complex representation from its constituents and (2) *decompose* it back — **by any means**, concatenative or not | Every taxon examined. Novel dyadic social relations, means-ends contingencies and predicate-argument tracking all require it; the source calls the comparative evidence on this "no doubt" |
+| **Concatenative** (Fodor & Pylyshyn 1988) | The compound **preserves the identity of its constituents** rather than sacrificing them to a conjunctive encoding — so both parts remain separately addressable *while* bound | Claimed human-only, and claimed necessary for role-filler independence |
+| **Featural systematicity** | `R(a,b)` implies `R(b,a)` where the argument slots are constrained only by *observable features of the fillers* | Every taxon. Explicitly "the kind of systematicity that happens to be easily implemented by many nonclassical connectionist models" |
+| **Classical systematicity** | `∀R transitive: R(a,b) ∧ R(b,c) ⊨ R(a,c)` — holding by how the relation is *defined*, independently of domain or learning history | Claimed human-only; no comparative evidence in any species |
+
+**Three things this does to the sections above.**
+
+**1. The five Hupkes facets all live inside functional compositionality.** Produce-and-decompose is what a seq2seq model is scored on, and the source's claim is that a honeybee has it. So the 0.53–0.72 systematicity scores are not near-misses on a human property; they are partial failures on the *animal* property, and no facet in the suite would separate a system that preserves constituent identity from one that does not.
+
+**2. It supplies a second reading of the relation-slot failures.** Objects recovered, arrangement not represented (the caption networks, PUG at chance, [[wiki/entities/irene.md]]'s unbound preference) is what a code with functional but not concatenative composition looks like from outside: the constituents went in, something came out, and the roles were never separately addressable at any point.
+
+**3. It puts a criterion under this page's open problems.** "Systematicity is tested; the *symmetric* case still is not" is the featural/classical distinction in the wiki's own words — role reversal over feature-constrained slots is the cheap version, and the version worth testing is whether the reversal holds because the relation is *defined* structurally.
+
+---
+
 ## Open problems
 
 - **Coherence has no operational definition.** "Causality is the glue" names the requirement without saying what computes it. The wiki's only mechanised candidate is composition-as-relaxation to a joint free-energy minimum, where a composition that has no low-energy state is simply never built ([[wiki/concepts/predictive-coding-free-energy.md]], gap G22).
@@ -251,4 +272,5 @@ Two exports.
 - **[[wiki/entities/sigma-pi-reservoir.md]]** — composition justified by approximation theory instead of productivity: binding is chosen because the similarity of a composed representation is the *product* of its constituents' similarities (conjunctive: alike only if alike in every part) where superposition gives a *sum* (disjunctive: alike if alike in any part), so the two composition operators are distinguished by the semantics of their inner products rather than by what they can express.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — where a componential code becomes a hard requirement rather than a desideratum: the hippocampal read-out (CA1) must regenerate *novel* cortical patterns from a sparse code, which is only possible if new patterns are recombinations of existing elements — and every CLS model installs that code by pretraining rather than learning it (O'Reilly et al. 2011).
 - **[[wiki/concepts/discrete-infinity.md]]** — the comparative coordinate for this page's productivity facet: the finite-state/phrase-structure boundary that cotton-top tamarins fail and human adults cross implicitly places the 0.30–0.50 seq2seq productivity scores on the *animal* side of a boundary measured in biology, and names the missing part as one recursive operator rather than a training deficiency.
+- **[[wiki/concepts/relational-reinterpretation.md]]** — the comparative decomposition that splits this page's central adjective in two: functional composition (produce and decompose by any means) is universal across taxa, concatenative composition (constituent identity preserved in the compound) is the claimed human-specific property, and every facet test on this page measures only the first.
 - **[[wiki/concepts/emergent-modularity.md]]** — supplies a wiring account of the recombination facet: human inferior frontal cortex gains a markedly stronger arcuate-fasciculus projection from middle-temporal-gyrus semantic areas than chimpanzee or macaque, and generalised systematicity is proposed to be what afferent *diversity* into one composition site buys — turning this page's hardest facet into a sweepable fan-in parameter.
