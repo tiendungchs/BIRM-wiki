@@ -10,7 +10,7 @@ One INGEST each:
 - [x] `hauser-2002-faculty-of-language.md` — evolution-comparative · S · 2002
 - [x] `sherwood-2008-natural-history-human-mind.md` — evolution-comparative · S · 2008
 - [x] `maclean-2016-evolution-human-cognition.md` — evolution-comparative · S · 2016
-- [ ] `tomasello-2007-shared-collective-intentionality.md` — evolution-comparative · F · 2007
+- [x] `tomasello-2007-shared-collective-intentionality.md` — evolution-comparative · F · 2007
 - [ ] `penn-2008-darwins-mistake-discontinuity.md` — evolution-comparative · F · 2008
 - [ ] `somel-2009-transcriptional-neoteny-human-brain.md` — evolution-comparative · R · 2009
 - [ ] `chat-nd-convergent-spatial-memory.md` — evolution-comparative · X · nd
