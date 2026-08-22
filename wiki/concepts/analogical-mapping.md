@@ -80,7 +80,7 @@ Everything below is one stage. The model landscape prices the operation, the rep
 
 **Systematicity is scored by local message-passing, not by a global objective** (same source). Each match hypothesis gets an initial score, then scores **trickle down** the argument links, `W(MH₂) ← max{W(MH₂) + δ·W(MH₁), 1.0}` where `MH₂` matches an argument of a statement `MH₁` matches; an interpretation's structural evaluation is the sum over its correspondences. The alternative — weighting a match directly by its order — was tested and fits human soundness ratings *worse*, and is rejected as requiring a "bird's-eye view" of both structures that no local process has. This matters for any neural implementation: the systematicity preference of [[wiki/concepts/compositionality.md]] is expressible as a cascade along existing argument edges, with one free parameter.
 
-The point of the table: every mature mapping model computes correspondence by **search or relaxation over a match hypothesis space**, and pays `n⁴`–`n!` for it. The claim under test is that a correspondence can be read off a *similarity ranking* instead, if the codes are built right — the mapping analogue of [[wiki/empirical-tensions.md]] T184.
+The point of the table: every mature mapping model computes correspondence by **search or relaxation over a match hypothesis space**, and pays `n⁴`–`n!` for it. The claim under test is that a correspondence can be read off a *similarity ranking* instead, if the codes are built right — the mapping analogue of [[wiki/empirical-tensions.md]] T173.
 
 ---
 

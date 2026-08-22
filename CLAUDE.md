@@ -118,3 +118,4 @@ Fall back to `grep -r "terms" wiki/` if qmd errors.
 - Never modify a page without reading it.
 - Gitlog is changelog. Commit only what you touched and the ingested `raw/` file (uncommit `raw/` files are not ingested).
 - Don't read between the line. Do only what is asked.
+- Minimize prose: prefer tables, bullet points, equations.
