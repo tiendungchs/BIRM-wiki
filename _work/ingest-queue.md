@@ -394,7 +394,7 @@ One INGEST each:
 
 - [x] `oreilly-2011-complementary-learning-systems.md` — continual-learning · S · 2011
 - [x] `mei-2025-neuromodulation-continual-learning.md` — continual-learning · S · 2025
-- [ ] `lee-2020-neural-dirichlet-continual-learning.md` — continual-learning · M · 2020
+- [x] `lee-2020-neural-dirichlet-continual-learning.md` — continual-learning · M · 2020
 - [ ] `shi-2025-corticohippocampal-hybrid-continual-learning.md` — continual-learning · M · 2025
 - [ ] `kessler-2023-world-models-continual-rl.md` — continual-learning · R · 2023
 
