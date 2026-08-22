@@ -104,6 +104,14 @@ Three things this changes for a builder.
 
 ---
 
+## How a mixed-selectivity controller aims feedback at one feature
+
+Every entry above takes for granted that the controller can *deliver* its bias to the right sensory units. It cannot, on the face of it: prefrontal units carry mixed selectivity, so a unit tuned to red and to vertical excites both populations when driven. Park & Serences 2025 show the delivery problem dissolves if the projection is near-random and the weights are balanced ([[wiki/concepts/random-feedback-addressing.md]]). In a two-layer spiking model (8 ring sub-networks × 512 feature-tuned units; 1024 randomly, reciprocally connected control units, `W^FB = (W^FF)ᵀ`), driving the 20% of control units that respond most to the attended feature produces textbook contrast-gain feature attention in the stimulated ring, and in the seven unstimulated rings the off-target feedback is uncorrelated with each ring's tuning axis and cancels.
+
+The measurement that matters here is a disagreement between two decoders on the *same* unstimulated activity: a decoder trained on stimulus-evoked patterns is **at chance** at every modulation strength, while a within-task SVM decodes the attended feature **above chance and rising with modulation strength** — and does not cross-generalise between two unstimulated rings. Attention information is present in a region that saw no stimulus, in an idiosyncratic per-region code that is not stimulus-like. Two consequences for this page: an attended feature being decodable from cortex representing an unstimulated location is *not* evidence of feature-tuned gain there ([[wiki/empirical-tensions.md]] T279), and spatially global feature attention requires a small departure from randomness (`κ ≈ 0.1` on the probability that like-tuned sensory units converge on the same control unit) — with `κ ≥ 0.2` producing representations in unstimulated regions as strong as real stimuli, i.e. illusory percepts.
+
+---
+
 ## Reading in the core framing
 
 | Attention operation | Latent-graph reading |
@@ -182,3 +190,4 @@ Three things this changes for a builder.
 - **[[wiki/concepts/transthalamic-context-routing.md]]** — separates attentional *state* from attentional *selection* by wiring: in a higher visual area the pathway that sets arousal-linked modulation (higher-order thalamus) is not the pathway supplying the content it would select over (V1/LM), and each can be silenced with no effect on the other's contribution (Neske & Cardin 2025).
 - **[[wiki/entities/early-visual-system.md]]** — the one measurement of attention under free viewing rather than cued fixation, and it is unkind to the gain abstraction: in V4 during naturalistic visual search, attention modulates mean rate, response gain **and** orientation and spatial-frequency tuning — three separable effects where the wiki's models carry one scalar (David et al. 2002).
 - **[[wiki/entities/ventral-visual-stream.md]]** — the case built on attention's *absence*: core object recognition is defined with no object- or location-specific pre-cue and measured under passive viewing, and the feedforward-sufficiency claim rests on the asserted (not tested) premise that task and attentional effects on inferior-temporal responses are small next to image-driven variance.
+- **[[wiki/concepts/random-feedback-addressing.md]]** — the mechanism this page's top-down feature gain has always assumed: a controller with mixed selectivity delivers single-feature gain because the components of its feedback aimed at irrelevant features are uncorrelated with the target population's tuning axis and cancel under balanced weights, so no collapsing of the controller's tuning and no topographic projection is needed — and the same result says an attended feature can be decoded above chance from a population that holds no representation of it (Park & Serences 2025).
