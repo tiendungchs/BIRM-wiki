@@ -19,9 +19,14 @@ BIRM-Wiki/
 ├── CLAUDE.md                   ← this file: schema and operating rules
 ├── raw/                        ← source documents (Markdown / plain text only)
 │   └── originals/              ← archived PDFs, kept for provenance; never ingested
+├── _work/                      ← acquisition bookkeeping, not wiki content
+│   ├── want-list.md            ← sources to acquire, with the clip-optimal URL for each
+│   ├── ingest-queue.md         ← full wave-ordered queue; priority-ingest.md holds the current wave
+│   └── manifest.tsv            ← one row per source file: id, name, author, year, topic, tier, wave, words
 ├── tools/
 │   ├── qmd-index.sh            ← hybrid BM25+vector search script
-│   └── pdf2md.sh               ← convert dropped PDFs to Markdown before ingest
+│   ├── clip-check.sh           ← validate a freshly clipped source before it enters the queue
+│   └── pdf2md.sh               ← convert dropped PDFs to Markdown before ingest — lossy, last resort
 └── wiki/                       ← all LLM-generated content
     ├── overview.md             ← high-level synthesis of the research area
     ├── priority-tasks.md       ← current priority tasks identified from lint passes
@@ -37,7 +42,7 @@ BIRM-Wiki/
 **Rules:**
 - All wiki content lives under `wiki/`.
 - File names: lowercase, hyphens for spaces, `.md` extension. Example: `wiki/concepts/working-memory.md`.
-- Sources in `raw/` must be Markdown or plain text — both are grep-able and readable in slices, so an INGEST costs a fraction of what a PDF costs. Convert a dropped PDF first with `./tools/pdf2md.sh`; the original moves to `raw/originals/`.
+- Sources in `raw/` must be Markdown or plain text.
 
 ---
 
@@ -69,10 +74,11 @@ BIRM-Wiki/
 
 ## Operations
 
-The three core operations live as project skills under `.claude/skills/`. Invoke the skill — do not improvise the procedure.
+The four core operations live as project skills under `.claude/skills/`. Invoke the skill — do not improvise the procedure.
 
 | Operation | Skill | Trigger |
 |---|---|---|
+| ACQUIRE | `wiki-acquire` | The ingest queue is empty or thin; the user asks what to collect or read next; a lint pass leaves acquisition tasks blocked on curation; the user drops freshly clipped files in `raw/` |
 | INGEST | `wiki-ingest` | User drops a source in `raw/` and says "ingest [filename]", or asks for a paper/article/talk to be filed |
 | QUERY | `wiki-query` | User asks any substantive question about the domain or the wiki's contents |
 | LINT | `wiki-lint` | User says "lint the wiki" / asks for an audit; also suggest it after roughly every 20 ingests |
