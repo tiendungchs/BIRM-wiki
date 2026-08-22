@@ -420,4 +420,4 @@ One INGEST each:
 - [x] `penn-2008-darwins-mistake-discontinuity.md` — evolution-comparative · F · 2008
 - [x] `somel-2009-transcriptional-neoteny-human-brain.md` — evolution-comparative · R · 2009
 - [x] `chat-nd-convergent-spatial-memory.md` — evolution-comparative · X · nd
-- [ ] `ihadnoclue-nd-jumping-spiders-spatial-cognition.md` — evolution-comparative · X · nd
+- [x] `ihadnoclue-nd-jumping-spiders-spatial-cognition.md` — evolution-comparative · X · nd

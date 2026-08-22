@@ -13,7 +13,7 @@ Source: `raw/chat-nd-convergent-spatial-memory.md` — an unrefereed conversatio
 | Structure | Clade | Claimed independent origin | What is claimed for it |
 |---|---|---|---|
 | Hippocampal formation | Vertebrates | ~500 Mya | The wiki's reference case ([[wiki/concepts/cognitive-map.md]], [[wiki/concepts/pattern-separation-completion.md]]) |
-| Mushroom bodies | Insects, jumping spiders | ~400–500 Mya | Kenyon-cell expansion → compact output lobes; multimodal, sparse |
+| Mushroom bodies | Insects; **spiders contested** | ~400–500 Mya | Kenyon-cell expansion → compact output lobes; multimodal, sparse. The spider half of this row is **not safe**: salticids are generally described as *lacking* mushroom bodies, the candidate arachnid analogue being the arcuate body. Both sources that assert it are unrefereed (`raw/chat-nd-convergent-spatial-memory.md`, `raw/ihadnoclue-nd-jumping-spiders-spatial-cognition.md`) — see `T295` |
 | Central complex (ellipsoid + protocerebral bridge) | Insects | ~400 Mya | Ring-attractor heading code, angular path integration, goal vectors ([[wiki/entities/fly-central-complex.md]]) |
 | Vertical lobe | Cephalopods | ~500 Mya | Amacrine-cell fan-out → compressed output; lesions impair spatial/contextual learning; den return by novel routes |
 | Hemiellipsoid bodies | Malacostracan crustaceans | ~400 Mya | Sister structure to mushroom bodies, independently enlarged; place-cell-like activity claimed in crabs |
@@ -47,6 +47,21 @@ This is Morgan's Canon ([[wiki/concepts/shortcut-learning.md]]) applied to phylo
 **(brainstorm)** The sharpest version of the argument survives the substrate objection only for M1, and only in one form: expansion-then-compression is also what Cover's theorem and Kanerva's derivation recommend *from first principles with no substrate in them*. Where an independently-derived mathematical argument and a repeated evolutionary outcome agree, the substrate confound is broken. That is the test to apply to any candidate motif before importing it, and M2 currently fails it — the wiki has no substrate-free derivation of why the state manifold should be a ring rather than, say, a learned unconstrained latent.
 
 ---
+
+## The neuron-budget datapoint: salticid detour planning `(tentative)`
+
+Source: `raw/ihadnoclue-nd-jumping-spiders-spatial-cognition.md` — a popular-science aggregator page, **lower reliability than anything else cited on this page**. Its named attributions could not be checked and at least one structural claim is contradicted by standard arachnid neuroanatomy (see the census row and `T295`). What survives is the one quantity the wiki has no other source for.
+
+| Claim | Reading for a builder |
+|---|---|
+| Salticid (*Phidippus*, *Portia*-type) **detour behaviour**: the spider views prey, loses line of sight, then takes a route that initially leads *away* from it | The behavioural signature of planning over a latent graph with the goal unobserved — [[wiki/concepts/simulation-based-planning.md]]'s re-goaling test in its minimal form. Corroborated in the refereed salticid literature independently of this source |
+| Achieved on **< 5×10⁵ neurons** total (vs. ~8.6×10¹⁰ human) | An upper bound on the circuit size that route planning over an unobserved goal requires — five orders of magnitude below the vertebrate case ([[wiki/concepts/circuit-size-separation.md]], [[wiki/concepts/intelligence-density.md]]) |
+| **No hippocampus**; allocentric behaviour anyway | Consistent with the census's thesis: the capability is not tied to the vertebrate structure |
+| Cross-modal integration (principal + secondary eyes, trichobothria, leg airflow sensors) with neurons claimed to respond maximally when visual and vibrational cues are **spatially and temporally coherent** | A coherence gate rather than a sum — the multimodal binding criterion [[wiki/concepts/cross-modal-grounding.md]] asks for, at this budget `(tentative)` |
+| Interception: jumping to where prey *will* be | Forward model over a moving target, not a servo on current position |
+| "Spider place cells" in mushroom bodies, stable under visual-cue change | **Do not use.** Structure attribution contradicted (`T295`); no citation recoverable |
+
+**(brainstorm)** The budget number is the only thing on this page that bears on the substrate confound from the other direction. The census's weakest link is that every lineage shares wiring-cost and metabolic constraints, so convergence may be evidence about the substrate. A miniaturised nervous system is the *extreme* of that constraint — if the same motif survives a five-order-of-magnitude reduction in units, the motif is being held by the task, not by the budget, because the budget changed by 10⁵ and the behaviour did not. That makes salticids the highest-value row in the census to verify, and currently the worst-sourced.
 
 ## Target selection: which structure to model `(tentative)`
 
@@ -87,6 +102,7 @@ Suggested reading order from the source, unverified: Seelig & Jayaraman 2015 (ri
 - **The description level is unspecified.** "Expansion → compression" is satisfied by any wide-hidden-layer network. Without a sharper statement, convergence cannot discriminate between mechanisms.
 - **The substrate confound has no proposed control.** Comparing lineages does not vary the substrate; only comparing a brain to a machine solution derived under different costs would.
 - **Is M2 forced or contingent?** No substrate-free derivation exists for the ring topology, which is exactly the case where convergence would be doing real work if it held up.
+- **The best test of the substrate confound is the worst-sourced row.** Salticid detour planning at <5×10⁵ neurons would be the census's strongest datapoint (constraint varied by 10⁵, capability held), and the wiki's only source for it is a popular aggregator whose neuroanatomy is wrong. Needs a refereed replacement (Tarsitano & Jackson; Cross & Jackson; Steinhoff on the arachnid arcuate body).
 - **Nothing in the wiki uses convergence as a selection criterion.** Every transfer in [[wiki/concepts/neuroscience-ai-transfer.md]]'s track record was sourced from one taxon (mostly rodent, macaque or human), so the criterion proposed here has never been applied.
 
 ---
@@ -101,3 +117,7 @@ Suggested reading order from the source, unverified: Seelig & Jayaraman 2015 (ri
 - **[[wiki/concepts/attractor-dynamics.md]]** — the ring attractor is the continuous-attractor row of that page's typology, and this page asks the question that typology does not: whether a circular manifold is computationally forced or is what a 3-D wiring budget makes cheap.
 - **[[wiki/concepts/cognitive-map.md]]** — the allocentric world model is the capability the whole census is a census *of*; this page contributes the claim that the anchoring operation (reusable code + instance offset) recurs across phyla, which is evidence the two-part factorisation is the right decomposition.
 - **[[wiki/concepts/shortcut-learning.md]]** — supplies Morgan's Canon in the form this page needs it: matched circuit topology across taxa licenses no inference about matched algorithm, which is the reason the census is a reading list rather than a justification.
+- **[[wiki/concepts/simulation-based-planning.md]]** — supplies the census's smallest planner: salticid detour routes require a goal held while unobserved and a path scored before it is taken, which is that page's model-based signature at a neuron budget five orders below the hippocampal case.
+- **[[wiki/concepts/circuit-size-separation.md]]** — the salticid row is an empirical upper bound of the kind that page reasons about analytically: how much circuit a computation actually needs, measured rather than derived.
+- **[[wiki/concepts/intelligence-density.md]]** — a nervous system under extreme miniaturisation is a natural high-`ℐ` case, since selection there acts directly on `C(S)`; this page contributes the candidate instance, and that page supplies the reason it should be expected.
+- **[[wiki/concepts/cross-modal-grounding.md]]** — the claimed salticid coherence gate (fire maximally when vision and vibration agree in space *and* time) is that page's binding criterion implemented as a conjunction detector rather than a learned alignment loss `(tentative)`.
