@@ -406,7 +406,7 @@ One INGEST each:
 
 One INGEST each:
 
-- [ ] `nanda-2023-fact-finding-1-factual-recall.md` — mech-interp · R · 2023
+- [x] `nanda-2023-fact-finding-1-factual-recall.md` — mech-interp · R · 2023
 - [ ] `rajamanoharan-2023-fact-finding-2-circuit.md` — mech-interp · R · 2023
 
 ## Wave 14 — evolution and comparative cognition
