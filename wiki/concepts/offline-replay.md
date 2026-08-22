@@ -42,6 +42,20 @@ The specific-experience model predicts replay resembles individual experiences. 
 
 **A normative derivation of the same criterion, from a different direction.** If experience mixes patterns of synaptic update that *recur* with patterns that occur once, no synapse can tell them apart but the population can — so the optimal filter gates the long-term write on the fast store's own recall of the proposed update, and the resulting selection is exactly "keep what recurs, drop the one-off" (Lindsey & Litwin-Kumar 2024, [[wiki/concepts/recall-gated-consolidation.md]]). Two things this changes for this page. First, the Terada et al. 2022 row above stops being a curiosity: fixed-location cues are the *reliable* memories and randomly presented cues are the unreliable ones, so their differential ripple recruitment is the gate operating. Second, the criterion **does not require an offline period** — the gate is evaluated event-by-event at encoding, and selective replay is one implementation of it rather than its definition, which weakens the case that consolidation *must* be scheduled offline ([[wiki/empirical-tensions.md]] T34).
 
+**And it has now been tested in a machine, with the prioritisation baselines run as controls** (Kessler et al. 2023, [[wiki/entities/continual-dreamer.md]]). A DreamerV2 agent learning 4–8 grid-world tasks in sequence, buffer management swept:
+
+| Rule | Where it acts | Outcome |
+|---|---|---|
+| **Reservoir sampling** — store with probability `min(n/t, 1)`, i.e. uniform coverage of everything seen | admission | **Best.** Robustly mitigates forgetting; keeps the most uniform task distribution in the buffer |
+| First-in-first-out | admission | Early tasks are gone from the buffer by 4M steps |
+| Coverage maximisation — priority = median `L²` distance to 1000 stored trajectories | admission | Less forgetting than FIFO but inconsistent on performance, and it *drops the intermediate* tasks whose embeddings resemble the first |
+| **Reward-proportional sampling** | mini-batch | **No improvement over uniform random** |
+| **Uncertainty-proportional sampling** — episodes weighted by the model's own ensemble disagreement, the surprise/TD-error analogue | mini-batch | **Worst: performs like the non-continual baseline** — low performance, low transfer, high forgetting |
+
+So the two machine-standard prioritisation criteria — reward and surprise — are the two that fail, and the rule that wins is the one whose only objective is even coverage. This is position B of [[wiki/empirical-tensions.md]] T30 arriving from reinforcement learning rather than from electrophysiology.
+
+**One caveat that generalises past this system.** The reservoir rule is uniform over *episodes*, and episodes are not equal-sized: a mastered task emits short trajectories, a new one emits long ones (to a 100-transition cutoff), so each admission evicts several old episodes and the early tasks thin out anyway. Under deliberate task imbalance (0.4M steps then 2.4M into a 0.4M buffer) it forgets the first task exactly as badly as FIFO. **Uniform coverage of the arrival process is not uniform coverage of anything one wants covered** — and naming the partition one *does* want covered is what every task-agnostic method is trying to avoid.
+
 **This is the structural replay criterion the wiki listed as unexplored.** [[wiki/concepts/complementary-learning-systems.md]] carried reward-prioritisation as the only demonstrated selection rule, and prioritised experience replay in machines copies exactly that. Biology's criterion is closer to the opposite: **upsample the under-sampled, suppress the idiosyncratic, and keep what recurs.** A machine replay buffer weighted by inverse visitation and by cross-episode recurrence — rather than by reward or TD-error magnitude — is a directly testable import **(brainstorm)**.
 
 ---
@@ -230,6 +244,7 @@ The third point is the one with teeth for a machine: it makes **use frequency th
 
 ## Connections
 
+- **[[wiki/entities/continual-dreamer.md]]** — this page's selection criterion tested in a machine with the alternatives run as controls: uniform-coverage admission (reservoir sampling) beats first-in-first-out and a distance-based rule, while prioritising the mini-batch by reward gains nothing and prioritising it by the model's own uncertainty is worse than not doing continual learning at all.
 - **[[wiki/entities/vector-hash.md]]** — narrows this page's remit: 11 environments learned in sequence with zero forgetting and *no replay of any kind*, because separation in a large prestructured address space already prevents interference. If that holds, replay's job is consolidation and generalisation, not protection of what is already stored.
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the dissenting schedule above, plus the mechanism replay must operate through: completion in a diluted CA3 attractor within a single theta cycle (~120 ms), and a polysynaptic reverse hierarchy to get the reinstated pattern back to cortex; and the two pages now price the same wiring from opposite ends — its `p_max ≈ kC/(a ln(1/a))` counts fixed points storable at a given fan-in, while `c · M ≈ const` counts what fan-in a *sequence* needs to propagate, both landing on total recurrent synapse count as the budget.
 

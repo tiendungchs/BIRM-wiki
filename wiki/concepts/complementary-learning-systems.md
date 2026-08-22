@@ -238,6 +238,7 @@ The division-of-labour framing predicts the cortex should *drag down* episodic p
 
 ## Connections
 
+- **[[wiki/entities/continual-dreamer.md]]** — the fast-store/slow-learner pair in a reinforcement-learning agent with the *filter* made the experimental variable: uniform-coverage admission beats first-in-first-out and beats prioritisation by reward or by surprise, which is the machine measurement this page's replay-selection question was missing.
 - **[[wiki/entities/pcfg-set.md]]** — the interference argument run as an experiment in a single distributed learner: exceptions below 0.5% of a rule's occurrences are overgeneralised away, and one of the three architectures cannot hold a rule and its exception simultaneously at any rate, degrading to outputs that match neither.
 - **[[wiki/concepts/priority-map.md]]** — the fast/slow split appearing inside the *control* layer rather than inside memory: repeating a search cue in blocks removes the need for the template-switching stage entirely and part of the need for the matching stage, so a recurring query is progressively absorbed into slower structure (Bichot et al. 2015).
 - **[[wiki/entities/vector-hash.md]]** — the fast store built and priced, with an explicit verdict against content compression: the hippocampal state is a content-independent *pointer* into cortex, and an autoencoder bottleneck that compresses the content instead loses capacity, forgetting-resistance and sequence memory at matched size (Chandra et al. 2023).

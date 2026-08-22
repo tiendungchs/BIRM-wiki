@@ -232,6 +232,20 @@ The degree of novelty has **no** surviving correlate; the degree of variability 
 - **Theta tracks state uncertainty specifically.** Not-asked trials (hidden state unknown) show higher theta-band power than asked trials, alongside frontal and central amplitude differences. The wiki's only frequency-band handle on which of the two uncertainties a circuit is carrying.
 ---
 
+## The same disagreement signal is a working exploration reward and a failing replay priority
+
+> `raw/kessler-2023-world-models-continual-rl.md` — Kessler et al. 2023 ([[wiki/entities/continual-dreamer.md]]). Not an active-inference system: the epistemic quantity is Plan2Explore's **latent disagreement**, the variance of a deep ensemble predicting the next RSSM features `[z_{t+1}, h_{t+1}]`, added to the model-predicted extrinsic reward as `r = α_i r_i + α_e r_e` (`α_i = α_e = 0.9`).
+
+Two things this page did not have.
+
+**A use for an epistemic term that is not exploration-for-reward: it removes a task-boundary oracle.** Every prior continual-reinforcement-learning exploration strategy resets a schedule when the task changes — `ε`-greedy per task, an entropy regulariser per task — and therefore needs to be told. Model disagreement rises when the environment changes *because* it changed, so the same signal that drives exploration also implicitly detects the boundary. That is an argument for an epistemic term that does not depend on it paying against reward, and it is the strongest one on this page.
+
+**And it pays inconsistently, in a direction the page should record.** On 3-task Minigrid the bonus *costs* 0.26 average performance (0.72 → 0.46). On 8-task Minihack — larger state spaces, harder skills — it *gains* 0.19 (0.09 → 0.28) and cuts forgetting from 0.37 to 0.13. Sign flips with task difficulty, on the same architecture and the same intrinsic reward.
+
+**The sharp result is the asymmetry of use.** The identical uncertainty quantity, used to weight *which stored episodes the world model trains on* (uncertainty sampling), performs at the level of the non-continual baseline — worse than uniform sampling on every metric. So `r_i` is a good thing to act on and a bad thing to rehearse on. **(brainstorm)** The mechanism is plausible and untested: an exploration bonus is consumed the moment it is acted on, whereas a replay priority is *persistent* — the buffer keeps re-presenting whatever the model could not predict, which is disproportionately the noise it will never predict. Any architecture that reuses one uncertainty estimate for both jobs (and the natural expected-free-energy agent does) inherits this, and the fix is a decay on the epistemic weight in the replay path that nothing in the wiki has.
+
+---
+
 ## Open problems
 
 - **The epistemic value in the theory is over *states*; the epistemic value that pays is over *parameters*.** Parameter-novelty is excluded from the convex-MDP result and named there as a separate problem, and the ρ-POMDP identity scores information gain about a belief over a *fixed* hidden state. Ablated across three grid-worlds, information gain about `θ` accounts for nearly the whole performance gap wherever sensing actions do not alter the sensor ([[wiki/empirical-tensions.md]] T124).
@@ -254,6 +268,7 @@ The degree of novelty has **no** surviving correlate; the degree of variability 
 
 ## Connections
 
+- **[[wiki/entities/continual-dreamer.md]]** — the epistemic term's one unambiguous payoff in the wiki: model disagreement rises when the environment changes, so it supplies continual exploration with no task-boundary oracle — alongside the finding that the same quantity is harmful when used to prioritise replay instead of action.
 - **[[wiki/concepts/expected-free-energy.md]]** — the objective this page ablates. That page derives what the epistemic term *is* (`Φ`, and `I_a(b)` at weight `w = 1`) and proves what class of optimisation problem it makes; this page holds the four literatures asking whether switching it off changes anything, and the answer differs from the derivation in both the quantity (E3, not E1/E2) and the verdict.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the other half of the alternation: variational free energy fits the model to collected data, and every epistemic quantity here is defined over a distribution that fitting produced. The `q`-vs-`p` substitution that breaks the deep estimator is a failure to keep that distinction.
 - **[[wiki/entities/deep-active-inference-agent.md]]** — the agent ladder the negative result comes from: full architecture, five estimator definitions, three action-selection rules, and the reward-only ablation that beats all of them.

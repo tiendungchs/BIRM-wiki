@@ -166,6 +166,7 @@ The flexibility/speed trade-off cited above has a mechanism, and it is a quantit
 
 ## Connections
 
+- **[[wiki/entities/continual-dreamer.md]]** — rollout used as a *training-data generator* rather than as a decision-time search: policy gradients are taken entirely inside imagination, which is where the 10× sample-efficiency advantage over a model-free rehearsal baseline comes from, and it makes the model's coverage of past environments the thing that has to be right.
 - **[[wiki/concepts/epistemic-value.md]]** — a representational requirement on the rollout, not a search heuristic: scoring a fixed action *plan* systematically undervalues an action whose worth depends on a response not yet chosen, and marginalising the same joint posterior into a *policy* `q(u_t|x_{t-1})` recovers within-horizon contingency for free.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — simulation-based planning is the *use* half of LGD (path search over the discovered graph); LGD is the *discovery* half that planning presupposes.

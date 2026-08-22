@@ -11,7 +11,7 @@ One INGEST each:
 - [x] `mei-2025-neuromodulation-continual-learning.md` — continual-learning · S · 2025
 - [x] `lee-2020-neural-dirichlet-continual-learning.md` — continual-learning · M · 2020
 - [x] `shi-2025-corticohippocampal-hybrid-continual-learning.md` — continual-learning · M · 2025
-- [ ] `kessler-2023-world-models-continual-rl.md` — continual-learning · R · 2023
+- [x] `kessler-2023-world-models-continual-rl.md` — continual-learning · R · 2023
 
 **Bundle — Fact Finding posts 3-5 — the follow-up probes.** One INGEST pass over all 3 files (~10539 words), in this order.
 

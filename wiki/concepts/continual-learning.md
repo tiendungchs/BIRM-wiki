@@ -144,6 +144,20 @@ EWC's practical claim: multiple tasks learned **without an increase in network c
 
 ---
 
+**Rehearsal beats protection in reinforcement learning, and the task oracle is a liability — measured** (Kessler et al. 2023, [[wiki/entities/continual-dreamer.md]]). A world model is already a continual learner: its training replay buffer persists across tasks, its policy is trained on imagined rollouts (generative rehearsal), and nothing in it reads a task index. What the paper adds to this table is three numbers.
+
+| Question this table leaves open | Answer measured here |
+|---|---|
+| Which **admission rule** should a rehearsal buffer use? | **Reservoir sampling**, `p(store) = min(n/t, 1)` — uniform coverage of everything seen. It beats first-in-first-out and a distance-based coverage-maximisation rule, and both *prioritisation* rules fail: sampling the mini-batch by reward is indistinguishable from uniform, and sampling it by the model's own predictive uncertainty performs at the level of a non-continual baseline ([[wiki/concepts/offline-replay.md]], T30) |
+| What is a **task boundary** worth? | Negative. The task-aware baseline — `L²` regularisation toward the previous task's weights, coefficient grid-searched over `{10⁻⁴…100}` — underperforms every task-agnostic variant on 4-task Minihack, because the early tasks' pull prevents learning the late ones |
+| Where does **stability–plasticity** live when nothing is protected? | In the buffer size, as one monotone scalar: larger buffer → less forgetting and higher average performance, but **lower forward transfer and the hard-exploration tasks stop being solved**. Below 10⁵ transitions the agent cannot learn at all |
+
+Two caveats the paper states about its own winner. **Reservoir sampling is uniform over episodes, not transitions** — a mastered task emits short episodes and a new one emits long ones, so each admission evicts several old episodes and earlier tasks thin out anyway; and under **task imbalance** (0.4M steps then 2.4M steps into a 0.4M buffer) it forgets the first task exactly like first-in-first-out. **(brainstorm)** Both are the same defect: the rule is uniform over the *arrival* process rather than over whatever partition one actually wants covered, and no rule in this literature takes the partition as an argument because naming it would reintroduce the task label.
+
+**And the failure that survives is not forgetting.** With the layout, start state and dynamics held fixed and only the *goal* moved, the agent solves one of the two tasks and never both — past experience in the buffer interferes with learning the new objective. That is a different problem from everything in this table, which is about protecting a solution; here the stored data are intact and are the obstacle (gap **G28**).
+
+---
+
 ## Why this is central to the wiki's target
 
 The slow **W** of [[wiki/concepts/latent-graph-discovery.md]] *is* an accumulating store: the meta-graph is built from many episodes across many environment families. Continual learning is therefore not a feature but **the mechanism by which W is written at all**.
@@ -164,6 +178,7 @@ The slow **W** of [[wiki/concepts/latent-graph-discovery.md]] *is* an accumulati
 
 ## Connections
 
+- **[[wiki/entities/continual-dreamer.md]]** — the rehearsal row measured against the weight-protection row in reinforcement learning, with the task oracle losing: reservoir-sampled replay inside a world model beats grid-searched `L²` protection, needs no boundary, and relocates the stability–plasticity trade-off from a penalty coefficient to a buffer size that an agent could in principle set for itself.
 - **[[wiki/entities/dinov3.md]]** — forgetting with no task sequence and no distribution shift: one stationary stream, one fixed loss, and a dense read-out decays over 1M iterations while a global one improves — repaired by functional regularisation against a stored earlier checkpoint that constrains only the token-similarity structure, needs no boundary and no importance estimate, and works only from a *young enough* anchor.
 
 
