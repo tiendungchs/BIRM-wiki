@@ -91,9 +91,109 @@ re-resolved to ar5iv. Row 13 is the only `self`.
 
 ---
 
-## Wave 16 — the arrangement, the objective, and the parts that reject
+## Wave 16 — the adjudications: twenty tensions, and the artefact each one is about
 
-20 targets, none of them overlapping wave 15. Wave 15 buys the **router**; this wave buys the
+20 targets. Waves 15 and 17 are composed against the **gap** registry; this one is composed
+against [[wiki/empirical-tensions.md]], and the selection rule is different. A gap is closed by
+acquiring something the wiki lacks. A tension is closed by acquiring the *object the two
+positions are arguing about* — so every row here names a `LIVE` row, the position that has no
+primary source in `raw/`, and the measurement that would move the row off `LIVE`.
+
+**Rows deliberately excluded.** `T154`, `T21`, `T174`(part), `T75`(part), `T164`(part) and
+`T175` each state that *the discriminating experiment is unrun*. An unrun experiment is not an
+acquisition — those belong to `P4`–`P10`, not here. What is admissible is a row whose two
+positions were **published against each other and never filed** (`T269`, `T122`), a row whose
+instrument has no primary source (`T37`, `T161`), or a row whose losing position is carried
+second-hand on ≥5 pages (`T155`, `T156`, `T162`, `T173`, `T2`).
+
+Selection was by citation weight over the 293-row registry: every `T` row below is carried by
+**≥5 pages** outside `empirical-tensions.md`, and the block covers nine of the twelve
+most-cited `LIVE` rows in the wiki.
+
+### 16a — the collapse dispute, decided in the dynamics rather than in the loss (`T164`, `T168`, `G34`)
+
+`T164` (9 pages) and `T168` (7 pages) are the wiki's highest-cited live pair, and both turn on
+one 2020 hypothesis that has never been filed: Grill et al.'s conjecture that **no loss exists
+whose joint gradient is BYOL's dynamics.** The wiki repeats the conjecture. It does not carry
+the four papers that took it apart.
+
+| # | Target | Clip URL | Venue | Route | Closes | Settles | Status |
+|---|---|---|---|---|---|---|---|
+| 1 | Chen & He 2021, *Exploring Simple Siamese Representation Learning* | `https://ar5iv.labs.arxiv.org/html/2011.10566` | CVPR (ar5iv) | `clip` | `T164`, `T168` | **The ablation that splits B's two components.** `T164` position B rests on BYOL, where removing *either* the EMA or the predictor collapses at ~0.3% — so the two are inseparable in the wiki's only instance. SimSiam removes the momentum encoder entirely and does not collapse: **stop-gradient alone is the load-bearing part**, and the EMA is an accuracy term, not an anti-collapse term. B's mechanism is therefore one asymmetry, not two | open |
+| 2 | Tian, Chen & Ganguli 2021, *Understanding Self-Supervised Learning Dynamics without Contrastive Pairs* | `https://ar5iv.labs.arxiv.org/html/2102.06810` | ICML (ar5iv) | `clip` | `T164`, `T168` | **The direct answer to "no objective exists".** The linear-network dynamics are derived in closed form with EMA, stop-gradient, predictor and weight decay all as terms — and DirectPred *sets* the predictor from its input statistics with no gradient at all. If the fixed point is analytic, B's "rate ratio appearing in no objective" becomes a quantity that can be written down, which is exactly what `T164` says nobody has | open |
+| 3 | Wang & Isola 2020, *Alignment and Uniformity on the Hypersphere* | `https://ar5iv.labs.arxiv.org/html/2005.10242` | ICML (ar5iv) | `clip` | `T168`, `T164`, `T173` | **The monitor `T168` position B implies and the wiki does not have.** Two scalars computable from any checkpoint, both asymptotic limits of InfoNCE, empirically agreeing with downstream accuracy — i.e. LeJEPA's `ρ_s ≈ 0.85` claim tested on a quantity that is not the training loss. Also `T173`: the prescription *shape the space until the simplest probe is optimal*, stated as two measurable terms | open |
+| 4 | Jing, Vincent, LeCun & Tian 2022, *Understanding Dimensional Collapse in Contrastive Self-Supervised Learning* | `https://ar5iv.labs.arxiv.org/html/2110.09348` | ICLR (ar5iv) | `clip` | `T168`, `G34`, `T75` | **Collapse as an eigenspectrum, not a binary.** `T168`'s decisive counterexample — DINOv3's patch probe peaking at 200k iterations while nothing in the loss diverges — is a *partial* collapse the wiki can currently only describe. This supplies the singular-value read-out that measures it, plus two named causes (augmentation variance exceeding data variance; implicit low-rank regularisation in deep networks). Note it also bears on `T75`: dimension lost to collapse is dimension the expansion argument assumed it had | open |
+
+### 16b — the error signal, and the kernel it is an error on (`T122`, `T141`, `T30`)
+
+`T122` (7 pages) is a disagreement between two named papers, **neither of which is in `raw/`** —
+the wiki has been arguing reward-prediction-error against precision from reviews for its whole
+history. `T141` (7 pages) is load-bearing on `P15` and has one side only.
+
+| # | Target | Clip URL | Venue | Route | Closes | Settles | Status |
+|---|---|---|---|---|---|---|---|
+| 5 | Schultz, Dayan & Montague 1997, *A Neural Substrate of Prediction and Reward* | `https://www.science.org/doi/10.1126/science.275.5306.1593` | Science (403 bot block → institutional) | `clip` | `T122`, `T141`, `T30` | `T122` **position A's primary source**, cited second-hand across the wiki and filed nowhere. The claim to read for is narrow and testable: the dopamine response *transfers* from reward to predictor and goes negative on omission — the signature no precision account has to produce. PDF fallback: `https://www.gatsby.ucl.ac.uk/~dayan/papers/sdm97.pdf` | open |
+| 6 | Friston et al. 2012, *Dopamine, Affordance and Active Inference* | `https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1002327` | PLOS Comput. Biol. (open) | `clip` | `T122`, `T85` | `T122` **position B's primary source**, and it is the strong form: dopamine encodes the *precision* of cues that engender action, with the reward-prediction-error phenomenology re-derived as a special case. Row 5 and row 6 are the head-to-head `T122` has never had. Read for the one asymmetry — whether B predicts the omission dip, which is where A is strongest | open |
+| 7 | Fedus, Gelada, Bengio, Bellemare & Larochelle 2019, *Hyperbolic Discounting and Learning over Multiple Horizons* | `https://ar5iv.labs.arxiv.org/html/1902.06865` | arXiv (ar5iv) | `clip` | `T141`, `P15`, `G13` | **`T141`'s machine-learning half, which the row says barely touches its neuroscience half.** Hyperbolic `Q` obtained by integrating exponential `Q`s over a set of `γ`, so the kernel becomes a *design variable* rather than a fitted constant — and the multi-`γ` head is `P15`'s `γ_effective` readout, already built. Also the wiki's first case where the discount set is an auxiliary task that pays independently of the kernel question | open |
+| 8 | Mattar & Daw 2018, *Prioritized memory access explains planning and hippocampal replay* | `https://www.nature.com/articles/s41593-018-0232-z` | Nat. Neurosci. (303 → institutional) | `clip` | `T30`, `P16`, `G38` | **The "normative derivation" `T30` position B already cites and the wiki has never read.** Access utility = gain × need, and forward/reverse replay, the reward-location bias and the remote-replay results all fall out of one expression. Pairs head-to-head with wave 15's `p_i ∝ \|δ\|^α`: the biological priority rule is `|δ|` **times a need term**, and the need term is what a uniform-sampling baseline cannot have. HTML fallback: `https://www.biorxiv.org/content/10.1101/225664v4.full` | open |
+
+### 16c — where the compositional failure lives (`T156`, `T162`, `T155`)
+
+`T156` (7 pages) asks whether an out-of-distribution compositional failure is a *vocabulary*
+defect or a *composition* defect, and the row concedes the asymmetry: only one side has an
+instrument. Both instruments below are named across the wiki and neither is in `raw/`.
+
+| # | Target | Clip URL | Venue | Route | Closes | Settles | Status |
+|---|---|---|---|---|---|---|---|
+| 9 | Lake & Baroni 2018, *Generalization without Systematicity* (SCAN) | `https://ar5iv.labs.arxiv.org/html/1711.00350` | ICML (ar5iv) | `clip` | `T156`, `G21`, `G22` | **The instrument `T156` is missing.** Its whole design *is* the vocabulary/composition split: 99.8% on a random split, **0.08%** on `jump` composed with a familiar modifier, 13.8% on longer sequences. Same vocabulary, same primitives, only the arrangement is new — so a failure here cannot be a vocabulary defect, which is precisely the discrimination `T156` says nothing supplies | open |
+| 10 | Keysers et al. 2020, *Measuring Compositional Generalization* (CFQ / DBCA) | `https://ar5iv.labs.arxiv.org/html/1912.09713` | ICLR (ar5iv) | `clip` | `T156`, `T161`, `I1` | SCAN's generalisation of itself: **atom divergence held low while compound divergence is maximised**, on realistic data. This is the split turned into two continuous knobs, which is what makes `T156` a *measurement* instead of a category. >95% on random splits, <20% on maximum-compound-divergence splits, for LSTM+attention, Transformer *and* Universal Transformer alike — so the failure is not architectural within that set | open |
+| 11 | He et al. 2022, *Masked Autoencoders Are Scalable Vision Learners* | `https://ar5iv.labs.arxiv.org/html/2111.06377` | CVPR (ar5iv) | `clip` | `T162`, `T157`, `G34` | **`T162` position A at full strength, and the wiki's entire joint-embedding block is built against it.** Reconstructing pixels at 75% masking works, scales, and beats supervised pretraining — the wiki carries seventeen entity pages whose premise is that this should not be necessary. It also lands squarely on `T157`: MAE's features are explicitly *less linearly separable* and stronger under finetuning, which is the "the probe is the wrong basis" position with a number attached | open |
+| 12 | Ellis et al. 2021, *DreamCoder* | `https://ar5iv.labs.arxiv.org/html/2006.08381` | arXiv (ar5iv) | `clip` | `T155`, `G26`, `G22` | `T155` (7 pages) calls this "**the only concrete proposal anyone has made for `G26`**" and cites it through a third party. The wake/sleep split is the mechanism the row needs: abstraction proposes library entries, dreaming trains the search that uses them — i.e. *length under enforced re-use*, the second term `T155` says nobody is pricing. Read for whether the abstraction step has any pressure on it besides description length | open |
+
+### 16d — the read-out under suspicion (`T37`, `T75`, `T161`, `T173`)
+
+Four rows that are not about mechanisms but about **whether the measurement measures what it
+names.** `T37` (8 pages) is the sharpest: the detector whose validity is the whole dispute has
+no primary source in the wiki.
+
+| # | Target | Clip URL | Venue | Route | Closes | Settles | Status |
+|---|---|---|---|---|---|---|---|
+| 13 | Doeller, Barry & Burgess 2010, *Evidence for grid cells in a human memory network* | `https://pmc.ncbi.nlm.nih.gov/articles/PMC3173857/` | Nature (PMC) | `clip` | `T37`, `G84` | **The hexadirectional detector itself.** `T37` position B's objection — "BOLD does not measure spiking, and the threshold is arbitrary" — is an objection to *this construction*, which the wiki has never read: the rat-recording premise (grid cells' preferred firing directions align with the grid), the six-fold sinusoidal fit, and the one validation that is not circular — coherence across entorhinal cortex correlating with spatial memory performance. Every "grids outside space" claim in the wiki inherits this method | open |
+| 14 | Rigotti et al. 2013, *The importance of mixed selectivity in complex cognitive tasks* | `https://pmc.ncbi.nlm.nih.gov/articles/PMC4412347/` | Nature (PMC author ms.) | `clip` | `T75`, `T50`, `G84` | **`T75` position A measured against behaviour rather than assumed.** Dimensionality is estimated from the recorded population, information about every task variable survives the removal of single-cell selectivity to it, and — the datum the row needs — **dimensionality falls before error trials**. That makes dimension a quantity with a *behavioural* criterion, which is what separates "task-agnostic expressivity" from "task-relevant effective dimensionality" in Cazalets' reversal | open |
+| 15 | Geirhos, Meding & Wichmann 2020, *Beyond accuracy: quantifying trial-by-trial behaviour by measuring error consistency* | `https://ar5iv.labs.arxiv.org/html/2006.16736` | NeurIPS (ar5iv) | `clip` | `T161`, `P8`, `S9`, `F4` | **`P8`'s missing method, and it has been specified in the wiki as a want for nine passes.** Cohen's `κ = (c_obs − c_exp)/(1 − c_exp)` over trials, with the chance-agreement correction that raw overlap lacks — the exact instrument behind "aggregate parity is compatible with an orthogonal mechanism at 0.06 profile correlation". `T161` asks whether a *stable signature failure profile* identifies an installed prior; this is the statistic that makes "same profile" a claim rather than an impression | open |
+| 16 | Falkenhainer, Forbus & Gentner 1989, *The Structure-Mapping Engine: Algorithm and Examples* | `https://www.qrg.northwestern.edu/papers/Files/smeff2(searchable).pdf` | Artificial Intelligence 41:1–63 | `pdf` **LOSSY** | `T173`, `G104`, `G22` | `T173` (7 pages) names SME as "**the classical version**" of the comparator position and the wiki holds only the *retrieval* stage (MAC/FAC, two files). The mapping stage is the argument: local match hypotheses merged into structurally consistent global mappings under systematicity, with candidate inferences as the output — a similarity that is *computed by search over structure* and therefore cannot be a fixed form on two vectors. Directly opposed to Plate's contextualized HRRs, which reproduce the MAC/FAC ordering from one dot product. Pre-1995 Elsevier, no HTML anywhere; the Northwestern copy has a real text layer. `./tools/pdf2md.sh --layout` | open |
+
+### 16e — published against each other, and the machinery that dissolves a third (`T269`, `T174`, `T175`, `T2`)
+
+| # | Target | Clip URL | Venue | Route | Closes | Settles | Status |
+|---|---|---|---|---|---|---|---|
+| 17 | Boly, Massimini, Tsuchiya, Postle, Koch & Tononi 2017, *Are the Neural Correlates of Consciousness in the Front or in the Back of the Cerebral Cortex?* | `https://www.jneurosci.org/content/37/40/9603` | J. Neurosci. 37(40) (403 bot block → institutional) | `clip` | `T269`, `T241` | `T269` **position A**, and the wiki holds six consciousness sources of which none is this one. The two sides of `T269` were published as a **Dual Perspectives pair in one issue** — a head-to-head the wiki has been reconstructing from reviews for its whole history | open |
+| 18 | Odegaard, Knight & Lau 2017, *Should a Few Null Findings Falsify Prefrontal Theories of Conscious Perception?* | `https://www.jneurosci.org/content/37/40/9593` | J. Neurosci. 37(40) (403 bot block → institutional) | `clip` | `T269`, `T291`, `G102` | `T269` **position B**, row 17's companion. Its argument is the general one the wiki most needs: a null under a task that never required the capability does not falsify the claim that the region carries it — which is `T291` (*absent* vs *undeployed*) argued out on a concrete case, in print, against a named opponent. Read rows 17 and 18 as one INGEST | open |
+| 19 | Orvieto et al. 2023, *Resurrecting Recurrent Neural Networks for Long Sequences* (LRU) | `https://ar5iv.labs.arxiv.org/html/2303.06349` | ICML (ar5iv) | `clip` | `T174`, `T175`, `G29` | **The ablation `T174` and `T175` both need and neither has.** S4's advantage is decomposed into four independent steps — drop the recurrent nonlinearity, go complex-diagonal, reparameterise for stable eigenvalues, normalise the forward pass — each measured on Long Range Arena, PathX included. `T174`'s decisive variable is stated in the wiki as "the spectrum of `A` and its conditioning" with S4's Lemma 3.2 as the sole number; this varies exactly those and reports what each is worth. It also cuts at `T174` side A: if a *diagonal* recurrence recovers the performance, connectivity structure was not the lever | open |
+| 20 | Schlag, Irie & Schmidhuber 2021, *Linear Transformers Are Secretly Fast Weight Programmers* | `https://ar5iv.labs.arxiv.org/html/2102.11174` | ICML (ar5iv) | `clip` | `T2`, `G52`, `G37` | **`T2` (9 pages) says it may be *dissolving* — that activations and weights are interconvertible under parameter sharing — and this is the identity, written out.** Linear attention *is* an outer-product fast-weight update; the wiki's second store and the wiki's recurrent activity become one object with a stated capacity limit (sequence length beyond embedding dimension) and a stated failure mode (unbounded accumulation). The delta-rule variant then gives the fast store an **edit** operation with a learned interpolation weight — `G52`'s writability flag at the rate level, and the write rule `P9` is trying to build | open |
+
+**Probe notes.** Rows 5, 8, 17 and 18 returned `403`/`303` — the Science and *J. Neurosci.*
+bot blocks and the Nature institutional redirect, all three already seen at waves 15 and 17 —
+so the standing rule applies: **gated pages are `clip` whatever the probe returns.** Rows 1–4,
+6, 7, 9–15, 19 and 20 rendered as full HTML with equations and figures inline; rows 13 and 14
+are PMC and open. Row 16 is the wave's only `pdf`: Elsevier serves no HTML for a 1989 article,
+and the Northwestern copy is the searchable one.
+
+**Wave shape: 19 `clip`, 0 `self`, 1 `pdf` (`LOSSY`).**
+
+**What the wave buys, in one line per block.** 16a turns `T164`/`T168` from a conjecture into a
+derived fixed point plus two checkpoint-computable monitors. 16b puts both sides of `T122` in
+`raw/` for the first time and gives `T141` its second literature. 16c supplies `T156`'s missing
+instrument twice over and files `T155`'s and `T162`'s uncited positions. 16d reads the
+*detectors* — the hexadirectional fit, the dimensionality estimate, the error profile, the
+structural matcher — that four tension rows are disputes about. 16e buys a printed head-to-head
+and the two ablations that could dissolve `T174` and `T2` rather than adjudicate them.
+
+---
+
+## Wave 17 — the arrangement, the objective, and the parts that reject
+
+20 targets, none of them overlapping waves 15 or 16. Wave 15 buys the **router**, wave 16 the **adjudications**; this wave buys the
 three things a router cannot fix: the **objective** the factorization would be trained toward
 (`G30`, the wiki's deepest gap), the **arrangement** gaps `P2` says no better component closes
 (`G84`, `G85`, `G88`, `G90`, `G93`), and the **rejector** the wiki has never had (`G68`, `G74`,
