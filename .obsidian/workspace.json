@@ -11,10 +11,14 @@
             "id": "143968b04b3097a5",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "raw/Outrageously Large Neural Networks The Sparsely-Gated Mixture-of-Experts Layer.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Outrageously Large Neural Networks The Sparsely-Gated Mixture-of-Experts Layer"
             }
           }
         ]
@@ -183,6 +187,8 @@
   },
   "active": "143968b04b3097a5",
   "lastOpenFiles": [
+    "raw/Outrageously Large Neural Networks The Sparsely-Gated Mixture-of-Experts Layer.md",
+    "wiki/concepts/spike-train-error-metrics.md",
     "_work/ingest-logs/20260820-123337-pass11.log",
     "_work/ingest-logs/20260820-123337-pass11.jsonl",
     "_work/ingest-logs/20260820-123337-pass11.err",
@@ -197,7 +203,6 @@
     "_work/ingest-logs/20260819-000020-pass2.jsonl",
     "_work/ingest-logs/20260819-000020-pass2.err",
     "wiki/concepts/core-knowledge.md",
-    "_work/ingest-logs/20260818-235337-pass1.log",
     "wiki/entities/spiking-neural-networks.md",
     "wiki/concepts/meta-optimized-plasticity.md",
     "wiki/concepts/synaptic-plasticity.md",
@@ -217,7 +222,6 @@
     "wiki/glossary.md",
     "wiki/index-entities.md",
     "wiki/index-concepts.md",
-    "wiki/overview.md",
-    "raw/Organizing memories for generalization in complementary learning systems.md"
+    "wiki/overview.md"
   ]
 }
