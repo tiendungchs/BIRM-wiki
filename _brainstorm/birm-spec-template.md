@@ -28,6 +28,7 @@
 | Benchmarks that instantiate it | `?` |
 | Explicitly out of scope | `?` |
 | Success statement (one sentence, falsifiable) | `?` |
+| Observation-ambiguity precondition (families whose observations identify the state uniquely need no belief code and are out of scope) | `?` |
 | Non-goals inherited from wiki (things known unbuildable today) | `?` |
 
 ---
@@ -44,7 +45,8 @@
 | Action code: dimension, discrete/continuous, emission rate | `?` | `?` |
 | Primary affect channel (the "kickstarter") — signal, range, latency | `?` | `?` |
 | Episode/reset signalling | `?` | `?` |
-| What the adapter is forbidden to do | `?` | — |
+| **What BIRM assumes about the stream** — assumptions, not rules imposed on the adapter; how an adapter satisfies them is outside this spec, and a family that cannot is out of scope | `?` | — |
+| **Instantiation triple** — the declared numbers a new benchmark supplies, from which every organ dimension in §3 follows | `?` | Contract fixed; values per benchmark |
 
 ### 2.2 Declared-hardwiring ledger (mandatory)
 
@@ -53,6 +55,9 @@ Every bit of task knowledge that lives outside the learner, itemised. This is th
 | # | Hardwired thing | Where it lives | Why it cannot be learned | Bits/parameters |
 |---|---|---|---|---|
 | H1 | `?` | adapter / BIRM | `?` | `?` |
+| H`n` | **Declared scale budget** — the estimate of problem size that organ dimensions are functions of (the true size is latent and cannot size anything) | BIRM | `?` | `?` |
+
+**Sizing rule (mandatory).** State here whether organ dimensions are constants or **functions of the declared scale**. Constants are a defect: a spec whose sizes do not track the problem cannot be plugged into a new benchmark by declaration alone. Give the functions, and name the free scalars left over. `?`
 
 ---
 
@@ -68,7 +73,7 @@ Every bit of task knowledge that lives outside the learner, itemised. This is th
 | **N Metaparameter bus source** | computes gains, precisions, learning rates from the learner's own second-order statistics | `?` | `?` | `?` | `?` | `?` | slow-ish | `?` | `?` |
 | `?` | | | | | | | | | |
 
-Per-organ detail sheets go in §3.x, one subsection each, same column set expanded plus: state variables held, parameter count, what it is architecturally **denied**.
+Per-organ detail sheets go in §3.x, one subsection each, same column set expanded plus: state variables held, **parameter count written as a function of the declared scale (§2.2), never as a constant**, what it is architecturally **denied**.
 
 ---
 
