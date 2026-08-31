@@ -15,6 +15,7 @@ Answer from the wiki first, then update it if new insights revealed.
    ```
    Fall back to `grep -r "terms" wiki/` if qmd errors.
 2. **Read `wiki/index-concepts.md` + `wiki/index-entities.md`** to make sure the search did not miss an obvious page.
+   If the question is about what is unsolved or disputed, read the registry indexes `wiki/architectural-gaps.md` / `wiki/empirical-tensions.md` — one line per row — and open `wiki/gaps/gNNN.md` or `wiki/tensions/tNNN.md` only for the rows the answer turns on. A row's `Closes when` field is the fastest answer to "what would settle this?".
 3. **Read all relevant pages** — in parallel, in full.
 4. **Synthesize.** Cite wiki pages as `[[wiki/path/page.md]]`. Where the wiki cannot answer or the answer cannot be derived from it, say so explicitly, give your own opinion, and name concrete sources worth ingesting. Keep in mind
 7. **Propose an update plan if** the query and the synthesis reveal new important insights.

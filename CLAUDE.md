@@ -25,6 +25,9 @@ BIRM-Wiki/
 │   └── manifest.tsv            ← one row per source file: id, name, author, year, topic, tier, wave, words
 ├── tools/
 │   ├── qmd-index.sh            ← hybrid BM25+vector search script
+│   ├── wiki-stats.sh           ← all mechanical health checks (S1, S4, S5, S13–S17); exits non-zero on any violation
+│   ├── registry-index.py       ← rebuild the gap/tension index tables from the detail files
+│   ├── set-closes-when.py      ← set `Closes when:` on registry rows from `id<TAB>text` on stdin
 │   ├── clip-check.sh           ← validate a freshly clipped source before it enters the queue
 │   └── pdf2md.sh               ← convert dropped PDFs to Markdown before ingest — lossy, last resort
 └── wiki/                       ← all LLM-generated content
@@ -55,6 +58,7 @@ BIRM-Wiki/
 - Retiring a row is `git mv wiki/gaps/g037.md wiki/gaps/closed/` followed by a rebuild; it then leaves the index.
 - Other pages cite rows by **id** (`G37`, `T22`) and link the registry index, not the detail file, unless the detail itself is the point.
 - Detail files are not tables, so `|` needs no escaping in them.
+- Lint-pass notes go in [[wiki/registry-audit.md]], never in a registry header. A registry header carries only the status key, the maintenance rules and the table.
 
 ---
 
@@ -75,6 +79,24 @@ BIRM-Wiki/
 - Each entry: `**[[wiki/path/page.md]]** — one sentence explaining *how* these pages relate` (the mechanism of the relationship, not just that they are related).
 - Links should be bidirectional: if A connects to B, B must connect to A.
 - Updated whenever a new ingest creates a new relationship.
+
+**Registry detail pages** (`wiki/gaps/gNNN.md`, `wiki/tensions/tNNN.md`): one page per gap or tension. Fixed skeleton — `tools/registry-index.py` parses the H1 and the `Status`/`Kind` fields and fails loudly on anything else.
+
+```md
+# G37 — <title, plain text, no bold; this is what the index table shows>
+
+**Status:** `PARTIAL`
+**Kind:** `part`                      ← gaps only: `part` or `arrangement`
+**Registry:** [[wiki/architectural-gaps.md]]
+**Closes when:** <the observation that would retire this row>
+
+## Why it blocks the target        ## Position A          ← tensions
+## Best current answer             ## Position B
+## From                            ## Where it bites
+## Status                          ## Status
+```
+
+End each of the four header lines with two spaces so they render as separate lines rather than one paragraph. Gap sections are `Why it blocks the target / Best current answer / From / Status`; tension sections are `Position A / Position B / Where it bites / Status`. The `## Status` section carries the reasoning; the `**Status:**` field carries the token alone. Ids are never reused: a retired row keeps its number in `closed/`.
 
 **Overview** (`wiki/overview.md`): the master synthesis. Updated after every 10 ingests or when a major insight changes the picture. Sections: The Central Thesis → Master Problem Framing: Latent Graph Discovery → Current best understanding → Key open problems → Promising directions → Major controversies.
 
@@ -121,6 +143,13 @@ After fetching, create a `raw/` file if the source is reliable and worth an inge
 ```
 
 Fall back to `grep -r "terms" wiki/` if qmd errors.
+
+A hit under `wiki/gaps/` or `wiki/tensions/` is a registry row, not a page — cite it by id (`G37`) and link the registry index unless the detail itself is the point.
+
+**Mechanical health, any time and always after a lint:**
+```bash
+./tools/wiki-stats.sh          # exits non-zero on any violated check
+```
 
 ## Decision-making
 
