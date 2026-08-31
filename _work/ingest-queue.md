@@ -427,7 +427,7 @@ One INGEST each:
 One INGEST each:
 
 - [x] `fedus-2022-sparse-expert-models-review.md` — mixture-of-experts · S · 2022
-- [ ] `arjovsky-2019-invariant-risk-minimization.md` — foundations · F · 2019
+- [x] `arjovsky-2019-invariant-risk-minimization.md` — foundations · F · 2019
 - [ ] `mnih-2015-dqn-human-level-control.md` — rl-planning · M · 2015
 - [ ] `andreas-2016-neural-module-networks.md` — neurosymbolic · M · 2016
 - [ ] `jang-2016-categorical-reparameterization-gumbel-softmax.md` — foundations · M · 2016

@@ -303,6 +303,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MRL | Matryoshka Representation Learning | Training so that truncated prefixes of an embedding remain usable, which is how deployed vectors are shrunk below their native dimension |
 
 | OOD / o.o.d. | Out-Of-Distribution | Evaluation on inputs drawn from a distribution the model was not trained on; the wiki's principal certification instrument for structure discovery, and the one every gap-table row falls back to (G17) |
+| ERM | Empirical Risk Minimization | Minimise mean loss over pooled training data — the default learning principle, and the one [[wiki/concepts/environment-invariance.md]] is stated against |
+| IRM | Invariant Risk Minimization | Find a representation whose optimal classifier is the same in every training environment; `IRMv1` is its one-penalty practical form (Arjovsky et al. 2019) |
+| ICP | Invariant Causal Prediction | Peters et al. 2016 — select the variable subset whose per-environment regression residuals are identically distributed; IRM's linear predecessor |
+| SEM | Structural Equation Model | A set of assignments `Xᵢ ← fᵢ(Pa(Xᵢ), Nᵢ)` with independent noises; environments are interventions on a shared SEM |
 | SGD | Stochastic Gradient Descent | |
 | BN | Batch Normalization | Per-feature standardisation over the minibatch. Load-bearing beyond optimisation here: it is an implicit cross-branch coupling and an implicit anti-collapse provision that appears in no coefficient count ([[wiki/concepts/representational-collapse.md]]) |
 | MAE | Masked Auto-Encoder | Reconstruct masked patches **in pixel space** from the unmasked remainder; the generative-branch baseline the JEPA lineage is measured against. **Collision:** not Mean Absolute Error anywhere in this wiki |
