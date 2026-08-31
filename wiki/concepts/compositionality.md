@@ -194,6 +194,30 @@ Two exports.
 
 ---
 
+## The split axis is a computed quantity, and it has a dose-response curve
+
+Keysers et al. 2020 (`raw/keysers-2020-cfq-measuring-compositional-generalization.md`, [[wiki/entities/cfq.md]]) attack the *instrument* rather than the architecture. Generate every example from rules and keep the derivation DAG; call the rules **atoms** and the weighted subgraphs **compounds**; then build the train/test split by optimising two divergences at once — hold `D_A ≤ 0.02` (atoms matched, so the split is not a domain shift over primitives) while driving `D_C` to a swept target.
+
+| Split method (CFQ) | `D_C` | What it is maximal on |
+|---|---|---|
+| Random | 0.000 | nothing |
+| Output pattern (the field's default "query split") | **0.008** | output-pattern coverage → 0 |
+| Input length | 0.062 | length ratio 0.578 |
+| Output length | 0.176 | length ratio 0.486 |
+| **MCD₁₋₃** | **0.694–0.713** | nothing observable — train and test samples are indistinguishable by eye |
+
+Three consequences for this page.
+
+**1. Compositional difficulty is measurable before a model is run, and it dominates.** Accuracy against `D_C` gives `R² = 0.81–0.88` for LSTM+attention, Transformer and Universal Transformer on *both* CFQ and SCAN; accuracy against input/output length ratio gives `R² = 0.11–0.22`. All three architectures score >95% i.i.d. (with 10× less data) and 14.9–18.9% at maximum divergence, and the gain flattens at ~80k training examples — so the facet failures above are not a data-quantity problem. This is the first thing in the wiki that makes o.o.d. difficulty **comparable across split methods and across datasets**, and the first reading of it is deflationary: the standard hard split of the semantic-parsing literature is a `D_C = 0.008` split.
+
+**2. It re-scores the splits the sections above are reported on, and two of them fail their own control.** SCAN's `primitive<jump>` and `primitive<turn left>` come back at `D_A` = 0.08 and 0.07, 3–4× over the admission threshold, with training covering 63% and 94% of the space respectively. The output-symbol mechanism in the section above is still the sharpest single explanation of the 1.2%/90.3% gap, but it is confounded with an atom-distribution shift and a 31-point coverage difference that no experiment separates. Every add-primitive result in the wiki inherits both confounds, not just the first.
+
+**3. It puts the facet decomposition itself in question.** If one scalar over derivation subgraphs predicts accuracy at `R² = 0.81–0.88`, the five facets may be regions of one axis rather than five independent dimensions — against which stands MLC's dissociation (systematicity to ≤0.22% error and productivity unmoved at 100% error under a single training-distribution change) and CFQ's own residual (the output-length split scores worse than its `D_C` predicts). Logged as [[wiki/empirical-tensions.md]] T312; the two instruments have never been run on the same data.
+
+**And a protocol rule that applies to every number on this page**: hyperparameters must be tuned on a *random* split, never on an o.o.d. validation set, or the reported score measures the ability to be tuned into one known generalisation rather than generalisation to an unknown shift. This leaks through the hyperparameters, needs no test items, and leaves no trace in the score — a channel none of the wiki's shortcut inventory covers.
+
+---
+
 ## Functional vs concatenative composition — the split every facet test above misses
 
 > Penn, Holyoak & Povinelli 2008 (`raw/penn-2008-darwins-mistake-discontinuity.md`), reading van Gelder 1990 and Horgan & Tienson 1996 against the comparative record. Full decomposition at [[wiki/concepts/relational-reinterpretation.md]].
@@ -231,6 +255,7 @@ Two exports.
 ## Connections
 
 - **[[wiki/entities/pcfg-set.md]]** — the operationalisation of this page: five task-independent behavioural tests that split "compositional" into separately failable facets, plus the consistency score, which measures composition without measuring competence.
+- **[[wiki/entities/cfq.md]]** — makes the split axis a computed quantity instead of a hand-picked holdout: compound divergence over derivation subgraphs predicts accuracy at `R² = 0.81–0.88` where length ratio predicts it at 0.11–0.22, which both re-scores every benchmark on this page and puts the facet decomposition itself in question (T312).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the productivity of the meta-graph: a finite installed vocabulary generates an unbounded set of instance-graphs, which is why binding can be one-shot.
 - **[[wiki/concepts/causal-model-building.md]]** — the paired ingredient: composition supplies the parts, causality supplies the coherence criterion that decides which arrangements are legal, and neither is sufficient alone.
 - **[[wiki/concepts/meta-learning.md]]** — compositionality is *what* learning-to-learn transfers when it works: the transferred object is a library of parts and relations, not a weight initialization, and the source claims transfer is weak in deep networks precisely because the representation is not compositional.

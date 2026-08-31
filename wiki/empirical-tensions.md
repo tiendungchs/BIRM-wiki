@@ -186,7 +186,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T174 | Does the recurrent connectivity of a fixed-dynamics sequence model carry expressive power? | `LIVE` | 8 | [[wiki/tensions/t174.md]] |
 | T175 | Once every candidate is a universal approximator, is there any expressivity difference left to measure? | `LIVE` | 5 | [[wiki/tensions/t175.md]] |
 | T176 | Should a continuous-time model keep its differential equation, or compile it away? | `LIVE` | 1 | [[wiki/tensions/t176.md]] |
-| T177 | Does long-range capability come from the architecture or from the initialisation? | `LIVE` | 3 | [[wiki/tensions/t177.md]] |
+| T177 | Does long-range capability come from the architecture or from the initialisation? | `LIVE` | 4 | [[wiki/tensions/t177.md]] |
 | T178 | Should a multiscale temporal decomposition be imposed on a sequence model, or left for a deep stack to discover? | `LIVE` | 1 | [[wiki/tensions/t178.md]] |
 | T179 | Is short path length between positions why long-range dependencies become learnable? | `LEANING` | 3 | [[wiki/tensions/t179.md]] |
 | T180 | Does verifier-driven test-time search buy reasoning, or only selection? | `LIVE` | 2 | [[wiki/tensions/t180.md]] |
@@ -318,4 +318,5 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T308 | Is the momentum encoder necessary to prevent collapse, or only the stop-gradient? | `LEANING` | 3 | [[wiki/tensions/t308.md]] |
 | T309 | Does a learned proposer beat blind enumeration, or only when the library is co-adapting? | `LIVE` | 5 | [[wiki/tensions/t309.md]] |
 | T310 | Does a frozen linear probe rank self-supervised representations? | `LEANING` | 8 | [[wiki/tensions/t310.md]] |
-| T311 | Is non-normality how a contractive linear recurrence holds information longer than its eigenvalues suggest? | `LEANING` | 1 | [[wiki/tensions/t311.md]] |
+| T311 | Is non-normality how a contractive linear recurrence holds information longer than its eigenvalues suggest? | `LEANING` | 3 | [[wiki/tensions/t311.md]] |
+| T312 | Is compositional generalisation one tunable scalar, or an irreducible facet vector? | `LIVE` | 3 | [[wiki/tensions/t312.md]] |

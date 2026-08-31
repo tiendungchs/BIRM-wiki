@@ -19,7 +19,7 @@ One INGEST each:
 - [x] `he-2022-masked-autoencoders.md` — ssl-representation · M · 2022
 - [x] `orvieto-2023-linear-recurrent-unit.md` — sequence-models · M · 2023
 - [x] `lake-2018-scan-generalization-without-systematicity.md` — reasoning-eval · B · 2018
-- [ ] `keysers-2020-cfq-measuring-compositional-generalization.md` — reasoning-eval · B · 2020
+- [x] `keysers-2020-cfq-measuring-compositional-generalization.md` — reasoning-eval · B · 2020
 - [ ] `schultz-1997-neural-substrate-prediction-reward.md` — plasticity · R · 1997 · **LOSSY** (pdf2md)
 - [ ] `doeller-2010-human-grid-cells-memory-network.md` — hippocampal-entorhinal · R · 2010
 - [ ] `rigotti-2013-mixed-selectivity.md` — prefrontal-control · R · 2013

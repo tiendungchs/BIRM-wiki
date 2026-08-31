@@ -27,7 +27,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G13 | No tractable system covers all six hardness sources | part | `PARTIAL` | 1 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 21 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `PARTIAL` | 22 | [[wiki/gaps/g015.md]] |
-| G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 17 | [[wiki/gaps/g016.md]] |
+| G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 19 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 41 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `PARTIAL` | 15 | [[wiki/gaps/g019.md]] |
@@ -77,7 +77,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G63 | The behaviour policy is a load-bearing parameter of world-model estimation, and every mechanism the wiki has for improving an agent destroys it | part | `OPEN` | 7 | [[wiki/gaps/g063.md]] |
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `OPEN` | 1 | [[wiki/gaps/g064.md]] |
 | G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `CONTESTED` | 4 | [[wiki/gaps/g065.md]] |
-| G66 | No sampler draws training pairs with respect to the quantity being learned | part | `OPEN` | 4 | [[wiki/gaps/g066.md]] |
+| G66 | No sampler draws training pairs with respect to the quantity being learned | part | `OPEN` | 5 | [[wiki/gaps/g066.md]] |
 | G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `OPEN` | 10 | [[wiki/gaps/g067.md]] |
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `OPEN` | 10 | [[wiki/gaps/g068.md]] |
 | G69 | No architecture creates variables on demand | part | `PARTIAL` | 8 | [[wiki/gaps/g069.md]] |
