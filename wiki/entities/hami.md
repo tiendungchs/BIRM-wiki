@@ -105,6 +105,7 @@ The retrieval bottleneck is stated, not hidden: every decision must search the s
 | System | Memory key | Retrieval | Capacity behaviour |
 |---|---|---|---|
 | Model-Free Episodic Control | Random-projected state vector | `k`-nearest-neighbour average | Grows with every distinct vector |
+| [[wiki/entities/neural-episodic-control.md]] | Convolutional embedding trained by temporal-difference error | Kernel-weighted 50-nearest-neighbour, heavy-tailed `1/(d²+δ)` | Grows likewise; capped at `5×10⁵` per action, then least-recently-retrieved eviction |
 | Knowledge-Enhanced episodic control (this paper's strongest baseline) | Pretext embedding window | Mean cosine similarity | Saturates and overwrites; 24× slower |
 | **HAMI** | Window of 6-bit event-in-context symbols | Exact match (CAM-able) | Bounded by symbol alphabet; 87% used at 20k episodes |
 | [[wiki/entities/cscg.md]] | Clone index, allocated per observation | Transition inference | Clone pool fixed by hand |
@@ -118,6 +119,7 @@ HAMI and CSCG are the same idea at two levels: both replace a similarity metric 
 ## Connections
 
 - **[[wiki/concepts/complementary-learning-systems.md]]** — supplies the primary source for that page's *episodic control* row and sharpens its verdict: the fast store used directly for behaviour wins on sample efficiency because quantised keys keep its capacity bounded, and it still has no consolidation path back to the slow learner (G14).
+- **[[wiki/entities/neural-episodic-control.md]]** — the vector-keyed episodic control this page's capacity result is measured against, and the same architecture at the opposite setting of one knob: NEC keeps a real-valued key and buys graded similarity with a `k`-nearest-neighbour search and an eviction policy, where quantisation here buys bounded capacity and a one-cycle exact-match read; NEC also *learns* the metric from reward where this page freezes a contrastively pretrained one.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — the transfer curve reduced to one thresholded comparison per factor, and then *swept*: this is the wiki's only map of accuracy over the whole separation/completion range, and it shows the two factors of a conjunctive code tolerating different biases (context from 0.20, event from 0.45).
 - **[[wiki/concepts/sparse-distributed-representations.md]]** — the opposite bet on the same problem: high-dimensional sparse codes make interference improbable while staying continuous, HAMI makes it *impossible* by quantising to a short exact-match key, at the cost of everything graded similarity buys.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — aliasing (hardness source 3) resolved by allocation rather than by inference: the same digit at different sequence positions is de-aliased by the symbol window, and the rule indexed by context is never represented as a rule at all, only as separate table entries.

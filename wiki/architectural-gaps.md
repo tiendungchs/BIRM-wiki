@@ -25,12 +25,12 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G11 | No mechanism for the non-embeddable symbolic slice | part | `OPEN` | 10 | [[wiki/gaps/g011.md]] |
 | G12 | No routing policy between structure types | part | `OPEN` | 13 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `PARTIAL` | 1 | [[wiki/gaps/g013.md]] |
-| G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 19 | [[wiki/gaps/g014.md]] |
+| G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 20 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `PARTIAL` | 21 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 17 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 40 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
-| G19 | No local rule is selective about what it writes | part | `PARTIAL` | 13 | [[wiki/gaps/g019.md]] |
+| G19 | No local rule is selective about what it writes | part | `PARTIAL` | 14 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `PARTIAL` | 1 | [[wiki/gaps/g020.md]] |
 | G21 | No mechanism composes the outputs of two specialized modules | part | `CONTESTED` | 14 | [[wiki/gaps/g021.md]] |
 | G22 | Nothing selects which compositions get built | part | `OPEN` | 6 | [[wiki/gaps/g022.md]] |
@@ -39,7 +39,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `OPEN` | 4 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 18 | [[wiki/gaps/g026.md]] |
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 27 | [[wiki/gaps/g027.md]] |
-| G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 12 | [[wiki/gaps/g028.md]] |
+| G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 13 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 5 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 18 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `OPEN` | 9 | [[wiki/gaps/g031.md]] |
@@ -49,11 +49,11 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G35 | No model pays for its own parameters | part | `OPEN` | 3 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `OPEN` | 1 | [[wiki/gaps/g036.md]] |
 | G37 | Nothing decides which stored structure applies to the current situation | part | `PARTIAL` | 28 | [[wiki/gaps/g037.md]] |
-| G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `PARTIAL` | 32 | [[wiki/gaps/g038.md]] |
+| G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `PARTIAL` | 33 | [[wiki/gaps/g038.md]] |
 | G39 | Nothing anchors a retrieved structure to the present situation | part | `OPEN` | 11 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `OPEN` | 12 | [[wiki/gaps/g040.md]] |
 | G41 | No test decides whether a domain's actions compose | part | `OPEN` | 4 | [[wiki/gaps/g041.md]] |
-| G42 | No machine fast store has a capacity model, so nothing knows when it is full | part | `PARTIAL` | 18 | [[wiki/gaps/g042.md]] |
+| G42 | No machine fast store has a capacity model, so nothing knows when it is full | part | `PARTIAL` | 19 | [[wiki/gaps/g042.md]] |
 | G43 | Nothing arbitrates between concurrent reference frames | part | `OPEN` | 7 | [[wiki/gaps/g043.md]] |
 | G44 | Nothing accounts for how much of an emergent phenomenon came from the training target rather than the task | part | `OPEN` | 2 | [[wiki/gaps/g044.md]] |
 | G45 | No architecture can be told its latent structure | part | `OPEN` | 4 | [[wiki/gaps/g045.md]] |
