@@ -164,7 +164,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T152 | Is a world model's conditioning interface a design requirement, or an implementation detail? | `LEANING` | 5 | [[wiki/tensions/t152.md]] |
 | T153 | Is a straight latent trajectory a good representation or a partial collapse? | `LIVE` | 3 | [[wiki/tensions/t153.md]] |
 | T154 | Does a control-usable visual world model need foundation-scale pretraining? | `LIVE` | 6 | [[wiki/tensions/t154.md]] |
-| T155 | Does a simplicity prior select structure, or destroy it? *(absorbs T182, "does compression build the library or destroy it?", merged at the 284-source duplicate audit: the two rows asked one question over one measurement.)* | `LIVE` | 6 | [[wiki/tensions/t155.md]] |
+| T155 | Does a simplicity prior select structure, or destroy it? *(absorbs T182, "does compression build the library or destroy it?", merged at the 284-source duplicate audit: the two rows asked one question over one measurement.)* | `LIVE` | 7 | [[wiki/tensions/t155.md]] |
 | T156 | When a compositional model fails out of distribution, is the deficit in the vocabulary or in the search over it? | `LIVE` | 7 | [[wiki/tensions/t156.md]] |
 | T157 | When a linear probe fails, is the representation non-linear or is the label basis wrong? | `LEANING` | 3 | [[wiki/tensions/t157.md]] |
 | T158 | When a model is shown to use its world model, does it use it on every input? | `LEANING` | 4 | [[wiki/tensions/t158.md]] |
@@ -316,3 +316,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T306 | Should an analogical matcher emit every consistent interpretation, or commit to one? | `LIVE` | 2 | [[wiki/tensions/t306.md]] |
 | T307 | Does neural predictivity certify that a model implements the brain's algorithm? | `LEANING` | 6 | [[wiki/tensions/t307.md]] |
 | T308 | Is the momentum encoder necessary to prevent collapse, or only the stop-gradient? | `LEANING` | 3 | [[wiki/tensions/t308.md]] |
+| T309 | Does a learned proposer beat blind enumeration, or only when the library is co-adapting? | `LIVE` | 3 | [[wiki/tensions/t309.md]] |
