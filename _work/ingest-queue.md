@@ -438,7 +438,7 @@ One INGEST each:
 - [x] `shazeer-2017-sparsely-gated-mixture-of-experts.md` — mixture-of-experts · M · 2017
 - [x] `silver-2017-alphazero-chess-shogi.md` — rl-planning · M · 2017
 - [x] `fedus-2022-switch-transformers.md` — mixture-of-experts · M · 2022
-- [ ] `hendrycks-2019-imagenet-c-common-corruptions.md` — reasoning-eval · B · 2019
+- [x] `hendrycks-2019-imagenet-c-common-corruptions.md` — reasoning-eval · B · 2019
 - [ ] `herculanohouzel-2009-human-brain-in-numbers.md` — evolution-comparative · R · 2009
 - [ ] `geirhos-2019-texture-shape-bias.md` — reasoning-eval · R · 2019
 - [ ] `beniaguev-2021-single-neurons-as-deep-networks.md` — neuron-models · R · 2021
