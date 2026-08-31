@@ -461,7 +461,7 @@ One INGEST each:
 - [x] `chen-2021-simsiam.md` — ssl-representation · M · 2021
 - [x] `ellis-2021-dreamcoder.md` — neurosymbolic · M · 2021
 - [x] `he-2022-masked-autoencoders.md` — ssl-representation · M · 2022
-- [ ] `orvieto-2023-linear-recurrent-unit.md` — sequence-models · M · 2023
+- [x] `orvieto-2023-linear-recurrent-unit.md` — sequence-models · M · 2023
 - [ ] `lake-2018-scan-generalization-without-systematicity.md` — reasoning-eval · B · 2018
 - [ ] `keysers-2020-cfq-measuring-compositional-generalization.md` — reasoning-eval · B · 2020
 - [ ] `schultz-1997-neural-substrate-prediction-reward.md` — plasticity · R · 1997 · **LOSSY** (pdf2md)

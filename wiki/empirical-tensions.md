@@ -171,24 +171,24 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T159 | Is a geometric structure that appears only after dimensionality reduction a property of the representation or of the projection? | `LIVE` | 3 | [[wiki/tensions/t159.md]] |
 | T160 | Does the geometric quality of a representation predict whether the model uses it? | `LIVE` | 2 | [[wiki/tensions/t160.md]] |
 | T161 | Does a stable signature failure profile identify an *installed* prior? | `LIVE` | 6 | [[wiki/tensions/t161.md]] |
-| T162 | Does relational understanding require decoding back to the input space? | `LIVE` | 6 | [[wiki/tensions/t162.md]] |
+| T162 | Does relational understanding require decoding back to the input space? | `LIVE` | 7 | [[wiki/tensions/t162.md]] |
 | T163 | Can retrieval be amortised into a geometry, or is it irreducibly a joint computation? | `LIVE` | 1 | [[wiki/tensions/t163.md]] |
 | T164 | Must a collapse-avoiding self-supervised learner descend a well-defined objective? | `LIVE` | 8 | [[wiki/tensions/t164.md]] |
 | T165 | Is augmentation fragility a consequence of the *contrastive* objective? | `LIVE` | 4 | [[wiki/tensions/t165.md]] |
 | T166 | Are anti-collapse mechanisms from different families composable? | `LEANING` | 6 | [[wiki/tensions/t166.md]] |
-| T167 | Is a self-supervised representation's character set by its objective or by its pair sampler? | `LEANING` | 8 | [[wiki/tensions/t167.md]] |
+| T167 | Is a self-supervised representation's character set by its objective or by its pair sampler? | `LEANING` | 9 | [[wiki/tensions/t167.md]] |
 | T168 | Is collapse-avoidance a property a design *has*, or a state a training run must be *kept in*? | `LEANING` | 5 | [[wiki/tensions/t168.md]] |
 | T169 | Is the isotropic Gaussian the right target for an embedding distribution, or only the right *shape* at a dimension nobody knows how to choose? | `LIVE` | 3 | [[wiki/tensions/t169.md]] |
 | T170 | When several targets are equally valid, should the predictor represent the modes or should the target space quotient them away? | `LIVE` | 2 | [[wiki/tensions/t170.md]] |
 | T171 | Does climbing the moment ladder pay? | `LIVE` | 3 | [[wiki/tensions/t171.md]] |
 | T172 | Is an action-grounded vocabulary necessarily agent-relative? | `LIVE` | 2 | [[wiki/tensions/t172.md]] |
 | T173 | Should a learned similarity live in the geometry of the code, or in a comparator on top of it? *(absorbs T184, "should structural similarity live in the code or in the comparator?", merged at the 284-source duplicate audit: one axis, two rows, sharing two of their four citations. T184's sides were labelled in the opposite order; this row uses A = in the code.)* | `LIVE` | 7 | [[wiki/tensions/t173.md]] |
-| T174 | Does the recurrent connectivity of a fixed-dynamics sequence model carry expressive power? | `LIVE` | 7 | [[wiki/tensions/t174.md]] |
+| T174 | Does the recurrent connectivity of a fixed-dynamics sequence model carry expressive power? | `LIVE` | 8 | [[wiki/tensions/t174.md]] |
 | T175 | Once every candidate is a universal approximator, is there any expressivity difference left to measure? | `LIVE` | 5 | [[wiki/tensions/t175.md]] |
 | T176 | Should a continuous-time model keep its differential equation, or compile it away? | `LIVE` | 1 | [[wiki/tensions/t176.md]] |
-| T177 | Does long-range capability come from the architecture or from the initialisation? | `LIVE` | 2 | [[wiki/tensions/t177.md]] |
+| T177 | Does long-range capability come from the architecture or from the initialisation? | `LIVE` | 3 | [[wiki/tensions/t177.md]] |
 | T178 | Should a multiscale temporal decomposition be imposed on a sequence model, or left for a deep stack to discover? | `LIVE` | 1 | [[wiki/tensions/t178.md]] |
-| T179 | Is short path length between positions why long-range dependencies become learnable? | `LEANING` | 2 | [[wiki/tensions/t179.md]] |
+| T179 | Is short path length between positions why long-range dependencies become learnable? | `LEANING` | 3 | [[wiki/tensions/t179.md]] |
 | T180 | Does verifier-driven test-time search buy reasoning, or only selection? | `LIVE` | 2 | [[wiki/tensions/t180.md]] |
 | T181 | Is a more accurate verifier always a better verifier? | `LEANING` | 1 | [[wiki/tensions/t181.md]] |
 | T183 | Is theory of mind recursive inference, or a fixed point? | `LIVE` | 4 | [[wiki/tensions/t183.md]] |
@@ -317,4 +317,5 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T307 | Does neural predictivity certify that a model implements the brain's algorithm? | `LEANING` | 6 | [[wiki/tensions/t307.md]] |
 | T308 | Is the momentum encoder necessary to prevent collapse, or only the stop-gradient? | `LEANING` | 3 | [[wiki/tensions/t308.md]] |
 | T309 | Does a learned proposer beat blind enumeration, or only when the library is co-adapting? | `LIVE` | 5 | [[wiki/tensions/t309.md]] |
-| T310 | Does a frozen linear probe rank self-supervised representations? | `LEANING` | 3 | [[wiki/tensions/t310.md]] |
+| T310 | Does a frozen linear probe rank self-supervised representations? | `LEANING` | 8 | [[wiki/tensions/t310.md]] |
+| T311 | Is non-normality how a contractive linear recurrence holds information longer than its eigenvalues suggest? | `LEANING` | 1 | [[wiki/tensions/t311.md]] |

@@ -78,7 +78,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `OPEN` | 1 | [[wiki/gaps/g064.md]] |
 | G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `CONTESTED` | 4 | [[wiki/gaps/g065.md]] |
 | G66 | No sampler draws training pairs with respect to the quantity being learned | part | `OPEN` | 4 | [[wiki/gaps/g066.md]] |
-| G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `OPEN` | 9 | [[wiki/gaps/g067.md]] |
+| G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `OPEN` | 10 | [[wiki/gaps/g067.md]] |
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `OPEN` | 10 | [[wiki/gaps/g068.md]] |
 | G69 | No architecture creates variables on demand | part | `PARTIAL` | 8 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `OPEN` | 7 | [[wiki/gaps/g070.md]] |
