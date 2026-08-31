@@ -25,7 +25,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G11 | No mechanism for the non-embeddable symbolic slice | part | `OPEN` | 10 | [[wiki/gaps/g011.md]] |
 | G12 | No routing policy between structure types | part | `OPEN` | 13 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `PARTIAL` | 1 | [[wiki/gaps/g013.md]] |
-| G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 18 | [[wiki/gaps/g014.md]] |
+| G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 19 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `PARTIAL` | 21 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 17 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 40 | [[wiki/gaps/g017.md]] |
@@ -39,7 +39,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `OPEN` | 4 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 18 | [[wiki/gaps/g026.md]] |
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 27 | [[wiki/gaps/g027.md]] |
-| G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 11 | [[wiki/gaps/g028.md]] |
+| G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 12 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 5 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 18 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `OPEN` | 9 | [[wiki/gaps/g031.md]] |
@@ -48,12 +48,12 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `PARTIAL` | 13 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `OPEN` | 3 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `OPEN` | 1 | [[wiki/gaps/g036.md]] |
-| G37 | Nothing decides which stored structure applies to the current situation | part | `PARTIAL` | 27 | [[wiki/gaps/g037.md]] |
+| G37 | Nothing decides which stored structure applies to the current situation | part | `PARTIAL` | 28 | [[wiki/gaps/g037.md]] |
 | G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `PARTIAL` | 32 | [[wiki/gaps/g038.md]] |
 | G39 | Nothing anchors a retrieved structure to the present situation | part | `OPEN` | 11 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `OPEN` | 12 | [[wiki/gaps/g040.md]] |
 | G41 | No test decides whether a domain's actions compose | part | `OPEN` | 4 | [[wiki/gaps/g041.md]] |
-| G42 | No machine fast store has a capacity model, so nothing knows when it is full | part | `PARTIAL` | 17 | [[wiki/gaps/g042.md]] |
+| G42 | No machine fast store has a capacity model, so nothing knows when it is full | part | `PARTIAL` | 18 | [[wiki/gaps/g042.md]] |
 | G43 | Nothing arbitrates between concurrent reference frames | part | `OPEN` | 7 | [[wiki/gaps/g043.md]] |
 | G44 | Nothing accounts for how much of an emergent phenomenon came from the training target rather than the task | part | `OPEN` | 2 | [[wiki/gaps/g044.md]] |
 | G45 | No architecture can be told its latent structure | part | `OPEN` | 4 | [[wiki/gaps/g045.md]] |
@@ -63,11 +63,11 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G49 | No store schedules its own reads, and none has a relevance-addressed erase | part | `OPEN` | 6 | [[wiki/gaps/g049.md]] |
 | G50 | The controller cannot set the gain of its own teaching signal | part | `OPEN` | 10 | [[wiki/gaps/g050.md]] |
 | G51 | Nothing transfers a representation out of the control layer into the store that will run it automatically | part | `OPEN` | 4 | [[wiki/gaps/g051.md]] |
-| G52 | No inter-module connection in the wiki has state of its own | part | `OPEN` | 10 | [[wiki/gaps/g052.md]] |
+| G52 | No inter-module connection in the wiki has state of its own | part | `OPEN` | 11 | [[wiki/gaps/g052.md]] |
 | G53 | No architecture delivers one signal to two modules by the same wire, and none lets a third module license a pair's connection | part | `OPEN` | 1 | [[wiki/gaps/g053.md]] |
 | G54 | No architecture distinguishes a channel that carries content from one that only carries timing | part | `PARTIAL` | 10 | [[wiki/gaps/g054.md]] |
 | G55 | Every machine controller is either one resource or *n* independent ones; none has a shared component plus operation-specific parameters | part | `OPEN` | 1 | [[wiki/gaps/g055.md]] |
-| G56 | No architecture has a run-time gain register on its own connections | part | `OPEN` | 6 | [[wiki/gaps/g056.md]] |
+| G56 | No architecture has a run-time gain register on its own connections | part | `OPEN` | 7 | [[wiki/gaps/g056.md]] |
 | G57 | No architecture makes its teaching signal one of its own inputs | part | `OPEN` | 1 | [[wiki/gaps/g057.md]] |
 | G58 | No control layer is instantiated by the existence of a choice at its own level | part | `OPEN` | 1 | [[wiki/gaps/g058.md]] |
 | G59 | Every hierarchical controller lets its lower level see the same observation as its upper level | part | `OPEN` | 4 | [[wiki/gaps/g059.md]] |
