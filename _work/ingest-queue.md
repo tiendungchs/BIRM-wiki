@@ -460,7 +460,7 @@ One INGEST each:
 - [x] `geirhos-2020-error-consistency.md` — reasoning-eval · M · 2020
 - [x] `chen-2021-simsiam.md` — ssl-representation · M · 2021
 - [x] `ellis-2021-dreamcoder.md` — neurosymbolic · M · 2021
-- [ ] `he-2022-masked-autoencoders.md` — ssl-representation · M · 2022
+- [x] `he-2022-masked-autoencoders.md` — ssl-representation · M · 2022
 - [ ] `orvieto-2023-linear-recurrent-unit.md` — sequence-models · M · 2023
 - [ ] `lake-2018-scan-generalization-without-systematicity.md` — reasoning-eval · B · 2018
 - [ ] `keysers-2020-cfq-measuring-compositional-generalization.md` — reasoning-eval · B · 2020
