@@ -59,6 +59,31 @@ The categorical rows are the point: the gap over the best control-variate estima
 
 ---
 
+## A fourth family: relax the *statistic*, not the sample
+
+The three families above all attack `∇_θ E_{z~p_θ}[f(z)]` — the gradient of a function of the sample. A different problem, and the one that recurs whenever a discrete latent must be *balanced* rather than merely used, is the gradient of a **count**: how many inputs in this batch selected option `i`. The count is an integer and no relaxation of `z` recovers it.
+
+Shazeer et al. 2017's router ([[wiki/entities/sparsely-gated-moe.md]]) solves it by injecting noise with a **learned, input-dependent scale** and then integrating that noise out analytically. With `H(x)_i = (x·W_g)_i + N(0,1)·Softplus((x·W_noise)_i)` and every other component's noise held at its drawn value:
+
+```
+P(x,i) = Φ( [ (x·W_g)_i − kth_excluding(H(x), k, i) ] / Softplus((x·W_noise)_i) )
+Load(X)_i = Σ_{x∈X} P(x,i)                    ← smooth, differentiable count
+```
+
+| | Gumbel-Softmax | Noise-integration |
+|---|---|---|
+| What is relaxed | the sample `z` | the *probability that the sample takes a value*, in closed form |
+| Forward pass | must use `y` (or ST) | **exactly discrete** — `KeepTopK` is untouched |
+| Bias | `O(τ)` in the sample | none in the estimator; it is the exact `P(z_i ≠ 0)` under the injected noise |
+| Sharpness knob | one global `τ`, scheduled | `Softplus(x·W_noise)`, **per-option and per-input, learned** |
+| Applies to | any `f(z)` | statistics expressible as `E[1(z_i ≠ 0)]` — counts, loads, usage histograms |
+
+**Why this is worth having separately.** It answers the objection this page's own temperature section raises — nothing in the Gumbel literature learns a per-node `τ` — by exhibiting an architecture in which exactly that is trained, because the noise scale is the only thing making the balance loss informative. And it is the estimator to reach for when the discrete node's problem is *utilisation* rather than *use*: codebook collapse, expert collapse, memory-slot starvation are all gradients of a count.
+
+**(brainstorm) The two compose rather than compete.** ST-Gumbel would give the router gradient through the selection; the noise-integration estimator gives it gradient through the induced load. Nothing in the wiki uses both, and a codebook with a Gumbel-relaxed selection plus a `Φ`-estimated usage histogram is a one-line experiment against the standard VQ dead-code problem.
+
+---
+
 ## Temperature is the design knob
 
 `τ` is a **bias–variance dial**, and the tradeoff runs the counterintuitive way:
@@ -125,3 +150,4 @@ This is the result that matters here. Every wiki position that wants a discrete 
 - **[[wiki/concepts/attention.md]]** — hard attention (select one item, discretely) versus soft attention (mix) is the same argmax-vs-softmax choice, and Gumbel-Softmax is the interpolation between them with a trainable temperature.
 - **[[wiki/architectural-gaps.md]]** — supplies the training half of `G27`'s bottleneck family and the commit primitive of `G91`, while leaving both rows' criterion/credit halves untouched.
 - **[[wiki/empirical-tensions.md]]** — removes the tractability objection to position A of `T147` and `T148`, makes `T148`'s unrun codebook-size sweep cheap, and opens `T298` (smoothed vs. exact gradients through a discrete node).
+- **[[wiki/entities/sparsely-gated-moe.md]]** — the fourth estimator family and the one instance of this page's unbuilt per-node temperature: the router leaves its forward `KeepTopK` exactly discrete and instead integrates an injected Gaussian analytically to get `Φ(·)`, a differentiable estimate of *how many* inputs chose each option, with the noise scale `Softplus(x·W_noise)` learned per option and per input.

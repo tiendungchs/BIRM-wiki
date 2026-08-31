@@ -77,6 +77,26 @@ Four results, each removing something the taxonomy above was assumed to have.
 
 ---
 
+## The discrete case behaves differently, and it is measured
+
+Everything above is about a continuous embedding. The one place the wiki has an ablation over a *discrete* selection variable is the mixture-of-experts router, where collapse is the rich-get-richer path — a favoured expert receives more inputs, trains faster, is favoured more ([[wiki/entities/sparsely-gated-moe.md]], Shazeer et al. 2017, 256 experts, 1B-word LM):
+
+| Balance loss | Test ppl | `CV(Importance)` | `max(Load)/mean(Load)` |
+|---|---|---|---|
+| none | **39.8** | 3.04 | **17.80** |
+| importance only, `w = 0.2` | 35.6 | 0.06 | 1.47 |
+| load only, `w = 0.2` | 35.7 | 0.22 | 1.15 |
+| both, `w = 0.01` … `1.0` | 35.6–35.7 | 0.48 → 0.03 | 1.37 → 1.07 |
+
+Two disanalogies with the continuous loci, both useful:
+
+- **The coefficient does not matter.** Every non-zero setting across a 100× range lands within 0.1 ppl. Compare VICReg, which collapses over most of its coefficient space and needs `5,5,1` to reach 68.1 — *stating a loss's minimum does not certify the trajectory* is a statement about continuous embeddings, and does not obviously carry to a discrete selection variable.
+- **Two different quantities are being held up and only one is quality-relevant.** `Importance` (batch sum of gate *values*) and `Load` (smooth estimate of the *count* of inputs routed) are near-interchangeable for perplexity; only the load term controls the tail, which is the number that decides whether a device runs out of memory. So one provision buys quality and a second buys an engineering property, and the ablation separates them cleanly.
+
+**(brainstorm) The mechanism for the insensitivity is probably that a discrete argmax has no null solution to fall into.** A constant encoder is a reachable point of a continuous embedding space; a router that sends everything to one expert still emits a valid partition and is punished directly by the task loss, because the surviving expert has a finite capacity the corpus overruns. The provision therefore only has to break a symmetry, not exclude a minimum — which predicts that discretising a latent should make its anti-collapse term easy to tune, and is a cheap test of the discretisation row in the four-ways-to-restrict list above.
+
+---
+
 ## What a provision actually buys
 
 Collapse-avoidance is not a scalar virtue of a representation. It is a purchase of a particular **read-out**, and the field's default benchmark sees almost none of the difference ([[wiki/entities/dinov2.md]]):
@@ -151,3 +171,4 @@ This is the same shape as G17 one level down: the certification instrument admit
 - **[[wiki/entities/transformer.md]]** — the stated design reason for multi-head attention, and a rare case of a collapse mitigation priced by ablation: a single head's weighted average over positions gives "reduced effective resolution due to averaging attention-weighted positions", and at *constant* total compute the head count has an interior optimum (1 head 24.9 BLEU, 8 heads 25.8, 32 heads 25.4) — so anti-averaging is traded directly against per-head scoring width (Vaswani et al. 2017).
 - **[[wiki/concepts/sparse-expert-routing.md]]** — this page's problem stated over a *discrete* selection variable: without intervention a favoured expert receives more tokens, trains faster and is favoured more, and the four remedies (auxiliary balance loss, linear-assignment/optimal-transport constraint, expert-choice routing that makes imbalance structurally impossible, dense-to-sparse annealing) are the same four families that appear wherever a discrete latent must not collapse.
 - **[[wiki/concepts/environment-invariance.md]]** — the same failure in an invariance objective: the null representation `Φ₀ = 0` makes every linear classifier optimal in every environment, so it satisfies the invariance penalty exactly and only the risk term rejects it.
+- **[[wiki/entities/sparsely-gated-moe.md]]** — this page's failure mode over a discrete variable, with the only clean coefficient sweep the wiki has for it: an unpenalised router reaches `max/mean` load 17.8 and costs 4.2 perplexity points, and *every* non-zero balance coefficient across a 100× range recovers full quality — the opposite of the continuous-embedding sweeps, and the reason the discretisation row of the four-ways-to-restrict list deserves separate treatment.
