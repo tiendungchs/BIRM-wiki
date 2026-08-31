@@ -93,6 +93,8 @@ All four are statistical. **None of them touch state abstraction, transition str
 
 ## Connections
 
+- **[[wiki/entities/progressive-neural-networks.md]]** — the direct attack on this page's one-network-per-game constraint: one frozen column per Atari game with lateral connections into the next, giving positive transfer on 8/12 target games where full fine-tuning of a single network gives 5/12 and is destructive.
+
 - **[[wiki/concepts/complementary-learning-systems.md]]** — supplies the primary source for the machine-instantiations table's first row, and narrows the claim: DQN's replay borrows interleaving for optimisation stability only, with no second learner to transport into.
 - **[[wiki/concepts/offline-replay.md]]** — the biological object the machine buffer is named after; DQN's deployed rule (uniform over a 10⁶-frame FIFO window) is closer to biology's "upsample the under-visited" than the prioritised variants it inspired, but only by accident of it being the simplest thing to code.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — the track record's cleanest "training schedule, not architecture" entry, now with its author's own framing: the neurobiology (SWR replay, reward shaping of visual cortex representations) is cited as convergent support for a device motivated by optimisation stability.

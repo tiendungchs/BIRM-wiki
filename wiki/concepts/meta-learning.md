@@ -149,6 +149,8 @@ Two nested notions of "out of distribution", and only the inner one is bought. T
 
 ## Connections
 
+- **[[wiki/entities/progressive-neural-networks.md]]** — the non-meta route to forward transfer: instead of optimising an initialisation over a task distribution, keep every earlier solution frozen and readable at every depth, so adaptation speed is bought with capacity rather than with meta-training — and its transfer scores are area-under-the-learning-curve, the same fast-adaptation quantity meta-learning optimises.
+
 - **[[wiki/concepts/epistemic-value.md]]** — the slow/fast split appearing as a condition for a sum to converge: per-step information gain about the parameters is additive over a horizon *only* because `θ` is frozen during the rollout, so the slow level must be held still while the fast level plans over it or per-probe gains double-count.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — meta-learning is the optimization statement of LGD's two-level hierarchy: the outer loop learns the meta-graph, the inner loop binds the instance-graph.

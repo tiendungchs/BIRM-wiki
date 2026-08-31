@@ -147,6 +147,8 @@ The row that only this page can fill is the last-but-one. Every other nonparamet
 
 ## Connections
 
+- **[[wiki/entities/progressive-neural-networks.md]]** — the expansion family's other half and the origin of this model's gradient-blocked lateral connections: progressive nets are handed both decisions CN-DPM cares about (when to grow, which component to use) and instead measure per-layer what the frozen components contribute, finding that maximal reuse is the *worst*-transferring regime.
+
 - **[[wiki/entities/continual-dreamer.md]]** — the opposite extreme of the same task-agnostic problem: a world model that shares *everything* across tasks has no gate to fail and therefore no retrieval loss, and pays instead in interference — a buffer holding the old goal prevents learning a new one in an identical environment.
 - **[[wiki/concepts/continual-learning.md]]** — the expansion row of that page's solution table, measured end to end: forgetting is eliminated (88.20 → 88.20) and the cost is not the parameter count the row names but a **retrieval failure at the gate**, so the family's real price is a growing library nothing can index accurately.
 - **[[wiki/concepts/contextual-inference.md]]** — the same allocate-vs-reuse posterior with the component's contents scaled from a scalar to a deep classifier + density model, which forces two changes that page's formalism does not have: allocation must be *deferred* until enough evidence accumulates to fit the component, and the responsibility likelihood must be a learned generative model whose discriminability then becomes the binding constraint.

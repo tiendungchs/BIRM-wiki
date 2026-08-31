@@ -72,6 +72,8 @@ The honest resolution the survey itself supplies: in every row the body-specific
 
 ## Connections
 
+- **[[wiki/entities/progressive-neural-networks.md]]** — the initialisation-transient problem (G65) attacked from the other side: the trained module is protected by freezing (the field default here), but the *new* module is protected from the trained one's activation scale by a learned per-lateral scalar initialised small, which is a device none of this page's remedies has.
+
 - **[[wiki/concepts/affordance-grounded-symbols.md]]** — the position this page contests: there a symbol is defined by quantifying over *one agent's* repertoire, which makes vocabularies non-transferable across bodies in principle; here one interface is fitted above 22 robot types and the repertoire-relative part is pushed into a per-embodiment decoder ([[wiki/empirical-tensions.md]] T172).
 - **[[wiki/entities/adaworld.md]]** — the latent-action row of the family table studied as an object rather than as a pipeline stage: the same induce-a-code-from-a-frame-pair move, with the bottleneck coefficient `β` shown to trade expressiveness against exactly the cross-environment overlap this page's transfer claims depend on.
 - **[[wiki/concepts/learned-world-models.md]]** — supplies the mechanism behind the video-prediction row: predict in a body-independent space and let an inverse-dynamics model do the embodiment-specific decoding, which is a world model used as an action *relabeller* rather than as a simulator, dynamics model or reward model.

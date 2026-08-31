@@ -225,6 +225,8 @@ What it buys that the rewrite instruments do not:
 
 ## Connections
 
+- **[[wiki/entities/progressive-neural-networks.md]]** — a transfer-side form of the same failure, measured: the worst-transferring progressive nets are exactly those that lean entirely on the source columns' features and learn no new vision, so a prior that is *too* readily reusable delivers a functional but sub-optimal policy the learner never leaves.
+
 - **[[wiki/entities/gsm8k.md]]** — supplies this page's two cheapest o.o.d. instruments (an 8-axis named-perturbation sweep, and template re-instantiation returning a distribution plus a corpus-free contamination z-score), and its hardest case: a clause that changes nothing costs up to 65% accuracy, and neither demonstrations of the identical question nor demonstrations of the identical failure mode repair it.
 - **[[wiki/entities/math-perturb.md]]** — extends this page's taxonomy to an object it does not cover: the shortcut is a *retrieved procedure with unchecked preconditions*, not a feature-to-answer rule, so the shortcut and the intended solution share their first move and diverge only at the applicability test — visible only because the method-preserving arm, at matched edit distance, shows the same retrieval succeeding.
 - **[[wiki/entities/pcfg-set.md]]** — the limiting case for this page: a dataset whose generating process is the intended rule, with memorisation designed out, and the model still finds a shortcut (function-pair chunking) worth 0.92 i.i.d. accuracy and 0.50 out of it.

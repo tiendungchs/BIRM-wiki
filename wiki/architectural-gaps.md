@@ -28,7 +28,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 18 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `PARTIAL` | 20 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 17 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 39 | [[wiki/gaps/g017.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 40 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `PARTIAL` | 13 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `PARTIAL` | 1 | [[wiki/gaps/g020.md]] |
@@ -46,9 +46,9 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G32 | Nothing designs the experience stream | part | `OPEN` | 13 | [[wiki/gaps/g032.md]] |
 | G33 | Nothing decomposes a task into subgoals | part | `PARTIAL` | 13 | [[wiki/gaps/g033.md]] |
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `PARTIAL` | 13 | [[wiki/gaps/g034.md]] |
-| G35 | No model pays for its own parameters | part | `OPEN` | 2 | [[wiki/gaps/g035.md]] |
+| G35 | No model pays for its own parameters | part | `OPEN` | 3 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `OPEN` | 1 | [[wiki/gaps/g036.md]] |
-| G37 | Nothing decides which stored structure applies to the current situation | part | `PARTIAL` | 26 | [[wiki/gaps/g037.md]] |
+| G37 | Nothing decides which stored structure applies to the current situation | part | `PARTIAL` | 27 | [[wiki/gaps/g037.md]] |
 | G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `PARTIAL` | 32 | [[wiki/gaps/g038.md]] |
 | G39 | Nothing anchors a retrieved structure to the present situation | part | `OPEN` | 11 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `OPEN` | 12 | [[wiki/gaps/g040.md]] |
@@ -76,7 +76,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G62 | Nothing scores a world model by what a planner can do with it | part | `OPEN` | 7 | [[wiki/gaps/g062.md]] |
 | G63 | The behaviour policy is a load-bearing parameter of world-model estimation, and every mechanism the wiki has for improving an agent destroys it | part | `OPEN` | 7 | [[wiki/gaps/g063.md]] |
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `OPEN` | 1 | [[wiki/gaps/g064.md]] |
-| G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `CONTESTED` | 3 | [[wiki/gaps/g065.md]] |
+| G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `CONTESTED` | 4 | [[wiki/gaps/g065.md]] |
 | G66 | No sampler draws training pairs with respect to the quantity being learned | part | `OPEN` | 4 | [[wiki/gaps/g066.md]] |
 | G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `OPEN` | 9 | [[wiki/gaps/g067.md]] |
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `OPEN` | 10 | [[wiki/gaps/g068.md]] |
@@ -110,7 +110,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G97 | The read-out of a sparse store is dense, and that is where the interference comes back | part | `OPEN` | 1 | [[wiki/gaps/g097.md]] |
 | G98 | Nothing decides which knowledge belongs in weights and which belongs in an addressable store | part | `OPEN` | 1 | [[wiki/gaps/g098.md]] |
 | G99 | No architecture in the wiki can call a module's *operation* on an argument from outside the module's own domain; every transfer mechanism here moves representations, none exposes an operator | part | `OPEN` | 5 | [[wiki/gaps/g099.md]] |
-| G100 | No architecture in the wiki has a growth schedule: capacity is fully available at step 0, so nothing can arrive already conditioned on what an earlier, smaller version of itself learned | part | `OPEN` | 3 | [[wiki/gaps/g100.md]] |
+| G100 | No architecture in the wiki has a growth schedule: capacity is fully available at step 0, so nothing can arrive already conditioned on what an earlier, smaller version of itself learned | part | `PARTIAL` | 3 | [[wiki/gaps/g100.md]] |
 | G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `OPEN` | 1 | [[wiki/gaps/g101.md]] |
 | G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `OPEN` | 1 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `OPEN` | 1 | [[wiki/gaps/g103.md]] |

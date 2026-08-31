@@ -431,7 +431,7 @@ One INGEST each:
 - [x] `mnih-2015-dqn-human-level-control.md` — rl-planning · M · 2015
 - [x] `andreas-2016-neural-module-networks.md` — neurosymbolic · M · 2016
 - [x] `jang-2016-categorical-reparameterization-gumbel-softmax.md` — foundations · M · 2016
-- [ ] `rusu-2016-progressive-neural-networks.md` — continual-learning · M · 2016
+- [x] `rusu-2016-progressive-neural-networks.md` — continual-learning · M · 2016
 - [ ] `schaul-2016-prioritized-experience-replay.md` — rl-planning · M · 2016
 - [ ] `kirkpatrick-2017-elastic-weight-consolidation.md` — continual-learning · M · 2017
 - [ ] `pritzel-2017-neural-episodic-control.md` — rl-planning · M · 2017
