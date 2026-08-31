@@ -168,6 +168,7 @@ Two things follow for this page. First, "which checkpoint has the better represe
 
 ## Connections
 
+- **[[wiki/concepts/error-consistency.md]]** — the complementary port, and a dissociation neither sees alone: probing reads the internal state and needs the hypothesised structure in the model's own coordinates (`F4`), while `κ` reads only per-trial correctness and needs no coordinates at all. Run together on ImageNet networks they disagree — multiple seeds of one model are reported internally divergent while behaving near-identically — which bounds how much a representational-similarity result licenses about the algorithm (T307).
 - **[[wiki/entities/progressive-neural-networks.md]]** — the source of the Fisher/perturbation sensitivity pair, and the case that separates *reliance* from *content*: because a frozen column is never destroyed, the question "which stored features did the new policy actually use, and at what depth" becomes answerable after training, and the answer is non-monotone in transfer quality.
 
 - **[[wiki/entities/pcfg-set.md]]** — contributes the output-side, label-free instrument: consistency of a model with itself under a meaning-preserving input transform, which sidesteps this page's circularity (no labels, so no presupposed structure) at the cost of needing the invariance to be known in advance.

@@ -314,3 +314,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T304 | Should a joint-embedding's output be ℓ₂-normalised onto the hypersphere? | `LIVE` | 5 | [[wiki/tensions/t304.md]] |
 | T305 | Should a joint-embedding's predictor be kept *optimal*, or merely *fast*? | `LIVE` | 3 | [[wiki/tensions/t305.md]] |
 | T306 | Should an analogical matcher emit every consistent interpretation, or commit to one? | `LIVE` | 2 | [[wiki/tensions/t306.md]] |
+| T307 | Does neural predictivity certify that a model implements the brain's algorithm? | `LEANING` | 6 | [[wiki/tensions/t307.md]] |
