@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Emit every count the wiki publishes about itself, with the command that produces it.
-# Called at the top of LINT (step 1) and by INGEST. See priority-tasks.md S10/L11.
+# Called at the top of LINT.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 

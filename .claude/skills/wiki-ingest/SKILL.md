@@ -10,7 +10,7 @@ Fold a source into the wiki so the insight lives on concept/entity pages.
 ## Steps (in order)
 
 1. **Read the source file fully.** Never ingest from an abstract or a skim.
-2. **Read** `wiki/index-concepts.md`, `wiki/index-entities.md`, and the gap index `wiki/architectural-gaps.md` to know what exists and what the wiki needs. The gap index is one line per gap; open `wiki/gaps/gNNN.md` only for the rows this source actually bears on.
+2. **Read** `wiki/index-concepts.md`, `wiki/index-entities.md`, and the gap index `wiki/architectural-gaps.md` to know what exists and what the wiki needs.
 3. **Search for related pages** on the title and key terms:
    ```bash
    ./tools/qmd-index.sh search "query terms"

@@ -25,7 +25,7 @@ BIRM-Wiki/
 │   └── manifest.tsv            ← one row per source file: id, name, author, year, topic, tier, wave, words
 ├── tools/
 │   ├── qmd-index.sh            ← hybrid BM25+vector search script
-│   ├── wiki-stats.sh           ← all mechanical health checks (S1, S4, S5, S13–S17); exits non-zero on any violation
+│   ├── wiki-stats.sh           ← all mechanical health checks for lint passes (S1, S4, S5, S13–S17); exits non-zero on any violation
 │   ├── registry-index.py       ← rebuild the gap/tension index tables from the detail files
 │   ├── set-closes-when.py      ← set `Closes when:` on registry rows from `id<TAB>text` on stdin
 │   ├── clip-check.sh           ← validate a freshly clipped source before it enters the queue
@@ -145,11 +145,6 @@ After fetching, create a `raw/` file if the source is reliable and worth an inge
 Fall back to `grep -r "terms" wiki/` if qmd errors.
 
 A hit under `wiki/gaps/` or `wiki/tensions/` is a registry row, not a page — cite it by id (`G37`) and link the registry index unless the detail itself is the point.
-
-**Mechanical health, any time and always after a lint:**
-```bash
-./tools/wiki-stats.sh          # exits non-zero on any violated check
-```
 
 ## Decision-making
 
