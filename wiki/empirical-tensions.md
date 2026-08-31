@@ -10,9 +10,9 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 
 | # | Tension | Status | Cited by | Detail |
 |---|---|---|---|---|
-| T1 | Does the implementation level carry computational content? | `LEANING` | 19 | [[wiki/tensions/t001.md]] |
-| T2 | Is the fast level a separate store or recurrent activity? | `LIVE` | 9 | [[wiki/tensions/t002.md]] |
-| T3 | Is backpropagation biologically realizable? | `LEANING` | 1 | [[wiki/tensions/t003.md]] |
+| T1 | Does the implementation level carry computational content? | `LEANING` | 20 | [[wiki/tensions/t001.md]] |
+| T2 | Is the fast level a separate store or recurrent activity? | `LIVE` | 10 | [[wiki/tensions/t002.md]] |
+| T3 | Is backpropagation biologically realizable? | `LEANING` | 2 | [[wiki/tensions/t003.md]] |
 | T4 | Do abstract structural codes exist in the brain? | `LIVE` | 1 | [[wiki/tensions/t004.md]] |
 | T5 | Was neuroscience causally responsible for the transferred mechanisms? | `LIVE` | 4 | [[wiki/tensions/t005.md]] |
 | T6 | What is out-of-distribution failure a failure *of*? | `LIVE` | 2 | [[wiki/tensions/t006.md]] |
@@ -312,3 +312,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T302 | How deep is a single cortical pyramidal neuron? | `LIVE` | 3 | [[wiki/tensions/t302.md]] |
 | T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `LIVE` | 2 | [[wiki/tensions/t303.md]] |
 | T304 | Should a joint-embedding's output be ℓ₂-normalised onto the hypersphere? | `LIVE` | 5 | [[wiki/tensions/t304.md]] |
+| T305 | Should a joint-embedding's predictor be kept *optimal*, or merely *fast*? | `LIVE` | 3 | [[wiki/tensions/t305.md]] |
