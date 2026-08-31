@@ -173,11 +173,11 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T161 | Does a stable signature failure profile identify an *installed* prior? | `LIVE` | 6 | [[wiki/tensions/t161.md]] |
 | T162 | Does relational understanding require decoding back to the input space? | `LIVE` | 5 | [[wiki/tensions/t162.md]] |
 | T163 | Can retrieval be amortised into a geometry, or is it irreducibly a joint computation? | `LIVE` | 1 | [[wiki/tensions/t163.md]] |
-| T164 | Must a collapse-avoiding self-supervised learner descend a well-defined objective? | `LIVE` | 7 | [[wiki/tensions/t164.md]] |
+| T164 | Must a collapse-avoiding self-supervised learner descend a well-defined objective? | `LIVE` | 8 | [[wiki/tensions/t164.md]] |
 | T165 | Is augmentation fragility a consequence of the *contrastive* objective? | `LIVE` | 4 | [[wiki/tensions/t165.md]] |
-| T166 | Are anti-collapse mechanisms from different families composable? | `LEANING` | 5 | [[wiki/tensions/t166.md]] |
+| T166 | Are anti-collapse mechanisms from different families composable? | `LEANING` | 6 | [[wiki/tensions/t166.md]] |
 | T167 | Is a self-supervised representation's character set by its objective or by its pair sampler? | `LEANING` | 7 | [[wiki/tensions/t167.md]] |
-| T168 | Is collapse-avoidance a property a design *has*, or a state a training run must be *kept in*? | `LEANING` | 4 | [[wiki/tensions/t168.md]] |
+| T168 | Is collapse-avoidance a property a design *has*, or a state a training run must be *kept in*? | `LEANING` | 5 | [[wiki/tensions/t168.md]] |
 | T169 | Is the isotropic Gaussian the right target for an embedding distribution, or only the right *shape* at a dimension nobody knows how to choose? | `LIVE` | 3 | [[wiki/tensions/t169.md]] |
 | T170 | When several targets are equally valid, should the predictor represent the modes or should the target space quotient them away? | `LIVE` | 2 | [[wiki/tensions/t170.md]] |
 | T171 | Does climbing the moment ladder pay? | `LIVE` | 3 | [[wiki/tensions/t171.md]] |
@@ -312,6 +312,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T302 | How deep is a single cortical pyramidal neuron? | `LIVE` | 3 | [[wiki/tensions/t302.md]] |
 | T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `LIVE` | 2 | [[wiki/tensions/t303.md]] |
 | T304 | Should a joint-embedding's output be ℓ₂-normalised onto the hypersphere? | `LIVE` | 5 | [[wiki/tensions/t304.md]] |
-| T305 | Should a joint-embedding's predictor be kept *optimal*, or merely *fast*? | `LIVE` | 3 | [[wiki/tensions/t305.md]] |
+| T305 | Should a joint-embedding's predictor be kept *optimal*, or merely *fast*? | `LIVE` | 4 | [[wiki/tensions/t305.md]] |
 | T306 | Should an analogical matcher emit every consistent interpretation, or commit to one? | `LIVE` | 2 | [[wiki/tensions/t306.md]] |
 | T307 | Does neural predictivity certify that a model implements the brain's algorithm? | `LEANING` | 6 | [[wiki/tensions/t307.md]] |
+| T308 | Is the momentum encoder necessary to prevent collapse, or only the stop-gradient? | `LEANING` | 3 | [[wiki/tensions/t308.md]] |
