@@ -10,7 +10,7 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 | Interval | **18 sources / 16 `INGEST` commits** since the 284 pass | `git log 36b194e..HEAD` |
 | Waves | **13 closed at 10**, **14 closed at 8**; queue **exhausted** — 0 unchecked items | `grep -c '^- \[ \]' _work/ingest-queue.md` |
 | Pages | 136 concepts, 118 entities, 5,735 `Connections` edges | `./tools/wiki-stats.sh` |
-| Registries | 103 gaps (72 `OPEN`, 27 `PARTIAL`, 4 `CONTESTED`), 293 tensions (213 `LIVE`, 71 `LEANING`, 7 `BOTH`, 2 dual) | `./tools/wiki-stats.sh` |
+| Registries | 103 gaps (72 `OPEN`, 27 `PARTIAL`, 4 `CONTESTED`), 293 tensions (213 `LIVE`, 71 `LEANING`, 7 `BOTH`, 2 dual) — now index tables over `wiki/gaps/` and `wiki/tensions/`, 17 KB and 41 KB | `./tools/wiki-stats.sh`, `python3 tools/registry-index.py` |
 | `S2` cadence | Honoured **six** times running: 19, 22, 20, 20, 20, **18** | — |
 
 **Step 0 (source integrity): clean, second pass running, via the `S11` endpoint.** All 16 `INGEST` commits fall between `2026-08-22T03:47` and `2026-08-22T06:17`. Nearest incident window ended `2026-08-20T19:42` (major, multiple models); nearest Opus 5 window ended `2026-08-19T11:02`. **No ingest overlaps any incident. Nothing discarded.**
@@ -50,14 +50,30 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 | 9 | [[wiki/overview.md]] **sections 16 and 17 written** | Waves 13 and 14. Header, `Key Open Problems` (2 rows), `Promising Directions` (6 entries) and `Major Controversies` (6 rows) brought forward |
 | 10 | Six published self-counts corrected | 284→**302** sources, 126→136 concepts, 115→118 entities, 95→103 gaps, 277→**293** tensions, 236→293 in the controversies header |
 
+*Closed at the registry restructure:* **`P1`**/**`L13`** (status is a token field again), **`P2`** (`Kind` column), **`L10`** (a gap cell is a file now).
+
 *Closed:* **`P3`** — the human deleted **121 provenance blockquotes** from [[wiki/architectural-gaps.md]] at commit `0354006`; 2 KB of blockquote remains against 163 KB before. **`L14`** — glossary reclassified. **`L12`**, **`L11`** remain closed.
+
+## Registry restructure (applied after the 302-source pass)
+
+`architectural-gaps.md` and `empirical-tensions.md` were 356 KB and 641 KB — ~91k and ~164k tokens — and `wiki-ingest` read the gap file in full on **every ingest**. Both are now index tables only; each row's prose lives in its own file under `wiki/gaps/` or `wiki/tensions/`.
+
+| # | Change | Effect |
+|---|---|---|
+| 1 | 103 gaps → `wiki/gaps/g001.md`…, 293 tensions → `wiki/tensions/t001.md`… | Verified byte-lossless against the original table cells for all 396 rows |
+| 2 | Registries reduced to `id / title / status token / citation count / detail link` | 356 KB → 17 KB, 641 KB → 41 KB. Filenames unchanged, so the 233 + 245 pages citing `G`/`T` ids need no edit |
+| 3 | `Status` is a token field again; reasoning moved to each detail file's `## Status` | **Closes `P1` / `L13`.** The column that held 137 KB of prose now holds one token |
+| 4 | `part` / `arrangement` promoted from a header paragraph to a `Kind` column | **Closes `P2`.** `G84 G85 G88 G90 G91 G93` are the six `arrangement` rows |
+| 5 | Historical lint-pass notes → [[wiki/registry-audit.md]] | Removed from every ingest's read path; append new pass notes there |
+| 6 | `**Closes when:**` written on all 396 rows | Each names the observation that would retire it. No row could previously close because none had a criterion — which is why both registries had zero closed rows across their whole history |
+| 7 | `tools/registry-index.py` rebuilds both tables from the detail files | Never hand-edit a table row. It also reports rows cited by no concept or entity page (`L15`) |
+| 8 | `S16`, `S17` added to `./tools/wiki-stats.sh` | Index-matches-details, and every row has a `Closes when` |
+| 9 | Oversized-cell audit (`L10`) is moot | A cell is now a file; `G37` at 17 KB is a 17 KB page, not a table row. Row prose no longer breaks the table, so the `\|`-escaping defect class (`G61`, `G80`, `G92` — three consecutive passes) cannot recur |
 
 ## Now
 
 | # | Task | Why | Blocked on |
 |---|---|---|---|
-| P1 | **Restructure [[wiki/empirical-tensions.md]]** (`L13`) | *Carried, first, and now measured across two intervals — it is getting worse, not stalling.* `Status` column: **137 KB, median 349 chars, 27 rows over 1,200, longest 3,457** (was 124 KB / 315 / 22 / 3,499). The prose grows at the rate the file does. Target shape: compact `grep`-able table of identifier, one-line statement, bare token, carrying pages; long-form below in `### T168 — …` sections with an explicit `Evidence` field. **The new CLAUDE.md rule — *minimize prose* — makes this a contract violation, not a preference** | Ready to attempt |
-| P2 | **Re-sort the gap table by module-level vs graph-level** | *Carried.* `G84`, `G85`, `G88`, `G90`, `G91`, `G93` cannot be closed by building a better component. One-column addition; makes `P7`'s ranking mean something | Ready to attempt |
 | P21 | **Acquire the next wave's sources — the queue is empty for the first time** | **New, and it is now the binding constraint.** 0 unchecked items across all 15 waves. Every remaining task in this file is either an experiment (`P4`–`P10`) or an acquisition (`P17`, `P19`, `P20`), and no ingest can happen until sources land. `P17`/`P19`/`P20` name the three highest-value targets | Human curation or a web-search pass |
 | P4 | **Ablate the interface** — learnable hybrid unit vs fixed converter, matched architecture | *Carried.* `T235` is `LIVE — B asserted, not measured`. [[wiki/concepts/transthalamic-context-routing.md]] says a real inter-module edge carries **two cargoes on two routes**, so the thing to ablate may be the second channel | Ready to attempt |
 | P12 | **Re-price `G37` against the retrieval result** | **Promoted from `Next`, and wave 13 is why.** [[wiki/entities/cn-dpm.md]] gives `G37` its first number: forgetting **0.0**, gating **48.18%** at five components and **31.14%** at twenty. `G37` is also the fastest-growing cell in the file (15,386 → **17,027**, +11%) | Ready to attempt |
@@ -90,12 +106,14 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 
 | # | Task | Why |
 |---|---|---|
-| L15 | **27 tension rows are cited by no page** | **New.** `T3 T14 T19 T54 T60 T66 T70 T71 T72 T73 T74 T87 T95 T101 T102 T103 T115 T163 T181 T194 T198 T200 T243 T244 T246 T255 T268`. Each needs one judged sentence on the right page — mechanical to detect, not mechanical to fix. Count tracked by `./tools/wiki-stats.sh`; four were fixed at this pass (31 → 27), so the direction is visible now |
-| L10 | **Audit the oversized gap cells** | *Carried, re-measured, and it reversed.* Last pass: three of four flat, only `G37` growing. Now **two are growing** — `G37` 15,386 → **17,027** (+11%) and `G38` 11,141 → **12,743** (+14%) — while `G34` (14,365) and `G42` (14,534) are flat. The rule holds: *a gap cell enumerating candidates rather than naming one is a concept page*. `G37` is `P12` |
+| L15 | **27 tension rows are cited by no page** | *Carried.* `T3 T14 T19 T54 T60 T66 T70 T71 T72 T73 T74 T87 T95 T101 T102 T103 T115 T163 T181 T194 T198 T200 T243 T244 T246 T255 T268`. Each needs one judged sentence on the right page, or retiring against its own `Closes when`. `tools/registry-index.py` now prints the list on every rebuild, so the check is free |
+
 | L6 | **Decide whether the joint-embedding entity pages should stay separate** | *Carried.* Seventeen of them, several deferring their central claim to [[wiki/concepts/representational-collapse.md]]. Not merge candidates; the shared comparison table is missing from most. `P6` supplies its one comparable column |
 | L8 | **The `Connections` block is the wiki's only navigational structure and it is unweighted** | *Carried.* **5,735 edges over 254 pages**, all one type, none marked *primary*. Cheapest fix unchanged: mark one edge per page as primary. Note it is now verified bidirectional by `S1` in the script rather than by hand |
-| L13 | **Restructure [[wiki/empirical-tensions.md]]** | *Carried; part (d) closed by the human at `0354006`.* See `P1` — and note the new CLAUDE.md prose rule now backs it |
+
 | L16 | **The glossary's section discipline is enforced only by a duplicate check** | **New, and it is the residue of `L14`.** `S13` catches duplicate keys; **nothing catches a row filed under the wrong heading**, which is the failure that put 64 machine-learning rows under `## Benchmarks`. Section membership is a judgement, so the mechanical proxy is the append point: entries must be appended inside their section, not at end of file. Cheapest fix: have `INGEST` insert by section rather than by append |
+
+| L17 | **The 396 `Closes when` fields are written and unaudited** | **New, and it is the price of writing them in one pass.** Every gap and tension now names the observation that would retire it, but no row has been checked against its own criterion — some are plausibly *already satisfied* by evidence the wiki holds, which would make them the first rows ever to close. The audit is one read per row and belongs to the next lint pass |
 
 ## Standing
 

@@ -127,4 +127,29 @@ else
   echo "S13 VIOLATED  duplicate glossary keys:"; echo "$S13" | sed 's/^/              /'; FAIL=1
 fi
 
+# S16: the registry index tables must be exactly what tools/registry-index.py derives
+# from the detail files under wiki/gaps/ and wiki/tensions/. Rebuilding is a no-op when
+# they agree, so run it on a scratch copy of the repo state and diff.
+S16TMP=$(mktemp -d)
+cp wiki/architectural-gaps.md wiki/empirical-tensions.md "$S16TMP/"
+python3 tools/registry-index.py >/dev/null 2>&1
+if diff -q "$S16TMP/architectural-gaps.md" wiki/architectural-gaps.md >/dev/null &&
+   diff -q "$S16TMP/empirical-tensions.md" wiki/empirical-tensions.md >/dev/null; then
+  echo "S16 OK        both registry indexes match their detail files"
+else
+  echo "S16 VIOLATED  a registry index was hand-edited or a detail file changed without a rebuild"
+  echo "              tools/registry-index.py has already rewritten them; review the diff"
+  FAIL=1
+fi
+rm -rf "$S16TMP"
+
+# S17: every registry detail file names the observation that would retire it.
+S17=$(grep -L 'Closes when:\*\* [^_]' wiki/gaps/g[0-9]*.md wiki/tensions/t[0-9]*.md 2>/dev/null)
+if [ -z "$S17" ]; then
+  echo "S17 OK        every registry row has a Closes when"
+else
+  echo "S17 VIOLATED  $(echo "$S17" | wc -l | tr -d ' ') rows have no Closes when:"
+  echo "$S17" | sed 's/^/              /'; FAIL=1
+fi
+
 exit $FAIL
