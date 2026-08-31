@@ -14,7 +14,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T2 | Is the fast level a separate store or recurrent activity? | `LIVE` | 9 | [[wiki/tensions/t002.md]] |
 | T3 | Is backpropagation biologically realizable? | `LEANING` | 0 | [[wiki/tensions/t003.md]] |
 | T4 | Do abstract structural codes exist in the brain? | `LIVE` | 1 | [[wiki/tensions/t004.md]] |
-| T5 | Was neuroscience causally responsible for the transferred mechanisms? | `LIVE` | 3 | [[wiki/tensions/t005.md]] |
+| T5 | Was neuroscience causally responsible for the transferred mechanisms? | `LIVE` | 4 | [[wiki/tensions/t005.md]] |
 | T6 | What is out-of-distribution failure a failure *of*? | `LIVE` | 1 | [[wiki/tensions/t006.md]] |
 | T7 | Are backpropagation-derived local rules worth pursuing at all? | `LEANING` | 2 | [[wiki/tensions/t007.md]] |
 | T8 | Is compositional machinery innate, or acquired from an external symbolic system? | `LIVE` | 7 | [[wiki/tensions/t008.md]] |
@@ -303,7 +303,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T293 | Does role-filler independence require the compound to preserve its constituents, or does an invertible conjunctive code with a scheduled unbinding step suffice? | `LIVE` | 3 | [[wiki/tensions/t293.md]] |
 | T294 | Is the human developmental lever an *extended* schedule or an *accelerated* one — and does the wiki's `G100` cite the wrong window? | `BOTH` | 2 | [[wiki/tensions/t294.md]] |
 | T295 | Do jumping spiders belong in the convergence census at all — and does the wiki's only source for them survive inspection? | `LEANING` | 1 | [[wiki/tensions/t295.md]] |
-| T296 | Does a sparse expert router have to be learned, or is a fixed random partition of the input enough? | `LIVE` | 2 | [[wiki/tensions/t296.md]] |
+| T296 | Does a sparse expert router have to be learned, or is a fixed random partition of the input enough? | `LIVE` | 3 | [[wiki/tensions/t296.md]] |
 | T297 | Is ordinary supervised learning causal or anticausal? | `LIVE` | 2 | [[wiki/tensions/t297.md]] |
 | T298 | Should a discrete node be smoothed or differentiated exactly? | `LIVE` | 2 | [[wiki/tensions/t298.md]] |
 | T299 | Does prioritising replay by surprise speed learning up, or destroy it? | `LIVE` | 2 | [[wiki/tensions/t299.md]] |

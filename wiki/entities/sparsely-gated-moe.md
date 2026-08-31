@@ -101,7 +101,7 @@ An expert's compute-to-I/O ratio equals **its hidden layer size** (weights are `
 | System | Routed unit | Router | Experts | Balance provision |
 |---|---|---|---|---|
 | **Sparsely-gated MoE** (2017) | Token position | Learned, noisy top-`k`, `k = 2–4` | 4–131,072 identical FFNs | Two auxiliary CV² losses |
-| Switch Transformer (2022) | Token | Learned, `k = 1` | ≤2048 identical FFNs, in place of the Transformer FFN | Auxiliary loss + float32 router + small init |
+| [[wiki/entities/switch-transformer.md]] (2022) | Token | Learned, `k = 1` | ≤2048 identical FFNs, in place of the Transformer FFN | One auxiliary loss + float32 router + 0.1× init + expert dropout |
 | [[wiki/entities/neural-module-networks.md]] | Sub-question | **Unlearned** dependency parser | 5 heterogeneous *typed* modules | None needed — layout comes from syntax |
 | [[wiki/entities/cn-dpm.md]] | Whole example | Bayesian responsibility (CRP × likelihood) | Grown on demand, classifier + density each | Dirichlet-process prior |
 
@@ -117,3 +117,4 @@ An expert's compute-to-I/O ratio equals **its hidden layer size** (weights are `
 - **[[wiki/entities/transformer.md]]** — the host the layer moved to: nothing here is Transformer-specific — the MoE sits between LSTM layers and is applied convolutionally over positions, which is exactly the substitution later made for the Transformer feed-forward block.
 - **[[wiki/concepts/continual-learning.md]]** — the multilingual result is the strongest positive transfer measurement in this family: one 8.7B sparse model beats twelve separately trained monolingual models on 8 of 12 language pairs at half the compute, so conditional parameters bought sharing *and* task-specific capacity in the same model rather than trading them.
 - **[[wiki/concepts/emergent-modularity.md]]** — the first large-scale measurement of that page's claim, and a negative one: 2048 modules emerged from scale plus a routing bottleneck alone, and what they encode is a lexical field, an article, and a synonym set.
+- **[[wiki/entities/switch-transformer.md]]** — the successor that removed four of this design's components at once (top-`k` → top-1, two balance losses → one, the noise-integrated `Load` estimator → plain input jitter, the hierarchical gate → a flat softmax) with no quality cost, which retroactively prices the apparatus above: the `k ≥ 2` conjecture stated here was false, and the differentiability machinery around the batch count turns out to be optional once the balance loss pairs a raw dispatch count with a differentiable probability.
