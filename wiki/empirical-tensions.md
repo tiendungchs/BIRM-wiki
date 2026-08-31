@@ -276,7 +276,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T266 | Can a working memory held in synaptic weights be operated on, or only stored? | `LIVE` | 1 | [[wiki/tensions/t266.md]] |
 | T267 | Which function do the medial prefrontal / posterior cingulate / precuneus hubs serve — broadcasting current content, or generating internal content? | `LIVE` | 2 | [[wiki/tensions/t267.md]] |
 | T268 | Is there one commit event or two? | `LIVE` | 1 | [[wiki/tensions/t268.md]] |
-| T269 | Does prefrontal cortex constitute conscious perceptual content, or only route it? | `LIVE` | 6 | [[wiki/tensions/t269.md]] |
+| T269 | Does prefrontal cortex constitute conscious perceptual content, or only route it? | `LIVE` | 7 | [[wiki/tensions/t269.md]] |
 | T270 | Does a measure of integration detect a world model? | `LIVE` | 2 | [[wiki/tensions/t270.md]] |
 | T271 | Does the workspace commit on stimulus offset? | `LEANING` | 3 | [[wiki/tensions/t271.md]] |
 | T272 | Does failure to decode a content from prefrontal cortex mean the content is not there? | `LEANING` | 5 | [[wiki/tensions/t272.md]] |
@@ -322,3 +322,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T312 | Is compositional generalisation one tunable scalar, or an irreducible facet vector? | `LIVE` | 5 | [[wiki/tensions/t312.md]] |
 | T313 | Do dopamine neurons respond to aversive events and to cues predicting them? | `LIVE` | 1 | [[wiki/tensions/t313.md]] |
 | T314 | Should an anti-collapse provision protect the space the loss sees, or the space the read-out sees? | `LIVE` | 5 | [[wiki/tensions/t314.md]] |
+| T315 | Is an uncorrected self-model *inflated*, or merely *insensitive*? | `LIVE` | 2 | [[wiki/tensions/t315.md]] |

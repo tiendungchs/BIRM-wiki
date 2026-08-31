@@ -2,28 +2,28 @@
 
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
-## Wave 16 — the adjudications — twenty tensions, and the artefact each one is about
+## Wave 17 — the arrangement, the objective, and the parts that reject
 
 One INGEST each:
 
-- [x] `friston-2012-dopamine-affordance-active-inference.md` — active-inference · F · 2012
-- [x] `mattar-2018-prioritized-memory-access.md` — memory-consolidation · F · 2018
-- [x] `wang-2020-alignment-uniformity-hypersphere.md` — ssl-representation · F · 2020
-- [x] `schlag-2021-linear-transformers-fast-weight-programmers.md` — sequence-models · F · 2021
-- [x] `tian-2021-ssl-dynamics-without-contrastive-pairs.md` — ssl-representation · F · 2021
-- [x] `falkenhainer-1989-structure-mapping-engine.md` — analogy-abstraction · M · 1989 · **LOSSY** (pdf2md)
-- [x] `fedus-2019-hyperbolic-discounting-multiple-horizons.md` — rl-planning · M · 2019
-- [x] `geirhos-2020-error-consistency.md` — reasoning-eval · M · 2020
-- [x] `chen-2021-simsiam.md` — ssl-representation · M · 2021
-- [x] `ellis-2021-dreamcoder.md` — neurosymbolic · M · 2021
-- [x] `he-2022-masked-autoencoders.md` — ssl-representation · M · 2022
-- [x] `orvieto-2023-linear-recurrent-unit.md` — sequence-models · M · 2023
-- [x] `lake-2018-scan-generalization-without-systematicity.md` — reasoning-eval · B · 2018
-- [x] `keysers-2020-cfq-measuring-compositional-generalization.md` — reasoning-eval · B · 2020
-- [x] `schultz-1997-neural-substrate-prediction-reward.md` — plasticity · R · 1997 · **LOSSY** (pdf2md)
-- [x] `doeller-2010-human-grid-cells-memory-network.md` — hippocampal-entorhinal · R · 2010
-- [x] `rigotti-2013-mixed-selectivity.md` — prefrontal-control · R · 2013
-- [x] `boly-2017-ncc-front-or-back.md` — consciousness-global-workspace · R · 2017
-- [x] `jing-2022-dimensional-collapse-contrastive.md` — ssl-representation · R · 2022
+- [x] `fleming-2014-how-to-measure-metacognition.md` — reasoning-eval · S · 2014
+- [ ] `bassett-2017-network-neuroscience.md` — brain-networks · S · 2017
+- [ ] `scholkopf-2021-toward-causal-representation-learning.md` — foundations · S · 2021
+- [ ] `seguin-2023-brain-network-communication.md` — brain-networks · S · 2023
+- [ ] `smolensky-1990-tensor-product-variable-binding.md` — neurosymbolic · F · 1990 · **LOSSY** (pdf2md)
+- [ ] `tishby-2015-deep-learning-information-bottleneck.md` — foundations · F · 2015
+- [ ] `chaudhuri-2015-large-scale-circuit-hierarchical-dynamics.md` — brain-networks · M · 2015
+- [ ] `graves-2016-adaptive-computation-time.md` — sequence-models · M · 2016
+- [ ] `geifman-2017-selective-classification.md` — reasoning-eval · M · 2017
+- [ ] `oord-2018-contrastive-predictive-coding.md` — ssl-representation · M · 2018
+- [ ] `dehghani-2019-universal-transformers.md` — sequence-models · M · 2019
+- [ ] `goyal-2019-recurrent-independent-mechanisms.md` — world-models · M · 2019
+- [ ] `frady-2020-resonator-networks.md` — neurosymbolic · M · 2020
+- [ ] `webb-2021-emergent-symbols-external-memory.md` — neurosymbolic · M · 2021
+- [ ] `murray-2014-hierarchy-intrinsic-timescales.md` — brain-networks · R · 2014
+- [ ] `gu-2015-controllability-structural-brain-networks.md` — brain-networks · R · 2015
+- [ ] `guo-2017-calibration-modern-neural-networks.md` — reasoning-eval · R · 2017
+- [ ] `locatello-2019-challenging-disentanglement-assumptions.md` — ssl-representation · R · 2019
+- [ ] `lightman-2023-lets-verify-step-by-step.md` — reasoning-eval · R · 2023
+- [ ] `ha-2018-world-models.md` — world-models · M · 2018 — self-fetched; MathJax equations flattened
 
-*Wave 15 (the router, the edge, and the artefacts nobody filed) fully ingested — see gitlog.*

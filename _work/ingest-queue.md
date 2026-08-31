@@ -474,7 +474,7 @@ One INGEST each:
 
 One INGEST each:
 
-- [ ] `fleming-2014-how-to-measure-metacognition.md` — reasoning-eval · S · 2014
+- [x] `fleming-2014-how-to-measure-metacognition.md` — reasoning-eval · S · 2014
 - [ ] `bassett-2017-network-neuroscience.md` — brain-networks · S · 2017
 - [ ] `scholkopf-2021-toward-causal-representation-learning.md` — foundations · S · 2021
 - [ ] `seguin-2023-brain-network-communication.md` — brain-networks · S · 2023
