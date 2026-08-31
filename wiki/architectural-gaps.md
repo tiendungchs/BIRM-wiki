@@ -45,7 +45,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `OPEN` | 9 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `OPEN` | 13 | [[wiki/gaps/g032.md]] |
 | G33 | Nothing decomposes a task into subgoals | part | `PARTIAL` | 13 | [[wiki/gaps/g033.md]] |
-| G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `PARTIAL` | 13 | [[wiki/gaps/g034.md]] |
+| G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `PARTIAL` | 14 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `OPEN` | 3 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `OPEN` | 1 | [[wiki/gaps/g036.md]] |
 | G37 | Nothing decides which stored structure applies to the current situation | part | `PARTIAL` | 28 | [[wiki/gaps/g037.md]] |

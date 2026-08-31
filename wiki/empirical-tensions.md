@@ -176,7 +176,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T164 | Must a collapse-avoiding self-supervised learner descend a well-defined objective? | `LIVE` | 8 | [[wiki/tensions/t164.md]] |
 | T165 | Is augmentation fragility a consequence of the *contrastive* objective? | `LIVE` | 4 | [[wiki/tensions/t165.md]] |
 | T166 | Are anti-collapse mechanisms from different families composable? | `LEANING` | 6 | [[wiki/tensions/t166.md]] |
-| T167 | Is a self-supervised representation's character set by its objective or by its pair sampler? | `LEANING` | 9 | [[wiki/tensions/t167.md]] |
+| T167 | Is a self-supervised representation's character set by its objective or by its pair sampler? | `LEANING` | 10 | [[wiki/tensions/t167.md]] |
 | T168 | Is collapse-avoidance a property a design *has*, or a state a training run must be *kept in*? | `LEANING` | 5 | [[wiki/tensions/t168.md]] |
 | T169 | Is the isotropic Gaussian the right target for an embedding distribution, or only the right *shape* at a dimension nobody knows how to choose? | `LIVE` | 3 | [[wiki/tensions/t169.md]] |
 | T170 | When several targets are equally valid, should the predictor represent the modes or should the target space quotient them away? | `LIVE` | 2 | [[wiki/tensions/t170.md]] |
@@ -317,7 +317,8 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T307 | Does neural predictivity certify that a model implements the brain's algorithm? | `LEANING` | 6 | [[wiki/tensions/t307.md]] |
 | T308 | Is the momentum encoder necessary to prevent collapse, or only the stop-gradient? | `LEANING` | 3 | [[wiki/tensions/t308.md]] |
 | T309 | Does a learned proposer beat blind enumeration, or only when the library is co-adapting? | `LIVE` | 5 | [[wiki/tensions/t309.md]] |
-| T310 | Does a frozen linear probe rank self-supervised representations? | `LEANING` | 8 | [[wiki/tensions/t310.md]] |
+| T310 | Does a frozen linear probe rank self-supervised representations? | `LEANING` | 9 | [[wiki/tensions/t310.md]] |
 | T311 | Is non-normality how a contractive linear recurrence holds information longer than its eigenvalues suggest? | `LEANING` | 3 | [[wiki/tensions/t311.md]] |
 | T312 | Is compositional generalisation one tunable scalar, or an irreducible facet vector? | `LIVE` | 5 | [[wiki/tensions/t312.md]] |
 | T313 | Do dopamine neurons respond to aversive events and to cues predicting them? | `LIVE` | 1 | [[wiki/tensions/t313.md]] |
+| T314 | Should an anti-collapse provision protect the space the loss sees, or the space the read-out sees? | `LIVE` | 5 | [[wiki/tensions/t314.md]] |

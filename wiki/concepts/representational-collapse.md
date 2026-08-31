@@ -2,7 +2,7 @@
 
 **A learner satisfies its objective by representing nothing — a constant encoder, a latent with enough capacity to reach any target, or a read-out that degrades while the loss keeps falling. It is the cheapest solution to every self-supervised objective, and the provision against it is the single design decision that types a joint-embedding architecture.**
 
-> **Promoted out of [[wiki/concepts/energy-based-models.md]] at the 171-ingest lint pass.** Collapse had grown to ~60% of that page across thirteen wave-7 ingests while the energy formalism itself is a separate claim, and the material was additionally spread over twelve entity pages with no page stating the loci side by side. The gap it answers is **G34**; the tensions it holds are T164, T166, T167, T168 and T171.
+> **Promoted out of [[wiki/concepts/energy-based-models.md]] at the 171-ingest lint pass.** Collapse had grown to ~60% of that page across thirteen wave-7 ingests while the energy formalism itself is a separate claim, and the material was additionally spread over twelve entity pages with no page stating the loci side by side. The gap it answers is **G34**; the tensions it holds are T164, T166, T167, T168, T171 and T314.
 
 The reason it is not a training bug: **which architectures *can* collapse is a structural property.** Locate the free capacity and you have located the failure mode before any data arrive.
 
@@ -26,9 +26,9 @@ The reason it is not a training bug: **which architectures *can* collapse is a s
 
 ---
 
-## The six loci
+## The loci
 
-The wiki's central organising claim about collapse: the provision does not have to be a term in the loss, and across wave 7 it turned out to sit in six structurally different places. Ordered by how far each is from the objective.
+The wiki's central organising claim about collapse: the provision does not have to be a term in the loss, and across wave 7 it turned out to sit in six structurally different places — with a seventh added later that is not a provision at all. Ordered by how far each is from the objective.
 
 | # | Locus | Instance | What holds the representation up |
 |---|---|---|---|
@@ -38,8 +38,9 @@ The wiki's central organising claim about collapse: the provision does not have 
 | 4 | **The update rule** (dynamical) | [[wiki/entities/byol.md]], [[wiki/entities/simsiam.md]] | Nothing in the loss. Predictor on one branch, EMA on the other — an asymmetry, not a term. **Minimally: the predictor and the stop-gradient alone**, with the EMA and the weight-sharing asymmetry both deleted (68.1% ImageNet, Chen & He 2021) |
 | 5 | **A normalisation, on the loss's inputs or on the target** | Barlow Twins' batch standardisation; DINOv2's teacher centering / Sinkhorn–Knopp equipartition ([[wiki/entities/dinov2.md]]) | Certifiable-looking, and appears in *no coefficient count* |
 | 6 | **A term over relations within one input** | DINOv3's Gram anchoring ([[wiki/entities/dinov3.md]]) | `‖X_S X_Sᵀ − X_G X_Gᵀ‖_F²` on patch tokens against an earlier iterate of the same network — features free to move, relational structure held |
+| 7 | **No provision — a discarded head that hosts the collapse** | The projector, in every method above ([[wiki/entities/directclr.md]]) | Nothing holds the embedding up; it *is* rank-deficient in a trained SimCLR. The projector is deleted at the end, and pinning its singular values at 1 so that it discards nothing scores like having no projector at all (52.2 vs 51.5) |
 
-Two further entries that are *not* loci and are worth keeping distinct: the **pair sampler** (below), which changes nothing in the objective and moves the result more than any choice among rows 1–6; and the **label oracle** ([[wiki/entities/learningmatch.md]]), where a Siamese energy is regressed onto an *exactly computable* target so the degenerate solution is removed outright and every surviving design choice is about expressivity.
+Row 7 is a different kind of entry and the reason the section below exists: it is the only one that does not try to prevent anything. Two further entries that are *not* loci and are worth keeping distinct: the **pair sampler** (below), which changes nothing in the objective and moves the result more than any choice among rows 1–6; and the **label oracle** ([[wiki/entities/learningmatch.md]]), where a Siamese energy is regressed onto an *exactly computable* target so the degenerate solution is removed outright and every surviving design choice is about expressivity.
 
 | | Contrastive | Dimension-contrastive | Distribution-matching | **Dynamical (BYOL)** |
 |---|---|---|---|---|
@@ -124,6 +125,30 @@ Everything below is one system (SimSiam, [[wiki/entities/simsiam.md]]) with one 
 
 ---
 
+## Collapse is per-direction in the contrastive family too, and it has two causes outside every provision
+
+The locus-4 reduction above says collapse is a state of an eigendirection rather than of a run. **The same is true of locus 1, and it is measured rather than derived** (Jing, Vincent, LeCun & Tian 2022, [[wiki/entities/directclr.md]]): the covariance of a trained SimCLR's 128-d embedding has a block of singular values at zero. The family whose provision *provably* targets the full-rank uniform `σ_{m-1}` ([[wiki/concepts/alignment-uniformity.md]]) trains to a rank-deficient embedding as standard. Negatives buy freedom from *complete* collapse and nothing beyond it.
+
+The two causes are separable, and neither is addressed by any row of the loci table. In a linear model `z = Wx` with additive-noise augmentation under InfoNCE, gradient flow gives `Ẇ = WX` with
+
+```
+X  =  Σ̂₀ − Σ̂₁          both PSD, α_ij the InfoNCE softmax weights
+Σ̂₀ = Σ_{i,j} α_ij (x_i − x_j)(x_i − x_j)ᵀ     weighted data covariance
+Σ̂₁ = Σ_i (1 − α_ii)(x′_i − x_i)(x′_i − x_i)ᵀ  weighted augmentation covariance
+```
+
+| Cause | Condition | Consequence for this page |
+|---|---|---|
+| **Strong augmentation** | `X` has a negative eigenvalue — the augmentation's variance **exceeds the data's** along some direction | `W` acquires vanishing singular values, so `C = WΣ_xWᵀ` is low-rank. **The pair sampler's lever (T167) acquires a closed-form criterion, per direction**: `Σ̂₁ ⊀ Σ̂₀` kills the directions where it fails. This is the same matrix pair the locus-4 reduction uses (`X`, `X′`), deciding rank here and magnitude there |
+| **Implicit regularisation** | `X ≻ 0` (weak augmentation) but the network is **over-parametrised** | Adjacent weight matrices align (`V₂ᵀU₁ → I`, the contrastive analogue of the predictor–`F` alignment in locus 4), after which `σ̇₁^k = σ₁^k(σ₂^k)²(v₁^kᵀXv₁^k)` — growth proportional to the singular value itself, so the smallest never catch up. **Depth is an anti-provision**: `L = 1` shows no collapse, more layers collapse more, and ReLU does not change it |
+
+**The consequence for the taxonomy is a seventh entry that inverts the question.** Measure the spectrum of the *representation* (the backbone output actually used downstream) rather than the embedding, and it is full-rank whenever a projector is present and collapsed when it is absent. The projector does not prevent dimensional collapse — it **relocates** it one layer downstream of the read-out, into a module that is deleted at the end. The ablation isolates this: a projector with singular values pinned at 1, discarding nothing, performs like no projector (52.2 vs 51.5), while a *fixed low-rank* one is the best linear setting (62.3, and 62.7 diagonal, against 61.1 trainable). Two things follow.
+
+- **The wiki's collapse monitors are instrumented in the space that is supposed to be collapsed.** Both label-free monitors — the rescaled LeJEPA loss and `(L_align, L_uniform)` — are computed on embeddings. Whether a rank-deficient embedding is a warning or the design working is now an open question with ImageNet numbers on both sides ([[wiki/empirical-tensions.md]] T314), and the family's projector widths disagree by a factor of ~20 (Barlow Twins 8192–16384 vs DirectCLR's 360 of 2048).
+- **(brainstorm) Sequestration is a cheaper anti-collapse pattern than any term here.** Attach the objective to a discardable low-rank head and let the head absorb the degenerate direction, instead of pricing it. For [[wiki/concepts/latent-graph-discovery.md]]'s structural code `g`, that predicts a path-consistency loss should be applied *through* such a head, so that the trivially-consistent constant solution is reachable there and not in the code. The pattern is untested outside vision contrastive learning, and the paper's own best configuration — a 2-layer *nonlinear* projector at 66.5 — is one its theory does not explain.
+
+---
+
 ## The discrete case behaves differently, and it is measured
 
 Everything above is about a continuous embedding. The one place the wiki has an ablation over a *discrete* selection variable is the mixture-of-experts router, where collapse is the rich-get-richer path — a favoured expert receives more inputs, trains faster, is favoured more ([[wiki/entities/sparsely-gated-moe.md]], Shazeer et al. 2017, 256 experts, 1B-word LM):
@@ -186,6 +211,7 @@ This is the same shape as G17 one level down: the certification instrument admit
 - **Nothing predicts which asymmetries suffice — except in the linear case, where everything does.** BYOL restricts no free capacity and does not collapse, so *architecture plus objective does not determine whether collapse happens* — the optimiser is a third argument, and the recipe "locate the free capacity and restrict it" is sufficient but not necessary. In a bias-free two-layer linear model the third argument is fully solved (Tian et al. 2021, section above): the sufficient asymmetries are `α_p > 1`, an EMA `τ < 1`, or predictor-only weight decay, all three being ways of making the predictor's *rate* differ from the online network's. What is open is whether the criterion survives nonlinearity, ℓ₂ normalisation and BatchNorm — none of which the solved model has, and one of which (locus 5) the wiki already knows is load-bearing on its own. **And one asymmetry the wiki listed as necessary is not**: the EMA target can be deleted outright if the stop-gradient stays (68.1%), so the sufficient set is smaller than BYOL's ablation table suggested and the two papers' recipes differ in at least three places that could account for the gap ([[wiki/empirical-tensions.md]] T308).
 - **Training horizon has no coefficient.** Partial collapse is a function of how long the run goes, and no objective in the wiki contains a term in it. The solved linear flow is the one place a horizon *is* priced — `e^{−2ηt}C` says how long until the initialisation is forgotten — but it prices the wrong direction, telling you when a run becomes safe rather than when it starts to decay.
 - **No collapse monitor is calibrated against partial collapse.** The one label-free *scalar* monitor (rescaled LeJEPA loss) is calibrated on the read-out that partial collapse spares. **There is a second, older one that may not be**: `(L_align, L_uniform)` measured on validation embeddings tracks quality across 521 encoders spanning four datasets, two modalities and every hyperparameter, and was validated against a **dense conv-layer depth regression** as well as linear and 5-NN probes — so unlike the scalar it has been scored on the kind of read-out DINOv3 destroys ([[wiki/concepts/alignment-uniformity.md]]). Untested on patch tokens over a long run, which is the cheap experiment.
+- **Nothing in the taxonomy says *which space* to keep full-rank.** Every provision above is applied where the loss is, and the one measurement of both spectra says the loss's space is rank-deficient by design while the read-out's is held up by a module carrying no term (T314). Two sub-questions with no evidence either way: whether a wide dimension-contrastive projector is itself rank-deficient (nobody has plotted it), and whether depth's implicit rank-minimisation — which is an *anti*-provision scaling with trunk depth, independent of the objective — is what the projector's discarded capacity is absorbing.
 - **Is a preference ordering by coefficient count defensible at all?** LeWM's one coefficient and BYOL's zero are not the same kind of zero, and locus 5 shows that a provision can sit in a normalisation layer and appear in no count whatsoever. **(brainstorm)** The honest ordering is probably by *what can be said about the trained system afterwards*, which ranks the derived-target methods first and the dynamical ones last regardless of tuning burden.
 
 ---
@@ -197,6 +223,7 @@ This is the same shape as G17 one level down: the certification instrument admit
 - **[[wiki/concepts/objective-identifiability.md]]** — the strongest available instance: BYOL shows the representation may be a fixed point of a dynamics with *no minimum of anything* behind it, so not merely that several losses share a minimum but that there may be no loss to recover.
 - **[[wiki/concepts/shortcut-learning.md]]** — collapse is the shortcut problem in its purest form: a constant encoder is the cheapest rule satisfying the objective, and every provision on this page exists to make it unavailable.
 - **[[wiki/concepts/population-geometry.md]]** — supplies the normative target: isotropy minimises linear-probe bias and variance, so the anti-collapse question "how much volume" gets an answer to "what shape".
+- **[[wiki/entities/directclr.md]]** — the seventh locus and the one that is not a provision: it measures the contrastive embedding as rank-deficient in every trained run, gives dimensional collapse two causes (augmentation variance exceeding data variance; over-parametrisation) that no row of the loci table addresses, and identifies the projector's contribution as its capacity to discard dimensions.
 - **[[wiki/concepts/divergence-objectives.md]]** — the same objects one level up: the anti-collapse terms are divergences between an embedding distribution and a fixed target, and the moment ladder is a statement about which divergences are estimable at high dimension.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — why this page is a precondition rather than a detail: a constant structural code is trivially path-consistent, so the framing's own success criterion admits the degenerate solution and must be paired with a provision from here.
 - **[[wiki/concepts/cross-modal-grounding.md]]** — the complicit instrument: `argmax`-scored caption discriminations return 100% to a fully collapsed model, and the same page supplies the NCE derivation showing a contrastive method's noise distribution is a free parameter nobody reports.
