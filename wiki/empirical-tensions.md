@@ -46,8 +46,8 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T34 | Does hippocampus→cortex transfer happen during sleep or during waking? | `LEANING` | 3 | [[wiki/tensions/t034.md]] |
 | T35 | Is remapping controlled by the environment or by the animal's inference history? | `LEANING` | 1 | [[wiki/tensions/t035.md]] |
 | T36 | Does map selection cause context-dependent behaviour? | `LIVE` | 1 | [[wiki/tensions/t036.md]] |
-| T37 | Is grid-like coding a discovery or a detection artefact? | `LIVE` | 7 | [[wiki/tensions/t037.md]] |
-| T38 | Do grid cells emerge from training on path integration? | `LEANING` | 6 | [[wiki/tensions/t038.md]] |
+| T37 | Is grid-like coding a discovery or a detection artefact? | `LIVE` | 8 | [[wiki/tensions/t037.md]] |
+| T38 | Do grid cells emerge from training on path integration? | `LEANING` | 7 | [[wiki/tensions/t038.md]] |
 | T39 | Is place-cell remapping random? | `LEANING` | 5 | [[wiki/tensions/t039.md]] |
 | T40 | Is a place cell a conjunctive cell or a memory index? | `LIVE` | 2 | [[wiki/tensions/t040.md]] |
 | T41 | Must the grid↔hippocampal weights be learned, or must they be frozen? | `LIVE` | 3 | [[wiki/tensions/t041.md]] |
