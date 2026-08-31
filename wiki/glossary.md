@@ -307,13 +307,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | L2L | Learning-to-Learn | Synonym for meta-learning in the neuromorphic literature: a software outer loop over a task family, then a few on-chip updates at the deployment site ([[wiki/concepts/meta-learning.md]]) |
 | MAML | Model-Agnostic Meta-Learning | The initialization-based meta-learner: find `θ` such that `n` gradient steps on any task drawn from `p(T)` suffice; agnostic because it needs only that the model be gradient-trainable |
 | LSG | Learning Signal Generator | In natural e-prop, a second spiking network co-meta-trained to emit a per-neuron, per-timestep learning signal `L_j^t` that multiplies the trainee's local eligibility traces — a *generated* rather than measured error ([[wiki/concepts/analog-in-memory-computing.md]]) |
-
 | qrel | Query relevance judgments | The binary matrix `A ∈ {0,1}^{m×n}` saying which documents are relevant to which query; its sign-rank lower-bounds the embedding dimension needed to realize it |
 | sign-rank | — | The smallest rank of a real matrix whose entries match the signs of a given ±1 matrix; the no-margin version of the retrieval dimension bound |
 | BM25 | Best Matching 25 | The standard sparse lexical retrieval score; a very high-dimensional sparse vector, which is why it escapes the dense-embedding dimension bound and why it collapses under synonym substitution |
 | MaxSim | Maximum Similarity | The late-interaction operator of multi-vector retrievers (ColBERT): score a pair by summing, over query tokens, the max similarity to any document token |
 | MRL | Matryoshka Representation Learning | Training so that truncated prefixes of an embedding remain usable, which is how deployed vectors are shrunk below their native dimension |
-
 | OOD / o.o.d. | Out-Of-Distribution | Evaluation on inputs drawn from a distribution the model was not trained on; the wiki's principal certification instrument for structure discovery, and the one every gap-table row falls back to (G17) |
 | ERM | Empirical Risk Minimization | Minimise mean loss over pooled training data — the default learning principle, and the one [[wiki/concepts/environment-invariance.md]] is stated against |
 | IRM | Invariant Risk Minimization | Find a representation whose optimal classifier is the same in every training environment; `IRMv1` is its one-penalty practical form (Arjovsky et al. 2019) |
@@ -405,11 +403,14 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | SimCLR | Simple framework for Contrastive Learning of visual Representations | Chen et al. 2020: InfoNCE over two augmentations of the same image with in-batch negatives; the negatives-based baseline every negative-free method in the wiki is measured against |
 | ResNet | Residual Network | Convolutional architecture whose blocks learn `x + f(x)`; the standard pre-transformer vision backbone, and the control architecture on which several joint-embedding tricks report **zero** gain |
 | GPT | Generative Pre-trained Transformer | Decoder-only autoregressive transformer family; used in the wiki as the architecture label (e.g. [[wiki/entities/othellogpt.md]]) rather than as a product name |
-
 | NEC | Neural Episodic Control | Pritzel et al. 2017: one differentiable neural dictionary per action, kernel-weighted 50-nearest-neighbour read; the wiki's canonical non-parametric value store ([[wiki/entities/neural-episodic-control.md]]) |
 | NMN | Neural Module Networks | Andreas et al. 2016: a parse of the question is compiled into a layout over reusable typed modules, so the *computation* is composed rather than the memory addressed ([[wiki/entities/neural-module-networks.md]]) |
 | CN-DPM | Continual Neural Dirichlet Process Mixture | Lee et al. 2020: an expansion-family continual learner that adds a component when the current mixture explains an input badly, with explicit Bayes over per-component generative models in place of a learned router ([[wiki/entities/cn-dpm.md]]) |
 | ARCS | Analog Retrieval by Constraint Satisfaction | The retrieval stage paired with ACME: candidate analogs are graded by a stored predicate-similarity network (WordNet) rather than by identical predicates, which is the representation-language commitment [[wiki/concepts/analogical-mapping.md]] isolates — stripping the similarity network collapses retrieval |
+| ANN | Artificial Neural Network | Used in the wiki almost exclusively as the *contrast* term for SNN: a rate-valued, non-spiking network, and the matched baseline every spiking energy or accuracy claim is scored against ([[wiki/concepts/spike-encoding-schemes.md]]) |
+| MSE | Mean Squared Error | `L = E‖ŷ − y‖²`; the default regression loss, and the objective whose Gaussian-likelihood reading is what lets a predictive-coding network read its residual as a precision-weighted prediction error |
+| DFS | Depth-First Search | The enumeration order in the wiki's program-synthesis solvers, usually run to a likelihood or cost threshold rather than to exhaustion; the brute-force arm `T309` measures a learned proposer against |
+| ROC / AUC | Receiver Operating Characteristic / Area Under the Curve | Threshold-free ranking score for a binary decision; the metric under which a probe's *ordering* is reported separately from its calibration |
 
 ## Neuroscience
 
@@ -622,9 +623,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | OLM | Oriens–Lacunosum Moleculare interneuron | Somatostatin-expressing hippocampal interneuron innervating distal CA1 dendrites; the addressed target of the place-cell→interneuron potentiation in [[wiki/concepts/inhibitory-control-of-coding.md]] |
 | VIP | Vasoactive Intestinal Peptide interneuron | Disinhibitory interneuron class (VIP⁺ inhibits SOM⁺/PV⁺); one of the three marker-defined channels through which coding-level control is exerted |
 | MBON | Mushroom Body Output Neuron | *Drosophila* readout neuron whose synaptic weights carry the learned valence; the invertebrate case in the consolidation table ([[wiki/concepts/generalization-optimized-consolidation.md]]) |
-
 | SEC | Structured Event Complex | Grafman's stored unit for a representational controller: a goal-oriented set of events structured in sequence — a plan-shaped episode rather than a rule or a cue→action pair ([[wiki/concepts/controller-knowledge-vs-process.md]]) |
-| BLA | Basolateral Amygdala | |
+| BLA | Basolateral Amygdala | Amygdala input nucleus carrying learned stimulus–valence associations; one of the two projection targets that type prelimbic prefrontal cells by destination, and the structure infralimbic cortex dampens on extinction recall ([[wiki/entities/medial-prefrontal-cortex.md]]) |
 | PFv+o | Ventral + orbital prefrontal cortex | The lesion site at which both the arbitrary mappings *and* the abstract strategy over them are lost, where the hippocampal-system lesion removes only the mappings ([[wiki/concepts/arbitrary-sensorimotor-mapping.md]]) |
 | TID | Task-Induced Deactivation | Regions *less* active in an active task than in its passive control; the contrast that originally defined the DMN, and a label artefact of referencing analyses to the experimental task ([[wiki/entities/default-mode-network.md]]) |
 | SIT / TUT | Stimulus-Independent Thought / Task-Unrelated Thought | Self-reported thought about something other than the environment or the task, measured by intermittent probes; scales inversely with external task demand and correlates with DMN activity |

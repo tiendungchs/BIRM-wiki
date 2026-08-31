@@ -494,3 +494,11 @@ One INGEST each:
 - [ ] `locatello-2019-challenging-disentanglement-assumptions.md` — ssl-representation · R · 2019
 - [ ] `lightman-2023-lets-verify-step-by-step.md` — reasoning-eval · R · 2023
 - [ ] `ha-2018-world-models.md` — world-models · M · 2018 — self-fetched; MathJax equations flattened
+
+## Unfiled clippings — dropped in `raw/` between waves
+
+- [ ] `kirsanov-2026-firing-rate-fallacy.md` — neuromorphic-spiking · S · 2026 — self-clipped (Substack); rate-code critique
+- [ ] `kirsanov-2026-surrogate-gradients-spikes.md` — neuromorphic-spiking · S · 2026 — self-clipped (Substack); surrogate-gradient training of SNNs
+- [ ] `francioni-2026-vectorized-instructive-signals-dendrites.md` — plasticity · S · 2026 — self-clipped (Nature); per-dendrite instructive signals, the primary source
+- [ ] `kirsanov-2026-vectorized-dendritic-gradients.md` — plasticity · S · 2026 — self-clipped (Substack); secondary treatment of Francioni et al. 2026, ingest after it
+- [ ] `kirsanov-2026-plasticity-beyond-textbook-rules.md` — plasticity · S · 2026 — self-clipped (Substack); plasticity rules beyond spike-timing-dependent plasticity

@@ -29,7 +29,7 @@ Block: `Norm → LRU → GLU → skip`, six layers, exactly the S4 macro-archite
 |---|---|---|
 | `ν^log` | `log(ν)`, `ν = −½log(u₁(r²_max − r²_min) + r²_min)`, `u₁ ~ U[0,1]` (Lemma 2) | Eigenvalue **magnitude** → memory horizon. `[r_min, r_max] = [0,1]` reproduces Glorot's spectrum exactly in the wide limit; swept up to `r_max = 0.99` |
 | `θ^log` | `θ = 2πu₂` in general; **`θ ∈ [0, π/10]` for Path-X** | Eigenvalue **phase** → oscillation frequency of the implied kernel |
-| `γ^log` | `log(√(1−|λ_j|²))`, element-wise | Forward-pass gain compensation |
+| `γ^log` | `log(√(1−\|λ_j\|²))`, element-wise | Forward-pass gain compensation |
 | `B, C` | Glorot on real and imaginary parts separately, variance halved | Input/output projection |
 
 Unrolled: `x_k = Σ_{j<k} Λ^j B̄ u_{k−j}` — a bank of `N` independent complex exponential filters. Training parallelises by associative scan; inference is `O(N)` per step.
@@ -47,7 +47,7 @@ Each row is the previous row plus one change, in the same 6-layer block. This is
 | **1. drop the recurrent nonlinearity** → RNN-Lin | 72.2 | 50.4 | 89.1 | 89.1 | ✗ | ✗ |
 | **2. diagonalise over `C`**, spectrum matched (`Λ` as Re+Im) | 86.5 | 58.8 | — | — | ✗ | ✗ |
 | **3a. polar (exponential) parameterisation** | 85.4 | 60.5 | — | — | 65.4 ±9.0 | ✗ |
-| **3b. + enforce stability** (`|λ| = exp(−exp(ν^log))`) | 87.2 | 59.4 | — | — | **93.5** | ✗ |
+| **3b. + enforce stability** (`\|λ\| = exp(−exp(ν^log))`) | 87.2 | 59.4 | — | — | **93.5** | ✗ |
 | **3c. + ring init** (tune `r_min, r_max` toward 1) | 88.1 | 59.4 | — | — | 94.4 | ✗ |
 | **4. + `γ` normalisation, + small init phase** = **LRU** | **89.0** | **60.2** | **89.4** | **89.9** | **95.1** | **94.2** |
 | S4D (their reproduction) | 91.5 | 60.2 | 86.4 | 89.5 | 94.2 | 97.5 |
@@ -74,9 +74,9 @@ The paper's §4 is a point-by-point dissection of what discretisation was actual
 |---|---|---|
 | **HiPPO initialisation** | **Not necessary** — for the first time including Path-X | Uniform on a ring `[r_min, r_max]` near 1 with restricted phase suffices. "HiPPO theory, while fundamental for the development of this field, should not be thought of as the main source of S4 success" |
 | **Matrix exponential** (from exact ZOH integration) | Necessary, but **not for the reason given** | The gain is **magnitude/phase decoupling** for Adam, a diagonal preconditioner. Learning `λ*` with `θ* → π/2` under Re+Im parameterisation puts the minimiser on a non-axis-aligned landscape; polar form aligns gradients with the phase. Nothing to do with integration accuracy |
-| **The `(exp(ΔÃ) − I)Ã⁻¹B̃` input multiplier** | It is a **normaliser** | First-order expansion `ΔB̃` matches performance; without the `Δ` the state grows as `O(Δ⁻¹)`. LRU's `γ = √(1−|λ|²)` is the same correction derived directly from `E|x_∞|² = 1/(1−|λ|²)` (Prop. 3) |
+| **The `(exp(ΔÃ) − I)Ã⁻¹B̃` input multiplier** | It is a **normaliser** | First-order expansion `ΔB̃` matches performance; without the `Δ` the state grows as `O(Δ⁻¹)`. LRU's `γ = √(1−\|λ\|²)` is the same correction derived directly from `E\|x_∞\|² = 1/(1−\|λ\|²)` (Prop. 3) |
 | **`Δ` shared between `A` and `B`** (parameter sharing) | **Not necessary** | Decoupling them into two parameters at matched initialisation does not reduce performance |
-| **Small `Δ` linking eigenvalue magnitude to phase** | The **phase restriction is necessary; the linkage is not** | S4D-Lin at `Δ=1e−3` initialises `|λ| ≈ 0.9995` and `θ ∈ [0, π/8]` — a small phase, hard-coded as a side effect. LRU sets the two independently and matches |
+| **Small `Δ` linking eigenvalue magnitude to phase** | The **phase restriction is necessary; the linkage is not** | S4D-Lin at `Δ=1e−3` initialises `\|λ\| ≈ 0.9995` and `θ ∈ [0, π/8]` — a small phase, hard-coded as a side effect. LRU sets the two independently and matches |
 | **Continuous-time semantics** | **Not necessary** | LRU has none, and matches. The cost is that S4's test-time resolution rescaling (`Δ` retuning, 96.30% at half sampling rate) has no LRU analogue — see Limitations |
 
 **Net:** the success of diagonal SSMs is *linear recurrence + complex diagonal exponential parameterisation + the normalisation and initialisation that discretisation happened to induce*. The ODE story and the polynomial-projection story are scaffolding.
@@ -91,7 +91,7 @@ Write `λ_j = exp(−ν_j + iθ_j)`. The impulse response of channel `j` is `λ_
 
 | Knob | Sets | Failure mode when wrong |
 |---|---|---|
-| `ν` (magnitude) | **How long** the past survives: `|x_k| ~ e^{−νk}` | Too large → vanishing gradients, no long range. Too small → forward-pass blow-up by `1/(1−r²)` (Prop. 3), training loss diverges at init |
+| `ν` (magnitude) | **How long** the past survives: `\|x_k\| ~ e^{−νk}` | Too large → vanishing gradients, no long range. Too small → forward-pass blow-up by `1/(1−r²)` (Prop. 3), training loss diverges at init |
 | `θ` (phase) | **What** is stored: number of oscillations of the kernel over the sequence | Uniform `θ ~ U[0,2π]` at `L = 16k` means most channels oscillate many times over the window — each channel is then a *local average* of an oscillation pattern, not a global summary. The optimiser converges to a suboptimal minimiser at chance test accuracy and never escapes |
 
 The Path-X evidence is the sharp form: with normalisation but uniform phase, training accuracy rises and **test accuracy stays at chance**; with normalisation plus `θ ∈ [0, π/10]`, both converge. Without normalisation, phase restriction alone does not train at all. The two are jointly necessary.

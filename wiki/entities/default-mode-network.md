@@ -103,147 +103,7 @@ The value here is not the clinical detail but the shape: the same network appear
 
 ---
 
-## Menon 2023 — what the next fifteen years added
-
-> Menon 2023, *20 years of the default mode network: A review and synthesis*, Neuron 111(16), doi:10.1016/j.neuron.2023.04.023 (`raw/menon-2023-default-mode-network-20-years.md`). A Perspective by the author who, with Greicius, coined "default mode network" in 2003. It reports almost no effect sizes; read it as a hypothesis with an anatomy attached, and grade each claim by the method column below.
-
-**Three of the seven open problems above have moved.**
-
-| Buckner 2008 open problem | Status after Menon 2023 |
-|---|---|
-| "No lesion study has ever been designed against this network" | **Partly answered.** Patients with **left angular gyrus lesions** show markedly reduced mind wandering — the first causal-grade human evidence attaching a default-mode node to an internally generated process. Still one node, one function |
-| The deactivation might be a baseline/threshold or vascular artefact | **Closed.** Intracranial EEG in patients with intractable epilepsy: selective **high-gamma (76–200 Hz)** power increase in medial prefrontal cortex and posterior cingulate/precuneus at rest relative to finger movement, vision and speech; transient high-gamma *suppression* in the same nodes during spatial attention and word reading, and in posterior cingulate/retrosplenial during mental arithmetic. The suppression is neuronal, fast, and visible without any subtraction |
-| "How to activate default nodes *above* their resting baseline" — the reason the direct role was untestable | **Solved for three nodes.** Self-referential trait judgments raise medial prefrontal cortex, posterior cingulate and left angular gyrus above resting baseline; area **PGp** of the angular gyrus is one of the few regions in the brain that exceeds resting baseline during semantic judgment (5-study analysis). The network is no longer defined only by what suppresses it |
-| What controls the switch | **A candidate with an anatomy**: the salience network (anterior insula + dorsal anterior cingulate) as causal outflow hub, validated by rodent optogenetics — [[wiki/entities/salience-network.md]] |
-
-**The node-level dissociation, which is the review's strongest negative result.** Meta-analyses over 8,000+ task fMRI studies give each node a different profile — this is the evidence that the network has no unitary function *as cognitive functions are currently labelled*:
-
-| Node | Preferential engagement |
-|---|---|
-| Posterior cingulate cortex (PCC) | Autobiographical recall; self–other distinction; hub that *upregulates* other default nodes during self-related processing (effective connectivity) |
-| Retrosplenial cortex (RSC) | Spatial memory and navigation |
-| Precuneus | Visual imagery |
-| Medial prefrontal cortex (mPFC) | Value judgments, emotion regulation, cognitive elaboration/reappraisal, generation of stimulus-independent thought; monitoring one's own *and* others' mental states |
-| Hippocampus | Episodic memory formation |
-| Anterior temporal cortex (ATC) | Semantic memory and categorisation |
-| Left angular gyrus (AG) | Language-related semantic judgments; retrieval of personally relevant semantics; elaboration of memory content |
-| Right AG / temporoparietal junction | "Other-relevant" information — others' mental states, beliefs, predicted behaviour |
-| Left middle temporal gyrus (MTG) | Monitoring internal speech; with superior temporal sulcus, speech comprehension |
-
-Two consequences the review draws and the wiki should keep: (i) the same nodes serve *both* internally directed and externally driven processing, so the internal/external dichotomy is not a partition of the anatomy; (ii) the network fractionates into **interdigitated subnetworks** — dorsal PCC, ventral PCC and RSC anchor distinct ones with distinct couplings to the control networks — linked by **convergence zones** acting as connector hubs. The single-hub reading of PCC on this page is therefore too coarse.
-
-**The proposed unifying function: integrate-and-broadcast an internal narrative.** Menon's model is that the network binds episodic memory, semantic memory and language into an ongoing internal narrative — "part monolog and part dialog" — constituting the epistemic self, and *broadcasts* it globally to maintain subjective continuity; the broadcast is paused when external stimuli must be attended to and resumes with updated representations. Four supporting observations, in descending grade:
-
-| Observation | What it supports |
-|---|---|
-| Default nodes have **net causal outflow** exceeding inflow to all other networks, including sensory and motor, at rest *and* during episodic memory formation, with interaction strength **higher during memory formation** (information-theoretic analysis of distributed depth electrodes) | The broadcast direction, and that it is task-modulated rather than idle chatter |
-| PCC activation patterns **persist** through naturalistic movie watching and change at perceived **event boundaries**; patterns generalise across *externally* signalled boundaries and *internally* generated boundaries during unguided recall, most strongly in PCC and RSC | "Frames of thought": the broadcast is discretised, and the same boundary code serves perceived and imagined streams |
-| The network integrates over **slower timescales** than other systems in narrative speech processing | The frame rate is set by an integration window, not by the stimulus |
-| Speaker–listener coupling: listener mPFC activity **predicts** the speaker's activity while listener PCC *lags* it, and prediction strength correlates with narrative comprehension | The narrative machinery runs in *anticipation* during comprehension, i.e. it is a generative model being used predictively — not a passive recall store |
-| Rodent two-photon imaging: task information is shared across areas within **200 ms** and a **global fluctuation mode** conveys the animal's response to every area imaged within **1 s**, in a subspace **orthogonal** to the one carrying sensory data | A concrete broadcast mechanism that does not corrupt the sensory channel — the one mechanistic proposal here a builder can copy directly |
-
-**(brainstorm)** The orthogonality result is the most transferable line in the review. A broadcast that shares a state variable with the representation being broadcast *over* will destroy it; putting the global mode in an orthogonal subspace is a population-geometry solution to a bandwidth-sharing problem ([[wiki/concepts/population-geometry.md]]) and is exactly what a wiki architecture with a shared bus lacks — every residual-stream broadcast in a transformer competes for the same directions as the content. Pairing it with the event-boundary result gives a specification with no wiki instance: *a slow, discretised, orthogonally coded global state that updates only at boundaries*.
-
-**Ontogeny (tentative, speculative in the source).** Menon proposes the internal narrative originates in Vygotskian internalisation — self-directed private speech in early childhood becoming voiceless inner monologue. No developmental data is offered; it is offered as a research programme.
-
-**What the review does not deliver.** No adjudication between its own two directional claims (salience network switches the default network off; default network has the largest net outflow, including *to* frontoparietal, even at rest) — [[wiki/empirical-tensions.md]] T257. No operational definition of "narrative" that would let the model fail. And the measurement obstacle it names is structural: internal mental processes cannot be probed without external stimuli, which alter the state being probed.
-
----
-
-## Azarias et al. 2025 — the developmental layer, and ten hypotheses where there were two
-
-> Azarias, Almeida, de Melo, Rici & Maria 2025, *The Journey of the Default Mode Network: Development, Function, and Impact on Mental Health*, Biology 14(4):395, doi:10.3390/biology14040395 (`raw/azarias-2025-default-mode-network-development.md`). **Grade it low.** A narrative literature review with no new data, no effect sizes anywhere, no meta-analytic pooling, and several garbled attributions (the self-construction hypothesis credited to Dennett, associative memory theory to "Levine and Tulving"). Its value to this wiki is not evidence but two things the higher-grade reviews above do not supply: an enumeration of *how many* mutually compatible function hypotheses the field is actually carrying, and a developmental/plasticity account of where the network's connectivity comes from.
-
-**Ten function hypotheses, not two.** Buckner 2008 above frames the non-identification as mentation vs sentinel. The field's own claim set is wider, and the review lists it without adjudicating any of it:
-
-| Hypothesis | Claimed function | Distinct from "construct a perspective other than the present"? |
-|---|---|---|
-| Sentinel | Broad low-level monitoring of the environment at rest | **Yes** — the one genuine rival |
-| Internal mental activity / spontaneous cognition | Generate and manipulate internal thoughts when not externally engaged | No — the parent claim |
-| Associative memory | Events stored with their relational neighbours; contextual cues reactivate the network | No — this is the *store* the constructor reads |
-| Self-construction | Continuous re-evaluation of past experience into an identity/self-concept | No — perspective = self, tense = integrated over life |
-| Social connection | Intention attribution, empathy, theory of mind | No — perspective = another agent |
-| Autobiographical memory | Retrieval and consolidation of personal episodes | No — perspective = self, tense = past |
-| Creative imagination | Association of disconnected concepts into novel combinations | No — unconstrained construction, no perspective anchor |
-| Self-reflection | Introspection on one's own states | No — perspective = self, tense = present |
-| Mental foresight | Simulate future events, recombining episodic elements | No — perspective = self, tense = future |
-| Temporal coherence | Bind past/present/future into one continuous narrative | No — this is Menon's integrate-and-broadcast claim, stated 15 years earlier without a mechanism |
-
-**(brainstorm) The table is a compression result.** Eight of the ten collapse onto one mechanism with two free parameters — *whose* perspective and *which* tense — which is exactly the parameterisation [[wiki/concepts/simulation-based-planning.md]] lacks, and it is now supported not by one review's synthesis but by the observation that the field independently named eight faculties that differ only in those two slots. The two that do not collapse are the sentinel (a different job entirely) and associative memory (the *store*, i.e. the medial temporal subsystem, not the constructor). This does not resolve the identification problem — ten hypotheses fitting one deactivation map is *worse* non-identification than two — but it changes what a discriminating experiment must do: separate a simulator from a monitor, then vary perspective and tense *within* the simulator.
-
-**The connectivity is developmentally set, and stays plastic.** This is the layer the anchor reviews do not have. Every claim below is correlational and reported without effect sizes; the direction is what matters.
-
-| Input | Reported effect on the network | Architectural reading |
-|---|---|---|
-| Childhood abuse, neglect, abandonment | Abnormal within-network functional connectivity — **hypo- *or* hyper-**, direction not predicted by the source | The set-point is written by developmental input statistics, and adversity moves it in either direction |
-| Poverty / socioeconomic stress | Altered medial prefrontal ↔ posterior cingulate connectivity; self-regulation and memory affected | The *specific* edge altered is the constructor↔hub edge, not the store↔hub edge |
-| Unstable family structure | Posterior cingulate ↔ precuneus **hyper**connectivity, read by the source as a stress adaptation | An adaptation, i.e. a set-point moved *by* a policy, not damage |
-| Enriched environment, early-childhood education (incl. animal work) | Improved connectivity in regions tied to executive function and emotional processing | The set-point is trainable in the beneficial direction too |
-| Chronic stress → cortisol | Inhibited oligodendrocyte proliferation and differentiation → **reduced myelin** → slowed, less reliable conduction; long-term white-matter integrity differences | A *developmental* route to changing conduction delays and integration timescales, distinct from any synaptic-weight change — see [[wiki/concepts/learnable-synaptic-delays.md]] |
-| Mindfulness meditation (adults) | Reduced resting network activity; reorganised within-network connectivity | The set-point remains plastic after development, by explicit training |
-| Cognitive-behavioural therapy, transcranial magnetic stimulation, EMDR (adults) | Normalised activity / reduced hyperconnectivity, tracking symptom improvement | Same, by external intervention |
-
-**(brainstorm) What this does to `G90`.** The gap as logged asks for an arbitrator between an internal and an input-driven mode. This review says the arbitration variable is not a fixed constant of the architecture but a **trained set-point** with a developmental critical window and residual adult plasticity — and that its two failure directions are *quantitative settings of one variable* rather than missing machinery. That is a stronger specification than "add a switch": the component a builder needs is a mode-assignment gain with (i) its own slow learning signal, (ii) a distinct timescale from the fast switch it controls, and (iii) an observable pathology at each extreme. No wiki architecture has any control parameter that is itself learned on a slower schedule than the policy it gates, except the outer loop of [[wiki/concepts/meta-learning.md]] — which optimises the whole fast learner rather than a single arbitration gain, and has no analogue of a critical window.
-
-**The failure directions, as this review reports them.** The clinical table is the reason to read the set-point as a scalar with two bad ends — but note it does not agree with the anchor review on schizophrenia:
-
-| Condition | Direction reported here | Behavioural correlate |
-|---|---|---|
-| Depression, generalised anxiety, PTSD (re-experiencing) | **Stuck internal** — hyperconnectivity/hyperactivity, failure to deactivate under task | Rumination, excessive worry, perseverative negative thought; unhappiness correlates with mPFC/PCC/IPL hyperconnectivity in a *non-clinical* sample, scaling with rumination trait |
-| ADHD | **Cannot hold internal** — hypoconnectivity of mPFC and PCC at rest, correlating with inattention and impulsivity severity | The source also reports DMN intrusion during task, i.e. failure of the switch in *both* directions |
-| Schizophrenia | **Hypo**connectivity within the network (mPFC, PCC), and reduced dorsolateral-prefrontal↔PCC coupling tracking disorganisation | Directly opposed to Buckner 2008's three-study convergence on an *overactive*, more strongly inter-correlated network — [[wiki/empirical-tensions.md]] T258 |
-| Alzheimer's disease | Reduced within-network connectivity, *increased* default↔executive-control connectivity, and reduced **temporal variability** of the network tracking cognitive impairment | The temporal-variability result is the one worth keeping: what degrades is the network's capacity to *change state*, not its mean level — [[wiki/concepts/dynamic-repertoire.md]] |
-| PTSD (avoidance) | mPFC↔PCC **hypo**connectivity correlating with avoidance and re-experiencing | Same network, opposite sign to the anxiety row, within one diagnosis |
-
-**States of consciousness, and an apparent conflict with the anchor review that is not one.** The review reports network activity *reduced* in sleep (notably REM), reduced under meditation, and *disorganised* under psychedelics with ego dissolution as the correlate. Buckner 2008 above uses the persistence of the network's low-frequency fluctuations in sleep and anaesthesia as an argument that the intrinsic signal is not the cognition. These are different measurements — correlation structure persisting vs activity level falling — and taken together they sharpen the anchor argument rather than contradicting it: **the coupling survives loss of consciousness while the drive does not**, which is what one expects if the anatomy is a standing bus and the mentation is traffic on it. The psychedelic result adds the only reported manipulation in which the *self* representation degrades in step with the network's organisation rather than its level.
-
----
-
-## Satpute et al. 2026 — the network read as a *shape* rather than a function
-
-> Satpute et al. 2026, *The default mode network in a hierarchical generative model of the brain*, Current Opinion in Behavioral Sciences 69:101656, doi:10.1016/j.cobeha.2026.101656 (`raw/satpute-2026-dmn-hierarchical-generative-model.md`). A theoretical review with **no new data**; its anatomy is inherited (Paquola et al. on laminar profiles of cortical networks, Barbas' structural model of cortico-cortical connections) and its architecture is an argument. Its move is to stop asking which psychological category the network maps onto and ask what its wiring *can compute* — which is the one strategy the four reviews above do not try.
-
-**The diagnosis of why the function question is stuck is methodological, and it is the right one.** The competing accounts (social cognition vs emotion vs memory; self vs other; episodic vs semantic) are drawn from **incommensurate ontologies** — they are not rival answers to one question but answers phrased in currencies that cannot be exchanged, which is why the same node (anteromedial prefrontal cortex) is claimed by self-representation, fear and semantic processing at once. Adding parcellation grain does not help: finer parts make the synthesis problem worse unless the parts are described in a shared *neurocomputational* vocabulary. This is the same defect [[wiki/concepts/function-to-structure-inference.md]] names, one level up — not "which structure implements this function" but "the function labels do not form a space".
-
-**The architectural claim: conductor, not commander.** Given as two rival readings of the same hierarchical position, with the second endorsed — see [[wiki/concepts/broadcast-hierarchy.md]] for the full treatment.
-
-| | Chain of command | **Orchestra conductor** (endorsed) |
-|---|---|---|
-| Downward | sequential, layer by layer | **diffuse long-range output across multiple networks and laminar types simultaneously** |
-| Upward | from the level immediately below | **selective — proportionally more input from high-level association cortex (eulaminate I) than from sensory areas** |
-| Global model revision | `O(L)` relays | one act |
-
-The supporting anatomy: the network is not more densely connected than other networks, it is **broader** in cross-network reach; and it is the only network whose laminar composition spans agranular, dysgranular *and* eulaminate I–III while containing **no koniocortex** — high hierarchical position (no primary sensory tissue) with unusually wide laminar coverage. For comparison, the visual network is dominated by koniocortex and eulaminate III, the frontoparietal network by eulaminate II and I.
-
-| Global feature | Reported characteristic |
-|---|---|
-| Laminar profile | Mixed agranular / dysgranular / eulaminate I–III; less granular than most networks on average, and *more varied* than limbic cortex (largely agranular) |
-| Connectivity | Selective input from mid-to-high association areas; broad, multilevel output |
-| Neuron / neurite density | Lower than primary sensory — reduced local processing, enhanced integrative capacity |
-| Myelination | Hypomyelinated relative to primary sensory and motor cortex → slower, temporally extended integration |
-| Macroscale gradients | At or near the apex of structural and functional gradients, measured as distance from visual sensory input |
-
-**Three axes of internal organisation** — offered as an anatomical alternative to fMRI-derived parcellations, whose membership varies with data quantity, fixed-vs-dynamic assignment, individual-vs-group level, task demand and mood:
-
-| Axis | Content | Architectural reading |
-|---|---|---|
-| **Longitudinal (anterior–posterior)** | Posterior medial complex (precuneus, PCC, retrosplenial) is more connected to **visual cortex**, higher neuron density, more myelinated, faster, MEG alpha-dominant. Anterior medial complex (perigenual anterior cingulate, vm/am/dmPFC) is more connected to **subcortical autonomic structures (e.g. hypothalamus)**, lower density, hypomyelinated, slower, MEG delta/theta-dominant | The two ends face different data sources — high-dimensional exteroceptive input vs interoceptive/bodily state — and run at different integration timescales *by conduction physics*, not by a decay parameter |
-| **Local hierarchical** | Each complex contains its own agranular→eulaminate III gradient: retrosplenial (agranular) → PCC (intermediate) → precuneus (Eu-III); perigenual anterior cingulate (agranular) → dmPFC / amPFC / vmPFC | Each complex is a *self-contained* generative model over its own nearby cortical and subcortical targets — the apex is recursive, not flat |
-| **Layered communication** | Barbas' **laminar type rule**: areas preferentially connect to areas of similar laminar profile. Applied within the network, anterior and posterior complexes exchange **level-matched and in parallel**, not through a single serial pathway — a **heterarchy** | Coupling eligibility is set by a property of the endpoints' own internal structure; no wiki architecture types edges this way |
-
-**What the three axes are for.** The prediction is that the fMRI literature's disagreement about how many default networks there are is a **projection artefact**: a task that emphasises one axis yields a partition along that axis, and the resulting "networks" are configurations rather than parts. Person-specific interdigitated networks (DMNa/DMNb) are attributed, speculatively, to individual variation in laminar organisation. This is a testable reframe of [[wiki/concepts/node-definition-problem.md]] as applied to this network — the parts are not being mis-drawn, they are being drawn on a system with more than one legitimate decomposition.
-
-**The function, restated in one variable: depth of update.** Most of the time the immediate past predicts the present well and only local adjustments are needed — the network is on **autopilot**, holding the global model steady. When the immediate past predicts badly, a **global** revision is required, sourced from *endogenous* prior knowledge rather than from the input. The listed triggers — scene changes in film (time, place or goal shifts), goal changes (thermoregulatory → metabolic), switching which agent is being modelled, affective state changes — are all [[wiki/concepts/event-segmentation.md]] boundaries. The heterogeneity of the domains (memory, social cognition, semantics, emotion, arousal) then reduces to one claim: they are the domains in which a large model revision is frequently required.
-
-**Precuneus.** Treated here as a full member — the eulaminate III end of the posterior medial complex's local laminar gradient — with Table 2 assigning it neurite density, myelination and non-DMN connectivity values alongside PCC and retrosplenial. Against the anchor review's provisional exclusion; added to [[wiki/empirical-tensions.md]] T256 Position A.
-
-**What it does not deliver.** No data. The layered-communication axis — the one that carries the heterarchy claim — is conceded to be untestable with current methods, since parsing laminar types in a way that informs task fMRI is still developing. The autopilot/global-update distinction has no threshold, so "poorly predicted by the immediate past" is not yet a measurable condition. And the source simultaneously places the network at the **apex** of macroscale gradients and denies it a chain-of-command position, without measuring both on one graph.
-
-**The methodological demand it makes on everyone else** is worth recording because it applies to the wiki's benchmark habits: if psychological categories are *products* of generative processes, then (i) predictions are not separable from the mental phenomena they constitute, (ii) predictions are trained in naturalistic multisensory environments and stripped-down laboratory tasks may not engage their dynamics at all, and (iii) prediction and prediction error depend on skeletomotor and visceromotor activity, so action is not downstream of the generative model but inside it.
-
----
-
-## Raichle et al. 2001 — the founding measurement, and what its primary tables actually support
+## The founding measurement, and what its primary tables actually support
 
 > Raichle, MacLeod, Snyder, Powers, Gusnard & Shulman 2001, *A default mode of brain function*, PNAS 98(2):676–682, doi:10.1073/pnas.98.2.676 (`raw/raichle-2001-default-mode-brain-function.md`). The paper that named the default mode, ingested here *after* the reviews that cite it. Primary quantitative positron-emission tomography: two independent groups of 19 awake adults at eyes-closed rest on two different scanners (blood flow, blood volume, oxygen extraction fraction, oxygen metabolic rate), plus 11 adults compared between eyes-closed rest and passive visual fixation. Regions of interest were taken verbatim from Shulman et al. 1997's deactivation meta-analysis — the map above is inherited, not produced here.
 
@@ -261,11 +121,11 @@ The supporting anatomy: the network is not more densely connected than other net
 
 **The cost, and where it is paid.** Posterior cingulate and precuneus are selectively vulnerable in carbon-monoxide poisoning, diffuse ischaemia and Alzheimer's disease. The standard account is vascular (arterial watershed), and this paper adds the suggestion that the exceptionally high tonic rate is itself the risk factor — the component that runs continuously at ~40% above the mean fails first when supply drops. That puts the Alzheimer's row of the clinical table above on a *metabolic* footing independent of the amyloid argument.
 
-**Where the anchor review's critique lands.** Buckner et al. 2008 above argue the absolute-baseline claim does not survive inspection, and the primary tables agree: left area 40 sits at 0.90 of the hemisphere mean in **both** groups (p = 0.07 and 0.04), a replicated ~10% decrease that survives only the multiple-comparison correction, and global oxygen extraction differs between the two groups (0.40 vs 0.30) on the same protocol with different scanners. The invariant is spatial and within-session, not absolute — [[wiki/empirical-tensions.md]] T260. What survives regardless is the strategy and the two dissociations, neither of which needs the invariant to be exact.
+**Where the anchor review's critique lands.** Buckner et al. 2008 (§ *Metabolism*, above) argue the absolute-baseline claim does not survive inspection, and the primary tables agree: left area 40 sits at 0.90 of the hemisphere mean in **both** groups (p = 0.07 and 0.04), a replicated ~10% decrease that survives only the multiple-comparison correction, and global oxygen extraction differs between the two groups (0.40 vs 0.30) on the same protocol with different scanners. The invariant is spatial and within-session, not absolute — [[wiki/empirical-tensions.md]] T260. What survives regardless is the strategy and the two dissociations, neither of which needs the invariant to be exact.
 
 ---
 
-## Gusnard et al. 2001 — the default mode is not one knob: two medial prefrontal tiers moving on two different variables
+## The medial prefrontal strip is not one knob: two tiers moving on two different variables
 
 > Gusnard, Akbudak, Shulman & Raichle 2001, *Medial prefrontal cortex and self-referential mental activity: relation to a default mode of brain function*, PNAS 98(7):4259–4264, doi:10.1073/pnas.071043098 (`raw/gusnard-2001-mpfc-self-referential-default-mode.md`). The companion paper to Raichle et al. 2001 above, from the same group and the same issue-year. Primary blocked fMRI, n = 24 (12 M / 12 F, ages 20–35), 1.5 T, 12 runs over 2.25 h. Two judgments on the same International Affective Picture System photographs: **internally cued** (pleasant vs unpleasant — *how does this make me feel*) and **externally cued** (indoors vs outdoors — *what does the picture show*), each alternating in 36 s blocks against **visual fixation**. The design's whole point is the third condition: the prior PET study (Lane et al.) contrasted only the two tasks against each other and could therefore not tell an increase from a smaller decrease.
 
@@ -293,7 +153,7 @@ The supporting anatomy: the network is not more densely connected than other net
 
 ---
 
-## Gao et al. 2013 — the membership list is state-dependent, and it fractionates by *behaviour* rather than by anatomy
+## The membership list is state-dependent, and it fractionates by *behaviour* rather than by anatomy
 
 > Gao, Gilmore, Alcauter & Lin 2013, *The dynamic reorganization of the default-mode network during a visual classification task*, Front Syst Neurosci 7:34, doi:10.3389/fnsys.2013.00034 (`raw/gao-2013-default-mode-network-visual-task.md`). A primary experiment: 19 adults (16 with all four usable runs), four 5 min steady-state functional-connectivity MRI runs in fixed order — pre-task rest `R1`, relaxed-pace task `T1`, speeded task `T2` (order of `T1`/`T2` counterbalanced), post-task rest `R2`. Task: classify the global or the local letter (H vs S) of a hierarchical letter figure overlaid on a scenic photograph, self-paced continuous, congruent and incongruent trials. Seed-based analysis from a posterior cingulate seed (MNI 0, −53, 26; 8 mm radius) cross-checked against group independent component analysis; spatial correlation between the two methods' maps 0.71 / 0.54 / 0.50 / 0.68 for `R1`/`T1`/`T2`/`R2`. **Grade it as a small-`N` primary result with an unusually clean internal control** (two independent pipelines recovering the same partition, and a within-subject return-to-baseline), and see the limits below before using the correlation coefficients.
 
@@ -337,52 +197,9 @@ Two components of one reconfiguration, each predicting a different behavioural q
 
 ---
 
-## Tripathi et al. 2025 — the anticorrelation as a graded, phase-reversing, trainable variable
+## Cytoarchitecture, wiring and signal flow — the anatomy every argument here was borrowing, measured
 
-> Tripathi, Batta, Zamani, Atad, Sheth, Zhang, Wager, Whitfield-Gabrieli, Uddin, Prakash & Bauer 2025, *Default mode network functional connectivity as a transdiagnostic biomarker of cognitive function*, Biol Psychiatry Cogn Neurosci Neuroimaging 10(4):359–368, doi:10.1016/j.bpsc.2024.12.016 (`raw/tripathi-2025-dmn-connectivity-biomarker.md`). A narrative review with **no new data** except one illustrative HCP connectivity matrix; it reports no effect sizes and sources its edge-level claims to supplementary tables of prior studies. Grade every row below as *direction of an effect reported by others*, not as a measurement. Its value to this page is that it is the only source here that treats **DMN–FPN coupling as a scalar with a value**, and asks what that value predicts across states, ages and diagnoses.
-
-**The strict double dissociation is dead, and what replaces it is sign-reversal within a task.** Earlier sources on this page treat the default/frontoparietal relation as fixed-sign competition. The review's own summary of the newer literature:
-
-| Regime | DMN ↔ FPN coupling | Source class |
-|---|---|---|
-| Sustained-attention task, between-subject | Negative; **stronger negativity → less variable reaction time** on a flanker task, replicated in a large population dataset with fewer reported attention problems | Two studies, one a direct replication |
-| Goal-directed self-generated thought, semantic processing, episodic retrieval, scene construction | **Positive / co-activated**; FPN tracks trial-to-trial difficulty in internal-mentation paradigms; parts of the DMN are recruited during task switching | Task fMRI, several labs |
-| Creative **idea generation** (bottom-up) | Negative | Creativity fMRI |
-| Creative **idea evaluation** | Correlation *increases* — the two systems cooperate to filter candidates | Same paradigm, later phase |
-
-**(brainstorm) This is the wiki's only biological measurement of a proposer/verifier pair whose coupling sign is itself the controlled variable.** [[wiki/concepts/refinement-loop.md]] holds that every 2025 ARC result is one exploration phase plus one verification phase, and treats the two as stages of one program. Here the same two-phase structure appears as *two different network configurations of the same two systems*, switching sign within a single creative act. An architecture that hard-wires "generator feeds verifier" implements the evaluation phase only; the generation phase is measured to require the verifier **decoupled**, which is exactly what a fixed critic-in-the-loop cannot provide. It also predicts a failure mode: a system whose critic is always coupled should show reduced diversity of candidates, not reduced quality of filtering.
-
-**Neither network is sufficient, and the predictive signature is whole-brain.** Connectome-based predictive modelling of sustained attention and of mind-wandering loads on visual, cerebellar, motor, somatomotor, dorsal- and ventral-attention networks alongside DMN and FPN — so "DMN vs FPN" is a two-node summary of a many-node signature, and a mode variable defined on that pair is under-specified. DMN anticorrelations were, separately, highly predictive of *within-subject* variation in mind wandering.
-
-**Trait level: one shared direction across unrelated pathologies.**
-
-| Condition | Reported DMN connectivity change | Common form |
-|---|---|---|
-| Healthy aging | Within-DMN FC **decreases**; DMN–DAN FC **increases** | Loss of segregation |
-| ADHD | Reduced PCC↔ACC anticorrelation; DMN "intrusion" into cognitive-control operation → attentional lapses | Failure to hold the network off |
-| Major depression | Increased intra- *and* inter-network FC; anticorrelation with sensory/attention networks replaced by abnormally **positive** correlation; same for CEN/FPN; salience network spatially **expands and shrinks the DMN** | Failure to hold the network off, plus a topographic change |
-| Schizophrenia | Increased mPFC↔PCC coupling; increased DMN↔insula; insufficient deactivation in target detection; impaired cognition tracks inefficient DMN suppression; hypothesised mPFC↔superior temporal gyrus increase → source misattribution of self-generated audition | Failure to suppress, and a boundary failure between generated and perceived |
-| Parkinson's | Within-DMN FC **negatively** correlated with cognitive composite scores; less DMN deactivation during executive tasks | Failure to suppress |
-| Alzheimer's | DMN FC decreased (PCC, precuneus); DMN–SAL increased; DMN–DAN anticorrelation decreased; DMN–FPN mixed | Loss of the anticorrelation |
-| Autism | Children: increased within-DMN FC; adolescents/adults: decreased; mixed-age samples: both — developmental sign flip | Direction not fixed |
-
-The review's own reading is the one this page has been converging on from the other side: the shared deficit is **reduced control over intrinsic activity and reduced ability to switch between extrinsic and intrinsic modes**, with the pathophysiologies distinct. That is `G90`'s arbitration variable observed to fail in six unrelated ways — which raises the possibility that it is one variable, and lowers the diagnostic value of any single measurement of it (the authors concede the transdiagnostic convergence means DMN FC "cannot parse disorder-specific patterns" as it stands).
-
-**The set-point is trainable in adults.** Meditation moves it as a *state* (reduced DMN node activity during practice, beyond task-induced deactivation; altered within-DMN FC) and as a *trait* (reduced DMN activity at rest in experienced practitioners; increased PCC↔dlPFC FC at rest and during practice; increased DMN–FPN anticorrelation following practice, associated with better sustained-attention performance; stronger DAN–DMN anticorrelation in experienced meditators). The within-DMN direction is inconsistent across studies (decreases and increases both reported); the cross-network direction is not. **(brainstorm)** Read alongside Azarias et al. 2025's developmental writing of the same set-point, this makes the arbitration gain a parameter with a *slow, experience-driven learning signal in both childhood and adulthood* — which is what [[wiki/concepts/meta-learning.md]]'s outer loop would be if it optimised one gain rather than the whole fast learner.
-
-**Three measurement facts that bound everything above.**
-
-| Fact | Consequence |
-|---|---|
-| Up to **62% of the variance in simulated group-level FC network matrices is explained by cross-subject spatial variation** in where the networks sit (Bijsterbosch et al. 2018) | A group-level DMN FC biomarker is majority topography. The fix is precision fMRI per subject, whose barrier is scan time — see [[wiki/concepts/node-definition-problem.md]] |
-| Global signal regression changes anticorrelation estimates, and the review declines to call the result an artefact: the global signal is a **composite of neural and non-neural sources**, removal increases anticorrelations "by virtue of mean centering", and a TMS meta-analysis found subgenual-ACC FC↔treatment-response associations driven specifically by patients with large global-signal fluctuations | The anticorrelation caveat carried since Buckner 2008 is now two-sided: GSR may manufacture negatives *and* removing shared trends may be what makes a real effect detectable. The review's recommendation is to report both ([[wiki/empirical-tensions.md]] T264) |
-| Bivariate correlation measures only the **redundant** information carried jointly by two sources; synergistic information requires partial-entropy-style multivariate measures, "with particular relevance for transmodal networks" | Every FC number on this page is a redundancy statistic. If the default network's job is to *integrate* components stored elsewhere, the quantity that would show it is exactly the one correlation cannot see |
-
----
-
-## Paquola et al. 2025 — the anatomy every argument above was borrowing, measured
-
-> Paquola, Garber, Frässle, Royer, Zhou, Tavakol, Rodriguez-Cruces, Cabalo, Valk, Eickhoff, Margulies, Evans, Amunts, Jefferies, Smallwood & Bernhardt 2025, *The architecture of the human default mode network explored through cytoarchitecture, wiring and signal flow*, Nat Neurosci 28:654–664, doi:10.1038/s41593-024-01868-0 (`raw/paquola-2025-dmn-cytoarchitecture-signal-flow.md`). **This is the primary source Satpute et al. 2026 above and [[wiki/concepts/broadcast-hierarchy.md]] inherit their laminar anatomy from**, ingested after them. Four data layers: (1) the Von Economo cortical-type atlas overlaid on the Yeo network atlas, tested against 10,000 spin-rotated null networks; (2) **BigBrain** — a single cell-body-stained postmortem brain (65-year-old man, 7,400 × 20 μm coronal sections, 100 μm 3D reconstruction) profiled vertex-wise and reduced by nonlinear manifold learning; (3) in vivo diffusion tractography scored by **navigation efficiency** `E_nav` plus whole-cortex **regression dynamic causal modelling** (rDCM) over 400 isocortical parcels of resting fMRI; (4) a 7-T replication in **8** individuals with quantitative T1 relaxometry standing in for histology. Grade it as the strongest anatomical evidence on this page and note the sample structure: the cytoarchitecture is `n = 1`, the individual-level replication is `n = 8`, and the connectivity is group in vivo.
+> Paquola, Garber, Frässle, Royer, Zhou, Tavakol, Rodriguez-Cruces, Cabalo, Valk, Eickhoff, Margulies, Evans, Amunts, Jefferies, Smallwood & Bernhardt 2025, *The architecture of the human default mode network explored through cytoarchitecture, wiring and signal flow*, Nat Neurosci 28:654–664, doi:10.1038/s41593-024-01868-0 (`raw/paquola-2025-dmn-cytoarchitecture-signal-flow.md`). **This is the primary source Satpute et al. 2026 below and [[wiki/concepts/broadcast-hierarchy.md]] inherit their laminar anatomy from**, ingested after them. Four data layers: (1) the Von Economo cortical-type atlas overlaid on the Yeo network atlas, tested against 10,000 spin-rotated null networks; (2) **BigBrain** — a single cell-body-stained postmortem brain (65-year-old man, 7,400 × 20 μm coronal sections, 100 μm 3D reconstruction) profiled vertex-wise and reduced by nonlinear manifold learning; (3) in vivo diffusion tractography scored by **navigation efficiency** `E_nav` plus whole-cortex **regression dynamic causal modelling** (rDCM) over 400 isocortical parcels of resting fMRI; (4) a 7-T replication in **8** individuals with quantitative T1 relaxometry standing in for histology. Grade it as the strongest anatomical evidence on this page and note the sample structure: the cytoarchitecture is `n = 1`, the individual-level replication is `n = 8`, and the connectivity is group in vivo.
 
 **The composition result: the network is cytoarchitecturally heterogeneous, and uniquely so.**
 
@@ -449,6 +266,189 @@ Since >90% of cortico-cortical connections are between neighbouring microcircuit
 | rDCM is linear with a fixed haemodynamic response | The price paid for 400 parcels ([[wiki/concepts/effective-connectivity.md]]) — the balanced-output claim is a property of a linear model's fitted couplings |
 | The output result is a **null-model comparison** | "Balanced" means lowest KL divergence from a null across types, not a measured equality of transmitted influence |
 | Cross-modal registration | Histology from one person combined with in vivo imaging from different cohorts; the 7-T arm addresses this and weakens two of the four effects (input, smoothness) to non-significance |
+
+---
+
+## The anticorrelation is a graded, phase-reversing, trainable variable
+
+> Tripathi, Batta, Zamani, Atad, Sheth, Zhang, Wager, Whitfield-Gabrieli, Uddin, Prakash & Bauer 2025, *Default mode network functional connectivity as a transdiagnostic biomarker of cognitive function*, Biol Psychiatry Cogn Neurosci Neuroimaging 10(4):359–368, doi:10.1016/j.bpsc.2024.12.016 (`raw/tripathi-2025-dmn-connectivity-biomarker.md`). A narrative review with **no new data** except one illustrative HCP connectivity matrix; it reports no effect sizes and sources its edge-level claims to supplementary tables of prior studies. Grade every row below as *direction of an effect reported by others*, not as a measurement. Its value to this page is that it is the only source here that treats **DMN–FPN coupling as a scalar with a value**, and asks what that value predicts across states, ages and diagnoses.
+
+**The strict double dissociation is dead, and what replaces it is sign-reversal within a task.** Earlier sources on this page treat the default/frontoparietal relation as fixed-sign competition. The review's own summary of the newer literature:
+
+| Regime | DMN ↔ FPN coupling | Source class |
+|---|---|---|
+| Sustained-attention task, between-subject | Negative; **stronger negativity → less variable reaction time** on a flanker task, replicated in a large population dataset with fewer reported attention problems | Two studies, one a direct replication |
+| Goal-directed self-generated thought, semantic processing, episodic retrieval, scene construction | **Positive / co-activated**; FPN tracks trial-to-trial difficulty in internal-mentation paradigms; parts of the DMN are recruited during task switching | Task fMRI, several labs |
+| Creative **idea generation** (bottom-up) | Negative | Creativity fMRI |
+| Creative **idea evaluation** | Correlation *increases* — the two systems cooperate to filter candidates | Same paradigm, later phase |
+
+**(brainstorm) This is the wiki's only biological measurement of a proposer/verifier pair whose coupling sign is itself the controlled variable.** [[wiki/concepts/refinement-loop.md]] holds that every 2025 ARC result is one exploration phase plus one verification phase, and treats the two as stages of one program. Here the same two-phase structure appears as *two different network configurations of the same two systems*, switching sign within a single creative act. An architecture that hard-wires "generator feeds verifier" implements the evaluation phase only; the generation phase is measured to require the verifier **decoupled**, which is exactly what a fixed critic-in-the-loop cannot provide. It also predicts a failure mode: a system whose critic is always coupled should show reduced diversity of candidates, not reduced quality of filtering.
+
+**Neither network is sufficient, and the predictive signature is whole-brain.** Connectome-based predictive modelling of sustained attention and of mind-wandering loads on visual, cerebellar, motor, somatomotor, dorsal- and ventral-attention networks alongside DMN and FPN — so "DMN vs FPN" is a two-node summary of a many-node signature, and a mode variable defined on that pair is under-specified. DMN anticorrelations were, separately, highly predictive of *within-subject* variation in mind wandering.
+
+**Trait level: one shared direction across unrelated pathologies.**
+
+| Condition | Reported DMN connectivity change | Common form |
+|---|---|---|
+| Healthy aging | Within-DMN FC **decreases**; DMN–DAN FC **increases** | Loss of segregation |
+| ADHD | Reduced PCC↔ACC anticorrelation; DMN "intrusion" into cognitive-control operation → attentional lapses | Failure to hold the network off |
+| Major depression | Increased intra- *and* inter-network FC; anticorrelation with sensory/attention networks replaced by abnormally **positive** correlation; same for CEN/FPN; salience network spatially **expands and shrinks the DMN** | Failure to hold the network off, plus a topographic change |
+| Schizophrenia | Increased mPFC↔PCC coupling; increased DMN↔insula; insufficient deactivation in target detection; impaired cognition tracks inefficient DMN suppression; hypothesised mPFC↔superior temporal gyrus increase → source misattribution of self-generated audition | Failure to suppress, and a boundary failure between generated and perceived |
+| Parkinson's | Within-DMN FC **negatively** correlated with cognitive composite scores; less DMN deactivation during executive tasks | Failure to suppress |
+| Alzheimer's | DMN FC decreased (PCC, precuneus); DMN–SAL increased; DMN–DAN anticorrelation decreased; DMN–FPN mixed | Loss of the anticorrelation |
+| Autism | Children: increased within-DMN FC; adolescents/adults: decreased; mixed-age samples: both — developmental sign flip | Direction not fixed |
+
+The review's own reading is the one this page has been converging on from the other side: the shared deficit is **reduced control over intrinsic activity and reduced ability to switch between extrinsic and intrinsic modes**, with the pathophysiologies distinct. That is `G90`'s arbitration variable observed to fail in six unrelated ways — which raises the possibility that it is one variable, and lowers the diagnostic value of any single measurement of it (the authors concede the transdiagnostic convergence means DMN FC "cannot parse disorder-specific patterns" as it stands).
+
+**The set-point is trainable in adults.** Meditation moves it as a *state* (reduced DMN node activity during practice, beyond task-induced deactivation; altered within-DMN FC) and as a *trait* (reduced DMN activity at rest in experienced practitioners; increased PCC↔dlPFC FC at rest and during practice; increased DMN–FPN anticorrelation following practice, associated with better sustained-attention performance; stronger DAN–DMN anticorrelation in experienced meditators). The within-DMN direction is inconsistent across studies (decreases and increases both reported); the cross-network direction is not. **(brainstorm)** Read alongside Azarias et al. 2025's developmental writing of the same set-point, this makes the arbitration gain a parameter with a *slow, experience-driven learning signal in both childhood and adulthood* — which is what [[wiki/concepts/meta-learning.md]]'s outer loop would be if it optimised one gain rather than the whole fast learner.
+
+**Three measurement facts that bound every anticorrelation claim on this page.**
+
+| Fact | Consequence |
+|---|---|
+| Up to **62% of the variance in simulated group-level FC network matrices is explained by cross-subject spatial variation** in where the networks sit (Bijsterbosch et al. 2018) | A group-level DMN FC biomarker is majority topography. The fix is precision fMRI per subject, whose barrier is scan time — see [[wiki/concepts/node-definition-problem.md]] |
+| Global signal regression changes anticorrelation estimates, and the review declines to call the result an artefact: the global signal is a **composite of neural and non-neural sources**, removal increases anticorrelations "by virtue of mean centering", and a TMS meta-analysis found subgenual-ACC FC↔treatment-response associations driven specifically by patients with large global-signal fluctuations | The anticorrelation caveat carried since Buckner 2008 is now two-sided: GSR may manufacture negatives *and* removing shared trends may be what makes a real effect detectable. The review's recommendation is to report both ([[wiki/empirical-tensions.md]] T264) |
+| Bivariate correlation measures only the **redundant** information carried jointly by two sources; synergistic information requires partial-entropy-style multivariate measures, "with particular relevance for transmodal networks" | Every FC number on this page is a redundancy statistic. If the default network's job is to *integrate* components stored elsewhere, the quantity that would show it is exactly the one correlation cannot see |
+
+---
+
+## The network read as a *shape* rather than as a function
+
+> Satpute et al. 2026, *The default mode network in a hierarchical generative model of the brain*, Current Opinion in Behavioral Sciences 69:101656, doi:10.1016/j.cobeha.2026.101656 (`raw/satpute-2026-dmn-hierarchical-generative-model.md`). A theoretical review with **no new data**; its anatomy is inherited (Paquola et al. on laminar profiles of cortical networks, Barbas' structural model of cortico-cortical connections) and its architecture is an argument. Its move is to stop asking which psychological category the network maps onto and ask what its wiring *can compute* — which is the one strategy the four reviews above do not try.
+
+**The diagnosis of why the function question is stuck is methodological, and it is the right one.** The competing accounts (social cognition vs emotion vs memory; self vs other; episodic vs semantic) are drawn from **incommensurate ontologies** — they are not rival answers to one question but answers phrased in currencies that cannot be exchanged, which is why the same node (anteromedial prefrontal cortex) is claimed by self-representation, fear and semantic processing at once. Adding parcellation grain does not help: finer parts make the synthesis problem worse unless the parts are described in a shared *neurocomputational* vocabulary. This is the same defect [[wiki/concepts/function-to-structure-inference.md]] names, one level up — not "which structure implements this function" but "the function labels do not form a space".
+
+**The architectural claim: conductor, not commander.** Given as two rival readings of the same hierarchical position, with the second endorsed — see [[wiki/concepts/broadcast-hierarchy.md]] for the full treatment.
+
+| | Chain of command | **Orchestra conductor** (endorsed) |
+|---|---|---|
+| Downward | sequential, layer by layer | **diffuse long-range output across multiple networks and laminar types simultaneously** |
+| Upward | from the level immediately below | **selective — proportionally more input from high-level association cortex (eulaminate I) than from sensory areas** |
+| Global model revision | `O(L)` relays | one act |
+
+The supporting anatomy: the network is not more densely connected than other networks, it is **broader** in cross-network reach; and it is the only network whose laminar composition spans agranular, dysgranular *and* eulaminate I–III while containing **no koniocortex** — high hierarchical position (no primary sensory tissue) with unusually wide laminar coverage. For comparison, the visual network is dominated by koniocortex and eulaminate III, the frontoparietal network by eulaminate II and I.
+
+| Global feature | Reported characteristic |
+|---|---|
+| Laminar profile | Mixed agranular / dysgranular / eulaminate I–III; less granular than most networks on average, and *more varied* than limbic cortex (largely agranular) |
+| Connectivity | Selective input from mid-to-high association areas; broad, multilevel output |
+| Neuron / neurite density | Lower than primary sensory — reduced local processing, enhanced integrative capacity |
+| Myelination | Hypomyelinated relative to primary sensory and motor cortex → slower, temporally extended integration |
+| Macroscale gradients | At or near the apex of structural and functional gradients, measured as distance from visual sensory input |
+
+**Three axes of internal organisation** — offered as an anatomical alternative to fMRI-derived parcellations, whose membership varies with data quantity, fixed-vs-dynamic assignment, individual-vs-group level, task demand and mood:
+
+| Axis | Content | Architectural reading |
+|---|---|---|
+| **Longitudinal (anterior–posterior)** | Posterior medial complex (precuneus, PCC, retrosplenial) is more connected to **visual cortex**, higher neuron density, more myelinated, faster, MEG alpha-dominant. Anterior medial complex (perigenual anterior cingulate, vm/am/dmPFC) is more connected to **subcortical autonomic structures (e.g. hypothalamus)**, lower density, hypomyelinated, slower, MEG delta/theta-dominant | The two ends face different data sources — high-dimensional exteroceptive input vs interoceptive/bodily state — and run at different integration timescales *by conduction physics*, not by a decay parameter |
+| **Local hierarchical** | Each complex contains its own agranular→eulaminate III gradient: retrosplenial (agranular) → PCC (intermediate) → precuneus (Eu-III); perigenual anterior cingulate (agranular) → dmPFC / amPFC / vmPFC | Each complex is a *self-contained* generative model over its own nearby cortical and subcortical targets — the apex is recursive, not flat |
+| **Layered communication** | Barbas' **laminar type rule**: areas preferentially connect to areas of similar laminar profile. Applied within the network, anterior and posterior complexes exchange **level-matched and in parallel**, not through a single serial pathway — a **heterarchy** | Coupling eligibility is set by a property of the endpoints' own internal structure; no wiki architecture types edges this way |
+
+**What the three axes are for.** The prediction is that the fMRI literature's disagreement about how many default networks there are is a **projection artefact**: a task that emphasises one axis yields a partition along that axis, and the resulting "networks" are configurations rather than parts. Person-specific interdigitated networks (DMNa/DMNb) are attributed, speculatively, to individual variation in laminar organisation. This is a testable reframe of [[wiki/concepts/node-definition-problem.md]] as applied to this network — the parts are not being mis-drawn, they are being drawn on a system with more than one legitimate decomposition.
+
+**The function, restated in one variable: depth of update.** Most of the time the immediate past predicts the present well and only local adjustments are needed — the network is on **autopilot**, holding the global model steady. When the immediate past predicts badly, a **global** revision is required, sourced from *endogenous* prior knowledge rather than from the input. The listed triggers — scene changes in film (time, place or goal shifts), goal changes (thermoregulatory → metabolic), switching which agent is being modelled, affective state changes — are all [[wiki/concepts/event-segmentation.md]] boundaries. The heterogeneity of the domains (memory, social cognition, semantics, emotion, arousal) then reduces to one claim: they are the domains in which a large model revision is frequently required.
+
+**Precuneus.** Treated here as a full member — the eulaminate III end of the posterior medial complex's local laminar gradient — with Table 2 assigning it neurite density, myelination and non-DMN connectivity values alongside PCC and retrosplenial. Against the anchor review's provisional exclusion; added to [[wiki/empirical-tensions.md]] T256 Position A.
+
+**What it does not deliver.** No data. The layered-communication axis — the one that carries the heterarchy claim — is conceded to be untestable with current methods, since parsing laminar types in a way that informs task fMRI is still developing. The autopilot/global-update distinction has no threshold, so "poorly predicted by the immediate past" is not yet a measurable condition. And the source simultaneously places the network at the **apex** of macroscale gradients and denies it a chain-of-command position, without measuring both on one graph.
+
+**The methodological demand it makes on everyone else** is worth recording because it applies to the wiki's benchmark habits: if psychological categories are *products* of generative processes, then (i) predictions are not separable from the mental phenomena they constitute, (ii) predictions are trained in naturalistic multisensory environments and stripped-down laboratory tasks may not engage their dynamics at all, and (iii) prediction and prediction error depend on skeletomotor and visceromotor activity, so action is not downstream of the generative model but inside it.
+
+---
+
+## Twenty years on: which of this page's open problems moved
+
+> Menon 2023, *20 years of the default mode network: A review and synthesis*, Neuron 111(16), doi:10.1016/j.neuron.2023.04.023 (`raw/menon-2023-default-mode-network-20-years.md`). A Perspective by the author who, with Greicius, coined "default mode network" in 2003. It reports almost no effect sizes; read it as a hypothesis with an anatomy attached, and grade each claim by the method column below.
+
+**Three of the seven open problems in § *Open problems* have moved.**
+
+| Buckner 2008 open problem | Status after Menon 2023 |
+|---|---|
+| "No lesion study has ever been designed against this network" | **Partly answered.** Patients with **left angular gyrus lesions** show markedly reduced mind wandering — the first causal-grade human evidence attaching a default-mode node to an internally generated process. Still one node, one function |
+| The deactivation might be a baseline/threshold or vascular artefact | **Closed.** Intracranial EEG in patients with intractable epilepsy: selective **high-gamma (76–200 Hz)** power increase in medial prefrontal cortex and posterior cingulate/precuneus at rest relative to finger movement, vision and speech; transient high-gamma *suppression* in the same nodes during spatial attention and word reading, and in posterior cingulate/retrosplenial during mental arithmetic. The suppression is neuronal, fast, and visible without any subtraction |
+| "How to activate default nodes *above* their resting baseline" — the reason the direct role was untestable | **Solved for three nodes.** Self-referential trait judgments raise medial prefrontal cortex, posterior cingulate and left angular gyrus above resting baseline; area **PGp** of the angular gyrus is one of the few regions in the brain that exceeds resting baseline during semantic judgment (5-study analysis). The network is no longer defined only by what suppresses it |
+| What controls the switch | **A candidate with an anatomy**: the salience network (anterior insula + dorsal anterior cingulate) as causal outflow hub, validated by rodent optogenetics — [[wiki/entities/salience-network.md]] |
+
+**The node-level dissociation, which is the review's strongest negative result.** Meta-analyses over 8,000+ task fMRI studies give each node a different profile — this is the evidence that the network has no unitary function *as cognitive functions are currently labelled*:
+
+| Node | Preferential engagement |
+|---|---|
+| Posterior cingulate cortex (PCC) | Autobiographical recall; self–other distinction; hub that *upregulates* other default nodes during self-related processing (effective connectivity) |
+| Retrosplenial cortex (RSC) | Spatial memory and navigation |
+| Precuneus | Visual imagery |
+| Medial prefrontal cortex (mPFC) | Value judgments, emotion regulation, cognitive elaboration/reappraisal, generation of stimulus-independent thought; monitoring one's own *and* others' mental states |
+| Hippocampus | Episodic memory formation |
+| Anterior temporal cortex (ATC) | Semantic memory and categorisation |
+| Left angular gyrus (AG) | Language-related semantic judgments; retrieval of personally relevant semantics; elaboration of memory content |
+| Right AG / temporoparietal junction | "Other-relevant" information — others' mental states, beliefs, predicted behaviour |
+| Left middle temporal gyrus (MTG) | Monitoring internal speech; with superior temporal sulcus, speech comprehension |
+
+Two consequences the review draws and the wiki should keep: (i) the same nodes serve *both* internally directed and externally driven processing, so the internal/external dichotomy is not a partition of the anatomy; (ii) the network fractionates into **interdigitated subnetworks** — dorsal PCC, ventral PCC and RSC anchor distinct ones with distinct couplings to the control networks — linked by **convergence zones** acting as connector hubs. The single-hub reading of PCC on this page is therefore too coarse.
+
+**The proposed unifying function: integrate-and-broadcast an internal narrative.** Menon's model is that the network binds episodic memory, semantic memory and language into an ongoing internal narrative — "part monolog and part dialog" — constituting the epistemic self, and *broadcasts* it globally to maintain subjective continuity; the broadcast is paused when external stimuli must be attended to and resumes with updated representations. Four supporting observations, in descending grade:
+
+| Observation | What it supports |
+|---|---|
+| Default nodes have **net causal outflow** exceeding inflow to all other networks, including sensory and motor, at rest *and* during episodic memory formation, with interaction strength **higher during memory formation** (information-theoretic analysis of distributed depth electrodes) | The broadcast direction, and that it is task-modulated rather than idle chatter |
+| PCC activation patterns **persist** through naturalistic movie watching and change at perceived **event boundaries**; patterns generalise across *externally* signalled boundaries and *internally* generated boundaries during unguided recall, most strongly in PCC and RSC | "Frames of thought": the broadcast is discretised, and the same boundary code serves perceived and imagined streams |
+| The network integrates over **slower timescales** than other systems in narrative speech processing | The frame rate is set by an integration window, not by the stimulus |
+| Speaker–listener coupling: listener mPFC activity **predicts** the speaker's activity while listener PCC *lags* it, and prediction strength correlates with narrative comprehension | The narrative machinery runs in *anticipation* during comprehension, i.e. it is a generative model being used predictively — not a passive recall store |
+| Rodent two-photon imaging: task information is shared across areas within **200 ms** and a **global fluctuation mode** conveys the animal's response to every area imaged within **1 s**, in a subspace **orthogonal** to the one carrying sensory data | A concrete broadcast mechanism that does not corrupt the sensory channel — the one mechanistic proposal here a builder can copy directly |
+
+**(brainstorm)** The orthogonality result is the most transferable line in the review. A broadcast that shares a state variable with the representation being broadcast *over* will destroy it; putting the global mode in an orthogonal subspace is a population-geometry solution to a bandwidth-sharing problem ([[wiki/concepts/population-geometry.md]]) and is exactly what a wiki architecture with a shared bus lacks — every residual-stream broadcast in a transformer competes for the same directions as the content. Pairing it with the event-boundary result gives a specification with no wiki instance: *a slow, discretised, orthogonally coded global state that updates only at boundaries*.
+
+**Ontogeny (tentative, speculative in the source).** Menon proposes the internal narrative originates in Vygotskian internalisation — self-directed private speech in early childhood becoming voiceless inner monologue. No developmental data is offered; it is offered as a research programme.
+
+**What the review does not deliver.** No adjudication between its own two directional claims (salience network switches the default network off; default network has the largest net outflow, including *to* frontoparietal, even at rest) — [[wiki/empirical-tensions.md]] T257. No operational definition of "narrative" that would let the model fail. And the measurement obstacle it names is structural: internal mental processes cannot be probed without external stimuli, which alter the state being probed.
+
+---
+
+## The developmental layer, and ten function hypotheses where this page framed two
+
+> Azarias, Almeida, de Melo, Rici & Maria 2025, *The Journey of the Default Mode Network: Development, Function, and Impact on Mental Health*, Biology 14(4):395, doi:10.3390/biology14040395 (`raw/azarias-2025-default-mode-network-development.md`). **Grade it low.** A narrative literature review with no new data, no effect sizes anywhere, no meta-analytic pooling, and several garbled attributions (the self-construction hypothesis credited to Dennett, associative memory theory to "Levine and Tulving"). Its value to this wiki is not evidence but two things the higher-grade reviews above do not supply: an enumeration of *how many* mutually compatible function hypotheses the field is actually carrying, and a developmental/plasticity account of where the network's connectivity comes from.
+
+**Ten function hypotheses, not two.** Buckner 2008 (§ *The two function hypotheses*, above) frames the non-identification as mentation vs sentinel. The field's own claim set is wider, and the review lists it without adjudicating any of it:
+
+| Hypothesis | Claimed function | Distinct from "construct a perspective other than the present"? |
+|---|---|---|
+| Sentinel | Broad low-level monitoring of the environment at rest | **Yes** — the one genuine rival |
+| Internal mental activity / spontaneous cognition | Generate and manipulate internal thoughts when not externally engaged | No — the parent claim |
+| Associative memory | Events stored with their relational neighbours; contextual cues reactivate the network | No — this is the *store* the constructor reads |
+| Self-construction | Continuous re-evaluation of past experience into an identity/self-concept | No — perspective = self, tense = integrated over life |
+| Social connection | Intention attribution, empathy, theory of mind | No — perspective = another agent |
+| Autobiographical memory | Retrieval and consolidation of personal episodes | No — perspective = self, tense = past |
+| Creative imagination | Association of disconnected concepts into novel combinations | No — unconstrained construction, no perspective anchor |
+| Self-reflection | Introspection on one's own states | No — perspective = self, tense = present |
+| Mental foresight | Simulate future events, recombining episodic elements | No — perspective = self, tense = future |
+| Temporal coherence | Bind past/present/future into one continuous narrative | No — this is Menon's integrate-and-broadcast claim, stated 15 years earlier without a mechanism |
+
+**(brainstorm) The table is a compression result.** Eight of the ten collapse onto one mechanism with two free parameters — *whose* perspective and *which* tense — which is exactly the parameterisation [[wiki/concepts/simulation-based-planning.md]] lacks, and it is now supported not by one review's synthesis but by the observation that the field independently named eight faculties that differ only in those two slots. The two that do not collapse are the sentinel (a different job entirely) and associative memory (the *store*, i.e. the medial temporal subsystem, not the constructor). This does not resolve the identification problem — ten hypotheses fitting one deactivation map is *worse* non-identification than two — but it changes what a discriminating experiment must do: separate a simulator from a monitor, then vary perspective and tense *within* the simulator.
+
+**The connectivity is developmentally set, and stays plastic.** This is the layer the anchor reviews do not have. Every claim below is correlational and reported without effect sizes; the direction is what matters.
+
+| Input | Reported effect on the network | Architectural reading |
+|---|---|---|
+| Childhood abuse, neglect, abandonment | Abnormal within-network functional connectivity — **hypo- *or* hyper-**, direction not predicted by the source | The set-point is written by developmental input statistics, and adversity moves it in either direction |
+| Poverty / socioeconomic stress | Altered medial prefrontal ↔ posterior cingulate connectivity; self-regulation and memory affected | The *specific* edge altered is the constructor↔hub edge, not the store↔hub edge |
+| Unstable family structure | Posterior cingulate ↔ precuneus **hyper**connectivity, read by the source as a stress adaptation | An adaptation, i.e. a set-point moved *by* a policy, not damage |
+| Enriched environment, early-childhood education (incl. animal work) | Improved connectivity in regions tied to executive function and emotional processing | The set-point is trainable in the beneficial direction too |
+| Chronic stress → cortisol | Inhibited oligodendrocyte proliferation and differentiation → **reduced myelin** → slowed, less reliable conduction; long-term white-matter integrity differences | A *developmental* route to changing conduction delays and integration timescales, distinct from any synaptic-weight change — see [[wiki/concepts/learnable-synaptic-delays.md]] |
+| Mindfulness meditation (adults) | Reduced resting network activity; reorganised within-network connectivity | The set-point remains plastic after development, by explicit training |
+| Cognitive-behavioural therapy, transcranial magnetic stimulation, EMDR (adults) | Normalised activity / reduced hyperconnectivity, tracking symptom improvement | Same, by external intervention |
+
+**(brainstorm) What this does to `G90`.** The gap as logged asks for an arbitrator between an internal and an input-driven mode. This review says the arbitration variable is not a fixed constant of the architecture but a **trained set-point** with a developmental critical window and residual adult plasticity — and that its two failure directions are *quantitative settings of one variable* rather than missing machinery. That is a stronger specification than "add a switch": the component a builder needs is a mode-assignment gain with (i) its own slow learning signal, (ii) a distinct timescale from the fast switch it controls, and (iii) an observable pathology at each extreme. No wiki architecture has any control parameter that is itself learned on a slower schedule than the policy it gates, except the outer loop of [[wiki/concepts/meta-learning.md]] — which optimises the whole fast learner rather than a single arbitration gain, and has no analogue of a critical window.
+
+**The failure directions, as this review reports them.** The clinical table is the reason to read the set-point as a scalar with two bad ends — but note it does not agree with the anchor review on schizophrenia:
+
+| Condition | Direction reported here | Behavioural correlate |
+|---|---|---|
+| Depression, generalised anxiety, PTSD (re-experiencing) | **Stuck internal** — hyperconnectivity/hyperactivity, failure to deactivate under task | Rumination, excessive worry, perseverative negative thought; unhappiness correlates with mPFC/PCC/IPL hyperconnectivity in a *non-clinical* sample, scaling with rumination trait |
+| ADHD | **Cannot hold internal** — hypoconnectivity of mPFC and PCC at rest, correlating with inattention and impulsivity severity | The source also reports DMN intrusion during task, i.e. failure of the switch in *both* directions |
+| Schizophrenia | **Hypo**connectivity within the network (mPFC, PCC), and reduced dorsolateral-prefrontal↔PCC coupling tracking disorganisation | Directly opposed to Buckner 2008's three-study convergence on an *overactive*, more strongly inter-correlated network — [[wiki/empirical-tensions.md]] T258 |
+| Alzheimer's disease | Reduced within-network connectivity, *increased* default↔executive-control connectivity, and reduced **temporal variability** of the network tracking cognitive impairment | The temporal-variability result is the one worth keeping: what degrades is the network's capacity to *change state*, not its mean level — [[wiki/concepts/dynamic-repertoire.md]] |
+| PTSD (avoidance) | mPFC↔PCC **hypo**connectivity correlating with avoidance and re-experiencing | Same network, opposite sign to the anxiety row, within one diagnosis |
+
+**States of consciousness, and an apparent conflict with the anchor review that is not one.** The review reports network activity *reduced* in sleep (notably REM), reduced under meditation, and *disorganised* under psychedelics with ego dissolution as the correlate. Buckner 2008 above uses the persistence of the network's low-frequency fluctuations in sleep and anaesthesia as an argument that the intrinsic signal is not the cognition. These are different measurements — correlation structure persisting vs activity level falling — and taken together they sharpen the anchor argument rather than contradicting it: **the coupling survives loss of consciousness while the drive does not**, which is what one expects if the anatomy is a standing bus and the mentation is traffic on it. The psychedelic result adds the only reported manipulation in which the *self* representation degrades in step with the network's organisation rather than its level.
 
 ---
 
