@@ -94,7 +94,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G81 | No graph-discovery mechanism in the wiki estimates edges through an observation model | part | `OPEN` | 2 | [[wiki/gaps/g081.md]] |
 | G82 | Every low-dimensional manifold in the wiki is measured, none is generated | part | `PARTIAL` | 4 | [[wiki/gaps/g082.md]] |
 | G83 | Every structure-discovery mechanism in the wiki outputs a structure; none outputs a reusable map between structures | part | `PARTIAL` | 1 | [[wiki/gaps/g083.md]] |
-| G84 | No architecture in the wiki knows the topological position of its own modules, and none has a component whose job is to be the crossing point | arrangement | `OPEN` | 1 | [[wiki/gaps/g084.md]] |
+| G84 | No architecture in the wiki knows the topological position of its own modules, and none has a component whose job is to be the crossing point | arrangement | `OPEN` | 2 | [[wiki/gaps/g084.md]] |
 | G85 | No architecture in the wiki reads its own network topology, and none treats it as a demand-graded control variable | arrangement | `OPEN` | 1 | [[wiki/gaps/g085.md]] |
 | G86 | Every architecture in the wiki tunes its stopping rule and its memory separately, and nothing couples them | part | `OPEN` | 1 | [[wiki/gaps/g086.md]] |
 | G87 | Nothing in the wiki has ever shown that a better representation of activity produces a better decision | part | `OPEN` | 1 | [[wiki/gaps/g087.md]] |
