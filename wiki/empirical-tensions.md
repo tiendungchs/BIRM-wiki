@@ -76,7 +76,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T64 | Is the dendritic tree's *structure* load-bearing, or only its sparsity? | `LIVE` | 3 | [[wiki/tensions/t064.md]] |
 | T65 | Do cortical lateral connections link similar units, or deliberately mix dissimilar ones? | `LIVE` | 2 | [[wiki/tensions/t065.md]] |
 | T66 | Does layer 6 supply a modulator signal, or the location code that decides what a column represents? | `LIVE` | 1 | [[wiki/tensions/t066.md]] |
-| T67 | Where does mixed selectivity come from — wiring, or learning? | `LIVE` | 2 | [[wiki/tensions/t067.md]] |
+| T67 | Where does mixed selectivity come from — wiring, or learning? | `LIVE` | 3 | [[wiki/tensions/t067.md]] |
 | T68 | Does strong activity raise or lower a neuron's intrinsic excitability? | `LIVE` | 2 | [[wiki/tensions/t068.md]] |
 | T69 | Is a finite-nudge contrastive rule a biased approximation of backpropagation, or exact gradient descent on a different objective? | `LEANING` | 1 | [[wiki/tensions/t069.md]] |
 | T70 | Must a local approximation to backpropagation encode gradients as activity *differences*? | `LIVE` | 1 | [[wiki/tensions/t070.md]] |

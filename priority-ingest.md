@@ -22,7 +22,7 @@ One INGEST each:
 - [x] `keysers-2020-cfq-measuring-compositional-generalization.md` — reasoning-eval · B · 2020
 - [x] `schultz-1997-neural-substrate-prediction-reward.md` — plasticity · R · 1997 · **LOSSY** (pdf2md)
 - [x] `doeller-2010-human-grid-cells-memory-network.md` — hippocampal-entorhinal · R · 2010
-- [ ] `rigotti-2013-mixed-selectivity.md` — prefrontal-control · R · 2013
+- [x] `rigotti-2013-mixed-selectivity.md` — prefrontal-control · R · 2013
 - [ ] `boly-2017-ncc-front-or-back.md` — consciousness-global-workspace · R · 2017
 - [ ] `jing-2022-dimensional-collapse-contrastive.md` — ssl-representation · R · 2022
 
