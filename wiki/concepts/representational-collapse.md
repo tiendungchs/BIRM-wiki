@@ -29,7 +29,7 @@ The wiki's central organising claim about collapse: the provision does not have 
 
 | # | Locus | Instance | What holds the representation up |
 |---|---|---|---|
-| 1 | **A term over samples** (contrastive) | InfoNCE, SimCLR, MoCo, CPC, CLIP | Push down on `F(x,y)`, pull up on `F(x,ŷ)` for placed negatives |
+| 1 | **A term over samples** (contrastive) | InfoNCE, SimCLR, MoCo, CPC, CLIP | Push down on `F(x,y)`, pull up on `F(x,ŷ)` for placed negatives — and *provably* a row-3 term in disguise, see below ([[wiki/concepts/alignment-uniformity.md]]) |
 | 2 | **A term over dimensions** (dimension-contrastive) | [[wiki/entities/barlow-twins.md]], [[wiki/entities/vicreg.md]] | Components of *one* vector must differ from each other — variance hinge against norm collapse, covariance against informational collapse |
 | 3 | **A term over marginals** (distribution-matching) | [[wiki/entities/lewm.md]], [[wiki/entities/lejepa.md]] | Penalise deviation of the embedding's 1-D projections from `N(0,1)`; by Cramér–Wold, matching every marginal matches the joint |
 | 4 | **The update rule** (dynamical) | [[wiki/entities/byol.md]] | Nothing in the loss. Predictor on one branch, EMA on the other — an asymmetry, not a term |
@@ -48,7 +48,7 @@ Two further entries that are *not* loci and are worth keeping distinct: the **pa
 
 ---
 
-## The ladder: rows 2 and 3 are one family
+## The ladder: rows 1, 2 and 3 are one family
 
 Substitute a different univariate test into SIGReg and the existing methods reappear ([[wiki/entities/lejepa.md]]): `T(u) = mean(u)² + (std(u) − 1)²` recovers **VICReg** in the many-slices limit; the Epps–Pulley statistic with its integral computed exactly is per-slice **kernel MMD**. So the dimension-contrastive and distribution-matching columns are **one family indexed by how many moments of the target the test constrains**.
 
@@ -56,6 +56,12 @@ Substitute a different univariate test into SIGReg and the existing methods reap
 |---|---|---|
 | `k = 2` | Second moment — `‖Cov(ZS^⊤) − I_K‖_F` on a random sketch `S ∈ R^{K×C}` | Cheap (`O(CK)` not `O(C²)`), therefore applicable to **internal hidden layers** rather than only a projector output; matches or beats the full test in 5 of 8 supervised settings, largest gap `+6.2` in its favour (Akbar 2026) |
 | all moments | Empirical characteristic function (Epps–Pulley) | **Identifiability** — finitely many moments do not determine a distribution, so a family of non-Gaussian solutions satisfies a truncated objective exactly. Also stability: moment `k` has gradient norm `O(k)` and variance `O(k² m_{2(k−1)})`, while the characteristic function is bounded in loss, gradient and curvature for *any* input distribution |
+
+**And row 1 was already on this ladder five years earlier** (Wang & Isola 2020, [[wiki/concepts/alignment-uniformity.md]]). As `M → ∞` the contrastive loss converges (deviation `O(M^{-1/2})`, and practice runs `M = 65536`) to `−(1/τ)E_{p_pos}[f(x)ᵀf(y)] + E_x log E_{x⁻} e^{f(x⁻)ᵀf(x)/τ}` — the first term minimised **iff** perfectly aligned, the second minimised **exactly** by the perfectly uniform encoders. So contrastive learning *is* an invariance term plus a distribution-matching term whose target is the uniform measure `σ_{m-1}` on the sphere, and the six loci are five, not six. Three consequences the tables above did not have:
+
+- **A rung between the moments and the characteristic function.** `L_uniform(f;t) = log E e^{−t‖f(x)−f(y)‖²}` is a *kernel* test, and its target is derived by the same strict-positive-definiteness argument LeJEPA uses: `σ_d` is the **unique** minimiser of the average pairwise Gaussian potential, and the `N`-point minimisers converge weak\* to it. Average dot product or Euclidean distance — the obvious cheap spreading terms — are minimised by *any* zero-mean distribution and have no uniform optimum at all, which is why a spreading provision needs a kernel and not a moment.
+- **There were two derived targets, not one.** LeJEPA derives `N(0,I_K)` from probe bias; this derives `σ_{m-1}` from entropy. They **agree on directions** (an isotropic Gaussian's directional marginal is exactly `σ_{K-1}`) and disagree only on whether the norm carries information — a one-dimensional dispute, and live ([[wiki/empirical-tensions.md]] T304).
+- **The certifiable minimum is provably unreachable.** With `p_pos` formed by augmenting a *finite* dataset, no encoder is both perfectly aligned and perfectly uniform: perfect alignment maps all augmentations of one image to one point, hence to a finite point set. This is a **fourth narrowing** of "certified by construction" and the sharpest — not "the trajectory may miss the minimum" but "the minimum is not in the feasible set", so the inverted-U over the two weights is structural rather than a tuning artefact.
 
 **The ladder has been climbed in both directions and the bottom rung holds**, so identifiability and stabilisation are *separable goods* and the family should not be ordered by how much of the target it pins ([[wiki/empirical-tensions.md]] T171).
 
@@ -108,6 +114,10 @@ Collapse-avoidance is not a scalar virtue of a representation. It is a purchase 
 
 Three shapes of the same quantity, which is worth stating because it is the cleanest unification the area has: **a contrastive loss is a non-parametric entropy estimator *with* negatives; the variance/covariance terms are a Gaussian-parametrised proxy for the same quantity; KoLeo is the non-parametric estimator with *no* negatives, computed from nearest-neighbour spacing alone.**
 
+**The first shape has a derivation, and it renames the temperature.** For `p_data` uniform over a finite dataset, the contrastive loss's second term is exactly a resubstitution entropy estimator of `f(x)` under a von Mises–Fisher kernel density estimate — `= −Ĥ(f(x)) + log Z_vMF` — with vMF concentration **`κ = 1/τ`**. Temperature is a *KDE bandwidth*, not a softness knob (Wang & Isola 2020, [[wiki/concepts/alignment-uniformity.md]]). The same source removes the InfoMax reading the estimator claim is usually confused with: `L_contrastive` is not usefully a lower bound on `I(f(x);f(y))` (a tighter bound gives *worse* representations), and alignment is strictly stronger than the small `H(f(x)|f(y))` that mutual information asks for.
+
+**And the decomposition beats the thing it decomposes.** Optimising `w_a·L_align + w_u·L_uniform` with the softmax and negatives deleted matches or beats `L_contrastive` on every image benchmark tested — STL-10 80.46 → 81.15, ImageNet-100 MoCo 72.80 → **74.60**, ImageNet MoCo v2 67.5 → 67.69, NYU-Depth conv5 MSE 0.7024 → 0.7014 — because the theorem holds at *infinite* negatives and practice has finitely many. It **loses** on both BookCorpus sentence tasks (MR 77.51 → 73.76, CR 83.86 → 80.95), where positives are neighbouring sentences rather than augmentations: the one controlled modality failure in this page's evidence, and it sits in the pair sampler rather than in the loss.
+
 **And the instrument this suggests exists.** LeJEPA's training loss has Spearman correlation **≈0.85** with downstream linear-probe accuracy across architectures, datasets, learning rates and epoch budgets, rising to **≈0.99** under the rescaling `train_loss / λ^0.4` — a label-free ranking of checkpoints, i.e. the first thing certifiability *buys* rather than promises. **(brainstorm)** It is calibrated on exactly the read-out that survived DINOv3's partial collapse, so the monitor and the known failure have not yet met, and the obvious experiment is to run the rescaled-loss ranking against the *patch-token* probe on a long run and see whether the correlation survives.
 
 ---
@@ -134,7 +144,7 @@ This is the same shape as G17 one level down: the certification instrument admit
 - **Which latent regulariser.** Discrete, low-dimensional, sparse, noisy and distribution-matched are all offered; nothing says which is best, and the choice determines the *shape* of the representable outcome set (points vs. manifold vs. union of manifolds). Distribution matching adds a criterion nobody was scoring by — how many coupled coefficients must be balanced — and a new failure, since a fixed target imposes a latent dimension a low-complexity environment cannot fill.
 - **Nothing predicts which asymmetries suffice.** BYOL restricts no free capacity and does not collapse, so *architecture plus objective does not determine whether collapse happens* — the optimiser is a third argument, and the recipe "locate the free capacity and restrict it" is sufficient but not necessary.
 - **Training horizon has no coefficient.** Partial collapse is a function of how long the run goes, and no objective in the wiki contains a term in it.
-- **No collapse monitor is calibrated against partial collapse.** The one label-free monitor that exists (rescaled LeJEPA loss) is calibrated on the read-out that partial collapse spares.
+- **No collapse monitor is calibrated against partial collapse.** The one label-free *scalar* monitor (rescaled LeJEPA loss) is calibrated on the read-out that partial collapse spares. **There is a second, older one that may not be**: `(L_align, L_uniform)` measured on validation embeddings tracks quality across 521 encoders spanning four datasets, two modalities and every hyperparameter, and was validated against a **dense conv-layer depth regression** as well as linear and 5-NN probes — so unlike the scalar it has been scored on the kind of read-out DINOv3 destroys ([[wiki/concepts/alignment-uniformity.md]]). Untested on patch tokens over a long run, which is the cheap experiment.
 - **Is a preference ordering by coefficient count defensible at all?** LeWM's one coefficient and BYOL's zero are not the same kind of zero, and locus 5 shows that a provision can sit in a normalisation layer and appear in no count whatsoever. **(brainstorm)** The honest ordering is probably by *what can be said about the trained system afterwards*, which ranks the derived-target methods first and the dynamical ones last regardless of tuning burden.
 
 ---
@@ -142,6 +152,7 @@ This is the same shape as G17 one level down: the certification instrument admit
 ## Connections
 
 - **[[wiki/concepts/energy-based-models.md]]** — the parent page and the source of the typing result: collapse is the landscape going flat, and *where the free capacity sits* in an energy `F_w(x,y)` is what predicts whether it can happen at all.
+- **[[wiki/concepts/alignment-uniformity.md]]** — locus 1's missing derivation, and the result that folds it into the ladder: the contrastive loss provably converges to an invariance term plus a `σ_{m-1}`-targeted distribution-matching term, so five loci rather than six — plus the proof that its own minimum is unreachable on a finite dataset, and a two-number label-free monitor validated on a dense read-out.
 - **[[wiki/concepts/objective-identifiability.md]]** — the strongest available instance: BYOL shows the representation may be a fixed point of a dynamics with *no minimum of anything* behind it, so not merely that several losses share a minimum but that there may be no loss to recover.
 - **[[wiki/concepts/shortcut-learning.md]]** — collapse is the shortcut problem in its purest form: a constant encoder is the cheapest rule satisfying the objective, and every provision on this page exists to make it unavailable.
 - **[[wiki/concepts/population-geometry.md]]** — supplies the normative target: isotropy minimises linear-probe bias and variance, so the anti-collapse question "how much volume" gets an answer to "what shape".
