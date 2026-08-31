@@ -19,23 +19,13 @@ BIRM-Wiki/
 ├── CLAUDE.md                   ← this file: schema and operating rules
 ├── raw/                        ← source documents (Markdown / plain text only)
 │   └── originals/              ← archived PDFs, kept for provenance; never ingested
-├── _work/                      ← acquisition bookkeeping, not wiki content
-│   ├── want-list.md            ← sources to acquire, with the clip-optimal URL for each
-│   ├── ingest-queue.md         ← full wave-ordered queue; priority-ingest.md holds the current wave
-│   └── manifest.tsv            ← one row per source file: id, name, author, year, topic, tier, wave, words
 ├── tools/
 │   ├── qmd-index.sh            ← hybrid BM25+vector search script
-│   ├── wiki-stats.sh           ← all mechanical health checks for lint passes (S1, S4, S5, S13–S17); exits non-zero on any violation
-│   ├── registry-index.py       ← rebuild the gap/tension index tables from the detail files
-│   ├── set-closes-when.py      ← set `Closes when:` on registry rows from `id<TAB>text` on stdin
-│   ├── clip-check.sh           ← validate a freshly clipped source before it enters the queue
-│   └── pdf2md.sh               ← convert dropped PDFs to Markdown before ingest — lossy, last resort
 └── wiki/                       ← all LLM-generated content
     ├── overview.md             ← high-level synthesis of the research area
     ├── priority-tasks.md       ← current priority tasks identified from lint passes
     ├── architectural-gaps.md   ← INDEX of architectural gaps: one line per gap, no prose
     ├── empirical-tensions.md   ← INDEX of empirical tensions: one line per tension, no prose
-    ├── registry-audit.md       ← historical lint-pass notes for both registries
     ├── glossary.md             ← abbreviation expansions
     ├── gaps/                   ← one file per gap (g001.md …); closed/ holds retired gaps
     ├── tensions/               ← one file per tension (t001.md …); closed/ holds retired tensions
@@ -49,16 +39,6 @@ BIRM-Wiki/
 - All wiki content lives under `wiki/`.
 - File names: lowercase, hyphens for spaces, `.md` extension. Example: `wiki/concepts/working-memory.md`.
 - Sources in `raw/` must be Markdown or plain text.
-
-**Registries.** `architectural-gaps.md` and `empirical-tensions.md` are **indexes only** — one table row per gap/tension: id, title, status token, citation count, link to the detail file. Never write prose into them.
-- The evidence, sources and status reasoning for a row live in its own file, `wiki/gaps/g037.md` / `wiki/tensions/t037.md`.
-- `Status` is a **token field**: exactly one token from the page's status key, nothing else. Reasoning goes in the detail file's `## Status` section.
-- Every detail file carries a `**Closes when:**` field naming the observation that would retire the row. A row that cannot be given one is malformed — merge it or drop it.
-- Rebuild the index tables with `python3 tools/registry-index.py` after touching any detail file. It regenerates both tables from the detail files and reports rows cited by no concept or entity page. Never hand-edit a table row.
-- Retiring a row is `git mv wiki/gaps/g037.md wiki/gaps/closed/` followed by a rebuild; it then leaves the index.
-- Other pages cite rows by **id** (`G37`, `T22`) and link the registry index, not the detail file, unless the detail itself is the point.
-- Detail files are not tables, so `|` needs no escaping in them.
-- Lint-pass notes go in [[wiki/registry-audit.md]], never in a registry header. A registry header carries only the status key, the maintenance rules and the table.
 
 ---
 
@@ -79,24 +59,6 @@ BIRM-Wiki/
 - Each entry: `**[[wiki/path/page.md]]** — one sentence explaining *how* these pages relate` (the mechanism of the relationship, not just that they are related).
 - Links should be bidirectional: if A connects to B, B must connect to A.
 - Updated whenever a new ingest creates a new relationship.
-
-**Registry detail pages** (`wiki/gaps/gNNN.md`, `wiki/tensions/tNNN.md`): one page per gap or tension. Fixed skeleton — `tools/registry-index.py` parses the H1 and the `Status`/`Kind` fields and fails loudly on anything else.
-
-```md
-# G37 — <title, plain text, no bold; this is what the index table shows>
-
-**Status:** `PARTIAL`
-**Kind:** `part`                      ← gaps only: `part` or `arrangement`
-**Registry:** [[wiki/architectural-gaps.md]]
-**Closes when:** <the observation that would retire this row>
-
-## Why it blocks the target        ## Position A          ← tensions
-## Best current answer             ## Position B
-## From                            ## Where it bites
-## Status                          ## Status
-```
-
-End each of the four header lines with two spaces so they render as separate lines rather than one paragraph. Gap sections are `Why it blocks the target / Best current answer / From / Status`; tension sections are `Position A / Position B / Where it bites / Status`. The `## Status` section carries the reasoning; the `**Status:**` field carries the token alone. Ids are never reused: a retired row keeps its number in `closed/`.
 
 **Overview** (`wiki/overview.md`): the master synthesis. Updated after every 10 ingests or when a major insight changes the picture. Sections: The Central Thesis → Master Problem Framing: Latent Graph Discovery → Current best understanding → Key open problems → Promising directions → Major controversies.
 
