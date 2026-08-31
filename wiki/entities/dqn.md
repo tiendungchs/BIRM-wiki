@@ -69,7 +69,7 @@ All four are statistical. **None of them touch state abstraction, transition str
 | **No transfer, no re-goaling** | A separate network per game; nothing composes the learned dynamics with a new objective. The base case for gap G28 — even reward *magnitude* is clipped away, so the objective is not a manipulable object at all |
 | **Sample efficiency** | ~460× the human's practice for parity, and the human had watched the game work rather than pressing buttons for 38 days |
 | **State abstraction is a 4-frame stack** | Everything the wiki calls de-aliasing is delegated to a fixed window over pixels |
-| **Uniform buffer, no structure** | The paper's own critique: the buffer "does not differentiate important transitions", always overwrites the oldest, and weights all transitions equally at sampling — prioritised sweeping named as the fix |
+| **Uniform buffer, no structure** | The paper's own critique: the buffer "does not differentiate important transitions", always overwrites the oldest, and weights all transitions equally at sampling — prioritised sweeping named as the fix. **Cashed out the following year**: swapping the sampling rule alone for `P(i) ∝ (\|δ\|+ε)^α` with an annealed importance-sampling correction improves 41/49 games and roughly halves training time ([[wiki/concepts/replay-prioritisation.md]], Schaul et al. 2016) |
 | **No offline plasticity, no transport** | Replay stabilises *one* learner; nothing moves from a fast store into a slow one ([[wiki/concepts/complementary-learning-systems.md]], G14) |
 | **Model-free by construction, not by compilation** | An architecture that is model-free from the start and one that became so by consolidating rollouts present the same interface ([[wiki/concepts/amortized-inference.md]]) |
 
@@ -78,6 +78,7 @@ All four are statistical. **None of them touch state abstraction, transition str
 | System | State | What is learned | Re-goaling | Replay rule |
 |---|---|---|---|---|
 | **DQN** | 4 stacked frames | `Q(s,·)` only | Retrain from scratch | Uniform over the last 10⁶ frames |
+| **DQN + prioritised replay** | Identical | Identical | Retrain from scratch | `P(i) ∝ pᵢ^α` over the same 10⁶ frames, `p = \|δ\|+ε` or `1/rank`; sum-tree sampling, IS weights annealed `β₀ → 1`; only other change is a 4× smaller step size |
 | **Episodic control** (MFEC/NEC) | Same pixels, embedded | `(s,a,G)` tuples, keep-the-max return, `k`-NN read | Retrain | The store *is* the policy |
 | **[[wiki/entities/continual-dreamer.md]]** | Learned recurrent latent | Transition model + reward + policy in imagination | Fails even with layout held fixed and only the goal moved | Reservoir admission (uniform coverage) beats FIFO, reward and surprise |
 | **[[wiki/entities/meta-rl-agent.md]]** | Recurrent activity | A second RL algorithm in the dynamics | Within the trained task family, no weight change | None |
@@ -108,3 +109,4 @@ All four are statistical. **None of them touch state abstraction, transition str
 - **[[wiki/entities/deep-active-inference-agent.md]]** — the ablation ladder that uses DQN as its control, i.e. the standard against which an expected-free-energy objective has to justify itself.
 - **[[wiki/entities/meta-rl-agent.md]]** — the same reward-driven training run at a second timescale: what DQN puts in weights, meta-RL puts in recurrent activity, which is where the re-goaling DQN lacks reappears.
 - **[[wiki/entities/basal-ganglia.md]]** — the biological value-learning system whose dopaminergic prediction error DQN's TD target is the engineering analogue of, and which the paper names as replay's partner in updating value functions offline.
+- **[[wiki/concepts/replay-prioritisation.md]]** — the successor that isolates this page's replay buffer as the causal variable: everything else held fixed, changing only the sampling distribution over the same 10⁶ transitions is worth ~2× in wall-clock and an exponential factor on a sparse-reward chain, which relocates part of DQN's sample-inefficiency from the architecture to the schedule.

@@ -38,8 +38,8 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T26 | Do newborn dentate granule cells perform pattern separation, or block it? | `LIVE` | 1 | [[wiki/tensions/t026.md]] |
 | T27 | Is the brain's map metric or topological? | `LIVE` | 4 | [[wiki/tensions/t027.md]] |
 | T28 | Is the hippocampus a map, or an index of cortical representations? | `LEANING` | 6 | [[wiki/tensions/t028.md]] |
-| T29 | Does de-aliasing conflict with generalisation? | `LEANING` | 2 | [[wiki/tensions/t029.md]] |
-| T30 | What is replay for — planning the next path, or building a transferable map? | `LIVE` | 5 | [[wiki/tensions/t030.md]] |
+| T29 | Does de-aliasing conflict with generalisation? | `LEANING` | 3 | [[wiki/tensions/t029.md]] |
+| T30 | What is replay for — planning the next path, or building a transferable map? | `LIVE` | 6 | [[wiki/tensions/t030.md]] |
 | T31 | Is the entorhinal integrator perfect or leaky? | `LIVE` | 2 | [[wiki/tensions/t031.md]] |
 | T32 | Is serial order carried by oscillatory phase or by rate-coded time cells? | `LIVE` | 4 | [[wiki/tensions/t032.md]] |
 | T33 | Is CA1 a linear relay or a second recombination-and-completion stage? | `LIVE` | 2 | [[wiki/tensions/t033.md]] |
@@ -306,3 +306,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T296 | Does a sparse expert router have to be learned, or is a fixed random partition of the input enough? | `LIVE` | 1 | [[wiki/tensions/t296.md]] |
 | T297 | Is ordinary supervised learning causal or anticausal? | `LIVE` | 2 | [[wiki/tensions/t297.md]] |
 | T298 | Should a discrete node be smoothed or differentiated exactly? | `LIVE` | 2 | [[wiki/tensions/t298.md]] |
+| T299 | Does prioritising replay by surprise speed learning up, or destroy it? | `LIVE` | 2 | [[wiki/tensions/t299.md]] |

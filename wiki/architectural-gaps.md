@@ -26,7 +26,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G12 | No routing policy between structure types | part | `OPEN` | 13 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `PARTIAL` | 1 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 18 | [[wiki/gaps/g014.md]] |
-| G15 | No control policy over simulation | part | `PARTIAL` | 20 | [[wiki/gaps/g015.md]] |
+| G15 | No control policy over simulation | part | `PARTIAL` | 21 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 17 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 40 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
