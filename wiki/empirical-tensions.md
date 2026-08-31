@@ -311,4 +311,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T301 | Did the human cortex scale in units or in wiring-per-unit? | `LIVE` | 2 | [[wiki/tensions/t301.md]] |
 | T302 | How deep is a single cortical pyramidal neuron? | `LIVE` | 3 | [[wiki/tensions/t302.md]] |
 | T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `LIVE` | 2 | [[wiki/tensions/t303.md]] |
-| T304 | Should a joint-embedding's output be ℓ₂-normalised onto the hypersphere? | `LIVE` | 3 | [[wiki/tensions/t304.md]] |
+| T304 | Should a joint-embedding's output be ℓ₂-normalised onto the hypersphere? | `LIVE` | 5 | [[wiki/tensions/t304.md]] |
