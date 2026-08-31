@@ -130,6 +130,25 @@ Three exports for a builder:
 
 ---
 
+## The channel composition travels through is the *output* vocabulary, and systematicity has a sample complexity
+
+Lake & Baroni 2018 (`raw/lake-2018-scan-generalization-without-systematicity.md`, [[wiki/entities/scan.md]]) is the measurement the two sections above are reported against, and it carries two results neither of them reproduces.
+
+**1. The "add primitive" split is confounded, and the confound names the mechanism.** Hold out every *composed* use of a verb, over-sample its isolated form to 10% of presentations, and the outcome depends entirely on which verb:
+
+| Held-out verb | Its action symbol during training | Generalisation to its composed paradigm |
+|---|---|---|
+| `turn left` | `LTURN` occurs constantly *inside* composed action sequences (`walk left and jump left` → `LTURN WALK LTURN JUMP`) | **90.0–90.3%** |
+| `jump` | `JUMP` occurs only as the one-word command's output | **0.08–1.2%** |
+
+So a modifier transfers to a new argument exactly when the argument's **output symbol** has already been seen in composed outputs — not when the input word has. Every add-primitive split in the wiki inherits this: a primitive is only held out if its output symbol is held out too. It also relocates the failure — the encoder never placed `jump` in the primitive class at all (cosine .15 to `run`, against .73 for `run`↔`look`), so there was no class from which to inherit modifier behaviour.
+
+**2. The all-or-nothing framing is wrong as a description of the network.** Titrate composed uses of `jump` back into training: 8 → 38.3%, 16 → 77.8%, 32 → **88.4%**. The curve is smooth. This kills the standard defence ("the model had no evidence that jumping is like walking") and simultaneously kills the standard indictment ("the model cannot compose"): what it lacks is not the rule but the *one-example* acquisition of it. Reporting the `n` at which criterion is reached turns the systematicity debate into a scalar with reference points — symbolic composer 0, human ~1, 2-layer LSTM 16–32 (`I31`, [[wiki/concepts/certification-instruments.md]]). The same shape appears outside the toy language: an English→French seq2seq gets a new adjective right in 1 of 8 constructions after 1 attested context, and 8 of 8 for an adjective attested in 80.
+
+**3. Length extrapolation is the facet nothing has moved.** 13.8–20.8% on outputs longer than trained; an oracle handing the model the correct output length recovers it only to 23.6–60.2%; and MLC, which buys systematicity outright, scores **100% error** on this same split. Across the wiki, productivity is the facet with no positive result anywhere.
+
+---
+
 ## The facets are properties of the task distribution, not of the architecture
 
 Lake & Baroni 2023 (`raw/lake-2023-meta-learning-compositionality.md`, [[wiki/entities/mlc.md]]) hold the architecture class fixed at the one the section above scores worst-to-middling and change only how the training signal arrives — a stream of 100,000 episodes, each a *different* latent interpretation grammar inferred from 14 in-context study examples, instead of one static corpus.
@@ -278,3 +297,4 @@ Two exports.
 - **[[wiki/concepts/environment-invariance.md]]** — composition proposed as a *substitute* for environment diversity: invariance gives no guarantee where the environments' input supports are disjoint, and a compositional restriction on the classifier is what would license learning in one region and evaluating in another (Arjovsky et al. 2019, concluding dialogue) **(brainstorm)**.
 - **[[wiki/entities/sme.md]]** — systematicity implemented as a local cascade: 80% of a match's belief flows down argument edges, so the preference for interconnected higher-order structure needs no global objective and no bird's-eye count of order — the cheapest mechanisation of "arrangement matters" in the wiki.
 - **[[wiki/entities/dreamcoder.md]]** — the two-level MDL argument run as an optimisation instead of asserted: primitives are adopted only when they shorten library + corpus, and library *depth* correlates with held-out tasks solved at `r = 0.79`.
+- **[[wiki/entities/scan.md]]** — the benchmark that made this page's facets falsifiable, plus the mechanism behind its own headline split: a modifier transfers to a held-out primitive only when that primitive's *output* symbol has appeared inside composed outputs, and the transfer arrives as a smooth curve in the number of composed examples (38.3/77.8/88.4% at 8/16/32) rather than as a rule switching on.
