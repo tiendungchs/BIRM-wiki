@@ -111,7 +111,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G98 | Nothing decides which knowledge belongs in weights and which belongs in an addressable store | part | `OPEN` | 1 | [[wiki/gaps/g098.md]] |
 | G99 | No architecture in the wiki can call a module's *operation* on an argument from outside the module's own domain; every transfer mechanism here moves representations, none exposes an operator | part | `OPEN` | 5 | [[wiki/gaps/g099.md]] |
 | G100 | No architecture in the wiki has a growth schedule: capacity is fully available at step 0, so nothing can arrive already conditioned on what an earlier, smaller version of itself learned | part | `PARTIAL` | 3 | [[wiki/gaps/g100.md]] |
-| G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `OPEN` | 1 | [[wiki/gaps/g101.md]] |
+| G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `OPEN` | 2 | [[wiki/gaps/g101.md]] |
 | G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `OPEN` | 1 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `OPEN` | 1 | [[wiki/gaps/g103.md]] |
 | G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `OPEN` | 3 | [[wiki/gaps/g104.md]] |

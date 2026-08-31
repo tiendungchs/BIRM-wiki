@@ -308,3 +308,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T298 | Should a discrete node be smoothed or differentiated exactly? | `LIVE` | 2 | [[wiki/tensions/t298.md]] |
 | T299 | Does prioritising replay by surprise speed learning up, or destroy it? | `LIVE` | 2 | [[wiki/tensions/t299.md]] |
 | T300 | Does added capacity buy robustness beyond what accuracy explains? | `LIVE` | 3 | [[wiki/tensions/t300.md]] |
+| T301 | Did the human cortex scale in units or in wiring-per-unit? | `LIVE` | 2 | [[wiki/tensions/t301.md]] |
