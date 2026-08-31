@@ -22,7 +22,7 @@ One INGEST each:
 - [x] `hendrycks-2019-imagenet-c-common-corruptions.md` — reasoning-eval · B · 2019
 - [x] `herculanohouzel-2009-human-brain-in-numbers.md` — evolution-comparative · R · 2009
 - [x] `geirhos-2019-texture-shape-bias.md` — reasoning-eval · R · 2019
-- [ ] `beniaguev-2021-single-neurons-as-deep-networks.md` — neuron-models · R · 2021
+- [x] `beniaguev-2021-single-neurons-as-deep-networks.md` — neuron-models · R · 2021
 - [ ] `ardesch-2022-white-matter-scaling-principles.md` — evolution-comparative · R · 2022
 - [ ] `liao-2024-inhibitory-plasticity-replay-generalization.md` — memory-consolidation · R · 2024
 - [ ] `barbu-2019-objectnet.md` — reasoning-eval · B · 2019 — `LOSSY` (pdf2md of the NeurIPS paper; the benchmark site itself is a stub)

@@ -10,12 +10,12 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 
 | # | Tension | Status | Cited by | Detail |
 |---|---|---|---|---|
-| T1 | Does the implementation level carry computational content? | `LEANING` | 18 | [[wiki/tensions/t001.md]] |
+| T1 | Does the implementation level carry computational content? | `LEANING` | 19 | [[wiki/tensions/t001.md]] |
 | T2 | Is the fast level a separate store or recurrent activity? | `LIVE` | 9 | [[wiki/tensions/t002.md]] |
 | T3 | Is backpropagation biologically realizable? | `LEANING` | 0 | [[wiki/tensions/t003.md]] |
 | T4 | Do abstract structural codes exist in the brain? | `LIVE` | 1 | [[wiki/tensions/t004.md]] |
 | T5 | Was neuroscience causally responsible for the transferred mechanisms? | `LIVE` | 4 | [[wiki/tensions/t005.md]] |
-| T6 | What is out-of-distribution failure a failure *of*? | `LIVE` | 1 | [[wiki/tensions/t006.md]] |
+| T6 | What is out-of-distribution failure a failure *of*? | `LIVE` | 2 | [[wiki/tensions/t006.md]] |
 | T7 | Are backpropagation-derived local rules worth pursuing at all? | `LEANING` | 2 | [[wiki/tensions/t007.md]] |
 | T8 | Is compositional machinery innate, or acquired from an external symbolic system? | `LIVE` | 7 | [[wiki/tensions/t008.md]] |
 | T9 | Are installed priors unitary modules or bundles of independently violable constraints? | `LEANING` | 1 | [[wiki/tensions/t009.md]] |
@@ -73,7 +73,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T61 | Are the patterns a fast store holds random, or orthogonalised? | `LIVE` | 1 | [[wiki/tensions/t061.md]] |
 | T62 | Should a fast associative store hold instances, or model a distribution? | `LIVE` | 1 | [[wiki/tensions/t062.md]] |
 | T63 | Is the unit that stores a pattern the neuron or the dendritic segment? | `LIVE` | 2 | [[wiki/tensions/t063.md]] |
-| T64 | Is the dendritic tree's *structure* load-bearing, or only its sparsity? | `LIVE` | 2 | [[wiki/tensions/t064.md]] |
+| T64 | Is the dendritic tree's *structure* load-bearing, or only its sparsity? | `LIVE` | 3 | [[wiki/tensions/t064.md]] |
 | T65 | Do cortical lateral connections link similar units, or deliberately mix dissimilar ones? | `LIVE` | 2 | [[wiki/tensions/t065.md]] |
 | T66 | Does layer 6 supply a modulator signal, or the location code that decides what a column represents? | `LIVE` | 0 | [[wiki/tensions/t066.md]] |
 | T67 | Where does mixed selectivity come from — wiring, or learning? | `LIVE` | 2 | [[wiki/tensions/t067.md]] |
@@ -309,3 +309,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T299 | Does prioritising replay by surprise speed learning up, or destroy it? | `LIVE` | 2 | [[wiki/tensions/t299.md]] |
 | T300 | Does added capacity buy robustness beyond what accuracy explains? | `LIVE` | 3 | [[wiki/tensions/t300.md]] |
 | T301 | Did the human cortex scale in units or in wiring-per-unit? | `LIVE` | 2 | [[wiki/tensions/t301.md]] |
+| T302 | How deep is a single cortical pyramidal neuron? | `LIVE` | 3 | [[wiki/tensions/t302.md]] |
