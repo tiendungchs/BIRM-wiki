@@ -73,7 +73,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T61 | Are the patterns a fast store holds random, or orthogonalised? | `LIVE` | 1 | [[wiki/tensions/t061.md]] |
 | T62 | Should a fast associative store hold instances, or model a distribution? | `LIVE` | 1 | [[wiki/tensions/t062.md]] |
 | T63 | Is the unit that stores a pattern the neuron or the dendritic segment? | `LIVE` | 2 | [[wiki/tensions/t063.md]] |
-| T64 | Is the dendritic tree's *structure* load-bearing, or only its sparsity? | `LIVE` | 1 | [[wiki/tensions/t064.md]] |
+| T64 | Is the dendritic tree's *structure* load-bearing, or only its sparsity? | `LIVE` | 2 | [[wiki/tensions/t064.md]] |
 | T65 | Do cortical lateral connections link similar units, or deliberately mix dissimilar ones? | `LIVE` | 2 | [[wiki/tensions/t065.md]] |
 | T66 | Does layer 6 supply a modulator signal, or the location code that decides what a column represents? | `LIVE` | 0 | [[wiki/tensions/t066.md]] |
 | T67 | Where does mixed selectivity come from — wiring, or learning? | `LIVE` | 2 | [[wiki/tensions/t067.md]] |
@@ -235,7 +235,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T225 | Can a benchmark whose label-noise floor exceeds every score reported on it order the systems it ranks? | `LEANING` | 2 | [[wiki/tensions/t225.md]] |
 | T226 | What is a benchmark's error rate, when two audits of the same 2,500 items disagree by a factor of 1.7 — and can a model-in-the-loop audit measure its own effect on model scores? | `LIVE` | 2 | [[wiki/tensions/t226.md]] |
 | T227 | Does a near-zero train−test familiarity disparity license the verdict "this model did not train on the benchmark"? | `LEANING` | 1 | [[wiki/tensions/t227.md]] |
-| T228 | Does model scale reduce or amplify reliance on shortcuts? | `LIVE` | 2 | [[wiki/tensions/t228.md]] |
+| T228 | Does model scale reduce or amplify reliance on shortcuts? | `LIVE` | 3 | [[wiki/tensions/t228.md]] |
 | T229 | Does making the latent structure legible and editable make a rewriting environment tractable? | `LIVE` | 3 | [[wiki/tensions/t229.md]] |
 | T230 | When the rewrite machinery is itself rewritable, is there anything left to learn? | `LIVE` | 1 | [[wiki/tensions/t230.md]] |
 | T231 | Is the accuracy of deep spiking networks evidence about spiking *learning*, or only about spiking *inference*? | `LIVE` | 4 | [[wiki/tensions/t231.md]] |
@@ -307,3 +307,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T297 | Is ordinary supervised learning causal or anticausal? | `LIVE` | 2 | [[wiki/tensions/t297.md]] |
 | T298 | Should a discrete node be smoothed or differentiated exactly? | `LIVE` | 2 | [[wiki/tensions/t298.md]] |
 | T299 | Does prioritising replay by surprise speed learning up, or destroy it? | `LIVE` | 2 | [[wiki/tensions/t299.md]] |
+| T300 | Does added capacity buy robustness beyond what accuracy explains? | `LIVE` | 3 | [[wiki/tensions/t300.md]] |

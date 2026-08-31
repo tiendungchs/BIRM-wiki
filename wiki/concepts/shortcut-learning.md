@@ -121,7 +121,7 @@ Its interest for this page is the design lesson rather than the scores: the thir
 
 **Three conditions for a good o.o.d. test:** (1) a *clear distribution shift*, human-perceptible or not; (2) a *well-defined intended solution* (training on natural images and testing on white noise is a shift with no solution); (3) *current models struggle* — most conceivable shifts are uninteresting. Benchmarks must co-evolve with models: the Winograd Schema Challenge, designed to close Turing-test shortcuts, was later found to contain more shortcut opportunities than intended.
 
-**o.o.d. benchmark families named** (no wiki pages yet — see [[wiki/index-entities.md]]): adversarial attacks (model-specific worst case) · ARCT with shortcuts removed · cue-conflict stimuli (texture vs. shape, directly human-comparable) · ImageNet-A (natural worst case) · ImageNet-C (15 corruptions) · ObjectNet (scientific controls over background, rotation, viewpoint) · PACS (domain generalisation by design) · Shift-MNIST / biased CelebA / unfair dSprites (injected correlations; measures how prone an architecture+loss pair is to taking a shortcut).
+**o.o.d. benchmark families named** (see [[wiki/index-entities.md]]; [[wiki/entities/imagenet-c.md]] is now paged): adversarial attacks (model-specific worst case) · ARCT with shortcuts removed · cue-conflict stimuli (texture vs. shape, directly human-comparable) · ImageNet-A (natural worst case) · ImageNet-C (15 corruptions × 5 severities, plus ImageNet-P's perturbation sequences) · ObjectNet (scientific controls over background, rotation, viewpoint) · PACS (domain generalisation by design) · Shift-MNIST / biased CelebA / unfair dSprites (injected correlations; measures how prone an architecture+loss pair is to taking a shortcut).
 
 The last family is the instrument the wiki actually needs: a *controlled* shortcut with a known intended rule turns "does this architecture recover structure?" into a measurable quantity.
 
@@ -199,6 +199,24 @@ What it buys that the rewrite instruments do not:
 **Scale is not a defence and its sign depends on the prompt.** Under few-shot ICL, LLaMA2-Chat `¬E` accuracy falls monotonically with parameter count (Lexical Overlap 75.3 → 48.5 → 3.6 for 7B → 13B → 70B) while Standard accuracy rises; under CoT the ordering reverses ([[wiki/empirical-tensions.md]] T228).
 
 ---
+
+---
+
+## The differencing this page's instruments do not do
+
+Every instrument above reports a score **after** a shift. Hendrycks & Dietterich 2019 ([[wiki/entities/imagenet-c.md]]) show what that omits, on the corruption family this page has been naming since Geirhos: normalise each model's corrupted-set error by a fixed baseline model's and you get `mCE`, which falls monotonically from AlexNet (100.0) to ResNet-50 (76.7); subtract each model's **own clean error** first and you get `Relative mCE`, which never improves (100.0 → 105.0, VGG-11 at 123.3). Six years of architecture progress bought accuracy, and the robustness reporting re-expressed it. Recorded as `F15` at [[wiki/concepts/certification-instruments.md]].
+
+| What the same paper adds to this page | Number |
+|---|---|
+| The **texture** claim in this page's origins table, priced on the corruption side | Stylized-ImageNet augmentation (Geirhos et al. 2019): mCE 76.7 → **69.3**, the largest single-augmentation gain reported |
+| A **label-free** shortcut instrument (`I26`): perturb one image by one increment repeatedly and count prediction flips between *adjacent* frames | ResNet-18 flips its top-1 on **15.6%** of adjacent frames of a scale sequence — every frame clean, in-distribution, and one increment from its neighbour |
+| Robustness is **not one axis** | Batch normalisation makes VGG-19 more corruption-robust (mCE 88.9 → 81.6) and *less* perturbation-robust (mT5D 78.6 → 80.5); VGGs beat ResNets on one and lose on the other |
+| The **data lever** and the **architecture lever** both move it; four plausible interventions do not | Aggregation/size (Relative mCE 105.0 → 80.1) and style augmentation work; stability training (*worse*), non-local-means denoising (76.7 → **82.1**), 10-crop ensembling and pruning-for-size all fail or backfire |
+| A shift family declared by an **existing taxonomy** (`I27`) | Fine-tune the read-out to 25 ImageNet-22K broad types on *seen* subtypes, test on unseen ones: a large gap on a 25-class problem, flat across architectures |
+
+**And a protocol clause this page's "three conditions" leaves out: a held-out *shift* family.** ImageNet-C ships four extra corruptions (speckle noise, Gaussian blur, spatter, saturate) for validation, on the reasoning that a method selected against the test corruptions has been fitted to them. The three conditions govern a single shift; this governs the *choice among shifts*, which is where hyperparameter selection actually leaks.
+
+**Capacity as a candidate fifth lever, and it disagrees with itself across domains** ([[wiki/empirical-tensions.md]] T300): in vision the differenced score improves monotonically with width and feature aggregation, while in natural-language inference the same sweep converts a weak model into a constant classifier (T228).
 
 ## Routes beyond shortcuts
 
@@ -314,3 +332,4 @@ What it buys that the rewrite instruments do not:
 - **[[wiki/concepts/relational-reinterpretation.md]]** — the same phenomenon characterised representationally rather than statistically: collapse a relation to an analog scalar (entropy, variability, count of featural changes) and apply a conditional discrimination to it, which reproduces every positive result on nine comparative benchmarks *and* predicts the specific perturbation that breaks each one — a shortcut hypothesis with a failure prediction attached.
 - **[[wiki/concepts/convergent-circuit-motifs.md]]** — applies this page's Morgan's Canon to phylogeny rather than to behaviour: matched circuit topology across independent lineages licenses no inference about a matched algorithm, so a convergence census is a prioritised reading list and not a justification for import.
 - **[[wiki/concepts/environment-invariance.md]]** — this page's identifiability escape hatch made into an objective and priced: an environment family plus a penalty on the gradient of the risk at a fixed dummy classifier, provably sufficient for linear `Φ` given enough non-collinear environments, and the only route here whose failure mode (below-chance ERM on Colored MNIST) this page already recognises as a shortcut signature.
+- **[[wiki/entities/imagenet-c.md]]** — supplies the measurement discipline every instrument on this page omits (difference the post-shift score against the model's own pre-shift score, or report accuracy progress as robustness progress: `mCE` 100.0 → 76.7 across six years against Relative mCE 100.0 → 105.0), a label-free instability rate needing no reference output, and the corruption-side price of the texture shortcut (Stylized-ImageNet, 76.7 → 69.3 mCE).
