@@ -38,7 +38,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `CONTESTED` | 11 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `OPEN` | 4 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 18 | [[wiki/gaps/g026.md]] |
-| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 26 | [[wiki/gaps/g027.md]] |
+| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 27 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 11 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 5 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 18 | [[wiki/gaps/g030.md]] |
@@ -101,7 +101,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G88 | No architecture in the wiki has a direction of information flow that comes from its own weight matrix | arrangement | `OPEN` | 1 | [[wiki/gaps/g088.md]] |
 | G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `OPEN` | 1 | [[wiki/gaps/g089.md]] |
 | G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `OPEN` | 7 | [[wiki/gaps/g090.md]] |
-| G91 | The wiki has no gate that learns what deserves to be broadcast, and no architecture in it has a discrete commit at all | arrangement | `OPEN` | 3 | [[wiki/gaps/g091.md]] |
+| G91 | The wiki has no gate that learns what deserves to be broadcast, and no architecture in it has a discrete commit at all | arrangement | `OPEN` | 4 | [[wiki/gaps/g091.md]] |
 | G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `OPEN` | 1 | [[wiki/gaps/g092.md]] |
 | G93 | Context in every wiki architecture is either one global scalar or a hand-supplied task label; none has an *addressed* context channel | arrangement | `OPEN` | 2 | [[wiki/gaps/g093.md]] |
 | G94 | Nothing in the wiki adapts a unit's *time constant*, and nothing pools its gain locally — input normalization is a global, offline, once-per-dataset operation | part | `OPEN` | 2 | [[wiki/gaps/g094.md]] |

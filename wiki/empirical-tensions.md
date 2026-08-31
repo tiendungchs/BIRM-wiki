@@ -32,7 +32,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T20 | Is intelligence a property of the process that builds a solution, or of the finished arrangement? | `LIVE` | 2 | [[wiki/tensions/t020.md]] |
 | T21 | Does a structured model's win over deep baselines measure the prior, or the state space it was handed? | `LIVE` | 5 | [[wiki/tensions/t021.md]] |
 | T22 | Does a ranking metric on balanced samples say anything about a retrieval mechanism? | `LEANING` | 3 | [[wiki/tensions/t022.md]] |
-| T23 | What licenses the creation of a new discrete node? | `LIVE` | 3 | [[wiki/tensions/t023.md]] |
+| T23 | What licenses the creation of a new discrete node? | `LIVE` | 4 | [[wiki/tensions/t023.md]] |
 | T24 | Does an adaptation curve measure learning? | `LEANING` | 1 | [[wiki/tensions/t024.md]] |
 | T25 | Does a decodable internal structure license the claim that the model reasons over it? | `LEANING` | 3 | [[wiki/tensions/t025.md]] |
 | T26 | Do newborn dentate granule cells perform pattern separation, or block it? | `LIVE` | 1 | [[wiki/tensions/t026.md]] |
@@ -156,8 +156,8 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T144 | Does a world model's prediction quality tell you how good a world model it is? | `LIVE` | 3 | [[wiki/tensions/t144.md]] |
 | T145 | Does conditioning a predictor on the action make it represent the effect of actions? | `LIVE` | 2 | [[wiki/tensions/t145.md]] |
 | T146 | Does a violation-of-expectation score measure the ability it names? | `LIVE` | 5 | [[wiki/tensions/t146.md]] |
-| T147 | Does making a learned model inspectable require a discrete bottleneck? | `LIVE` | 2 | [[wiki/tensions/t147.md]] |
-| T148 | Should a discovered action alphabet be discrete or continuous? | `LIVE` | 4 | [[wiki/tensions/t148.md]] |
+| T147 | Does making a learned model inspectable require a discrete bottleneck? | `LIVE` | 3 | [[wiki/tensions/t147.md]] |
+| T148 | Should a discovered action alphabet be discrete or continuous? | `LIVE` | 5 | [[wiki/tensions/t148.md]] |
 | T149 | Must a vision encoder be trained with language supervision to align well with a language model? | `LEANING` | 3 | [[wiki/tensions/t149.md]] |
 | T150 | Should a quantisation codebook be learned from data or installed by construction? | `LIVE` | 1 | [[wiki/tensions/t150.md]] |
 | T151 | Where do a model's objects live — in its architecture, or in a read-out of its predictions? | `LIVE` | 2 | [[wiki/tensions/t151.md]] |
@@ -305,3 +305,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T295 | Do jumping spiders belong in the convergence census at all — and does the wiki's only source for them survive inspection? | `LEANING` | 1 | [[wiki/tensions/t295.md]] |
 | T296 | Does a sparse expert router have to be learned, or is a fixed random partition of the input enough? | `LIVE` | 1 | [[wiki/tensions/t296.md]] |
 | T297 | Is ordinary supervised learning causal or anticausal? | `LIVE` | 2 | [[wiki/tensions/t297.md]] |
+| T298 | Should a discrete node be smoothed or differentiated exactly? | `LIVE` | 2 | [[wiki/tensions/t298.md]] |
