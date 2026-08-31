@@ -106,6 +106,8 @@ This matches the reported functional-network changes in schizophrenia, and the r
 - **Nothing learns.** Weights are anatomy, delays are Euclidean distance over a swept velocity, coupling is a swept scalar. Same terminal limitation as the two pages below it on the ladder.
 - **Subcortical routes are missing from the connectomes used**, and polysynaptic (e.g. cortico-cerebellar) pathways demonstrably carry resting functional connectivity — so a model fitted on cortico-cortical tracts alone is fitting a signal partly generated off its own graph.
 
+- **The age-related rise in global coupling `G` has two opposite readings** ([[wiki/empirical-tensions.md]] T246): compensation (more coupling recruited to sustain the same dynamics) or decline (the working point drifting toward over-integration). The fitted parameter is identical either way, so nothing in the fit distinguishes them — the discriminator has to come from a perturbation, not from a better fit.
+
 ---
 
 ## Connections

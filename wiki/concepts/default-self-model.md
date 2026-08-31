@@ -110,6 +110,8 @@ The functional story — use idle time to maintain a model of your own strengths
 | Whether accurate self-evaluation or positive illusion is normative is unsettled in the underlying psychology | Beer flags this as a longstanding debate; the neural data does not resolve it, so a builder cannot read a target calibration off biology |
 | No architecture in the wiki has either half | Neither the default competence model nor its external calibrator exists in any page here — logged as `G89` in [[wiki/architectural-gaps.md]] |
 
+- **Whether the default self-evaluation is accurate information-gathering or self-serving bias is unresolved** ([[wiki/empirical-tensions.md]] T255), and it decides whether a machine's self-model should be treated as a noisy but unbiased estimator to be denoised, or as a systematically shifted one that needs an external correction term.
+
 ---
 
 ## Connections

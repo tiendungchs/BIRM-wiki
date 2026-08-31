@@ -69,6 +69,8 @@ Attractor networks whose attractors are mutually orthogonal are **Kanter–Sompo
 - **Correlational throughout.** `J = −Σ⁻¹` is a directionless statistical estimate; a good fit of a Boltzmann-form model to covariance is close to guaranteed for the *distribution*, and the non-trivial content is in the convergence-speed, eigenvector-alignment, flow and perturbation results, not in the fit itself.
 - **The attractor–function mapping is called "somewhat speculative" by the authors**; the internal/external × perception/action labelling comes from meta-analytic overlap, not from a task manipulation of each axis.
 
+- **Using activity covariance as the coupling matrix wins on every metric reported and gives up every mechanistic claim.** Whether a large-scale landscape is defined by anatomy or by covariance is [[wiki/empirical-tensions.md]] T60, and this model cannot settle it from its own fit — a Boltzmann-form model fitted to covariance reproduces covariance by construction, so the evidence has to come from convergence speed, eigenvector alignment, flow and perturbation. The discriminating case is a lesion or a developmental one where structure and covariance predict opposite things.
+
 ---
 
 ## Comparison

@@ -196,6 +196,8 @@ The picture is **one control mechanism with an extra content stream**, not two c
 - **Whether unity and diversity is species-general is untested**, and the review flags it as a precondition for using animal models of control at all.
 - **Task impurity is unsolved for machines and unaddressed.** The latent-variable fix requires multiple tasks per construct and a population of instances; no benchmark in the wiki is built to support it, so every model-side control measurement here is confounded with the model's encoder.
 
+- **What the common factor *is* remains open** ([[wiki/empirical-tensions.md]] T103): the same psychometric structure is consistent with goal maintenance, with a general inhibitory operation, and with a measurement artefact of task impurity, and the readings differ in what a machine controller should implement — a maintained goal register, a suppression operator, or nothing at all.
+
 ---
 
 - **`G55` — every machine controller is either one resource or `n` independent ones.** None is shared-plus-specific in the bifactor sense this page measures, so the unity/diversity structure has no architectural counterpart anywhere in the wiki. It is as much a measurement protocol as an architecture: fit a bifactor model over a population of trained controllers and see whether a common factor exists.

@@ -39,9 +39,9 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `OPEN` | 4 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 18 | [[wiki/gaps/g026.md]] |
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 28 | [[wiki/gaps/g027.md]] |
-| G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 15 | [[wiki/gaps/g028.md]] |
+| G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 16 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 5 | [[wiki/gaps/g029.md]] |
-| G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 18 | [[wiki/gaps/g030.md]] |
+| G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 19 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `OPEN` | 9 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `OPEN` | 13 | [[wiki/gaps/g032.md]] |
 | G33 | Nothing decomposes a task into subgoals | part | `PARTIAL` | 13 | [[wiki/gaps/g033.md]] |

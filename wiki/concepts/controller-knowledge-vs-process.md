@@ -147,6 +147,8 @@ The anterior–posterior axis is a **temporal-abstraction gradient stated in uni
 - **The SEC has no acquisition story.** The framework specifies what is stored and where, never how a goal-structured sequence is extracted from experience — the same gap [[wiki/concepts/event-segmentation.md]] carries for episodes (no learned boundary detector, no compression criterion).
 - **"Representation" and "process" may not be separable by any experiment.** If a process just *is* a persistently active set of representations, then every processing model can be re-described representationally and the distinction is a modelling convention rather than a fact about the substrate — which would make the five criteria a style guide.
 
+- **The page's title question has no discriminating experiment yet.** It closes when a prefrontal region is shown to hold content that survives removal of the posterior region supplying it, or shown not to ([[wiki/empirical-tensions.md]] T95) — the only observation that separates a knowledge base from a temporary operating space. Until then, flexible cross-task tuning is evidence for adaptive coding and regional differentiation is evidence for stored schemas, and both are reported on the same cortex.
+
 ---
 
 ## Connections

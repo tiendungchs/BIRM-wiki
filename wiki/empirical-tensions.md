@@ -12,7 +12,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 |---|---|---|---|---|
 | T1 | Does the implementation level carry computational content? | `LEANING` | 19 | [[wiki/tensions/t001.md]] |
 | T2 | Is the fast level a separate store or recurrent activity? | `LIVE` | 9 | [[wiki/tensions/t002.md]] |
-| T3 | Is backpropagation biologically realizable? | `LEANING` | 0 | [[wiki/tensions/t003.md]] |
+| T3 | Is backpropagation biologically realizable? | `LEANING` | 1 | [[wiki/tensions/t003.md]] |
 | T4 | Do abstract structural codes exist in the brain? | `LIVE` | 1 | [[wiki/tensions/t004.md]] |
 | T5 | Was neuroscience causally responsible for the transferred mechanisms? | `LIVE` | 4 | [[wiki/tensions/t005.md]] |
 | T6 | What is out-of-distribution failure a failure *of*? | `LIVE` | 2 | [[wiki/tensions/t006.md]] |
@@ -23,12 +23,12 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T11 | Is an installed prior a hard constraint or a strong default? | `LEANING` | 1 | [[wiki/tensions/t011.md]] |
 | T12 | Are the conceptual primitives of infancy installed, or learned from sensorimotor prediction in the first months? | `LIVE` | 4 | [[wiki/tensions/t012.md]] |
 | T13 | Is long-term potentiation the mechanism behind behavioural learning? | `LEANING` | 2 | [[wiki/tensions/t013.md]] |
-| T14 | Are structured representations real, or emergent descriptions of sub-symbolic processes? | `LIVE` | 0 | [[wiki/tensions/t014.md]] |
+| T14 | Are structured representations real, or emergent descriptions of sub-symbolic processes? | `LIVE` | 1 | [[wiki/tensions/t014.md]] |
 | T15 | Is training data a design lever or an anchor? | `LIVE` | 4 | [[wiki/tensions/t015.md]] |
 | T16 | Does the shortest program consistent with the data generalize? | `LIVE` | 3 | [[wiki/tensions/t016.md]] |
 | T17 | Is intelligence universal, or scoped? | `LIVE` | 2 | [[wiki/tensions/t017.md]] |
 | T18 | Must a world model be generative? | `LIVE` | 5 | [[wiki/tensions/t018.md]] |
-| T19 | Is scalar reward a sufficient training signal, or a marginal one? | `LEANING` | 0 | [[wiki/tensions/t019.md]] |
+| T19 | Is scalar reward a sufficient training signal, or a marginal one? | `LEANING` | 1 | [[wiki/tensions/t019.md]] |
 | T20 | Is intelligence a property of the process that builds a solution, or of the finished arrangement? | `LIVE` | 2 | [[wiki/tensions/t020.md]] |
 | T21 | Does a structured model's win over deep baselines measure the prior, or the state space it was handed? | `LIVE` | 5 | [[wiki/tensions/t021.md]] |
 | T22 | Does a ranking metric on balanced samples say anything about a retrieval mechanism? | `LEANING` | 3 | [[wiki/tensions/t022.md]] |
@@ -63,27 +63,27 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T51 | When one item set is embedded in several relational structures, does the map integrate them or hold them in parallel? | `LIVE` | 3 | [[wiki/tensions/t051.md]] |
 | T52 | Is the hippocampal spatial code carried by the sparse, selective excitatory population, or is it equally present in the dense inhibitory one? | `LIVE` | 2 | [[wiki/tensions/t052.md]] |
 | T53 | Is orthogonalization of aliased states a requirement, or a free choice the brain happens to make? | `LEANING` | 1 | [[wiki/tensions/t053.md]] |
-| T54 | What does a hippocampal representation do when the environment is metrically distorted? | `LIVE` | 0 | [[wiki/tensions/t054.md]] |
+| T54 | What does a hippocampal representation do when the environment is metrically distorted? | `LIVE` | 1 | [[wiki/tensions/t054.md]] |
 | T55 | Should a fast store's addressing be random, or should it follow the data? | `LIVE` | 5 | [[wiki/tensions/t055.md]] |
 | T56 | What is theta-paced flickering between hippocampal maps? | `LIVE` | 4 | [[wiki/tensions/t056.md]] |
 | T57 | How should a memory store a sequence — the successor state, or the increment that generates it? | `LIVE` | 2 | [[wiki/tensions/t057.md]] |
 | T58 | Where does the theta-band structure of hippocampal sequences come from — a rhythm imposed on the network, or a bifurcation inside it? | `LIVE` | 4 | [[wiki/tensions/t058.md]] |
 | T59 | Does a stored memory live in the synaptic weights, or in a mask over them? | `LIVE` | 2 | [[wiki/tensions/t059.md]] |
-| T60 | What substrate defines a large-scale attractor landscape — anatomy or activity covariance? | `LIVE` | 0 | [[wiki/tensions/t060.md]] |
+| T60 | What substrate defines a large-scale attractor landscape — anatomy or activity covariance? | `LIVE` | 1 | [[wiki/tensions/t060.md]] |
 | T61 | Are the patterns a fast store holds random, or orthogonalised? | `LIVE` | 1 | [[wiki/tensions/t061.md]] |
 | T62 | Should a fast associative store hold instances, or model a distribution? | `LIVE` | 1 | [[wiki/tensions/t062.md]] |
 | T63 | Is the unit that stores a pattern the neuron or the dendritic segment? | `LIVE` | 2 | [[wiki/tensions/t063.md]] |
 | T64 | Is the dendritic tree's *structure* load-bearing, or only its sparsity? | `LIVE` | 3 | [[wiki/tensions/t064.md]] |
 | T65 | Do cortical lateral connections link similar units, or deliberately mix dissimilar ones? | `LIVE` | 2 | [[wiki/tensions/t065.md]] |
-| T66 | Does layer 6 supply a modulator signal, or the location code that decides what a column represents? | `LIVE` | 0 | [[wiki/tensions/t066.md]] |
+| T66 | Does layer 6 supply a modulator signal, or the location code that decides what a column represents? | `LIVE` | 1 | [[wiki/tensions/t066.md]] |
 | T67 | Where does mixed selectivity come from — wiring, or learning? | `LIVE` | 2 | [[wiki/tensions/t067.md]] |
 | T68 | Does strong activity raise or lower a neuron's intrinsic excitability? | `LIVE` | 2 | [[wiki/tensions/t068.md]] |
 | T69 | Is a finite-nudge contrastive rule a biased approximation of backpropagation, or exact gradient descent on a different objective? | `LEANING` | 1 | [[wiki/tensions/t069.md]] |
-| T70 | Must a local approximation to backpropagation encode gradients as activity *differences*? | `LIVE` | 0 | [[wiki/tensions/t070.md]] |
-| T71 | To repair feedback alignment, should the feedback weights move toward the forward ones, or the forward weights toward the feedback? | `LIVE` | 0 | [[wiki/tensions/t071.md]] |
-| T72 | Where do spacing effects come from — saturating variables inside a synapse, or a gate at the population level? | `LEANING` | 0 | [[wiki/tensions/t072.md]] |
-| T73 | Should a one-shot store allocate memories to *overlapping* cell populations, or to independently sampled ones? | `LIVE` | 0 | [[wiki/tensions/t073.md]] |
-| T74 | Is content-addressable recall necessarily relaxation? | `LEANING` | 0 | [[wiki/tensions/t074.md]] |
+| T70 | Must a local approximation to backpropagation encode gradients as activity *differences*? | `LIVE` | 1 | [[wiki/tensions/t070.md]] |
+| T71 | To repair feedback alignment, should the feedback weights move toward the forward ones, or the forward weights toward the feedback? | `LIVE` | 1 | [[wiki/tensions/t071.md]] |
+| T72 | Where do spacing effects come from — saturating variables inside a synapse, or a gate at the population level? | `LEANING` | 1 | [[wiki/tensions/t072.md]] |
+| T73 | Should a one-shot store allocate memories to *overlapping* cell populations, or to independently sampled ones? | `LIVE` | 1 | [[wiki/tensions/t073.md]] |
+| T74 | Is content-addressable recall necessarily relaxation? | `LEANING` | 1 | [[wiki/tensions/t074.md]] |
 | T75 | Does expanding a code's dimensionality improve linear separability? | `LIVE` | 4 | [[wiki/tensions/t075.md]] |
 | T76 | Does spike-timing potentiation scale up or down with the existing weight? | `LEANING` | 2 | [[wiki/tensions/t076.md]] |
 | T77 | Is a population's existing latent basis a hard limit on what it can learn, or only a slow one? | `LIVE` | 2 | [[wiki/tensions/t077.md]] |
@@ -96,7 +96,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T84 | Should the fraction of units written per memory be fixed, or should it track load and statistics? | `LIVE` | 1 | [[wiki/tensions/t084.md]] |
 | T85 | Is phasic dopamine a reward *prediction* or a reward *association*? | `LIVE` | 4 | [[wiki/tensions/t085.md]] |
 | T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `LEANING` | 2 | [[wiki/tensions/t086.md]] |
-| T87 | Is a working memory held at a fixed point, or in a moving trajectory? | `LEANING` | 0 | [[wiki/tensions/t087.md]] |
+| T87 | Is a working memory held at a fixed point, or in a moving trajectory? | `LEANING` | 1 | [[wiki/tensions/t087.md]] |
 | T88 | What is prefrontal delay-period activity *about* — the item held, or the place attention is pointed? | `LEANING` | 4 | [[wiki/tensions/t088.md]] |
 | T89 | Is a working memory cleared by decay or by an addressed erase signal? | `LIVE` | 1 | [[wiki/tensions/t089.md]] |
 | T90 | Is a working-memory operation implemented by one controller, or by the conjunction of several subsystems each representing it differently? | `LIVE` | 1 | [[wiki/tensions/t090.md]] |
@@ -104,15 +104,15 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T92 | Is working memory the specialized function of prefrontal cortex? | `LIVE` | 3 | [[wiki/tensions/t092.md]] |
 | T93 | Does abstracting a rule enable generalization, or only speed it up? | `LIVE` | 2 | [[wiki/tensions/t093.md]] |
 | T94 | When a behaviour becomes automatic, does the controller drop out or hand over? | `LIVE` | 5 | [[wiki/tensions/t094.md]] |
-| T95 | Does the control layer store knowledge of its own, or only run procedures over knowledge stored elsewhere? | `LIVE` | 0 | [[wiki/tensions/t095.md]] |
+| T95 | Does the control layer store knowledge of its own, or only run procedures over knowledge stored elsewhere? | `LIVE` | 1 | [[wiki/tensions/t095.md]] |
 | T96 | Is the controller one homogeneous pool or partitioned by content? | `BOTH` | 3 | [[wiki/tensions/t096.md]] |
 | T97 | Does the cortical controller hold a memory from the start, or only after consolidation? | `LEANING` | 1 | [[wiki/tensions/t097.md]] |
 | T98 | Does the episodic store address the controller by delivering content, or by setting its inhibitory gain? | `LIVE` | 4 | [[wiki/tensions/t098.md]] |
 | T99 | What indexes which module a memory needs — its age, or its overlap with what is already stored? | `LEANING` | 1 | [[wiki/tensions/t099.md]] |
 | T100 | At which task phase does the hippocampal→prefrontal channel matter — encoding or retrieval? | `LIVE` | 1 | [[wiki/tensions/t100.md]] |
-| T101 | Can the control layer address the episodic store directly, or only through a relay? | `LEANING` | 0 | [[wiki/tensions/t101.md]] |
-| T102 | When forward and reverse inference disagree about a region's function, which wins? | `LEANING` | 0 | [[wiki/tensions/t102.md]] |
-| T103 | What is the common component of control? | `LEANING` | 0 | [[wiki/tensions/t103.md]] |
+| T101 | Can the control layer address the episodic store directly, or only through a relay? | `LEANING` | 1 | [[wiki/tensions/t101.md]] |
+| T102 | When forward and reverse inference disagree about a region's function, which wins? | `LEANING` | 1 | [[wiki/tensions/t102.md]] |
+| T103 | What is the common component of control? | `LEANING` | 1 | [[wiki/tensions/t103.md]] |
 | T104 | Is the working-memory capacity limit a resource ceiling or a safety margin the system imposes on itself? | `LIVE` | 2 | [[wiki/tensions/t104.md]] |
 | T105 | Does model-based *behaviour* license the inference that a model-based *algorithm* is running? | `LIVE` | 1 | [[wiki/tensions/t105.md]] |
 | T106 | Do task-trained prefrontal-like recurrent networks settle into attractors, or avoid them? | `LIVE` | 3 | [[wiki/tensions/t106.md]] |
@@ -124,7 +124,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T112 | Does removing a control signal reduce downstream selection, or eliminate it? | `LEANING` | 3 | [[wiki/tensions/t112.md]] |
 | T113 | Is a control-band oscillation the control resource, or the receipt of one? | `LIVE` | 2 | [[wiki/tensions/t113.md]] |
 | T114 | Does behavioural guidance by a feature imply an attentional gain signal for that feature in sensory cortex? | `LIVE` | 1 | [[wiki/tensions/t114.md]] |
-| T115 | Does the preparatory attentional template hold the target? | `LIVE` | 0 | [[wiki/tensions/t115.md]] |
+| T115 | Does the preparatory attentional template hold the target? | `LIVE` | 1 | [[wiki/tensions/t115.md]] |
 | T116 | When a functionally defined subensemble and its parent population rank two channels in opposite orders, which reading is the pathway's function? | `LIVE` | 3 | [[wiki/tensions/t116.md]] |
 | T117 | Does perceiving a sequence rest mainly on top-down predictions, or on within-level priors over motion? | `LIVE` | 1 | [[wiki/tensions/t117.md]] |
 | T118 | What does a superficial pyramidal spike mean — a candidate interpretation, or a residual? | `LIVE` | 3 | [[wiki/tensions/t118.md]] |
@@ -172,7 +172,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T160 | Does the geometric quality of a representation predict whether the model uses it? | `LIVE` | 2 | [[wiki/tensions/t160.md]] |
 | T161 | Does a stable signature failure profile identify an *installed* prior? | `LIVE` | 6 | [[wiki/tensions/t161.md]] |
 | T162 | Does relational understanding require decoding back to the input space? | `LIVE` | 5 | [[wiki/tensions/t162.md]] |
-| T163 | Can retrieval be amortised into a geometry, or is it irreducibly a joint computation? | `LIVE` | 0 | [[wiki/tensions/t163.md]] |
+| T163 | Can retrieval be amortised into a geometry, or is it irreducibly a joint computation? | `LIVE` | 1 | [[wiki/tensions/t163.md]] |
 | T164 | Must a collapse-avoiding self-supervised learner descend a well-defined objective? | `LIVE` | 7 | [[wiki/tensions/t164.md]] |
 | T165 | Is augmentation fragility a consequence of the *contrastive* objective? | `LIVE` | 4 | [[wiki/tensions/t165.md]] |
 | T166 | Are anti-collapse mechanisms from different families composable? | `LEANING` | 5 | [[wiki/tensions/t166.md]] |
@@ -190,7 +190,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T178 | Should a multiscale temporal decomposition be imposed on a sequence model, or left for a deep stack to discover? | `LIVE` | 1 | [[wiki/tensions/t178.md]] |
 | T179 | Is short path length between positions why long-range dependencies become learnable? | `LEANING` | 2 | [[wiki/tensions/t179.md]] |
 | T180 | Does verifier-driven test-time search buy reasoning, or only selection? | `LIVE` | 2 | [[wiki/tensions/t180.md]] |
-| T181 | Is a more accurate verifier always a better verifier? | `LEANING` | 0 | [[wiki/tensions/t181.md]] |
+| T181 | Is a more accurate verifier always a better verifier? | `LEANING` | 1 | [[wiki/tensions/t181.md]] |
 | T183 | Is theory of mind recursive inference, or a fixed point? | `LIVE` | 4 | [[wiki/tensions/t183.md]] |
 | T185 | Does structural similarity influence memory *access*, or only evaluation after access? | `LIVE` | 2 | [[wiki/tensions/t185.md]] |
 | T186 | To make role structure readable by a dot product, do you need the *content* of the neighbouring roles or only their *labels*? | `LIVE` | 2 | [[wiki/tensions/t186.md]] |
@@ -201,13 +201,13 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T191 | Should a solver commit to one parse of the input, or carry several? | `LIVE` | 2 | [[wiki/tensions/t191.md]] |
 | T192 | What licenses a candidate analogical inference — its coherence with the target, or a causal model carried over from the source? | `LIVE` | 1 | [[wiki/tensions/t192.md]] |
 | T193 | Is the developmental relational shift caused by accumulating relational knowledge, or by maturing executive capacity? | `LIVE` | 1 | [[wiki/tensions/t193.md]] |
-| T194 | Is approaching a memory's capacity a failure mode or the mechanism that produces generalisation? | `LIVE` | 0 | [[wiki/tensions/t194.md]] |
+| T194 | Is approaching a memory's capacity a failure mode or the mechanism that produces generalisation? | `LIVE` | 1 | [[wiki/tensions/t194.md]] |
 | T195 | Is sequential presentation a cost paid against joint training? | `LIVE` | 2 | [[wiki/tensions/t195.md]] |
 | T196 | Should a compound's meaning depend only on its immediate children, or on the whole structure it sits in? | `LIVE` | 1 | [[wiki/tensions/t196.md]] |
 | T197 | Is un-flagged retrieval error a defect to engineer away or a phenomenon to reproduce? | `LIVE` | 1 | [[wiki/tensions/t197.md]] |
-| T198 | Does locality buy resistance to catastrophic forgetting? | `LIVE` | 0 | [[wiki/tensions/t198.md]] |
+| T198 | Does locality buy resistance to catastrophic forgetting? | `LIVE` | 1 | [[wiki/tensions/t198.md]] |
 | T199 | Is relational retrieval bought by building indices, or by making the encoding uniform? | `LEANING` | 2 | [[wiki/tensions/t199.md]] |
-| T200 | Is systematicity a property of the architecture or of the training distribution? | `LIVE` | 0 | [[wiki/tensions/t200.md]] |
+| T200 | Is systematicity a property of the architecture or of the training distribution? | `LIVE` | 1 | [[wiki/tensions/t200.md]] |
 | T201 | Is human compositional behaviour a rule system with lapses, or an approximator carrying rule-shaped biases? | `LIVE` | 1 | [[wiki/tensions/t201.md]] |
 | T202 | Does installing an inductive bias by sampling it into `p(T)` give you the bias, or only its frequency? | `LEANING` | 4 | [[wiki/tensions/t202.md]] |
 | T203 | Is abstract format a hippocampal specialisation, or a shared property of the fronto-hippocampal system? | `LIVE` | 1 | [[wiki/tensions/t203.md]] |
@@ -250,10 +250,10 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T240 | Is a resting-state functional network an object, or an artefact of the integration window? | `LIVE` | 4 | [[wiki/tensions/t240.md]] |
 | T241 | Does the default mode network's activity mean self-referential cognition is occurring? | `LIVE` | 3 | [[wiki/tensions/t241.md]] |
 | T242 | Which carrier frequency's power do resting BOLD fluctuations track — and can the question be settled at all? | `LIVE` | 2 | [[wiki/tensions/t242.md]] |
-| T243 | Do between-subject differences in a functional connectome measure coupling, or where the regions are? | `LEANING` | 0 | [[wiki/tensions/t243.md]] |
-| T244 | Is the cortex a set of units with borders, or a continuum with axes? | `BOTH` | 0 | [[wiki/tensions/t244.md]] |
+| T243 | Do between-subject differences in a functional connectome measure coupling, or where the regions are? | `LEANING` | 1 | [[wiki/tensions/t243.md]] |
+| T244 | Is the cortex a set of units with borders, or a continuum with axes? | `BOTH` | 1 | [[wiki/tensions/t244.md]] |
 | T245 | How many connectivity parameters are identifiable from one resting-state fMRI dataset? | `LIVE` | 3 | [[wiki/tensions/t245.md]] |
-| T246 | Does the age-related rise in global coupling `G` measure compensation or decline? | `LIVE` | 0 | [[wiki/tensions/t246.md]] |
+| T246 | Does the age-related rise in global coupling `G` measure compensation or decline? | `LIVE` | 1 | [[wiki/tensions/t246.md]] |
 | T247 | Does a generated representation carry information the source did not, or only re-express it? | `LIVE` | 1 | [[wiki/tensions/t247.md]] |
 | T248 | Is the posterior medial structural core an anatomical fact or a tractography artefact? | `LIVE` | 1 | [[wiki/tensions/t248.md]] |
 | T249 | Is more integration always better, or is there an interior optimum? | `LIVE` | 2 | [[wiki/tensions/t249.md]] |
@@ -262,7 +262,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T252 | Is the direction of large-scale cortical flow fixed by anatomy or set dynamically? | `LIVE` | 1 | [[wiki/tensions/t252.md]] |
 | T253 | Is slow connectome dynamics the accumulated expression of fast states, or an independent parallel stream? | `LIVE` | 2 | [[wiki/tensions/t253.md]] |
 | T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `LEANING` | 2 | [[wiki/tensions/t254.md]] |
-| T255 | Is the brain's default self-evaluation accurate information-gathering or self-serving bias? | `LIVE` | 0 | [[wiki/tensions/t255.md]] |
+| T255 | Is the brain's default self-evaluation accurate information-gathering or self-serving bias? | `LIVE` | 1 | [[wiki/tensions/t255.md]] |
 | T256 | Is the precuneus (area 7m) part of the default mode network? | `LIVE` | 2 | [[wiki/tensions/t256.md]] |
 | T257 | In the default/control switch, who drives whom? | `LIVE` | 3 | [[wiki/tensions/t257.md]] |
 | T258 | In schizophrenia, is the default mode network over-engaged or under-connected? | `LIVE` | 1 | [[wiki/tensions/t258.md]] |
@@ -275,7 +275,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T265 | Where does the default mode network sit relative to the sensory-fugal hierarchy? | `LEANING` | 2 | [[wiki/tensions/t265.md]] |
 | T266 | Can a working memory held in synaptic weights be operated on, or only stored? | `LIVE` | 1 | [[wiki/tensions/t266.md]] |
 | T267 | Which function do the medial prefrontal / posterior cingulate / precuneus hubs serve — broadcasting current content, or generating internal content? | `LIVE` | 2 | [[wiki/tensions/t267.md]] |
-| T268 | Is there one commit event or two? | `LIVE` | 0 | [[wiki/tensions/t268.md]] |
+| T268 | Is there one commit event or two? | `LIVE` | 1 | [[wiki/tensions/t268.md]] |
 | T269 | Does prefrontal cortex constitute conscious perceptual content, or only route it? | `LIVE` | 5 | [[wiki/tensions/t269.md]] |
 | T270 | Does a measure of integration detect a world model? | `LIVE` | 2 | [[wiki/tensions/t270.md]] |
 | T271 | Does the workspace commit on stimulus offset? | `LEANING` | 3 | [[wiki/tensions/t271.md]] |

@@ -130,6 +130,8 @@ This is an independent derivation of the CLS sparse-hippocampus / dense-cortex a
 - **Who sets `θ`?** The threshold implicitly encodes an estimate of environmental reliability and of the expected repetition count `R`. Neither is known to an agent in a novel environment, so the gate needs its own meta-learner ([[wiki/concepts/meta-optimized-plasticity.md]]).
 - **A reliable memory that must be overwritten.** The gate is monotone in familiarity, so it is maximally resistant to exactly the update a changed world requires — the same stability/plasticity failure [[wiki/concepts/contextual-inference.md]] handles by inferring a new context instead of gating harder.
 
+- **Synaptic saturation produces the same inverted-U curve, and the cheap discriminator has not been run** ([[wiki/empirical-tensions.md]] T72). Multi-timescale synapse models get spacing effects unaided from fast internal variables saturating at short intervals (Benna & Fusi 2016), but that mechanism requires *few intervening plasticity events* between repetitions, while a population-level gate is indifferent to them. Since real inter-repetition intervals are full of intervening experience, spacing measured across days over intervals dense with other learning discriminates the two directly — and decides whether a machine's spaced-repetition schedule is a per-weight learning-rate state or a write-gate on a second module.
+
 ---
 
 ## Connections

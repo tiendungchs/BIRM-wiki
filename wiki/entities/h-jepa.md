@@ -192,6 +192,8 @@ Three qualifications. (i) This is a **difficulty** ordering measured on a conver
 - **Branching is `k^t`.** Pruning is named (MCTS) and not designed.
 - **Emotions are predicted to be inevitable** in any agent of this design — instantaneous ones from the Intrinsic Cost, anticipatory ones (fear, elation) from the Trainable Critic. Stated as a consequence, not a goal.
 
+- **The "reward plays a minor role" claim is a claim about sample efficiency, not about sufficiency** ([[wiki/empirical-tensions.md]] T19). Reward-only training is sufficient in the limit — the wiki's own ideal agent maximises expected reward and needs nothing else ([[wiki/entities/aixi.md]]) — so the architecture's case rests on a comparison at matched sample budget that nobody has run. What it does relocate is the difficulty: from shaping a reward to *specifying a differentiable cost*, which makes the immutable Intrinsic Cost an architectural decision rather than an environment property (G30).
+
 ---
 
 ## Connections

@@ -58,7 +58,7 @@ slow:  θ  ← θ − η ∇_θ ‖Q(s,a;θ) − R_t‖²          η ≪ α, R_
 | **Write everything, decide nothing** | The authors argue *against* learned write gating (as in the differentiable neural computer) on the grounds that learning when to write is slow — an explicit engineering position on G19, purchased with `5×10⁵` slots per action |
 | **Capacity is a hyperparameter; eviction is a heuristic** | Least-recently-retrieved, with no capacity estimate and no signal that the store is full (G42) |
 | **Key drift is unmodelled** | Slow embedding updates change the geometry under keys already written; nothing re-indexes them, and stability is bought only by making `η` small |
-| **Read cost scales with the store** | Every decision is `|A|` approximate-nearest-neighbour queries over a half-million-entry array; kd-trees make this tractable, not free |
+| **Read cost scales with the store** | Every decision is `\|A\|` approximate-nearest-neighbour queries over a half-million-entry array; kd-trees make this tractable, not free |
 | **Values are point estimates** | No uncertainty anywhere, so the kernel's weighted average cannot distinguish "50 neighbours agree" from "50 neighbours are far away" — the heavy-tailed kernel is a robustness hack in place of a confidence read |
 | **Interpolation is the only generalisation** | Between-neighbour averaging in a value-shaped metric; there is no transition model, no factorisation and no re-goaling ([[wiki/concepts/simulation-based-planning.md]], G28) |
 

@@ -162,6 +162,8 @@ Two things follow for this page. First, "which checkpoint has the better represe
 - **Site selection is manual.** Which token, which layer, which stream — chosen by the experimenter, and a negative result is uninformative if the choice was wrong.
 - **Nothing connects probe geometry to the loss.** No training signal rewards a network for making its internal structure decodable, so decodability is a lucky by-product (gap G30).
 
+- **Forward and reverse inference can disagree about the same region and nothing arbitrates.** A probe that decodes a variable from a site (forward) and a literature that infers the variable from activation at that site (reverse) are different claims with different base rates, and when they conflict the wiki has no rule for which wins ([[wiki/empirical-tensions.md]] T102) — which matters here because probe tables are read as reverse inferences far more often than they are computed as forward ones.
+
 ---
 
 ## Connections

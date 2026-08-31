@@ -64,6 +64,8 @@ The Ito result is the specific one. The direct hippocampus → prefrontal channe
 - **Nothing localises the content on this channel either** — the same limitation the direct pathway carries (gap G52). A goal, a gain signal and an attentional window are all consistent with the data.
 - **Reuniens is one of at least four indirect routes**, and the source does not adjudicate between them; accumbens, amygdala and entorhinal cortex could each carry part of what is attributed here.
 
+- **Whether the relay is obligatory is unresolved.** If the control layer can address the episodic store directly, this nucleus is a bandwidth convenience; if it cannot, the relay is an architectural requirement and its gating is a first-class design parameter ([[wiki/empirical-tensions.md]] T101).
+
 ---
 
 ## Connections

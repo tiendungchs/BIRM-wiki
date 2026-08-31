@@ -224,6 +224,8 @@ Extrinsic connections are glutamatergic; the inhibition is **polysynaptic and lo
 | Rodent V1/S1 lack the patchy connections | The patch motif, the most distinctive feature here, is the *least* canonical thing on this page |
 | The evidence base is skewed to visual cortex of cat and primate | Canonicity is partly an extrapolation from where people looked |
 
+- **The L6 typing is doing work it was never tested for.** Douglas & Martin's driver/modulator distinction was imported from thalamic work with its inter-areal function stated as unexplored, and the Thousand Brains Theory assigns the same layer a *content* role — a path-integrated location code that is half of a conjunctive object representation. Modulator or location code is [[wiki/empirical-tensions.md]] T66, and it decides whether a machine column's location input is a multiplicative gain on an evidence stream or a first-class content input.
+
 ---
 
 ## Connections

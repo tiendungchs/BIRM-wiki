@@ -12,7 +12,7 @@ The primary source for the **weight-protection** row of [[wiki/concepts/continua
 |---|---|---|
 | Bayesian rearrangement | `log p(θ∣D) = log p(D_B∣θ) + log p(θ∣D_A) − log p(D_B)`, so *all* information about task A must be carried by the posterior `p(θ∣D_A)` | Exact; commits the method to summarising A as a distribution over parameters and nothing else |
 | Laplace approximation (MacKay) | `p(θ∣D_A) ≈ N(θ*_A, F⁻¹)` — Gaussian at the found minimum | A point estimate of the posterior's variance; the paper names this its "significant weakness" |
-| Diagonal Fisher | `F_i` from first derivatives only; equals the second derivative of the loss near a minimum, and is positive semi-definite | Run time **linear** in parameters and in examples — the reason it scales where the prior quadratic-penalty methods (ref. 32 recomputes curvature per sample; ELLA inverts a `|θ|×|θ|` matrix) did not |
+| Diagonal Fisher | `F_i` from first derivatives only; equals the second derivative of the loss near a minimum, and is positive semi-definite | Run time **linear** in parameters and in examples — the reason it scales where the prior quadratic-penalty methods (ref. 32 recomputes curvature per sample; ELLA inverts a `\|θ\|×\|θ\|` matrix) did not |
 
 Three or more tasks need no bookkeeping growth: **the sum of two quadratic penalties is a quadratic penalty**, so anchors merge.
 

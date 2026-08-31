@@ -178,6 +178,8 @@ cue (target identity)  →  vLPFC retrieves the associate from long-term memory 
 - **Does VPA feed sensory cortex directly?** Still open after the 2019 V4 experiment, which shows VPA is *necessary* for feature attention in V4 without identifying the pathway: IT/TEO feedback and FEF/LIP retinotopic feedback both predict the result. The discriminating experiment is a display where target and distractor features share a location (transparent surfaces, overlapping dot fields), which a spatially addressed route cannot handle (Bichot et al. 2019). **The feature-addressed alternative now exists as a working model** rather than only as the thing the retinotopic account was preferred over: near-random reciprocal connectivity between a mixed-selectivity control layer and feature-tuned sensory rings delivers precise feature gain with no spatial coordinate anywhere in the pathway, which is exactly what the overlapping-dot display would test (Park & Serences 2025; [[wiki/concepts/random-feedback-addressing.md]]).
 - **Anatomy is descriptive.** "VPA" is a location (likely areas 45A/12, possibly 46v), not a functionally-bounded area; the authors decline to claim it is one. Proposed human homologue: the inferior frontal junction (Baldauf & Desimone 2014).
 
+- **Whether the preparatory template holds the target or its complement is unsettled** ([[wiki/empirical-tensions.md]] T115), and the two predict opposite decodes from the same pre-stimulus interval — so a machine register built from this literature could be pre-loaded with what to find or with what to reject, and the wiki cannot yet say which.
+
 ---
 
 ## Connections

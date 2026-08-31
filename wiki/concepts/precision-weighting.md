@@ -187,6 +187,8 @@ What it does not supply: `τ` is estimated from signal-to-noise ratios by a hand
 - **Precision is inferred but never grounded.** Nothing says where the precision of a *prior* comes from at the top of the hierarchy — the same regress as the missing top-level prior, moved into the second-order statistics.
 - **Some precisions behave as constants, and the theory does not say which.** The hollow-mask illusion is the clean case: the face-is-convex prior wins the accuracy/complexity trade even when the observer *knows* the mask is concave, so a correct reportable-level belief cannot lower that prior's precision (`talk-nd-free-energy-principle`, **(tentative)**). Under this page's partition every precision is a `μ^λ` optimised on the same path integral as the rest; an impenetrable prior is a `μ^λ` with the gradient cut. That is either an extra architectural fact the principle does not supply, or evidence that the second-order optimisation is confined to a subset of the hierarchy — logged as [[wiki/empirical-tensions.md]] T128. Note the practical upside: a frozen precision is the cheapest implementation of an installed prior ([[wiki/concepts/core-knowledge.md]]), and the illusion is its diagnostic signature rather than its defect.
 
+- **A more accurate verifier is not automatically a better one** ([[wiki/empirical-tensions.md]] T181): what a search consumes is the verifier's score as a *precision* on candidate continuations, and a well-ranked but badly calibrated scorer can be more accurate at the top-1 decision while steering the search worse than a less accurate but calibrated one. Nothing in the verifier literature reports the calibration the search actually consumes.
+
 ---
 
 ## Connections

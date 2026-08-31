@@ -96,6 +96,8 @@ So membership in the broadcast coalition is **set by the resolution the task req
 
 Unresolved in the source, and it matters architecturally rather than philosophically: **is there one commit or two?** A design with a local sensory-level recurrence stage *and* a separate global publication stage behaves differently from one with a single gate — the first can compute on content it never publishes. Logged as a tension.
 
+**Behind the marker dispute is a structural one:** whether there is a single commit event whose earliest correlate is being argued over, or *two* separable events — an early sensory-side threshold crossing and a later, distinct admission to the broadcast — with each camp measuring a different one ([[wiki/empirical-tensions.md]] T268). Under one commit, the ~260 ms and ~300 ms markers are early and late reads of the same transition and the dispute is about latency; under two, both markers are correct and name different operations, which is the reading a machine architecture would have to implement as separate gates.
+
 ---
 
 ## What this gives an abstract-reasoning architecture

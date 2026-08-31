@@ -75,6 +75,8 @@ Read as an autoencoder, it is a maximally constrained one — fixed bottleneck c
 
 **Hardness-source coverage** ([[wiki/concepts/latent-graph-discovery.md]]): source 3 (aliasing) ✓ — by random hashing plus path-integrated position · source 1 ✗ (the shared level is installed, not learned) · sources 2, 4, 5, 6 ✗.
 
+- **It is unclear whether running near capacity is the failure mode or the mechanism.** Loading a store past the point where traces stay separable is normally read as degradation, but the same overlap is what makes a store return a *class* rather than an instance — so an over-loaded content-addressable memory and a generalising one may be the same object described twice ([[wiki/empirical-tensions.md]] T194).
+
 ---
 
 ## Comparison

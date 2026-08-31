@@ -159,6 +159,8 @@ The theorem constrains **any** read implemented as *rank a fixed set of stored v
 - **Multi-vector has no theory.** MaxSim is empirically much better and formally uncovered; the source states this as its own principal limitation.
 - **Nothing measures the learnability gap.** The distance between "12 dimensions suffice" and "64 real dimensions fail" is the whole practical effect, and it is currently one anecdote rather than a curve.
 
+- **Whether retrieval can be amortised into a geometry at all is the live question behind this page's bound** ([[wiki/empirical-tensions.md]] T163): a single embedding per item makes retrieval a distance computation and inherits the rank ceiling, while treating it as an irreducibly joint computation over query and item escapes the ceiling and gives up the index. Every escape route below is a position on that question rather than a fix for it.
+
 ---
 
 ## Connections

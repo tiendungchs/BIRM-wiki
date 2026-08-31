@@ -198,6 +198,8 @@ Specificity limits worth carrying: the effect appears only when the two episodes
 - **Is the AND-gate real?** The two-pathway convergence is anatomically established; the claim that it computes a conjunction is the authors' interpretation, with no experiment dissociating "dendritic ERK alone" from "somatic Ca²⁺ alone".
 - **No account of the population fraction.** Allocation is relative, so what fixes the size of an engram is unaddressed here (cf. the sparsity optimum `p = (2MT)^(−1/3)` in [[wiki/entities/sparse-distributed-memory.md]], which does fix it and *falls as the store fills*).
 
+- **Whether allocation may carry information at all is contested by a working store.** BTSP models its plateau gate as an *input-independent* Poisson process at `f_q ≈ 0.005`, and credits exactly that independence with a flat recall curve across 10,000 sequentially learned items, while the postsynaptically-gated rule that recruits the same cells repeatedly degrades early traces badly ([[wiki/entities/btsp-cam.md]]). If allocate-to-link is right, temporal linkage is free and interference is the price; if BTSP is, non-interference is free and every cross-episode edge needs a separate mechanism ([[wiki/empirical-tensions.md]] T73). The direct test — plateau incidence conditioned on a cell's recent excitability tag — has not been run.
+
 ---
 
 ## Connections

@@ -138,6 +138,9 @@ Consequences for anything built on a group functional network:
 - **Directionality remains out of reach from fMRI.** The temporal slowness of BOLD and regional variability in the haemodynamic response function undermine lag-based causal estimates specifically; Bayesian nets and resting-state dynamic causal modelling are the live hopes. Every connectome in the wiki is therefore **undirected by instrument**, which is a hard limit for a framing whose edges are transitions ([[wiki/concepts/latent-graph-discovery.md]]).
 - **The biological meaning of an fMRI edge is still open** — validating against invasive tracing and invasive recording in non-human primates is the proposed route.
 
+- **Between-subject variance in a functional connectome may be misregistration rather than coupling** ([[wiki/empirical-tensions.md]] T243): if individual areal boundaries differ, a fixed parcellation mixes signals differently per subject, and the resulting "coupling difference" is a statement about where the regions are. Any individual-differences claim built on a group atlas inherits this.
+- **Units-with-borders vs. a continuum with axes is not a modelling preference but a claim about the cortex** ([[wiki/empirical-tensions.md]] T244, status `BOTH`), and the honest current reading is that both descriptions are locally correct — which makes the choice of node a choice about what one intends to measure rather than one that can be validated.
+
 ---
 
 ## Connections

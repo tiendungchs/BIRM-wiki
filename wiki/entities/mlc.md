@@ -189,6 +189,8 @@ Cost drops from `O(S²)` to `m·O((q+s)²)`. **The architectural content is that
 - **The behavioural comparison is generous to humans in one respect and to MLC in another**: study items stayed on screen (no memory load), while MLC's 82.4% is an average over 100 random word/colour assignments and its 100% is the best of 10 runs — a typical run scores 92.9% (SD 8.2) on the gold outputs (SI-1.1), and runs are selected on grammatical-output or validation loss, so the selection is legitimate but the *modal* model is not the headline model.
 - **GPT-4 is still challenged** on this material: 58.0% at best against 80.7% human and 92.9–96.8% MLC, collapsing to 14.0% when the support examples are shuffled (SI-3). Scale did not solve it, and the authors concede the possibility that better prompting or later models will — arguing only that a small targeted model clarifies *what is needed*.
 
+- **The result does not settle where systematicity lives.** MLC's contribution is an episode *generator*, so its success is equally readable as evidence that systematicity is a property of the training distribution rather than of the architecture ([[wiki/empirical-tensions.md]] T200) — and the wiki has no experiment that holds one of the two fixed while varying the other.
+
 ---
 
 ## Comparison

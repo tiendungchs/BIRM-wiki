@@ -103,16 +103,17 @@ UNCITED_T=$(uncited wiki/empirical-tensions.md T | wc -l | tr -d ' ')
 echo "S14 note      $UNCITED_T of $TENSIONS tension rows are cited by no page (tracked, not enforced)"
 
 # S15: the queue must reconcile exactly against raw/. Every source file is either
-# ingested (- [x]) or skipped at the gate (- [-]); every queue entry has a file.
+# ingested (- [x]), skipped at the gate (- [-]) or still pending (- [ ]); every queue entry has a file.
 SKIPPED=$(grep -c '^- \[-\]' _work/ingest-queue.md || true)
+PENDING=$(grep -c '^- \[ \]' _work/ingest-queue.md || true)
 RAWFILES=$(cd raw && ls *.md *.txt 2>/dev/null | wc -l | tr -d ' ')
-QNAMES=$(grep -oE '^- \[[x-]\] `[^`]+`' _work/ingest-queue.md | grep -oE '`[^`]+`' | tr -d '`' | sort -u)
+QNAMES=$(grep -oE '^- \[[x  -]\] `[^`]+`' _work/ingest-queue.md | grep -oE '`[^`]+`' | tr -d '`' | sort -u)
 ORPHAN_Q=$(for f in $QNAMES; do [ -f "raw/$f" ] || echo "$f"; done)
 UNQUEUED=$(cd raw && for f in *.md *.txt; do echo "$QNAMES" | grep -qxF "$f" || echo "$f"; done)
-if [ $((SOURCES + SKIPPED)) -eq "$RAWFILES" ] && [ -z "$ORPHAN_Q" ] && [ -z "$UNQUEUED" ]; then
-  echo "S15 OK        queue reconciles with raw/: $SOURCES ingested + $SKIPPED skipped = $RAWFILES files"
+if [ $((SOURCES + SKIPPED + PENDING)) -eq "$RAWFILES" ] && [ -z "$ORPHAN_Q" ] && [ -z "$UNQUEUED" ]; then
+  echo "S15 OK        queue reconciles with raw/: $SOURCES ingested + $SKIPPED skipped + $PENDING pending = $RAWFILES files"
 else
-  echo "S15 VIOLATED  $SOURCES ingested + $SKIPPED skipped vs $RAWFILES files in raw/"
+  echo "S15 VIOLATED  $SOURCES ingested + $SKIPPED skipped + $PENDING pending vs $RAWFILES files in raw/"
   [ -n "$ORPHAN_Q" ] && { echo "              queued with no file:"; echo "$ORPHAN_Q" | sed 's/^/                /'; }
   [ -n "$UNQUEUED" ] && { echo "              in raw/ but not queued:"; echo "$UNQUEUED" | sed 's/^/                /'; }
   FAIL=1
