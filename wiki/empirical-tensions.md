@@ -24,7 +24,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T12 | Are the conceptual primitives of infancy installed, or learned from sensorimotor prediction in the first months? | `LIVE` | 4 | [[wiki/tensions/t012.md]] |
 | T13 | Is long-term potentiation the mechanism behind behavioural learning? | `LEANING` | 2 | [[wiki/tensions/t013.md]] |
 | T14 | Are structured representations real, or emergent descriptions of sub-symbolic processes? | `LIVE` | 0 | [[wiki/tensions/t014.md]] |
-| T15 | Is training data a design lever or an anchor? | `LIVE` | 3 | [[wiki/tensions/t015.md]] |
+| T15 | Is training data a design lever or an anchor? | `LIVE` | 4 | [[wiki/tensions/t015.md]] |
 | T16 | Does the shortest program consistent with the data generalize? | `LIVE` | 3 | [[wiki/tensions/t016.md]] |
 | T17 | Is intelligence universal, or scoped? | `LIVE` | 2 | [[wiki/tensions/t017.md]] |
 | T18 | Must a world model be generative? | `LIVE` | 5 | [[wiki/tensions/t018.md]] |
