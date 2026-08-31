@@ -141,6 +141,19 @@ Every row in the evidence tables above is correlational except the mouse feedbac
 
 **The one positive prefrontal finding is affective, not perceptual.** Orbitofrontal and anterior cingulate stimulation reliably elicits emotional and motivational states — including a reproducible "push harder … I have to make it through" in anterior midcingulate (Parvizi et al. 2013) — with subjective intensity rising linearly over 2–8 mA (Yih et al. 2019). That dose–response is also the method's positive control: where prefrontal stimulation has power, it is graded, so the anterolateral nulls are not instrument failure.
 
+### The necessity and readout ledgers, from the same camp
+
+> **Source for this section.** Boly, Massimini, Tsuchiya, Postle, Koch & Tononi 2017 (`raw/boly-2017-ncc-front-or-back.md`). A review by proponents of the rival posterior account; the taxonomy it argues from is on [[wiki/concepts/constitutive-vs-enabling.md]].
+
+Two further columns of the same case, neither of which the stimulation result covers:
+
+| Column | The datum | What the framework has to say |
+|---|---|---|
+| **Necessity** | Bilateral prefrontal lobectomy leaves a normal *level* of consciousness — Brickner's Patient A (BA 8–12, 16, 24, 32, 33, 45–47 resected) passed an hour with two neurologists unnoticed; Patient KM's IQ improved after near-complete bilateral prefrontal resection. Traumatic frontal lesions in ~half of acute traumatic vegetative states **do not predict outcome**, while posterior corpus-callosum lesions carry a **214-fold** risk of permanent vegetative state and appear in **98%** of patients still vegetative at 1 year | Either the bus is not prefrontal (the framework does say no node is a seat, and it names parietal, cingulate and precuneus nodes too), or a bus this redundant is not a bottleneck — which is in tension with the bow-tie structural warrant above |
+| **Readout** | The frontal contribution shrinks or vanishes under every design that removes report: the **P3 appears only when the stimulus is task-relevant**, no-report paradigms leave the content-specific correlate posterior with frontal activity tracking reporting, and inattentional-blindness and backward-masking variants reproduce this. Frontal cortex is a poor predictor of consciousness under anaesthesia | The framework's answer is available and is not a dodge: global availability *for* report is its definition of conscious access, so a correlate that disappears without report is what it predicts. The cost is that its central evidence can no longer be cited as content-specific ([[wiki/empirical-tensions.md]] T269) |
+
+**The unresolved asymmetry.** The framework's positive evidence at unit resolution is a *decoding* result in macaque ventrolateral prefrontal cortex (95% single-trial, no report — see below); the case against is a *necessity and perturbation* ledger in human anterolateral and frontopolar cortex. Nothing in the wiki records the two instruments applied to the same subregion, and until they are, "the message is in the router" and "removing the router costs no message" are both standing.
+
 ---
 
 ## The adversarial test, and the framework's reply
@@ -259,3 +272,4 @@ Three corrections and two additions to the second-hand account above.
 - **[[wiki/entities/integrated-information-theory.md]]** — the adversary in the preregistered test: it sites conscious content in posterior cortex and denies this framework's prefrontal necessity, and the one dataset that broke its sustained-connectivity prediction also broke this framework's offset ignition, so the collaboration ends with neither implementation intact.
 - **[[wiki/concepts/loopy-belief-propagation.md]] — what the bus is claimed to be carrying: the broadcast content becomes the argmax of an approximate joint posterior computed by iterated message passing across chained autoencoder bottlenecks, which supplies the *why now* this framework leaves as a free threshold.
 - **[[wiki/concepts/simulation-based-planning.md]]** — the consumer of the workspace's step operator: a planner that navigates sequences of working-memory states needs exactly one intermediate state published per broadcast, and medial-temporal cells coding *transitions* between those states, with prospective activation of upcoming items, supply the successor function.
+- **[[wiki/concepts/constitutive-vs-enabling.md]]** — the reassignment this framework has to answer: no-report and task-irrelevance designs move late frontal activation (including the P3, which appears only for task-relevant stimuli) into the modulator and readout cells, and reverse inference erases the frontal cluster from the consciousness map altogether.

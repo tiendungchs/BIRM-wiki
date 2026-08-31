@@ -18,6 +18,21 @@
 
 ---
 
+## The posterior siting has a warrant that predates Φ
+
+> Boly, Massimini, Tsuchiya, Postle, Koch & Tononi 2017 (`raw/boly-2017-ncc-front-or-back.md`) — a review by four proponents plus two outsiders, assembling the clinical case for the hot zone independently of the theory's mathematics. The taxonomy it uses is on [[wiki/concepts/constitutive-vs-enabling.md]].
+
+| Evidence class | Front | Back |
+|---|---|---|
+| **Necessity (lesion)** | Bilateral frontal lobectomy leaves consciousness intact (Brickner's Patient A unnoticed by two neurologists for an hour; Patient KM's IQ rose after near-complete bilateral prefrontal resection). Traumatic frontal lesions occur in ~half of acute traumatic vegetative states and **do not predict outcome** | Traumatic posterior corpus-callosum lesions in **98%** of patients still vegetative at 1 year; **214-fold** risk of permanent vegetative state; same lesions predict permanent coma after cardiac arrest |
+| **Content loss (lesion)** | Essentially none specific; frontal injury raises the threshold for 16 ms masked stimuli without abolishing the experience — a modulator signature | Prosopagnosia, achromatopsia, form agnosia, simultanagnosia, loss of somatosensory percepts and of motor awareness |
+| **Within-state, no-task** | Frontal deactivation during vivid imagery in meditators | Posterior parieto-occipital hot zone separates dreaming from dreamless NREM; an online posterior EEG marker predicts dreaming at **85%** |
+| **Reverse inference** | The frontal cluster in the consciousness map disappears; its peak is best predicted by "task" and "phonological" | Fusiform→faces `p = 0.88`, postcentral→touch `p = 0.88`, and the like |
+
+**Why this matters for scoring the preregistered test.** Prediction 1 passed but was scored non-critical *by the consortium*, on the grounds that extrinsic decodability is not Φ's currency. The clinical ledger is a different instrument reaching the same siting by **necessity and constitution** rather than by decoding, which is the one direction the theory does not disavow — so the anatomical half of the theory is better supported than the preregistered test alone suggests, while the distinctive dynamical half (prediction 3) remains the one that failed. The standing counter-pressure is that a lesion ledger built on nulls in prefrontal cortex is subject to the same instrument objection as a decoding null there ([[wiki/empirical-tensions.md]] T269, T272).
+
+---
+
 ## The three preregistered predictions and what came back
 
 | # | Prediction | Result | Verdict |
@@ -67,3 +82,4 @@
 - **[[wiki/concepts/ignition.md]]** — the rival account of the same commit: a discrete threshold crossing that publishes content, against this theory's claim that no separate admission event is needed because the maximally integrated complex *is* the experience.
 - **[[wiki/concepts/dynamic-repertoire.md]]** — where the theory's surrogates do work: Φ-like integration measures collapse together under three molecularly disjoint anaesthetics and order disorders of consciousness, which is the strongest evidence the framework has and is about *degree*, not content.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the connection to the wiki's master framing: this theory locates the graph in the substrate (what the network can do to itself) rather than in what the network is *about*, so it certifies a representation's integration while remaining blind to whether the represented graph is the right one.
+- **[[wiki/concepts/constitutive-vs-enabling.md]]** — where the posterior siting comes from independently of Φ: a lesion and stimulation ledger (98% of persistent vegetative states carry posterior callosal damage; bilateral frontal lobectomy leaves consciousness intact) assembled by four of this theory's own proponents, so the anatomy claim can be scored without the mathematics.

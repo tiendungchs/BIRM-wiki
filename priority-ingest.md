@@ -23,7 +23,7 @@ One INGEST each:
 - [x] `schultz-1997-neural-substrate-prediction-reward.md` — plasticity · R · 1997 · **LOSSY** (pdf2md)
 - [x] `doeller-2010-human-grid-cells-memory-network.md` — hippocampal-entorhinal · R · 2010
 - [x] `rigotti-2013-mixed-selectivity.md` — prefrontal-control · R · 2013
-- [ ] `boly-2017-ncc-front-or-back.md` — consciousness-global-workspace · R · 2017
+- [x] `boly-2017-ncc-front-or-back.md` — consciousness-global-workspace · R · 2017
 - [ ] `jing-2022-dimensional-collapse-contrastive.md` — ssl-representation · R · 2022
 
 *Wave 15 (the router, the edge, and the artefacts nobody filed) fully ingested — see gitlog.*

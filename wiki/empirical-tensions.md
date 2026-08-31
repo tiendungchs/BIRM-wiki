@@ -111,7 +111,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T99 | What indexes which module a memory needs — its age, or its overlap with what is already stored? | `LEANING` | 1 | [[wiki/tensions/t099.md]] |
 | T100 | At which task phase does the hippocampal→prefrontal channel matter — encoding or retrieval? | `LIVE` | 1 | [[wiki/tensions/t100.md]] |
 | T101 | Can the control layer address the episodic store directly, or only through a relay? | `LEANING` | 1 | [[wiki/tensions/t101.md]] |
-| T102 | When forward and reverse inference disagree about a region's function, which wins? | `LEANING` | 1 | [[wiki/tensions/t102.md]] |
+| T102 | When forward and reverse inference disagree about a region's function, which wins? | `LEANING` | 2 | [[wiki/tensions/t102.md]] |
 | T103 | What is the common component of control? | `LEANING` | 1 | [[wiki/tensions/t103.md]] |
 | T104 | Is the working-memory capacity limit a resource ceiling or a safety margin the system imposes on itself? | `LIVE` | 2 | [[wiki/tensions/t104.md]] |
 | T105 | Does model-based *behaviour* license the inference that a model-based *algorithm* is running? | `LIVE` | 1 | [[wiki/tensions/t105.md]] |
@@ -276,10 +276,10 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T266 | Can a working memory held in synaptic weights be operated on, or only stored? | `LIVE` | 1 | [[wiki/tensions/t266.md]] |
 | T267 | Which function do the medial prefrontal / posterior cingulate / precuneus hubs serve — broadcasting current content, or generating internal content? | `LIVE` | 2 | [[wiki/tensions/t267.md]] |
 | T268 | Is there one commit event or two? | `LIVE` | 1 | [[wiki/tensions/t268.md]] |
-| T269 | Does prefrontal cortex constitute conscious perceptual content, or only route it? | `LIVE` | 5 | [[wiki/tensions/t269.md]] |
+| T269 | Does prefrontal cortex constitute conscious perceptual content, or only route it? | `LIVE` | 6 | [[wiki/tensions/t269.md]] |
 | T270 | Does a measure of integration detect a world model? | `LIVE` | 2 | [[wiki/tensions/t270.md]] |
 | T271 | Does the workspace commit on stimulus offset? | `LEANING` | 3 | [[wiki/tensions/t271.md]] |
-| T272 | Does failure to decode a content from prefrontal cortex mean the content is not there? | `LEANING` | 3 | [[wiki/tensions/t272.md]] |
+| T272 | Does failure to decode a content from prefrontal cortex mean the content is not there? | `LEANING` | 5 | [[wiki/tensions/t272.md]] |
 | T273 | What drives an internally generated content switch — the content-coding populations, or a content-free global state? | `LIVE` | 3 | [[wiki/tensions/t273.md]] |
 | T274 | Is a consciously experienced feature maintained, or recomputed on demand? | `LIVE` | 1 | [[wiki/tensions/t274.md]] |
 | T275 | Does suppressing the irrelevant need its own channel, or does it fall out of biasing the relevant? | `LEANING` | 2 | [[wiki/tensions/t275.md]] |
