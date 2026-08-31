@@ -14,7 +14,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T2 | Is the fast level a separate store or recurrent activity? | `LIVE` | 9 | [[wiki/tensions/t002.md]] |
 | T3 | Is backpropagation biologically realizable? | `LEANING` | 0 | [[wiki/tensions/t003.md]] |
 | T4 | Do abstract structural codes exist in the brain? | `LIVE` | 1 | [[wiki/tensions/t004.md]] |
-| T5 | Was neuroscience causally responsible for the transferred mechanisms? | `LIVE` | 2 | [[wiki/tensions/t005.md]] |
+| T5 | Was neuroscience causally responsible for the transferred mechanisms? | `LIVE` | 3 | [[wiki/tensions/t005.md]] |
 | T6 | What is out-of-distribution failure a failure *of*? | `LIVE` | 1 | [[wiki/tensions/t006.md]] |
 | T7 | Are backpropagation-derived local rules worth pursuing at all? | `LEANING` | 2 | [[wiki/tensions/t007.md]] |
 | T8 | Is compositional machinery innate, or acquired from an external symbolic system? | `LIVE` | 7 | [[wiki/tensions/t008.md]] |
@@ -290,7 +290,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T280 | Do retrograde amnesia gradients exist? | `LIVE` | 1 | [[wiki/tensions/t280.md]] |
 | T281 | Is a neuromodulatory channel unaddressed by construction? | `LEANING` | 1 | [[wiki/tensions/t281.md]] |
 | T282 | Does eliminating catastrophic forgetting solve continual learning, or only relocate it? | `LIVE` | 3 | [[wiki/tensions/t282.md]] |
-| T283 | Can the router that selects among stored structures be a learned discriminative network, or must it be Bayes' rule over generative models? | `LIVE` | 1 | [[wiki/tensions/t283.md]] |
+| T283 | Can the router that selects among stored structures be a learned discriminative network, or must it be Bayes' rule over generative models? | `LIVE` | 2 | [[wiki/tensions/t283.md]] |
 | T284 | Does a world model's own predictive uncertainty help or hurt when learning tasks in sequence? | `LIVE` | 1 | [[wiki/tensions/t284.md]] |
 | T285 | Is there a floor below which mechanistic description is impossible in principle, or only in practice? | `LIVE` | 1 | [[wiki/tensions/t285.md]] |
 | T286 | Is write-side randomization content-blind? | `LIVE` | 2 | [[wiki/tensions/t286.md]] |
@@ -303,3 +303,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T293 | Does role-filler independence require the compound to preserve its constituents, or does an invertible conjunctive code with a scheduled unbinding step suffice? | `LIVE` | 3 | [[wiki/tensions/t293.md]] |
 | T294 | Is the human developmental lever an *extended* schedule or an *accelerated* one — and does the wiki's `G100` cite the wrong window? | `BOTH` | 2 | [[wiki/tensions/t294.md]] |
 | T295 | Do jumping spiders belong in the convergence census at all — and does the wiki's only source for them survive inspection? | `LEANING` | 1 | [[wiki/tensions/t295.md]] |
+| T296 | Does a sparse expert router have to be learned, or is a fixed random partition of the input enough? | `LIVE` | 1 | [[wiki/tensions/t296.md]] |
