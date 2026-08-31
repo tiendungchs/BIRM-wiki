@@ -182,7 +182,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T170 | When several targets are equally valid, should the predictor represent the modes or should the target space quotient them away? | `LIVE` | 2 | [[wiki/tensions/t170.md]] |
 | T171 | Does climbing the moment ladder pay? | `LIVE` | 3 | [[wiki/tensions/t171.md]] |
 | T172 | Is an action-grounded vocabulary necessarily agent-relative? | `LIVE` | 2 | [[wiki/tensions/t172.md]] |
-| T173 | Should a learned similarity live in the geometry of the code, or in a comparator on top of it? *(absorbs T184, "should structural similarity live in the code or in the comparator?", merged at the 284-source duplicate audit: one axis, two rows, sharing two of their four citations. T184's sides were labelled in the opposite order; this row uses A = in the code.)* | `LIVE` | 6 | [[wiki/tensions/t173.md]] |
+| T173 | Should a learned similarity live in the geometry of the code, or in a comparator on top of it? *(absorbs T184, "should structural similarity live in the code or in the comparator?", merged at the 284-source duplicate audit: one axis, two rows, sharing two of their four citations. T184's sides were labelled in the opposite order; this row uses A = in the code.)* | `LIVE` | 7 | [[wiki/tensions/t173.md]] |
 | T174 | Does the recurrent connectivity of a fixed-dynamics sequence model carry expressive power? | `LIVE` | 7 | [[wiki/tensions/t174.md]] |
 | T175 | Once every candidate is a universal approximator, is there any expressivity difference left to measure? | `LIVE` | 5 | [[wiki/tensions/t175.md]] |
 | T176 | Should a continuous-time model keep its differential equation, or compile it away? | `LIVE` | 1 | [[wiki/tensions/t176.md]] |
@@ -313,3 +313,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `LIVE` | 2 | [[wiki/tensions/t303.md]] |
 | T304 | Should a joint-embedding's output be ℓ₂-normalised onto the hypersphere? | `LIVE` | 5 | [[wiki/tensions/t304.md]] |
 | T305 | Should a joint-embedding's predictor be kept *optimal*, or merely *fast*? | `LIVE` | 3 | [[wiki/tensions/t305.md]] |
+| T306 | Should an analogical matcher emit every consistent interpretation, or commit to one? | `LIVE` | 2 | [[wiki/tensions/t306.md]] |

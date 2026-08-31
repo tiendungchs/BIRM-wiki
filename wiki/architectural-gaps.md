@@ -15,7 +15,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G1 | Two-level separation exists as a timescale split, not as a factorization | part | `PARTIAL` | 16 | [[wiki/gaps/g001.md]] |
 | G2 | De-aliasing without a hand-built state space | part | `PARTIAL` | 12 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `PARTIAL` | 13 | [[wiki/gaps/g003.md]] |
-| G4 | Vocabulary co-discovery at scale | part | `PARTIAL` | 22 | [[wiki/gaps/g004.md]] |
+| G4 | Vocabulary co-discovery at scale | part | `PARTIAL` | 23 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `PARTIAL` | 6 | [[wiki/gaps/g005.md]] |
 | G6 | Spurious edges survive training — and are the default, not the exception | part | `OPEN` | 4 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `OPEN` | 4 | [[wiki/gaps/g007.md]] |
@@ -38,7 +38,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `CONTESTED` | 12 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `OPEN` | 4 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 18 | [[wiki/gaps/g026.md]] |
-| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 28 | [[wiki/gaps/g027.md]] |
+| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 29 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 16 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 5 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 19 | [[wiki/gaps/g030.md]] |
@@ -49,7 +49,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G35 | No model pays for its own parameters | part | `OPEN` | 3 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `OPEN` | 1 | [[wiki/gaps/g036.md]] |
 | G37 | Nothing decides which stored structure applies to the current situation | part | `PARTIAL` | 28 | [[wiki/gaps/g037.md]] |
-| G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `PARTIAL` | 33 | [[wiki/gaps/g038.md]] |
+| G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `PARTIAL` | 34 | [[wiki/gaps/g038.md]] |
 | G39 | Nothing anchors a retrieved structure to the present situation | part | `OPEN` | 11 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `OPEN` | 12 | [[wiki/gaps/g040.md]] |
 | G41 | No test decides whether a domain's actions compose | part | `OPEN` | 4 | [[wiki/gaps/g041.md]] |
