@@ -26,7 +26,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G12 | No routing policy between structure types | part | `OPEN` | 13 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `PARTIAL` | 1 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 20 | [[wiki/gaps/g014.md]] |
-| G15 | No control policy over simulation | part | `PARTIAL` | 21 | [[wiki/gaps/g015.md]] |
+| G15 | No control policy over simulation | part | `PARTIAL` | 22 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 17 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 40 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
@@ -35,11 +35,11 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G21 | No mechanism composes the outputs of two specialized modules | part | `CONTESTED` | 14 | [[wiki/gaps/g021.md]] |
 | G22 | Nothing selects which compositions get built | part | `OPEN` | 6 | [[wiki/gaps/g022.md]] |
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `OPEN` | 15 | [[wiki/gaps/g023.md]] |
-| G24 | No principled planning horizon exists, even in the ideal agent | part | `CONTESTED` | 11 | [[wiki/gaps/g024.md]] |
+| G24 | No principled planning horizon exists, even in the ideal agent | part | `CONTESTED` | 12 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `OPEN` | 4 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 18 | [[wiki/gaps/g026.md]] |
-| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 27 | [[wiki/gaps/g027.md]] |
-| G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 13 | [[wiki/gaps/g028.md]] |
+| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 28 | [[wiki/gaps/g027.md]] |
+| G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 14 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 5 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 18 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `OPEN` | 9 | [[wiki/gaps/g031.md]] |

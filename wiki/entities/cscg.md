@@ -99,6 +99,8 @@ Three readings the wiki should carry:
 
 ## Connections
 
+- **[[wiki/entities/alphazero.md]]** — the complementary halves of the framing: CSCG learns the graph and then plans by conditioning a generative model with no value function and no tree, AlphaZero is handed an exact graph and does nothing but search it.
+
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the same write-side problem solved without a decision: clone allocation is explicit bookkeeping, mossy-fibre projection gets orthogonality by random hashing and pays for it by not recognising repeats.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the concrete instantiation of "clone cells" that hardness source 3 and gap G2 had been naming without a mechanism: a frozen 0/1 emission turns state-space discovery into transition learning.

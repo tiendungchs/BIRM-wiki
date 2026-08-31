@@ -102,6 +102,7 @@ A concept is not a classifier. On the source's account, acquiring a concept deli
 | Humans on Frostbite | Better-than-chance within minutes; two of the authors matched or beat the professional's score after **15–20 minutes**, having watched ~2 minutes of expert play on video |
 | Transfer (Actor-mimic) | Pre-train on 13 games (~4M frames each ≈ 18.5 h/game); new games then reach in 1–2M frames what took 4–5M — still orders of magnitude above human |
 | AlphaGo vs. Lee Sedol | 28.4M expert positions + ~100M self-play games, vs. ~**50,000** games in Lee's lifetime |
+| AlphaZero, primary-sourced | **44M** self-play games in chess (9 h), 24M in shogi (12 h), 21M in Go (34 h), on 5,000 TPUs, from random initialisation with only the rules given — one instance trained per game. What generalises across the three domains is the *algorithm and its hyperparameters*, never a trained agent, so the Go-variants re-goaling argument in the row above is untouched ([[wiki/entities/alphazero.md]], Silver et al. 2017) |
 | One-shot characters | People classify a novel character from **one** example; deep convolutional classifiers pre-trained on 5 alphabets have ~5× the human error rate (23% vs 4%), ~2–3× after 30 alphabets |
 
 **The rebuttal, and the reply.** Objection: the comparison is unfair because humans arrive with vast prior experience. Reply: agreed — and that *is* the claim. "People never start completely from scratch, and that is the secret to their success." The research question is then not "why is the network slow" but **"what form does prior knowledge take, and how is it constructed?"** — which is the wiki's meta-graph question with the sample-efficiency argument attached.
@@ -133,6 +134,8 @@ Recorded as gap G29. Note this is the wiki's third distinct argument that the ta
 ---
 
 ## Connections
+
+- **[[wiki/entities/alphazero.md]]** — the primary source for this page's game-playing sample-efficiency numbers, and the sharpest statement of what they do and do not price: superhuman play in three domains from the rules alone, with the causal model of the environment *given* rather than built.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — states what the discovered edges are supposed to *be*: steps of the generative process rather than sufficient predictors, which is the difference between an intended edge and a spurious one.
 - **[[wiki/concepts/compositionality.md]]** — the paired ingredient: composition supplies the parts and causality supplies the coherence that makes an arrangement legal rather than merely possible.

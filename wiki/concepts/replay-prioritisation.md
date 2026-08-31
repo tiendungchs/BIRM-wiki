@@ -124,6 +124,8 @@ Schaul: surprise-prioritised sampling is a 2× speedup and a state of the art. K
 
 ## Connections
 
+- **[[wiki/entities/alphazero.md]]** — the design that removes this page's question rather than answering it: self-play regenerates data from the latest parameters, so there is no buffer to sample and the only remaining distribution knob is Dirichlet noise on the search root's prior.
+
 - **[[wiki/concepts/offline-replay.md]]** — the biological object whose sampling filter this page is the machine design space for; the two disagree about direction, since biology upsamples the under-visited and this page's deployed rule upsamples the high-error.
 - **[[wiki/entities/dqn.md]]** — the system this modifies: the only change is the sampling rule over an otherwise identical buffer, network, loss and evaluation, which is what makes the exponential Blind Cliffwalk gap attributable to scheduling alone.
 - **[[wiki/entities/neural-episodic-control.md]]** — the rival answer to the same sample-efficiency problem, measured head-to-head on the same 57 games: prioritisation changes *when* a stored transition is used to fit weights, episodic control changes *where the value lives*, and the store wins by 2–3× median human-normalised score below 20M frames while prioritisation wins from 40M on — so the two interventions are not competing for the same regime.

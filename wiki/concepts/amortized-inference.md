@@ -188,6 +188,8 @@ The fourth row of the table above is the architectural proposal: **the neural ne
 
 ## Connections
 
+- **[[wiki/entities/alphazero.md]]** — plan amortisation's cleanest instance and its one guarantee: the expensive process is the cached one *plus lookahead on an exact model*, so search provably dominates the policy it improves, and the compilation (`−πᵀ log p`) runs continuously rather than offline. Remove model exactness and the guarantee goes, which is where a brain-inspired version has to live.
+
 - **[[wiki/entities/vl-jepa.md]]** — deliberation cost separated from answer cost: because the answer is a single non-autoregressive embedding, its semantics exist after one forward pass and the text decoder becomes an on-demand read-out, which is what makes decoding only at detected semantic boundaries possible at all.
 - **[[wiki/concepts/causal-model-building.md]]** — the cost this page pays down: causal, program-like models are exactly the models that are slow to invert, so amortization is the precondition for using one in real time.
 - **[[wiki/concepts/simulation-based-planning.md]]** — plan amortization is this page applied to rollouts: model-based simulation generates training data for a model-free controller, and habitization is the resulting shift in control.

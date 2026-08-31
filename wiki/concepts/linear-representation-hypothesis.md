@@ -29,7 +29,7 @@ The hypothesis is old (word-vector arithmetic) and was long asserted without a c
 | **Llama-3.2-3B-Instruct** | An *object's position* on that same fitted basis | cos 0.97 between an object-group mean and the relation probe direction; k-means purity 77.5% against spatial labels; top 3 PCs ≈ 100% of probe-direction variance. Correlational |
 | Word embeddings, iGPT | Analogy directions; linearly separable image classes from a next-pixel objective | The original observations; no causal test |
 | Language-model steering | "Truthfulness" vectors, task vectors, steering vectors | Behavioural effect established; the *feature* is named by the intervention rather than verified against ground truth |
-| AlphaZero (chess, Hex) | Human chess concepts linearly decodable | Correlational |
+| [[wiki/entities/alphazero.md]] (chess, Hex) | Human chess concepts linearly decodable from a value/policy network trained by self-play with no human data of any kind | Correlational |
 | Biology | Linear decodability of task variables from neural populations; CCGP as the format test | See [[wiki/concepts/population-geometry.md]] — the biological literature reached the same instrument independently, and found that *decodability* and *linear generalisability* dissociate. The convergence is explicit rather than coincidental: Bernardi et al. 2020 name word-embedding parallelogram analogies (`king − queen ≈ man − woman`) as the same coding principle as their parallelism score — one direction that can be translated across content to change one feature consistently — so this page's parallelogram and that page's coding-vector alignment are one measurement stated twice |
 
 ---
@@ -139,6 +139,8 @@ Two consequences, and the second is the uncomfortable one.
 ---
 
 ## Connections
+
+- **[[wiki/entities/alphazero.md]]** — supplies what the chess-concepts row is probing: a network trained purely from self-play under the rules, so the human-legible concepts found in it were never in its data and are evidence about the objective rather than about imitation.
 
 - **[[wiki/entities/othellogpt.md]]** — the page's strongest evidence and the source of every number on it: a world model reported as non-linear turns out to be linear under a re-parameterised label set, and its directions steer behaviour by plain addition at parity with gradient editing.
 - **[[wiki/concepts/representation-probing.md]]** — the instrument page this one supplies the underlying hypothesis for: probing is only a cheap, capacity-free instrument *because* features are conjectured to be directions, and the basis problem here is a new way for a probe null to be wrong.

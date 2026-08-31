@@ -144,6 +144,8 @@ Why it sits above majority vote: the samples do not merely happen to differ, the
 
 ## Connections
 
+- **[[wiki/entities/alphazero.md]]** — the limiting case of a free, exact verifier: the rules score every terminal state, which is what makes the self-play improvement loop self-correcting without any learned reward model — and what open-ended reasoning domains do not have.
+
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the framing's discover-then-navigate loop has a proposer at every stage and no rejector; this page supplies the missing half and prices it, and the survey's own retrospective (relational structure made explicit beats word order) is the framing restated by an outside party.
 - **[[wiki/concepts/program-induction.md]]** — the family whose cost 2 (search is intractable, amortisation pays it down) and cost 4 (a rejected program returns one bit, a gradient returns a direction) are exactly this page's rungs: the ladder is a ranking of *how many bits a rejection returns*, and PRMs exist to move that number above one.
 - **[[wiki/entities/neo-neural-theorizer.md]]** — the wiki's own best-of-`k` result, and the cleanest demonstration that a complete vocabulary can coexist with near-zero pass@1: 0.019–0.038 greedy → ~0.70 at 1024 samples with a majority vote, at ~180× cost.

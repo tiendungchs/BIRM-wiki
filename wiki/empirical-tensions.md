@@ -189,7 +189,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T177 | Does long-range capability come from the architecture or from the initialisation? | `LIVE` | 2 | [[wiki/tensions/t177.md]] |
 | T178 | Should a multiscale temporal decomposition be imposed on a sequence model, or left for a deep stack to discover? | `LIVE` | 1 | [[wiki/tensions/t178.md]] |
 | T179 | Is short path length between positions why long-range dependencies become learnable? | `LEANING` | 2 | [[wiki/tensions/t179.md]] |
-| T180 | Does verifier-driven test-time search buy reasoning, or only selection? | `LIVE` | 1 | [[wiki/tensions/t180.md]] |
+| T180 | Does verifier-driven test-time search buy reasoning, or only selection? | `LIVE` | 2 | [[wiki/tensions/t180.md]] |
 | T181 | Is a more accurate verifier always a better verifier? | `LEANING` | 0 | [[wiki/tensions/t181.md]] |
 | T183 | Is theory of mind recursive inference, or a fixed point? | `LIVE` | 4 | [[wiki/tensions/t183.md]] |
 | T185 | Does structural similarity influence memory *access*, or only evaluation after access? | `LIVE` | 2 | [[wiki/tensions/t185.md]] |

@@ -58,7 +58,7 @@ What *initiates and steers* the rolling-forward is unresolved; the leading propo
 | System | Role |
 |---|---|
 | **Dyna** | The origin: interleave real experience with simulated experience from a learned model; explicitly motivated by "mental model" theories of human learning |
-| **Monte Carlo tree search** | Forward search used to update a value function and/or policy; the search half of expert Go play |
+| **Monte Carlo tree search** | Forward search used to update a value function and/or policy; the search half of expert Go play. Primary-sourced at [[wiki/entities/alphazero.md]]: on a *given* exact model, a learned prior plus 800 simulations per move beats the strongest handcrafted alpha-beta engines in chess, shogi and Go at one hyperparameter setting, while evaluating ~875× fewer positions per second (Silver et al. 2017) |
 | **Deep generative environment models** | Generate temporally consistent sample sequences reflecting the geometric layout of newly experienced realistic environments — the analogue of hippocampal binding of components into a coherent imagined experience |
 | **Controller/model separation** | An explicit split between a policy controller and an environment model, queried bidirectionally; used for planning over interacting physical objects |
 | **Intuitive physics engine** | Simulation as the *model* of a cognitive competence rather than as a planner component: reconstruct objects with mass, elasticity and friction, apply forces, roll forward. Fits adult tower-stability judgements quantitatively, and answers hypothetical and counterfactual queries (remove blocks, glue them, change the material, jostle the table) that each require new features and new training for a discriminative account ([[wiki/concepts/core-knowledge.md]]) |
@@ -148,6 +148,23 @@ The flexibility/speed trade-off cited above has a mechanism, and it is a quantit
 
 ---
 
+## The backup operator is a model-error decision
+
+> `raw/silver-2017-alphazero-chess-shogi.md` — Silver et al., arXiv:1712.01815, 2017.
+
+Every rollout on this page ends in an aggregation, and the choice of aggregation is usually unstated. AlphaZero's Methods argue it is load-bearing whenever the evaluator is approximate:
+
+| Backup | Effect on evaluator error | Where it is used |
+|---|---|---|
+| **Minimax** (alpha-beta) | Propagates the **largest** approximation error in the subtree to the root | Stockfish, Elmo, Deep Blue — all with *linear* handcrafted evaluators, plus a quiescence search to reach positions where the evaluator is trusted |
+| **Mean over leaves** (MCTS) | Errors tend to **cancel** over a large subtree | AlphaZero, with a deep nonlinear evaluator |
+
+The stated consequence: a powerful-but-biased learned evaluator is usable under averaging and not under `max` — which is offered as the reason every earlier neural chess program (NeuroChess, KnightCap, Giraffe, Meep, DeepChess) bolted its network onto alpha-beta and none beat a fast handcrafted evaluator.
+
+**(brainstorm)** This wiki has treated compounding model error as a *horizon* problem — accuracy decays with depth, so plan jumpily. It is also a **backup** problem: the same error is fatal under `max` and survivable under `E`. Every learned-model planner in the table above selects by argmax over rolled-out returns — cross-entropy-method search in [[wiki/entities/v-jepa-2.md]], gradient descent on a summed cost in [[wiki/entities/h-jepa.md]], expected-free-energy minimisation over action sequences — and none argues for that operator. Swapping the root aggregation to a visit-weighted mean and measuring the gap against model error is a one-line experiment on any of them, and it is the cheapest test in the wiki of whether "the model is not good enough to plan on" is a statement about the model or about the planner.
+
+---
+
 ## Open problems
 
 - **Learning the model without priors.** Everything above assumes a model exists; acquiring it *is* latent graph discovery.
@@ -166,6 +183,7 @@ The flexibility/speed trade-off cited above has a mechanism, and it is a quantit
 
 ## Connections
 
+- **[[wiki/entities/alphazero.md]]** — the page's upper control: hand the planner an exact transition model and a terminal reward and search plus a learned prior is superhuman in three unrelated domains in hours, which prices every remaining difficulty into the model the planner is given rather than into the planning.
 - **[[wiki/entities/continual-dreamer.md]]** — rollout used as a *training-data generator* rather than as a decision-time search: policy gradients are taken entirely inside imagination, which is where the 10× sample-efficiency advantage over a model-free rehearsal baseline comes from, and it makes the model's coverage of past environments the thing that has to be right.
 - **[[wiki/concepts/epistemic-value.md]]** — a representational requirement on the rollout, not a search heuristic: scoring a fixed action *plan* systematically undervalues an action whose worth depends on a response not yet chosen, and marginalising the same joint posterior into a *policy* `q(u_t|x_{t-1})` recovers within-horizon contingency for free.
 

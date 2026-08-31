@@ -157,6 +157,8 @@ A ViT-L feedforward decoder is trained (L2 pixel loss, 150K steps) to map *encod
 
 ## Connections
 
+- **[[wiki/entities/alphazero.md]]** — the same planner shape with the model's status inverted (exact vs learned), and the warning that follows: this page's cross-entropy-method search selects by `argmin` over sampled action sequences, i.e. the backup operator AlphaZero's Methods argue propagates a learned evaluator's largest error to the root.
+
 - **[[wiki/entities/continual-dreamer.md]]** — the same world-model-for-control question with a continual axis added, and it moves the advantage elsewhere: training the policy *inside* the model buys 10× sample efficiency and positive forward transfer across tasks, neither of which is a property of the prediction space.
 - **[[wiki/entities/vl-jepa.md]]** — this page's encoder frozen and handed a *language* target instead of a visual one: at matched ViT-L the swap is worth +1.5 R@5 at 1 s anticipation and +4.6 at 10 s, crossing the 3× larger ViT-g between 2 s and 4 s — the wiki's first horizon-differential measurement of prediction granularity, and the appearance/motion split reappears unchanged because the encoder is this one.
 - **[[wiki/entities/dinov3.md]]** — bounds the same deficit from the same direction as this page's DINOv2 comparison, at 6× the scale: a frozen 7B image encoder with an attentive probe beats V-JEPA 2 by 3.9 on appearance-driven K400 and loses SSv2 by 4.6, so dense-feature quality and scale do not substitute for a temporal objective.

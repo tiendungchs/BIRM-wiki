@@ -106,6 +106,8 @@ The 0.5B result matters: OmniARC reaches 40% with a model three orders of magnit
 
 ## Connections
 
+- **[[wiki/entities/alphazero.md]]** — the pure test-time-*compute* control for this page: no parameter is adapted per position, and Elo still rises with thinking time faster than for the alpha-beta engines it is scored against, so search-time scaling and weight adaptation are separable levers.
+
 - **[[wiki/entities/arc-agi.md]]** — the benchmark that produced both the technique and its sharpest measurement (≤11% without it), and where the ≤11% figure is the wiki's evidence that frozen inference fails on developer-novel tasks.
 - **[[wiki/concepts/meta-learning.md]]** — the same inner-loop/outer-loop anatomy with the outer loop deleted: TTT runs an inner adaptation with no meta-training that shaped it, so it is what meta-learning looks like when the task distribution is unavailable.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the fast/slow split with the fast level implemented as gradients into the slow level's own weights, which is the arrangement CLS exists to warn against — and the reason the "why no forgetting" question above is open.

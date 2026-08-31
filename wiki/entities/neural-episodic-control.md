@@ -90,6 +90,8 @@ slow:  θ  ← θ − η ∇_θ ‖Q(s,a;θ) − R_t‖²          η ≪ α, R_
 
 ## Connections
 
+- **[[wiki/entities/alphazero.md]]** — the opposite trade on decision-time compute: one kernel read from a stored table versus 800 tree simulations, both replacing a slowly gradient-fed value function, and both giving up transfer to do it.
+
 - **[[wiki/entities/dqn.md]]** — supplies NEC's convolutional stack unchanged and is the agent it inverts: identical perception, with the value function moved out of the weights into a table, which is what removes both the target network and the need for reward clipping.
 - **[[wiki/entities/hami.md]]** — the same fast-store-as-policy design with the key quantised to a symbol instead of kept as a vector, which is exactly the trade NEC pays for at capacity (append-every-step into `5×10⁵` slots with least-recently-retrieved eviction) and buys with graded similarity.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the primary source for that page's *episodic control* row, and its sharpest version: the fast store used directly for behaviour beats every parametric agent below 20M frames and is overtaken at 40M, which dates the cost of having no transport channel.

@@ -94,6 +94,8 @@ All four are statistical. **None of them touch state abstraction, transition str
 
 ## Connections
 
+- **[[wiki/entities/alphazero.md]]** — the same lab's opposite pole: an exact transition model plus 800 simulations per move against no model and one forward pass, and a `max` backup in both — which is why AlphaZero's Methods argue that averaging, not minimax, is what makes a learned evaluator usable inside a search.
+
 - **[[wiki/entities/progressive-neural-networks.md]]** — the direct attack on this page's one-network-per-game constraint: one frozen column per Atari game with lateral connections into the next, giving positive transfer on 8/12 target games where full fine-tuning of a single network gives 5/12 and is destructive.
 
 - **[[wiki/concepts/complementary-learning-systems.md]]** — supplies the primary source for the machine-instantiations table's first row, and narrows the claim: DQN's replay borrows interleaving for optimisation stability only, with no second learner to transport into.
