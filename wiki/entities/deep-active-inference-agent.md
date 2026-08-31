@@ -123,6 +123,7 @@ Reproduction failed for some claims (e.g. `DAI_MC` on Animal-AI); code was unava
 
 ## Connections
 
+- **[[wiki/entities/affordance-active-inference-model.md]]** — the same framework with every distribution analytic and every prior authored, which is why it runs where this one diverges; the honest reading of the pair is that active inference currently buys behaviour only where the generative model is written by hand.
 - **[[wiki/concepts/epistemic-value.md]]** — the page this agent's ablation is the central negative result for: five one-step estimators × three action-selection rules, and the only configurations that solve the task are the ones with the epistemic term deleted, by a named mechanism (a self-consistency divergence an agent can zero by freezing its own policy).
 
 - **[[wiki/concepts/expected-free-energy.md]]** — the implementation counterweight to that page's three theory sources: written as five different one-step neural estimators and run against a matched reward-only ablation, the epistemic term never pays and in one form collapses the policy to a single action, so the objective's derivation and its estimator are separately fallible.

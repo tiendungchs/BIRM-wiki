@@ -21,6 +21,16 @@ Readings 1, 3 and 4 differ in *how the signal is computed* and agree on what it 
 
 **The useful licence, and it is not obvious.** Gerfen & Surmeier 2011 are explicit that the debate over *what* midbrain firing encodes is not load-bearing for the striatal mechanism: it needs only that the signal moves **bidirectionally with outcome**. A precision signal read as a learning-rate gain is consumed by exactly the same D₁/D₂ split with the same opposite signs. So T122 can stay open indefinitely without stalling any architecture on this page — which is why it has.
 
+**Three observations reading 2 gets for free and reading 1 has to absorb** ([[wiki/entities/affordance-active-inference-model.md]], Friston et al. 2012):
+
+| Observation | Under reading 1 | Under reading 2 |
+|---|---|---|
+| A substantial fraction of dopamine neurons **increase** firing to aversive stimuli and to cues predicting them | wrong sign for `r + γV(s′) − V(s)` | an aversive cue portends a predictable sensorimotor sequence, so it is precise |
+| Dopamine neurons fire to cues predicting the future **availability of information** about a reward, conveying nothing about the reward itself | no reward term to be in error about | the cue announces that a contingency is about to become predictable |
+| Dopaminergic discharge covaries with the **variance** of juice rewards | second-order, outside the formula | precision *is* an inverse variance |
+
+And a mechanistic objection that is independent of any firing record: dopamine acts on G-protein-coupled receptors concentrated in glutamatergic dendritic spines, where it **modulates** a postsynaptic response and cannot excite one. A modulator cannot be the wire carrying an error's content; it can only scale a wire that does. Reading 1 survives this by locating the error in the *timing and magnitude* of a signal that is consumed as a plasticity gate — which is what the striatal mechanism above actually needs — but it means "dopamine encodes `δ`" is a claim about what the firing *reports*, never about what it *delivers*.
+
 ---
 
 ## What the scalar is actually consumed as
@@ -102,6 +112,8 @@ So the same scalar is simultaneously (i) the outer-loop plasticity term that bui
 ---
 
 ## Connections
+
+- **[[wiki/entities/affordance-active-inference-model.md]]** — the constructive half of the case against reading 1: a behaving agent that anticipates, switches set, pays a switch cost and shows bradykinesia with no value function and no `δ` anywhere, dopamine present only as a fixed postsynaptic gain whose *level* in the hierarchy determines the syndrome (T122).
 
 - **[[wiki/entities/continual-dreamer.md]]** — a negative result about reward as a *selection* signal: weighting replay sampling in proportion to environment reward is indistinguishable from uniform sampling, so reward magnitude carries no usable information about what should be rehearsed.
 - **[[wiki/entities/basal-ganglia.md]]** — the circuit that consumes this signal, and the source of the one mechanism on this page: opponent D₁/D₂ populations read one broadcast scalar with opposite signs on excitability *and* on plasticity, so selection and credit assignment are one modulation at two timescales.

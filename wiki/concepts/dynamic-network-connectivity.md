@@ -153,6 +153,7 @@ Because the gain register is molecular and lives on slender spines, everything t
 
 ## Connections
 
+- **[[wiki/entities/affordance-active-inference-model.md]]** — the register spent in a behaving model: a content-free D₁ gain on principal cells, fixed per region, shown to be sufficient on its own to produce bradykinesia, perseveration or a reaction-time speed-up depending only on *where in the hierarchy* it is set wrong.
 - **[[wiki/concepts/working-memory.md]]** — supplies a fourth locus for this store's capacity limit and the only one that is *chosen*: recurrent excitation is held below its achievable level by a Ca²⁺→K⁺ negative feedback whose job is seizure prevention, and blocking that feedback pharmacologically improves performance.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the other register on the same spine: long-term potentiation changes what a connection stores by enlarging a sessile spine, this page changes whether the connection is expressed by opening channels in a long thin spine's neck, and the two are morphologically segregated so they can run independently.
 - **[[wiki/concepts/dendritic-computation.md]]** — gives the gain register its spatial resolution: because a spine neck is an electrical bottleneck the shunt is local to one synapse, so the same machinery addresses one input or the whole cell depending only on where the second messenger rises.

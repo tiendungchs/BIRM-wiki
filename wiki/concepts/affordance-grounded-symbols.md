@@ -78,6 +78,7 @@ The survey's §4.3 argument, which the wiki should adopt: a computational afford
 
 ## Connections
 
+- **[[wiki/entities/affordance-active-inference-model.md]]** — affordance recovered by *inference* rather than by training: an amodal hidden state that emits both exteroceptive and proprioceptive predictions, so acting on it is enforcing it. No repertoire quantifier, no bottleneck and no symbol — the Gibsonian criterion without the discretisation, which is why it cannot answer G27 and why its "symbols" cannot be handed to a planner.
 - **[[wiki/concepts/event-segmentation.md]]** — the sibling answer to gap G27 with the complementary carving criterion: segmentation cuts the stream where *prediction fails*, effect-equivalence cuts it where *actions stop mattering*; an event schema's `⟨precondition, transition, effect⟩` and a distilled PDDL rule are the same object arrived at from opposite ends.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the nodes the framing assumes: a symbol is a node, its precondition mask is the node's entry test, and the distilled action rule is a typed edge, all obtained without a hand-built state space.
 - **[[wiki/concepts/simulation-based-planning.md]]** — what the symbols are *for*: distilled probabilistic PDDL rules are handed to an off-the-shelf planner, which makes rollout depth a symbolic search parameter rather than a horizon over a learned latent — the discrete counterpart of that page's model-based branch.

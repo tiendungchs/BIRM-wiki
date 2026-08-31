@@ -39,7 +39,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `OPEN` | 4 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 18 | [[wiki/gaps/g026.md]] |
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 28 | [[wiki/gaps/g027.md]] |
-| G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 14 | [[wiki/gaps/g028.md]] |
+| G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 15 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 5 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 18 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `OPEN` | 9 | [[wiki/gaps/g031.md]] |
@@ -67,7 +67,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G53 | No architecture delivers one signal to two modules by the same wire, and none lets a third module license a pair's connection | part | `OPEN` | 1 | [[wiki/gaps/g053.md]] |
 | G54 | No architecture distinguishes a channel that carries content from one that only carries timing | part | `PARTIAL` | 10 | [[wiki/gaps/g054.md]] |
 | G55 | Every machine controller is either one resource or *n* independent ones; none has a shared component plus operation-specific parameters | part | `OPEN` | 1 | [[wiki/gaps/g055.md]] |
-| G56 | No architecture has a run-time gain register on its own connections | part | `OPEN` | 7 | [[wiki/gaps/g056.md]] |
+| G56 | No architecture has a run-time gain register on its own connections | part | `OPEN` | 8 | [[wiki/gaps/g056.md]] |
 | G57 | No architecture makes its teaching signal one of its own inputs | part | `OPEN` | 1 | [[wiki/gaps/g057.md]] |
 | G58 | No control layer is instantiated by the existence of a choice at its own level | part | `OPEN` | 1 | [[wiki/gaps/g058.md]] |
 | G59 | Every hierarchical controller lets its lower level see the same observation as its upper level | part | `OPEN` | 4 | [[wiki/gaps/g059.md]] |

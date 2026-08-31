@@ -55,6 +55,20 @@ and a transient **fall** does the mirror. Two consequences the `Go/NoGo` abstrac
 
 The review is explicit that the debate over *what* SNc firing encodes (reward prediction error vs. anything else) is not load-bearing for this mechanism — the mechanism needs only that the signal moves bidirectionally with outcome. That is a useful licence: [[wiki/empirical-tensions.md]] T122 (dopamine as prediction error vs. as inferred precision) can be settled either way without touching the opponent-plasticity architecture, since a precision signal read as a learning-rate gain would be consumed by exactly the same D₁/D₂ split with opposite signs.
 
+
+### A rival type for the same cells: error units, not selectors
+
+The wiki's whole treatment of this module assumes selection is the primitive. One source assigns the same cells a different type ([[wiki/entities/affordance-active-inference-model.md]], Friston et al. 2012), and the argument is anatomical rather than physiological:
+
+| Fact | Read as selection | Read as inference |
+|---|---|---|
+| Output goes to thalamus, not to cortex directly | the gate releases a thalamocortical loop | the module sits **below** prefrontal cortex in a hierarchy, since predictions descend to it |
+| Densest corticostriatal projection originates in **layer V** | a descending command | a **backward** connection — the deep-pyramidal source predictive coding assigns to predictions |
+| Spiny neurons receive that projection and express D₁/D₂ | targets of a teaching signal | **prediction-error units** whose gain (precision) is set by dopamine |
+| Focused disinhibition | the selection primitive | a *consequence* of winnerless competition on hidden causes — the only dynamics that can prescribe a unique sequential trajectory |
+
+Neither reading is established by these facts: a command pathway may originate in layer V too. What the second buys is a prediction the first has no reason to make — **antagonistic** dopaminergic control of prefrontal cortex and striatum, because a hierarchical inference is sensitive to the *ratio* of precisions across levels, which would show up as a functional segregation between the ventral-tegmental and nigral cells of origin. Logged as [[wiki/empirical-tensions.md]] T303.
+
 ---
 
 ## Input gating before selection
@@ -173,6 +187,7 @@ Three consequences for the rest of this page.
 
 ## Connections
 
+- **[[wiki/entities/affordance-active-inference-model.md]]** — the same anatomy read as a hierarchical *level* rather than as a selector: output to thalamus places the module below prefrontal cortex, the densest corticostriatal projection (layer V) becomes a *backward* connection carrying a prediction, and spiny neurons become the prediction-error units that D₁/D₂ gain-modulates — with focused disinhibition demoted to a consequence of winnerless-competition dynamics ([[wiki/empirical-tensions.md]] T303). It also predicts *antagonistic* dopaminergic control of prefrontal cortex and striatum, which is why the segregation of ventral-tegmental from nigral cells of origin would be load-bearing.
 - **[[wiki/entities/pbwm.md]]** — the model this page is the biology of, and the four things the model's `[Go − NoGo]⁺` drops: the tonic pacemaker baseline that supplies sign without signed weights, the co-modulation of gain and learning rate by one scalar, the structural asymmetry of the two channels (indirect = fewer inputs, higher gain), and the fact that a D₂ cell's potentiating arm comes from adenosine A2a rather than from dopamine at all — so the two arms of the opponency have independent handles. The model census also places PBWM in its field: it is the *gate a cortico-cortical loop* option among three live answers to what the module does in working memory (T130), and its externally scheduled `Random Go` is exactly what the explore-regime models replace with an anatomical channel (Helie et al. 2013).
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the third factor with its sign supplied by the *receptor on the target* rather than by the signal: one unaddressed broadcast scalar yields LTP in one population and LTD in the other, so opponent credit assignment costs one wire and two cell types. It also shows the address problem in its bare form — dopamine says which way, the active cortical ensemble says where, and nothing says whether that ensemble was causal (gap G19).
 - **[[wiki/concepts/dendritic-computation.md]]** — where the action-selection module runs into this page's problem: back-propagating spikes die by 80–100 µm of a 250–400 µm dendrite, so most corticostriatal synapses get no somatic feedback and their plasticity would have to be licensed by *local* NMDA/Cav plateaus — making the SPN a bank of branch detectors and putting the majority of its D₁/D₂ receptors on the detectors rather than on the somatic gain.

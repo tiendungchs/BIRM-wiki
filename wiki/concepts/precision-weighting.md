@@ -101,6 +101,28 @@ The proposed symmetry: **dopamine** optimises precision in anterior (mesocortica
 
 ---
 
+## Precision has a *location*, and the location is the syndrome
+
+The 2009 framing gives precision one substrate and one role. A behaving instantiation ([[wiki/entities/affordance-active-inference-model.md]], Friston et al. 2012) shows that is under-specified: in a two-level sensorimotor hierarchy, depleting the *same* postsynaptic gain at three sites gives three dissociable syndromes, and one of them has the opposite sign.
+
+| Gain depleted at | Errors it weights | Level | Bradykinesia | Perseveration | Reaction time |
+|---|---|---|---|---|---|
+| Superior colliculus | exteroceptive salience of cue locations | low | yes | yes | **↑** |
+| Motor cortex | proprioception / joint angle | low | yes | **no** | ↑ (non-specific) |
+| Premotor cortex | change in affordance | **high** | **no** | yes | **↓** |
+
+Why the sign flips: raising precision *low* in the hierarchy makes the system data-driven; raising it *high* makes it prior-driven. A prior-driven agent reacts to cues slightly worse and recognises a change of context *faster*, because the contextual hypothesis is held with enough confidence to be worth revising. So the operative quantity is the **ratio of precisions across levels**, never a level's precision alone, and there is a genuine trade-off between how efficiently cues elicit action and how efficiently sets are switched.
+
+Three consequences for a builder:
+
+- **"Set the gain" is not a specification.** A gain register placed one level off does not weaken the intended effect, it inverts it. Any architecture with more than one gain register needs the *ratio* named, not the values.
+- **The register should be low-rank, and there is an argument for how low.** A statistical model has orders of magnitude more parameters than precision hyperparameters (a two-factor design: hundreds of parameters, two variances). The count of dopaminergic cells against the count of cells encoding causes matches that ratio — a dimensional argument that the precision field is a handful of scalars over a hierarchy, not a per-synapse quantity.
+- **The failure mode is bidirectional and named.** Too little low-level precision is perseveration under an unrevisable prior; too much is **aberrant affordance** — subliminal fluctuations in ascending error becoming potent enough to trigger action, offered as a reading of the structured-but-purposeless movement of the hyperkinetic disorders. A machine analogue is an agent that starts acting on noise when its inferred input precision is set too high, which is a cheap sanity check nobody has run.
+
+**What it does not do.** The precisions in that model are hand-set constants, one per region, held fixed for the run. It therefore tests what a gain register *buys* and says nothing about how one is *set* — G56's set-point half is untouched by it, and this page's central claim (precision is inferred by the same descent as everything else) remains unimplemented.
+
+---
+
 ## How to represent a posterior at all: the code taxonomy
 
 The other durable contribution — a menu of probabilistic neuronal codes with an explicit scaling argument. `q(s)` is the recognition density over states `s = {x, v}`, `μ` its sufficient statistics, `Z(μ)` a partition function.
@@ -155,6 +177,7 @@ What it does not supply: `τ` is estimated from signal-to-noise ratios by a hand
 
 ## Open problems
 
+- **No implementation infers a precision.** Every instantiation in the wiki hands the register its value: fixed per region in the behaving active-inference model, from local noise ratios by a hand-written rule in the conceptor, from a task-similarity function in the cross-paradigm gate. The claim that precision falls out of the same gradient descent as the means has never been run.
 - **Is one role (precision) enough for all neuromodulators?** The rival taxonomy assigns distinct computations to dopamine, serotonin, noradrenaline and acetylcholine; this account assigns one computation in different territories. No experiment in the wiki separates them (T122).
 - **Bayesian surprise vs. the free-energy bound.** Salience is empirically driven by observations that change beliefs (Bayesian surprise), not by rarity — formally relating that to the bound on Shannon surprise is unfinished, and it is exactly what a curiosity term needs.
 - **Can the system entertain ambiguity?** No electrophysiological or psychophysical evidence for multimodal recognition densities is claimed to exist; the framework predicts there is none. This is a falsifiable, and currently untested, architectural commitment.
@@ -167,6 +190,8 @@ What it does not supply: `τ` is estimated from signal-to-noise ratios by a hand
 ---
 
 ## Connections
+
+- **[[wiki/entities/affordance-active-inference-model.md]]** — this page's dopamine reading put inside a behaving agent, and the correction it forces: precision is a *field over hierarchical levels*, and the behavioural sign of a change in it flips with height, so "dopamine is precision" is not a prediction until the level is named (T122).
 
 - **[[wiki/concepts/epistemic-value.md]]** — the fitted coefficients on the three expected-free-energy terms are precisions, and the human study there returns a null this page has to absorb: the *value of resolving* each uncertainty has a cortical correlate and the *degree* of it has none, which is the opposite of treating uncertainty as a first-class encoded quantity.
 

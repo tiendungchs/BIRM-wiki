@@ -131,7 +131,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T119 | Where does the variability in a learning task enter the generative model? | `LEANING` | 1 | [[wiki/tensions/t119.md]] |
 | T120 | Is an infinitesimal nudge unusable, or is it the correct regime? | `LIVE` | 2 | [[wiki/tensions/t120.md]] |
 | T121 | Is event-model updating controlled by one signal or by several? | `LEANING` | 1 | [[wiki/tensions/t121.md]] |
-| T122 | What does phasic dopamine carry — a reward prediction error, or the precision of a prediction error? | `LIVE` | 5 | [[wiki/tensions/t122.md]] |
+| T122 | What does phasic dopamine carry — a reward prediction error, or the precision of a prediction error? | `LIVE` | 6 | [[wiki/tensions/t122.md]] |
 | T123 | Does active inference remove the exploration–exploitation weight, or only fix its value? | `LEANING` | 1 | [[wiki/tensions/t123.md]] |
 | T124 | Which epistemic term does the work — uncertainty about the *state*, or uncertainty about the *model*? | `LIVE` | 4 | [[wiki/tensions/t124.md]] |
 | T125 | Does the epistemic term help or hurt once it is implemented? | `LIVE` | 2 | [[wiki/tensions/t125.md]] |
@@ -310,3 +310,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T300 | Does added capacity buy robustness beyond what accuracy explains? | `LIVE` | 3 | [[wiki/tensions/t300.md]] |
 | T301 | Did the human cortex scale in units or in wiring-per-unit? | `LIVE` | 2 | [[wiki/tensions/t301.md]] |
 | T302 | How deep is a single cortical pyramidal neuron? | `LIVE` | 3 | [[wiki/tensions/t302.md]] |
+| T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `LIVE` | 2 | [[wiki/tensions/t303.md]] |

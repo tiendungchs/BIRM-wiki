@@ -345,6 +345,7 @@ It also sharpens the picture the illusion is usually used to support. The mask i
 
 ## Connections
 
+- **[[wiki/entities/affordance-active-inference-model.md]]** — this scheme reused unmodified with the whole content in the generative model: nested winnerless competition as the prior, reflex arcs as the action channel, and `Π` placed regionally — which turns an abstract update rule into a behaving agent whose lesions have syndromes.
 - **[[wiki/concepts/epistemic-value.md]]** — the other half of the alternation, and where the distinction this page maintains gets broken: every epistemic quantity there is defined over a distribution that variational fitting produced, and every deep implementation surveyed substitutes a factor of the *generative* model for the variational one inside the expectation, which silently severs the epistemic term from the free-energy bound it is supposed to descend.
 
 - **[[wiki/concepts/continual-learning.md]]** — the claimed payoff of locality: weights driven by a layer-local residual rather than by one global output loss are argued to overwrite prior structure less, an unmeasured claim sitting alongside this page's backpropagation-approximation result.
