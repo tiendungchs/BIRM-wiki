@@ -16,7 +16,7 @@ Two halves, run in either order:
 ## A — Build the want-list
 
 1. **Read the demand side, not the supply side.** `wiki/priority-tasks.md` (the `Acquire …` rows and `Blocked on: human curation or a web-search pass`), then `wiki/architectural-gaps.md` and `wiki/empirical-tensions.md`. A target is admissible only if it names the `G`/`T` row it addresses **and the decision that row cannot currently make**. No topic-shaped targets.
-2. **Prefer rows that are cheap to settle**: a `LIVE` tension between two named positions that have never been run head-to-head; a gap whose `Best current answer` is a brainstorm; an instrument (`I…`) with no primary source; an artefact cited second-hand on ≥3 pages with no file in `raw/`.
+2. **Prefer rows that are cheap to settle**: read the indexes to shortlist by `Status` token and `Cited by` count, then open the shortlisted `wiki/gaps/gNNN.md` / `wiki/tensions/tNNN.md` for the detail — a row's `Closes when` field states exactly what a source must supply. Cheap rows: a `LIVE` tension between two named positions that have never been run head-to-head; a gap whose `Best current answer` is a brainstorm; an instrument (`I…`) with no primary source; an artefact cited second-hand on ≥3 pages with no file in `raw/`.
 3. **Search** for the canonical source (`WebSearch`), then **resolve to a clip-optimal URL** — see the table below. The URL, not the DOI, is the deliverable.
 4. **Probe every URL with `WebFetch`** before it reaches the user. Classify:
 

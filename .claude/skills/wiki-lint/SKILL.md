@@ -11,7 +11,7 @@ Structural maintenance pass over the whole wiki. Find decay, propose a fix plan 
 
 0. **Check problematic works:** check to see if any operation coincides with any Opus 5 elevated error period, reported by https://status.claude.com/ , and discard or fix them if possible.
 1. **Read all three indexes** — `wiki/index-concepts.md`, `wiki/index-entities.md` — to establish full coverage.
-2. **Read the open-problem files:** `wiki/architectural-gaps.md`, `wiki/priority-tasks.md` and `wiki/empirical-tensions.md`.
+2. **Read the open-problem files:** the registry indexes `wiki/architectural-gaps.md` and `wiki/empirical-tensions.md` (one line per row), and `wiki/priority-tasks.md`. Open detail files under `wiki/gaps/` and `wiki/tensions/` only for the rows the pass actually audits. Past pass notes are in `wiki/registry-audit.md`.
 3. **Read all relevant concept and entity pages.** Batch the reads; this is the expensive part and it is not optional.
 4. **Check for:**
    - **Orphans** — pages with no inbound links from any other page.
@@ -22,7 +22,11 @@ Structural maintenance pass over the whole wiki. Find decay, propose a fix plan 
    - **Index drift** — pages on disk that are missing from an index, or index entries pointing at pages that no longer exist.
 5. **Propose a plan** Order it: fixes applicable immediately first.
 6. **Update indexes:** `wiki/index-concepts.md` / `wiki/index-entities.md` if pages were created.
-7. **Refresh the open-problem files** — remove what is resolved, add what is newly unresolved, across `wiki/architectural-gaps.md`, `wiki/empirical-tensions.md`. 
+7. **Refresh the registries** — edit detail files under `wiki/gaps/` and `wiki/tensions/`, `git mv` retired rows into `closed/`, add new ones as new files, then rebuild both index tables with `python3 tools/registry-index.py`. Never hand-edit an index table row. Append this pass's notes to `wiki/registry-audit.md`, not to the registry headers. Registry-specific checks:
+   - Every detail file has a `**Closes when:**` naming an observation, not a wish. Rows still `_unset_` are lint debt.
+   - `python3 tools/registry-index.py` reports rows cited by no concept or entity page — each is either wired to its carrying page or retired.
+   - Rows whose `Closes when` is already satisfied by the wiki's own evidence are retired at this pass, not carried.
+
 8. **Update** `wiki/priority-tasks.md` with fixes requiring multiple operations to apply, and new ingests to close the gaps/tensions (use WebSearch/WebFetch).
 9. **Update cross-references** on every page touched, both directions.
 

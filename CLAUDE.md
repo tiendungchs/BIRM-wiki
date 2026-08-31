@@ -30,9 +30,12 @@ BIRM-Wiki/
 └── wiki/                       ← all LLM-generated content
     ├── overview.md             ← high-level synthesis of the research area
     ├── priority-tasks.md       ← current priority tasks identified from lint passes
-    ├── architectural-gaps.md   ← current architectural gaps, updated each digest and lint pass
-    ├── empirical-tensions.md   ← current empirical tensions, updated each digest and lint pass
+    ├── architectural-gaps.md   ← INDEX of architectural gaps: one line per gap, no prose
+    ├── empirical-tensions.md   ← INDEX of empirical tensions: one line per tension, no prose
+    ├── registry-audit.md       ← historical lint-pass notes for both registries
     ├── glossary.md             ← abbreviation expansions
+    ├── gaps/                   ← one file per gap (g001.md …); closed/ holds retired gaps
+    ├── tensions/               ← one file per tension (t001.md …); closed/ holds retired tensions
     ├── index-concepts.md       ← concepts list
     ├── index-entities.md       ← models, benchmarks, biological systems list
     ├── entities/               ← models, benchmarks, biological systems
@@ -43,6 +46,15 @@ BIRM-Wiki/
 - All wiki content lives under `wiki/`.
 - File names: lowercase, hyphens for spaces, `.md` extension. Example: `wiki/concepts/working-memory.md`.
 - Sources in `raw/` must be Markdown or plain text.
+
+**Registries.** `architectural-gaps.md` and `empirical-tensions.md` are **indexes only** — one table row per gap/tension: id, title, status token, citation count, link to the detail file. Never write prose into them.
+- The evidence, sources and status reasoning for a row live in its own file, `wiki/gaps/g037.md` / `wiki/tensions/t037.md`.
+- `Status` is a **token field**: exactly one token from the page's status key, nothing else. Reasoning goes in the detail file's `## Status` section.
+- Every detail file carries a `**Closes when:**` field naming the observation that would retire the row. A row that cannot be given one is malformed — merge it or drop it.
+- Rebuild the index tables with `python3 tools/registry-index.py` after touching any detail file. It regenerates both tables from the detail files and reports rows cited by no concept or entity page. Never hand-edit a table row.
+- Retiring a row is `git mv wiki/gaps/g037.md wiki/gaps/closed/` followed by a rebuild; it then leaves the index.
+- Other pages cite rows by **id** (`G37`, `T22`) and link the registry index, not the detail file, unless the detail itself is the point.
+- Detail files are not tables, so `|` needs no escaping in them.
 
 ---
 
