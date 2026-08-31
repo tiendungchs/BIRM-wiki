@@ -39,7 +39,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T27 | Is the brain's map metric or topological? | `LIVE` | 4 | [[wiki/tensions/t027.md]] |
 | T28 | Is the hippocampus a map, or an index of cortical representations? | `LEANING` | 6 | [[wiki/tensions/t028.md]] |
 | T29 | Does de-aliasing conflict with generalisation? | `LEANING` | 2 | [[wiki/tensions/t029.md]] |
-| T30 | What is replay for — planning the next path, or building a transferable map? | `LIVE` | 4 | [[wiki/tensions/t030.md]] |
+| T30 | What is replay for — planning the next path, or building a transferable map? | `LIVE` | 5 | [[wiki/tensions/t030.md]] |
 | T31 | Is the entorhinal integrator perfect or leaky? | `LIVE` | 2 | [[wiki/tensions/t031.md]] |
 | T32 | Is serial order carried by oscillatory phase or by rate-coded time cells? | `LIVE` | 4 | [[wiki/tensions/t032.md]] |
 | T33 | Is CA1 a linear relay or a second recombination-and-completion stage? | `LIVE` | 2 | [[wiki/tensions/t033.md]] |
