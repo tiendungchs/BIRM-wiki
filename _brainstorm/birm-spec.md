@@ -2,8 +2,6 @@
 
 **Status: WAVE 6 FILLED — §1–§10 all carry ledger rows.** §10 is written, so R4 is satisfiable and the organ and bus statuses in §3 and §4 are lifted accordingly. Every filled cell carries a ledger row in §11. A section with no ledger rows is not "done", it is "asserted". What §10 licenses is bounded by §10.5, and the two sections must be read together: **§10 can refute; it cannot license** — the claim rests on §2.2's declared priors and §11's ledger of decisions, not on a score.
 
-> Instantiated from `_brainstorm/birm-spec-template.md`, which stays unfilled as the blank form. Reading order is fixed by `_brainstorm/priority-read.md`; the wave that filled each cell is in §13.
-
 > **What this document is.** One buildable specification of BIRM: an agent-side controller that receives observation vectors and emits action vectors, with everything benchmark-specific pushed into an adapter. It is written so that a later reading wave can *replace* a filled cell rather than append to it — see §11's `Supersedes` column and §13.
 >
 > **What it is not.** Not a literature review (that is `wiki/`), not a wish list (that is `wiki/architectural-gaps.md`). A row belongs here only if it is implementable as written or explicitly marked `OPEN-SLOT` in §12.

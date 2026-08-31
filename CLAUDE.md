@@ -122,6 +122,6 @@ Fall back to `grep -r "terms" wiki/` if qmd errors.
 - Internal links: `[[wiki/concepts/working-memory.md]]` — always use full path from repo root.
 - Full expansion of all abbreviations (e.g. FT (Full-Term)), except terms that are really common (e.g AI, NN, ML, DNA, etc) or too long (AMPA (α-amino-3-hydroxy-5-methyl-4-isoxazolepropionic acid receptor)), in that case, they will be stored in `wiki/glossary.md`.
 - Never modify a page without reading it.
-- Gitlog is changelog. Commit only what you touched and the ingested `raw/` file (uncommit `raw/` files are not ingested).
+- Gitlog is changelog. Commit only what you touched.
 - Don't read between the line. Do only what is asked.
 - Minimize prose: prefer tables, bullet points, equations.
