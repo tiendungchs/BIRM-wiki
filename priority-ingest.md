@@ -25,6 +25,6 @@ One INGEST each:
 - [x] `beniaguev-2021-single-neurons-as-deep-networks.md` — neuron-models · R · 2021
 - [x] `ardesch-2022-white-matter-scaling-principles.md` — evolution-comparative · R · 2022
 - [x] `liao-2024-inhibitory-plasticity-replay-generalization.md` — memory-consolidation · R · 2024
-- [ ] `barbu-2019-objectnet.md` — reasoning-eval · B · 2019 — `LOSSY` (pdf2md of the NeurIPS paper; the benchmark site itself is a stub)
+- [x] `barbu-2019-objectnet.md` — reasoning-eval · B · 2019 — `LOSSY` (pdf2md of the NeurIPS paper; the benchmark site itself is a stub)
 
 *Wave 14 (evolution and comparative cognition) fully ingested — see gitlog.*
