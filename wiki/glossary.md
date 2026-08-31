@@ -571,6 +571,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | GABA | γ-aminobutyric acid | The principal inhibitory transmitter; "GABAergic" = inhibitory interneuron ([[wiki/concepts/inhibitory-control-of-coding.md]]) |
 | ACG | Autocorrelogram | Spike-train autocorrelation; its *rise time* is one of the six features that separate interneuron families physiologically |
 | CV2 | Second coefficient of variation of interspike intervals | `2\|ISI_{i+1} − ISI_i\|/(ISI_{i+1} + ISI_i)`, averaged over spikes — a local firing-irregularity measure, the single most informative cell-class feature |
+| sSTDP | symmetric Spike-Timing-Dependent Plasticity | STDP whose kernel does not distinguish pre-before-post from post-before-pre; measured in CA3, and what lets one weight matrix generate both forward and reverse replay ([[wiki/entities/inhibitory-replay-filter.md]]) |
+| IPSC | Inhibitory PostSynaptic Current | The current counterpart of the IPSP, measured under voltage clamp; the observable that reports inhibitory synaptic weight onto an identified cell |
 | SPW-R | Sharp-Wave Ripple | 100–250 Hz hippocampal population burst; the replay carrier ([[wiki/concepts/offline-replay.md]]) |
 | ChR2 | Channelrhodopsin-2 | Light-gated cation channel used to activate (and thereby "opto-tag") a genetically defined cell population |
 | CCK | Cholecystokinin | Peptide marking a basket-cell type inside the *Id2* interneuron family (the *Sncg* subfamily) |

@@ -30,7 +30,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 17 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 41 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
-| G19 | No local rule is selective about what it writes | part | `PARTIAL` | 14 | [[wiki/gaps/g019.md]] |
+| G19 | No local rule is selective about what it writes | part | `PARTIAL` | 15 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `PARTIAL` | 1 | [[wiki/gaps/g020.md]] |
 | G21 | No mechanism composes the outputs of two specialized modules | part | `CONTESTED` | 14 | [[wiki/gaps/g021.md]] |
 | G22 | Nothing selects which compositions get built | part | `OPEN` | 6 | [[wiki/gaps/g022.md]] |

@@ -160,6 +160,7 @@ Read together, the row that matters is the last-but-one: this is the wiki's most
 
 ## Connections
 
+- **[[wiki/entities/inhibitory-replay-filter.md]]** — the same CA3 recurrent store with the inhibitory pool made plastic and made *informative*: here inhibition holds sparseness constant so the attractor's capacity formula applies, there its trained structure is a memory of which representations were unpredictable, read out during ripples. The two uses are compatible but nothing prices them together — a mask that varies across cells is a departure from the uniform sparseness the capacity bound assumes.
 - **[[wiki/concepts/pattern-separation-completion.md]]** — supplies the quantitative substrate for that page's transfer curve: separation is five named mechanisms with a capacity payoff `p_max ≈ kC/(a ln(1/a))`, and completion is relaxation in a network whose *diluted* recurrence is what makes the basins clean.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — fills in the missing return path: recall to cortex is a reverse hierarchy of pattern associators whose fan-out must satisfy `C^HBP = C^RC a_nc/a_CA3`, which is why the backprojection is polysynaptic and why cortex has as many back- as forward projections.
 - **[[wiki/concepts/energy-based-models.md]]** — the biological attractor priced: dilution is an energy-landscape argument (multi-synapse pairs distort the basins), and capacity is how many minima the landscape can hold before retrieval of *any* of them fails.

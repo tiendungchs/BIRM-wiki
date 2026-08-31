@@ -266,6 +266,7 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 
 ## Connections
 
+- **[[wiki/entities/inhibitory-replay-filter.md]]** — completion steered rather than merely triggered: which basins a random offline kick can reach is set by a learned inhibitory mask, so the same recurrent store returns different completions before and after the mask accumulates, and the pruning is of *edges between* stored items rather than of overlap within them.
 - **[[wiki/concepts/population-geometry.md]]** — the level at which the separation-vs-abstraction trade-off is actually decided: decorrelation for capacity and disentanglement for transfer were measured together in one hippocampal population and rose together, so a code can be expressive and abstract at once (T50).
 
 - **[[wiki/entities/medial-prefrontal-cortex.md]]** — carries this operation outside the hippocampus and indexes it by output port: prefrontal cells projecting to nucleus accumbens decorrelate their ensemble for the preferred social stimulus while amygdala-projecting cells in the same tissue do not, and the effect disappears in the session where the preference does — so the knob is set by the discrimination currently in demand (Lai et al. 2026).

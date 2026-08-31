@@ -152,6 +152,7 @@ If the brain approximates predictability with **frequency**, Go-CLS's most disti
 
 ## Connections
 
+- **[[wiki/entities/inhibitory-replay-filter.md]]** — the *which* to this page's *how much*, and it makes predictability the quantity in both: a symmetric spike-timing rule at inhibitory synapses accumulates suppression on representations whose co-active partners vary across episodes, so unpredictable content is excluded from the replay sample rather than being rationed within it — two independently derived filters keyed on the same statistic, one acting on the sample and one on the budget.
 - **[[wiki/entities/dinov3.md]]** — the teacher–student channel run along *time* rather than size: a checkpoint 800k iterations old, worse on the optimised metric and better on the eroded one, restores the eroded property in 10k steps — and the anchor is useful only within an age window, which is this page's interior optimum relocated from how much to transport to from when.
 
 
