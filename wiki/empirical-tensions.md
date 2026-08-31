@@ -319,4 +319,5 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T309 | Does a learned proposer beat blind enumeration, or only when the library is co-adapting? | `LIVE` | 5 | [[wiki/tensions/t309.md]] |
 | T310 | Does a frozen linear probe rank self-supervised representations? | `LEANING` | 8 | [[wiki/tensions/t310.md]] |
 | T311 | Is non-normality how a contractive linear recurrence holds information longer than its eigenvalues suggest? | `LEANING` | 3 | [[wiki/tensions/t311.md]] |
-| T312 | Is compositional generalisation one tunable scalar, or an irreducible facet vector? | `LIVE` | 3 | [[wiki/tensions/t312.md]] |
+| T312 | Is compositional generalisation one tunable scalar, or an irreducible facet vector? | `LIVE` | 5 | [[wiki/tensions/t312.md]] |
+| T313 | Do dopamine neurons respond to aversive events and to cues predicting them? | `LIVE` | 1 | [[wiki/tensions/t313.md]] |

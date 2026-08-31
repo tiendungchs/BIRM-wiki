@@ -20,7 +20,7 @@ One INGEST each:
 - [x] `orvieto-2023-linear-recurrent-unit.md` — sequence-models · M · 2023
 - [x] `lake-2018-scan-generalization-without-systematicity.md` — reasoning-eval · B · 2018
 - [x] `keysers-2020-cfq-measuring-compositional-generalization.md` — reasoning-eval · B · 2020
-- [ ] `schultz-1997-neural-substrate-prediction-reward.md` — plasticity · R · 1997 · **LOSSY** (pdf2md)
+- [x] `schultz-1997-neural-substrate-prediction-reward.md` — plasticity · R · 1997 · **LOSSY** (pdf2md)
 - [ ] `doeller-2010-human-grid-cells-memory-network.md` — hippocampal-entorhinal · R · 2010
 - [ ] `rigotti-2013-mixed-selectivity.md` — prefrontal-control · R · 2013
 - [ ] `boly-2017-ncc-front-or-back.md` — consciousness-global-workspace · R · 2017

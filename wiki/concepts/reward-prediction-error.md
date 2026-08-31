@@ -2,7 +2,7 @@
 
 **One broadcast scalar, `δ(t) = r(t) + γV(s(t)) − V(s(t−1))`, carrying the *sign* of how an outcome compared to its expectation and no address at all — consumed in the same instant as a plasticity term and as a gain on the units that happen to be active.**
 
-> **Provenance.** No single source; this page is a lint-pass synthesis of a quantity the wiki was using on 38 pages without a home. Primary material from Doya 2002 (`raw/doya-2002-metalearning-neuromodulation.md`), Gerfen & Surmeier 2011 (`raw/gerfen-2011-striatal-dopamine-modulation.md`), O'Reilly & Frank 2006 (`raw/oreilly-2006-making-working-memory-work.md`), Wang et al. 2018 (`raw/wang-2018-pfc-meta-rl-system.md`), Kable & Glimcher 2007 (`raw/kable-2007-subjective-value-intertemporal-choice.md`), Schultz et al. 1993/1997 as cited throughout.
+> **Provenance.** No single source; this page is a lint-pass synthesis of a quantity the wiki was using on 38 pages without a home. Primary material from Doya 2002 (`raw/doya-2002-metalearning-neuromodulation.md`), Gerfen & Surmeier 2011 (`raw/gerfen-2011-striatal-dopamine-modulation.md`), O'Reilly & Frank 2006 (`raw/oreilly-2006-making-working-memory-work.md`), Wang et al. 2018 (`raw/wang-2018-pfc-meta-rl-system.md`), Kable & Glimcher 2007 (`raw/kable-2007-subjective-value-intertemporal-choice.md`). The primary source for the firing record and for the temporal-difference reading of it is now in the wiki: Schultz, Dayan & Montague 1997, *A neural substrate of prediction and reward*, Science 275:1593–1599 (`raw/schultz-1997-neural-substrate-prediction-reward.md`) — a review of single-unit recordings in alert monkeys (ventral tegmental area and substantia nigra, 55–80% of neurons showing each response) paired with the model that reads them.
 
 Why this earns a page. The wiki's architectures do not disagree about the *formula* — they disagree about what the formula names, and the disagreement is invisible while `δ` is mentioned in passing on other pages. Four incompatible readings are in active use here simultaneously, and every one of them cashes out as a different wire in a built system.
 
@@ -25,11 +25,32 @@ Readings 1, 3 and 4 differ in *how the signal is computed* and agree on what it 
 
 | Observation | Under reading 1 | Under reading 2 |
 |---|---|---|
-| A substantial fraction of dopamine neurons **increase** firing to aversive stimuli and to cues predicting them | wrong sign for `r + γV(s′) − V(s)` | an aversive cue portends a predictable sensorimotor sequence, so it is precise |
+| A substantial fraction of dopamine neurons **increase** firing to aversive stimuli and to cues predicting them — *contested at the level of the record itself* ([[wiki/empirical-tensions.md]] T313): the primary source here reports air puffs and saline drops evoking no transient at all and "very few" neurons responding to aversive-predicting cues | wrong sign for `r + γV(s′) − V(s)` | an aversive cue portends a predictable sensorimotor sequence, so it is precise |
 | Dopamine neurons fire to cues predicting the future **availability of information** about a reward, conveying nothing about the reward itself | no reward term to be in error about | the cue announces that a contingency is about to become predictable |
 | Dopaminergic discharge covaries with the **variance** of juice rewards | second-order, outside the formula | precision *is* an inverse variance |
 
 And a mechanistic objection that is independent of any firing record: dopamine acts on G-protein-coupled receptors concentrated in glutamatergic dendritic spines, where it **modulates** a postsynaptic response and cannot excite one. A modulator cannot be the wire carrying an error's content; it can only scale a wire that does. Reading 1 survives this by locating the error in the *timing and magnitude* of a signal that is consumed as a plasticity gate — which is what the striatal mechanism above actually needs — but it means "dopamine encodes `δ`" is a claim about what the firing *reports*, never about what it *delivers*.
+
+---
+
+## What the signal needs upstream of itself
+
+The formula is cheap; the representation it is differenced over is not. Schultz, Dayan & Montague list four things a circuit must have to construct `δ`, and only three of them are anatomy:
+
+| Requirement | Proposed substrate |
+|---|---|
+| (i) access to a reward measure `r(t)` | reward afferents converging on the ventral tegmental area |
+| (ii) a signal measuring the *temporal derivative* of the ongoing prediction, `γV̂(t+1) − V̂(t)` | massively convergent cortical input, read as a "surprise" signal — convergence is what forces it to arrive as a **scalar** |
+| (iii) a site where (i) and (ii) are summed | the ventral tegmental area itself: output taken as the linear sum `δ(t) = r(t) + V̇(t)`, offset by a basal rate `b(t)` |
+| (iv) delivery of the sum to the structures constructing the prediction, in a form that controls plasticity | the widespread dopaminergic projection |
+
+**Requirement (ii) is the unbuilt one, and it hides a representational demand the wiki has never priced.** One adaptable weight per cue cannot reproduce the record: the same cue comes to predict reward at whatever delay it is trained on, and the omission dip lands *at the trained time*, so the system must represent **time since cue onset**, not merely cue presence. The model's fix is the complete serial compound — each cue becomes a vector `x(t) = {x₁(t), x₂(t), …}` where `xᵢ(t) = 1` exactly `i` steps after onset, each component carrying its own weight, with `V̂(t) = Σᵢ wᵢxᵢ(t)` and `Δwᵢ = α Σ_t xᵢ(t)δ(t)`. Learning then walks the weights backwards one delay-step per trial, which is what produces the burst's migration to the earliest cue.
+
+The authors' own concession is the load-bearing part: *"virtually nothing is known about how the brain represents a stimulus for substantial periods of time into the future; therefore, all temporal representations are underconstrained from a biological perspective."* This is **G77** (every high-performing temporal code needs a time origin nothing supplies) reaching value learning: the complete serial compound is a tapped delay line whose `t=0` is stamped by cue onset, so a system that cannot detect onset cannot learn *when*, only *whether*.
+
+**(brainstorm)** The wiki has two off-the-shelf substrates for a delay basis and neither has been wired to a `δ`: the frozen multi-horizon bank of [[wiki/entities/ms-ssm.md]] (fixed decay rates, content-driven mixture weights) and the fading-memory readout of a reservoir ([[wiki/entities/liquid-state-machine.md]]). Substituting either for the complete serial compound is a direct test of whether the migration signature survives a *non-orthogonal* temporal basis — and the two make opposite predictions about the omission dip's sharpness, since a decay bank blurs the trained time and a delay line does not.
+
+**Two predictions the model makes that the wiki has no result for.** (a) With several cues predicting the same reward, the phasic activation transfers to the **earliest consistent** cue. (b) After training on `light 1 → light 2 → reward`, omitting light 2 should produce a phasic **decrease at light 2's former time** — even though light 2 is neither reward nor the earliest cue. Prediction (b) is a direct discriminator for [[wiki/empirical-tensions.md]] T85: it is a dip at a *link in the chain*, which is what a chained value estimate has and a within-step Rescorla–Wagner pair has no obvious way to produce.
 
 ---
 
@@ -52,6 +73,8 @@ dopamine ↓ :  the mirror
 ## The address problem, and the two answers to it
 
 `δ` is diffuse and unaddressed. *Which* synapses move is decided entirely by which units the current input ensemble happened to drive.
+
+The authors state the cost themselves, and it is the sharpest version of it in the wiki: without the capacity to discriminate *which* stimulus was responsible for a fluctuation in a broadcast scalar, an agent may learn inappropriately — "it may learn to approach food when it is actually thirsty". Their proposed division of labour is not a fix but a partition: dopamine emits an efficient teaching signal carrying **no content about the appetitive event**, and *other* reward-processing structures analyse and discriminate what the event was, at the price of not being efficient teaching signals. A scalar-only architecture is therefore workable only while the scope of choices is small; realistic settings need vector signalling of reward *type* alongside the scalar error.
 
 This is the read of **G19** (no local rule is selective about what it writes) that biology actually implements: **the scalar carries the sign, the ensemble carries the address**, selectivity is in the conjunction, and the price is that a coincidentally-active ensemble is potentiated exactly as readily as a causal one.
 
@@ -88,6 +111,10 @@ So the same scalar is simultaneously (i) the outer-loop plasticity term that bui
 
 **(brainstorm)** This is the cleanest instance in the wiki of a quantity that is a *training signal* and a *runtime observation* at once, and it suggests a test nobody has run: train an agent with `δ` on the input channel, freeze it, and check whether the frozen policy's sensitivity to `δ` perturbation matches the animal's. If it does, the behavioural dopamine literature has been measuring the inference role and reading it as the learning role.
 
+**A third job, and it needs no policy at all.** The 1997 paper's smallest demonstration is a "creature" with two 200×200 retinae, three colour-sensitive units and **three weights** (`w_blue > w_green > w_red`, one per cue, learned from the reward each block contains). Because the creature can move its gaze, the one-step value `V(x,y)` becomes a *surface* over the arena, and `δ(t) = V(t+1) − V(t)` is read directly off the change in what it is looking at: shifting gaze toward blue emits a positive `δ`, shifting away a negative one. Action selection is then learned klinokinesis — keep the current action while `δ ≥ 0`, resample at random when `δ < 0` — which is enough to account for bee foraging under variable returns and to match human behaviour on card-choice tasks.
+
+**(brainstorm)** This is the cheapest actor in the wiki and it inverts the usual dependency: the *sensor's own movement* generates the temporal difference, so no policy, no action-value table and no rollout are needed — the value surface is probed by looking. The transferable trick for a reasoning system is that any module able to redirect its own input (attention, retrieval query, sub-goal proposal) can convert a scalar value estimate into a *gradient* over candidate moves without ever representing the candidates, at the cost of one wasted step per rejected direction. That is [[wiki/concepts/priority-map.md]]'s selection problem solved by hill-climbing rather than by comparison, and it is what makes `δ` an action signal and not only a learning signal.
+
 ---
 
 ## What a builder takes from this
@@ -107,6 +134,8 @@ So the same scalar is simultaneously (i) the outer-loop plasticity term that bui
 - **The kernel question is unadjudicated but no longer load-bearing.** Exponential `γ^k` and hyperbolic `A/(1+kD)` are behaviourally near-unidentifiable (the two-exponential sum fits as well as the hyperbola), and since the hyperbola *is* a mixture of exponentials, the two no longer imply different planning machinery — only a different number of value heads and a different read-out weighting — T141.
 - **The two-timescale confound has no experimental resolution outside simulation.** Every dopamine manipulation in the cited literature moves the plasticity role and the input role together.
 - **`δ` is measured, never certified.** Recording a signal that correlates with `r + γV(s′) − V(s)` does not establish that a downstream circuit consumes it as an error rather than as a gain — the same non-identifiability [[wiki/concepts/objective-identifiability.md]] states for objectives, applied to a scalar.
+- **The temporal basis `δ` is differenced over is unspecified in biology and hand-supplied in every model here.** The complete serial compound is a modeller's delay line; the record it explains (dip at the *trained* time, burst migrating to the earliest cue) requires *some* representation of time-since-cue, and no wiki architecture generates one it did not receive — G77.
+- **Two of the model's own predictions are still untested here**: transfer of the burst to the earliest consistent cue, and a dip at an *omitted intermediate cue*. The second is a chain test and would move T85.
 - **Nobody has read `γ_effective` off a trained network.** Kable & Glimcher's two-part psychometric–neurometric test (covariance *and* zero offset) is directly runnable on an artificial agent and would say whether the horizon the optimiser was given is the horizon the network learned.
 
 ---
@@ -128,4 +157,6 @@ So the same scalar is simultaneously (i) the outer-loop plasticity term that bui
 - **[[wiki/concepts/objective-identifiability.md]]** — why measuring this signal does not certify it: a recorded correlate of `r + γV(s′) − V(s)` is consistent with the downstream circuit consuming it as a gain, and no i.i.d. measurement separates the two.
 - **[[wiki/concepts/amortized-inference.md]]** — where this signal sits in the arbitration story: the model-free controller whose values it trains is the cached, cheap system, and the relative-uncertainty account decides when its output is trusted over a rollout.
 - **[[wiki/concepts/replay-prioritisation.md]]** — the same `δ` used as a *control* signal rather than a learning signal: `|δ|` selects which stored transition is fitted next, so a quantity this page tracks as dopaminergic teaching becomes a scheduler over the learner's own data.
+- **[[wiki/concepts/priority-map.md]]** — the same scalar used to *choose* rather than to learn: a creature that can redirect its own gaze reads `δ = V(t+1) − V(t)` off the change in what it looks at, so candidate directions are hill-climbed one at a time instead of being ranked on a map (Schultz, Dayan & Montague 1997's klinokinetic actor).
+- **[[wiki/entities/ms-ssm.md]]** — a frozen bank of fixed decay rates is the wiki's nearest substitute for the complete serial compound's delay line, so swapping it in tests whether the burst-migration signature survives a non-orthogonal, blurred temporal basis.
 - **[[wiki/concepts/multi-horizon-value-learning.md]]** — keeps this page's error term intact under a non-exponential kernel: each `δ_i = r + γ_i V_i(s′) − V_i(s)` is an ordinary temporal-difference error at its own horizon, and the time-inconsistent value appears only at read-out as `Σ_i w(γ_i)Q^{γ_i}` — so what a hyperbolic brain would need is many broadcast channels or one signal read with many decay rates, not a new learning rule.

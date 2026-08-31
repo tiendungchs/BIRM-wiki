@@ -88,7 +88,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `OPEN` | 7 | [[wiki/gaps/g074.md]] |
 | G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `OPEN` | 5 | [[wiki/gaps/g075.md]] |
 | G76 | A temporally coded output has no loss function | part | `PARTIAL` | 5 | [[wiki/gaps/g076.md]] |
-| G77 | Every high-performing temporal code in the wiki needs a time origin that nothing supplies | part | `OPEN` | 7 | [[wiki/gaps/g077.md]] |
+| G77 | Every high-performing temporal code in the wiki needs a time origin that nothing supplies | part | `OPEN` | 8 | [[wiki/gaps/g077.md]] |
 | G78 | Nothing sets a slow variable's time constant, and memory span is that time constant | part | `PARTIAL` | 6 | [[wiki/gaps/g078.md]] |
 | G80 | The wiki's most expressive per-parameter variable is the one nothing optimises | part | `PARTIAL` | 4 | [[wiki/gaps/g080.md]] |
 | G81 | No graph-discovery mechanism in the wiki estimates edges through an observation model | part | `OPEN` | 2 | [[wiki/gaps/g081.md]] |
