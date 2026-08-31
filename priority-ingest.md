@@ -7,7 +7,7 @@
 One INGEST each:
 
 - [x] `friston-2012-dopamine-affordance-active-inference.md` — active-inference · F · 2012
-- [ ] `mattar-2018-prioritized-memory-access.md` — memory-consolidation · F · 2018
+- [x] `mattar-2018-prioritized-memory-access.md` — memory-consolidation · F · 2018
 - [ ] `wang-2020-alignment-uniformity-hypersphere.md` — ssl-representation · F · 2020
 - [ ] `schlag-2021-linear-transformers-fast-weight-programmers.md` — sequence-models · F · 2021
 - [ ] `tian-2021-ssl-dynamics-without-contrastive-pairs.md` — ssl-representation · F · 2021

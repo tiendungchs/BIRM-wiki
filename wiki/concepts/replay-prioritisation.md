@@ -84,8 +84,80 @@ So "uniform" is not the neutral baseline it is treated as; it is *recency-window
 | **Novelty in observation space** | any novelty measure | the diversity problem, without stochasticity | Untested |
 | **Inverse visitation / cross-episode recurrence** | upsample the under-sampled, keep what recurs | the *transfer* objective, not the sample-efficiency one | Biology's demonstrated criterion ([[wiki/concepts/offline-replay.md]], [[wiki/concepts/recall-gated-consolidation.md]]); no machine implementation |
 | **Uniform coverage of arrivals** | reservoir, `min(n/t,1)` | catastrophic forgetting across tasks | Best rule measured in continual RL ([[wiki/entities/continual-dreamer.md]]) |
+| **Expected value of backup** | `Gain(s,a) × Need(s)` | the criterion `\|δ\|` is a proxy *for* — value of the update to behaviour, times how often the update will be used | Derived from first principles and validated against rodent replay, never run in a machine learner (Mattar & Daw 2018; section below) |
 
 **Hybrids are free.** Nothing stops sampling one fraction of each minibatch under one criterion and the rest under another — a straightforward answer to the arbitration problem [[wiki/concepts/offline-replay.md]] raises for the eight jobs it assigns to one substrate, and one nobody has run **(brainstorm)**.
+
+## The normative criterion: `EVB = Gain × Need`
+
+Mattar & Daw 2018 (`raw/mattar-2018-prioritized-memory-access.md`) ask the question this page's table samples heuristically: **what is the priority, if you derive it rather than propose it?** The unit of computation is one Bellman backup — pick a stored experience `e_k = (s_k, a_k, r_k, s'_k)` and apply the TD update to `Q(s_k,a_k)` off-policy. The utility of doing so is the extra return it buys.
+
+```
+EVB(s_k,a_k) = E_πnew[ Σ γⁱR_{t+i} | S_t=s ] − E_πold[ Σ γⁱR_{t+i} | S_t=s ]
+             = Need(s_k) × Gain(s_k,a_k)
+
+Gain(s_k,a_k) = Σ_a Q_πnew(s_k,a)·[ π_new(a|s_k) − π_old(a|s_k) ]
+Need(s_k)     = Σ_i γⁱ δ_{S_{t+i}, s_k}  =  μ_πold(s_k)        ← row s of (I − γT)⁻¹, i.e. the SR
+```
+
+The derivation is one rewriting: a backup can only pay off by *changing the policy at the target state*, and that payoff is collected once per future visit to that state. So a sum over all future timesteps factorises into (per-visit improvement) × (discounted expected visits).
+
+| Term | What it is | Where it points | Where the agent gets it |
+|---|---|---|---|
+| **Gain** | Improvement in expected return at `s_k` from the policy change the backup induces, evaluated under the *new* `Q` | **Behind** the agent after a surprise — value has to be pushed back to the predecessors where it changes a choice | Requires knowing the backup's effect **before** deciding to do it |
+| **Need** | Discounted count of expected future visits to `s_k` from the current state | **Ahead** of the agent — the states about to be used | Free: it is the [[wiki/concepts/successor-representation.md]] row for the current state; during sleep, the stationary distribution |
+
+**The product is a conjunction, not a sum.** A backup that changes behaviour at a state never to be revisited has zero utility; so does a backup at a high-traffic state that changes nothing. Both single-term criteria — `|δ|` (gain-like, no need) and inverse-visitation (need-like, no gain) — are the degenerate corners of this rule.
+
+### One operation, three phenomena
+
+Ordering backups by `EVB` in a grid-world, with no parameter fitting, reproduces the replay literature:
+
+| Which term dominates | Sequence produced | Matching recording |
+|---|---|---|
+| Gain, after an outcome | **Reverse**, from the agent back toward the start, depth-first (each backup makes its own predecessor the next-best backup) | Reverse SWR sequences at reward receipt (Foster & Wilson 2006; Ambrose et al. 2016) |
+| Need, before a run | **Forward**, from the agent toward the goal (an `n`-step backup extends to `n+1` and carries every preceding action) | Forward replay at the start of a run, initiation bias at the animal's location |
+| Need under the stationary distribution, agent absent | **Remote/offline**, concentrated on the rewarded arm of a T-maze | Sleep replay biased to rewarded regions (Ólafsdóttir et al. 2015) |
+
+This is the paper's central architectural claim (and the wiki's first branch-selection rule derived from expected return rather than proposed — `G15`): **planning, learning and consolidation are not three functions competing for one substrate — they are one operation (propagate value along the graph) whose direction is set by which of two terms is larger.** That is a direct, and partial, answer to the arbitration problem [[wiki/concepts/offline-replay.md]] raises: three of its eight jobs collapse into one scalar comparison.
+
+### Four places it separates from `|δ|` and from prioritised sweeping
+
+Prioritised sweeping triggers on any large prediction error and propagates backward, breadth-first. `EVB` differs in ways that are *measured*, not stipulated:
+
+| Prediction | `EVB` | `\|δ\|` / PS | Data |
+|---|---|---|---|
+| Reward **increase** at the end of a run | more reverse replay | more | Confirmed for both |
+| Reward **decrease** (to zero) at the end of a run | **less** reverse replay — the news is bad but no better action exists, so gain ≈ 0 | more (`\|δ\|` is symmetric) | Reverse replay *decreases* (Ambrose et al. 2016) — discriminating |
+| **Negative** outcome with an escape available (shock zone) | large gain: propagating it makes the agent stop going there | large | Replay extends toward a previously shocked track end the animal never enters (Wu et al. 2017) |
+| Direction and shape | forward **and** backward; extended sequences, because need channels the search along a trajectory | backward, breadth-first | Recorded sequences are extended and bidirectional |
+
+The reward-decrease row is the sharp one. `|δ|` cannot produce a *decrease* in replay from a large error; gain can, because gain is defined over policy change and not over surprise. **Surprise is a proxy for the value of a computation; it is not the value of a computation, and the sign asymmetry is where the proxy visibly fails.**
+
+### Familiarity: the two terms move in opposite directions
+
+| With experience | Gain | Need | Net observable |
+|---|---|---|---|
+| Prediction errors shrink, policy stabilises | **↓** | — | Fewer significant replay events overall (matches novel > familiar tracks) |
+| Behaviour crystallises onto a route | — | **↑ concentrated** | Conditional on an event occurring, well-travelled states participate *more* (matches dwell-time-dependent reactivation) |
+
+This dissolves an apparent inconsistency in the replay literature — reports of replay both increasing and decreasing with familiarity are measuring different dependent variables, one dominated by each term. It also yields an asymmetry with teeth for a builder: **only real experience updates need; replay updates only gain.** Replay is therefore self-extinguishing — it can consume the value of its own remaining computations but cannot manufacture new relevance. A buffer read policy built on this rule needs no separate annealing schedule.
+
+### What it does not supply
+
+- **Gain is not computable by the agent it is defined for.** It requires knowing how the backup will change the policy *before* choosing whether to run it. The paper is explicit that this is a normative bound, not a mechanism; a process model needs an approximation, and none is offered. Need has no such problem — it is the SR.
+- **Myopia.** `EVB` is per-backup and ignores that a backup can set up later, more valuable backups. The recursive gain that generates extended sequences is therefore an emergent by-product rather than something the objective prices.
+- **No uncertainty.** The simulated environments are deterministic and stationary, so nothing in the rule prices the *variance* of a value estimate — the term any real deliberation account needs, and the one the model's own predecessors (Daw et al. 2005) had.
+- **One scale.** Backups are single transitions; with temporally extended actions the prioritisation is claimed to carry over unchanged, over trajectories rather than states — asserted, not run ([[wiki/concepts/temporal-abstraction-options.md]]).
+- **A fixed budget.** 20 planning steps at each episode boundary, hand-set. The rule orders computations; it does not say how many to buy — `G15`'s *how deep* clause ([[wiki/architectural-gaps.md]]).
+
+### The machine translation nobody has run
+
+`p_i = |δ_i|` → `p_i = Gain_i × Need_i` is a drop-in replacement for the priority in this page's sum-tree, and **half of it is already free** in any agent maintaining a successor representation or a learned transition model. The other half is the obstacle: gain requires a counterfactual policy evaluation per candidate transition.
+
+**(brainstorm) Three cheap surrogates the paper's own simulations motivate.** (i) *Advantage gap* — approximate gain by `max(0, |δ_i| − [Q(s,a₁) − Q(s,a₂)])`, the amount by which the error exceeds the current margin between the top two actions; zero exactly when the update cannot flip the argmax, which reproduces the reward-decrease asymmetry at the cost of one comparison. (ii) *Softmax-shift* — under a `β`-softmax the policy change is `≈ β·π(a|s)(1−π(a|s))·δ`, so gain is `|δ|` gated by the target state's *policy entropy*: prioritise error at states where the agent is still undecided, deprioritise it where it is committed. This costs nothing and is the single-line version of the whole result. (iii) *Need from the buffer* — the SR row is estimable by counting how often stored successors of the current state appear downstream, so need is available even without a model.
+
+**(brainstorm) The sharper consequence for this wiki is that the two failure modes of `|δ|` have the same fix.** This page already notes that `|δ|` burns replay on *unlearnable* transitions, where error stays high forever. Gain kills those for free: an unlearnable transition's error is noise, so it does not systematically move the policy, so its gain is ≈ 0 in expectation even while `|δ|` is large. And need kills the *stale* transitions the aliasing regime accumulates. So `Gain × Need` is not merely a better prior — it is the criterion the derivative-of-error and staleness-bonus rows in the table above were each groping toward with one term.
 
 ## `(α, β)` is a two-knob family that contains the standard off-policy corrections
 
@@ -139,3 +211,7 @@ Schaul: surprise-prioritised sampling is a 2× speedup and a state of the art. K
 - **[[wiki/concepts/shortcut-learning.md]]** — the class-imbalanced MNIST result: error-driven sampling recovers most of the benefit of label-aware reweighting without knowing the labels, i.e. it counteracts a frequency-driven shortcut for free.
 - **[[wiki/concepts/continual-learning.md]]** — replay-buffer selection is the rehearsal family's central free parameter, and this page is the evidence that its setting can dominate the architecture it is attached to.
 - **[[wiki/concepts/amortized-inference.md]]** — the "where the cache is stale" replay criterion that page implies is exactly a staleness bonus, listed here as a zero-cost priority term nobody has run.
+- **[[wiki/concepts/successor-representation.md]]** — supplies half the normative priority for free: `Need(s_k)` *is* the SR row of the agent's current state, so any agent already caching `S` can compute the occupancy half of `EVB` at no cost, and the SR's own updates carry the same `EVB` as the corresponding value updates (Mattar & Daw 2018).
+- **[[wiki/concepts/simulation-based-planning.md]]** — the reframing that makes this page and that one the same question: planning *is* ordering Bellman backups over remembered experience, so a rollout policy and a buffer read policy are one object seen from two ends.
+- **[[wiki/concepts/temporal-abstraction-options.md]]** — the claimed but unrun extension of `Gain × Need`: prioritisation is asserted to carry over unchanged when the unit of backup is a temporally extended action rather than a single transition, which would make replay a search over options instead of over states.
+- **[[wiki/concepts/offline-replay.md]]** — a second, sharper relation: `EVB` collapses three of that page's eight jobs (planning, learning, consolidation) into one operation whose direction is set by which of two terms dominates, which is the only arbitration policy the wiki has for them.

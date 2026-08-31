@@ -165,6 +165,25 @@ The stated consequence: a powerful-but-biased learned evaluator is usable under 
 
 ---
 
+## Planning *is* scheduled learning from remembered experience
+
+Mattar & Daw 2018 dissolve the model-free/model-based framing this page opens with by making the unit of analysis the individual **Bellman backup** rather than the controller. A backup applied to the state the agent is in is model-free TD learning; the *same* backup applied to a remembered or simulated experience is planning; applied during rest, it is consolidation. The Dyna framing is old; the new content is that the three are then orderable by one derived quantity ([[wiki/concepts/replay-prioritisation.md]]):
+
+`EVB(s_k,a_k) = Gain(s_k,a_k) × Need(s_k)` — how much the update improves the policy at its target state, times how often that state will be visited.
+
+| What this changes for this page | Detail |
+|---|---|
+| **Rollout is not the primitive** | A forward `n`-step rollout is what you get when the *need* term dominates and each backup makes its own successor the next-best backup. Forward search is an emergent ordering, not a separate mechanism |
+| **Backward search is the same mechanism** | When *gain* dominates (after an unexpected outcome) the identical rule produces reverse, depth-first propagation toward predecessors — the direction is a term ratio, not a design decision |
+| **`G15`'s *which branch* clause gets a normative answer** | Branch choice is `argmax EVB` over stored transitions, computed from quantities an agent already maintains (`Q` and the successor representation). This is the first criterion in the wiki derived from expected return rather than proposed as a heuristic |
+| **Planning is also about what *not* to do** | Simulated: a backup fires at a shock zone *after* the shock, propagating the negative outcome so the agent stops approaching — and the corresponding rodent recording shows replay extending toward a shocked track end the animal never enters (Wu et al. 2017). A planner that only "finds paths to goals" has no account of this |
+
+**Where it stops.** `Gain` requires knowing a backup's effect on the policy before choosing to run it, so the rule is a normative bound, not a process model. It is myopic — it never prices a backup that is only worth doing because it enables a later one, which is exactly the multi-step lookahead a *planner over computations* would need. And the simulations fix a 20-backup budget by hand, so `G15`'s *how deep* clause is untouched.
+
+**(brainstorm) The interesting inversion is that this makes deliberation a meta-level instance of the same problem the page is about.** Choosing which computation to run next is itself a sequential decision problem over an internal state space, and `EVB` is its one-step-greedy solution. Taking that seriously predicts that the good version needs its own *rollout over computations* — i.e. the myopia limitation is not a simplification to be patched but the recursion the framing generates. A wiki-shaped test: does a two-step lookahead over backups (a backup chosen because it raises the gain of a second) beat greedy `EVB` on a sparse-reward chain, and does it produce longer replayed sequences? Nobody has run it, and it is cheap.
+
+---
+
 ## Open problems
 
 - **Learning the model without priors.** Everything above assumes a model exists; acquiring it *is* latent graph discovery.
@@ -187,6 +206,8 @@ The stated consequence: a powerful-but-biased learned evaluator is usable under 
 - **[[wiki/entities/continual-dreamer.md]]** — rollout used as a *training-data generator* rather than as a decision-time search: policy gradients are taken entirely inside imagination, which is where the 10× sample-efficiency advantage over a model-free rehearsal baseline comes from, and it makes the model's coverage of past environments the thing that has to be right.
 - **[[wiki/concepts/epistemic-value.md]]** — a representational requirement on the rollout, not a search heuristic: scoring a fixed action *plan* systematically undervalues an action whose worth depends on a response not yet chosen, and marginalising the same joint posterior into a *policy* `q(u_t|x_{t-1})` recovers within-horizon contingency for free.
 
+- **[[wiki/concepts/replay-prioritisation.md]]** — the same object from the other end: if planning is ordering Bellman backups over remembered experience, then a rollout policy and a replay-buffer read policy are one mechanism, and `Gain × Need` is the only version of it derived rather than proposed.
+- **[[wiki/concepts/offline-replay.md]]** — supplies the biological measurements that constrain the ordering rule above, and the counterweight: most replay is *not* about the imminent path, which is a direct load on the need term.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — simulation-based planning is the *use* half of LGD (path search over the discovered graph); LGD is the *discovery* half that planning presupposes.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — replay (backward, for consolidation) and preplay (forward, for planning) are the same hippocampal trajectory-generation machinery serving two functions.
 - **[[wiki/concepts/neuroscience-ai-transfer.md]]** — named as the area where transfer is still aspirational: the biology is suggestive, the mechanism guiding simulation unknown on both sides.

@@ -122,6 +122,21 @@ This is the wiki's cheapest answer to gap G28: the correction to policy contamin
 
 ---
 
+## The SR as a *scheduler*, not only a value cache
+
+Mattar & Daw 2018 give `S` a second job that costs nothing extra. The normative priority of any one Bellman backup factorises as `EVB(s_k,a_k) = Need(s_k) × Gain(s_k,a_k)`, and the need term is exactly the row of `(I − γT)⁻¹` indexed by the agent's current state — the discounted number of future visits to the backup's target ([[wiki/concepts/replay-prioritisation.md]]).
+
+| Consequence | Detail |
+|---|---|
+| **Half the priority is free** | Any agent already caching `S` for `v = Sr` can read the occupancy half of the priority off the same matrix; only the gain half needs new computation |
+| **Off-policy fallback** | Where the transition from the current state is unavailable (sleep, agent absent from the environment) need falls back to the MDP's stationary distribution — still a spectral property of `T` |
+| **The SR update is the same backup** | Under the paper's myopic approximation, updating an SR entry and updating the corresponding `Q` entry have *identical* `EVB`, because both implement the same Bellman backup — so replay scheduled for value learning is automatically scheduled correctly for map learning |
+| **Direction as a term ratio** | Need is largest ahead of the agent, gain largest behind it; the forward/reverse replay ratio is therefore a readout of `Need`-vs-`Gain` dominance, which is a second reading of this page's `ϒ` knob |
+
+**(brainstorm)** The third row is the strongest unifying claim available for the eight-job arbitration [[wiki/concepts/offline-replay.md]] raises. If the value-learning and map-learning schedules coincide *exactly* under a myopic objective, the split between them can only be produced by non-myopia — a backup worth doing because it enables later backups is a *map* investment, and it is precisely the term this objective drops. That makes the consolidation-vs-planning arbitration a statement about planning horizon over computations, not about which distribution to sample from.
+
+---
+
 ## Limits
 
 - **Policy dependence** (above), only partly repaired by the DR (whose optimality holds under linear-RL assumptions) and partly by symmetrizing the write rule (Keck et al. 2025) — which moves `P` toward uniform without ever reaching it, and inverts into a *cost* on non-reversible state spaces.
@@ -133,6 +148,7 @@ This is the wiki's cheapest answer to gap G28: the correction to policy contamin
 
 ## Connections
 
+- **[[wiki/concepts/replay-prioritisation.md]]** — this page's matrix is the *scheduler* for that page's buffer: `Need` in the normative priority `Gain × Need` is a row of `S`, so an SR-carrying agent gets the occupancy half of the optimal replay order for free (Mattar & Daw 2018).
 - **[[wiki/concepts/simulation-based-planning.md]]** — the cached-computation end of the planning spectrum: `v = Sr` replaces rollout with a matrix product, and the eigen-argument turns replanning under a moved reward into a re-read rather than a search.
 - **[[wiki/concepts/path-integration.md]]** — the same machinery in a different basis: action-dependent transition matrices share eigenvectors and differ only in eigenvalues, so integrating a path is adding eigenvalues.
 - **[[wiki/concepts/abstract-structural-codes.md]]** — a second, spectral derivation of grid-like codes: eigenvectors of a diffusion process over the state graph, with no periodicity assumed and no action algebra required.
