@@ -35,7 +35,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G21 | No mechanism composes the outputs of two specialized modules | part | `CONTESTED` | 14 | [[wiki/gaps/g021.md]] |
 | G22 | Nothing selects which compositions get built | part | `OPEN` | 6 | [[wiki/gaps/g022.md]] |
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `OPEN` | 15 | [[wiki/gaps/g023.md]] |
-| G24 | No principled planning horizon exists, even in the ideal agent | part | `CONTESTED` | 12 | [[wiki/gaps/g024.md]] |
+| G24 | No principled planning horizon exists, even in the ideal agent | part | `CONTESTED` | 13 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `OPEN` | 4 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 18 | [[wiki/gaps/g026.md]] |
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 29 | [[wiki/gaps/g027.md]] |

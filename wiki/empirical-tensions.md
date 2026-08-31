@@ -149,8 +149,8 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T137 | Is the subthalamic nucleus a threshold unit or an exponentiator? | `LEANING` | 2 | [[wiki/tensions/t137.md]] |
 | T138 | Does the separation/completion bias actually need a controller, or is a well-placed constant enough? | `LIVE` | 2 | [[wiki/tensions/t138.md]] |
 | T139 | What defines a behavioural segment boundary — predictive failure, or clustering under a smoothness prior? | `LIVE` | 2 | [[wiki/tensions/t139.md]] |
-| T140 | Is delay discounting one non-exponential valuation or two competing exponential systems? | `LEANING` | 2 | [[wiki/tensions/t140.md]] |
-| T141 | Is the brain's discount kernel exponential, or hyperbolic? | `LIVE` | 4 | [[wiki/tensions/t141.md]] |
+| T140 | Is delay discounting one non-exponential valuation or two competing exponential systems? | `LEANING` | 3 | [[wiki/tensions/t140.md]] |
+| T141 | Is the brain's discount kernel exponential, or hyperbolic? | `LIVE` | 5 | [[wiki/tensions/t141.md]] |
 | T142 | Should the world model and the policy be decoupled, or learned as one entangled model? | `LIVE` | 2 | [[wiki/tensions/t142.md]] |
 | T143 | How much of the world needs to be inside the model at all? | `LIVE` | 1 | [[wiki/tensions/t143.md]] |
 | T144 | Does a world model's prediction quality tell you how good a world model it is? | `LIVE` | 3 | [[wiki/tensions/t144.md]] |

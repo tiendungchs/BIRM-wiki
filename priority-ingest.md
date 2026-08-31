@@ -12,7 +12,7 @@ One INGEST each:
 - [x] `schlag-2021-linear-transformers-fast-weight-programmers.md` — sequence-models · F · 2021
 - [x] `tian-2021-ssl-dynamics-without-contrastive-pairs.md` — ssl-representation · F · 2021
 - [x] `falkenhainer-1989-structure-mapping-engine.md` — analogy-abstraction · M · 1989 · **LOSSY** (pdf2md)
-- [ ] `fedus-2019-hyperbolic-discounting-multiple-horizons.md` — rl-planning · M · 2019
+- [x] `fedus-2019-hyperbolic-discounting-multiple-horizons.md` — rl-planning · M · 2019
 - [ ] `geirhos-2020-error-consistency.md` — reasoning-eval · M · 2020
 - [ ] `chen-2021-simsiam.md` — ssl-representation · M · 2021
 - [ ] `ellis-2021-dreamcoder.md` — neurosymbolic · M · 2021
