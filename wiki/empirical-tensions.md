@@ -300,7 +300,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T290 | Is the human-unique lateralisation an adaptation for the functions that are lateralised, or a consequence of being large? | `LIVE` | 2 | [[wiki/tensions/t290.md]] |
 | T291 | When a model fails a capability test, has the capability been measured, or its deployment under one frame? | `LIVE` | 3 | [[wiki/tensions/t291.md]] |
 | T292 | The ape null on shared intentionality: is the representation absent, or present and undeployed? | `LIVE` | 3 | [[wiki/tensions/t292.md]] |
-| T293 | Does role-filler independence require the compound to preserve its constituents, or does an invertible conjunctive code with a scheduled unbinding step suffice? | `LIVE` | 3 | [[wiki/tensions/t293.md]] |
+| T293 | Does role-filler independence require the compound to preserve its constituents, or does an invertible conjunctive code with a scheduled unbinding step suffice? | `LIVE` | 4 | [[wiki/tensions/t293.md]] |
 | T294 | Is the human developmental lever an *extended* schedule or an *accelerated* one — and does the wiki's `G100` cite the wrong window? | `BOTH` | 2 | [[wiki/tensions/t294.md]] |
 | T295 | Do jumping spiders belong in the convergence census at all — and does the wiki's only source for them survive inspection? | `LEANING` | 1 | [[wiki/tensions/t295.md]] |
 | T296 | Does a sparse expert router have to be learned, or is a fixed random partition of the input enough? | `LIVE` | 4 | [[wiki/tensions/t296.md]] |

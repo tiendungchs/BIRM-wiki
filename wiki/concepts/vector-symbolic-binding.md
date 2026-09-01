@@ -25,7 +25,7 @@ A **compressed outer product**: the `n²` outer-product terms are summed along w
 | **Approximate inverse** | `a†_i = a_{−i mod n}` (a permutation), and `a† ⊛ (a ⊛ b) ≈ b` | Unbinding = decoding: the structure can be *read*, not only compared |
 | **Similarity-preserving** | `a ≈ a′ ⟹ a ⊛ b ≈ a′ ⊛ b` | Similar fillers in the same role stay similar after binding — this is what makes the dot product mean anything |
 | **Randomizing** | `a ⊛ b` is unlike both `a` and `b` | A bound pair does not collide with its own parts in the superposition |
-| **Preconditions** | elements i.i.d. `N(0, 1/n)`; `n` in the low thousands; normalise `⟨x⟩ = x/√(x·x)` after each superposition | The inverse and the dot-product statistics are asymptotic in `n`; below that, noise dominates |
+| **Preconditions** | elements i.i.d. `N(0, 1/n)`; `n` in the low thousands; normalise `⟨x⟩ = x/√(x·x)` after each superposition | The inverse and the dot-product statistics are asymptotic in `n`; below that, noise dominates — though the figure is a *decode-by-lookup* precondition and both directions have since been undercut: `D = 28` where nothing is unbound ([[wiki/entities/sigma-pi-reservoir.md]]), `N = 500` for a 630-combination product space where unbinding is done by iterative search ([[wiki/entities/resonator-network.md]]) |
 
 **The two Hummel & Biederman 1992 objections to conjunctive coding are answered separately.** Exponential growth is killed by the compression. Insensitivity to attribute structure is killed by similarity preservation — an HRR *is* a conjunctive code, just one whose similarity structure survives the conjunction.
 
@@ -72,6 +72,26 @@ Plain HRRs encode discrete structure. The `n`-th element of a sequence is `ONE^n
 2. **A continuous knob on graded similarity.** The blur/length-scale `l` sets how much two nearby positions overlap. [[wiki/entities/arc-vsa-solver.md]] measures the cost of not setting it: rule conditions over near-orthogonal colour vectors generalise strictly (100%), the same learner over overlapping shape codes abstracts *and* over-generalises (89%). Same mechanism, opposite sign, one fixed hyperparameter (G38, G40).
 
 **Limits.** The kernel is stationary — `k` depends on `x₁−x₂` only, so an SSP space has no place where similarity behaves differently, and no way to express that one region is more finely discriminated than another. Magnitudes are similarities and not counted symbols, which is a plausible reason the solver built on them fails ARC's counting and ordering tasks. And `Θ` and `l` are chosen, never fitted.
+
+---
+
+## A second binder, and the decode case this page had skipped
+
+> **Provenance.** Frady, Kent, Olshausen & Sommer 2020 (`raw/frady-2020-resonator-networks.md`); see [[wiki/entities/resonator-network.md]].
+
+**MAP (Multiply-Add-Permute)** is the cheap member of the family: atoms are bipolar `±1`, binding is the **Hadamard product** `s_i = x_i y_i`, and because a bipolar vector is its own inverse, **unbinding is the same operation as binding** — no `†`, no approximation in that step. Permutation `ρ` is a first-class third primitive rather than a convenience: it distributes over both `+` and `⊙`, it is non-commutative with binding (`x ⊙ ρ(y) ≠ y ⊙ ρ(x)`), and successive powers `ρ^d` index depth in a hierarchy or position in a sequence, so *ordinal position needs no role vocabulary at all*. And `1` (all ones) is a genuine identity element, which makes "no factor at this slot" expressible inside the algebra — a ragged tree's paths all become products of exactly `d_max` terms.
+
+**The decode statement above is incomplete.** `P ⊛ bite_agt† → jane + noise` works because the *role is known*. The queries that make a data structure worth having return products of unknown atoms:
+
+| Query | Returns | Unknown factors |
+|---|---|---|
+| "what fills role `R`?" | `filler + noise` | 1 — cleanup suffices |
+| "which path leads to `c`?" | `right ⊙ ρ(right) ⊙ ρ²(left) + noise` | 3 |
+| "what is in this scene?" | `Σ_o colour ⊙ shape ⊙ v ⊙ h` | 4 per object, count unknown |
+
+Cleanup against a codebook of *atoms* cannot read rows 2–3; it needs a codebook of every **combination**, which is `D^F` entries. This is why VSA applications had been confined to shallow structures. The fix is to factorize rather than enumerate — `F` coupled Hopfield cleanups whose estimates start as the superposition of whole codebooks and denoise each other, `O(F·N·D)` per iteration over a `D^F` space ([[wiki/entities/resonator-network.md]]). It buys the missing read direction and pays with the convergence guarantee: the coupled system has no Lyapunov function.
+
+**What this does to brainstorm 5 below.** "A vector-symbolic store plus an associative cleanup memory is a fast `M` supporting both similarity retrieval and slot-level query" is true only for single-unknown queries. The general read needs a *third* component — a factorizer — and with it the same store also answers queries whose key is not known in advance.
 
 ---
 
@@ -212,4 +232,5 @@ Every capacity statement above is statistical — order violations are dot-produ
 - **[[wiki/concepts/fast-weight-programming.md]]** — a second-order tensor-product store whose roles and fillers are *self-invented*: Smolensky's crosstalk theorems (3.1, 3.3) transfer intact to a linear-attention head, but the symbol table does not have to be supplied, since keys and values are emitted by trained projections — and the delta-rule write adds the operation the classical algebra lacks, correcting one binding without re-deriving the representation (Schlag et al. 2021).
 - **[[wiki/entities/sme.md]]** — the symbolic engine whose own authors proposed this page's move: §6.2.2 recasts the match-hypothesis graph as an excitation/inhibition network settled by relaxation, dropping the algorithm to `O(N²)` — so the disagreement with a code-based matcher is not search-vs-settling but hard-vs-soft structural consistency.
 - **[[wiki/concepts/tensor-product-representation.md]]** — the uncompressed ancestor this page's binder is a discard rule over, and the source of three things it lacks: an exact non-destructive inverse under linear independence alone, the **role decomposition** as an explicit design step (a positional role set is *less* faithful than a contextual one the moment two structures are superposed), and the annihilator obstruction that no dimension repairs (`G106`).
+- **[[wiki/entities/resonator-network.md]]** — the missing read operation: `†` requires a known key, so a query returning a product of several *unknown* atoms is a `D^F` search that this page's cleanup step cannot do, and a resonator solves it by holding every candidate for every factor in superposition — supplying at the same time the MAP binder (Hadamard, self-inverse) and `ρ`-powers as an ordinal code needing no role vocabulary (Frady et al. 2020).
 - **[[wiki/concepts/higher-order-interactions.md]]** — the discovery-side complement to this algebra: a simplex or a hyperedge is the analytic object for a relation among more than two elements, and this page's binder is the representational one — but every estimator in the wiki that *finds* structure (correlation, attention, co-activity, transition counts) returns pairs, so nothing produces the `n`-ary relations this algebra is built to hold (`G105`).
