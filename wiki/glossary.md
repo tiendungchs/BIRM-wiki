@@ -316,6 +316,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | ERM | Empirical Risk Minimization | Minimise mean loss over pooled training data — the default learning principle, and the one [[wiki/concepts/environment-invariance.md]] is stated against |
 | IRM | Invariant Risk Minimization | Find a representation whose optimal classifier is the same in every training environment; `IRMv1` is its one-penalty practical form (Arjovsky et al. 2019) |
 | ICP | Invariant Causal Prediction | Peters et al. 2016 — select the variable subset whose per-environment regression residuals are identically distributed; IRM's linear predecessor |
+| SCM | Structural Causal Model | A set of causal variables plus structural assignments `Xᵢ := fᵢ(PAᵢ, Uᵢ)` over a directed acyclic graph with a distribution on the noises; the only level of model that answers counterfactuals, because those need the `Uᵢ` fixed ([[wiki/concepts/causal-model-building.md]]) |
+| ICM | Independent Causal Mechanisms | The principle that each `P(Xᵢ\|PAᵢ)` is an autonomous module that neither informs nor influences the others ([[wiki/concepts/independent-causal-mechanisms.md]]). Not to be confused with ICP above |
+| SMS | Sparse Mechanism Shift | ICM's corollary: a small distribution change touches few factors in the causal factorization and many in every other, which makes sparsity-of-change a score over candidate factorizations |
+| ANM | Additive Noise Model | `Y = f(X) + V` with `X ⊥ V`; the function-class restriction that breaks cause/effect symmetry in the two-variable case, since such a distribution cannot be fit by an ANM in reverse (except linear `f` with Gaussian noise) |
+| PA / `PAᵢ` | PArents | The direct causes of `Xᵢ` in a causal graph — the variables its structural assignment reads from |
 | SEM | Structural Equation Model | A set of assignments `Xᵢ ← fᵢ(Pa(Xᵢ), Nᵢ)` with independent noises; environments are interventions on a shared SEM |
 | SGD | Stochastic Gradient Descent | |
 | BN | Batch Normalization | Per-feature standardisation over the minibatch. Load-bearing beyond optimisation here: it is an implicit cross-branch coupling and an implicit anti-collapse provision that appears in no coefficient count ([[wiki/concepts/representational-collapse.md]]) |

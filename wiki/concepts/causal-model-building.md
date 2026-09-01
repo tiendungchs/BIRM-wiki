@@ -19,6 +19,21 @@ Not every generative model is causal. A generative model assigns a probability d
 | Generative, weakly causal | DRAW: recurrent generation through an *attentional window*, "only a crude approximation to the true causal process of drawing with a pen"; generalizes from one example but "too broadly, in ways that are not especially human-like" | Partial one-shot transfer |
 | **Causal** | Bayesian Program Learning: a concept *is* a motor program — an abstract causal description of how to produce examples ([[wiki/entities/bayesian-program-learning.md]]) | Classification, generation, parsing, and generation of *new concepts*, from one example |
 
+### The ladder underneath the spectrum
+
+The causality literature prices the same spectrum by *which queries each level answers*, which is a sharper instrument than "degree of resemblance" (Schölkopf et al. 2021, adapting Peters et al. 2017):
+
+| Model level | Predict i.i.d. | Predict under intervention / shift | Answer counterfactuals | Physical insight | **Learnable from data** |
+|---|---|---|---|---|---|
+| Mechanistic / physical (coupled ODEs) | yes | yes | yes | yes | ? |
+| Structural causal model | yes | yes | yes | ? | ? |
+| Causal graphical model | yes | yes | **no** | ? | ? |
+| Statistical | yes | **no** | **no** | no | **yes** |
+
+Two readings this page needs. (1) **The last column is the whole problem.** Exactly one row is reliably learnable from observational data, and it is the row that answers only one query — so every step up the ladder is paid for with assumptions or with data of a different type, never with more of the same data. For a set of coupled ODEs `dx/dt = f(x)` written with the derivative alone on the left, the causal structure can be *read off* (which entries of `x(t)` determine which entries of `x(t+dt)`), but "a differential equation usually requires an intelligent human to come up with it" — which is the search-space argument below, arrived at from the modelling side.
+
+(2) **The causal-graphical / SCM boundary is the counterfactual, and the thing that separates them is the noise.** A causal graphical model is a distribution plus a graph whose edges are causal; intervening means disconnecting a node from its parents, fixing its value, and ancestrally sampling its children — that is enough for interventional queries and *not* for counterfactual ones. An SCM adds the structural assignments and a distribution over the `Uᵢ`, and a counterfactual requires **fixing the values of the noise variables** to what they were in the actual case. Many different `(f, U)` pairs represent the same conditional, so the SCM carries strictly more than the graph plus the distribution. This is the same requirement [[wiki/concepts/counterfactual-probing.md]] states as an execution trace, in the vocabulary of structural equations rather than of programs, and it says exactly what a wiki architecture must retain to be askable a counterfactual: not the graph, not the marginals, but **the per-instance noise draws**.
+
 **The transferable claim:** causality is a matter of degree and it is *paid for with training data of the right type*. The deep models above were trained without access to causal data (how characters are actually produced) and without any incentive to recover the true process — so the failure is attributed to the supervision signal, not to the architecture class. That is the training-data lever of [[wiki/concepts/shortcut-learning.md]], applied to the generative process rather than to the input distribution.
 
 ---
@@ -124,7 +139,8 @@ Recorded as gap G29. Note this is the wiki's third distinct argument that the ta
 
 ## Open problems
 
-- **No procedure grades causal fidelity.** The "causality spectrum" is stated with examples at each end and no measure in between, so "model A is more causal than model B" is currently a judgement call.
+- **No procedure grades causal fidelity.** The "causality spectrum" is stated with examples at each end and no measure in between, so "model A is more causal than model B" is currently a judgement call. The ladder above converts it into a *query checklist* (does the model answer interventional queries? counterfactual ones?) but not into a scalar, and the checklist can be passed by a model whose variables are wrong.
+- **A third definition of causal, orthogonal to both.** [[wiki/concepts/independent-causal-mechanisms.md]] scores a model neither by resemblance to the generative steps nor by invariance across environments, but by whether its factors can be *changed independently* — and its Sparse Mechanism Shift corollary is the only one of the three that can be evaluated on unlabelled non-stationary data.
 - **Causal data may be unavailable.** The character result depends on stroke-order data. For most domains the generative trace is not observable, and nothing says how much causal structure survives when only the products are seen.
 - **Discriminative causal-direction learning does not scale to hierarchies.** Data-driven causal-direction classifiers (Lopez-Paz et al. 2015) outperform prior methods on pairwise tasks, but "it is unclear how to apply the approach to inferring rich hierarchies of latent causal variables" — which is the only case the wiki cares about.
 - **Explanation vs. compression.** Model building is defined against prediction, but a model that explains is also one that compresses; nothing here separates the two, and [[wiki/concepts/universal-induction.md]] says the shortest program need not be the causal one (gap G26).
@@ -169,3 +185,4 @@ Recorded as gap G29. Note this is the wiki's third distinct argument that the ta
 - **[[wiki/concepts/environment-invariance.md]]** — the rival criterion for what makes a model causal: stability of the conditional across interventions rather than resemblance of its steps to the generative process, which is cheaper (no stroke-order data, only an environment partition) and strictly weaker (no parse, no generation, no new concepts).
 - **[[wiki/entities/dqn.md]]** — the primary source for this page's sample-efficiency row, and its strongest case that scale is not the missing ingredient: 460× the human's exposure, one network per game, and the games left unsolved are the ones needing a causal model rather than the ones needing more frames.
 - **[[wiki/entities/sme.md]]** — the wiki's one worked case of a causal model *built* rather than augmented by analogy: PHINEAS had no theory of heat flow, so the transferred qualitative process model is entirely candidate inferences, with the unmatched conducting medium retained as a skolem entity for later resolution.
+- **[[wiki/concepts/independent-causal-mechanisms.md]]** — the third rival criterion, and the one that prices this page's ladder: not resemblance and not invariance but *autonomy* of the factors, with the noise-fixing requirement that makes a structural causal model — rather than a causal graph — the minimum object a counterfactual can be asked of.

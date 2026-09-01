@@ -17,7 +17,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G3 | Nothing enforces path-consistency of `g` | part | `PARTIAL` | 13 | [[wiki/gaps/g003.md]] |
 | G4 | Vocabulary co-discovery at scale | part | `PARTIAL` | 23 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `PARTIAL` | 6 | [[wiki/gaps/g005.md]] |
-| G6 | Spurious edges survive training — and are the default, not the exception | part | `OPEN` | 5 | [[wiki/gaps/g006.md]] |
+| G6 | Spurious edges survive training — and are the default, not the exception | part | `OPEN` | 6 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `OPEN` | 4 | [[wiki/gaps/g007.md]] |
 | G8 | Rule reification has no implementation | part | `OPEN` | 9 | [[wiki/gaps/g008.md]] |
 | G9 | W is flat; there is no third tier | part | `PARTIAL` | 8 | [[wiki/gaps/g009.md]] |
@@ -28,7 +28,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 21 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `PARTIAL` | 23 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 19 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 41 | [[wiki/gaps/g017.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 42 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `PARTIAL` | 15 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `PARTIAL` | 1 | [[wiki/gaps/g020.md]] |
@@ -37,8 +37,8 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `OPEN` | 15 | [[wiki/gaps/g023.md]] |
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `CONTESTED` | 13 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `OPEN` | 4 | [[wiki/gaps/g025.md]] |
-| G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 18 | [[wiki/gaps/g026.md]] |
-| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 29 | [[wiki/gaps/g027.md]] |
+| G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 19 | [[wiki/gaps/g026.md]] |
+| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 30 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 16 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 5 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 19 | [[wiki/gaps/g030.md]] |

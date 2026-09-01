@@ -304,7 +304,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T294 | Is the human developmental lever an *extended* schedule or an *accelerated* one — and does the wiki's `G100` cite the wrong window? | `BOTH` | 2 | [[wiki/tensions/t294.md]] |
 | T295 | Do jumping spiders belong in the convergence census at all — and does the wiki's only source for them survive inspection? | `LEANING` | 1 | [[wiki/tensions/t295.md]] |
 | T296 | Does a sparse expert router have to be learned, or is a fixed random partition of the input enough? | `LIVE` | 3 | [[wiki/tensions/t296.md]] |
-| T297 | Is ordinary supervised learning causal or anticausal? | `LIVE` | 2 | [[wiki/tensions/t297.md]] |
+| T297 | Is ordinary supervised learning causal or anticausal? | `LIVE` | 3 | [[wiki/tensions/t297.md]] |
 | T298 | Should a discrete node be smoothed or differentiated exactly? | `LIVE` | 2 | [[wiki/tensions/t298.md]] |
 | T299 | Does prioritising replay by surprise speed learning up, or destroy it? | `LIVE` | 2 | [[wiki/tensions/t299.md]] |
 | T300 | Does added capacity buy robustness beyond what accuracy explains? | `LIVE` | 3 | [[wiki/tensions/t300.md]] |
