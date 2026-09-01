@@ -12,11 +12,11 @@ Why this earns a page rather than a paragraph: [[wiki/concepts/metacognitive-eff
 
 | Object | Definition |
 |---|---|
-| **Perfect calibration** | `P(Ŷ = Y | P̂ = p) = p ∀p ∈ [0,1]` — unachievable, and `P̂` continuous, so every practical measure bins |
+| **Perfect calibration** | `P(Ŷ = Y \| P̂ = p) = p ∀p ∈ [0,1]` — unachievable, and `P̂` continuous, so every practical measure bins |
 | Reliability diagram | `acc(B_m)` plotted against `conf(B_m)` over `M` equal-width confidence bins; the identity line is perfect. Shows no bin *masses*, so it cannot say how much of the data is calibrated |
-| **ECE** | `Σ_m (|B_m|/n)·|acc(B_m) − conf(B_m)|` — the `M`-term Riemann–Stieltjes sum of `E_P̂[ |P(Ŷ=Y|P̂=p) − p| ]`. The paper's primary metric, `M = 15` |
-| **MCE** | `max_m |acc(B_m) − conf(B_m)|` — the worst-case bin. **The authors report it as unreliable**: "very sensitive to the binning scheme and less suited for small test sets" |
-| NLL | `−Σ_i log π̂(y_i|x_i)`; minimised in expectation iff `π̂(Y|X) = π(Y|X)`, so it is an indirect calibration measure and the quantity training actually descends |
+| **ECE** | `Σ_m (\|B_m\|/n)·\|acc(B_m) − conf(B_m)\|` — the `M`-term Riemann–Stieltjes sum of `E_P̂[ \|P(Ŷ=Y\|P̂=p) − p\| ]`. The paper's primary metric, `M = 15` |
+| **MCE** | `max_m \|acc(B_m) − conf(B_m)\|` — the worst-case bin. **The authors report it as unreliable**: "very sensitive to the binning scheme and less suited for small test sets" |
+| NLL | `−Σ_i log π̂(y_i\|x_i)`; minimised in expectation iff `π̂(Y\|X) = π(Y\|X)`, so it is an indirect calibration measure and the quantity training actually descends |
 
 **ECE is an estimator with a free parameter and the wiki has been quoting calibration numbers without it.** `M` is a binning choice; MCE's instability across binning schemes is the same defect at its extreme (SST fine-grained TreeLSTM: temperature scaling improves ECE 6.71 → 2.56 while MCE *worsens* 27.85 → 44.75 on the same predictions). [[wiki/entities/hle.md]]'s RMS calibration error of 73–89% inherits this: a binned deviation statistic on 2,500 items with no stated bin count and no stated bin occupancies.
 

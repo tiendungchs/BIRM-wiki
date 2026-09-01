@@ -70,7 +70,7 @@ Two `κ_f` are tried:
 
 | `κ_f` | Definition | Cost |
 |---|---|---|
-| **Softmax response (SR)** | `max_j f(x|j)` — the largest output logit's softmax | **Zero.** One forward pass, already computed |
+| **Softmax response (SR)** | `max_j f(x\|j)` — the largest output logit's softmax | **Zero.** One forward pass, already computed |
 | **MC-dropout** | Minus the variance, across repeated dropout-perturbed forward passes, of the neuron for the most probable class (Gal & Ghahramani 2016) | `n` forward passes |
 
 | Result | Reading |
@@ -147,3 +147,4 @@ Two `κ_f` are tried:
 - **[[wiki/entities/esbn.md]]** — a match-strength signal read off the store's own addressing dot products (`c_k = σ(γ M_v·z + β)`) rather than from a calibration head — and its architectural substitute, a single learned default memory row, which makes the *mixedness* of a retrieval the familiarity signal.
 - **[[wiki/concepts/confidence-calibration.md]]** — the orthogonal complement of this page: temperature scaling changes every `κ_f` *value* and no `κ_f` *order*, so it collapses ECE ~10× and moves the risk–coverage curve by exactly nothing — which is why the raw, badly-miscalibrated max-softmax of these same architectures still sells a guarantee, and why `{T_c}` (bias) and `{θ_c}` (policy) are two fits on one per-class labelled sample.
 - **[[wiki/entities/prm800k.md]]** — the ingredient this page's `κ_f` would need to abstain *mid-derivation* rather than at the end: a per-step correctness probability, trained and validated on 800K human labels. No experiment there thresholds it for abstention — every use is reranking at full coverage — so the risk–coverage curve over reasoning *steps* is unmeasured, and the product reduction it does use is a soft veto with an unasked-for prior against long solutions.
+- **[[wiki/entities/arc-vsa-solver.md]]** — a `κ_f` already computed and never thresholded: the mean max-softmax over parse similarities is a confidence rate defined over *discretisations* rather than answers, so thresholding it abstains on "no available parse makes these demonstrations look like an object mapping" at zero extra cost.

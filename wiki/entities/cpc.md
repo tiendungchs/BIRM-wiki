@@ -18,8 +18,8 @@ L_N = − E_X [ log  f_k(x_{t+k}, c_t) / Σ_{x_j ∈ X} f_k(x_j, c_t) ]
 
 | Property | Statement |
 |---|---|
-| **What the optimum is** | `f_k ∝ p(x_{t+k}|c_t) / p(x_{t+k})` — a **density ratio**, unnormalised, and independent of `N`. Derived by writing the loss as the posterior over which sample is the positive |
-| **Why a ratio and not `p(x|c)`** | An image carries thousands of bits; the latent that matters carries ~10. Modelling `p(x|c)` spends capacity reconstructing detail and "often ignores the context `c`". The ratio is the smallest object that preserves `I(x;c)` |
+| **What the optimum is** | `f_k ∝ p(x_{t+k}\|c_t) / p(x_{t+k})` — a **density ratio**, unnormalised, and independent of `N`. Derived by writing the loss as the posterior over which sample is the positive |
+| **Why a ratio and not `p(x\|c)`** | An image carries thousands of bits; the latent that matters carries ~10. Modelling `p(x\|c)` spends capacity reconstructing detail and "often ignores the context `c`". The ratio is the smallest object that preserves `I(x;c)` |
 | **The bound** | `I(x_{t+k}; c_t) ≥ log N − L_N`, tighter as `N` grows. Minimising the loss maximises a lower bound on mutual information |
 | **Multi-step is the point** | Next-step prediction exploits local smoothness; at longer `k` the shared information is lower and only **slow features** (phonemes, intonation, objects, story line) survive to be predicted |
 
@@ -130,3 +130,4 @@ Excluding the current sequence costs 7.3 points when the negatives are also from
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the neuroscience the name is borrowed from, and the point where they part: predictive coding propagates a residual in observation space, CPC never computes one and scores a discrimination in latent space instead.
 - **[[wiki/concepts/learned-world-models.md]]** — the RL result as a claim about world models: a latent predictive loss added to a model-free agent improves 4 of 5 tasks and does nothing on the one that needs no memory, so the benefit is state-carrying rather than planning.
 - **[[wiki/entities/world-models-vmc.md]]** — the same finding with the predictive head kept and used: concatenating an MDN-RNN's recurrent state to a *linear* controller is worth 632 → 906 on CarRacing, so a latent predictive model pays as state rather than as search on both sides of the loss function (`T327`).
+- **[[wiki/concepts/working-memory.md]]** — where this page's RL result reads as a memory-demand detector: the auxiliary latent-predictive loss helps 4 of 5 DeepMind Lab tasks and does exactly nothing on the one whose optimal policy is purely reactive, so the gain measures how much of the task lives in the recurrent state.

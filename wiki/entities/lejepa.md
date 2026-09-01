@@ -4,7 +4,7 @@
 
 > **Provenance.** Balestriero & LeCun 2025, *LeJEPA: Provable and Scalable Self-Supervised Learning Without the Heuristics* (`raw/balestriero-2025-lejepa.md`), arXiv:2511.08544v3, Brown / NYU / Meta-FAIR. Code released. This is the **primary source for SIGReg**, which the wiki has carried since [[wiki/entities/lewm.md]] (Maes et al. 2026) — a downstream application by an overlapping author group, ingested first.
 
-Two things make this worth a page beyond "another JEPA". First, it is the wiki's only anti-collapse provision that begins with a *decision-theoretic derivation of the target* rather than with a mechanism that empirically avoids collapse. Second, it produces the instrument tensions **T164** and **T168** said nobody had: a **label-free scalar that ranks trained checkpoints by downstream quality**.
+Two things make this worth a page beyond "another JEPA". First, it is the wiki's only anti-collapse provision that begins with a *decision-theoretic derivation of the target* rather than with a mechanism that empirically avoids collapse. Second, it produces the instrument tensions **T164** and **T168** said nobody had: a **label-free scalar that ranks trained checkpoints by downstream quality** — the one partial answer standing against `G108`, which it does not close, because it ranks by linear-probe accuracy (an informativeness measure) rather than by any structural property of the representation, and because the ordering does not exist at all for the EMA lineage, whose two-timescale dynamics has no loss whose value would mean anything.
 
 ---
 

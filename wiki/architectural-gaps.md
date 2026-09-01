@@ -17,7 +17,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G3 | Nothing enforces path-consistency of `g` | part | `PARTIAL` | 13 | [[wiki/gaps/g003.md]] |
 | G4 | Vocabulary co-discovery at scale | part | `PARTIAL` | 24 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `PARTIAL` | 6 | [[wiki/gaps/g005.md]] |
-| G6 | Spurious edges survive training — and are the default, not the exception | part | `OPEN` | 7 | [[wiki/gaps/g006.md]] |
+| G6 | Spurious edges survive training — and are the default, not the exception | part | `OPEN` | 8 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `OPEN` | 4 | [[wiki/gaps/g007.md]] |
 | G8 | Rule reification has no implementation | part | `OPEN` | 9 | [[wiki/gaps/g008.md]] |
 | G9 | W is flat; there is no third tier | part | `PARTIAL` | 8 | [[wiki/gaps/g009.md]] |
@@ -118,7 +118,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `OPEN` | 4 | [[wiki/gaps/g105.md]] |
 | G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `OPEN` | 4 | [[wiki/gaps/g106.md]] |
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `OPEN` | 7 | [[wiki/gaps/g107.md]] |
-| G108 | No label-free criterion selects a good representation out of a training run | part | `OPEN` | 3 | [[wiki/gaps/g108.md]] |
+| G108 | No label-free criterion selects a good representation out of a training run | part | `OPEN` | 4 | [[wiki/gaps/g108.md]] |
 
 ## How gaps are used
 

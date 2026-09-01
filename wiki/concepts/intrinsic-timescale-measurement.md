@@ -13,7 +13,7 @@
 | **Epoch** | The task **foreperiod** — fixation or lever-hold before stimulus onset, ≥ 500 ms, no task stimulus. Same epoch for every area, so the comparison across labs is well posed |
 | **Binning** | Successive non-overlapping bins of `Δ = 50 ms` (results stable to ±20%) |
 | **Statistic** | `R(iΔ, jΔ) = Cov(N_i, N_j) / sqrt(Var(N_i) Var(N_j))`, with covariance and variance taken **across trials**, `N` = spike count in that bin |
-| **Fit** | `R(kΔ) = A [ exp(−kΔ/τ) + B ]`, `k = |i − j|`, fitted by Levenberg–Marquardt to **all neurons and all time pairs at once** — a population-level fit, not an average of per-neuron fits. Standard errors by delete-one jackknife |
+| **Fit** | `R(kΔ) = A [ exp(−kΔ/τ) + B ]`, `k = \|i − j\|`, fitted by Levenberg–Marquardt to **all neurons and all time pairs at once** — a population-level fit, not an average of per-neuron fits. Standard errors by delete-one jackknife |
 | **Lag onset** | Fitting starts at the lag of *maximum decrease* of the mean autocorrelation, discarding the short-lag dip caused by refractoriness and adaptation |
 | **Filters** | Every bin must have nonzero mean rate; trials restricted to the longest block whose total foreperiod spike count is statistically stationary, so slow session drift cannot manufacture autocorrelation |
 

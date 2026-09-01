@@ -102,6 +102,27 @@ fi
 UNCITED_T=$(uncited wiki/empirical-tensions.md T | wc -l | tr -d ' ')
 echo "S14 note      $UNCITED_T of $TENSIONS tension rows are cited by no page (tracked, not enforced)"
 
+# S18: S14 asks only that SOME page cites a gap. The stronger relation is
+# provenance: a gap's "## From" names the pages that carry it, and each of those
+# should cite the gap back. A page named in From that never says the id is a gap
+# whose own source page does not know it exists. Tracked, not enforced --
+# a From entry may name a page as context rather than as carrier.
+S18=$(python3 - <<'PYEOF'
+import re, glob, os
+n = 0
+for f in sorted(glob.glob('wiki/gaps/g*.md')):
+    rid = 'G' + str(int(re.sub(r'\D', '', os.path.basename(f))))
+    m = re.search(r'\n## From\n(.*?)(\n## |\Z)', open(f).read(), re.S)
+    if not m:
+        continue
+    for t in sorted(set(re.findall(r'wiki/(?:concepts|entities)/[a-z0-9-]+\.md', m.group(1)))):
+        if os.path.exists(t) and not re.search(r'\b' + rid + r'\b', open(t).read()):
+            n += 1
+print(n)
+PYEOF
+)
+echo "S18 note      $S18 gap From-edges where the named carrying page never cites the row (tracked, not enforced)"
+
 # S15: the queue must reconcile exactly against raw/. Every source file is either
 # ingested (- [x]), skipped at the gate (- [-]) or still pending (- [ ]); every queue entry has a file.
 SKIPPED=$(grep -c '^- \[-\]' _work/ingest-queue.md || true)
