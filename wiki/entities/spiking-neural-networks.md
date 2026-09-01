@@ -56,6 +56,27 @@ The limitation "weight optimization is the central open problem" resolves into f
 
 **Update: the surrogate-gradient row has since gone far past MNIST** (Wang et al. 2024, `raw/wang-2024-heterogeneous-snn-learning.md`; full treatment in [[wiki/concepts/neuronal-parameter-heterogeneity.md]]). HIFI — surrogate gradients through the spiking dynamics, no conversion anywhere — reports **95.98% CIFAR-10, 79.32% CIFAR-100 and 69.11% ImageNet at 4 time steps**, above every conversion baseline including QCFS (67.73% ImageNet at 32 steps), and its whole 2021–2024 comparison table (PLIF, Dspike, DSR, GLIF, TET, SLTT, Diet-SNN, OSR, TAB) is spike-native as well. The review's split is a 2019 statement and its "online track never leaves MNIST" half no longer holds ([[wiki/empirical-tensions.md]] T231). What survives of position B: surrogate-gradient BPTT is still **offline, non-local gradient descent** — spike-native in the forward pass, not in the credit assignment — so the row that separates *converted* from *learned in spikes* has moved, while the row separating *offline* from *online* has not.
 
+### The surrogate derivative, concretely
+
+> Kirsanov 2026, *The Smooth Lie That Makes Spikes Learn* (`raw/kirsanov-2026-surrogate-gradients-spikes.md`) — a secondary exposition; everything in this block is marked **(tentative)** where it is not already sourced elsewhere on this page.
+
+The substitution is confined to the backward pass; the forward pass keeps the true Heaviside and the spikes stay binary:
+
+```
+forward:   S = Θ(V − V_th)        ∂S/∂V = δ(V − V_th)      ← zero a.e., infinite at threshold
+backward:  ∂S/∂V  ←  1 / (1 + β|V − V_th|)²                ← "fast sigmoid" derivative
+```
+
+| Requirement on the substitute | Why |
+|---|---|
+| **Non-zero in a neighbourhood of `V_th`** | Otherwise the chain rule multiplies by zero and nothing reaches the upstream weights — the actual failure mode, since almost every input leaves the neuron away from threshold |
+| **Decays with `|V − V_th|`** | Neurons far from threshold should contribute weakly; `β` sets the width and is the only knob |
+| **Shape beyond those two** | Reported not to matter much — sigmoid, fast sigmoid, triangular all work **(tentative)** |
+
+**What the true derivative is actually right about.** With `V_th = −50 mV` and a forward pass reaching `−51 mV`, `∂S/∂w = 0` is correct: an *infinitesimal* weight nudge shifts `V` infinitesimally and no spike appears. The surrogate is not a better answer to that question — it answers a different one, about the **finite** step the optimizer will take. This is the cleanest statement of what the whole `τ`-family in [[wiki/concepts/discrete-relaxation-gradients.md]] buys: gradients are used as finite-step direction estimates, so an estimator matched to finite steps can beat the exact infinitesimal one **(brainstorm)**.
+
+**Where this sits among the wrong-backward-operator rules.** A surrogate gradient keeps the exact transposes `Wᵀ` — credit is routed through the true network graph — and falsifies only the *local scalar* derivative at each unit. Feedback alignment does the reverse: exact local derivatives, a random routing matrix `B`. The source offers feedback alignment as an a fortiori argument ("if random projections work, a slightly wrong derivative shape surely works"), and **the wiki's own evidence breaks the analogy**: feedback alignment is 22 top-1 points behind backpropagation on ImageNet and no target-propagation variant beats chance (Bartunov et al. 2018), while surrogate gradients hold the ImageNet spiking leaderboard (Wang et al. 2024). Both substitute a wrong backward operator; only the one that keeps the routing correct scales ([[wiki/concepts/biologically-plausible-credit-assignment.md]]).
+
 ---
 
 ## Making the unit's own constants parameters
@@ -255,4 +276,4 @@ The routes table above offers two ways to relate a rate network to a spiking one
 - **[[wiki/concepts/mean-field-reduction.md]]** — the escape route from this page's level, priced item by item: replacing the spiking population with its state density makes the dynamics linear and deterministic however chaotic the neurons are, at the cost of assuming afferent currents are uncorrelated, and the further collapse to a neural mass discards all coupling between moments while *gaining* a degree of freedom that makes chaos expressible. The reduction is a menu of trades, not a series of approximations to a ground truth (Deco et al. 2008).
 - **[[wiki/concepts/neuromodulatory-metaparameters.md]]** — why this substrate is where multi-modulator proposals are written: the effective control variable in striatum is a *phase relationship* between dopamine and acetylcholine waves, which a rate-coded network cannot express at all, and the reviewed conceptual model is accordingly a spiking actor–critic with an R-STDP third factor plus a surprise-triggered second modulator (Mei et al. 2025).
 - **[[wiki/entities/ch-hnn.md]]** — the substrate carrying the incremental half of a hybrid continual learner: 60.82% less power than the rate equivalent on a cycle-accurate Tianjic-class simulator, float32 → int8 at little cost, and a monotone benefit from neuron-model complexity (EIF > LIF > IF) at the task level — with the EIF's exponential term costing only 8.35–8.58% extra power via a look-up table.
-- **[[wiki/concepts/discrete-relaxation-gradients.md]]** — the same manoeuvre arrived at independently in another literature: this page's surrogate gradients smooth a threshold crossing exactly as Gumbel-Softmax smooths an argmax, which makes EventProp's exact event-based adjoint the dissenting position of [[wiki/empirical-tensions.md]] T298 rather than a spiking-specific detail.
+- **[[wiki/concepts/discrete-relaxation-gradients.md]]** — the same manoeuvre arrived at independently in another literature: this page's surrogate gradients smooth a threshold crossing exactly as Gumbel-Softmax smooths an argmax, which makes EventProp's exact event-based adjoint the dissenting position of [[wiki/empirical-tensions.md]] T298 rather than a spiking-specific detail. The general recipe stated there — replace the derivative and only the derivative — makes this page's fast-sigmoid `1/(1+β|V−V_th|)²` one instance of a five-literature family.
