@@ -99,7 +99,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G86 | Every architecture in the wiki tunes its stopping rule and its memory separately, and nothing couples them | part | `OPEN` | 1 | [[wiki/gaps/g086.md]] |
 | G87 | Nothing in the wiki has ever shown that a better representation of activity produces a better decision | part | `OPEN` | 1 | [[wiki/gaps/g087.md]] |
 | G88 | No architecture in the wiki has a direction of information flow that comes from its own weight matrix | arrangement | `OPEN` | 1 | [[wiki/gaps/g088.md]] |
-| G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `OPEN` | 3 | [[wiki/gaps/g089.md]] |
+| G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `OPEN` | 4 | [[wiki/gaps/g089.md]] |
 | G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `OPEN` | 7 | [[wiki/gaps/g090.md]] |
 | G91 | The wiki has no gate that learns what deserves to be broadcast, and no architecture in it has a discrete commit at all | arrangement | `OPEN` | 6 | [[wiki/gaps/g091.md]] |
 | G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `OPEN` | 1 | [[wiki/gaps/g092.md]] |
