@@ -178,7 +178,7 @@ The audit this page exists for.
 | Perception | **Outside the system.** "AutoToM currently requires a separate process to first fuse information from different modalities into text before inference" — MMToM-QA and MuMA-ToM use the fusion modules from their own papers, and the two cognitive studies were run on **hand-captioned frames** |
 | `α = 0.02`, `U_min = −0.693` | **Hand-set**, no sensitivity analysis |
 
-So the discovery is real but bounded: it is search over *which of an authored set of variables to instantiate, and over how long a window* — node-set selection within a given vocabulary, not vocabulary discovery. In the taxonomy of [[wiki/concepts/latent-graph-discovery.md]] this moves the *node set* and the *edge set* from supplied to inferred, while node types, edge semantics and the observation grounding stay supplied.
+So the discovery is real but bounded: it is search over *which of an authored set of variables to instantiate, and over how long a window* — node-set selection within a given vocabulary, not vocabulary discovery. That bound is what makes it the wiki's closest attempt at `G29` and not a closure of it: the search is algorithmic over an authored menu, so the structural ingredients themselves are still hand-designed. It is also the wiki's nearest thing to `G5`'s joint loop — the model is revised *while* the query is answered — but the revision is confined to instantiating menu items. In the taxonomy of [[wiki/concepts/latent-graph-discovery.md]] this moves the *node set* and the *edge set* from supplied to inferred, while node types, edge semantics and the observation grounding stay supplied.
 
 ---
 

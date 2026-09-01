@@ -78,6 +78,7 @@ Varying the number of sensory neurons against 64 arena positions, holding everyt
 
 | Limit | Consequence |
 |---|---|
+| **The emergent code is a property of the training target as much as of the task** | Which lattice appears is diagnosed from a weight constraint rather than from the navigation problem, and no control scrambles the target's structure while holding the task fixed — `G44`, and this model is the wiki's clearest instance of it |
 | **Grids are square/diamond, not hexagonal** | The canonical 6-fold symmetry never appeared. The paper's own diagnosis: non-negativity constraints on the entorhinal→hippocampal weights are what produce the 4-fold→6-fold transition elsewhere, and they were not imposed. Consistent with [[wiki/concepts/path-integration.md]] |
 | **No grid-phase diversity → no torus** | Because spatial offsets of the grid pattern do not vary across cells, the population never forms the toroidal manifold observed in recordings. This is audit item 5 failing: the *relational* population invariant, which is the one first-principles models actually predicted, is absent |
 | **Grid scale is not controlled** | Larger-scale grids appeared in 1 run of 20, gesturing at the dorsoventral scale gradient. What sets the scale is unknown |

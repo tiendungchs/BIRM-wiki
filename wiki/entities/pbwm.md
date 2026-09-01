@@ -103,6 +103,8 @@ Two stripes act as slots; the control input decides which slot an item is bound 
 | Three-phase settling (`−`, `+`, `++`) is imposed | Biologically it would need PFC updating to lag motor output by a fixed delay; the schedule is a modelling convenience |
 | Stripe topography of SNc dopamine is a prediction, untested | The paper concedes it would need parallel multi-stripe dopamine recordings; it may instead live in terminal release regulation |
 | Gating is binary and toggling | A Go both writes *and* discards what was there; there is no partial write and no separate erase, which is why exploration costs maintained information |
+| `δ` is consumed by the plasticity rule and by nothing else | The dopaminergic critic sets learning rates and never enters the PFC state as an observation, so the model cannot express the difference between a teacher that edited its weights and a teacher that told it something (`G57`) |
+| Credit reaches back one trial, through the critic's associations | The delay is absorbed at reward time by an offline-in-spirit association step rather than by a rule that is both online and long-reaching, which is `G20` seen from the architecture side |
 
 ## Comparison
 

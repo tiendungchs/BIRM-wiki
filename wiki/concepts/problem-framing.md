@@ -108,7 +108,7 @@ The last row is the gap. The nearest partial mechanisms the wiki holds are [[wik
 
 - **Nothing in the wiki constructs a representation** (gap G73). Every discovery result is discovery of structure *over a given variable set*.
 - **Nothing chooses a parse of the input either** (gap G75), which is the one framing decision that survives inside a format designed to fix the framing, and the one humans are observed making per task.
-- **No criterion decides that a framing is wrong**, as opposed to that a solution within it failed. A learner that cannot distinguish these will spend unbounded compute optimising inside a bad representation — which is the shape of every reported large-compute ARC failure.
+- **No criterion decides that a framing is wrong**, as opposed to that a solution within it failed — the framing-level instance of `G17`, and the harder one, since every certification instrument in the wiki is scored inside a framing that is handed to it. A learner that cannot distinguish these will spend unbounded compute optimising inside a bad representation — which is the shape of every reported large-compute ARC failure.
 - **The cost of a wrong attempt is unpriced everywhere** (gap G74). Every score in the wiki is obtained under free retries; no benchmark here reports first-attempt performance separately, except where exact-match scoring at `pass@2` forces it.
 - **The assumption dilemma has no calibration procedure.** How many regularity assumptions to install, and how to withdraw one that is failing, is stated as a trade-off and left unquantified.
 - **Goal specification in an unframed world.** The proposed benchmark requires measurable goal fulfilment in worlds nobody has represented, and no mechanism supplies it (G72).

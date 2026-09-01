@@ -159,7 +159,7 @@ Against which the same report reports the opposite: the two 2024 leaderboards di
 
 **A number conflict the wiki was carrying.** [[wiki/concepts/external-verification.md]] quotes ~**$30,000** per task for o3-high on this benchmark; the ARC Prize figures above give ~$3,460, and they are internally consistent (the high-compute run is reported as ~172× the low-compute run's $20). The order of magnitude is not settled here — both figures are second-hand and neither source states its accounting — so any argument that turns on the exact price should be read as turning on "thousands of dollars per task", which both support. Flagged rather than reconciled.
 
-Consequence for the wiki: every benchmark row here needs an inference-budget column, which is the same discipline [[wiki/concepts/external-verification.md]] extracts from the mathematics literature (report pass@1, majority@`k`, the selection mechanism, and the token budget).
+Consequence for the wiki: every benchmark row here needs an inference-budget column, which is the same discipline [[wiki/concepts/external-verification.md]] extracts from the mathematics literature (report pass@1, majority@`k`, the selection mechanism, and the token budget). That column is `G35`'s inference-time twin: nothing in the ARC record charges a solver for either the parameters it carries or the search it buys, so no score on this page is a two-part code.
 
 ---
 
@@ -207,7 +207,7 @@ Chollet frames ARC as a **program synthesis** benchmark, and sketches the solver
 3. Rank candidates by simplicity or learned likelihood — *not* by simplicity alone, since the shortest training-consistent program is the object his own `GD` argues against.
 4. Emit the top three.
 
-**Wiki reading.** Step 1 is gap G21 (compose the outputs of pre-installed modules) stated as an engineering deliverable rather than a developmental puzzle: the priors are not the problem, the *combinable program form* is. Step 2 is the meta-graph accumulating as a growing library — the same object as [[wiki/entities/bayesian-program-learning.md]]'s primitive library, but with the library to be discovered rather than authored. Step 3 concedes that selection by description length is insufficient and offers a *learned* prior over programs in its place, which is gap G26 (nothing selects hypotheses by structure rather than by length) receiving its first concrete, if under-specified, proposal.
+**Wiki reading.** No step names an arbitrator over *which* structure type a task is an instance of — the tasks span symmetry, counting, topology and object dynamics, and the solver is expected to find one program form for all of them (`G12`). Step 1 is gap G21 (compose the outputs of pre-installed modules) stated as an engineering deliverable rather than a developmental puzzle: the priors are not the problem, the *combinable program form* is. Step 2 is the meta-graph accumulating as a growing library — the same object as [[wiki/entities/bayesian-program-learning.md]]'s primitive library, but with the library to be discovered rather than authored. Step 3 concedes that selection by description length is insufficient and offers a *learned* prior over programs in its place, which is gap G26 (nothing selects hypotheses by structure rather than by length) receiving its first concrete, if under-specified, proposal.
 
 ---
 

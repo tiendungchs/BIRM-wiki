@@ -111,6 +111,7 @@ This retro-illuminates a measurement the wiki already holds: variance-HAG ([[wik
 | Limitation | Consequence |
 |---|---|
 | **Linear state dynamics throughout** | Every theorem is about `x_t = Wx_{t−1} + Vc_t`. Practical ESNs use `tanh`; nothing here transfers to them directly, and the empirical SCR results being "supported" (Rodan & Tiňo 2010; Wang et al. 2019) are nonlinear-reservoir results |
+| **The timescale structure is a design constant** | `k` cycles at fixed lengths are chosen before training; nothing in the construction says how many timescales the task needs or where the boundaries between them go, so the theorem buys universality and leaves `G67` exactly where it was |
 | **No rate** | Purely existential in `n'`: the constructions give a dimension for each `ε`, but no lower bound and no claim that `n'` is anywhere near minimal. `k > nm` is a *sufficient* replication count, and Remark 18 concedes it is typically much larger |
 | **`ε`-closeness is uniform over inputs but says nothing about learnability** | The readout is claimed trainable and is fitted in practice by ridge regression, but the theorem is about which functions are representable, not which are recoverable from finite data at a given conditioning of the `n'`-dimensional state |
 | **Universality is the weakest possible architectural virtue** | Precisely what this paper demonstrates: it holds for three visibly different designs at once, so it cannot be used to *choose* |

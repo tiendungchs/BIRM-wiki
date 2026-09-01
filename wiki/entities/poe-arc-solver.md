@@ -107,7 +107,7 @@ The Sudoku run is the cleanest statement of what PoE is doing. **When the correc
 
 ## Limitations
 
-- **The invariance group is authored**, and the theorem's guarantee is conditional on every `φ_j` being *valid*. On a task whose rule is not colour-permutation-invariant (counting, ordering, "green means go"), the veto rejects the truth. Nothing detects this; `Φ` is fixed by hand and the same for every task.
+- **This is the wiki's cleanest rejector, and its veto is only as good as its authored group** (`G68`): the product-of-experts test rejects a candidate on a criterion — invariance under `φ_j` — that is genuinely independent of the generator's likelihood, which is what makes it a rejection rather than a re-ranking. **The invariance group is authored**, and the theorem's guarantee is conditional on every `φ_j` being *valid*. On a task whose rule is not colour-permutation-invariant (counting, ordering, "green means go"), the veto rejects the truth. Nothing detects this; `Φ` is fixed by hand and the same for every task.
 - **`T` is a hyperparameter with no principled setting** — the sampling probability of the correct solution is unknown in advance, and the useful range (5–20%) was found on the public split, which is a developer-side prior on a developer-aware benchmark.
 - **Nothing accumulates.** Both LoRAs are discarded per task; G14 unchanged.
 - **The 11.7-point generate/select gap is unexplained.** No analysis of *which* tasks have the answer in `C_{p,T}` and lose it at selection, so it is not known whether the residue is ambiguous tasks (multiple defensible answers), invalid augmentations, or genuine selector error.

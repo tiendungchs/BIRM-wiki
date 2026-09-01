@@ -224,6 +224,7 @@ Sammons et al. 2023 asks the quantitative version of the mechanism question — 
 ## Open problems
 
 - **No arbitration policy across the jobs** above.
+- **The write filter is a selection over what is *replayed*, not over what is *written*.** Every criterion on this page runs offline on material a local rule already committed, so `G19` is not addressed by any of them — a shortcut coactivity written online is a candidate for replay like any other.
 - **Does plasticity run during replay?** Unstudied inside hippocampus; the review flags it as a critical knowledge gap and a major underexplored facet of consolidation.
 - **What segments the stream into sequences?** The trajectory an animal traces is 1D and therefore encodable as a sequence, but "the factors that determine the length of these sequences and how the brain chooses to segment this continuous trajectory into sequence snippets remain unknown" — the same hole [[wiki/concepts/event-segmentation.md]] and gap G27 describe, restated at the sequence level rather than the node level.
 - ~~**Is the inhibitory filter learned?**~~ **Answered for filter *content*** (Liao et al. 2024, [[wiki/entities/inhibitory-replay-filter.md]]): implanting a representation with unpredictable statistics makes it accumulate ripple suppression, so what is suppressed is written by experience. **Still open for filter *order*** — whether the inhibitory control of firing *sequence* within a ripple (Noguchi et al. 2022) evolves with learning is untouched, and no model runs both the order and the content mechanism together.

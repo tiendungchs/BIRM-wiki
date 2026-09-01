@@ -61,6 +61,8 @@ The design payload, and the most reusable part of the paper. Version 1 could usu
 
 **(brainstorm) Why the fourth axis is the interesting one.** Axes 1–3 are harder instances of what version 1 already asked. Axis 4 is a different demand: the solver must *install a temporary symbol table* from the demonstrations and then interpret the test grid under it. That is [[wiki/concepts/vector-symbolic-binding.md]]'s bind-and-retrieve with the binding pairs themselves inferred, and it is the only ARC axis for which "recombine core-knowledge priors" is plainly not a sufficient description of the competence — no rotation, count or topology operation constructs a *referential* relation. If a single mechanism is worth building against this benchmark, it is one that can allocate a fresh symbol, bind it to an observed regularity within the episode, and dereference it later.
 
+What the four axes do *not* supply is a computable difficulty score: they are a taxonomy an author applies by hand, so per-task difficulty is still asserted rather than predicted, and `G31` is untouched by the redesign.
+
 Also stated: version 2 tasks carry **more information content** — larger grids, more objects, more concepts per task — so "any attempt at compressing ARC-AGI-2 tasks would result in more bits per task". Relevant to [[wiki/concepts/prediction-compression-equivalence.md]]: the benchmark's difficulty is partly a description-length increase, which is measurable and which nobody has measured against solver scores.
 
 ---
@@ -69,7 +71,7 @@ Also stated: version 2 tasks carry **more information content** — larger grids
 
 **Starting with ARC-AGI-2, every ARC reporting line carries a cost-per-task figure**, and the public leaderboard is a 2×2 of score against cost per task. The stated rationale is the wiki's own: brute force could eventually solve any of this, and "intelligence is about finding the solution efficiently, not exhaustively".
 
-This is the first benchmark in the wiki to *institutionalize* the inference-budget column that [[wiki/empirical-tensions.md]] T204 says every score needs, and it retires half of that tension's methodological complaint — though not its empirical one, since nobody has still swept one method's budget across orders of magnitude.
+This is the first benchmark in the wiki to *institutionalize* the inference-budget column that [[wiki/empirical-tensions.md]] T204 says every score needs, and it is the closest anything comes to `G35` — the charge is levied on inference and still not on the solver's own parameters or pretraining, and it retires half of that tension's methodological complaint — though not its empirical one, since nobody has still swept one method's budget across orders of magnitude.
 
 The site page's own summary of the resulting curve: **"log-linear scaling is insufficient to beat ARC-AGI-2"** `(tentative)` — i.e. cost must fall by more than the score rises, which is a claim about the *slope* of the score-vs-spend curve rather than about any point on it.
 

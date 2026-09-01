@@ -214,11 +214,11 @@ The division-of-labour framing predicts the cortex should *drag down* episodic p
 |---|---|
 | Neocortex, slow, many episodes | Slow **W** ← meta-graph: transition structure shared across the environment family |
 | Hippocampus, fast, one episode | Fast **M** ← instance-graph: this task's particular topology |
-| Sparse conjunctive coding | De-aliasing (hardness source 3): the same observation at structurally distinct positions receives distinct codes |
+| Sparse conjunctive coding | De-aliasing (hardness source 3): the same observation at structurally distinct positions receives distinct codes — the state space that gets de-aliased is handed to every machine model by construction (`G2`) |
 | Replay / consolidation | The channel by which instance experience *becomes* meta-structure — no machine architecture in this ingest does this online (gap G14) |
 | One-shot encoding | Instantiation is **binding**, not learning: a schema's free slots filled in a single pass |
 
-**(brainstorm)** The wiki justifies the W/M split by sample complexity — nothing identifies a high-dimensional instance function from a handful of examples. CLS supplies an *independent* derivation of the same split from interference alone. Two unrelated arguments converging on one factorization is the strongest structural evidence the wiki currently holds that the split is not an arbitrary modelling choice.
+**(brainstorm)** The wiki justifies the W/M split by sample complexity — nothing identifies a high-dimensional instance function from a handful of examples. CLS supplies an *independent* derivation of the same split from interference alone. Two unrelated arguments converging on one factorization is the strongest structural evidence the wiki currently holds that the split is not an arbitrary modelling choice. What neither argument delivers is the factorization itself: both derive that there must be *two rates*, and every architecture in the wiki implements the split as a timescale difference rather than as a separation of variables (`G1`).
 
 ---
 
@@ -235,7 +235,7 @@ The division-of-labour framing predicts the cortex should *drag down* episodic p
 - **When to trust the fast system.** Episodic control wins early and loses late — measured, on 57 Atari games, as a crossing at ~40M frames against prioritised replay ([[wiki/entities/neural-episodic-control.md]]) — and nothing arbitrates the handover. **A staging answer that dissolves the question**: if the slow system's output is used as the *cue* for the fast system rather than as a rival answer, the integrated network beats both components on AB–AC (section 4 above), and no arbiter is needed. Untested outside one unpublished simulation.
 - **Nobody builds the decoder.** The fast store's read-out must itself be sparse and invertible or the interference removed at the encoder returns at the read-out (section 1 above). CLS models install this code by pretraining; how it develops, and what the machine equivalent is, is open.
 - **When does transport happen?** The standard answer is sleep. Rolls 2013 argues for *waking*: recall during waking retrieves the relevant memories under rational guidance, so only useful episodes seed semantic structure, whereas noise-driven stochastic firing in sleep risks consolidating confabulation — the dream argument. [[wiki/empirical-tensions.md]] T34.
-- **Capacity and generalisation are optimised by different models of the same tissue.** The most quantitative hippocampal model in the wiki ([[wiki/entities/rolls-treves-hippocampal-model.md]]) has no transfer story at all; the models with a transfer story state no capacity. Nothing has both.
+- **Capacity and generalisation are optimised by different models of the same tissue.** The most quantitative hippocampal model in the wiki ([[wiki/entities/rolls-treves-hippocampal-model.md]]) has no transfer story at all; the models with a transfer story state no capacity. Nothing has both. So no machine fast store on this page knows when it is full, and the handover question above has no occupancy term in it (`G42`).
 
 ---
 

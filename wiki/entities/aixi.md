@@ -106,6 +106,8 @@ From [[wiki/concepts/latent-graph-discovery.md]]. AIXI is the reference row of t
 | *Computability* | ✗ | ✓ at `2^{l̃}·t̃` per cycle plus `l_P·2^{l_P}` setup |
 | *Certifiable optimality* | ✗ (no active-case bounds) | ✗ (dominance is over *self-justifying* policies only) |
 
+This is the only row in the wiki that covers all six hardness sources, and it buys the coverage with uncomputability — which is `G13` stated at its limit: every tractable system drops sources, and none of them says which ones it is dropping or why. AIXItl keeps the coverage and the drop becomes a compute budget rather than a principle.
+
 Reading: the ceiling is not one wall but two. Uncomputability is the famous one; AIXItl removes it. **The absence of active-case guarantees is not removed by anything** — it is a property of the problem, and it is what makes the wiki's bounded, biased, biologically-derived architectures a legitimate response rather than a concession.
 
 ---

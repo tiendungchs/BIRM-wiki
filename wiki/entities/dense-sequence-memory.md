@@ -107,6 +107,7 @@ The `SeqNet` row of this table is the ≈50-step asymmetric-Hopfield baseline Ve
 | `MixedNet` analysis only at `τ = 1` | The variable-timing capacity — the thing the model exists for — is demonstrated numerically and derived only in the single-step-memory special case |
 | Bipartite form costs one hidden unit per stored pattern | Capacity is linear in total neurons; the exponential scaling is a statement about the visible layer only, i.e. about how much can be packed *per feature neuron*, not per synapse |
 | Fixed-point capacity only | Basin sizes, noise robustness and probability of *converging* to the next pattern from a perturbed state are not addressed — the paper flags these as the harder open definitions |
+| Capacity is a design-time formula, not a run-time reading | `α*` is derived from `N` and the interaction exponent before anything is stored; nothing in the running store reports its own occupancy, so no write can be refused on the basis of it (`G42`) |
 
 ---
 

@@ -55,6 +55,8 @@ The reason this source is worth its length. Both directions of "structured repre
 
 **(brainstorm)** The pairing is the interesting part. Together they say the linear world model is neither necessary nor sufficient for the behaviour, and that its *presence* tracks the presence of branching in the task distribution rather than performance. That is a cheap, task-side prediction the wiki can carry: **branching factor in the training distribution, not scale, is what forces a graph estimate into the weights.** A curriculum knob rather than an architectural one.
 
+This is the wiki's primary measurement of `G10`: the intermediate node is decodable at 0.83–0.99 and the step taken from it still leaves the graph, so the unreliability is not a representation deficit that a better probe or a bigger encoder would fix.
+
 And the failure profile is legible in the framing's own vocabulary: the models are near-perfect on *goal identification* (`path_end`, target reached ≈100%) and worst on `first_path_choice` — the single token where a path must be *selected* rather than continued. The graph is recovered, the goal is recovered, and what fails is the **search** between them.
 
 ---

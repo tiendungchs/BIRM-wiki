@@ -72,7 +72,7 @@ Train on `w_a·L_align(α=2) + w_u·L_uniform(t=2)` alone — no softmax, no neg
 
 ## The trade-off is causal, and it has a degenerate end
 
-- **Inverted-U over the weight ratio** (STL-10 sweep): both properties are necessary. When `w_a ≫ w_u` the encoder collapses outright (`exp L_uniform = 1`, all inputs to one vector). Quality is otherwise **insensitive while the ratio stays below ≈4** — a flat coefficient region of the same character as Barlow Twins' 10× flat `λ`.
+- **Inverted-U over the weight ratio** (STL-10 sweep): both properties are necessary. When `w_a ≫ w_u` the encoder collapses outright (`exp L_uniform = 1`, all inputs to one vector) — `G34` made a one-dimensional sweep, with uniformity as the explicit price paid to keep the objective's cheapest solution off the table. Quality is otherwise **insensitive while the ratio stays below ≈4** — a flat coefficient region of the same character as Barlow Twins' 10× flat `λ`.
 - **Fine-tuning trajectories establish causation, not correlation.** Start from an encoder trained at a deliberately bad `τ = 2.5`; fine-tune on `L_align` only → alignment improves, uniformity *and accuracy* degrade; on `L_uniform` only → the mirror image; on both → both metrics and accuracy rise together. Metric and quality move together under intervention, which no correlational study over checkpoints establishes.
 
 ---

@@ -124,7 +124,7 @@ A variant converting 3-D observations to symbolic states is reported to perform 
 
 | Claim | Strength |
 |---|---|
-| **A hierarchical prior turns habituation into a conjugate update** | Strong within the domain. Dirichlet–categorical conjugacy makes "learn this agent's preference from 8 trials" exact and free; no gradient step, no replay, no capacity spent |
+| **A hierarchical prior turns habituation into a conjugate update** | Strong within the domain. Dirichlet–categorical conjugacy makes "learn this agent's preference from 8 trials" exact and free; no gradient step, no replay, no capacity spent. This is the wiki's one clean case of `G1`'s two levels as an actual *factorization* — population prior and per-agent latent are separate variables, not a fast and a slow weight — and it is bought by hand-authoring both |
 | **Per-entity latents solve what per-frame prediction cannot** | Strong, by the Multi-Agent dissociation: 99.2 vs. ~48–50 |
 | **Structured priors beat minimal-bias learners on infant intuitions** | Real but unmatched — the structured model is handed the state space (above) |
 | **Interpretability is a design payoff** | Asserted; the promised qualitative analysis (posterior reversion on a new agent, habituation to an irrational agent) was never published |

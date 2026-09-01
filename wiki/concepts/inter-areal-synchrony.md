@@ -118,7 +118,7 @@ Three rules follow, and they generalise past this experiment.
 
 ## Open problems
 
-- **No content decoding.** Every measure here is a correlation of *amounts*; none states what is on the wire. The wiki's standing gap (G52) is untouched — a context label, a gain signal and an episodic sample all produce coherence.
+- **No content decoding**, and it is what makes `G54` unresolvable from this literature: the measures cannot say whether a coupled pair is transporting a representation or only aligning windows, so the two channel types the gap asks a builder to separate are indistinguishable in the evidence. Every measure here is a correlation of *amounts*; none states what is on the wire. The wiki's standing gap (G52) is untouched — a context label, a gain signal and an episodic sample all produce coherence.
 - **Locking to future phases is unexplained.** Prefrontal cells lock on average to *past* hippocampal theta phases (consistent with monosynaptic drive), but some lock to future ones, which no mechanism in the source accounts for.
 - **The theta relay is inferred, never demonstrated.** Septum, ventral hippocampus, reuniens and lateral entorhinal cortex are all candidates; the experiment — inactivate each, measure the surviving coupling — has not been run.
 - **Direction of the human effects is unstable.** Load-dependent connectivity goes both ways across studies, and in disease the same circuit shows reduced *positive* connectivity in some studies and increased *negative* connectivity in others, so the sign of the human measure is not a reliable constraint on a model.

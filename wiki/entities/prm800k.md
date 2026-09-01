@@ -86,7 +86,7 @@ Uesato et al. 2022 found process and outcome supervision reached **similar** fin
 
 | Limitation | Consequence |
 |---|---|
-| Generator never trained with the RM | The paper measures a **selector**, not a reasoner — Position A of [[wiki/empirical-tensions.md]] T180 by construction |
+| Generator never trained with the RM | The paper measures a **selector**, not a reasoner — Position A of [[wiki/empirical-tensions.md]] T180 by construction. It is also the wiki's largest rejector: 800K human step labels buy a correctness criterion the generator does not hold, which is `G68` paid for in annotation rather than in architecture |
 | One domain, one dataset | The alignment-tax and process-margin claims are MATH-only; the authors state generalisation is unknown |
 | MATH test contamination unquantifiable | String-matching decontamination of MathMix only; the argument against it is indirect (low generator pass-rates, OOD replication) |
 | Labellers had ground-truth final answers | Step labels are conditioned on knowing the destination — the annotator is doing backward reasoning the PRM must learn to do forward |

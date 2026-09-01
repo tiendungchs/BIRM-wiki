@@ -25,7 +25,7 @@ C_ij  =  Σ_b z^A_{b,i} z^B_{b,j}  /  sqrt( Σ_b (z^A_{b,i})² · Σ_b (z^B_{b,j
 | Augmentations | BYOL's set verbatim (crop, resize 224², flip, colour jitter, grayscale, blur, solarisation) |
 | Optimisation | LARS, 1000 epochs, batch 2048 (works at 256), lr 0.2 / 0.0048 (biases+BN), 10-epoch warmup, cosine decay ÷1000, weight decay `1.5e−6`, `λ = 5e−3`. 32 V100 × 124 h (their BYOL reimplementation: 113 h) |
 
-**Why it cannot collapse, stated as a fact about the matrix rather than about the dynamics:** a constant encoder gives an undefined/degenerate `C` after batch standardisation, and any rank-deficient embedding puts mass on off-diagonal entries. The minimum of `L_BT` is `C = I`, which *is* a full-rank decorrelated embedding. Nothing about the optimiser is invoked ([[wiki/empirical-tensions.md]] T164 position A, in its cleanest form).
+**Why it cannot collapse (`G34`), stated as a fact about the matrix rather than about the dynamics:** a constant encoder gives an undefined/degenerate `C` after batch standardisation, and any rank-deficient embedding puts mass on off-diagonal entries. The minimum of `L_BT` is `C = I`, which *is* a full-rank decorrelated embedding. Nothing about the optimiser is invoked ([[wiki/empirical-tensions.md]] T164 position A, in its cleanest form).
 
 **Information-bottleneck reading** (the paper's Appendix A): find `Z` maximally informative about the sample and minimally informative about the distortion applied; `λ` **is** the IB trade-off parameter. InfoNCE has no such parameter, only a temperature.
 

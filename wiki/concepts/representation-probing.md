@@ -77,7 +77,7 @@ It is the generative twin of the input-side counterfactual row: both return a *g
 
 The finding that makes this a concept page rather than a methods note. In the maze setting, both implications fail:
 
-- **Representation ⇏ competence.** A model whose residual stream reconstructs the maze at ≥0.93 for most cells still emits paths that cross walls (13–16% of rollouts in distribution; 62% for the smaller model out of distribution), while reaching the target ≈100% of the time.
+- **Representation ⇏ competence.** A model whose residual stream reconstructs the maze at ≥0.93 for most cells still emits paths that cross walls (13–16% of rollouts in distribution; 62% for the smaller model out of distribution), while reaching the target ≈100% of the time. This is the measurement `G10` is built on: the intermediate node is decodable and the step taken from it is still off-graph, so the unreliability is downstream of the representation and no better probe closes it.
 - **Competence ⇏ representation.** A model trained on corridor mazes solves them without ever acquiring a linearly decodable maze representation — the world model shows up when the task distribution contains forks.
 
 | Consequence | Statement |

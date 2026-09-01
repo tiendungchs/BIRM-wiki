@@ -16,7 +16,7 @@
 | **Optimiser** | plain **SGD**, base `lr = 0.05 × BatchSize/256`, cosine decay, wd `1e-4` applied to BN scales and biases too, momentum 0.9; batch **256** default |
 | **Kept at the end** | backbone only |
 
-Twelve lines of PyTorch. The entire anti-collapse provision is `z = z.detach()` inside the distance function.
+Twelve lines of PyTorch. The entire anti-collapse provision is `z = z.detach()` inside the distance function — the cheapest known payment against `G34`, and one with no term in the loss at all.
 
 ---
 

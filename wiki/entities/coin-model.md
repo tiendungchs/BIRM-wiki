@@ -82,7 +82,7 @@ Reaching movements against a robotic manipulandum; velocity-dependent curl field
 - **No composition between contexts.** Contexts are exchangeable atoms sharing only a transition prior; there is no factorization letting a new context be described as an edit of an old one.
 - **7–8 free parameters fit per participant**, including the granularity hyperparameters `γ`, `α`, `κ`. The knobs that decide how many memories exist are set by the experimenter's fitting procedure.
 - **Particle learning, not a neural implementation.** The paper offers the proper/apparent decomposition as a *framework* for studying neural bases, and no circuit.
-- **Cue alphabet is given**, and in the experiments a cue is a target location — discovering what counts as a context cue is untouched.
+- **Cue alphabet is given**, and in the experiments a cue is a target location — discovering what counts as a context cue is untouched. Together with the fitted granularity hyperparameters this is `G27`: the discretisation into contexts is what the model is *about*, and both its alphabet and its grain are supplied.
 - **Small n** (8, 8, 24) with strong within-participant designs; the model comparison is decisive per-participant for 6/8, not 8/8.
 
 ---

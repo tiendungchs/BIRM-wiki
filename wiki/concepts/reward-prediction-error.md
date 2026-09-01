@@ -130,7 +130,7 @@ So the same scalar is simultaneously (i) the outer-loop plasticity term that bui
 
 ## Open problems
 
-- **No architecture in the wiki couples gain and plasticity to one scalar.** The mechanism is documented in detail on [[wiki/entities/basal-ganglia.md]] and implemented nowhere, so its predicted instability has never been observed either way.
+- **No architecture in the wiki couples gain and plasticity to one scalar** (`G64`). The mechanism is documented in detail on [[wiki/entities/basal-ganglia.md]] and implemented nowhere, so its predicted instability has never been observed either way.
 - **The kernel question is unadjudicated but no longer load-bearing.** Exponential `γ^k` and hyperbolic `A/(1+kD)` are behaviourally near-unidentifiable (the two-exponential sum fits as well as the hyperbola), and since the hyperbola *is* a mixture of exponentials, the two no longer imply different planning machinery — only a different number of value heads and a different read-out weighting — T141.
 - **The two-timescale confound has no experimental resolution outside simulation.** Every dopamine manipulation in the cited literature moves the plasticity role and the input role together.
 - **`δ` is measured, never certified.** Recording a signal that correlates with `r + γV(s′) − V(s)` does not establish that a downstream circuit consumes it as an error rather than as a gain — the same non-identifiability [[wiki/concepts/objective-identifiability.md]] states for objectives, applied to a scalar.

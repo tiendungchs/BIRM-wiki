@@ -75,6 +75,7 @@ AFS is a local approximation to a **perturbation** experiment (APS): inject Gaus
 | Parameters grow **quadratically** in the number of tasks (units linearly) | The expansion family's standing objection; the AFS audit says the capacity is not used, so it is a pruning problem rather than a hard bound |
 | **Choosing the column at inference requires the task label** | The same failure CN-DPM later prices: storage is solved, retrieval is not (gap G37). Progressive nets do not even attempt the gate |
 | Transfer analysis is post-hoc and diagnostic | Nothing in the architecture reads AFS and acts on it — no pruning, no growth decision, no source-column selection |
+| A column is added whole, at a task boundary supplied from outside | This is the closest thing in the wiki to a growth schedule and it is not one (`G100`): capacity arrives in one step, at a moment the environment names, and the new column starts unconditioned by anything except the frozen features it can read |
 | Every result is A3C on Atari / Labyrinth, transfer scored by area under the learning curve | Scores learning *speed*, not final competence; and no out-of-distribution test in the sense of G17 |
 
 ---
