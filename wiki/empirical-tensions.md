@@ -189,8 +189,8 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T177 | Does long-range capability come from the architecture or from the initialisation? | `LIVE` | 4 | [[wiki/tensions/t177.md]] |
 | T178 | Should a multiscale temporal decomposition be imposed on a sequence model, or left for a deep stack to discover? | `LIVE` | 1 | [[wiki/tensions/t178.md]] |
 | T179 | Is short path length between positions why long-range dependencies become learnable? | `LEANING` | 3 | [[wiki/tensions/t179.md]] |
-| T180 | Does verifier-driven test-time search buy reasoning, or only selection? | `LIVE` | 2 | [[wiki/tensions/t180.md]] |
-| T181 | Is a more accurate verifier always a better verifier? | `LEANING` | 1 | [[wiki/tensions/t181.md]] |
+| T180 | Does verifier-driven test-time search buy reasoning, or only selection? | `LIVE` | 3 | [[wiki/tensions/t180.md]] |
+| T181 | Is a more accurate verifier always a better verifier? | `LEANING` | 2 | [[wiki/tensions/t181.md]] |
 | T183 | Is theory of mind recursive inference, or a fixed point? | `LIVE` | 4 | [[wiki/tensions/t183.md]] |
 | T185 | Does structural similarity influence memory *access*, or only evaluation after access? | `LIVE` | 2 | [[wiki/tensions/t185.md]] |
 | T186 | To make role structure readable by a dot product, do you need the *content* of the neighbouring roles or only their *labels*? | `LIVE` | 2 | [[wiki/tensions/t186.md]] |
@@ -227,7 +227,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T217 | Does conditioning on a self-generated intermediate trace help or hurt? | `LEANING` | 6 | [[wiki/tensions/t217.md]] |
 | T218 | Is normalised exact match an adequate acceptance test? | `LEANING` | 4 | [[wiki/tensions/t218.md]] |
 | T219 | What is a scaling extrapolation evidence for? | `LEANING` | 3 | [[wiki/tensions/t219.md]] |
-| T220 | Is best-of-`k` monotone in `k`? | `LEANING` | 4 | [[wiki/tensions/t220.md]] |
+| T220 | Is best-of-`k` monotone in `k`? | `LEANING` | 5 | [[wiki/tensions/t220.md]] |
 | T221 | Is expert domain knowledge "crystallized" in the sense that excludes it from an intelligence measure? | `LIVE` | 5 | [[wiki/tensions/t221.md]] |
 | T222 | Does keeping the evaluation set permanently private solve contamination? | `LIVE` | 7 | [[wiki/tensions/t222.md]] |
 | T223 | Does a cross-lingual score gap measure the model's reasoning, or the harness's answer extraction? | `LIVE` | 5 | [[wiki/tensions/t223.md]] |
