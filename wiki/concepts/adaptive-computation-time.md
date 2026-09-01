@@ -54,7 +54,28 @@ Two structural facts follow that no prose summary of ACT states. **The halting u
 
 The pattern across the first four: **ACT converts a statically-presented problem into a sequential algorithm the architecture could not otherwise express.** The parity network without ACT has an unused recurrent connection and is a one-hidden-layer feedforward net; with ACT the same weights implement an iterative procedure. Higher `τ` does not simply mean *worse* — it appears to force chunking (compute the parity of larger blocks per step, learn composite truth tables), and on addition it improved sample efficiency.
 
-Two negative results deserve equal weight. **Sort buys accuracy at a 9× compute premium** — the only task where the exchange rate is reported and it is bad. **Language modelling gains nothing**, which is the honest ceiling on the claim: where the per-input computational demand is roughly uniform, a per-input budget has nothing to allocate.
+Two negative results deserve equal weight. **Sort buys accuracy at a 9× compute premium** — the only task where the exchange rate is reported and it is bad. **Language modelling gains nothing**, which is the honest ceiling on the claim: where the per-input computational demand is roughly uniform, a per-input budget has nothing to allocate. The second is contested — [[wiki/entities/universal-transformer.md]] reports 319 → 142 perplexity on LAMBADA from the same mechanism, against fixed-depth controls at its own average depth ([[wiki/empirical-tensions.md]] T321).
+
+---
+
+## The per-position variant, and what changes
+
+[[wiki/entities/universal-transformer.md]] (Dehghani et al. 2019) attaches this halting rule to each *position* of a depth-recurrent Transformer rather than to each input step of an RNN. Halted positions copy their state forward until every position halts or `max_steps` is hit. Four differences worth holding separately from Graves's version:
+
+| | Graves 2016 (this page) | Universal Transformer |
+|---|---|---|
+| Halting granularity | per input step | **per position**, `m` independent halting units per step |
+| Stop pressure | ponder penalty `τ` in the loss | a **bare threshold** hyper-parameter plus `max_steps`; no `τ` in the released implementation |
+| What the recurrent step can read | fixed-size state vector only | the **whole previous layer**, via self-attention |
+| Effect on accuracy | neutral-to-positive; LM neutral, sort 9× premium | **improves** — bAbI 0.47 → 0.29 joint error, LAMBADA 319 → 142 perplexity, MT *degrades* slightly |
+
+Three results this adds that no experiment here could produce:
+
+- **Ponder time scales with a counted ground-truth quantity.** Mean steps 2.3 ± 0.8 / 3.1 ± 1.1 / 3.8 ± 2.2 for bAbI questions requiring 1 / 2 / 3 supporting facts. This page's Wikipedia analysis showed ponder tracks *reducible structure*; that shows it tracks **number of inference hops**, which is the reading [[wiki/concepts/latent-graph-discovery.md]] needs and the closest thing in the wiki to a hop counter that was never supervised.
+- **The budget is spent on suppression as much as on thinking.** On 3-fact tasks (longest stories, most distractors) most positions halt at step 1–2 and a few run long; on 1-fact tasks the ponder histogram is uniform. Allocating compute *away* from a position is how irrelevant facts get dropped.
+- **The depth-matched control.** Fixed 8- and 9-step models (202 / 239 ppl) lose to a dynamic model averaging 8.2 steps (142), so the gain is not extra depth. The authors' explanation is that halting acts as a **regulariser**, not as an allocator — a different mechanism, and if it is the right one then the forward-looking-statistic reading above is over-attributed (T321).
+
+Note what does *not* change: the exchange rate is still an external constant. `τ` has become a threshold, unswept and without a reported sensitivity analysis, so `G107` survives the substitution intact.
 
 ---
 
@@ -100,6 +121,7 @@ The addition and sort traces are the sharpest thing here for this wiki: **the al
 
 ## Connections
 
+- **[[wiki/entities/universal-transformer.md]]** — this mechanism moved onto a depth-recurrent Transformer and made *per position*, where it improves accuracy rather than trading it (bAbI 0.47 → 0.29, LAMBADA 319 → 142 against fixed-depth controls at 202/239) and where its stop pressure is a bare threshold rather than a ponder penalty; it also supplies the measurement this page lacks, ponder time scaling 2.3/3.1/3.8 with the number of supporting facts a question requires.
 - **[[wiki/concepts/evidence-accumulation.md]]** — the same commit/keep-going decision with the stopping variable swapped: MSPRT thresholds a *normalised log-posterior over enumerated alternatives* and is asymptotically optimal at that; ACT thresholds a *cumulative halting mass* that is trained toward the downstream loss and requires no enumeration, so it applies where the options do not exist yet — and it pays for that by having no optimality claim, no error-rate guarantee, and a hand-set price on time where the accumulator has a hand-set threshold.
 - **[[wiki/concepts/event-segmentation.md]]** — supplies a boundary detector whose threshold is *learned*: ponder time rises at word, clause and sentence boundaries in raw character streams and stays flat on random digits, so segmentation falls out of a compute-allocation objective rather than out of a monitor over predictive encodings, and it separates structure from noise where prediction error and entropy do not.
 - **[[wiki/concepts/external-verification.md]]** — the differentiable answer to that page's named open control problem (adaptive test-time compute allocation): a halting unit trained end-to-end against `L + τP` allocates per input with no verifier, no sampling and no reranking — and inherits the complementary weakness, since nothing checks that the extra computation was *right*, only that it changed the state.

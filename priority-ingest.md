@@ -16,7 +16,7 @@ One INGEST each:
 - [x] `graves-2016-adaptive-computation-time.md` — sequence-models · M · 2016
 - [x] `geifman-2017-selective-classification.md` — reasoning-eval · M · 2017
 - [x] `oord-2018-contrastive-predictive-coding.md` — ssl-representation · M · 2018
-- [ ] `dehghani-2019-universal-transformers.md` — sequence-models · M · 2019
+- [x] `dehghani-2019-universal-transformers.md` — sequence-models · M · 2019
 - [ ] `goyal-2019-recurrent-independent-mechanisms.md` — world-models · M · 2019
 - [ ] `frady-2020-resonator-networks.md` — neurosymbolic · M · 2020
 - [ ] `webb-2021-emergent-symbols-external-memory.md` — neurosymbolic · M · 2021

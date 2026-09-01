@@ -117,7 +117,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `OPEN` | 4 | [[wiki/gaps/g104.md]] |
 | G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `OPEN` | 3 | [[wiki/gaps/g105.md]] |
 | G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `OPEN` | 3 | [[wiki/gaps/g106.md]] |
-| G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `OPEN` | 5 | [[wiki/gaps/g107.md]] |
+| G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `OPEN` | 6 | [[wiki/gaps/g107.md]] |
 
 ## How gaps are used
 
