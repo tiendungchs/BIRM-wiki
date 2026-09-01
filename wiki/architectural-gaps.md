@@ -12,7 +12,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 
 | # | Gap | Kind | Status | Cited by | Detail |
 |---|---|---|---|---|---|
-| G1 | Two-level separation exists as a timescale split, not as a factorization | part | `PARTIAL` | 16 | [[wiki/gaps/g001.md]] |
+| G1 | Two-level separation exists as a timescale split, not as a factorization | part | `PARTIAL` | 18 | [[wiki/gaps/g001.md]] |
 | G2 | De-aliasing without a hand-built state space | part | `PARTIAL` | 12 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `PARTIAL` | 13 | [[wiki/gaps/g003.md]] |
 | G4 | Vocabulary co-discovery at scale | part | `PARTIAL` | 24 | [[wiki/gaps/g004.md]] |
@@ -28,7 +28,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 21 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `PARTIAL` | 23 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 20 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 43 | [[wiki/gaps/g017.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 44 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `PARTIAL` | 15 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `PARTIAL` | 1 | [[wiki/gaps/g020.md]] |
@@ -80,13 +80,13 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G66 | No sampler draws training pairs with respect to the quantity being learned | part | `OPEN` | 5 | [[wiki/gaps/g066.md]] |
 | G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `OPEN` | 12 | [[wiki/gaps/g067.md]] |
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `OPEN` | 12 | [[wiki/gaps/g068.md]] |
-| G69 | No architecture creates variables on demand | part | `PARTIAL` | 8 | [[wiki/gaps/g069.md]] |
+| G69 | No architecture creates variables on demand | part | `PARTIAL` | 9 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `OPEN` | 7 | [[wiki/gaps/g070.md]] |
 | G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `OPEN` | 1 | [[wiki/gaps/g071.md]] |
 | G72 | Nothing infers what counts as success | part | `OPEN` | 6 | [[wiki/gaps/g072.md]] |
 | G73 | Nothing constructs a problem representation; every architecture is handed one | part | `OPEN` | 10 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `OPEN` | 7 | [[wiki/gaps/g074.md]] |
-| G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `OPEN` | 6 | [[wiki/gaps/g075.md]] |
+| G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `OPEN` | 7 | [[wiki/gaps/g075.md]] |
 | G76 | A temporally coded output has no loss function | part | `PARTIAL` | 5 | [[wiki/gaps/g076.md]] |
 | G77 | Every high-performing temporal code in the wiki needs a time origin that nothing supplies | part | `OPEN` | 8 | [[wiki/gaps/g077.md]] |
 | G78 | Nothing sets a slow variable's time constant, and memory span is that time constant | part | `PARTIAL` | 6 | [[wiki/gaps/g078.md]] |
@@ -114,9 +114,9 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `OPEN` | 2 | [[wiki/gaps/g101.md]] |
 | G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `OPEN` | 1 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `OPEN` | 1 | [[wiki/gaps/g103.md]] |
-| G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `OPEN` | 5 | [[wiki/gaps/g104.md]] |
-| G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `OPEN` | 3 | [[wiki/gaps/g105.md]] |
-| G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `OPEN` | 3 | [[wiki/gaps/g106.md]] |
+| G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `PARTIAL` | 6 | [[wiki/gaps/g104.md]] |
+| G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `OPEN` | 4 | [[wiki/gaps/g105.md]] |
+| G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `OPEN` | 4 | [[wiki/gaps/g106.md]] |
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `OPEN` | 7 | [[wiki/gaps/g107.md]] |
 
 ## How gaps are used

@@ -219,7 +219,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T209 | Should an efficiency metric charge for thinking? | `LIVE` | 1 | [[wiki/tensions/t209.md]] |
 | T210 | What does a super-human score on an abstraction benchmark denote? | `LEANING` | 3 | [[wiki/tensions/t210.md]] |
 | T211 | Should an intelligence benchmark equalise human priors, or withhold them? | `LIVE` | 2 | [[wiki/tensions/t211.md]] |
-| T212 | Does an LLM's demonstrated analogy competence extend to the ARC domain, or is it bound to the presentation format? | `LIVE` | 1 | [[wiki/tensions/t212.md]] |
+| T212 | Does an LLM's demonstrated analogy competence extend to the ARC domain, or is it bound to the presentation format? | `LIVE` | 2 | [[wiki/tensions/t212.md]] |
 | T213 | What is the human baseline on ARC-AGI-1? | `RESOLVED/LIVE` | 4 | [[wiki/tensions/t213.md]] |
 | T214 | What is the human baseline on ConceptARC? | `RESOLVED/LIVE` | 3 | [[wiki/tensions/t214.md]] |
 | T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `LEANING` | 3 | [[wiki/tensions/t215.md]] |
@@ -300,7 +300,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T290 | Is the human-unique lateralisation an adaptation for the functions that are lateralised, or a consequence of being large? | `LIVE` | 2 | [[wiki/tensions/t290.md]] |
 | T291 | When a model fails a capability test, has the capability been measured, or its deployment under one frame? | `LIVE` | 3 | [[wiki/tensions/t291.md]] |
 | T292 | The ape null on shared intentionality: is the representation absent, or present and undeployed? | `LIVE` | 3 | [[wiki/tensions/t292.md]] |
-| T293 | Does role-filler independence require the compound to preserve its constituents, or does an invertible conjunctive code with a scheduled unbinding step suffice? | `LIVE` | 4 | [[wiki/tensions/t293.md]] |
+| T293 | Does role-filler independence require the compound to preserve its constituents, or does an invertible conjunctive code with a scheduled unbinding step suffice? | `LIVE` | 5 | [[wiki/tensions/t293.md]] |
 | T294 | Is the human developmental lever an *extended* schedule or an *accelerated* one — and does the wiki's `G100` cite the wrong window? | `BOTH` | 2 | [[wiki/tensions/t294.md]] |
 | T295 | Do jumping spiders belong in the convergence census at all — and does the wiki's only source for them survive inspection? | `LEANING` | 1 | [[wiki/tensions/t295.md]] |
 | T296 | Does a sparse expert router have to be learned, or is a fixed random partition of the input enough? | `LIVE` | 4 | [[wiki/tensions/t296.md]] |
@@ -324,8 +324,9 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T314 | Should an anti-collapse provision protect the space the loss sees, or the space the read-out sees? | `LIVE` | 5 | [[wiki/tensions/t314.md]] |
 | T315 | Is an uncorrected self-model *inflated*, or merely *insensitive*? | `LIVE` | 2 | [[wiki/tensions/t315.md]] |
 | T316 | Does betweenness centrality measure routing load, or only a property of the graph? | `BOTH` | 2 | [[wiki/tensions/t316.md]] |
-| T317 | Is gated-slot binding a different mechanism from algebraic binding, or the same operator with a one-hot role code? | `BOTH` | 2 | [[wiki/tensions/t317.md]] |
+| T317 | Is gated-slot binding a different mechanism from algebraic binding, or the same operator with a one-hot role code? | `BOTH` | 3 | [[wiki/tensions/t317.md]] |
 | T318 | Is a network's depth a property of the data distribution? | `LIVE` | 2 | [[wiki/tensions/t318.md]] |
 | T319 | Is an area's integration timescale a fixed property of that area, or a run-time property of the network and its current input? | `BOTH` | 2 | [[wiki/tensions/t319.md]] |
 | T320 | Does a model's own softmax rank its own errors? | `BOTH` | 4 | [[wiki/tensions/t320.md]] |
 | T321 | Does a per-input compute budget buy anything on language modelling? | `LIVE` | 2 | [[wiki/tensions/t321.md]] |
+| T322 | Does the ESBN's out-of-distribution generalisation come from its binding mechanism, or from normalising each problem's embeddings against itself? | `LIVE` | 1 | [[wiki/tensions/t322.md]] |
