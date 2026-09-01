@@ -96,7 +96,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T84 | Should the fraction of units written per memory be fixed, or should it track load and statistics? | `LIVE` | 1 | [[wiki/tensions/t084.md]] |
 | T85 | Is phasic dopamine a reward *prediction* or a reward *association*? | `LIVE` | 4 | [[wiki/tensions/t085.md]] |
 | T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `LEANING` | 2 | [[wiki/tensions/t086.md]] |
-| T87 | Is a working memory held at a fixed point, or in a moving trajectory? | `LEANING` | 1 | [[wiki/tensions/t087.md]] |
+| T87 | Is a working memory held at a fixed point, or in a moving trajectory? | `LEANING` | 2 | [[wiki/tensions/t087.md]] |
 | T88 | What is prefrontal delay-period activity *about* — the item held, or the place attention is pointed? | `LEANING` | 4 | [[wiki/tensions/t088.md]] |
 | T89 | Is a working memory cleared by decay or by an addressed erase signal? | `LIVE` | 1 | [[wiki/tensions/t089.md]] |
 | T90 | Is a working-memory operation implemented by one controller, or by the conjunction of several subsystems each representing it differently? | `LIVE` | 1 | [[wiki/tensions/t090.md]] |

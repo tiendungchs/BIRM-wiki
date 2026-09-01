@@ -9,4 +9,4 @@
 - [x] `francioni-2026-vectorized-instructive-signals-dendrites.md` — plasticity · S · 2026 — self-clipped (Nature); per-dendrite instructive signals, the primary source
 - [x] `kirsanov-2026-vectorized-dendritic-gradients.md` — plasticity · S · 2026 — self-clipped (Substack); secondary treatment of Francioni et al. 2026, ingest after it
 - [x] `kirsanov-2026-plasticity-beyond-textbook-rules.md` — plasticity · S · 2026 — self-clipped (Substack); plasticity rules beyond spike-timing-dependent plasticity
-- [ ] `talk-nd-motor-cortex-dynamics.txt` — attractor-dynamics · X · nd — transcript, no frontmatter; motor cortex as a dynamical system (preparatory activity as initial condition, output-null subspace)
+- [x] `talk-nd-motor-cortex-dynamics.txt` — attractor-dynamics · X · nd — transcript, no frontmatter; motor cortex as a dynamical system (preparatory activity as initial condition, output-null subspace)
