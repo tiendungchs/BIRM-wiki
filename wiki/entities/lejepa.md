@@ -153,7 +153,7 @@ So the wiki's "dimension-contrastive vs distribution-matching" split is not two 
 
 ## Part 8 — SIGReg outside self-supervision, and the moment ladder measured
 
-> **Provenance (second source, wave 7.26).** Akbar 2026, *Weak-SIGReg: Covariance Regularization for Stable Deep Learning* (`raw/akbar-2026-weak-sigreg-covariance-regularization.md`), arXiv:2603.05924v1, Kreasof AI. Single author, one dataset (CIFAR-100), no seed variance reported — treat the numbers as directional `(tentative)`. It matters anyway, because it runs the two experiments the sections above could not: SIGReg with a **known** downstream task, and the moment ladder's two ends **head to head**.
+> **Provenance (second source).** Akbar 2026, *Weak-SIGReg: Covariance Regularization for Stable Deep Learning* (`raw/akbar-2026-weak-sigreg-covariance-regularization.md`), arXiv:2603.05924v1, Kreasof AI. Single author, one dataset (CIFAR-100), no seed variance reported — treat the numbers as directional `(tentative)`. It matters anyway, because it runs the two experiments the sections above could not: SIGReg with a **known** downstream task, and the moment ladder's two ends **head to head**.
 
 **Weak-SIGReg — the ladder's bottom rung, made cheap by the same sketch:**
 

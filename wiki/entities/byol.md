@@ -203,7 +203,7 @@ The trade in the last two rows is the point. BYOL buys the cheapest anti-collaps
 
 **The nearest neighbour is missing from this table because it is this page minus one column.** [[wiki/entities/simsiam.md]] is BYOL with the EMA target deleted and the weights shared — same predictor, same stop-gradient, same loss shape — at 68.1 / 71.3 (100 / 800 epochs) against 66.5 / 74.3 here. It wins the short-budget column and loses the long one, which is the cleanest available statement of what the momentum encoder actually buys: not collapse prevention but a target smooth enough to keep improving for 800 epochs.
 
-The right-hand columns are the reason this 2020 paper is a wave-7 ingest: the JEPA lineage's target-encoder-plus-stop-gradient is BYOL's mechanism transplanted from view-prediction to time-prediction, and it arrived with a caveat — *no objective corresponds to it* — that the lineage inherited silently and that LeWM's whole subtraction is aimed at.
+The right-hand columns are the reason this 2020 paper is in the wiki: the JEPA lineage's target-encoder-plus-stop-gradient is BYOL's mechanism transplanted from view-prediction to time-prediction, and it arrived with a caveat — *no objective corresponds to it* — that the lineage inherited silently and that LeWM's whole subtraction is aimed at.
 
 ---
 

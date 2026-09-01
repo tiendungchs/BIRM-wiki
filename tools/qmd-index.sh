@@ -12,16 +12,26 @@
 #   (Node >= 22 required. On macOS also: brew install sqlite.)
 #
 # Usage:
-#   ./tools/qmd-index.sh                 — (re)index all wiki pages + embeddings
-#   ./tools/qmd-index.sh search "query"  — hybrid search (BM25 + vector + rerank)
-#   ./tools/qmd-index.sh status          — show index health
+#   ./tools/qmd-index.sh                       — (re)index wiki + raw sources
+#   ./tools/qmd-index.sh search "query"        — hybrid search over wiki/ (default)
+#   ./tools/qmd-index.sh search --raw "query"  — search raw/ sources only
+#   ./tools/qmd-index.sh search --all "query"  — search wiki/ + raw/ together
+#   ./tools/qmd-index.sh status                — show index health
+#
+# Two collections are maintained: "brain-wiki" (wiki/) and "brain-raw" (raw/,
+# .md + .txt; raw/originals/ PDFs are excluded by the glob). Search defaults to
+# the wiki because for a QUERY the synthesis is the answer; --raw/--all are for
+# ingest de-duplication and for going back to the primary text.
 #
 # Override the qmd binary with:  QMD=/path/to/qmd ./tools/qmd-index.sh ...
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-COLLECTION="brain-wiki"
+WIKI_COLLECTION="brain-wiki"
 WIKI_SUBDIR="wiki"          # collection path, relative to REPO_ROOT
+RAW_COLLECTION="brain-raw"
+RAW_SUBDIR="raw"            # collection path, relative to REPO_ROOT
+RAW_PATTERN='**/*.{md,txt}' # sources are Markdown or plain text; PDFs stay out
 
 # --- Locate the qmd binary (portable across macOS + Ubuntu) -----------------
 find_qmd() {
@@ -81,8 +91,14 @@ cd "$REPO_ROOT"
 # --- search / status pass-throughs ------------------------------------------
 if [[ "${1:-}" == "search" ]]; then
     shift
+    scope=("--collection" "$WIKI_COLLECTION")
+    case "${1:-}" in
+        --raw)  scope=("--collection" "$RAW_COLLECTION"); shift ;;
+        --all)  scope=("--collection" "$WIKI_COLLECTION" "--collection" "$RAW_COLLECTION"); shift ;;
+        --wiki) shift ;;
+    esac
     # `query` = hybrid BM25 + vector + LLM rerank (best quality).
-    "$QMD_BIN" query "$*" --collection "$COLLECTION" -n 10
+    "$QMD_BIN" query "$*" "${scope[@]}" -n 10
     exit 0
 fi
 
@@ -102,13 +118,39 @@ fi
 # Capture first: piping straight into `grep -q` closes the pipe early, and
 # under `pipefail` qmd's resulting SIGPIPE would clobber the exit status.
 collection_list="$("$QMD_BIN" collection list 2>/dev/null || true)"
-if ! printf '%s\n' "$collection_list" | grep -q "$COLLECTION"; then
-    echo "Creating collection '$COLLECTION' -> ./$WIKI_SUBDIR ..."
-    "$QMD_BIN" collection add "./$WIKI_SUBDIR" --name "$COLLECTION"
-fi
+for spec in "$WIKI_COLLECTION:$WIKI_SUBDIR" "$RAW_COLLECTION:$RAW_SUBDIR"; do
+    name="${spec%%:*}"; subdir="${spec##*:}"
+    if ! printf '%s\n' "$collection_list" | grep -q "^$name "; then
+        echo "Creating collection '$name' -> ./$subdir ..."
+        "$QMD_BIN" collection add "./$subdir" --name "$name"
+    fi
+done
 
-echo "Re-indexing wiki pages..."
+# qmd 2.x ignores `collection add --pattern`, always writing "**/*.md". The raw/
+# tree also holds .txt talk transcripts, so patch the pattern in index.yml
+# directly (idempotent) and let `qmd update` pick the extra files up.
+ensure_raw_pattern() {
+    local yml="$REPO_ROOT/.qmd/index.yml"
+    [[ -f "$yml" ]] || return 0
+    grep -qF "pattern: \"$RAW_PATTERN\"" "$yml" && return 0
+    RAW_COLLECTION="$RAW_COLLECTION" RAW_PATTERN="$RAW_PATTERN" python3 - "$yml" <<'PY'
+import os, re, sys
+path, name, pattern = sys.argv[1], os.environ["RAW_COLLECTION"], os.environ["RAW_PATTERN"]
+text = open(path).read()
+# Rewrite only the `pattern:` line inside the raw collection's block.
+block = re.compile(r"(^  %s:\n(?:    .*\n)*?    pattern: )(.*)$" % re.escape(name), re.M)
+new, n = block.subn(lambda m: m.group(1) + '"%s"' % pattern, text)
+if n:
+    open(path, "w").write(new)
+    print("  patched %s pattern -> %s" % (name, pattern))
+PY
+}
+ensure_raw_pattern
+
+echo "Re-indexing wiki pages and raw sources..."
 "$QMD_BIN" update
-echo "Updating embeddings..."
-"$QMD_BIN" embed
-echo "Done. Search with: ./tools/qmd-index.sh search \"your query\""
+# `--timeout 0` disables qmd's 30-minute embed session cap: with raw/ indexed
+# a cold run is well over an hour, and the cap silently leaves docs pending.
+echo "Updating embeddings (no session cap; a cold run takes >1h)..."
+"$QMD_BIN" embed --timeout 0
+echo "Done. Search with: ./tools/qmd-index.sh search [--raw|--all] \"your query\""

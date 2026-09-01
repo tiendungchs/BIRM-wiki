@@ -66,7 +66,7 @@ The device matters as much as the result: unlike HMM- or ICA-derived states, the
 - **Why these speeds?** The lifetimes track band centre frequencies, but nothing explains why the brain provisions six bands rather than three or twelve, and the proposed substrates (myelinated vs unmyelinated fibres; superficial-γ vs deep-β laminar gradient) are hypotheses attached post hoc.
 - **Asynchrony has no mechanism.** If the six streams share a spatial alphabet and a transition prior, *something* imposes those regularities across them, and it is not a common clock. No candidate coupling is offered.
 - **No power-law test within a timescale.** The scale-overarching claim is made across bands; whether sequences within a band are scale-free is left explicitly for future work.
-- **Nothing learns anything.** Same terminal limitation as the rest of the wave-12 cluster: the alphabet is fixed, the transition structure is measured, and no plasticity shapes either.
+- **Nothing learns anything.** Same terminal limitation as the rest of the whole-brain-network cluster: the alphabet is fixed, the transition structure is measured, and no plasticity shapes either.
 
 ---
 

@@ -2,7 +2,7 @@
 
 **A learner satisfies its objective by representing nothing — a constant encoder, a latent with enough capacity to reach any target, or a read-out that degrades while the loss keeps falling. It is the cheapest solution to every self-supervised objective, and the provision against it is the single design decision that types a joint-embedding architecture.**
 
-> **Promoted out of [[wiki/concepts/energy-based-models.md]] at the 171-ingest lint pass.** Collapse had grown to ~60% of that page across thirteen wave-7 ingests while the energy formalism itself is a separate claim, and the material was additionally spread over twelve entity pages with no page stating the loci side by side. The gap it answers is **G34**; the tensions it holds are T164, T166, T167, T168, T171 and T314.
+> **Promoted out of [[wiki/concepts/energy-based-models.md]] at the 171-ingest lint pass.** Collapse had grown to ~60% of that page across thirteen world-model ingests while the energy formalism itself is a separate claim, and the material was additionally spread over twelve entity pages with no page stating the loci side by side. The gap it answers is **G34**; the tensions it holds are T164, T166, T167, T168, T171 and T314.
 
 The reason it is not a training bug: **which architectures *can* collapse is a structural property.** Locate the free capacity and you have located the failure mode before any data arrive.
 
@@ -28,7 +28,7 @@ The reason it is not a training bug: **which architectures *can* collapse is a s
 
 ## The loci
 
-The wiki's central organising claim about collapse: the provision does not have to be a term in the loss, and across wave 7 it turned out to sit in six structurally different places — with a seventh added later that is not a provision at all. Ordered by how far each is from the objective.
+The wiki's central organising claim about collapse: the provision does not have to be a term in the loss, and across the self-supervised literature it turned out to sit in six structurally different places — with a seventh added later that is not a provision at all. Ordered by how far each is from the objective.
 
 | # | Locus | Instance | What holds the representation up |
 |---|---|---|---|
@@ -73,7 +73,7 @@ Substitute a different univariate test into SIGReg and the existing methods reap
 
 ---
 
-## What the wave-7 evidence took away
+## What the self-supervised evidence took away
 
 Four results, each removing something the taxonomy above was assumed to have.
 

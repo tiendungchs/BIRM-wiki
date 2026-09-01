@@ -4,9 +4,9 @@
 
 > **Provenance.** Gentner, D. & Forbus, K. D. (1991), *MAC/FAC: A Model of Similarity-based Retrieval*, Proceedings of the Cognitive Science Society (`raw/gentner-1991-macfac-similarity-retrieval.md`). The conference version.
 
-> **Provenance (second ingest, wave 9.13).** Forbus, K. D., Gentner, D. & Law, K. (1995), *MAC/FAC: A Model of Similarity-based Retrieval*, Cognitive Science 19(2), 141–205 (`raw/forbus-1995-macfac-similarity-retrieval.md`). The journal version. The architecture is unchanged; what it adds is **the validation apparatus** — a sensitivity analysis over the design space, a head-to-head against ARCS with a clock, and the match-criterion argument — plus the parts of the theory the conference paper compressed away (tiered identicality, trickle-down evaluation) and a set of empirical constraints on what a retrieval stage may be asked to do. Sections below are marked 1995 where they come from it.
+> **Provenance (second ingest).** Forbus, K. D., Gentner, D. & Law, K. (1995), *MAC/FAC: A Model of Similarity-based Retrieval*, Cognitive Science 19(2), 141–205 (`raw/forbus-1995-macfac-similarity-retrieval.md`). The journal version. The architecture is unchanged; what it adds is **the validation apparatus** — a sensitivity analysis over the design space, a head-to-head against ARCS with a clock, and the match-criterion argument — plus the parts of the theory the conference paper compressed away (tiered identicality, trickle-down evaluation) and a set of empirical constraints on what a retrieval stage may be asked to do. Sections below are marked 1995 where they come from it.
 
-The wiki has cited this architecture secondhand from [[wiki/entities/lisa.md]]'s literature (Holyoak 2012) and from Plate 1993 ([[wiki/concepts/vector-symbolic-binding.md]]) since wave 8. This page is the primary source: what the cheap stage actually computes, and why.
+The wiki has cited this architecture secondhand from [[wiki/entities/lisa.md]]'s literature (Holyoak 2012) and from Plate 1993 ([[wiki/concepts/vector-symbolic-binding.md]]). This page is the primary source: what the cheap stage actually computes, and why.
 
 ---
 

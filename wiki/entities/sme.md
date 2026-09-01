@@ -4,7 +4,7 @@
 
 > **Provenance.** Falkenhainer, B., Forbus, K. D. & Gentner, D. (1989), *The Structure-Mapping Engine: Algorithm and Examples*, Artificial Intelligence 41, 1–63 (`raw/falkenhainer-1989-structure-mapping-engine.md`; pdf2md, **lossy** — Appendix A's rule listings and several figures did not survive; the rules quoted below are the ones given inline in the body).
 
-The wiki has cited SME secondhand since wave 8 — as stage 2 of [[wiki/entities/macfac.md]], as the `O(n²)`–`O(n!)` row in [[wiki/concepts/analogical-mapping.md]]'s model table, and as the classical baseline in T173. This page is the primary source: what the four stages actually do, where the exponent is and how to get rid of it, and what the authors themselves proposed instead.
+The wiki has cited SME secondhand — as stage 2 of [[wiki/entities/macfac.md]], as the `O(n²)`–`O(n!)` row in [[wiki/concepts/analogical-mapping.md]]'s model table, and as the classical baseline in T173. This page is the primary source: what the four stages actually do, where the exponent is and how to get rid of it, and what the authors themselves proposed instead.
 
 ---
 

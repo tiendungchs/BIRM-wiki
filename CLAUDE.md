@@ -94,14 +94,16 @@ After fetching, create a `raw/` file if the source is reliable and worth an inge
 
 ## Search (qmd)
 
-**Re-index all wiki pages:**
+**Re-index everything (wiki pages + raw sources):**
 ```bash
 ./tools/qmd-index.sh
 ```
 
 **To search at the start of any INGEST or QUERY:**
 ```bash
-./tools/qmd-index.sh search "query terms"
+./tools/qmd-index.sh search "query terms"          # wiki/ only (default)
+./tools/qmd-index.sh search --raw "query terms"    # raw/ sources only
+./tools/qmd-index.sh search --all "query terms"    # both
 ```
 
 Fall back to `grep -r "terms" wiki/` if qmd errors.
