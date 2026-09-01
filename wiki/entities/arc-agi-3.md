@@ -21,7 +21,7 @@ This is the wiki's first benchmark where **hardness sources 2 and 4** of [[wiki/
 | Human ceiling | Certified solvability (≥2 of 2–10 testers) | Certified solvability (**≥2 of 10 testers**) |
 | Public : private | ~10 : 1 | **25 : 110 — inverted on purpose** |
 
-**Why turn-based.** The environment never changes asynchronously from the agent's actions. The stated reason is that the intended difficulty is reasoning, not perception or reflex — and the same choice removes real-time compute pressure, which has a price (see T209 below).
+**Why turn-based.** The environment never changes asynchronously from the agent's actions. The stated reason is that the intended difficulty is reasoning, not perception or reflex — and the same choice removes real-time compute pressure, which has a price (see G17 below).
 
 ---
 
@@ -78,7 +78,7 @@ Inspired by robotics' **Success weighted by Path Length (SPL)**. Reported agains
 | Semi-private | **55** | Frontier models behind an external API — leakage assumed possible |
 | Fully private | **55** | Official competition; released to a very limited set of partners |
 
-The inversion is a direct answer to [[wiki/empirical-tensions.md]] T207. Version 2 wanted subsets drawn from similar distributions (so scores transfer) while also wanting distributional novelty (so training on the public set does not leak); the two are incompatible. **Version 3 picks the second horn and abandons the first**: the public set is a demonstration interface, is materially easier, is *not* a sample from the private distribution, and public-set scores **will never be reported on the official leaderboard**. Cross-subset comparability is given up on purpose.
+The inversion is a direct answer to [[wiki/architectural-gaps.md]] G17. Version 2 wanted subsets drawn from similar distributions (so scores transfer) while also wanting distributional novelty (so training on the public set does not leak); the two are incompatible. **Version 3 picks the second horn and abandons the first**: the public set is a demonstration interface, is materially easier, is *not* a sample from the private distribution, and public-set scores **will never be reported on the official leaderboard**. Cross-subset comparability is given up on purpose.
 
 `(tentative)` The Kaggle data page describes the competition's 110 private games as split 50/50 into public-leaderboard and private-leaderboard halves, which is a different partition from the paper's semi-private/fully-private split. The two are not reconciled by either source.
 
@@ -246,7 +246,7 @@ The paper's framing of why this matters beyond the benchmark: *human reasoning c
 ## Limitations
 
 - **"100% human-solvable" is a 2-of-10 bar.** Union-over-testers again, at a stricter format and a looser threshold than version 2's.
-- **Compute is free by construction.** Only environment-changing actions are counted; "internal operations that do not alter the environment, such as tool calls, reasoning steps, or retries within the model itself, are **not counted**". A system with unbounded per-action deliberation is, by RHAE, maximally efficient. See T209.
+- **Compute is free by construction.** Only environment-changing actions are counted; "internal operations that do not alter the environment, such as tool calls, reasoning steps, or retries within the model itself, are **not counted**". A system with unbounded per-action deliberation is, by RHAE, maximally efficient. See G17.
 - **The metric is scored against humans, so it inherits human variance.** The denominator is the upper-median *best* first-run count over the subset of ≤10 testers who finished a level — on levels where 2 finished, that is essentially one person's trajectory.
 - **`n = 5` in the scoring examples against "≥6 levels" in the design constraints**, and the Kaggle 110-game split against the paper's 55/55 split. Neither is reconciled by the sources.
 - **The four functional components are authored intuitions, not measured factors** — the same complaint version 2's four difficulty axes attract. RHAE returns a per-level breakdown, which localizes *where* an agent broke but not *which of exploration, modeling, goal-setting or planning* broke.
@@ -258,7 +258,7 @@ The paper's framing of why this matters beyond the benchmark: *human reasoning c
 ## Connections
 
 - **[[wiki/entities/arc-agi.md]]** — the predecessor, and the source of this benchmark's own proposal: version 1's limitations list names a better format as *interactive* — the solver requests inputs, proposes, receives feedback, and is scored on the amount of interaction needed — which is RHAE delivered seven years later with actions as the interaction unit.
-- **[[wiki/entities/arc-agi-2.md]]** — the immediate predecessor, whose unresolved calibration-versus-contamination conflict (T207) this benchmark settles by choosing a side: the public set is made deliberately non-representative and public scores are never reported, abandoning cross-subset comparability to buy distributional novelty.
+- **[[wiki/entities/arc-agi-2.md]]** — the immediate predecessor, whose unresolved calibration-versus-contamination conflict (G17) this benchmark settles by choosing a side: the public set is made deliberately non-representative and public scores are never reported, abandoning cross-subset comparability to buy distributional novelty.
 - **[[wiki/concepts/skill-acquisition-efficiency.md]]** — the first benchmark whose *scoring function* is the efficiency ratio rather than a reported side column: `min(h/a, 1.15)²` puts a human's experience in the numerator and the agent's in the denominator, with priors and difficulty held fixed by authoring instead of measured.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the first benchmark to switch hardness sources 2 and 4 on deliberately: the action alphabet's semantics are latent per environment, and structure must be inferred *while* navigating, with the authors' own hash-merged state graph as the ground truth the wiki has always lacked.
 - **[[wiki/concepts/core-knowledge.md]]** — the declared prior set changes here (number and counting dropped, basic physics added, goal-directedness sharpened into agentness), which changes what a score can be credited to; also the strictest cultural-symbol exclusion in the wiki, naming "green means go" as a specific ban.

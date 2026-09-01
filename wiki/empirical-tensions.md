@@ -4,9 +4,9 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 
 **Status key:** `LIVE` — unresolved · `LEANING` — evidence favours one side · `BOTH` — both positions hold, in different regimes; the dispute is one of degree rather than of fact, and the row must name the threshold that separates them · `RESOLVED` — settled, kept for the record. The gap table's `OPEN`/`PARTIAL`/`CONTESTED` tokens are **not** valid here; a tension that no evidence bears on is `LIVE`.
 
-**Level key — the design ladder.** Where the row sits relative to a buildable specification. `L0` — **behaviour**: what the system must do and what counts as evidence it did, stated without naming a block · `L1` — **decomposition**: which blocks exist, what each one's job is, where the boundaries fall · `L2` — **signal flow**: what rides which wire, at what rate, and what is *denied* to which reader · `L3` — **realization**: how a block does its job — loss, rule, code, operator, constant; swappable without changing L0–L2 · `L4` — **substrate / instrument**: biological facts and measurement-validity disputes, which bite only once L3 is chosen · `META` — a question about the research process rather than about the model.
+**Level key — the design ladder.** Where the row sits relative to a buildable specification. `L0` — **behaviour**: what the system must do and what counts as evidence it did, stated without naming a block · `L1` — **decomposition**: which blocks exist, what each one's job is, where the boundaries fall · `L2` — **signal flow**: what rides which wire, at what rate, and what is *denied* to which reader · `L3` — **realization**: how a block does its job — loss, rule, code, operator, constant; swappable without changing L0–L2 · `L4` — **substrate**: biological or methodological facts with no consequence for a design decision until a realization is chosen · `L0-INSTR` — **measurement validity**: a row whose subject is the validity of a measurement rather than a property of the model — does this score measure the ability it is named after, does this probe license the claim drawn from it — worked at `L0` priority because an unvalidated instrument cannot settle an `L0` claim · `META` — a question about the research process rather than about the model.
 
-The ladder is a **priority order, not a quality order**: L0 before L1 before L2, and nothing below L2 is worked until the level above it is settled, because an implementation question whose behavioural contract is unwritten cannot be answered — only surveyed. The one exception is the instrument band inside `L4`: a row asking whether a measurement means what it names gates every `L0` claim that would rest on it, and is worked at `L0` priority.
+The ladder is a **priority order, not a quality order**: L0 before L1 before L2, and nothing below L2 is worked until the level above it is settled, because an implementation question whose behavioural contract is unwritten cannot be answered — only surveyed. The one exception is `L0-INSTR`, split out of `L4` at the design-ladder pass: a row asking whether a measurement means what it names gates every `L0` claim that would rest on it, and is worked at `L0` priority.
 
 **This page is an index.** One line per row; the evidence, sources and status reasoning for each live in its own file under `wiki/tensions/`. Read the index to decide which rows matter, then open only those files.
 
@@ -34,11 +34,11 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T18 | Must a world model be generative? | `L1` | `LIVE` | 6 | [[wiki/tensions/t018.md]] |
 | T19 | Is scalar reward a sufficient training signal, or a marginal one? | `L0` | `LEANING` | 1 | [[wiki/tensions/t019.md]] |
 | T20 | Is intelligence a property of the process that builds a solution, or of the finished arrangement? | `L0` | `LIVE` | 2 | [[wiki/tensions/t020.md]] |
-| T21 | Does a structured model's win over deep baselines measure the prior, or the state space it was handed? | `L4` | `LIVE` | 5 | [[wiki/tensions/t021.md]] |
-| T22 | Does a ranking metric on balanced samples say anything about a retrieval mechanism? | `L4` | `LEANING` | 3 | [[wiki/tensions/t022.md]] |
+| T21 | Does a structured model's win over deep baselines measure the prior, or the state space it was handed? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t021.md]] |
+| T22 | Does a ranking metric on balanced samples say anything about a retrieval mechanism? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t022.md]] |
 | T23 | What licenses the creation of a new discrete node? | `L0` | `LIVE` | 4 | [[wiki/tensions/t023.md]] |
-| T24 | Does an adaptation curve measure learning? | `L4` | `LEANING` | 1 | [[wiki/tensions/t024.md]] |
-| T25 | Does a decodable internal structure license the claim that the model reasons over it? | `L4` | `LEANING` | 3 | [[wiki/tensions/t025.md]] |
+| T24 | Does an adaptation curve measure learning? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t024.md]] |
+| T25 | Does a decodable internal structure license the claim that the model reasons over it? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t025.md]] |
 | T26 | Do newborn dentate granule cells perform pattern separation, or block it? | `L4` | `LIVE` | 1 | [[wiki/tensions/t026.md]] |
 | T27 | Is the brain's map metric or topological? | `L1` | `LIVE` | 4 | [[wiki/tensions/t027.md]] |
 | T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 6 | [[wiki/tensions/t028.md]] |
@@ -50,7 +50,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T34 | Does hippocampus→cortex transfer happen during sleep or during waking? | `L2` | `LEANING` | 3 | [[wiki/tensions/t034.md]] |
 | T35 | Is remapping controlled by the environment or by the animal's inference history? | `L2` | `LEANING` | 1 | [[wiki/tensions/t035.md]] |
 | T36 | Does map selection cause context-dependent behaviour? | `L4` | `LIVE` | 1 | [[wiki/tensions/t036.md]] |
-| T37 | Is grid-like coding a discovery or a detection artefact? | `L4` | `LIVE` | 8 | [[wiki/tensions/t037.md]] |
+| T37 | Is grid-like coding a discovery or a detection artefact? | `L0-INSTR` | `LIVE` | 8 | [[wiki/tensions/t037.md]] |
 | T38 | Do grid cells emerge from training on path integration? | `L3` | `LEANING` | 7 | [[wiki/tensions/t038.md]] |
 | T39 | Is place-cell remapping random? | `L3` | `LEANING` | 5 | [[wiki/tensions/t039.md]] |
 | T40 | Is a place cell a conjunctive cell or a memory index? | `L1` | `LIVE` | 2 | [[wiki/tensions/t040.md]] |
@@ -65,7 +65,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T49 | How densely is CA3 recurrently connected — and does pattern completion need *structured* wiring or just enough of it? | `L3` | `LIVE` | 3 | [[wiki/tensions/t049.md]] |
 | T50 | Is an abstract hippocampal code low-dimensional, or is low dimensionality a red herring? | `L3` | `LEANING` | 4 | [[wiki/tensions/t050.md]] |
 | T51 | When one item set is embedded in several relational structures, does the map integrate them or hold them in parallel? | `L1` | `LIVE` | 3 | [[wiki/tensions/t051.md]] |
-| T52 | Is the hippocampal spatial code carried by the sparse, selective excitatory population, or is it equally present in the dense inhibitory one? | `L4` | `LIVE` | 2 | [[wiki/tensions/t052.md]] |
+| T52 | Is the hippocampal spatial code carried by the sparse, selective excitatory population, or is it equally present in the dense inhibitory one? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t052.md]] |
 | T53 | Is orthogonalization of aliased states a requirement, or a free choice the brain happens to make? | `L3` | `LEANING` | 1 | [[wiki/tensions/t053.md]] |
 | T54 | What does a hippocampal representation do when the environment is metrically distorted? | `L4` | `LIVE` | 1 | [[wiki/tensions/t054.md]] |
 | T55 | Should a fast store's addressing be random, or should it follow the data? | `L3` | `LIVE` | 5 | [[wiki/tensions/t055.md]] |
@@ -118,7 +118,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T102 | When forward and reverse inference disagree about a region's function, which wins? | `META` | `LEANING` | 2 | [[wiki/tensions/t102.md]] |
 | T103 | What is the common component of control? | `L1` | `LEANING` | 1 | [[wiki/tensions/t103.md]] |
 | T104 | Is the working-memory capacity limit a resource ceiling or a safety margin the system imposes on itself? | `L1` | `LIVE` | 2 | [[wiki/tensions/t104.md]] |
-| T105 | Does model-based *behaviour* license the inference that a model-based *algorithm* is running? | `L4` | `LIVE` | 1 | [[wiki/tensions/t105.md]] |
+| T105 | Does model-based *behaviour* license the inference that a model-based *algorithm* is running? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t105.md]] |
 | T106 | Do task-trained prefrontal-like recurrent networks settle into attractors, or avoid them? | `L3` | `LIVE` | 3 | [[wiki/tensions/t106.md]] |
 | T107 | Which structure holds the graph that a plan runs on — the hippocampal formation, or the cortical controller? | `L1` | `LIVE` | 2 | [[wiki/tensions/t107.md]] |
 | T108 | When a new situation is ambiguous between stored structures, does the learner mix them or commit to one? | `L2` | `LIVE` | 4 | [[wiki/tensions/t108.md]] |
@@ -126,12 +126,12 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T110 | When a task affords no higher-order structure, does the learner withdraw from the abstract level or keep imposing it? | `L2` | `LIVE` | 2 | [[wiki/tensions/t110.md]] |
 | T111 | Is a control representation a stable property of the tissue, or instantiated by the demand? | `L1` | `LIVE` | 3 | [[wiki/tensions/t111.md]] |
 | T112 | Does removing a control signal reduce downstream selection, or eliminate it? | `L4` | `LEANING` | 3 | [[wiki/tensions/t112.md]] |
-| T113 | Is a control-band oscillation the control resource, or the receipt of one? | `L4` | `LIVE` | 2 | [[wiki/tensions/t113.md]] |
-| T114 | Does behavioural guidance by a feature imply an attentional gain signal for that feature in sensory cortex? | `L4` | `LIVE` | 1 | [[wiki/tensions/t114.md]] |
+| T113 | Is a control-band oscillation the control resource, or the receipt of one? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t113.md]] |
+| T114 | Does behavioural guidance by a feature imply an attentional gain signal for that feature in sensory cortex? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t114.md]] |
 | T115 | Does the preparatory attentional template hold the target? | `L4` | `LIVE` | 1 | [[wiki/tensions/t115.md]] |
-| T116 | When a functionally defined subensemble and its parent population rank two channels in opposite orders, which reading is the pathway's function? | `L4` | `LIVE` | 3 | [[wiki/tensions/t116.md]] |
+| T116 | When a functionally defined subensemble and its parent population rank two channels in opposite orders, which reading is the pathway's function? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t116.md]] |
 | T117 | Does perceiving a sequence rest mainly on top-down predictions, or on within-level priors over motion? | `L2` | `LIVE` | 1 | [[wiki/tensions/t117.md]] |
-| T118 | What does a superficial pyramidal spike mean — a candidate interpretation, or a residual? | `L4` | `LIVE` | 3 | [[wiki/tensions/t118.md]] |
+| T118 | What does a superficial pyramidal spike mean — a candidate interpretation, or a residual? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t118.md]] |
 | T119 | Where does the variability in a learning task enter the generative model? | `L1` | `LEANING` | 1 | [[wiki/tensions/t119.md]] |
 | T120 | Is an infinitesimal nudge unusable, or is it the correct regime? | `L3` | `LIVE` | 2 | [[wiki/tensions/t120.md]] |
 | T121 | Is event-model updating controlled by one signal or by several? | `L2` | `LEANING` | 1 | [[wiki/tensions/t121.md]] |
@@ -157,9 +157,9 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T141 | Is the brain's discount kernel exponential, or hyperbolic? | `L3` | `LIVE` | 5 | [[wiki/tensions/t141.md]] |
 | T142 | Should the world model and the policy be decoupled, or learned as one entangled model? | `L1` | `LIVE` | 2 | [[wiki/tensions/t142.md]] |
 | T143 | How much of the world needs to be inside the model at all? | `L0` | `LIVE` | 1 | [[wiki/tensions/t143.md]] |
-| T144 | Does a world model's prediction quality tell you how good a world model it is? | `L4` | `LIVE` | 4 | [[wiki/tensions/t144.md]] |
-| T145 | Does conditioning a predictor on the action make it represent the effect of actions? | `L4` | `LIVE` | 2 | [[wiki/tensions/t145.md]] |
-| T146 | Does a violation-of-expectation score measure the ability it names? | `L4` | `LIVE` | 5 | [[wiki/tensions/t146.md]] |
+| T144 | Does a world model's prediction quality tell you how good a world model it is? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t144.md]] |
+| T145 | Does conditioning a predictor on the action make it represent the effect of actions? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t145.md]] |
+| T146 | Does a violation-of-expectation score measure the ability it names? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t146.md]] |
 | T147 | Does making a learned model inspectable require a discrete bottleneck? | `L3` | `LIVE` | 3 | [[wiki/tensions/t147.md]] |
 | T148 | Should a discovered action alphabet be discrete or continuous? | `L1` | `LIVE` | 5 | [[wiki/tensions/t148.md]] |
 | T149 | Must a vision encoder be trained with language supervision to align well with a language model? | `L3` | `LEANING` | 3 | [[wiki/tensions/t149.md]] |
@@ -170,11 +170,11 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T154 | Does a control-usable visual world model need foundation-scale pretraining? | `L3` | `LIVE` | 6 | [[wiki/tensions/t154.md]] |
 | T155 | Does a simplicity prior select structure, or destroy it? *(absorbs T182, "does compression build the library or destroy it?", merged at the 284-source duplicate audit: the two rows asked one question over one measurement.)* | `L0` | `LIVE` | 7 | [[wiki/tensions/t155.md]] |
 | T156 | When a compositional model fails out of distribution, is the deficit in the vocabulary or in the search over it? | `L1` | `LIVE` | 7 | [[wiki/tensions/t156.md]] |
-| T157 | When a linear probe fails, is the representation non-linear or is the label basis wrong? | `L4` | `LEANING` | 3 | [[wiki/tensions/t157.md]] |
-| T158 | When a model is shown to use its world model, does it use it on every input? | `L4` | `LEANING` | 4 | [[wiki/tensions/t158.md]] |
-| T159 | Is a geometric structure that appears only after dimensionality reduction a property of the representation or of the projection? | `L4` | `LIVE` | 3 | [[wiki/tensions/t159.md]] |
-| T160 | Does the geometric quality of a representation predict whether the model uses it? | `L4` | `LIVE` | 2 | [[wiki/tensions/t160.md]] |
-| T161 | Does a stable signature failure profile identify an *installed* prior? | `L4` | `LIVE` | 6 | [[wiki/tensions/t161.md]] |
+| T157 | When a linear probe fails, is the representation non-linear or is the label basis wrong? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t157.md]] |
+| T158 | When a model is shown to use its world model, does it use it on every input? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t158.md]] |
+| T159 | Is a geometric structure that appears only after dimensionality reduction a property of the representation or of the projection? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t159.md]] |
+| T160 | Does the geometric quality of a representation predict whether the model uses it? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t160.md]] |
+| T161 | Does a stable signature failure profile identify an *installed* prior? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t161.md]] |
 | T162 | Does relational understanding require decoding back to the input space? | `L2` | `LIVE` | 7 | [[wiki/tensions/t162.md]] |
 | T163 | Can retrieval be amortised into a geometry, or is it irreducibly a joint computation? | `L1` | `LIVE` | 1 | [[wiki/tensions/t163.md]] |
 | T164 | Must a collapse-avoiding self-supervised learner descend a well-defined objective? | `L3` | `LIVE` | 8 | [[wiki/tensions/t164.md]] |
@@ -200,7 +200,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T186 | To make role structure readable by a dot product, do you need the *content* of the neighbouring roles or only their *labels*? | `L3` | `LIVE` | 2 | [[wiki/tensions/t186.md]] |
 | T187 | Must a binding operator be invertible? | `L3` | `LIVE` | 2 | [[wiki/tensions/t187.md]] |
 | T188 | Must an induced program be consistent with *all* the demonstrations? | `L0` | `LIVE` | 2 | [[wiki/tensions/t188.md]] |
-| T189 | Should a model be selected for how confidently it answers, or for how well it answers? | `L4` | `LIVE` | 3 | [[wiki/tensions/t189.md]] |
+| T189 | Should a model be selected for how confidently it answers, or for how well it answers? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t189.md]] |
 | T190 | Is cross-example consistency a symbolic intersection, or a vote over hypothesis labels? | `L3` | `LEANING` | 1 | [[wiki/tensions/t190.md]] |
 | T191 | Should a solver commit to one parse of the input, or carry several? | `L1` | `LIVE` | 2 | [[wiki/tensions/t191.md]] |
 | T192 | What licenses a candidate analogical inference — its coherence with the target, or a causal model carried over from the source? | `L0` | `LIVE` | 1 | [[wiki/tensions/t192.md]] |
@@ -215,82 +215,66 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T201 | Is human compositional behaviour a rule system with lapses, or an approximator carrying rule-shaped biases? | `L4` | `LIVE` | 1 | [[wiki/tensions/t201.md]] |
 | T202 | Does installing an inductive bias by sampling it into `p(T)` give you the bias, or only its frequency? | `L0` | `LEANING` | 4 | [[wiki/tensions/t202.md]] |
 | T203 | Is abstract format a hippocampal specialisation, or a shared property of the fronto-hippocampal system? | `L1` | `LIVE` | 1 | [[wiki/tensions/t203.md]] |
-| T204 | Does test-time compute buy generalization on ARC, or does it only buy the tail? | `L4` | `LIVE` | 5 | [[wiki/tensions/t204.md]] |
-| T205 | Does ARC-AGI-1 measure abstraction across its whole task set, or only across a residue? | `L4` | `LEANING` | 5 | [[wiki/tensions/t205.md]] |
-| T206 | What does a reported ARC-AGI-2 score denote? | `L4` | `LIVE` | 3 | [[wiki/tensions/t206.md]] |
-| T207 | Can a benchmark be simultaneously difficulty-calibrated and contamination-proof? | `L4` | `LIVE` | 5 | [[wiki/tensions/t207.md]] |
-| T208 | Does an application-layer harness measure a capability the model has, or one the harness author has? | `L4` | `LIVE` | 2 | [[wiki/tensions/t208.md]] |
-| T209 | Should an efficiency metric charge for thinking? | `L4` | `LIVE` | 1 | [[wiki/tensions/t209.md]] |
-| T210 | What does a super-human score on an abstraction benchmark denote? | `L4` | `LEANING` | 3 | [[wiki/tensions/t210.md]] |
-| T211 | Should an intelligence benchmark equalise human priors, or withhold them? | `L4` | `LIVE` | 2 | [[wiki/tensions/t211.md]] |
-| T212 | Does an LLM's demonstrated analogy competence extend to the ARC domain, or is it bound to the presentation format? | `L4` | `LIVE` | 2 | [[wiki/tensions/t212.md]] |
-| T213 | What is the human baseline on ARC-AGI-1? | `L4` | `RESOLVED/LIVE` | 4 | [[wiki/tensions/t213.md]] |
-| T214 | What is the human baseline on ConceptARC? | `L4` | `RESOLVED/LIVE` | 3 | [[wiki/tensions/t214.md]] |
-| T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `L4` | `LEANING` | 3 | [[wiki/tensions/t215.md]] |
-| T216 | Does a human adversary paid to fool one model find that model's idiosyncratic blind spots, or the model class's? | `L4` | `LIVE` | 3 | [[wiki/tensions/t216.md]] |
+| T204 | Does test-time compute buy generalization on ARC, or does it only buy the tail? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t204.md]] |
+| T208 | Does an application-layer harness measure a capability the model has, or one the harness author has? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t208.md]] |
+| T211 | Should an intelligence benchmark equalise human priors, or withhold them? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t211.md]] |
+| T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t215.md]] |
 | T217 | Does conditioning on a self-generated intermediate trace help or hurt? | `L2` | `LEANING` | 6 | [[wiki/tensions/t217.md]] |
-| T218 | Is normalised exact match an adequate acceptance test? | `L4` | `LEANING` | 4 | [[wiki/tensions/t218.md]] |
-| T219 | What is a scaling extrapolation evidence for? | `L4` | `LEANING` | 3 | [[wiki/tensions/t219.md]] |
-| T220 | Is best-of-`k` monotone in `k`? | `L4` | `LEANING` | 5 | [[wiki/tensions/t220.md]] |
-| T221 | Is expert domain knowledge "crystallized" in the sense that excludes it from an intelligence measure? | `L4` | `LIVE` | 5 | [[wiki/tensions/t221.md]] |
-| T222 | Does keeping the evaluation set permanently private solve contamination? | `L4` | `LIVE` | 7 | [[wiki/tensions/t222.md]] |
-| T223 | Does a cross-lingual score gap measure the model's reasoning, or the harness's answer extraction? | `L4` | `LIVE` | 5 | [[wiki/tensions/t223.md]] |
+| T218 | Is normalised exact match an adequate acceptance test? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t218.md]] |
+| T220 | Is best-of-`k` monotone in `k`? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t220.md]] |
 | T224 | Does a correct external worked solution to a closely related problem help or hurt? | `L4` | `LIVE` | 2 | [[wiki/tensions/t224.md]] |
-| T225 | Can a benchmark whose label-noise floor exceeds every score reported on it order the systems it ranks? | `L4` | `LEANING` | 2 | [[wiki/tensions/t225.md]] |
-| T226 | What is a benchmark's error rate, when two audits of the same 2,500 items disagree by a factor of 1.7 — and can a model-in-the-loop audit measure its own effect on model scores? | `L4` | `LIVE` | 2 | [[wiki/tensions/t226.md]] |
-| T227 | Does a near-zero train−test familiarity disparity license the verdict "this model did not train on the benchmark"? | `L4` | `LEANING` | 1 | [[wiki/tensions/t227.md]] |
-| T228 | Does model scale reduce or amplify reliance on shortcuts? | `L4` | `LIVE` | 3 | [[wiki/tensions/t228.md]] |
+| T228 | Does model scale reduce or amplify reliance on shortcuts? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t228.md]] |
 | T229 | Does making the latent structure legible and editable make a rewriting environment tractable? | `L0` | `LIVE` | 3 | [[wiki/tensions/t229.md]] |
 | T230 | When the rewrite machinery is itself rewritable, is there anything left to learn? | `L0` | `LIVE` | 1 | [[wiki/tensions/t230.md]] |
-| T231 | Is the accuracy of deep spiking networks evidence about spiking *learning*, or only about spiking *inference*? | `L4` | `LIVE` | 4 | [[wiki/tensions/t231.md]] |
+| T231 | Is the accuracy of deep spiking networks evidence about spiking *learning*, or only about spiking *inference*? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t231.md]] |
 | T232 | Within the timing camp, which temporal code actually carries the information — and can the question be settled empirically? | `L3` | `LIVE` | 5 | [[wiki/tensions/t232.md]] |
 | T233 | Is an adaptation variable a memory or the thing that prevents one? | `L3` | `LIVE` | 4 | [[wiki/tensions/t233.md]] |
 | T234 | Is the spiking substrate's advantage expressive power, or unit count? | `L3` | `LIVE` | 4 | [[wiki/tensions/t234.md]] |
 | T235 | Should two heterogeneous subnetworks be coupled neuron-to-neuron, or through an interface module? | `L2` | `LIVE` | 1 | [[wiki/tensions/t235.md]] |
-| T236 | Does converting a spike train into a continuous function before measuring error destroy the timing code? | `L4` | `LEANING` | 3 | [[wiki/tensions/t236.md]] |
+| T236 | Does converting a spike train into a continuous function before measuring error destroy the timing code? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t236.md]] |
 | T237 | Is a delay a more valuable parameter than a weight? | `L3` | `LEANING` | 2 | [[wiki/tensions/t237.md]] |
 | T238 | Does a reservoir's nonlinearity supply the higher-order features it is credited with? | `L3` | `LIVE` | 3 | [[wiki/tensions/t238.md]] |
-| T239 | Is a mean-field population model licensed to describe a network that synchronises? | `L4` | `LIVE` | 1 | [[wiki/tensions/t239.md]] |
-| T240 | Is a resting-state functional network an object, or an artefact of the integration window? | `L4` | `LIVE` | 4 | [[wiki/tensions/t240.md]] |
-| T241 | Does the default mode network's activity mean self-referential cognition is occurring? | `L4` | `LIVE` | 3 | [[wiki/tensions/t241.md]] |
-| T242 | Which carrier frequency's power do resting BOLD fluctuations track — and can the question be settled at all? | `L4` | `LIVE` | 2 | [[wiki/tensions/t242.md]] |
-| T243 | Do between-subject differences in a functional connectome measure coupling, or where the regions are? | `L4` | `LEANING` | 1 | [[wiki/tensions/t243.md]] |
+| T239 | Is a mean-field population model licensed to describe a network that synchronises? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t239.md]] |
+| T240 | Is a resting-state functional network an object, or an artefact of the integration window? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t240.md]] |
+| T241 | Does the default mode network's activity mean self-referential cognition is occurring? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t241.md]] |
+| T242 | Which carrier frequency's power do resting BOLD fluctuations track — and can the question be settled at all? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t242.md]] |
+| T243 | Do between-subject differences in a functional connectome measure coupling, or where the regions are? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t243.md]] |
 | T244 | Is the cortex a set of units with borders, or a continuum with axes? | `L1` | `BOTH` | 1 | [[wiki/tensions/t244.md]] |
-| T245 | How many connectivity parameters are identifiable from one resting-state fMRI dataset? | `L4` | `LIVE` | 3 | [[wiki/tensions/t245.md]] |
-| T246 | Does the age-related rise in global coupling `G` measure compensation or decline? | `L4` | `LIVE` | 1 | [[wiki/tensions/t246.md]] |
+| T245 | How many connectivity parameters are identifiable from one resting-state fMRI dataset? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t245.md]] |
+| T246 | Does the age-related rise in global coupling `G` measure compensation or decline? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t246.md]] |
 | T247 | Does a generated representation carry information the source did not, or only re-express it? | `L0` | `LIVE` | 1 | [[wiki/tensions/t247.md]] |
-| T248 | Is the posterior medial structural core an anatomical fact or a tractography artefact? | `L4` | `LIVE` | 1 | [[wiki/tensions/t248.md]] |
+| T248 | Is the posterior medial structural core an anatomical fact or a tractography artefact? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t248.md]] |
 | T249 | Is more integration always better, or is there an interior optimum? | `L2` | `LIVE` | 2 | [[wiki/tensions/t249.md]] |
 | T250 | Does raising a network's global coupling make its decisions faster or slower? | `L2` | `LIVE` | 2 | [[wiki/tensions/t250.md]] |
 | T251 | Does cortical geometry suffice to explain brain dynamics, or are the rare long-range connections load-bearing? | `L2` | `LIVE` | 3 | [[wiki/tensions/t251.md]] |
 | T252 | Is the direction of large-scale cortical flow fixed by anatomy or set dynamically? | `L2` | `LIVE` | 1 | [[wiki/tensions/t252.md]] |
 | T253 | Is slow connectome dynamics the accumulated expression of fast states, or an independent parallel stream? | `L4` | `LIVE` | 2 | [[wiki/tensions/t253.md]] |
-| T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L4` | `LEANING` | 2 | [[wiki/tensions/t254.md]] |
+| T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L0-INSTR` | `LEANING` | 2 | [[wiki/tensions/t254.md]] |
 | T255 | Is the brain's default self-evaluation accurate information-gathering or self-serving bias? | `L4` | `LIVE` | 1 | [[wiki/tensions/t255.md]] |
-| T256 | Is the precuneus (area 7m) part of the default mode network? | `L4` | `LIVE` | 2 | [[wiki/tensions/t256.md]] |
+| T256 | Is the precuneus (area 7m) part of the default mode network? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t256.md]] |
 | T257 | In the default/control switch, who drives whom? | `L2` | `LIVE` | 3 | [[wiki/tensions/t257.md]] |
 | T258 | In schizophrenia, is the default mode network over-engaged or under-connected? | `L4` | `LIVE` | 1 | [[wiki/tensions/t258.md]] |
 | T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 1 | [[wiki/tensions/t259.md]] |
-| T260 | Does the brain have an absolute activity baseline, or only relative ones? | `L4` | `LEANING` | 1 | [[wiki/tensions/t260.md]] |
+| T260 | Does the brain have an absolute activity baseline, or only relative ones? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t260.md]] |
 | T261 | Does dorsal medial prefrontal cortex (medial BA 8/9/10) increase or decrease from a passive baseline? | `L4` | `BOTH` | 1 | [[wiki/tensions/t261.md]] |
 | T262 | During an externally directed task, does the default mode network decouple from task-positive systems or integrate with them? | `L2` | `BOTH` | 2 | [[wiki/tensions/t262.md]] |
 | T263 | Does within-module connectivity move with brain state, or only between-module connectivity? | `L4` | `LIVE` | 2 | [[wiki/tensions/t263.md]] |
-| T264 | Is default-mode anticorrelation a neural phenomenon or a product of global signal regression? | `L4` | `LIVE` | 2 | [[wiki/tensions/t264.md]] |
+| T264 | Is default-mode anticorrelation a neural phenomenon or a product of global signal regression? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t264.md]] |
 | T265 | Where does the default mode network sit relative to the sensory-fugal hierarchy? | `L4` | `LEANING` | 2 | [[wiki/tensions/t265.md]] |
 | T266 | Can a working memory held in synaptic weights be operated on, or only stored? | `L1` | `LIVE` | 1 | [[wiki/tensions/t266.md]] |
 | T267 | Which function do the medial prefrontal / posterior cingulate / precuneus hubs serve — broadcasting current content, or generating internal content? | `L1` | `LIVE` | 2 | [[wiki/tensions/t267.md]] |
 | T268 | Is there one commit event or two? | `L2` | `LIVE` | 1 | [[wiki/tensions/t268.md]] |
 | T269 | Does prefrontal cortex constitute conscious perceptual content, or only route it? | `L1` | `LIVE` | 7 | [[wiki/tensions/t269.md]] |
-| T270 | Does a measure of integration detect a world model? | `L4` | `LIVE` | 2 | [[wiki/tensions/t270.md]] |
+| T270 | Does a measure of integration detect a world model? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t270.md]] |
 | T271 | Does the workspace commit on stimulus offset? | `L3` | `LEANING` | 3 | [[wiki/tensions/t271.md]] |
-| T272 | Does failure to decode a content from prefrontal cortex mean the content is not there? | `L4` | `LEANING` | 5 | [[wiki/tensions/t272.md]] |
+| T272 | Does failure to decode a content from prefrontal cortex mean the content is not there? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t272.md]] |
 | T273 | What drives an internally generated content switch — the content-coding populations, or a content-free global state? | `L2` | `LIVE` | 3 | [[wiki/tensions/t273.md]] |
 | T274 | Is a consciously experienced feature maintained, or recomputed on demand? | `L1` | `LIVE` | 1 | [[wiki/tensions/t274.md]] |
 | T275 | Does suppressing the irrelevant need its own channel, or does it fall out of biasing the relevant? | `L2` | `LEANING` | 2 | [[wiki/tensions/t275.md]] |
 | T276 | What does a transthalamic cortico-cortical route carry — a copy of the content, or the sender's state? | `L2` | `LIVE` | 2 | [[wiki/tensions/t276.md]] |
-| T277 | Is the single-neuron receptive field still the right unit of description above the thalamus? | `L4` | `LIVE` | 4 | [[wiki/tensions/t277.md]] |
+| T277 | Is the single-neuron receptive field still the right unit of description above the thalamus? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t277.md]] |
 | T278 | Is a single feedforward pass sufficient for object recognition, or is inter-areal feedback part of the computation? | `L2` | `BOTH` | 2 | [[wiki/tensions/t278.md]] |
-| T279 | Does decoding an attended feature from a population imply that population carries a feature-tuned gain signal? | `L4` | `LIVE` | 2 | [[wiki/tensions/t279.md]] |
+| T279 | Does decoding an attended feature from a population imply that population carries a feature-tuned gain signal? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t279.md]] |
 | T280 | Do retrograde amnesia gradients exist? | `L4` | `LIVE` | 1 | [[wiki/tensions/t280.md]] |
 | T281 | Is a neuromodulatory channel unaddressed by construction? | `L2` | `LEANING` | 1 | [[wiki/tensions/t281.md]] |
 | T282 | Does eliminating catastrophic forgetting solve continual learning, or only relocate it? | `L0` | `LIVE` | 3 | [[wiki/tensions/t282.md]] |
@@ -302,16 +286,16 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T288 | Can a domain-general learner acquire hierarchical syntactic structure from positive evidence alone? | `L0` | `LIVE` | 1 | [[wiki/tensions/t288.md]] |
 | T289 | Did the human-specific capacity require a new component, or a re-weighting of components that were already there? | `L1` | `LIVE` | 5 | [[wiki/tensions/t289.md]] |
 | T290 | Is the human-unique lateralisation an adaptation for the functions that are lateralised, or a consequence of being large? | `L4` | `LIVE` | 2 | [[wiki/tensions/t290.md]] |
-| T291 | When a model fails a capability test, has the capability been measured, or its deployment under one frame? | `L4` | `LIVE` | 3 | [[wiki/tensions/t291.md]] |
-| T292 | The ape null on shared intentionality: is the representation absent, or present and undeployed? | `L4` | `LIVE` | 3 | [[wiki/tensions/t292.md]] |
+| T291 | When a model fails a capability test, has the capability been measured, or its deployment under one frame? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t291.md]] |
+| T292 | The ape null on shared intentionality: is the representation absent, or present and undeployed? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t292.md]] |
 | T293 | Does role-filler independence require the compound to preserve its constituents, or does an invertible conjunctive code with a scheduled unbinding step suffice? | `L3` | `LIVE` | 5 | [[wiki/tensions/t293.md]] |
 | T294 | Is the human developmental lever an *extended* schedule or an *accelerated* one — and does the wiki's `G100` cite the wrong window? | `L4` | `BOTH` | 2 | [[wiki/tensions/t294.md]] |
-| T295 | Do jumping spiders belong in the convergence census at all — and does the wiki's only source for them survive inspection? | `L4` | `LEANING` | 1 | [[wiki/tensions/t295.md]] |
+| T295 | Do jumping spiders belong in the convergence census at all — and does the wiki's only source for them survive inspection? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t295.md]] |
 | T296 | Does a sparse expert router have to be learned, or is a fixed random partition of the input enough? | `L3` | `LIVE` | 4 | [[wiki/tensions/t296.md]] |
 | T297 | Is ordinary supervised learning causal or anticausal? | `L0` | `LIVE` | 3 | [[wiki/tensions/t297.md]] |
 | T298 | Should a discrete node be smoothed or differentiated exactly? | `L3` | `LIVE` | 2 | [[wiki/tensions/t298.md]] |
 | T299 | Does prioritising replay by surprise speed learning up, or destroy it? | `L3` | `LIVE` | 2 | [[wiki/tensions/t299.md]] |
-| T300 | Does added capacity buy robustness beyond what accuracy explains? | `L4` | `LIVE` | 3 | [[wiki/tensions/t300.md]] |
+| T300 | Does added capacity buy robustness beyond what accuracy explains? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t300.md]] |
 | T301 | Did the human cortex scale in units or in wiring-per-unit? | `L4` | `LIVE` | 2 | [[wiki/tensions/t301.md]] |
 | T302 | How deep is a single cortical pyramidal neuron? | `L4` | `LIVE` | 3 | [[wiki/tensions/t302.md]] |
 | T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `L1` | `LIVE` | 2 | [[wiki/tensions/t303.md]] |
@@ -321,23 +305,23 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T307 | Does neural predictivity certify that a model implements the brain's algorithm? | `META` | `LEANING` | 6 | [[wiki/tensions/t307.md]] |
 | T308 | Is the momentum encoder necessary to prevent collapse, or only the stop-gradient? | `L3` | `LEANING` | 3 | [[wiki/tensions/t308.md]] |
 | T309 | Does a learned proposer beat blind enumeration, or only when the library is co-adapting? | `L3` | `LIVE` | 5 | [[wiki/tensions/t309.md]] |
-| T310 | Does a frozen linear probe rank self-supervised representations? | `L4` | `LEANING` | 9 | [[wiki/tensions/t310.md]] |
+| T310 | Does a frozen linear probe rank self-supervised representations? | `L0-INSTR` | `LEANING` | 9 | [[wiki/tensions/t310.md]] |
 | T311 | Is non-normality how a contractive linear recurrence holds information longer than its eigenvalues suggest? | `L3` | `LEANING` | 3 | [[wiki/tensions/t311.md]] |
-| T312 | Is compositional generalisation one tunable scalar, or an irreducible facet vector? | `L4` | `LIVE` | 5 | [[wiki/tensions/t312.md]] |
+| T312 | Is compositional generalisation one tunable scalar, or an irreducible facet vector? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t312.md]] |
 | T313 | Do dopamine neurons respond to aversive events and to cues predicting them? | `L4` | `LIVE` | 1 | [[wiki/tensions/t313.md]] |
 | T314 | Should an anti-collapse provision protect the space the loss sees, or the space the read-out sees? | `L2` | `LIVE` | 5 | [[wiki/tensions/t314.md]] |
-| T315 | Is an uncorrected self-model *inflated*, or merely *insensitive*? | `L4` | `LIVE` | 2 | [[wiki/tensions/t315.md]] |
-| T316 | Does betweenness centrality measure routing load, or only a property of the graph? | `L4` | `BOTH` | 2 | [[wiki/tensions/t316.md]] |
+| T315 | Is an uncorrected self-model *inflated*, or merely *insensitive*? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t315.md]] |
+| T316 | Does betweenness centrality measure routing load, or only a property of the graph? | `L0-INSTR` | `BOTH` | 2 | [[wiki/tensions/t316.md]] |
 | T317 | Is gated-slot binding a different mechanism from algebraic binding, or the same operator with a one-hot role code? | `L3` | `BOTH` | 3 | [[wiki/tensions/t317.md]] |
 | T318 | Is a network's depth a property of the data distribution? | `L3` | `LIVE` | 2 | [[wiki/tensions/t318.md]] |
 | T319 | Is an area's integration timescale a fixed property of that area, or a run-time property of the network and its current input? | `L1` | `BOTH` | 3 | [[wiki/tensions/t319.md]] |
-| T320 | Does a model's own softmax rank its own errors? | `L4` | `BOTH` | 5 | [[wiki/tensions/t320.md]] |
+| T320 | Does a model's own softmax rank its own errors? | `L0-INSTR` | `BOTH` | 5 | [[wiki/tensions/t320.md]] |
 | T321 | Does a per-input compute budget buy anything on language modelling? | `L3` | `LIVE` | 2 | [[wiki/tensions/t321.md]] |
-| T322 | Does the ESBN's out-of-distribution generalisation come from its binding mechanism, or from normalising each problem's embeddings against itself? | `L4` | `LIVE` | 1 | [[wiki/tensions/t322.md]] |
-| T323 | Is a module's integration timescale carried by its individual units, or only by the population? | `L4` | `LIVE` | 4 | [[wiki/tensions/t323.md]] |
-| T324 | Does network controllability rank nodes by anything degree does not already say? | `L4` | `LEANING` | 5 | [[wiki/tensions/t324.md]] |
-| T325 | Does capacity make a system's stated confidence worse or better? | `L4` | `LIVE` | 2 | [[wiki/tensions/t325.md]] |
-| T326 | Does a disentangled representation buy anything downstream? | `L4` | `LIVE` | 3 | [[wiki/tensions/t326.md]] |
+| T322 | Does the ESBN's out-of-distribution generalisation come from its binding mechanism, or from normalising each problem's embeddings against itself? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t322.md]] |
+| T323 | Is a module's integration timescale carried by its individual units, or only by the population? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t323.md]] |
+| T324 | Does network controllability rank nodes by anything degree does not already say? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t324.md]] |
+| T325 | Does capacity make a system's stated confidence worse or better? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t325.md]] |
+| T326 | Does a disentangled representation buy anything downstream? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t326.md]] |
 | T327 | Is a world model's payoff the rollout, or the state it carries? | `L1` | `LIVE` | 4 | [[wiki/tensions/t327.md]] |
 | T328 | Does a per-neuron error need an electrically independent compartment, or is a magnitude residual on coincident events enough? | `L3` | `LIVE` | 3 | [[wiki/tensions/t328.md]] |
 | T329 | Do pre/post spike pairs contribute to plasticity independently? | `L3` | `LEANING` | 5 | [[wiki/tensions/t329.md]] |

@@ -5,8 +5,9 @@
   wiki/tensions/t*.md  -> table in wiki/empirical-tensions.md
 
 Every detail file carries a `**Level:**` token placing the row on the design
-ladder (L0 behaviour, L1 decomposition, L2 signal flow, L3 realization,
-L4 substrate/instrument, META). A missing or unknown token is a hard error.
+ladder (L0 behaviour, L0-INSTR measurement validity worked at L0 priority,
+L1 decomposition, L2 signal flow, L3 realization, L4 substrate, META). A missing
+or unknown token is a hard error.
 
 Everything above the table header and below the table is left untouched, so the
 prose in the index pages is hand-maintained and the table never is. Files under
@@ -18,7 +19,7 @@ W = pathlib.Path(__file__).resolve().parent.parent / "wiki"
 PAGES = list((W/"concepts").glob("*.md")) + list((W/"entities").glob("*.md"))
 TXT = [p.read_text() for p in PAGES]
 
-LEVELS = {"L0","L1","L2","L3","L4","META"}
+LEVELS = {"L0","L0-INSTR","L1","L2","L3","L4","META"}
 
 SPEC = {
     "gaps":     dict(index="architectural-gaps.md", pfx="g", noun="Gap",

@@ -55,7 +55,7 @@ The design content is in **what each party is paid for**, because the two goals 
 
 Δ is the paper's expertise gap. Read as an instrument rather than as a table of results, it says three things the wiki did not have:
 
-1. **Expertise is not information access.** A PhD in another science, motivated by a $30 bonus, given the whole internet and 37 minutes, gets 9 points over chance. Whatever the expert has is a *compiled* ability to select and apply, not a document they could have found. This is a measurement against the common reading of "crystallized knowledge" as retrievable content — see [[wiki/empirical-tensions.md]] T221.
+1. **Expertise is not information access.** A PhD in another science, motivated by a $30 bonus, given the whole internet and 37 minutes, gets 9 points over chance. Whatever the expert has is a *compiled* ability to select and apply, not a document they could have found. This is a measurement against the common reading of "crystallized knowledge" as retrievable content — see [[wiki/architectural-gaps.md]] G17.
 2. **The gap is domain-specific and does not track machine difficulty.** Chemistry has the largest human gap (40.6) and is GPT-4's *worst* domain (31.8%); biology has the smallest gap (23.5) and is its best (58.1%). Human-hard and model-hard are close to orthogonal here, which is the same dissociation ARC reports from the other end.
 3. **A retrieval baseline is a cheap benchmark-hygiene control.** Any benchmark can run it: hand the item to a competent non-specialist with a search engine and a stopwatch. It bounds the shortcut "the answer is on the web" without needing to know what the intended ability is — which is exactly the precondition the partition instruments in [[wiki/concepts/shortcut-learning.md]] require and this one does not. The paper also reports the classical version (Appendix A.2): simple classifiers on surface features of the question and choices cannot infer the key, so there are no "easy tells".
 
@@ -119,7 +119,7 @@ The paper never analyses its items cognitively, but the six printed examples sha
 | Saturation | Fixed set; leakage defended by canary only | Impossible by construction | Structural | Fixed set |
 | Marginal cost per item | **~$125 writer + ~$85 validation, PhD labour** | ~5 min writer + 2 verifiers | High, one-off | High, one-off |
 
-The **selection-rule row is the disagreement**. ARC Prize's stated principle is that a task both humans and machines find hard "isolates only accumulated knowledge", and excludes crystallized ability on those grounds ([[wiki/concepts/skill-acquisition-efficiency.md]]); GPQA deliberately selects for exactly that quadrant and then measures that the accumulated ability is not retrievable. Recorded as [[wiki/empirical-tensions.md]] T221.
+The **selection-rule row is the disagreement**. ARC Prize's stated principle is that a task both humans and machines find hard "isolates only accumulated knowledge", and excludes crystallized ability on those grounds ([[wiki/concepts/skill-acquisition-efficiency.md]]); GPQA deliberately selects for exactly that quadrant and then measures that the accumulated ability is not retrievable. Recorded as [[wiki/architectural-gaps.md]] G17.
 
 ## The scalable-oversight frame, and the one thing it adds to verification
 
@@ -139,7 +139,7 @@ The paper adopts Irving & Askell's nine desiderata for such datasets and claims 
 - **Human baselines on the released subsets are selection-biased**, flagged by the authors, and are the numbers most often quoted downstream.
 - **~26% of Extended is estimated non-objective**, and the filtered subsets' true rate is not measured.
 - **Non-experts are unusually strong** (PhDs in other sciences), so 34% is an upper bound on non-expert accuracy and will not transfer to other annotator pools; the authors instruct re-measurement per experiment.
-- **Leakage defence is a canary string and a norm**, not a private set — weaker than [[wiki/entities/arc-agi.md]]'s withheld evaluation split, and the failure mode is the distribution-level overfitting recorded in T207 rather than item memorisation.
+- **Leakage defence is a canary string and a norm**, not a private set — weaker than [[wiki/entities/arc-agi.md]]'s withheld evaluation split, and the failure mode is the distribution-level overfitting recorded in G17 rather than item memorisation.
 - **Sourcing bias.** Upwork, no demographic or regional balance, no claim of representativeness over questions arising in scientific practice; the authors note masculine-default pronouns in some items.
 - **Multiple choice.** Free-response conversion was designed for and never run.
 - **Proxy gap.** The target is supervising *superhuman* systems on questions no human can answer; the paper's own proposed fix is a set of currently-open questions expected to be settled soon, which nobody has built.
@@ -148,7 +148,7 @@ The paper adopts Irving & Askell's nine desiderata for such datasets and claims 
 
 ## Connections
 
-- **[[wiki/concepts/skill-acquisition-efficiency.md]]** — the explicit opposite pole: that page's measure charges priors and excludes crystallized ability on the argument that a task hard for humans and machines alike isolates only accumulated knowledge; GPQA selects that quadrant on purpose and measures that its "accumulated knowledge" survives 37 minutes of unrestricted search by a PhD in a neighbouring science (T221).
+- **[[wiki/concepts/skill-acquisition-efficiency.md]]** — the explicit opposite pole: that page's measure charges priors and excludes crystallized ability on the argument that a task hard for humans and machines alike isolates only accumulated knowledge; GPQA selects that quadrant on purpose and measures that its "accumulated knowledge" survives 37 minutes of unrestricted search by a PhD in a neighbouring science (G17).
 - **[[wiki/concepts/external-verification.md]]** — supplies the specification for the rung *below* the ladder: seven desiderata for a domain in which a verifier **weaker** than the generator can still extract truth, with "some checkable facts" as the hinge — the process-reward argument transposed from a trained scorer onto a human supervisor who cannot afford the full derivation.
 - **[[wiki/concepts/shortcut-learning.md]]** — contributes a benchmark-hygiene control that needs no knowledge of the intended ability: a timed retrieval baseline (skilled non-specialist + web) bounds the "it was findable" shortcut per item, complementing the surface-feature classifier check that GPQA also passes.
 - **[[wiki/entities/anli.md]]** — the same move (difficulty defined relative to a solver, measured per item at authoring time, paid for by bonus) with the solver swapped: ANLI adversarially targets the current model and cannot name what it withholds; GPQA adversarially targets a human with a search engine and can, because the writer ships the reasoning chain.

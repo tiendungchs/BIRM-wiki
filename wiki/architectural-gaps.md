@@ -6,9 +6,9 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 
 **Kind key:** `part` — the row asks for a mechanism, a loss or a representation, and one better component could close it · `arrangement` — the row is a property of how components are wired together, and no component that can be added to a wiki architecture closes it (`G84`, `G85`, `G88`, `G90`, `G91`, `G93`; identified at the 284-source lint pass, [[wiki/overview.md]]). Promoting this from a header paragraph to a column closes `P2` at [[wiki/priority-tasks.md]].
 
-**Level key — the design ladder.** Where the row sits relative to a buildable specification. `L0` — **behaviour**: what the system must do and what counts as evidence it did, stated without naming a block · `L1` — **decomposition**: which blocks exist, what each one's job is, where the boundaries fall · `L2` — **signal flow**: what rides which wire, at what rate, and what is *denied* to which reader · `L3` — **realization**: how a block does its job — loss, rule, code, operator, constant; swappable without changing L0–L2 · `L4` — **substrate / instrument**: biological facts and measurement-validity disputes, which bite only once L3 is chosen · `META` — a question about the research process rather than about the model.
+**Level key — the design ladder.** Where the row sits relative to a buildable specification. `L0` — **behaviour**: what the system must do and what counts as evidence it did, stated without naming a block · `L1` — **decomposition**: which blocks exist, what each one's job is, where the boundaries fall · `L2` — **signal flow**: what rides which wire, at what rate, and what is *denied* to which reader · `L3` — **realization**: how a block does its job — loss, rule, code, operator, constant; swappable without changing L0–L2 · `L4` — **substrate**: biological or methodological facts with no consequence for a design decision until a realization is chosen · `L0-INSTR` — **measurement validity**: a row whose subject is the validity of a measurement rather than a property of the model — does this score measure the ability it is named after, does this probe license the claim drawn from it — worked at `L0` priority because an unvalidated instrument cannot settle an `L0` claim · `META` — a question about the research process rather than about the model.
 
-The ladder is a **priority order, not a quality order**: L0 before L1 before L2, and nothing below L2 is worked until the level above it is settled, because an implementation question whose behavioural contract is unwritten cannot be answered — only surveyed. The one exception is the instrument band inside `L4`: a row asking whether a measurement means what it names gates every `L0` claim that would rest on it, and is worked at `L0` priority.
+The ladder is a **priority order, not a quality order**: L0 before L1 before L2, and nothing below L2 is worked until the level above it is settled, because an implementation question whose behavioural contract is unwritten cannot be answered — only surveyed. The one exception is `L0-INSTR`, split out of `L4` at the design-ladder pass: a row asking whether a measurement means what it names gates every `L0` claim that would rest on it, and is worked at `L0` priority.
 
 **This page is an index.** One line per row; the evidence, sources and status reasoning for each live in its own file under `wiki/gaps/`. Read the index to decide which rows matter, then open only those files.
 
@@ -32,7 +32,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 21 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 26 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 21 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 46 | [[wiki/gaps/g017.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 57 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 18 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
@@ -46,20 +46,20 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `L0` | `PARTIAL` | 19 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 9 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 20 | [[wiki/gaps/g030.md]] |
-| G31 | Generalization difficulty is uncomputable and unapproximated | part | `L4` | `OPEN` | 10 | [[wiki/gaps/g031.md]] |
+| G31 | Generalization difficulty is uncomputable and unapproximated | part | `L0-INSTR` | `OPEN` | 10 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `L0` | `OPEN` | 13 | [[wiki/gaps/g032.md]] |
 | G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 15 | [[wiki/gaps/g033.md]] |
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g035.md]] |
-| G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L4` | `OPEN` | 1 | [[wiki/gaps/g036.md]] |
+| G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L0-INSTR` | `OPEN` | 1 | [[wiki/gaps/g036.md]] |
 | G37 | Nothing decides which stored structure applies to the current situation | part | `L2` | `PARTIAL` | 32 | [[wiki/gaps/g037.md]] |
 | G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `L2` | `PARTIAL` | 37 | [[wiki/gaps/g038.md]] |
 | G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 12 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `L2` | `OPEN` | 12 | [[wiki/gaps/g040.md]] |
-| G41 | No test decides whether a domain's actions compose | part | `L4` | `OPEN` | 4 | [[wiki/gaps/g041.md]] |
+| G41 | No test decides whether a domain's actions compose | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g041.md]] |
 | G42 | No machine fast store has a capacity model, so nothing knows when it is full | part | `L1` | `PARTIAL` | 25 | [[wiki/gaps/g042.md]] |
 | G43 | Nothing arbitrates between concurrent reference frames | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g043.md]] |
-| G44 | Nothing accounts for how much of an emergent phenomenon came from the training target rather than the task | part | `L4` | `OPEN` | 3 | [[wiki/gaps/g044.md]] |
+| G44 | Nothing accounts for how much of an emergent phenomenon came from the training target rather than the task | part | `L0-INSTR` | `OPEN` | 3 | [[wiki/gaps/g044.md]] |
 | G45 | No architecture can be told its latent structure | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g045.md]] |
 | G46 | Nothing predicts the *order* in which a learner disambiguates its aliased states | part | `L4` | `OPEN` | 2 | [[wiki/gaps/g046.md]] |
 | G47 | Nothing learns the topology of the state-space manifold it represents on | part | `L3` | `OPEN` | 10 | [[wiki/gaps/g047.md]] |
@@ -101,7 +101,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G84 | No architecture in the wiki knows the topological position of its own modules, and none has a component whose job is to be the crossing point | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g084.md]] |
 | G85 | No architecture in the wiki reads its own network topology, and none treats it as a demand-graded control variable | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g085.md]] |
 | G86 | Every architecture in the wiki tunes its stopping rule and its memory separately, and nothing couples them | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g086.md]] |
-| G87 | Nothing in the wiki has ever shown that a better representation of activity produces a better decision | part | `L4` | `OPEN` | 1 | [[wiki/gaps/g087.md]] |
+| G87 | Nothing in the wiki has ever shown that a better representation of activity produces a better decision | part | `L0-INSTR` | `OPEN` | 1 | [[wiki/gaps/g087.md]] |
 | G88 | No architecture in the wiki has a direction of information flow that comes from its own weight matrix | arrangement | `L2` | `OPEN` | 1 | [[wiki/gaps/g088.md]] |
 | G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `L1` | `OPEN` | 4 | [[wiki/gaps/g089.md]] |
 | G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `L2` | `OPEN` | 7 | [[wiki/gaps/g090.md]] |
@@ -122,7 +122,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `L0` | `OPEN` | 5 | [[wiki/gaps/g105.md]] |
 | G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `L3` | `OPEN` | 4 | [[wiki/gaps/g106.md]] |
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 7 | [[wiki/gaps/g107.md]] |
-| G108 | No label-free criterion selects a good representation out of a training run | part | `L4` | `OPEN` | 4 | [[wiki/gaps/g108.md]] |
+| G108 | No label-free criterion selects a good representation out of a training run | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g108.md]] |
 
 ## How gaps are used
 

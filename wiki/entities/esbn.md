@@ -99,7 +99,7 @@ The confidence channel has an architectural substitute: seeding memory with **on
 - **TCN dependence is not discussed as a confound.** Without TCN, ESBN scores 50.0 on same/different at *every* `m` — chance, worse than a plain LSTM (88.2 at `m=0`) — and 62.0 on distribution-of-three at `m=95`. The architectural claim is stated as though the binding mechanism does the work; the ablation table shows a normalisation trick is a precondition for it on two of four tasks (T322).
 - **The strict two-stream division is untested as a requirement.** The authors name softening it (a regulariser rather than an architectural wall) as future work; no experiment reports what a partially-permeable version does.
 - **Nothing parses.** All tasks present pre-segmented single-character images in a fixed sequence. Extension to real RPM-like benchmarks ([[wiki/entities/raven.md]], [[wiki/entities/pgm.md]]) is stated to require visual attention that the model does not have — so `G75` sits directly in front of it.
-- **Rules are selected, not constructed.** The output is a 1-of-2 or 1-of-4 choice. The paper notes value-side retrieval could produce predictions in image space; it was not run, so the generative form of the tasks is untested (cf. T212's generative/selective distinction).
+- **Rules are selected, not constructed.** The output is a 1-of-2 or 1-of-4 choice. The paper notes value-side retrieval could produce predictions in image space; it was not run, so the generative form of the tasks is untested (cf. G17's generative/selective distinction).
 - **Ternary is the ceiling reached, not the ceiling probed.** `T = 9`, four rule types, one rule per problem.
 
 ---

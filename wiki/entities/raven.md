@@ -30,7 +30,7 @@ The original generator built the 7 distractors by **taking the correct answer an
 | **Measured** | A network trained **solely on the answer choices**, never shown the matrix, exceeds **90%** — above the 84% human baseline `(tentative)` |
 | **Repairs** | I-RAVEN and RAVEN-FAIR regenerate the candidate sets by less exploitable procedures; several groups then reported >84% on these versions too |
 
-The super-human scores this table sits next to are logged as [[wiki/empirical-tensions.md]] T210: a leaderboard number here is a purchase from a public generator plus, on the original set, a leak from the answer set, and the concept-variation drops below are the other side of it.
+The super-human scores this table sits next to are logged as [[wiki/architectural-gaps.md]] G17: a leaderboard number here is a purchase from a public generator plus, on the original set, a leak from the answer set, and the concept-variation drops below are the other side of it.
 
 **Why this belongs in the wiki.** It is a benchmark-side shortcut of the same family as the `argmax` tie-break and the missing negative image in the vision-language compositionality suites ([[wiki/concepts/cross-modal-grounding.md]]): the item is answerable without consulting the input the benchmark exists to test. And it retro-justifies an assertion [[wiki/entities/arc-agi.md]] makes on design grounds alone — *"a multiple-choice version would admit elimination shortcuts"* — with a measurement. Constructing the answer from scratch is not a stylistic preference; it deletes a channel that here was worth more than the entire human baseline.
 

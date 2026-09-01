@@ -78,7 +78,7 @@ Accuracy (`pass@1`, %), textual / visual:
 | GPT-4o / Llama 4 Scout / Qwen 2.5 VL 72B (non-reasoning) | | 14.6 / 6.7 / 9.2 textual; **0.0** visual for all three | | |
 
 - **Reasoning effort buys the textual modality; tools buy the visual one.** Low→medium in text: +9 to +19 points. Low→medium in vision without tools: ~0. Adding Python (i.e. OpenCV-style parsing of the image) in vision: +12 to +24. The models spend the extra visual budget *executing more code*, not thinking longer — consistent with the reported failure of test-time scaling to transfer to visual modalities.
-- **A perception bottleneck, quantified.** Visual-error rate 49–77% with rule–grid alignment above 93%, and the commonest single failure is not recognising the grid's dimensions from the image. The wiki should stop treating the ARC-in-text presentation as the handicap: for frontier models, **rendering the same task as an image costs 40–60 accuracy points**, so serialising 2-D structure into row-major text is the *cheap* channel ([[wiki/empirical-tensions.md]] T212, T215).
+- **A perception bottleneck, quantified.** Visual-error rate 49–77% with rule–grid alignment above 93%, and the commonest single failure is not recognising the grid's dimensions from the image. The wiki should stop treating the ARC-in-text presentation as the handicap: for frontier models, **rendering the same task as an image costs 40–60 accuracy points**, so serialising 2-D structure into row-major text is the *cheap* channel ([[wiki/architectural-gaps.md]] G17, T215).
 - **Format leniency is not the story.** Re-scoring outputs in non-requested-but-unambiguous grid formats moves most cells by <3 points; the largest single change is Claude medium textual, 60.2 → 72.5.
 
 ---
@@ -115,7 +115,7 @@ The paper's reading, and the wiki should carry it: *"models struggle significant
 1. **A tenth instrument for [[wiki/concepts/shortcut-learning.md]], and the first that needs no distribution shift, no second model, no controlled dataset and no partition of the item set** — only that the solver be asked to say what it did, plus a faithfulness check. Its cost is the mirror image: it needs a human rater and an author-declared intended abstraction, so it runs only on benchmarks built around named concepts.
 2. **It scores the framing stage separately from the optimisation stage** ([[wiki/concepts/problem-framing.md]]). "Intended rule stated, wrong grid emitted" is framing-correct-and-optimisation-failed, measured; "wrong rule, correct grid" is the reverse. That is the wiki's only quantitative decomposition of a score into the two halves that page argues are conflated everywhere.
 3. **It supplies a training target, not just a metric.** The authors' stated next step is process-based reward models or direct inclusion of human reasoning traces — i.e. supervising the *rule* rather than the answer. That is the loss lever from `shortcut-learning`'s control surface, aimed at the one place where an accuracy-shaped loss is silent: two rules that agree on the demonstrations are indistinguishable to it.
-4. **`pass@1`, reported for humans and machines on the same items** — which is the commensurable first-attempt number [[wiki/empirical-tensions.md]] T213 says nobody had collected for ARC (gap G74).
+4. **`pass@1`, reported for humans and machines on the same items** — which is the commensurable first-attempt number [[wiki/architectural-gaps.md]] G17 says nobody had collected for ARC (gap G74).
 
 ---
 

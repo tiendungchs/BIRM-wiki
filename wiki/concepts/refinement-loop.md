@@ -75,7 +75,7 @@ A **model refinement harness** is a refinement loop implemented at the *applicat
 
 Two structural facts the report attaches:
 - The harnesses observed are **domain-specific**. General-purpose ones (GEPA, DSPy) exist as tooling but require "a verifier or environment capable of producing a feedback signal" — the same precondition as everything on this page.
-- The report expects harnesses to be **absorbed behind the API**, i.e. the boundary between "the model" and "the loop around the model" is a deployment artefact, not a capability boundary. Any benchmark number that does not state which side of that line it was measured on is ambiguous by construction — which is one reading of [[wiki/empirical-tensions.md]] T206.
+- The report expects harnesses to be **absorbed behind the API**, i.e. the boundary between "the model" and "the loop around the model" is a deployment artefact, not a capability boundary. Any benchmark number that does not state which side of that line it was measured on is ambiguous by construction — which is one reading of [[wiki/architectural-gaps.md]] G17.
 
 ---
 
