@@ -13,7 +13,7 @@ One INGEST each:
 - [x] `smolensky-1990-tensor-product-variable-binding.md` — neurosymbolic · F · 1990 · **LOSSY** (pdf2md)
 - [x] `tishby-2015-deep-learning-information-bottleneck.md` — foundations · F · 2015
 - [x] `chaudhuri-2015-large-scale-circuit-hierarchical-dynamics.md` — brain-networks · M · 2015
-- [ ] `graves-2016-adaptive-computation-time.md` — sequence-models · M · 2016
+- [x] `graves-2016-adaptive-computation-time.md` — sequence-models · M · 2016
 - [ ] `geifman-2017-selective-classification.md` — reasoning-eval · M · 2017
 - [ ] `oord-2018-contrastive-predictive-coding.md` — ssl-representation · M · 2018
 - [ ] `dehghani-2019-universal-transformers.md` — sequence-models · M · 2019
