@@ -326,3 +326,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T316 | Does betweenness centrality measure routing load, or only a property of the graph? | `BOTH` | 2 | [[wiki/tensions/t316.md]] |
 | T317 | Is gated-slot binding a different mechanism from algebraic binding, or the same operator with a one-hot role code? | `BOTH` | 2 | [[wiki/tensions/t317.md]] |
 | T318 | Is a network's depth a property of the data distribution? | `LIVE` | 2 | [[wiki/tensions/t318.md]] |
+| T319 | Is an area's integration timescale a fixed property of that area, or a run-time property of the network and its current input? | `BOTH` | 2 | [[wiki/tensions/t319.md]] |
