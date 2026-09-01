@@ -49,14 +49,12 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T33 | Is CA1 a linear relay or a second recombination-and-completion stage? | `L1` | `LIVE` | 2 | [[wiki/tensions/t033.md]] |
 | T34 | Does hippocampus→cortex transfer happen during sleep or during waking? | `L2` | `LEANING` | 3 | [[wiki/tensions/t034.md]] |
 | T35 | Is remapping controlled by the environment or by the animal's inference history? | `L2` | `LEANING` | 1 | [[wiki/tensions/t035.md]] |
-| T36 | Does map selection cause context-dependent behaviour? | `L4` | `LIVE` | 1 | [[wiki/tensions/t036.md]] |
 | T37 | Is grid-like coding a discovery or a detection artefact? | `L0-INSTR` | `LIVE` | 8 | [[wiki/tensions/t037.md]] |
 | T38 | Do grid cells emerge from training on path integration? | `L3` | `LEANING` | 7 | [[wiki/tensions/t038.md]] |
 | T39 | Is place-cell remapping random? | `L3` | `LEANING` | 5 | [[wiki/tensions/t039.md]] |
 | T40 | Is a place cell a conjunctive cell or a memory index? | `L1` | `LIVE` | 2 | [[wiki/tensions/t040.md]] |
 | T41 | Must the grid↔hippocampal weights be learned, or must they be frozen? | `L3` | `LIVE` | 3 | [[wiki/tensions/t041.md]] |
 | T42 | Is the conjunctive place cell `p = f(g̃ ⊙ x̃)` required, or does it block the structural code? | `L2` | `LIVE` | 2 | [[wiki/tensions/t042.md]] |
-| T43 | Is the CA3/CA1 difference in place-field shift a fixed property of their learning rules? | `L4` | `LIVE` | 1 | [[wiki/tensions/t043.md]] |
 | T44 | Is a periodic `g` necessary for structural generalization, or just one solution among several? | `L3` | `LIVE` | 3 | [[wiki/tensions/t044.md]] |
 | T45 | Is the hippocampal map amodal, or biased to space? | `L1` | `LIVE` | 4 | [[wiki/tensions/t045.md]] |
 | T46 | When landmarks and self-motion disagree, which one sets the structural code? | `L2` | `LIVE` | 4 | [[wiki/tensions/t046.md]] |
@@ -66,15 +64,12 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T50 | Is an abstract hippocampal code low-dimensional, or is low dimensionality a red herring? | `L3` | `LEANING` | 4 | [[wiki/tensions/t050.md]] |
 | T51 | When one item set is embedded in several relational structures, does the map integrate them or hold them in parallel? | `L1` | `LIVE` | 3 | [[wiki/tensions/t051.md]] |
 | T52 | Is the hippocampal spatial code carried by the sparse, selective excitatory population, or is it equally present in the dense inhibitory one? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t052.md]] |
-| T53 | Is orthogonalization of aliased states a requirement, or a free choice the brain happens to make? | `L3` | `LEANING` | 1 | [[wiki/tensions/t053.md]] |
-| T54 | What does a hippocampal representation do when the environment is metrically distorted? | `L4` | `LIVE` | 1 | [[wiki/tensions/t054.md]] |
+| T53 | Is orthogonalization of aliased states a requirement, or a free choice the brain happens to make? | `L3` | `LEANING` | 2 | [[wiki/tensions/t053.md]] |
 | T55 | Should a fast store's addressing be random, or should it follow the data? | `L3` | `LIVE` | 5 | [[wiki/tensions/t055.md]] |
 | T56 | What is theta-paced flickering between hippocampal maps? | `L2` | `LIVE` | 4 | [[wiki/tensions/t056.md]] |
 | T57 | How should a memory store a sequence — the successor state, or the increment that generates it? | `L3` | `LIVE` | 2 | [[wiki/tensions/t057.md]] |
 | T58 | Where does the theta-band structure of hippocampal sequences come from — a rhythm imposed on the network, or a bifurcation inside it? | `L4` | `LIVE` | 4 | [[wiki/tensions/t058.md]] |
 | T59 | Does a stored memory live in the synaptic weights, or in a mask over them? | `L3` | `LIVE` | 2 | [[wiki/tensions/t059.md]] |
-| T60 | What substrate defines a large-scale attractor landscape — anatomy or activity covariance? | `L4` | `LIVE` | 1 | [[wiki/tensions/t060.md]] |
-| T61 | Are the patterns a fast store holds random, or orthogonalised? | `L3` | `LIVE` | 1 | [[wiki/tensions/t061.md]] |
 | T62 | Should a fast associative store hold instances, or model a distribution? | `L1` | `LIVE` | 1 | [[wiki/tensions/t062.md]] |
 | T63 | Is the unit that stores a pattern the neuron or the dendritic segment? | `L4` | `LIVE` | 2 | [[wiki/tensions/t063.md]] |
 | T64 | Is the dendritic tree's *structure* load-bearing, or only its sparsity? | `L4` | `LIVE` | 3 | [[wiki/tensions/t064.md]] |
@@ -82,12 +77,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T66 | Does layer 6 supply a modulator signal, or the location code that decides what a column represents? | `L2` | `LIVE` | 1 | [[wiki/tensions/t066.md]] |
 | T67 | Where does mixed selectivity come from — wiring, or learning? | `L3` | `LIVE` | 3 | [[wiki/tensions/t067.md]] |
 | T68 | Does strong activity raise or lower a neuron's intrinsic excitability? | `L4` | `LIVE` | 2 | [[wiki/tensions/t068.md]] |
-| T69 | Is a finite-nudge contrastive rule a biased approximation of backpropagation, or exact gradient descent on a different objective? | `L3` | `LEANING` | 1 | [[wiki/tensions/t069.md]] |
-| T70 | Must a local approximation to backpropagation encode gradients as activity *differences*? | `L3` | `LIVE` | 1 | [[wiki/tensions/t070.md]] |
-| T71 | To repair feedback alignment, should the feedback weights move toward the forward ones, or the forward weights toward the feedback? | `L3` | `LIVE` | 1 | [[wiki/tensions/t071.md]] |
-| T72 | Where do spacing effects come from — saturating variables inside a synapse, or a gate at the population level? | `L4` | `LEANING` | 1 | [[wiki/tensions/t072.md]] |
-| T73 | Should a one-shot store allocate memories to *overlapping* cell populations, or to independently sampled ones? | `L3` | `LIVE` | 1 | [[wiki/tensions/t073.md]] |
-| T74 | Is content-addressable recall necessarily relaxation? | `L3` | `LEANING` | 1 | [[wiki/tensions/t074.md]] |
 | T75 | Does expanding a code's dimensionality improve linear separability? | `L3` | `LIVE` | 4 | [[wiki/tensions/t075.md]] |
 | T76 | Does spike-timing potentiation scale up or down with the existing weight? | `L3` | `LEANING` | 2 | [[wiki/tensions/t076.md]] |
 | T77 | Is a population's existing latent basis a hard limit on what it can learn, or only a slow one? | `L3` | `LIVE` | 2 | [[wiki/tensions/t077.md]] |
@@ -97,14 +86,12 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T81 | What determines whether a memory consolidates — that it *recurs*, or that the slow learner can *model* it? | `L2` | `LIVE` | 2 | [[wiki/tensions/t081.md]] |
 | T82 | Is permanent hippocampal dependence an optimal refusal or a transport failure? | `L1` | `LIVE` | 2 | [[wiki/tensions/t082.md]] |
 | T83 | Is memory allocation decided by the excitability of neurons just before learning? | `L3` | `LEANING` | 2 | [[wiki/tensions/t083.md]] |
-| T84 | Should the fraction of units written per memory be fixed, or should it track load and statistics? | `L3` | `LIVE` | 1 | [[wiki/tensions/t084.md]] |
 | T85 | Is phasic dopamine a reward *prediction* or a reward *association*? | `L4` | `LIVE` | 4 | [[wiki/tensions/t085.md]] |
 | T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `L1` | `LEANING` | 2 | [[wiki/tensions/t086.md]] |
 | T87 | Is a working memory held at a fixed point, or in a moving trajectory? | `L3` | `LEANING` | 2 | [[wiki/tensions/t087.md]] |
 | T88 | What is prefrontal delay-period activity *about* — the item held, or the place attention is pointed? | `L1` | `LEANING` | 4 | [[wiki/tensions/t088.md]] |
 | T89 | Is a working memory cleared by decay or by an addressed erase signal? | `L2` | `LIVE` | 1 | [[wiki/tensions/t089.md]] |
 | T90 | Is a working-memory operation implemented by one controller, or by the conjunction of several subsystems each representing it differently? | `L1` | `LIVE` | 1 | [[wiki/tensions/t090.md]] |
-| T91 | Is the medial temporal contribution to arbitrary mapping restricted to spatial consequents? | `L4` | `LIVE` | 1 | [[wiki/tensions/t091.md]] |
 | T92 | Is working memory the specialized function of prefrontal cortex? | `L4` | `LIVE` | 3 | [[wiki/tensions/t092.md]] |
 | T93 | Does abstracting a rule enable generalization, or only speed it up? | `L0` | `LIVE` | 2 | [[wiki/tensions/t093.md]] |
 | T94 | When a behaviour becomes automatic, does the controller drop out or hand over? | `L2` | `LIVE` | 5 | [[wiki/tensions/t094.md]] |
@@ -122,13 +109,11 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T106 | Do task-trained prefrontal-like recurrent networks settle into attractors, or avoid them? | `L3` | `LIVE` | 3 | [[wiki/tensions/t106.md]] |
 | T107 | Which structure holds the graph that a plan runs on — the hippocampal formation, or the cortical controller? | `L1` | `LIVE` | 2 | [[wiki/tensions/t107.md]] |
 | T108 | When a new situation is ambiguous between stored structures, does the learner mix them or commit to one? | `L2` | `LIVE` | 4 | [[wiki/tensions/t108.md]] |
-| T109 | Is medial premotor cortex (SMA/pre-SMA) part of the arbitrary stimulus→action binding network? | `L4` | `LIVE` | 1 | [[wiki/tensions/t109.md]] |
 | T110 | When a task affords no higher-order structure, does the learner withdraw from the abstract level or keep imposing it? | `L2` | `LIVE` | 2 | [[wiki/tensions/t110.md]] |
 | T111 | Is a control representation a stable property of the tissue, or instantiated by the demand? | `L1` | `LIVE` | 3 | [[wiki/tensions/t111.md]] |
 | T112 | Does removing a control signal reduce downstream selection, or eliminate it? | `L4` | `LEANING` | 3 | [[wiki/tensions/t112.md]] |
 | T113 | Is a control-band oscillation the control resource, or the receipt of one? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t113.md]] |
 | T114 | Does behavioural guidance by a feature imply an attentional gain signal for that feature in sensory cortex? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t114.md]] |
-| T115 | Does the preparatory attentional template hold the target? | `L4` | `LIVE` | 1 | [[wiki/tensions/t115.md]] |
 | T116 | When a functionally defined subensemble and its parent population rank two channels in opposite orders, which reading is the pathway's function? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t116.md]] |
 | T117 | Does perceiving a sequence rest mainly on top-down predictions, or on within-level priors over motion? | `L2` | `LIVE` | 1 | [[wiki/tensions/t117.md]] |
 | T118 | What does a superficial pyramidal spike mean — a candidate interpretation, or a residual? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t118.md]] |
@@ -136,10 +121,9 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T120 | Is an infinitesimal nudge unusable, or is it the correct regime? | `L3` | `LIVE` | 2 | [[wiki/tensions/t120.md]] |
 | T121 | Is event-model updating controlled by one signal or by several? | `L2` | `LEANING` | 1 | [[wiki/tensions/t121.md]] |
 | T122 | What does phasic dopamine carry — a reward prediction error, or the precision of a prediction error? | `L2` | `LIVE` | 6 | [[wiki/tensions/t122.md]] |
-| T123 | Does active inference remove the exploration–exploitation weight, or only fix its value? | `L3` | `LEANING` | 1 | [[wiki/tensions/t123.md]] |
+| T123 | Does active inference remove the exploration–exploitation weight, or only fix its value? | `L3` | `LEANING` | 2 | [[wiki/tensions/t123.md]] |
 | T124 | Which epistemic term does the work — uncertainty about the *state*, or uncertainty about the *model*? | `L3` | `LIVE` | 4 | [[wiki/tensions/t124.md]] |
 | T125 | Does the epistemic term help or hurt once it is implemented? | `L3` | `LIVE` | 2 | [[wiki/tensions/t125.md]] |
-| T126 | Which correction to plain variational inference does the work — the action-entropy planning term, or the epistemic priors? | `L3` | `LIVE` | 1 | [[wiki/tensions/t126.md]] |
 | T127 | Is uncertainty itself represented, or only the value of resolving it? | `L2` | `LIVE` | 4 | [[wiki/tensions/t127.md]] |
 | T128 | Are all precisions inferred, or are some structural constants? | `L3` | `LIVE` | 3 | [[wiki/tensions/t128.md]] |
 | T129 | Is the direct/indirect relation a scalar balance, or two concurrently active ensembles? | `L1` | `LIVE` | 2 | [[wiki/tensions/t129.md]] |
@@ -163,7 +147,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T147 | Does making a learned model inspectable require a discrete bottleneck? | `L3` | `LIVE` | 3 | [[wiki/tensions/t147.md]] |
 | T148 | Should a discovered action alphabet be discrete or continuous? | `L1` | `LIVE` | 5 | [[wiki/tensions/t148.md]] |
 | T149 | Must a vision encoder be trained with language supervision to align well with a language model? | `L3` | `LEANING` | 3 | [[wiki/tensions/t149.md]] |
-| T150 | Should a quantisation codebook be learned from data or installed by construction? | `L3` | `LIVE` | 1 | [[wiki/tensions/t150.md]] |
+| T150 | Should a quantisation codebook be learned from data or installed by construction? | `L3` | `LIVE` | 2 | [[wiki/tensions/t150.md]] |
 | T151 | Where do a model's objects live — in its architecture, or in a read-out of its predictions? | `L1` | `LIVE` | 2 | [[wiki/tensions/t151.md]] |
 | T152 | Is a world model's conditioning interface a design requirement, or an implementation detail? | `L2` | `LEANING` | 5 | [[wiki/tensions/t152.md]] |
 | T153 | Is a straight latent trajectory a good representation or a partial collapse? | `L3` | `LIVE` | 3 | [[wiki/tensions/t153.md]] |
@@ -189,7 +173,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T173 | Should a learned similarity live in the geometry of the code, or in a comparator on top of it? *(absorbs T184, "should structural similarity live in the code or in the comparator?", merged at the 284-source duplicate audit: one axis, two rows, sharing two of their four citations. T184's sides were labelled in the opposite order; this row uses A = in the code.)* | `L1` | `LIVE` | 7 | [[wiki/tensions/t173.md]] |
 | T174 | Does the recurrent connectivity of a fixed-dynamics sequence model carry expressive power? | `L3` | `LIVE` | 8 | [[wiki/tensions/t174.md]] |
 | T175 | Once every candidate is a universal approximator, is there any expressivity difference left to measure? | `L3` | `LIVE` | 5 | [[wiki/tensions/t175.md]] |
-| T176 | Should a continuous-time model keep its differential equation, or compile it away? | `L3` | `LIVE` | 1 | [[wiki/tensions/t176.md]] |
 | T177 | Does long-range capability come from the architecture or from the initialisation? | `L3` | `LIVE` | 4 | [[wiki/tensions/t177.md]] |
 | T178 | Should a multiscale temporal decomposition be imposed on a sequence model, or left for a deep stack to discover? | `L1` | `LIVE` | 1 | [[wiki/tensions/t178.md]] |
 | T179 | Is short path length between positions why long-range dependencies become learnable? | `L3` | `LEANING` | 3 | [[wiki/tensions/t179.md]] |
@@ -201,18 +184,13 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T187 | Must a binding operator be invertible? | `L3` | `LIVE` | 2 | [[wiki/tensions/t187.md]] |
 | T188 | Must an induced program be consistent with *all* the demonstrations? | `L0` | `LIVE` | 2 | [[wiki/tensions/t188.md]] |
 | T189 | Should a model be selected for how confidently it answers, or for how well it answers? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t189.md]] |
-| T190 | Is cross-example consistency a symbolic intersection, or a vote over hypothesis labels? | `L3` | `LEANING` | 1 | [[wiki/tensions/t190.md]] |
 | T191 | Should a solver commit to one parse of the input, or carry several? | `L1` | `LIVE` | 2 | [[wiki/tensions/t191.md]] |
 | T192 | What licenses a candidate analogical inference — its coherence with the target, or a causal model carried over from the source? | `L0` | `LIVE` | 1 | [[wiki/tensions/t192.md]] |
-| T193 | Is the developmental relational shift caused by accumulating relational knowledge, or by maturing executive capacity? | `L4` | `LIVE` | 1 | [[wiki/tensions/t193.md]] |
 | T194 | Is approaching a memory's capacity a failure mode or the mechanism that produces generalisation? | `L1` | `LIVE` | 1 | [[wiki/tensions/t194.md]] |
 | T195 | Is sequential presentation a cost paid against joint training? | `L0` | `LIVE` | 2 | [[wiki/tensions/t195.md]] |
-| T196 | Should a compound's meaning depend only on its immediate children, or on the whole structure it sits in? | `L3` | `LIVE` | 1 | [[wiki/tensions/t196.md]] |
 | T197 | Is un-flagged retrieval error a defect to engineer away or a phenomenon to reproduce? | `L0` | `LIVE` | 1 | [[wiki/tensions/t197.md]] |
-| T198 | Does locality buy resistance to catastrophic forgetting? | `L3` | `LIVE` | 1 | [[wiki/tensions/t198.md]] |
 | T199 | Is relational retrieval bought by building indices, or by making the encoding uniform? | `L1` | `LEANING` | 2 | [[wiki/tensions/t199.md]] |
 | T200 | Is systematicity a property of the architecture or of the training distribution? | `L0` | `LIVE` | 1 | [[wiki/tensions/t200.md]] |
-| T201 | Is human compositional behaviour a rule system with lapses, or an approximator carrying rule-shaped biases? | `L4` | `LIVE` | 1 | [[wiki/tensions/t201.md]] |
 | T202 | Does installing an inductive bias by sampling it into `p(T)` give you the bias, or only its frequency? | `L0` | `LEANING` | 4 | [[wiki/tensions/t202.md]] |
 | T203 | Is abstract format a hippocampal specialisation, or a shared property of the fronto-hippocampal system? | `L1` | `LIVE` | 1 | [[wiki/tensions/t203.md]] |
 | T204 | Does test-time compute buy generalization on ARC, or does it only buy the tail? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t204.md]] |
@@ -250,13 +228,10 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T252 | Is the direction of large-scale cortical flow fixed by anatomy or set dynamically? | `L2` | `LIVE` | 1 | [[wiki/tensions/t252.md]] |
 | T253 | Is slow connectome dynamics the accumulated expression of fast states, or an independent parallel stream? | `L4` | `LIVE` | 2 | [[wiki/tensions/t253.md]] |
 | T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L0-INSTR` | `LEANING` | 2 | [[wiki/tensions/t254.md]] |
-| T255 | Is the brain's default self-evaluation accurate information-gathering or self-serving bias? | `L4` | `LIVE` | 1 | [[wiki/tensions/t255.md]] |
 | T256 | Is the precuneus (area 7m) part of the default mode network? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t256.md]] |
 | T257 | In the default/control switch, who drives whom? | `L2` | `LIVE` | 3 | [[wiki/tensions/t257.md]] |
-| T258 | In schizophrenia, is the default mode network over-engaged or under-connected? | `L4` | `LIVE` | 1 | [[wiki/tensions/t258.md]] |
 | T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 1 | [[wiki/tensions/t259.md]] |
 | T260 | Does the brain have an absolute activity baseline, or only relative ones? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t260.md]] |
-| T261 | Does dorsal medial prefrontal cortex (medial BA 8/9/10) increase or decrease from a passive baseline? | `L4` | `BOTH` | 1 | [[wiki/tensions/t261.md]] |
 | T262 | During an externally directed task, does the default mode network decouple from task-positive systems or integrate with them? | `L2` | `BOTH` | 2 | [[wiki/tensions/t262.md]] |
 | T263 | Does within-module connectivity move with brain state, or only between-module connectivity? | `L4` | `LIVE` | 2 | [[wiki/tensions/t263.md]] |
 | T264 | Is default-mode anticorrelation a neural phenomenon or a product of global signal regression? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t264.md]] |
@@ -275,7 +250,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T277 | Is the single-neuron receptive field still the right unit of description above the thalamus? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t277.md]] |
 | T278 | Is a single feedforward pass sufficient for object recognition, or is inter-areal feedback part of the computation? | `L2` | `BOTH` | 2 | [[wiki/tensions/t278.md]] |
 | T279 | Does decoding an attended feature from a population imply that population carries a feature-tuned gain signal? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t279.md]] |
-| T280 | Do retrograde amnesia gradients exist? | `L4` | `LIVE` | 1 | [[wiki/tensions/t280.md]] |
 | T281 | Is a neuromodulatory channel unaddressed by construction? | `L2` | `LEANING` | 1 | [[wiki/tensions/t281.md]] |
 | T282 | Does eliminating catastrophic forgetting solve continual learning, or only relocate it? | `L0` | `LIVE` | 3 | [[wiki/tensions/t282.md]] |
 | T283 | Can the router that selects among stored structures be a learned discriminative network, or must it be Bayes' rule over generative models? | `L3` | `LIVE` | 2 | [[wiki/tensions/t283.md]] |
@@ -308,7 +282,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T310 | Does a frozen linear probe rank self-supervised representations? | `L0-INSTR` | `LEANING` | 9 | [[wiki/tensions/t310.md]] |
 | T311 | Is non-normality how a contractive linear recurrence holds information longer than its eigenvalues suggest? | `L3` | `LEANING` | 3 | [[wiki/tensions/t311.md]] |
 | T312 | Is compositional generalisation one tunable scalar, or an irreducible facet vector? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t312.md]] |
-| T313 | Do dopamine neurons respond to aversive events and to cues predicting them? | `L4` | `LIVE` | 1 | [[wiki/tensions/t313.md]] |
 | T314 | Should an anti-collapse provision protect the space the loss sees, or the space the read-out sees? | `L2` | `LIVE` | 5 | [[wiki/tensions/t314.md]] |
 | T315 | Is an uncorrected self-model *inflated*, or merely *insensitive*? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t315.md]] |
 | T316 | Does betweenness centrality measure routing load, or only a property of the graph? | `L0-INSTR` | `BOTH` | 2 | [[wiki/tensions/t316.md]] |
