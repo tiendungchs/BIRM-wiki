@@ -78,7 +78,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `OPEN` | 1 | [[wiki/gaps/g064.md]] |
 | G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `CONTESTED` | 4 | [[wiki/gaps/g065.md]] |
 | G66 | No sampler draws training pairs with respect to the quantity being learned | part | `OPEN` | 5 | [[wiki/gaps/g066.md]] |
-| G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `OPEN` | 12 | [[wiki/gaps/g067.md]] |
+| G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `OPEN` | 13 | [[wiki/gaps/g067.md]] |
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `OPEN` | 12 | [[wiki/gaps/g068.md]] |
 | G69 | No architecture creates variables on demand | part | `PARTIAL` | 9 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `OPEN` | 7 | [[wiki/gaps/g070.md]] |
@@ -89,7 +89,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `OPEN` | 7 | [[wiki/gaps/g075.md]] |
 | G76 | A temporally coded output has no loss function | part | `PARTIAL` | 5 | [[wiki/gaps/g076.md]] |
 | G77 | Every high-performing temporal code in the wiki needs a time origin that nothing supplies | part | `OPEN` | 8 | [[wiki/gaps/g077.md]] |
-| G78 | Nothing sets a slow variable's time constant, and memory span is that time constant | part | `PARTIAL` | 6 | [[wiki/gaps/g078.md]] |
+| G78 | Nothing sets a slow variable's time constant, and memory span is that time constant | part | `PARTIAL` | 7 | [[wiki/gaps/g078.md]] |
 | G80 | The wiki's most expressive per-parameter variable is the one nothing optimises | part | `PARTIAL` | 4 | [[wiki/gaps/g080.md]] |
 | G81 | No graph-discovery mechanism in the wiki estimates edges through an observation model | part | `OPEN` | 2 | [[wiki/gaps/g081.md]] |
 | G82 | Every low-dimensional manifold in the wiki is measured, none is generated | part | `PARTIAL` | 4 | [[wiki/gaps/g082.md]] |

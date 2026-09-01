@@ -20,7 +20,7 @@ One INGEST each:
 - [x] `goyal-2019-recurrent-independent-mechanisms.md` — world-models · M · 2019
 - [x] `frady-2020-resonator-networks.md` — neurosymbolic · M · 2020
 - [x] `webb-2021-emergent-symbols-external-memory.md` — neurosymbolic · M · 2021
-- [ ] `murray-2014-hierarchy-intrinsic-timescales.md` — brain-networks · R · 2014
+- [x] `murray-2014-hierarchy-intrinsic-timescales.md` — brain-networks · R · 2014
 - [ ] `gu-2015-controllability-structural-brain-networks.md` — brain-networks · R · 2015
 - [ ] `guo-2017-calibration-modern-neural-networks.md` — reasoning-eval · R · 2017
 - [ ] `locatello-2019-challenging-disentanglement-assumptions.md` — ssl-representation · R · 2019

@@ -284,7 +284,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T274 | Is a consciously experienced feature maintained, or recomputed on demand? | `LIVE` | 1 | [[wiki/tensions/t274.md]] |
 | T275 | Does suppressing the irrelevant need its own channel, or does it fall out of biasing the relevant? | `LEANING` | 2 | [[wiki/tensions/t275.md]] |
 | T276 | What does a transthalamic cortico-cortical route carry — a copy of the content, or the sender's state? | `LIVE` | 2 | [[wiki/tensions/t276.md]] |
-| T277 | Is the single-neuron receptive field still the right unit of description above the thalamus? | `LIVE` | 2 | [[wiki/tensions/t277.md]] |
+| T277 | Is the single-neuron receptive field still the right unit of description above the thalamus? | `LIVE` | 4 | [[wiki/tensions/t277.md]] |
 | T278 | Is a single feedforward pass sufficient for object recognition, or is inter-areal feedback part of the computation? | `BOTH` | 2 | [[wiki/tensions/t278.md]] |
 | T279 | Does decoding an attended feature from a population imply that population carries a feature-tuned gain signal? | `LIVE` | 2 | [[wiki/tensions/t279.md]] |
 | T280 | Do retrograde amnesia gradients exist? | `LIVE` | 1 | [[wiki/tensions/t280.md]] |
@@ -326,7 +326,8 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T316 | Does betweenness centrality measure routing load, or only a property of the graph? | `BOTH` | 2 | [[wiki/tensions/t316.md]] |
 | T317 | Is gated-slot binding a different mechanism from algebraic binding, or the same operator with a one-hot role code? | `BOTH` | 3 | [[wiki/tensions/t317.md]] |
 | T318 | Is a network's depth a property of the data distribution? | `LIVE` | 2 | [[wiki/tensions/t318.md]] |
-| T319 | Is an area's integration timescale a fixed property of that area, or a run-time property of the network and its current input? | `BOTH` | 2 | [[wiki/tensions/t319.md]] |
+| T319 | Is an area's integration timescale a fixed property of that area, or a run-time property of the network and its current input? | `BOTH` | 3 | [[wiki/tensions/t319.md]] |
 | T320 | Does a model's own softmax rank its own errors? | `BOTH` | 4 | [[wiki/tensions/t320.md]] |
 | T321 | Does a per-input compute budget buy anything on language modelling? | `LIVE` | 2 | [[wiki/tensions/t321.md]] |
 | T322 | Does the ESBN's out-of-distribution generalisation come from its binding mechanism, or from normalising each problem's embeddings against itself? | `LIVE` | 1 | [[wiki/tensions/t322.md]] |
+| T323 | Is a module's integration timescale carried by its individual units, or only by the population? | `LIVE` | 4 | [[wiki/tensions/t323.md]] |
