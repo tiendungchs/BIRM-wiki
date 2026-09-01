@@ -452,6 +452,28 @@ Two consequences the review draws and the wiki should keep: (i) the same nodes s
 
 ---
 
+## The control-theoretic job description: a pluripotent ground state
+
+> Gu et al. 2015 (`raw/gu-2015-controllability-structural-brain-networks.md`), `N = 234` regions, 8 subjects × 3 diffusion-spectrum scans, replicated in 85 diffusion-tensor subjects and in macaque tract tracing. See [[wiki/concepts/network-control-theory.md]] for the formalism and its limits.
+
+Every other section of this page reads the network from its activity or its wiring. This one reads it from what its position in the structural graph lets it *do* to the rest of the system.
+
+| Finding | Number |
+|---|---|
+| Share of the top-30 **average**-controllability nodes falling in this network, normalised by system size | **30%** — the highest of the eight cognitive systems |
+| Where those nodes are | Precuneus, posterior cingulate, superior frontal, paracentral — i.e. the posterior medial core, and exactly the members [[wiki/concepts/connectome-hubs-and-cores.md]] ranks highest on six graph measures |
+| System × control-diagnostic interaction (repeated-measures ANOVA) | `F(18) = 39.81`, `p ≈ 0` — this network is a strong average-control hub and a *weak* modal and boundary one |
+
+**The reframing.** "Average controllability" means: from this configuration, the largest number of other configurations are reachable at low input energy. So the resting state is not a state that must be *escaped* before work begins — it is the state chosen (over evolutionary time, on the authors' reading) to sit where the trajectory cost to most task states is minimal, and the state the system relaxes back to in order to be ready for the next one. A **ground state that is pluripotent**, in their phrase, with task states as excited states above it.
+
+Two things this changes on this page. First, it gives the deactivation literature a non-cognitive reading that is *not* the metabolic one: the network is suppressed under task not because its content interferes but because a task state is by construction a displacement away from the ground state, and the displacement is what is being measured. Second, it makes the arbitration question ([[wiki/architectural-gaps.md]] `G90`) asymmetric — returning to the default is cheap by construction and leaving it is what costs, which is a prediction about switch costs in both directions that no result on this page tests.
+
+**The caveat that has to travel with it.** Average controllability is `r = +0.91` with weighted degree on the same data ([[wiki/empirical-tensions.md]] T324), so "this network has the highest average controllability" is very nearly a restatement of "this network contains the structural hubs" — which this page already knew, and which medial prefrontal cortex, a member that is *not* a hub, does not satisfy. The ground-state claim is an interpretation laid over a degree ranking, not an independent measurement.
+
+**(brainstorm)** The runnable version needs no brain data: take a trained recurrent model, define each task's state as its mean hidden activity while solving that task, and ask whether some configuration minimises mean transition cost to all of them — and whether the model's own idle/unprompted state is that configuration. If it is not, initialising or relaxing to it is a free intervention with a measurable prediction (faster task onset across the board, no accuracy change).
+
+---
+
 ## Relevance to a reasoning model
 
 - **A default mode is a resource-allocation policy, not a resting state.** The network's activity is a *default*: what the machine does with a moment when no input demands it. The paper's closing proposal is that this budget is spent constructing, replaying and exploring event scenarios in order to derive expectations about the future — which puts it in direct competition with [[wiki/concepts/offline-replay.md]]'s use of the same idle period for consolidation, and with [[wiki/concepts/default-self-model.md]]'s use of it for competence self-assessment. Three literatures, one budget, no arbitration rule anywhere in the wiki.
@@ -507,6 +529,7 @@ Two consequences the review draws and the wiki should keep: (i) the same nodes s
 - **[[wiki/concepts/function-to-structure-inference.md]]** — the default network is the wiki's largest instance of a system named for a function that its own experimental design cannot identify, with the mentation/sentinel confound as the concrete failure.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the medial temporal subsystem is the episodic store supplying building blocks to a neocortical constructor, which is the CLS division of labour appearing at rest rather than during consolidation.
 - **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the medial-temporal↔prefrontal edge documented there is the one this network routes *indirectly*, through PCC/Rsp and vMPFC hubs, since the two subsystem heads are anticorrelated and not directly coupled.
+- **[[wiki/concepts/network-control-theory.md]]** — the network's job stated as a control property rather than a function: its regions hold 30% of the top-30 *average*-controllability nodes (highest of eight systems), meaning the resting configuration is the point from which the most task states are reachable at least input energy — a pluripotent ground state whose deactivation under task is displacement rather than suppression, with the caveat that the diagnostic is `r = +0.91` with weighted degree ([[wiki/empirical-tensions.md]] T324).
 - **[[wiki/concepts/integration-segregation-balance.md]]** — anticorrelation between the default and dorsal attention systems is a segregation event with a specific pair of participants, and the missing arbitrator is the same control variable that page says nothing here reads or sets; Gao et al. 2013 supplies the same axis measured on one network's own edges, and one disagreement — within-class coupling of this network's changing subsets *does* move with state, where that page's 375 parcels show zero within-module change ([[wiki/empirical-tensions.md]] T263).
 - **[[wiki/concepts/parallel-timescale-streams.md]]** — the default mode is one letter of that page's 126-mask alphabet, and its co-activation with dorsal attention and frontoparietal masks among the most frequent states qualifies the strict anticorrelation reported here.
 - **[[wiki/concepts/cognitive-control.md]]** — the open question this page hands to the control layer: whether a separate controller assigns the network or the two modes settle it locally, with autism (under-use) and schizophrenia (over-use) as the two failure directions of one setting.
