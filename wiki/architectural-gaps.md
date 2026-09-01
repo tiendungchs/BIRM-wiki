@@ -45,7 +45,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `OPEN` | 9 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `OPEN` | 13 | [[wiki/gaps/g032.md]] |
 | G33 | Nothing decomposes a task into subgoals | part | `PARTIAL` | 13 | [[wiki/gaps/g033.md]] |
-| G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `PARTIAL` | 14 | [[wiki/gaps/g034.md]] |
+| G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `PARTIAL` | 15 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `OPEN` | 3 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `OPEN` | 1 | [[wiki/gaps/g036.md]] |
 | G37 | Nothing decides which stored structure applies to the current situation | part | `PARTIAL` | 28 | [[wiki/gaps/g037.md]] |
@@ -105,7 +105,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `OPEN` | 1 | [[wiki/gaps/g092.md]] |
 | G93 | Context in every wiki architecture is either one global scalar or a hand-supplied task label; none has an *addressed* context channel | arrangement | `OPEN` | 2 | [[wiki/gaps/g093.md]] |
 | G94 | Nothing in the wiki adapts a unit's *time constant*, and nothing pools its gain locally — input normalization is a global, offline, once-per-dataset operation | part | `OPEN` | 2 | [[wiki/gaps/g094.md]] |
-| G95 | Every self-supervised system in the wiki has its invariance group *declared* by a hand-written augmentation list; nothing here discovers which directions are nuisance from the input's own statistics | part | `PARTIAL` | 8 | [[wiki/gaps/g095.md]] |
+| G95 | Every self-supervised system in the wiki has its invariance group *declared* by a hand-written augmentation list; nothing here discovers which directions are nuisance from the input's own statistics | part | `PARTIAL` | 9 | [[wiki/gaps/g095.md]] |
 | G96 | Top-down control needs an address inside the control layer, and every model gets it by reading the ground truth | part | `PARTIAL` | 1 | [[wiki/gaps/g096.md]] |
 | G97 | The read-out of a sparse store is dense, and that is where the interference comes back | part | `OPEN` | 1 | [[wiki/gaps/g097.md]] |
 | G98 | Nothing decides which knowledge belongs in weights and which belongs in an addressable store | part | `OPEN` | 1 | [[wiki/gaps/g098.md]] |

@@ -103,6 +103,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | H3 | Hexagonal Hierarchical Geospatial Indexing System (Uber) | Multi-resolution hexagonal tiling of the globe; the input tokeniser in [[wiki/entities/hit-jepa.md]] |
 | IC / TC | Intrinsic Cost / Trainable Critic | The immutable and learned halves of LeCun 2022's cost module |
 | InfoNCE | Information Noise-Contrastive Estimation | The standard multi-sample contrastive loss |
+| CPC | Contrastive Predictive Coding | van den Oord et al. 2018: predict future *latents* with a log-bilinear score against in-batch negatives; the origin of InfoNCE and the ancestor of both the contrastive and the JEPA lines ([[wiki/entities/cpc.md]]) |
 | i.i.d. | independent and identically distributed | Train and test drawn from the same distribution; the assumption behind standard benchmarking |
 | JEA | Joint Embedding Architecture | Two encoders, energy = distance between their outputs |
 | JEPA | Joint Embedding Predictive Architecture | JEA plus a predictor from `s_x` to `s_y`, optionally latent-conditioned; non-generative |

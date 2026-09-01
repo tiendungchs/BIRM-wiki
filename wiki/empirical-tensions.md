@@ -176,8 +176,8 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T164 | Must a collapse-avoiding self-supervised learner descend a well-defined objective? | `LIVE` | 8 | [[wiki/tensions/t164.md]] |
 | T165 | Is augmentation fragility a consequence of the *contrastive* objective? | `LIVE` | 4 | [[wiki/tensions/t165.md]] |
 | T166 | Are anti-collapse mechanisms from different families composable? | `LEANING` | 6 | [[wiki/tensions/t166.md]] |
-| T167 | Is a self-supervised representation's character set by its objective or by its pair sampler? | `LEANING` | 10 | [[wiki/tensions/t167.md]] |
-| T168 | Is collapse-avoidance a property a design *has*, or a state a training run must be *kept in*? | `LEANING` | 5 | [[wiki/tensions/t168.md]] |
+| T167 | Is a self-supervised representation's character set by its objective or by its pair sampler? | `LEANING` | 11 | [[wiki/tensions/t167.md]] |
+| T168 | Is collapse-avoidance a property a design *has*, or a state a training run must be *kept in*? | `LEANING` | 6 | [[wiki/tensions/t168.md]] |
 | T169 | Is the isotropic Gaussian the right target for an embedding distribution, or only the right *shape* at a dimension nobody knows how to choose? | `LIVE` | 3 | [[wiki/tensions/t169.md]] |
 | T170 | When several targets are equally valid, should the predictor represent the modes or should the target space quotient them away? | `LIVE` | 2 | [[wiki/tensions/t170.md]] |
 | T171 | Does climbing the moment ladder pay? | `LIVE` | 3 | [[wiki/tensions/t171.md]] |
