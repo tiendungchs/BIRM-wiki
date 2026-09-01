@@ -89,6 +89,13 @@ A checklist for any claim in this wiki of the form "mechanism M emerges from obj
 5. **Do the population-level *relational* invariants hold?**, not just single-unit tuning — the invariance of cell–cell relationships across environments and states is what the first-principles models actually predicted and what experiment confirmed.
 6. **Compare against filtered noise**, not against zero. Low-pass-filtered thresholded noise scores non-trivially on grid score, and most DoG runs did not beat it.
 
+**Item 1 now has a magnitude, measured in a second literature** (Locatello et al. 2019, [[wiki/concepts/disentanglement.md]]). Over >12,000 models — 6 unsupervised disentanglement objectives × 6 regularization strengths × 7 datasets × 50 seeds — an ordinary-least-squares variance decomposition of the disentanglement score attributes **37%** to the objective function alone, **59%** to objective × regularization strength, and the remaining **~41%** to the **random seed**. Score ranges across the six objectives overlap heavily, and a good run under a bad hyperparameter routinely beats a bad run under a good one. So the audit's first question is not a formality: in the one literature where it has been answered at scale, the named objective is a minority contributor to the phenomenon it is credited with. Two further transfers to this page:
+
+| Finding there | What it does here |
+|---|---|
+| Five of six methods penalise the total correlation of the **sampled** code while the representation used downstream is the encoder **mean** — and the mean's total correlation *rises* with regularization strength | Audit item 2 generalised: the objective may not even be computed on the object the claim is about. Cheap to check, checked by nobody |
+| Reconstruction error, KL, ELBO and estimated total correlation show no consistent rank correlation with any disentanglement metric; hyperparameter transfer beats *random* model selection 59.3% of the time across datasets | An eighth audit item, and a gap (G108): **there is no label-free selector**, so "our objective produces M" is a claim that a run producing M exists |
+
 **The standard the paper sets, and which the wiki should adopt:** report *the conditions under which the tuning does and does not emerge*, and name which inductive biases were critical. First-principles continuous attractor models made out-of-distribution predictions later confirmed (invariant cell–cell relationships defining a toroidal manifold; grid-like patterning on the cortical sheet); deep-learning models should be held to that.
 
 ---
@@ -188,6 +195,7 @@ Every direction above assumes an objective exists and asks whether it can be rec
 
 ## Connections
 
+- **[[wiki/concepts/disentanglement.md]]** — the same non-identifiability proved at the level of the *latent* rather than the objective (an infinite family of completely entangled latents induces the identical `P(x)`), and the only place in the wiki where this page's audit item 1 has been run at scale: 37% of the score's variance from the objective, ~41% from the seed, and no label-free way to pick the good run (G108).
 - **[[wiki/entities/simsiam.md]]** — the sharpest partial answer to the sixth direction: a stop-gradient design *does* have a candidate objective, provided the objective ranges over a per-datum variable as well as the parameters — with multi-step alternation and a memory-bank substitution as the confirming experiments, and the authors' own admission that exhibiting it certifies nothing about collapse.
 - **[[wiki/entities/pcfg-set.md]]** — the limiting case: training data generated *by* the intended compositional rule, with no non-compositional phenomena and memorisation designed out, on which a transformer still reaches 0.92 by learning function pairs as units — so unidentifiability is not a consequence of naturalistic data.
 - **[[wiki/entities/cscg.md]]** — the one instance in the wiki where this page's degeneracy is broken empirically: three architectures reach the same orthogonalized endpoint and only one reproduces the order in which a brain reaches it — bought at the cost of a symbol-encoding choice that flips the result.

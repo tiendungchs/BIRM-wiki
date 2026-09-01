@@ -76,7 +76,7 @@ What *initiates and steers* the rolling-forward is unresolved; the leading propo
 
 | Property | Description | Architectural demand |
 |---|---|---|
-| **Constructive recombination** | Humans construct fictitious scenarios by recombining familiar elements in novel ways | Compositional / disentangled representations — you cannot recombine what is not factorized |
+| **Constructive recombination** | Humans construct fictitious scenarios by recombining familiar elements in novel ways | Compositional / disentangled representations — you cannot recombine what is not factorized. **Stated here as a premise, and it is the wiki's least tested one**: factorization is provably not obtainable from passive observations without a data-side inductive bias, and the one study that measured its downstream value found no sample-efficiency benefit across >12,000 models ([[wiki/concepts/disentanglement.md]], T326) |
 | **Jumpy, multi-scale planning** | Terminal solutions, interim choice points and piecemeal steps are considered in parallel, not at one granularity | A hierarchy of temporal abstractions over the same graph: plan on a coarse meta-graph before the fine instance-graph |
 | **Schema transfer** | A plan forged in one setting ("go through the door to reach the room") is reused in a structurally similar new one | Plans indexed by *structure* (`g`) rather than by content (`x`) — [[wiki/concepts/abstract-structural-codes.md]] |
 
@@ -202,6 +202,7 @@ Mattar & Daw 2018 dissolve the model-free/model-based framing this page opens wi
 
 ## Connections
 
+- **[[wiki/concepts/disentanglement.md]]** — the premise behind constructive recombination, priced: factorization is unobtainable from passive data without a data-side inductive bias, and its downstream benefit is a null result on the only test anyone has run (T326).
 - **[[wiki/entities/alphazero.md]]** — the page's upper control: hand the planner an exact transition model and a terminal reward and search plus a learned prior is superhuman in three unrelated domains in hours, which prices every remaining difficulty into the model the planner is given rather than into the planning.
 - **[[wiki/entities/continual-dreamer.md]]** — rollout used as a *training-data generator* rather than as a decision-time search: policy gradients are taken entirely inside imagination, which is where the 10× sample-efficiency advantage over a model-free rehearsal baseline comes from, and it makes the model's coverage of past environments the thing that has to be right.
 - **[[wiki/concepts/epistemic-value.md]]** — a representational requirement on the rollout, not a search heuristic: scoring a fixed action *plan* systematically undervalues an action whose worth depends on a response not yet chosen, and marginalising the same joint posterior into a *policy* `q(u_t|x_{t-1})` recovers within-horizon contingency for free.

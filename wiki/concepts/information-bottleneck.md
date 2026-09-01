@@ -119,6 +119,7 @@ If it holds, the number of layers and the features per layer are **read off the 
 
 ## Connections
 
+- **[[wiki/concepts/disentanglement.md]]** — the compression knob read as a factorization criterion: β-VAE's `β` is a bottleneck-capacity coefficient, and the large-scale sweep shows the objective explains only 37% of the resulting disentanglement score, so a point on this page's trade-off curve does not name a representational structure.
 - **[[wiki/concepts/prediction-compression-equivalence.md]]** — the unconditional version of this page: that page charges total code length, this one splits the same rate into `I(X̂;Y)` and `I(X̂;X|Y)` and charges only the second, which is the decomposition that page names as missing — bought at the price of a relevance variable it does not need.
 - **[[wiki/concepts/divergence-objectives.md]]** — the rate–distortion split there is the IB with the distortion term generalised: `f(X)` fixes the rate and the loss fixes the distortion, whereas here the distortion `D_KL[p(y|x)‖p(y|x̂)]` is *derived* from the relevance variable rather than authored, and `β` is the negative inverse slope of the resulting curve.
 - **[[wiki/concepts/cross-modal-grounding.md]]** — the multimodal case as a bottleneck: the weaker channel caps `I(X̂;Y)`, so a 77-token caption is the relevance variable that sets what a 400M-image encoder may keep, and text randomization is deliberately lowering the rate.

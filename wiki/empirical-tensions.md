@@ -333,3 +333,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T323 | Is a module's integration timescale carried by its individual units, or only by the population? | `LIVE` | 4 | [[wiki/tensions/t323.md]] |
 | T324 | Does network controllability rank nodes by anything degree does not already say? | `LEANING` | 5 | [[wiki/tensions/t324.md]] |
 | T325 | Does capacity make a system's stated confidence worse or better? | `LIVE` | 2 | [[wiki/tensions/t325.md]] |
+| T326 | Does a disentangled representation buy anything downstream? | `LIVE` | 3 | [[wiki/tensions/t326.md]] |

@@ -246,6 +246,7 @@ Every instrument above reports a score **after** a shift. Hendrycks & Dietterich
 
 ## Connections
 
+- **[[wiki/concepts/disentanglement.md]]** — the defence listed here as "generative modelling and disentanglement", checked: recovering the true generating factors is provably impossible without a bias on the *data*, which is the same bias G6 needs to separate causal from correlational edges — so this row is not an independent route.
 - **[[wiki/concepts/error-consistency.md]]** — the prediction this page makes, measured: if the training distribution admits the same shortcuts for everyone, architecture should be nearly irrelevant to *behaviour*, and chance-discounted trial-by-trial agreement between arbitrary ImageNet CNN pairs runs .711–.793 (higher than human↔human .331) while agreement with humans sits near zero — sixteen models, four families, eight years, one decision rule (T307).
 - **[[wiki/entities/progressive-neural-networks.md]]** — a transfer-side form of the same failure, measured: the worst-transferring progressive nets are exactly those that lean entirely on the source columns' features and learn no new vision, so a prior that is *too* readily reusable delivers a functional but sub-optimal policy the learner never leaves.
 

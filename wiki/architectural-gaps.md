@@ -12,12 +12,12 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 
 | # | Gap | Kind | Status | Cited by | Detail |
 |---|---|---|---|---|---|
-| G1 | Two-level separation exists as a timescale split, not as a factorization | part | `PARTIAL` | 18 | [[wiki/gaps/g001.md]] |
+| G1 | Two-level separation exists as a timescale split, not as a factorization | part | `PARTIAL` | 19 | [[wiki/gaps/g001.md]] |
 | G2 | De-aliasing without a hand-built state space | part | `PARTIAL` | 12 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `PARTIAL` | 13 | [[wiki/gaps/g003.md]] |
 | G4 | Vocabulary co-discovery at scale | part | `PARTIAL` | 24 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `PARTIAL` | 6 | [[wiki/gaps/g005.md]] |
-| G6 | Spurious edges survive training — and are the default, not the exception | part | `OPEN` | 6 | [[wiki/gaps/g006.md]] |
+| G6 | Spurious edges survive training — and are the default, not the exception | part | `OPEN` | 7 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `OPEN` | 4 | [[wiki/gaps/g007.md]] |
 | G8 | Rule reification has no implementation | part | `OPEN` | 9 | [[wiki/gaps/g008.md]] |
 | G9 | W is flat; there is no third tier | part | `PARTIAL` | 8 | [[wiki/gaps/g009.md]] |
@@ -27,7 +27,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G13 | No tractable system covers all six hardness sources | part | `PARTIAL` | 1 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 21 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `PARTIAL` | 23 | [[wiki/gaps/g015.md]] |
-| G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 20 | [[wiki/gaps/g016.md]] |
+| G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 21 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 44 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `PARTIAL` | 15 | [[wiki/gaps/g019.md]] |
@@ -41,7 +41,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 30 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 16 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 7 | [[wiki/gaps/g029.md]] |
-| G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 19 | [[wiki/gaps/g030.md]] |
+| G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 20 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `OPEN` | 9 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `OPEN` | 13 | [[wiki/gaps/g032.md]] |
 | G33 | Nothing decomposes a task into subgoals | part | `PARTIAL` | 13 | [[wiki/gaps/g033.md]] |
@@ -118,6 +118,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `OPEN` | 4 | [[wiki/gaps/g105.md]] |
 | G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `OPEN` | 4 | [[wiki/gaps/g106.md]] |
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `OPEN` | 7 | [[wiki/gaps/g107.md]] |
+| G108 | No label-free criterion selects a good representation out of a training run | part | `OPEN` | 3 | [[wiki/gaps/g108.md]] |
 
 ## How gaps are used
 

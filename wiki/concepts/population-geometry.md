@@ -386,6 +386,7 @@ All four within/across contrasts significant at `p ≤ 1.9 × 10⁻⁵`. The aut
 
 ## Connections
 
+- **[[wiki/concepts/disentanglement.md]]** — the level at which the disentanglement impossibility stops biting: its irreducible residual is an orthogonal mixing of the latents, which is not an error for a claim about population geometry — so the geometry-level claim is the one the theorem leaves standing.
 - **[[wiki/concepts/nonspatial-maps.md]]** — the strongest cellular entry in that page's table read this page's way: firing fields in a 2-D accumulated-evidence × position space, ~90% genuinely conjunctive, is a claim about the shape of a population code rather than about any named cell type.
 
 - **[[wiki/entities/dinov3.md]]** — this page's similarity-matrix instrument used as a **loss** rather than a measurement: `‖X_S X_Sᵀ − X_G X_Gᵀ‖_F²` pulls one network's patch-level geometry toward another's while leaving the features free up to any inner-product-preserving transformation, and is measured to hold that geometry against a competing objective eroding it.

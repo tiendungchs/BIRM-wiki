@@ -132,6 +132,7 @@ Against the argument that any recurrent network is functionally equivalent to it
 
 ## Connections
 
+- **[[wiki/concepts/disentanglement.md]]** — the load-bearing assumption in this model's cortical hierarchy: the folded architecture is a *disentangled* variational autoencoder, and the objectives that block is assumed to come from do not reliably produce disentanglement — the seed contributes ~41% of the score's variance and no label-free criterion picks the good run (G108).
 - **[[wiki/entities/global-neuronal-workspace.md]]** — the framework this one accepts and then constrains: it keeps ignition and broadcast wholesale, supplies the computational definition of workspace occupancy the workspace account lacks (the MAP estimate of a converged loopy posterior), and denies that broadcast is sufficient without spatial/temporal/causal coherence and an embodied controller.
 - **[[wiki/concepts/loopy-belief-propagation.md]]** — the reusable primitive extracted from this framework: chained autoencoder bottlenecks form a graph with cycles, message passing on it is a turbo-code, and synchrony is the scheduler that makes it converge.
 - **[[wiki/concepts/ignition.md]]** — re-read as a self-organizing harmonic mode: the commit event becomes "the round at which loopy message passing converged", which supplies the ignition account's missing answer to *what is being committed* and predicts the entrainment direction flips at the commit.

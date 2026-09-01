@@ -108,6 +108,7 @@ On VP² robot tasks (MPPI, 1K finetune steps): aggregate normalised success **5.
 
 ## Connections
 
+- **[[wiki/concepts/disentanglement.md]]** — the population this single-run `β` sweep is drawn from: across >12,000 β-VAE-family models the random seed accounts for ~41% of the disentanglement-score variance, so a per-`β` figure from one run is a draw from a distribution nobody has sampled.
 - **[[wiki/concepts/learned-world-models.md]]** — the family page: AdaWorld sits in the *dynamics-model* role but attacks a variable that page's transition trichotomy holds fixed, the action condition, and supplies its sharpest G62 datum (an action-agnostic model 14% behind on PSNR and at chance on planning).
 - **[[wiki/concepts/affordance-grounded-symbols.md]]** — the same carving problem with the supervision inverted: effect-equivalence types a *state* by what the agent's own actions do to it and needs an action repertoire; latent actions type a *transition* by what compresses it and need no agent at all — which is why they are cheap at scale and why they cannot separate agent-caused from world-caused change.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — an instance of hardness source 2 (latent edge labels) attacked directly: the induced alphabet is exactly the edge-label vocabulary the framing says must be co-discovered, obtained here without the nodes.

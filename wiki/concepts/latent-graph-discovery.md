@@ -207,6 +207,7 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 
 ## Connections
 
+- **[[wiki/concepts/disentanglement.md]]** — the hardest constraint on this framing, proved constructively: for any factorized prior there is an infinite family of completely entangled latents inducing the identical observation distribution, so the hidden factors are not merely hard to infer but undetermined without a data-side assumption.
 - **[[wiki/entities/inhibitory-replay-filter.md]]** — the wiki's sharpest statement of why coactivity counting is not an edge estimator: under stochastic distractors a Hebbian count matrix potentiates off-diagonal entries until the learned graph is near-complete and a walk on it emits out-of-order sequences, so a subtractive inhibitory term (`W − αW^I`, `α > 1`) is a *consistency correction* that recovers conditional structure from joint counts.
 - **[[wiki/concepts/nonspatial-maps.md]]** — the evidence deciding whether this framing names one mechanism or a family of analogies: if the hippocampal map is domain-general, latent-graph discovery is a single substrate; if the one relationally-matched control is the true picture, it is a spatial mechanism plus a set of resemblances.
 

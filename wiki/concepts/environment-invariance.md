@@ -154,6 +154,7 @@ This costs **one** distribution rather than `d − r + d/r` of them, and it is o
 
 ## Connections
 
+- **[[wiki/concepts/disentanglement.md]]** — the impossibility result this page's environment count is the answer to: a factorized latent is not determined by one distribution at all, and environments in linear general position are the only mechanism in the wiki that removes the resulting degrees of freedom at a stated rate.
 - **[[wiki/concepts/shortcut-learning.md]]** — supplies the formal object that page's "domain generalisation" route only named: a testable invariance condition, a differentiable penalty, and the theorem stating how many environments the identifiability argument costs (`d − r + d/r`).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the environment index is the observable that separates a meta-graph edge from an instance edge; IRM is the loss-side statement of the two-level hierarchy, with `Φ` as vocabulary and `w` as edge set.
 - **[[wiki/concepts/causal-model-building.md]]** — the rival definition of what makes a model causal: *invariance* rather than *resemblance to the generative process*, which reaches laws (`PV = nRT`) that no structural equation model states and needs no causal data of the right type.
