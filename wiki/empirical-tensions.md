@@ -336,3 +336,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T326 | Does a disentangled representation buy anything downstream? | `LIVE` | 3 | [[wiki/tensions/t326.md]] |
 | T327 | Is a world model's payoff the rollout, or the state it carries? | `LIVE` | 4 | [[wiki/tensions/t327.md]] |
 | T328 | Does a per-neuron error need an electrically independent compartment, or is a magnitude residual on coincident events enough? | `LIVE` | 3 | [[wiki/tensions/t328.md]] |
+| T329 | Do pre/post spike pairs contribute to plasticity independently? | `LEANING` | 5 | [[wiki/tensions/t329.md]] |
