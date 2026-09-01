@@ -118,6 +118,21 @@ Consequences for anything built on a group functional network:
 
 ---
 
+## Two formalisms that widen the unit instead of relocating the border
+
+> Bassett & Sporns 2017, *Network neuroscience*, Nat Neurosci 20(3):353–364 (`raw/bassett-2017-network-neuroscience.md`).
+
+Everything above negotiates *where the border goes*. Two constructions instead change what a node is allowed to be, and both are cheap:
+
+| Formalism | The move | What it buys here |
+|---|---|---|
+| **Annotated (decorated) graph** | A node carries intra-nodal attributes — gene expression, cytoarchitecture, activity magnitude, morphology — alongside its edges, and statistics relate the two in a model-based way | Dissolves this page's conservation problem in one direction: content that a coarse unit *swallowed* can be reported as a node attribute instead of vanishing. It is also the formalism that unifies univariate/multivariate nodal analysis with graph analysis, which are otherwise separate literatures on the same data |
+| **Multilayer network** | Nodes joined by several edge *types*, one per layer, with **identity links** hard-coding that a node and its copy in another layer are the same thing. Layers = modalities, time points, tasks, states, subjects, ages | Two uses at once: hold structural and functional connectivity in one object; and **nest scales**, since one node in a coarse layer is a *set* of nodes in the finer layer — the state-index problem above becomes a layer index rather than a suppressed argument |
+
+**(brainstorm)** The multilayer nesting is the formal statement of what this page keeps discovering the hard way: there is no single correct granularity, so carry several and make the cross-granularity correspondence an explicit edge type rather than a modelling assumption. The identity link is doing exactly the job the two-level correspondence scheme (discrete fingerprint match above, continuous alignment below) does by hand. See [[wiki/concepts/higher-order-interactions.md]].
+
+---
+
 ## For a builder
 
 - **The vertex set is a hyperparameter with a conservation law attached.** Any system that discovers a graph from a continuous stream is making this choice implicitly (G27, G75). The review's contribution is that the choice is *not* asymptotically innocuous: it does not converge as granularity increases, and the same relational content appears as node-internal structure or as an edge depending on where the line was drawn.
@@ -174,3 +189,4 @@ Consequences for anything built on a group functional network:
 - **[[wiki/concepts/memorisation-vs-generalisation.md]]** — the same defect at the level of a single unit's *label*: `L5N6045` scores 89.3% ROC AUC against the category "baseball player" that the experimenter brought to it, and on general text also fires on `External` in "External Links" — so the name measures the probe set, and the argument on that page says that for a memorised mapping no better name is available in principle.
 - **[[wiki/concepts/multi-token-embedding.md]]** — the one case in the wiki where the vertex set is *learned* rather than declared: a transformer decides that `| Michael| Jordan` is one unit and writes its vector at the unit's final token, from the last few tokens alone. The conservation law still applies — relational content between the two name tokens is swallowed into the node — and nothing checks that the discovered boundary is the right one.
 - **[[wiki/concepts/shared-intentionality.md]]** — this problem with a social answer attached: in human perspectivity what counts as one node is fixed per-utterance by the description two agents converge on for a communicative purpose, with the alternatives kept live and mutually known — a vertex set that is negotiated and revisable rather than partitioned once.
+- **[[wiki/concepts/higher-order-interactions.md]]** — where the rest of the relational content goes: this page shows it moving between node interiors and edges as the units change, that page shows a further slice living in relations of order > 2 that neither can hold, and it carries the annotated-graph and multilayer formalisms introduced above.

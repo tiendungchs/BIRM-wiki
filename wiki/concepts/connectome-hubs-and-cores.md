@@ -65,6 +65,23 @@ The 6.1% false-positive rate against tracers is the honest ceiling on every diff
 
 ---
 
+## The core has a molecular signature, and it is metabolic
+
+> Added from Bassett & Sporns 2017, *Network neuroscience*, Nat Neurosci 20(3):353–364 (`raw/bassett-2017-network-neuroscience.md`), reviewing Fulcher & Fornito 2016 and the rodent/human transcriptomic-connectomic literature. Mouse anatomical connectivity among **213 regions** against expression of **17,642 genes**, with connections typed by hub membership (hub = >44 distinct connections): `hub→hub` **rich** · `hub→nonhub` **feeder** · `nonhub→nonhub` **peripheral**.
+
+| Finding | Where |
+|---|---|
+| Regions with similar gene transcription have similar **connectivity profiles** | Rodent |
+| Transcriptional patterns are more similar among **directly connected** pairs than among unconnected pairs; strongest of all for **reciprocally** connected pairs, after correcting for spatial distance | Rodent / mouse |
+| Coexpression is strongest on **rich** (hub→hub) connections, weaker on feeder, weakest on peripheral | Mouse |
+| The genes driving the hub-connection coexpression are functionally enriched in **oxidative energy metabolism** | Mouse |
+| Hub nodes show elevated expression of genes associated with **cognition, learning and memory** | Mouse |
+| Transcription is more similar within coherently active functional networks, and correlates with resting activity level | Human cortex |
+
+Two things this adds to the blood-flow row above. First, the metabolic price of centrality is not only measurable downstream (`r² = 0.49` against resting cerebral blood flow) but **written into the transcriptional profile of the hub regions themselves** — the cost is a property of what the node *is*, not only of what it does. Second, and more useful to a builder: **node attributes predict edges**. A vector of per-node properties carrying no relational information at all is informative about which pairs are connected, and most informative about the rare hub→hub edges. **(brainstorm)** That is exactly the conditioning step [[wiki/concepts/latent-graph-discovery.md]] names as the third escape from the sparse-graph precision problem — raise the prevalence by restricting to a candidate set before scoring pairs. Here the candidate set comes free from node features, and it concentrates on the edges whose absence would be most costly. The formalism for holding node attributes and edges in one model is the **annotated (decorated) graph** ([[wiki/concepts/higher-order-interactions.md]]).
+
+---
+
 ## The default-mode result
 
 Every posterior component of the default mode network — posterior cingulate, precuneus, lateral and medial parietal cortex — is in the structural core. **Medial prefrontal cortex is the sole default-network component entirely excluded from it.** The authors' proposal: default-network activity is *driven from* the posterior medial/parietal core, which then reaches medial prefrontal cortex indirectly via other central regions such as medial orbitofrontal cortex.
@@ -118,3 +135,5 @@ This is the structural half of [[wiki/empirical-tensions.md]] T241 (does default
 - **[[wiki/entities/integrated-world-modeling-theory.md]]** — a second, quantitative justification for the core’s ~50%-of-cortical-metabolism cost: not routing capacity but **rounds to convergence**, since dense reciprocal wiring reduces the number of noisy transactions needed before an estimate is reliable enough to act on — measurable in any message-passing network and unreported anywhere.
 - **[[wiki/concepts/loopy-belief-propagation.md]]** — what the core is claimed to compute: the cycles that make iterated message passing possible live in the rich club, because it is the only place with enough reciprocal bandwidth to run many rounds cheaply.
 - **[[wiki/concepts/connectivity-scaling-bottleneck.md]]** — the same statistics read across species instead of within one: long-tailed degree, a rich club and rising betweenness are conserved across 14 primates and become *more* pronounced with brain size, while overall density falls from 52% (galago) to 31–37% (great apes), so this page's sparse hub-and-core design is what a small brain's graph turns into when it is scaled up under a wiring budget (Ardesch et al. 2022).
+- **[[wiki/concepts/network-control-theory.md]]** — the target-relative successor to this page's six converging measures: degree, betweenness, k-core and participation rank nodes without reference to any transition, while minimum control energy asks which nodes can drive the system to a *named* target state and at what cost — so "important" becomes "important for getting where".
+- **[[wiki/concepts/higher-order-interactions.md]]** — what all six measures here are blind to by construction: each is a function of a dyadic adjacency matrix, so an all-to-all clique or a cavity in the same tissue is scored only through its pairwise shadow, and the annotated-graph formalism there is what puts this page's transcriptional node attributes and its edges in one model.

@@ -17,7 +17,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G3 | Nothing enforces path-consistency of `g` | part | `PARTIAL` | 13 | [[wiki/gaps/g003.md]] |
 | G4 | Vocabulary co-discovery at scale | part | `PARTIAL` | 23 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `PARTIAL` | 6 | [[wiki/gaps/g005.md]] |
-| G6 | Spurious edges survive training — and are the default, not the exception | part | `OPEN` | 4 | [[wiki/gaps/g006.md]] |
+| G6 | Spurious edges survive training — and are the default, not the exception | part | `OPEN` | 5 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `OPEN` | 4 | [[wiki/gaps/g007.md]] |
 | G8 | Rule reification has no implementation | part | `OPEN` | 9 | [[wiki/gaps/g008.md]] |
 | G9 | W is flat; there is no third tier | part | `PARTIAL` | 8 | [[wiki/gaps/g009.md]] |
@@ -26,7 +26,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G12 | No routing policy between structure types | part | `OPEN` | 13 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `PARTIAL` | 1 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 21 | [[wiki/gaps/g014.md]] |
-| G15 | No control policy over simulation | part | `PARTIAL` | 22 | [[wiki/gaps/g015.md]] |
+| G15 | No control policy over simulation | part | `PARTIAL` | 23 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 19 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 41 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
@@ -61,7 +61,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G47 | Nothing learns the topology of the state-space manifold it represents on | part | `OPEN` | 9 | [[wiki/gaps/g047.md]] |
 | G48 | Nothing separates a store's content register from its attentional pointer | part | `OPEN` | 3 | [[wiki/gaps/g048.md]] |
 | G49 | No store schedules its own reads, and none has a relevance-addressed erase | part | `OPEN` | 7 | [[wiki/gaps/g049.md]] |
-| G50 | The controller cannot set the gain of its own teaching signal | part | `OPEN` | 10 | [[wiki/gaps/g050.md]] |
+| G50 | The controller cannot set the gain of its own teaching signal | part | `OPEN` | 11 | [[wiki/gaps/g050.md]] |
 | G51 | Nothing transfers a representation out of the control layer into the store that will run it automatically | part | `OPEN` | 4 | [[wiki/gaps/g051.md]] |
 | G52 | No inter-module connection in the wiki has state of its own | part | `OPEN` | 11 | [[wiki/gaps/g052.md]] |
 | G53 | No architecture delivers one signal to two modules by the same wire, and none lets a third module license a pair's connection | part | `OPEN` | 1 | [[wiki/gaps/g053.md]] |
@@ -95,7 +95,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G82 | Every low-dimensional manifold in the wiki is measured, none is generated | part | `PARTIAL` | 4 | [[wiki/gaps/g082.md]] |
 | G83 | Every structure-discovery mechanism in the wiki outputs a structure; none outputs a reusable map between structures | part | `PARTIAL` | 1 | [[wiki/gaps/g083.md]] |
 | G84 | No architecture in the wiki knows the topological position of its own modules, and none has a component whose job is to be the crossing point | arrangement | `OPEN` | 2 | [[wiki/gaps/g084.md]] |
-| G85 | No architecture in the wiki reads its own network topology, and none treats it as a demand-graded control variable | arrangement | `OPEN` | 1 | [[wiki/gaps/g085.md]] |
+| G85 | No architecture in the wiki reads its own network topology, and none treats it as a demand-graded control variable | arrangement | `OPEN` | 2 | [[wiki/gaps/g085.md]] |
 | G86 | Every architecture in the wiki tunes its stopping rule and its memory separately, and nothing couples them | part | `OPEN` | 1 | [[wiki/gaps/g086.md]] |
 | G87 | Nothing in the wiki has ever shown that a better representation of activity produces a better decision | part | `OPEN` | 1 | [[wiki/gaps/g087.md]] |
 | G88 | No architecture in the wiki has a direction of information flow that comes from its own weight matrix | arrangement | `OPEN` | 1 | [[wiki/gaps/g088.md]] |
@@ -115,6 +115,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `OPEN` | 1 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `OPEN` | 1 | [[wiki/gaps/g103.md]] |
 | G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `OPEN` | 3 | [[wiki/gaps/g104.md]] |
+| G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `OPEN` | 2 | [[wiki/gaps/g105.md]] |
 
 ## How gaps are used
 
