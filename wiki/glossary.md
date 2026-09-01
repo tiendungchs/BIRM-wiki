@@ -390,7 +390,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | CLIP | Contrastive Language–Image Pre-training | Two randomly-initialised encoders trained with InfoNCE on 400M web image–caption pairs into one shared space; the field's default vision encoder |
 | SigLIP | Sigmoid Loss for Language–Image Pre-training | CLIP with the original binary-cross-entropy NCE loss instead of the multi-class InfoNCE; better zero-shot at small batch sizes |
 | MLM / MIM | Masked Language / Image Modeling | Predict masked tokens or patches from the unmasked remainder |
-| IB | Information Bottleneck | Find a code maximally informative about the sample and minimally informative about the nuisance (here, the distortion applied); Barlow Twins' `λ` is its trade-off parameter ([[wiki/entities/barlow-twins.md]]) |
+| IB | Information Bottleneck | Find a code maximally informative about the sample and minimally informative about the nuisance (here, the distortion applied); Barlow Twins' `λ` is its trade-off parameter ([[wiki/entities/barlow-twins.md]]). The principle itself: [[wiki/concepts/information-bottleneck.md]] |
 | LARS | Layer-wise Adaptive Rate Scaling | The large-batch optimiser every ImageNet-scale SSL method in the wiki trains with (BYOL, Barlow Twins) |
 | W-MSE | Whitening Mean Squared Error | Cholesky-whiten each batch of embeddings exactly, then take a cosine similarity — the *hard*-whitening counterpart to Barlow Twins' soft decorrelation; 66.3% ImageNet linear eval |
 | IMAX | — | Becker & Hinton 1992: maximise `log det C(Z^A − Z^B) − log det C(Z^A + Z^B)` between twin networks; a genuine information quantity of the same two-term shape as Barlow Twins, which did not scale to ImageNet |

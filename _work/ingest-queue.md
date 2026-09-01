@@ -479,7 +479,7 @@ One INGEST each:
 - [x] `scholkopf-2021-toward-causal-representation-learning.md` — foundations · S · 2021
 - [x] `seguin-2023-brain-network-communication.md` — brain-networks · S · 2023
 - [x] `smolensky-1990-tensor-product-variable-binding.md` — neurosymbolic · F · 1990 · **LOSSY** (pdf2md)
-- [ ] `tishby-2015-deep-learning-information-bottleneck.md` — foundations · F · 2015
+- [x] `tishby-2015-deep-learning-information-bottleneck.md` — foundations · F · 2015
 - [ ] `chaudhuri-2015-large-scale-circuit-hierarchical-dynamics.md` — brain-networks · M · 2015
 - [ ] `graves-2016-adaptive-computation-time.md` — sequence-models · M · 2016
 - [ ] `geifman-2017-selective-classification.md` — reasoning-eval · M · 2017

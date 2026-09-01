@@ -27,7 +27,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G13 | No tractable system covers all six hardness sources | part | `PARTIAL` | 1 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `PARTIAL` | 21 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `PARTIAL` | 23 | [[wiki/gaps/g015.md]] |
-| G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 19 | [[wiki/gaps/g016.md]] |
+| G16 | The intended graph is not identifiable from data alone | part | `OPEN` | 20 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `OPEN` | 42 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `OPEN` | 2 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `PARTIAL` | 15 | [[wiki/gaps/g019.md]] |
@@ -37,10 +37,10 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `OPEN` | 15 | [[wiki/gaps/g023.md]] |
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `CONTESTED` | 13 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `OPEN` | 4 | [[wiki/gaps/g025.md]] |
-| G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 19 | [[wiki/gaps/g026.md]] |
+| G26 | Nothing selects hypotheses by structure rather than by description length | part | `OPEN` | 20 | [[wiki/gaps/g026.md]] |
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `CONTESTED` | 30 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `PARTIAL` | 16 | [[wiki/gaps/g028.md]] |
-| G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 5 | [[wiki/gaps/g029.md]] |
+| G29 | Exploration of the space of architectures is not algorithmic | part | `PARTIAL` | 7 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `OPEN` | 19 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `OPEN` | 9 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `OPEN` | 13 | [[wiki/gaps/g032.md]] |
@@ -61,7 +61,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G47 | Nothing learns the topology of the state-space manifold it represents on | part | `OPEN` | 9 | [[wiki/gaps/g047.md]] |
 | G48 | Nothing separates a store's content register from its attentional pointer | part | `OPEN` | 3 | [[wiki/gaps/g048.md]] |
 | G49 | No store schedules its own reads, and none has a relevance-addressed erase | part | `OPEN` | 7 | [[wiki/gaps/g049.md]] |
-| G50 | The controller cannot set the gain of its own teaching signal | part | `OPEN` | 11 | [[wiki/gaps/g050.md]] |
+| G50 | The controller cannot set the gain of its own teaching signal | part | `OPEN` | 12 | [[wiki/gaps/g050.md]] |
 | G51 | Nothing transfers a representation out of the control layer into the store that will run it automatically | part | `OPEN` | 4 | [[wiki/gaps/g051.md]] |
 | G52 | No inter-module connection in the wiki has state of its own | part | `OPEN` | 11 | [[wiki/gaps/g052.md]] |
 | G53 | No architecture delivers one signal to two modules by the same wire, and none lets a third module license a pair's connection | part | `OPEN` | 1 | [[wiki/gaps/g053.md]] |
@@ -78,7 +78,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `OPEN` | 1 | [[wiki/gaps/g064.md]] |
 | G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `CONTESTED` | 4 | [[wiki/gaps/g065.md]] |
 | G66 | No sampler draws training pairs with respect to the quantity being learned | part | `OPEN` | 5 | [[wiki/gaps/g066.md]] |
-| G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `OPEN` | 10 | [[wiki/gaps/g067.md]] |
+| G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `OPEN` | 11 | [[wiki/gaps/g067.md]] |
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `OPEN` | 10 | [[wiki/gaps/g068.md]] |
 | G69 | No architecture creates variables on demand | part | `PARTIAL` | 8 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `OPEN` | 7 | [[wiki/gaps/g070.md]] |

@@ -325,3 +325,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T315 | Is an uncorrected self-model *inflated*, or merely *insensitive*? | `LIVE` | 2 | [[wiki/tensions/t315.md]] |
 | T316 | Does betweenness centrality measure routing load, or only a property of the graph? | `BOTH` | 2 | [[wiki/tensions/t316.md]] |
 | T317 | Is gated-slot binding a different mechanism from algebraic binding, or the same operator with a one-hot role code? | `BOTH` | 2 | [[wiki/tensions/t317.md]] |
+| T318 | Is a network's depth a property of the data distribution? | `LIVE` | 2 | [[wiki/tensions/t318.md]] |
