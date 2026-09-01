@@ -166,6 +166,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | TD | Temporal Difference (learning) | Learns from successive predictions rather than final outcomes |
 | BPTT | Backpropagation Through Time | Credit assignment in recurrent nets by unrolling; truncation length bounds the gradient horizon, not necessarily the model's memory |
 | ELBO | Evidence Lower Bound | The variational objective maximised in place of the intractable log-likelihood |
+| MDN | Mixture Density Network | An output layer emitting the parameters of a mixture of Gaussians rather than a point estimate; the **MDN-RNN** of [[wiki/entities/world-models-vmc.md]] uses 5 diagonal components so the transition can hold multi-modal futures, with a sampling temperature `τ` scaling the mixture's spread |
+| CMA-ES | Covariance-Matrix Adaptation Evolution Strategy | Derivative-free optimiser that adapts a full Gaussian search distribution; used where the objective is a sparse episodic return and the parameter count is small (867 in [[wiki/entities/world-models-vmc.md]]) |
 | VAE / VQ-VAE | Variational / Vector-Quantized Auto-Encoder | Noise- and quantisation-based latent-capacity regularisers |
 | VICReg | Variance-Invariance-Covariance Regularization | Non-contrastive JEPA criterion: variance hinge per component + covariance decorrelation, applied to each branch separately ([[wiki/entities/vicreg.md]]) |
 | ξ | Universal semimeasure | `Σ_p 2^-l(p)` over programs producing the observed string; dominates every enumerable semimeasure |

@@ -493,7 +493,7 @@ One INGEST each:
 - [x] `guo-2017-calibration-modern-neural-networks.md` — reasoning-eval · R · 2017
 - [x] `locatello-2019-challenging-disentanglement-assumptions.md` — ssl-representation · R · 2019
 - [x] `lightman-2023-lets-verify-step-by-step.md` — reasoning-eval · R · 2023
-- [ ] `ha-2018-world-models.md` — world-models · M · 2018 — self-fetched; MathJax equations flattened
+- [x] `ha-2018-world-models.md` — world-models · M · 2018 — self-fetched; MathJax equations flattened
 
 ## Unfiled clippings — dropped in `raw/` between waves
 

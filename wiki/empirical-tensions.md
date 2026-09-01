@@ -27,7 +27,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T15 | Is training data a design lever or an anchor? | `LIVE` | 4 | [[wiki/tensions/t015.md]] |
 | T16 | Does the shortest program consistent with the data generalize? | `LIVE` | 3 | [[wiki/tensions/t016.md]] |
 | T17 | Is intelligence universal, or scoped? | `LIVE` | 2 | [[wiki/tensions/t017.md]] |
-| T18 | Must a world model be generative? | `LIVE` | 5 | [[wiki/tensions/t018.md]] |
+| T18 | Must a world model be generative? | `LIVE` | 6 | [[wiki/tensions/t018.md]] |
 | T19 | Is scalar reward a sufficient training signal, or a marginal one? | `LEANING` | 1 | [[wiki/tensions/t019.md]] |
 | T20 | Is intelligence a property of the process that builds a solution, or of the finished arrangement? | `LIVE` | 2 | [[wiki/tensions/t020.md]] |
 | T21 | Does a structured model's win over deep baselines measure the prior, or the state space it was handed? | `LIVE` | 5 | [[wiki/tensions/t021.md]] |
@@ -153,7 +153,7 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T141 | Is the brain's discount kernel exponential, or hyperbolic? | `LIVE` | 5 | [[wiki/tensions/t141.md]] |
 | T142 | Should the world model and the policy be decoupled, or learned as one entangled model? | `LIVE` | 2 | [[wiki/tensions/t142.md]] |
 | T143 | How much of the world needs to be inside the model at all? | `LIVE` | 1 | [[wiki/tensions/t143.md]] |
-| T144 | Does a world model's prediction quality tell you how good a world model it is? | `LIVE` | 3 | [[wiki/tensions/t144.md]] |
+| T144 | Does a world model's prediction quality tell you how good a world model it is? | `LIVE` | 4 | [[wiki/tensions/t144.md]] |
 | T145 | Does conditioning a predictor on the action make it represent the effect of actions? | `LIVE` | 2 | [[wiki/tensions/t145.md]] |
 | T146 | Does a violation-of-expectation score measure the ability it names? | `LIVE` | 5 | [[wiki/tensions/t146.md]] |
 | T147 | Does making a learned model inspectable require a discrete bottleneck? | `LIVE` | 3 | [[wiki/tensions/t147.md]] |
@@ -334,3 +334,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T324 | Does network controllability rank nodes by anything degree does not already say? | `LEANING` | 5 | [[wiki/tensions/t324.md]] |
 | T325 | Does capacity make a system's stated confidence worse or better? | `LIVE` | 2 | [[wiki/tensions/t325.md]] |
 | T326 | Does a disentangled representation buy anything downstream? | `LIVE` | 3 | [[wiki/tensions/t326.md]] |
+| T327 | Is a world model's payoff the rollout, or the state it carries? | `LIVE` | 4 | [[wiki/tensions/t327.md]] |
