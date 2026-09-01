@@ -79,7 +79,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `CONTESTED` | 4 | [[wiki/gaps/g065.md]] |
 | G66 | No sampler draws training pairs with respect to the quantity being learned | part | `OPEN` | 5 | [[wiki/gaps/g066.md]] |
 | G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `OPEN` | 12 | [[wiki/gaps/g067.md]] |
-| G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `OPEN` | 10 | [[wiki/gaps/g068.md]] |
+| G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `OPEN` | 11 | [[wiki/gaps/g068.md]] |
 | G69 | No architecture creates variables on demand | part | `PARTIAL` | 8 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `OPEN` | 7 | [[wiki/gaps/g070.md]] |
 | G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `OPEN` | 1 | [[wiki/gaps/g071.md]] |
@@ -99,7 +99,7 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G86 | Every architecture in the wiki tunes its stopping rule and its memory separately, and nothing couples them | part | `OPEN` | 1 | [[wiki/gaps/g086.md]] |
 | G87 | Nothing in the wiki has ever shown that a better representation of activity produces a better decision | part | `OPEN` | 1 | [[wiki/gaps/g087.md]] |
 | G88 | No architecture in the wiki has a direction of information flow that comes from its own weight matrix | arrangement | `OPEN` | 1 | [[wiki/gaps/g088.md]] |
-| G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `OPEN` | 2 | [[wiki/gaps/g089.md]] |
+| G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `OPEN` | 3 | [[wiki/gaps/g089.md]] |
 | G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `OPEN` | 7 | [[wiki/gaps/g090.md]] |
 | G91 | The wiki has no gate that learns what deserves to be broadcast, and no architecture in it has a discrete commit at all | arrangement | `OPEN` | 4 | [[wiki/gaps/g091.md]] |
 | G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `OPEN` | 1 | [[wiki/gaps/g092.md]] |
