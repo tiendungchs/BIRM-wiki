@@ -25,6 +25,8 @@ The rate interpretation of generation 2 (sigmoid output = firing rate) is what t
 
 **The argument is a budget argument.** Ten stages in 100 ms leaves ~10 ms per stage; one rate sample costs 20–30 ms. A rate code cannot be read fast enough for the computation that is observed to happen, so whatever generation 2 is modelling, it is not fast cortical processing. This is the wiki's earliest and cleanest statement of the case for [[wiki/concepts/temporal-coding.md]], and it predates every measurement on that page.
 
+**The budget has since been re-derived from an independent measurement and it is no tighter.** Thorpe, Fize & Marlot 1996 give ~150 ms for human visual object recognition over the same ~10 stages — **10–15 ms per stage** rather than 10, so the conclusion survives the more generous number (via Kirsanov 2026, **(tentative)**). Two arguments the budget does not contain now sit alongside it on [[wiki/concepts/temporal-coding.md]]: the latent rate is *non-stationary* on the timescale of a saccade (200–300 ms), so no counting window is admissible even given unlimited latency; and the trial-to-trial variability the rate model needs is input-driven rather than intrinsic (Mainen & Sejnowski 1997).
+
 ---
 
 ## The formal model (SNN)

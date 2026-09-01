@@ -33,6 +33,8 @@ The survey's organising claim: **every scheme reduces to one binary question —
 
 **The first thing to read off the table is the rightmost column.** TTFS, phase and both binary codes need an externally supplied origin — onset, oscillation, or clock. ROC, ISI, synchrony and temporal contrast need none. The survey records the resulting dispute in one line: Rullen & Thorpe argue ROC is more biologically realistic than TTFS *because the brain cannot know when a stimulus began*. That argument generalises past ROC and is the sharpest available statement of a gap the wiki had not named ([[wiki/architectural-gaps.md]] G77).
 
+**The rate family has a matching hidden requirement that the column does not show: a window long enough to count in, and a latent rate that holds still for its duration.** Both fail on the biology — 10–15 ms per cortical stage admits 0–2 spikes, and saccades move the scene every 200–300 ms, so the quantity being estimated changes faster than the estimator converges ([[wiki/concepts/temporal-coding.md]], via Kirsanov 2026 **(tentative)**). "Needs nothing global" is therefore not the same as "needs nothing": count rate needs `T`, and no `T` is admissible.
+
 ---
 
 ## The capacity arithmetic — the one quantitative comparison available

@@ -6,6 +6,24 @@ Every other page treating spikes as a substrate ([[wiki/entities/spiking-neural-
 
 ---
 
+## Why not just read a rate — three arguments against the Poisson-sample model
+
+The rate reading is a specific generative claim, not a neutral summary: the neuron holds an analog state (the "true" rate), spikes are Poisson samples from it, and the reader estimates the rate by counting over a window. Each of the three clauses is separately attacked (Kirsanov 2026, secondary **(tentative)**; primary sources named):
+
+| Argument | The claim | Numbers, and what breaks |
+|---|---|---|
+| **Latency budget** | The reader has no time to count | Human visual object recognition completes in ~**150 ms** across ~**10** processing stages (retina → LGN → V1 → V2 → …), leaving **10–15 ms per stage** (Thorpe, Fize & Marlot 1996). At cortical rates a downstream cell observes **0–2 spikes** in that window; the variance of a rate estimator from 1–2 samples is unusable |
+| **Non-stationarity** | There is no admissible window even in principle | Saccades shift the whole visual field every **200–300 ms**, and within a fixation objects and lighting move, so the latent rate changes *faster than the window needed to measure it*. Short window → variance swamps signal; long window → the estimate lags and blurs. This is a bias–variance dilemma with **no interior optimum**, and it is independent of the budget argument above |
+| **The variability is input-driven** | The "noise" the model needs is not intrinsic | Inject a **constant** current into a cortical neuron and spike times across repeats are irregular and non-reproducible — the observation the Poisson story is built on. Inject a **fluctuating** current, which is what synaptic input actually looks like, and the same cell fires at the same times to **millisecond** precision across repeats (Mainen & Sejnowski 1997). Trial-to-trial variability is then uncontrolled input, not a stochastic rate |
+
+**The wiki already holds one independent datum in the same direction**, obtained by a different method: retinal ganglion cells are markedly *sub*-Poisson (a 9-spike burst has trial-to-trial SD ≈ 1, not 3), and replacing the Poisson stage with a refractory integrate-and-fire generator both improves sub-50 ms prediction and exposes a published adaptation effect as an artefact of the Poisson fit (Pillow & Simoncelli 2003, [[wiki/entities/early-visual-system.md]]). Two unrelated preparations, same verdict: **Poisson is a modelling convenience, and it is wrong in the direction that makes timing *more* usable, not less.**
+
+**What this does not license.** The scale argument is explicitly conceded: averaging over time or over a population is a valid statistical summary on the scale of *seconds* — it produced tuning curves, population geometry and motor control — and fails only as an account of what happens in *milliseconds*. So the rate/timing choice is not one code winning but a **scale at which the summary stops being sufficient**, which is the form [[wiki/empirical-tensions.md]] T1 should be read in.
+
+**One consequence for T232 (brainstorm).** That row's Position B rejects rank order and latency because *spontaneous firing corrupts them*. Argument 3 says the firing called spontaneous may itself be a precise response to uncontrolled input — in which case the corruption is a property of the experimenter's stimulus control, not of the code. Nothing in the wiki tests this, and the test is cheap in principle: repeat the inferior-temporal comparison with the full input history held fixed, which is exactly what no in-vivo protocol can do.
+
+---
+
 ## The paradox, stated quantitatively
 
 Barn owl azimuthal sound localization (Gerstner et al. 1996):
