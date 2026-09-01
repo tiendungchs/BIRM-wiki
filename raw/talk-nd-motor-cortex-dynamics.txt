@@ -1,0 +1,507 @@
+Chapter 1: A movement before it happens
+0:00
+0 seconds
+Imagine you are sitting at a table.
+0:02
+2 seconds
+There is a cup of coffee in front of you and a croissant beside it. You know exactly what you're about to do. Reach for the coffee. Wrap your fingers around
+0:11
+11 seconds
+it and pick it up. You've already decided. You're just waiting for the right moment. Your arm is completely still, but your motor cortex is not.
+0:21
+21 seconds
+This is one of the main brain regions that generate movement. And right now, vast populations of its neurons are buzzing with activity. And it's not just background noise.
+0:33
+33 seconds
+In fact, if I could see that pattern of activity, I could tell you which object you're about to grab, how far your hand
+0:40
+40 seconds
+will travel, and how fast. All of it before a single muscle has moved. The movement is already written down
+0:47
+47 seconds
+somewhere in there. So, where does it live? What is it for? And if it's already fully formed, why doesn't it
+0:55
+55 seconds
+spill out into motion? The answer to all of these questions is one of the greatest success stories of modern
+1:01
+1 minute, 1 second
+neuroscience, and it rests on a very elegant and intuitive geometric picture.
+Chapter 2: The geometry of motor cortex
+1:10
+1 minute, 10 seconds
+To start answering these questions, we need to stop thinking about the motor cortex from the outside as a box that
+1:18
+1 minute, 18 seconds
+simply emits commands and look at how it's wired on the inside.
+1:23
+1 minute, 23 seconds
+Let's zoom in on a single neuron in motor cortex. Its surface is covered in thousands of sinapses, tiny connections
+1:31
+1 minute, 31 seconds
+through which other neurons send signals to it. Some of those signals arrive from far away. Visual regions might provide
+1:40
+1 minute, 40 seconds
+information where the cup is. Frontal and parietal areas might convey the decision to reach. But an overwhelming
+1:48
+1 minute, 48 seconds
+majority of the input received by a cortical neuron comes from other cortical neurons nearby. That patch of
+1:55
+1 minute, 55 seconds
+cortex is to a first approximation talking to itself.
+2:00
+2 minutes
+Think about what this means. What a neuron does a moment from now depends on what the other neurons in the network
+2:07
+2 minutes, 7 seconds
+are doing right now. And the same is true for every neuron simultaneously.
+2:13
+2 minutes, 13 seconds
+Neuron 1's future depends on the present activity of neurons 2 3 4 and so on.
+2:19
+2 minutes, 19 seconds
+Neuron 2's future depends on neuron one and everyone else. Every part of the population is continuously influencing
+2:28
+2 minutes, 28 seconds
+every other part. To make this concrete, imagine that we record from a 100 neurons. At every moment, each neuron
+2:36
+2 minutes, 36 seconds
+has some firing rate, a number describing how active it is. 100 neurons
+2:43
+2 minutes, 43 seconds
+gives us 100 numbers. Those 100 numbers can be treated as coordinates of a single point in a 100dimensional space.
+2:53
+2 minutes, 53 seconds
+Just like how a point on a sheet of paper is described by two numbers, an xcoordinate and the y-coordinate, a
+3:01
+3 minutes, 1 second
+point in this neural space is described by 100 coordinates with each axis representing the activity of one neuron.
+3:11
+3 minutes, 11 seconds
+This is called the neural state space.
+3:14
+3 minutes, 14 seconds
+Of course, we can't directly visualize 100 dimensions. So, let's imagine a toy network containing only two neurons.
+3:23
+3 minutes, 23 seconds
+Neuron 1's firing rate goes on the horizontal axis and neurons 2 firing rate goes on the vertical axis.
+3:31
+3 minutes, 31 seconds
+At any instant, the combined activity of the network is represented by a single dot in this plane. And as neurons change
+3:40
+3 minutes, 40 seconds
+their firing rates, exchanging electrical impulses, the dot moves. The entire pattern of activity that drives
+3:48
+3 minutes, 48 seconds
+the arm's movement unfolding from the beginning of the reach to the end becomes a curve traced through the state
+3:55
+3 minutes, 55 seconds
+space. But what exactly determines how the dot moves? Well, remember what we just established. The future activity of
+4:04
+4 minutes, 4 seconds
+the population mostly depends on current activity. So if you tell me where the dot is right now, the wiring of the
+4:12
+4 minutes, 12 seconds
+network tells me which way it's about to move. We can represent this by attaching a tiny arrow to every point in the
+4:20
+4 minutes, 20 seconds
+space. The arrow indicates the instantaneous direction and speed with which the neural state would move if the
+4:28
+4 minutes, 28 seconds
+network ever found itself there. The complete collection of these arrows is called a flow field. It is a geometric description of the rules of the network.
+4:40
+4 minutes, 40 seconds
+If the circuit is in this state having this pattern of activity, it moves that way. If it's in another state, it moves in a different direction.
+4:50
+4 minutes, 50 seconds
+The arrows are shaped by the strengths of connections between neurons. Those connection strengths have been gradually
+4:58
+4 minutes, 58 seconds
+learned and refined over the lifetime of the animal. Over the brief few seconds before and during the movement they are
+5:06
+5 minutes, 6 seconds
+mostly fixed baked into the circuit. To mathematically describe it we can write x dot equals f ofx. The rate of change
+5:15
+5 minutes, 15 seconds
+of the network state is a function of the current state.
+5:20
+5 minutes, 20 seconds
+This is what we mean when we describe the network as having autonomous dynamics. Once it has been placed in a
+5:27
+5 minutes, 27 seconds
+particular state, what happens next is determined by the interactions among its own neurons. And this gives us an
+5:35
+5 minutes, 35 seconds
+important geometric constraint. In this simplified autonomous picture, trajectories cannot cross because there
+5:43
+5 minutes, 43 seconds
+is only one set of arrows attached to each point. So if a network reaches a particular state, that state determines
+5:52
+5 minutes, 52 seconds
+where the population will move a moment later. Where the network begins can therefore determine the entire trajectory that it follows.
+6:02
+6 minutes, 2 seconds
+This suggests a remarkably elegant way for the same motor cortical circuit to produce many different movements. Begin
+6:11
+6 minutes, 11 seconds
+here. Let the dynamics unfold and they will generate a reach to the left. begin there and they generate a reach to the
+6:19
+6 minutes, 19 seconds
+right. In other words, once the appropriate initial condition has been established during preparation, the
+6:27
+6 minutes, 27 seconds
+network lets its internal dynamics unfold like a clockwork mechanism that has been carefully wound and placed into
+6:35
+6 minutes, 35 seconds
+the correct configuration. When the system is released, the movement generating trajectory begins.
+6:42
+6 minutes, 42 seconds
+But that phrase hides a serious problem. Released from what exactly?
+Chapter 3: The brain has no pause button
+6:49
+6 minutes, 49 seconds
+The recurrent connections are always present. The arrows of the flow field do not switch on when you finally initiate
+6:56
+6 minutes, 56 seconds
+the movement towards the cup. They were there the whole time, baked into the anatomy of the network. So if
+7:04
+7 minutes, 4 seconds
+preparation places the population at a state from which the dynamics generate the reach, why doesn't the reach begin
+7:12
+7 minutes, 12 seconds
+immediately? There is no pause button in the brain. Nothing to hold the dot in place while you wait. In fact, in the
+7:21
+7 minutes, 21 seconds
+lab, when monkeys perform such reaching tasks, the delay between here is the target and now go is chosen at random.
+7:30
+7 minutes, 30 seconds
+Half a second on one trial, 2 seconds on the next. The animal cannot anticipate the queue. So, we can't rescue the
+7:38
+7 minutes, 38 seconds
+picture by imagining some perfectly timed trajectory that happens to arrive at the initial condition at the very instant the Goku fires.
+7:49
+7 minutes, 49 seconds
+Somehow, the initial condition has to be reached early and then simply waited on.
+7:54
+7 minutes, 54 seconds
+And this is indeed what the recordings show. After a brief initial adjustment, preparatory activity settles down to a
+8:03
+8 minutes, 3 seconds
+stable movement specific state and then seemingly stays there holding until the go.
+8:10
+8 minutes, 10 seconds
+So we seem to have contradicted ourselves. We have asked a single point in state space to do two incompatible
+8:17
+8 minutes, 17 seconds
+jobs at once. It must be a resting state where the population can sit still for an unpredictable amount of time. and it
+8:26
+8 minutes, 26 seconds
+must be a launch point from which the dynamics immediately carry the state off along a movement trajectory. The trouble
+Chapter 4: Holding a movement at a fixed point
+8:33
+8 minutes, 33 seconds
+is that our equation was too simple. The motor cortex is highly recurrent, but it's not sealed off from everything
+8:42
+8 minutes, 42 seconds
+else. It receives signals telling it where the target is, what the body is currently doing, what the rules of the
+8:50
+8 minutes, 50 seconds
+task are, and the crucial one for us, whether it's time to move. A more honest equation puts that back in here. F ofx
+8:59
+8 minutes, 59 seconds
+is still the flow generated by the recurrent wiring and I oftal input current arriving from everywhere else.
+9:08
+9 minutes, 8 seconds
+Here is how to picture what this term does. The recurrent flow field is fixed.
+9:14
+9 minutes, 14 seconds
+An arrow pinned to every point the same landscape we had all along. Now suppose the input is a single arrow on its own
+9:23
+9 minutes, 23 seconds
+and we can add that same arrow on top of the recurrent one at every point in the space. The flow the network actually
+9:31
+9 minutes, 31 seconds
+follows then is there sum. This has an immediate consequence. Imagine a point where the recurrent flow field on its
+9:39
+9 minutes, 39 seconds
+own points in some direction. Ordinarily the state would move that way. But suppose that at this point the external
+9:48
+9 minutes, 48 seconds
+input has the same magnitude and points in the opposite direction. The two arrows cancel. So the total flow there
+9:56
+9 minutes, 56 seconds
+is zero. Such a resting state where the effective flow vanishes is called a fixed point. Now the picture begins to
+10:05
+10 minutes, 5 seconds
+click into place. During the delay, motor cortex receives two contextual inputs. one that carries the target
+10:13
+10 minutes, 13 seconds
+where the reach has to go and one that signals hold that the moment to move has not yet come. Together their arrows add
+10:21
+10 minutes, 21 seconds
+to the recurrent field and place the fixed point at exactly the movement specific state we were after.
+10:29
+10 minutes, 29 seconds
+The dynamics guide the population to it and then sit still. This is the transient we see during the preparatory activity.
+10:38
+10 minutes, 38 seconds
+As you probably guessed, this fixed point is exactly the initial condition for the reach, except that now it can be held for as long as the input persists.
+10:48
+10 minutes, 48 seconds
+Then the go Q arrives and its job is simply to switch those contextual inputs off. The instant they vanish, nothing
+10:57
+10 minutes, 57 seconds
+balances the recurrent arrows out. They are the only term in the flow field. The dynamics are truly autonomous once more.
+11:06
+11 minutes, 6 seconds
+The recurrent flow that was there all along takes over and this state released from precisely the right point unspools
+11:15
+11 minutes, 15 seconds
+along the trajectory this circuit produces from that starting condition.
+11:19
+11 minutes, 19 seconds
+The trajectory that becomes the sequence of muscle commands for the reach.
+11:25
+11 minutes, 25 seconds
+And notice what this buys us. The target input never had to stay on to steer the movement. Its only job was to park the state at the right initial condition.
+11:36
+11 minutes, 36 seconds
+From then on, the location itself carries which reach to make and the recurring dynamics do the rest.
+11:45
+11 minutes, 45 seconds
+And that is why one circuit is enough for every movement. Settle on the croissant instead of the coffee and the
+11:52
+11 minutes, 52 seconds
+target input is different. It cancels the recurrent field at a different location. So a different point becomes
+11:59
+11 minutes, 59 seconds
+the fixed point. The delay parks the state there. The go Q releases it and the same wiring unspooling from a
+12:07
+12 minutes, 7 seconds
+different start traces a different trajectory.
+Chapter 5: Why your muscles stay silent
+12:11
+12 minutes, 11 seconds
+Now there is one more piece of the puzzle left. As we've seen during preparation the circuit's activity moves
+12:18
+12 minutes, 18 seconds
+in tricky ways to get parked at the movement specific initial condition. But how is that that the hand sits still
+12:26
+12 minutes, 26 seconds
+through all of this and not a single muscle moves? After all, this is the same network that has to generate the
+12:33
+12 minutes, 33 seconds
+sequence of muscle commands moments later.
+12:37
+12 minutes, 37 seconds
+How can a brain region so intimately connected to movement be filled with movement specific activity while the arm
+12:44
+12 minutes, 44 seconds
+it controls remains perfectly still? One obvious answer is some kind of gate.
+12:51
+12 minutes, 51 seconds
+Perhaps during preparation, the output of motor cortex is intercepted on its way to the muscles and blocked. Imagine
+12:58
+12 minutes, 58 seconds
+an inhibitory break placed on the road between the cortex and the spinal cord.
+13:05
+13 minutes, 5 seconds
+The cortex can scream at the top of its lungs, but until the break is released, nothing reaches the muscles. Then when
+13:12
+13 minutes, 12 seconds
+the go appears and removes the contextual input from the cortex, it can lift the brake at the same moment so
+13:20
+13 minutes, 20 seconds
+that as the activity unfolds under its own dynamics, those signals finally get through. And you could build a brain
+13:28
+13 minutes, 28 seconds
+this way if you wanted to and mechanisms like that do contribute. But the data suggests that the cortex is doing something different. The trouble with a
+13:37
+13 minutes, 37 seconds
+gate is that as a separate device it has to be installed on the right pathway and released at exactly the right instant
+13:45
+13 minutes, 45 seconds
+synchronized with the dynamics that generate the movement. Anything that must be kept in sync can fall out of sync when things go wrong and the brain
+13:54
+13 minutes, 54 seconds
+is a noisy place already. We don't want the arm twitching at the thought of reaching for the cup because something
+14:01
+14 minutes, 1 second
+broke down at the gate. So let us ask a more ambitious question. Can we bake this gating into the structure of the
+14:09
+14 minutes, 9 seconds
+activity itself? So that the preparatory activity is silent at the muscle not because something stops it but because
+14:16
+14 minutes, 16 seconds
+of what it is a kind of structural break with no moving parts. It turns out that you can. To see how, let's strip the
+14:25
+14 minutes, 25 seconds
+picture down once more. Three neurons driving a single muscle. The muscle listens to all three at once, adding up
+14:33
+14 minutes, 33 seconds
+their firing rates, each weighted by the strength of the connection. The weight that can be positive or negative. So the
+14:41
+14 minutes, 41 seconds
+muscle's activation is given by the following equation where A, B, and C are the connection weights. And the crucial thing about them is that they are fixed.
+14:52
+14 minutes, 52 seconds
+Now let's think about what it takes for the muscle to produce the same command.
+14:56
+14 minutes, 56 seconds
+It means that m has to be constant. And the quietest command of them all m equals 0 means that the muscle is doing nothing.
+15:07
+15 minutes, 7 seconds
+Picture our three-dimensional state space, one axis per neuron. The states that produce zero muscle activation are
+15:15
+15 minutes, 15 seconds
+the ones where this equation evaluates to zero.
+15:19
+15 minutes, 19 seconds
+It carves out a flat plane slicing through the origin. Every state lying on that plane feeds the muscle exactly
+15:28
+15 minutes, 28 seconds
+zero. So as long as the population activity stays somewhere on this plane, moving around it as much as it likes,
+15:37
+15 minutes, 37 seconds
+those states are all identical from the muscle's point of view. Now let's nudge the target. Suppose we want m= 1 instead
+15:47
+15 minutes, 47 seconds
+which is another plane parallel to the first simply shifted over. Ask for m= 2
+15:54
+15 minutes, 54 seconds
+and you get a third plane shifted a little further in the same direction.
+16:00
+16 minutes
+For every value the muscle could output, there is a whole plane of neural states that produce it. And as you dial the
+16:07
+16 minutes, 7 seconds
+command up and down, that plane slides smoothly along like pages of a book stacked next to each other.
+16:16
+16 minutes, 16 seconds
+Notice that the direction in which the planes slide as the command changes is by construction perpendicular to every
+16:25
+16 minutes, 25 seconds
+one of them. Move this state along that special direction and you flip from one page to the next changing the muscle
+16:33
+16 minutes, 33 seconds
+command. move this state within a plane in either of the two directions that lie inside it and you slide across the same
+16:41
+16 minutes, 41 seconds
+page and the command does not change at all. So the three dimensions of our little state space split cleanly into
+Chapter 6: The dimensions your muscles can't read
+16:50
+16 minutes, 50 seconds
+two orthogonal parts. One direction the muscle listens to and two it is completely blind to. Those two blind
+17:00
+17 minutes
+directions have a name. Together they form the null space of the circuit. Null because any activity confined to them
+17:08
+17 minutes, 8 seconds
+does not contribute to the muscle. The remaining direction the one the muscle actually reads is called the output
+17:15
+17 minutes, 15 seconds
+potent direction. And now the resolution falls out on its own. The preparatory activity doesn't have to be small or
+17:24
+17 minutes, 24 seconds
+gated somewhere downstream. It can be as large and as movement specific as it likes as long as it stays inside the
+17:31
+17 minutes, 31 seconds
+null subspace. The muscle only ever hears the state's shadow along the potent direction. And within the null
+17:39
+17 minutes, 39 seconds
+subspace, that shadow is zero. So preparation isn't a muted rehearsal of the movement. It is activity arranged
+17:47
+17 minutes, 47 seconds
+perpendicular to everything the muscle can read, silent by construction. And the fixed point where the population
+17:54
+17 minutes, 54 seconds
+parks during the delay also sits inside the null subspace. That is why it can be held for an unpredictable amount of time
+18:03
+18 minutes, 3 seconds
+without a twitch. Then the go lifts the input. The recurrent dynamics take over and the trajectory they unspool finally
+18:12
+18 minutes, 12 seconds
+swings out of the null subspace and into the potent direction. The instant the state picks up a potent component, the muscle hears it and the reach begins.
+18:23
+18 minutes, 23 seconds
+Nothing was ever released except the dynamics themselves. Of course, real motor cortex is not three neurons and
+18:31
+18 minutes, 31 seconds
+one muscle. It is thousands of neurons driving dozens of muscles. The number of potent directions is roughly the number
+18:38
+18 minutes, 38 seconds
+of muscle commands the cortex has to emit. Every remaining direction is null.
+18:44
+18 minutes, 44 seconds
+And since the neurons vastly outnumber the muscles, that null space is enormous. A huge quiet subspace with
+18:52
+18 minutes, 52 seconds
+room for all the preparatory dynamics we saw earlier with none of it reaching the arm.
+19:00
+19 minutes
+Let's step back and tie everything together. We began with a puzzle. How could the movement actually be there in
+Chapter 7: Putting it together
+19:07
+19 minutes, 7 seconds
+the brain during preparation before a single muscle had moved?
+19:12
+19 minutes, 12 seconds
+Now we know where it was kept. In the null space, the code, the muscles are structurally unable to read and we know
+19:20
+19 minutes, 20 seconds
+what it was doing there. Parking the population at the single initial condition, a fixed point held quietly
+19:27
+19 minutes, 27 seconds
+inside the null space that encodes the upcoming movement. When the go switches the contextual inputs off, that initial
+19:36
+19 minutes, 36 seconds
+condition is released. The recurrent dynamics take over and the trajectory swings out of the null space and along
+19:43
+19 minutes, 43 seconds
+the potent directions becoming the muscle commands that drive the reach.
+19:49
+19 minutes, 49 seconds
+And this is the deeper lesson here. The recurrent wiring of motor cortex is not some kind of relay that passes commands
+19:57
+19 minutes, 57 seconds
+along to the muscles. It is a pattern generator in its own right with a lifetime of learning compiled into its
+20:05
+20 minutes, 5 seconds
+connections. The entire repertoire of movements lives baked into the sinapses.
+20:11
+20 minutes, 11 seconds
+So producing any one of them is a matter of placing the population at the right starting point and letting the dynamics
+20:18
+20 minutes, 18 seconds
+do the rest. The movement was already waiting there folded into the geometry of the circuit.
+Chapter 8: Brilliant
+20:27
+20 minutes, 27 seconds
+Most of us who care about science eventually end up passing it on to someone younger. Maybe your own child or
+20:34
+20 minutes, 34 seconds
+a student you teach or mentor. One thing neuroscience makes clear is that learning is not passive. It happens
+20:41
+20 minutes, 41 seconds
+through struggle and feedback. But now that AI can instantly answer any homework question, the challenge is
+20:48
+20 minutes, 48 seconds
+making sure that it sharpens student thinking instead of replacing it. And this is exactly the idea behind today's
+20:55
+20 minutes, 55 seconds
+sponsor, Brilliant. Their AI tutor Koji never gives away the answer. He guides the students through the problem, asking
+21:04
+21 minutes, 4 seconds
+questions, given hints, and helping them work out the next step themselves. And Cooji isn't limited to text. He can
+21:12
+21 minutes, 12 seconds
+interact directly with what's on the screen, even drawing on the problem to help explain an idea while leaving the
+21:19
+21 minutes, 19 seconds
+reasoning to the student. I genuinely wish I had something like this when I was first learning math. You can try Brilliant for free by using the link
+21:27
+21 minutes, 27 seconds
+down in the video description and save 20% off an annual subscription.
+Chapter 9: Outro
+21:35
+21 minutes, 35 seconds
+If you enjoyed the video, share it with your friends. Subscribe to the channel if you haven't already and press like button. Stay tuned for more neuroscience and machine learning topics coming up.

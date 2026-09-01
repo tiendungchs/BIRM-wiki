@@ -30,7 +30,7 @@ The paper's method is convergence: each measure sees a different property, and t
 |---|---|---|
 | **Degree** | How many partners? | Column sum of the binarised matrix |
 | **Strength** | How much fibre density? | Column sum of the weighted matrix |
-| **Betweenness centrality** | How many shortest paths cross it? | `b_i = Σ_{s≠t} ρ_st(i) / ρ_st` |
+| **Betweenness centrality** | How many shortest paths cross it? | `b_i = Σ_{s≠t} ρ_st(i) / ρ_st`. **Presupposes shortest-path routing** — a communication model requiring global topological knowledge, which Seguin et al. 2023 argue a decentralised system cannot implement ([[wiki/concepts/network-communication-models.md]], [[wiki/empirical-tensions.md]] T316) |
 | **Efficiency** | Is it close to everything? | Mean of inverse path lengths from `i` to all others (closeness) |
 | **k-core / s-core** | Does it survive erosion? | Recursively prune nodes of degree `< k` (or strength `< s`); a node's *core number* is the largest `k` retaining it. Full erosion at `k ≈ 20` |
 | **Participation index** | Are its edges spread across modules? | `P_i = 1 − Σ_s (κ_is / k_i)²`, over `N_M` modules. `P ≥ 0.3` **connector hub**, `P < 0.3` **provincial hub** (both require above-average strength) |
@@ -59,7 +59,7 @@ The paper's method is convergence: each measure sees a different property, and t
 | Test–retest, participant A, two sessions days apart | `r² = 0.78` |
 | DSI fibres vs macaque tract-tracing (CoCoMac), one hemisphere | **78.9%** where tracers found a connection · 15.0% where tracer status is unknown · **6.1%** where tracers reported *absence* |
 
-The rCBF row is the one with architectural teeth: **topological position predicts energetic cost**. A node's centrality is not a free property of the graph — it is paid for continuously, whether or not the node is doing anything task-relevant. Nothing in the wiki prices its own routing this way.
+The rCBF row is the one with architectural teeth: **topological position predicts energetic cost**. A node's centrality is not a free property of the graph — it is paid for continuously, whether or not the node is doing anything task-relevant. Nothing in the wiki prices its own routing this way. It is also the one row that survives T316 intact: metabolic cost is *measured*, not modelled, so it prices topological position without assuming any communication protocol — whereas the betweenness rank it correlates with does assume one.
 
 The 6.1% false-positive rate against tracers is the honest ceiling on every diffusion-derived connectome in the wiki, including the personalised ones ([[wiki/entities/virtual-brain-twin.md]]).
 
@@ -137,3 +137,4 @@ This is the structural half of [[wiki/empirical-tensions.md]] T241 (does default
 - **[[wiki/concepts/connectivity-scaling-bottleneck.md]]** — the same statistics read across species instead of within one: long-tailed degree, a rich club and rising betweenness are conserved across 14 primates and become *more* pronounced with brain size, while overall density falls from 52% (galago) to 31–37% (great apes), so this page's sparse hub-and-core design is what a small brain's graph turns into when it is scaled up under a wiring budget (Ardesch et al. 2022).
 - **[[wiki/concepts/network-control-theory.md]]** — the target-relative successor to this page's six converging measures: degree, betweenness, k-core and participation rank nodes without reference to any transition, while minimum control energy asks which nodes can drive the system to a *named* target state and at what cost — so "important" becomes "important for getting where".
 - **[[wiki/concepts/higher-order-interactions.md]]** — what all six measures here are blind to by construction: each is a function of a dyadic adjacency matrix, so an all-to-all clique or a cavity in the same tissue is scored only through its pairwise shadow, and the annotated-graph formalism there is what puts this page's transcriptional node attributes and its edges in one model.
+- **[[wiki/concepts/network-communication-models.md]]** — the condition three of this page's six measures were computed under and never declared: betweenness, closeness efficiency and path length all count shortest paths, hence assume a routing protocol needing global topological knowledge, so the core is a bottleneck *under centralised routing* and its load under communicability or greedy navigation is unmeasured ([[wiki/empirical-tensions.md]] T316) — while the blood-flow correlate, being model-free, is untouched.

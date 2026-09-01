@@ -323,3 +323,4 @@ Places where sources in the wiki disagree, or where a claim is asserted more str
 | T313 | Do dopamine neurons respond to aversive events and to cues predicting them? | `LIVE` | 1 | [[wiki/tensions/t313.md]] |
 | T314 | Should an anti-collapse provision protect the space the loss sees, or the space the read-out sees? | `LIVE` | 5 | [[wiki/tensions/t314.md]] |
 | T315 | Is an uncorrected self-model *inflated*, or merely *insensitive*? | `LIVE` | 2 | [[wiki/tensions/t315.md]] |
+| T316 | Does betweenness centrality measure routing load, or only a property of the graph? | `BOTH` | 2 | [[wiki/tensions/t316.md]] |
