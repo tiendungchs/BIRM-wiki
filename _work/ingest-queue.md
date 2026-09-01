@@ -490,7 +490,7 @@ One INGEST each:
 - [x] `webb-2021-emergent-symbols-external-memory.md` — neurosymbolic · M · 2021
 - [x] `murray-2014-hierarchy-intrinsic-timescales.md` — brain-networks · R · 2014
 - [x] `gu-2015-controllability-structural-brain-networks.md` — brain-networks · R · 2015
-- [ ] `guo-2017-calibration-modern-neural-networks.md` — reasoning-eval · R · 2017
+- [x] `guo-2017-calibration-modern-neural-networks.md` — reasoning-eval · R · 2017
 - [ ] `locatello-2019-challenging-disentanglement-assumptions.md` — ssl-representation · R · 2019
 - [ ] `lightman-2023-lets-verify-step-by-step.md` — reasoning-eval · R · 2023
 - [ ] `ha-2018-world-models.md` — world-models · M · 2018 — self-fetched; MathJax equations flattened
