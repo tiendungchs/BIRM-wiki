@@ -114,8 +114,9 @@ What a brain-inspired reasoning model needs and no current architecture supplies
 | G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `OPEN` | 2 | [[wiki/gaps/g101.md]] |
 | G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `OPEN` | 1 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `OPEN` | 1 | [[wiki/gaps/g103.md]] |
-| G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `OPEN` | 3 | [[wiki/gaps/g104.md]] |
-| G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `OPEN` | 2 | [[wiki/gaps/g105.md]] |
+| G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `OPEN` | 4 | [[wiki/gaps/g104.md]] |
+| G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `OPEN` | 3 | [[wiki/gaps/g105.md]] |
+| G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `OPEN` | 3 | [[wiki/gaps/g106.md]] |
 
 ## How gaps are used
 
