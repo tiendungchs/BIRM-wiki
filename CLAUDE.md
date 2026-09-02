@@ -114,6 +114,9 @@ A hit under `wiki/gaps/` or `wiki/tensions/` is a registry row, not a page — c
 
 - `[[wiki/concepts/latent-graph-discovery.md]]` - **CORE PROBLEM FRAMING** — the unified problem: infer hidden graph structure from observations and navigate it; subsumes all task types; read when faced with a decision regarding the wiki content
 - **Maintenance is key:** keep in mind when faced with a decision reagarding the wiki's structure.
+- **Design ladder:** registry rows are worked in the order `L0` behaviour → `L1` decomposition → `L2` signal flow (including what is architecturally denied to a reader); a row lower on the ladder waits.
+- **`L3`/`L4` material lives in page bodies, not in the registries** — realization and substrate detail is ingested as concept/entity prose and found by search when a realization is chosen; only `L0`/`L1`/`L2`/`L0-INSTR` rows (or a row closing a `_brainstorm/birm-spec.md` §12 open slot) may be opened.
+- **`L0-INSTR`** — measurement-validity rows — is worked at `L0` priority: an unvalidated instrument cannot settle an `L0` claim.
 
 ---
 

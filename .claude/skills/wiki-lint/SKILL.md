@@ -14,7 +14,7 @@ Structural maintenance pass over the whole wiki. Find decay, propose a fix plan 
    ```bash
    ./tools/wiki-stats.sh
    ```
-   It exits non-zero on any violation and covers `Connections` symmetry (`S1`), table column counts (`S4`), published self-counts (`S5`, `S5b`), glossary keys (`S13`), registry-row citations (`S14`), queue reconciliation (`S15`), index-matches-detail-files (`S16`) and `Closes when` coverage (`S17`). Fix what it finds before reading anything.
+   It exits non-zero on any violation and covers `Connections` symmetry (`S1`), table column counts (`S4`), published self-counts (`S5`, `S5b`), glossary keys (`S13`), registry-row citations (`S14`), queue reconciliation (`S15`), index-matches-detail-files (`S16`), `Closes when` coverage (`S17`) and the level-admission rule (`S19`). Fix what it finds before reading anything.
 2. **Read all three indexes** — `wiki/index-concepts.md`, `wiki/index-entities.md` — to establish full coverage.
 3. **Read the open-problem files:** the registry indexes `wiki/architectural-gaps.md` and `wiki/empirical-tensions.md` (one line per row), and `wiki/priority-tasks.md`. Open detail files under `wiki/gaps/` and `wiki/tensions/` only for the rows the pass actually audits.
 4. **Read all relevant concept and entity pages.** Batch the reads; this is the expensive part and it is not optional.
@@ -25,12 +25,14 @@ Structural maintenance pass over the whole wiki. Find decay, propose a fix plan 
    - **Overloaded pages** — a concept/entity page doing the work of two or three; propose a split.
    - **Unexpanded abbreviations** — uncommon abbreviations not expanded inline and not in `wiki/glossary.md`.
    - **Index drift** — pages on disk that are missing from an index, or index entries pointing at pages that no longer exist.
+   - **Level regrowth** — report the per-level tally `python3 tools/registry-index.py` prints for both registries. Flag as demotion candidates: every `L3`/`L4` row whose detail file was created since the previous lint (`git log --diff-filter=A --since=<previous lint commit> --name-only -- wiki/gaps wiki/tensions`), and every row cited by ≤1 concept or entity page. `S19` fails on the first set mechanically; the second is judgement. A flagged row is either re-levelled (the level token was wrong) or `git mv`d to `closed/` with a one-line `Status` note — carried, it is the regrowth the ladder exists to stop.
 6. **Propose a plan** Order it: fixes applicable immediately first.
 7. **Update indexes:** `wiki/index-concepts.md` / `wiki/index-entities.md` if pages were created.
 8. **Refresh the registries** — edit detail files under `wiki/gaps/` and `wiki/tensions/`, `git mv` retired rows into `closed/`, add new ones as new files, then rebuild both index tables with `python3 tools/registry-index.py`:
    - Every detail file has a `**Closes when:**` naming an observation, not a wish. Rows still `_unset_` are lint debt.
    - `python3 tools/registry-index.py` reports rows cited by no concept or entity page — each is either wired to its carrying page or retired.
    - Rows whose `Closes when` is already satisfied by the wiki's own evidence are retired at this pass, not carried.
+   - **Admission rule** (same rule the ingest skill applies): a row may exist only at `L0`, `L1`, `L2` or `L0-INSTR`, or because it closes a `§12` open slot in `_brainstorm/birm-spec.md`. `L3`/`L4` findings live in concept/entity page bodies, not in the registries.
 
 9. **Update** `wiki/priority-tasks.md` with fixes requiring multiple operations to apply, and new ingests to close the gaps/tensions (use WebSearch/WebFetch).
 10. **Update cross-references** on every page touched, both directions.

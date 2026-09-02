@@ -174,4 +174,24 @@ else
   echo "$S17" | sed 's/^/              /'; FAIL=1
 fi
 
+# S19: the level-admission rule. A registry row may be opened only at L0, L1, L2
+# or L0-INSTR -- or because it closes a birm-spec.md §12 open slot. L3/L4
+# material belongs in a concept/entity page body, where search finds it when a
+# realization is finally chosen; as a registry row it is carried by every later
+# lint for nothing. The L3/L4 rows that predate the rule are grandfathered in
+# _work/level-baseline.txt (each is a standing demotion candidate for LINT, not
+# a failure); anything L3/L4 outside that file is a new row that broke the rule.
+S19=$(comm -23 <(grep -lE '^\*\*Level:\*\* `L[34]`' wiki/gaps/g[0-9]*.md wiki/tensions/t[0-9]*.md 2>/dev/null | sort) \
+                <(sort _work/level-baseline.txt) \
+       | while read -r f; do
+           id=$(basename "$f" .md | sed 's/^g0*/G/;s/^t0*/T/')
+           grep -q "\`$id\`" _brainstorm/birm-spec.md 2>/dev/null || echo "$id"
+         done)
+if [ -z "$S19" ]; then
+  echo "S19 OK        no registry row opened at L3/L4 since the ladder rule ($(wc -l < _work/level-baseline.txt | tr -d ' ') grandfathered)"
+else
+  echo "S19 VIOLATED  rows opened at L3/L4 against the admission rule:"
+  echo "$S19" | tr '\n' ' ' | sed 's/^/              /'; echo; FAIL=1
+fi
+
 exit $FAIL
