@@ -433,6 +433,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | RIM / RIMs | Recurrent Independent Mechanisms | An architecture of `k_T` separately-parameterised recurrent modules of which only `k_A` update per step, selected by attention to the input against a **null row**; the wiki's first router that reads the module's own state rather than the token ([[wiki/entities/rims.md]]) |
 | PRM | Process Reward Model | A verifier scoring each *step* of a derivation rather than only the final answer; the supervision PRM800K was collected to train ([[wiki/entities/prm800k.md]]) |
 | ORM | Outcome Reward Model | A verifier scoring only the final answer; the baseline a PRM is measured against, and the arm that carries the inverted-U in best-of-`k` (`T220`) ([[wiki/entities/prm800k.md]]) |
+| VQ | Vector Quantization | Replacing a continuous vector by its nearest entry in a learned finite codebook, so a representation becomes a symbol with an index; the shared mechanism behind VQ-VAE, the discrete latent actions of [[wiki/concepts/cross-embodiment-transfer.md]], and the codebook [[wiki/entities/neo-neural-theorizer.md]] names a learned Language of Thought ([[wiki/concepts/language-of-thought.md]]) |
 
 ## Neuroscience
 
@@ -680,6 +681,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | FLB / FLN | Faculty of Language in the Broad sense / in the Narrow sense | Hauser, Chomsky & Fitch 2002's factorisation: FLB = sensory-motor system + conceptual-intentional system + the computational core; FLN = the core alone (recursion plus its two interface mappings). The distinction is used in the wiki for its *architectural* content — one small operator vs. rich interfaces — not as a linguistic commitment ([[wiki/concepts/discrete-infinity.md]]) |
 | AIF | Active InFerence | Abbreviated form used where the phrase appears inside a compound (MD-AIF, FEP-AI); see [[wiki/concepts/predictive-coding-free-energy.md]] and [[wiki/concepts/expected-free-energy.md]] |
 | RC (recurrent collateral) | Recurrent Collateral | The CA3→CA3 axon collaterals, ~1.2×10⁴ per neuron in rat, the substrate of the autoassociative attractor ([[wiki/entities/rolls-treves-hippocampal-model.md]]) |
+| SLN | Supragranular Layer Neurons (fraction) | The proportion of a projection's source cells lying in the superficial layers. Kennedy & Bullier's distance rule turns it into a *continuous* measure of hierarchical depth, which yields a single cortical hierarchy where the binary feedforward/feedback rule yields many ([[wiki/concepts/canonical-cortical-microcircuit.md]]); the scalar [[wiki/concepts/timescale-hierarchy.md]]'s recurrent-gain gradient is laid along |
 
 ## Benchmarks
 

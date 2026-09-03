@@ -39,7 +39,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T23 | What licenses the creation of a new discrete node? | `L0` | `LIVE` | 4 | [[wiki/tensions/t023.md]] |
 | T24 | Does an adaptation curve measure learning? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t024.md]] |
 | T25 | Does a decodable internal structure license the claim that the model reasons over it? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t025.md]] |
-| T26 | Do newborn dentate granule cells perform pattern separation, or block it? | `L4` | `LIVE` | 1 | [[wiki/tensions/t026.md]] |
 | T27 | Is the brain's map metric or topological? | `L1` | `LIVE` | 4 | [[wiki/tensions/t027.md]] |
 | T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 6 | [[wiki/tensions/t028.md]] |
 | T29 | Does de-aliasing conflict with generalisation? | `L0` | `LEANING` | 3 | [[wiki/tensions/t029.md]] |

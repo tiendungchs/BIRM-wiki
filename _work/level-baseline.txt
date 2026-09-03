@@ -21,7 +21,6 @@ wiki/tensions/t003.md
 wiki/tensions/t004.md
 wiki/tensions/t007.md
 wiki/tensions/t013.md
-wiki/tensions/t026.md
 wiki/tensions/t031.md
 wiki/tensions/t032.md
 wiki/tensions/t038.md
