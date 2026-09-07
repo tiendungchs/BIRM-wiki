@@ -155,3 +155,4 @@ The paper's own verdict: human behaviour is **quasi**-hierarchical, and the same
 - **[[wiki/entities/dreamcoder.md]]** — the seventh option-discovery family: compress solved plans into parametric library routines, which needs no reward, no bottleneck statistic and no termination condition, but can only abstract options for tasks already solved.
 
 - **[[wiki/entities/world-models-vmc.md]]** — the inverted hierarchy proposal: have the world model predict `a_{t+1}` as well, so motor skills are absorbed into the *model* and the controller composes over skills the model already executes — a low level living inside the transition function rather than beside it (gap `G33`, proposed only).
+- **[[wiki/concepts/abstraction.md]]** — options filed as sense O2 on the time axis, paired there with state abstraction as the two reinforcement-learning coarse-grainings, and distinguished from the format family that scores a code rather than a horizon.

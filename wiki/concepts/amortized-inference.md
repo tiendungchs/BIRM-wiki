@@ -267,3 +267,4 @@ The fourth row of the table above is the architectural proposal: **the neural ne
 - **[[wiki/entities/dreamcoder.md]]** — the canonical wake–sleep amortiser with two twists this page did not have: fantasies are problems that get *solved* before `Q` is trained on them, and the MAP objective makes symmetry breaking a learned property; also the wiki's evidence that an amortiser deepens the representation it proposes into (T309).
 
 - **[[wiki/entities/world-models-vmc.md]]** — Mode-2 → Mode-1 compilation with the expensive object being the *environment* rather than a search: 867 controller parameters are evolved inside a learned simulator and deployed outside it, so what is amortised is experience the agent never had.
+- **[[wiki/concepts/reasoning.md]]** — the compilation direction of the Mode-2/Mode-1 distinction, which is what lets "System 1" be stated as an architectural fact (no inference-time optimisation loop) rather than as a psychological label.
