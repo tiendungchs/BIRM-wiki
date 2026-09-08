@@ -36,7 +36,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 18 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
-| G21 | No mechanism composes the outputs of two specialized modules | part | `L2` | `CONTESTED` | 14 | [[wiki/gaps/g021.md]] |
+| G21 | No mechanism composes the outputs of two specialized modules | part | `L2` | `CONTESTED` | 15 | [[wiki/gaps/g021.md]] |
 | G22 | Nothing selects which compositions get built | part | `L2` | `OPEN` | 7 | [[wiki/gaps/g022.md]] |
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g023.md]] |
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 14 | [[wiki/gaps/g024.md]] |
@@ -118,7 +118,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `L3` | `OPEN` | 2 | [[wiki/gaps/g101.md]] |
 | G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g103.md]] |
-| G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `L3` | `PARTIAL` | 6 | [[wiki/gaps/g104.md]] |
+| G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `L3` | `PARTIAL` | 7 | [[wiki/gaps/g104.md]] |
 | G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `L0` | `OPEN` | 5 | [[wiki/gaps/g105.md]] |
 | G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `L3` | `OPEN` | 4 | [[wiki/gaps/g106.md]] |
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 7 | [[wiki/gaps/g107.md]] |

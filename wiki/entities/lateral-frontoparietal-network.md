@@ -1,0 +1,121 @@
+# Lateral Frontoparietal Network — Where the Relational Supermodule Sits
+
+**Three cortical regions — rostrolateral prefrontal cortex (RLPFC), dorsolateral prefrontal cortex (DLPFC) and inferior parietal lobule/sulcus (IPL/IPS) — plus the long-range white matter joining the first and third. Proposed as the anatomy of higher-order relational thinking: the same set is recruited whenever a relation between relations must be evaluated, across memory, reasoning, decision-making and perception. Its RLPFC↔IPL link is the one connection in the set with no macaque analogue.**
+
+> **Provenance.** Vendetti & Bunge 2014, *Evolutionary and developmental changes in the lateral frontoparietal network: a little goes a long way for higher-level cognition*, Neuron 84(5), 906–917, doi:10.1016/j.neuron.2014.09.035 (`raw/vendetti-2014-lateral-frontoparietal-evolution-development.md`). A Perspective, not a primary study: every comparative and developmental result below is reported second-hand, and the authors are reviewing their own lab's fMRI series (Wendelken, Bunge and colleagues). Two of the load-bearing developmental results — the longitudinal white-matter finding and the age×tract partial correlation — are cited to an unpublished dissertation (Whitaker 2012). No effect sizes are given for the Neurosynth meta-analysis.
+
+---
+
+## The three nodes and their division of labour
+
+| Node | Proposed function | The measurement that assigns it |
+|---|---|---|
+| **IPL / IPS** | Represents the *first-order* relation itself | Activation scales with the **number** of relations to be considered (Crone et al. 2009; Hampshire et al. 2011; Watson & Chatterjee 2012); higher for **specific** relations ("the green ball is heavier than the orange ball") than for general association ("the green and orange balls are associated") (Wendelken & Bunge 2010) |
+| **RLPFC** (frontopolar, ≈ Brodmann area 10) | Compares / integrates **several sets** of relational representations — the second-order operation | Selectively engaged by second-order > first-order contrasts at *identical stimulus displays* (Wendelken et al. 2012); **not** by difficulty (see below) |
+| **DLPFC** | Working-memory manipulation, interference suppression, response selection — a general support tier | Activation scales with **task difficulty** across paradigms, including relational ones (Kroger et al. 2002; Cho et al. 2010; Krawczyk et al. 2010a) |
+
+**The convergence result.** Neurosynth reverse inference over the term *relational* (46 studies spanning memory, reasoning, decision-making and higher-level perception) returns RLPFC, DLPFC and IPL/IPS as the voxels reported more selectively with *relational* than with any of 524 other terms; forward inference additionally returns hippocampus, insula and posterior cingulate. This is the wiki's first **anatomical** evidence for the supermodule claim in [[wiki/concepts/relational-reinterpretation.md]], which had argued for a shared relational competence purely from the fact that the same first-order/higher-order behavioural profile recurs in every domain. Convergence across task domains in a term-based meta-analysis is weak evidence — the term is applied by the original authors, not by the analysis — but it is evidence of the right *type*, and there was none before.
+
+---
+
+## The dissociation that matters most: relational demand is not difficulty
+
+Second-order problems are almost always harder than first-order ones, so any second-order > first-order contrast is confounded with effort. Two designs break the confound in **opposite directions**, and RLPFC follows relations both times:
+
+| Design | Difficulty ordering | Relational ordering | RLPFC | DLPFC |
+|---|---|---|---|---|
+| Working memory: hold **4 items**, **7 items**, or **4 items + 3 relations** (arrows: "Q comes before Z") — Wendelken et al. 2008a | 7 items > 4 items + 3 relations > 4 items | 4+3 relations > both item-only loads | Higher for 4 items + 3 relations than for 7 items; **does not distinguish 7 from 4** | Scales monotonically with load |
+| Propositional analogy: evaluate a *given* relational term ("does *uses* describe writer–pen?") vs **complete** an analogy ("painter : brush :: writer : ?") — Wendelken et al. 2008b | Completion ≫ evaluation | Comparison (evaluation) invites a relation-between-relations; completion can be solved by constrained semantic retrieval | Higher for the **easier** comparison problems | — |
+
+**Why this is the page's most exportable content.** It is a **crossed design**: relational demand high / difficulty low, and difficulty high / relational demand low, in the same subjects with the same stimuli. It converts "does this system integrate relations?" from an unanswerable question about an internal state into a two-cell contrast on any effort-like read-out. Recorded as `I36` on [[wiki/concepts/certification-instruments.md]].
+
+A second consequence, for the wiki's load accounting: **items and relations are separate currencies.** Three relations over four items cost the RLPFC more than three extra items cost it, and cost the DLPFC less. [[wiki/concepts/working-memory.md]]'s capacity estimates are all in items; Halford's relational complexity ([[wiki/concepts/analogical-mapping.md]]) is in roles-to-be-integrated; this is the design that shows they dissociate in the substrate rather than only in theory.
+
+---
+
+## Development: the integrator is freed, not grown
+
+Longitudinal and cross-sectional data on ages 6–18 (Wendelken et al. 2011; Whitaker 2012; Ferrer et al. 2013), `n = 165` for the behavioural trajectory.
+
+| Age band | Second-order > first-order contrast |
+|---|---|
+| 7–10 | Only a small left-DLPFC cluster — RLPFC and IPL are engaged *equally* by first- and second-order trials |
+| 11–14 | Bilateral DLPFC + dorsomedial prefrontal cortex |
+| 15–18 | Left RLPFC + bilateral IPL — the adult pattern (Bunge et al. 2009) |
+
+**The direction of the developmental change is the finding.** Plotted against age, RLPFC activation on second-order trials is **flat**; what falls is RLPFC activation on **first-order** trials. Structural equation modelling attributes part of that fall to cortical **thinning in IPL** — the thinner the parietal cortex, the more functionally specific the RLPFC.
+
+> **The architectural reading `(brainstorm)`.** The integrator's apparent capacity grows because the *cheap* store downstream of it gets good enough to stop calling it. This is a scheduling/caching claim, not a capacity claim: nothing about the second-order machinery changes across a decade of development, and the entire measured gain is first-order work migrating out of the expensive component. For a machine: an integrator whose call rate is not gated will look capacity-limited even when it is not, and the way to raise effective relational capacity is to make the first-order representation self-sufficient rather than to widen the binder. This is a third mechanism for the relational shift, alongside the two in [[wiki/concepts/analogical-mapping.md]] (`T193`): not knowledge accretion, not executive maturation, but **offload**.
+
+**White matter.** Probabilistic tractography identifies left and right RLPFC–IPL tracts. Cross-sectionally, their fractional anisotropy predicts reasoning ability *no better than a whole-brain white-matter average* — consistent with a general fluid-intelligence/white-matter relation (Chiang et al. 2009; Tamnes et al. 2010). Longitudinally, change in **left** RLPFC–IPL fractional anisotropy over ~1.5 years predicts change in reasoning after partialling out age and initial values, where the right tract and the global measure do not; the relation is mediated by processing speed. Functional connectivity moves the same way and *selectively*: RLPFC↔IPL coupling rises across childhood and adolescence while RLPFC↔superior-parietal coupling **falls**, so this is not the general long-range-connectivity increase of Fair et al. 2008.
+
+**A methodological rule worth carrying** (`L0-INSTR`, `(brainstorm)`): the same tract is non-specific cross-sectionally and specific longitudinally. A between-subject correlation with a global confound (age, overall myelination, overall scale) cannot localise anything; only the within-subject change can. Every wiki claim that reads a capability off a between-model correlation — parameter count, layer count, training compute — is at the cross-sectional grade.
+
+---
+
+## Evolution: a new edge, not a new node
+
+| Change | Evidence | Grade |
+|---|---|---|
+| **RLPFC↔mid-IPL resting-state connectivity exists in humans and not in macaques** — no analogue even at a much relaxed threshold | Structural-connectivity-constrained resting-state fMRI, human vs macaque (Mars et al. 2011); DLPFC seeds by contrast give closely matching frontoparietal maps in both species | The single sharpest claim on this page, and a cross-species comparison of a fitted connectivity map |
+| **RLPFC may have no macaque homologue**, and its function may map onto macaque DLPFC rather than macaque frontopolar cortex | Neubert et al. 2014 | Contested; parcellation-dependent |
+| **The prefrontal hierarchy is inverted.** Human fMRI places RLPFC at the apex of a rostrocaudal hierarchy (Badre & D'Esposito 2009); in the macaque, frontopolar cortex ranks *below* both DLPFC and VLPFC in a structural-connectivity hierarchy recovered by simulated annealing over the acyclic-graph approximation | Goulas et al. 2014 | Structural tract-tracing, but the "hierarchy" is an inferred ordering |
+| **Frontoparietal regions have higher node degree in humans than macaques** — more highly connected hubs distributed across the network | Miranda-Dominguez et al. 2014 | Graph statistic, sensitive to parcellation ([[wiki/concepts/node-definition-problem.md]]) |
+| **Cortical expansion is concentrated in association cortex**, greatest in Brodmann area 10; primary motor and sensory surface area is *smaller* in humans than chimpanzees relative to total. The regions most expanded across evolution overlap those most expanded across human development | Buckner & Krienen 2013; Fjell et al. 2013 | Volumetric |
+| **More neuropil per neuron in the expanded regions.** Prefrontal/parietal layer III has *fewer* pyramidal neurons spaced further apart in humans than in chimpanzees and macaques (greater horizontal spacing distance); human prefrontal and parietal pyramidal cells carry greater dendritic length, density and spine count than human primary motor or superior temporal cells | Semendeferi et al. 2011; Spocter et al. 2012; Bianchi et al. 2013 | Cytoarchitecture; small `n` per species |
+
+**"A little goes a long way" is a specific architectural claim, and it is not the same as either side of `T289`.** Position B there (Sherwood et al. 2008) says the human capacity needed no new component, only re-weighting and a shifted growth schedule. This page's proposal is narrower and more testable: one **long-range edge** between two existing regions, plus expansion of the neuropil at its endpoints, plus a **re-ordering** of an existing hierarchy so that the frontopolar node moves from below DLPFC to above it. That is not a new operator (Position A) and not a pure re-weighting either — it is a change in the *graph*, at fixed node inventory.
+
+This is the first source in the wiki to propose an anatomical correlate for the behavioural discontinuity, which is one of the two disjuncts in `T289`'s closing condition. It does **not** settle the tension: the same three facts are read by these authors as continuity ("small changes") and could equally be read by Position A as exactly the novelty it predicts. See the note on `T289`.
+
+---
+
+## Comparative behaviour: the discontinuity may be a *rate*, not a boundary
+
+The review concedes more to the animals than [[wiki/concepts/relational-reinterpretation.md]] does — great apes (Flemming et al. 2008; Haun & Call 2009) and Old World monkeys (Flemming et al. 2013) do solve relational match-to-sample — and relocates the difference:
+
+| Quantity | Human | Nonhuman |
+|---|---|---|
+| Trials to 80% on `AAAA` matches `BBBB`, not `CDEF`, by trial and error | **35** | **~400** (baboons; Flemming et al. 2013) |
+| Acquisition from verbal instruction | Immediate (Cole et al. 2011) | Not available |
+| Accuracy vs set size on relational match-to-sample | ≥86% at every set size | Chance on *different* trials below set size 4 (Fagot et al. 2001) |
+
+**Why a builder should care about the middle row rather than the top one.** The wiki's discontinuity evidence is almost entirely about *what can be represented*. A 10× sample-efficiency gap on a task both species eventually solve is a different axis, and it is the axis machine models are actually measured on. A model that reaches human final accuracy on a relational task after a large number of gradient steps has matched the human on the capability axis and sits on the baboon side of this one — and no wiki benchmark reports trials-to-criterion against a human trials-to-criterion. [[wiki/concepts/skill-acquisition-efficiency.md]] is where the quantity belongs; this is the comparative anchor for it (`(brainstorm)`).
+
+---
+
+## What this does and does not decide for a model
+
+- **It supplies a shape, not a mechanism.** Three components — relation store, integrator, general-purpose effort tier — with a privileged edge between the first two. It says nothing about *how* the integrator integrates; LISA's synchrony ([[wiki/entities/lisa.md]]) and the vector-symbolic binders remain the only mechanistic candidates, and neither is tested against this anatomy.
+- **The integrator is a small, specialised, expensive component that most inputs should not reach.** Every wiki architecture that composes runs its composition on everything. The developmental result says the mature system is the one that composes *rarely*.
+- **The relational store is parietal and the integrator is frontal, and they are separately damageable.** This matches the four-way decomposition already read off the analogy literature ([[wiki/concepts/analogical-mapping.md]]: temporal content store, hippocampal episode store, frontopolar integrator, inferior-frontal suppressor) and adds the parietal first-order term to it.
+- **`G21`'s composer now has a candidate location.** The gap asks what composes the outputs of two encapsulated modules. This page's answer: a single region whose coupling to *whichever* posterior module supplies the current relational content is itself task-dependent — RLPFC's coupling to visuospatial vs semantic processing regions changes with the type of relation being considered (Wendelken et al. 2012). That is a composer implemented as a **switchable fan-in** rather than as a fixed wiring, which is precisely the "afferent diversity" mechanism `T289` Position B names and nowhere instantiates.
+
+---
+
+## Open problems
+
+| Problem | Why it is open |
+|---|---|
+| **RLPFC has no agreed function** | The review lists prospective memory, abstract thinking, counterfactual thinking, tracking alternative outcomes, and planning as separately proposed accounts and states plainly that no consensus exists. "Comparison and/or integration of several sets of mental representations" is these authors' own candidate, not a settled result |
+| **The species comparison rests on fitted connectivity maps** | "No macaque analogue" is a null in a resting-state analysis across species with different scanner protocols, anaesthesia states, parcellations and brain sizes. The review calls for chimpanzee parcellation work that does not exist |
+| **The developmental mediation is correlational** | Cortical thinning in IPL "accounts for" the RLPFC first-order decrease through structural equation modelling on observational data; no intervention, and cortical thinning is itself of contested cellular meaning (pruning vs. grey/white boundary shift under myelination) |
+| **Nothing separates the integrator from a general effort signal at the region level** | The two crossed designs are the *only* evidence that RLPFC is not difficulty-driven, they come from one lab, and each has a single-cell-of-the-design reversal doing all the work |
+| **The claim is about second-order relations and stops there** | Third-order and deeper are never tested, so whether RLPFC is a general recursion site or a fixed-depth two-slot comparator is unaddressed — which is exactly the question `G104` and [[wiki/entities/lisa.md]]'s phase capacity raise |
+
+---
+
+## Connections
+
+- **[[wiki/concepts/relational-reinterpretation.md]]** — supplies the anatomy that page's supermodule argument lacked: the same three regions recur across memory, reasoning, decision-making and perception whenever a relation between relations is evaluated, which is the cross-domain convergence that page inferred from behaviour alone.
+- **[[wiki/concepts/analogical-mapping.md]]** — the four-way functional decomposition on that page (content store, episode store, frontopolar integrator, inferior-frontal suppressor) with the missing fifth term supplied: parietal cortex holds the first-order relations that the frontopolar integrator compares, and the developmental data say the integrator's effective capacity is set by how much the parietal store can handle alone.
+- **[[wiki/concepts/working-memory.md]]** — the design that shows items and relations are separate load currencies: three relations over four items engage RLPFC more than three extra items do, and engage DLPFC less, so a capacity measured in items does not bound relational integration.
+- **[[wiki/concepts/cognitive-control.md]]** — separates two things that page's bias signal conflates: DLPFC activation tracks task difficulty across paradigms (the effort tier), while RLPFC tracks relational structure independently of difficulty, so "control" and "integration" are dissociable by a crossed design rather than being one graded resource.
+- **[[wiki/concepts/certification-instruments.md]]** — home of `I36`, the relational-demand × difficulty crossing derived from this page's two reversal designs: the cheapest way to show a system's effort read-out is driven by structure rather than by cost.
+- **[[wiki/entities/salience-network.md]]** — the same network under its other wiki description; that page's triple-network model treats "frontoparietal" as DLPFC + posterior parietal doing attention and working memory — the externally directed mode — and this page adds the rostrolateral node and the relational-integration function the switching account has no use for.
+- **[[wiki/entities/lisa.md]]** — the mechanism candidate for the box this page localises: synchrony-based role-filler binding at a capacity of 2–3 propositions is what a frontopolar integrator with a two-slot second-order comparator would look like, and the anatomy neither confirms nor constrains it.
+- **[[wiki/entities/default-mode-network.md]]** — shares the inferior parietal lobule as a node, which is a warning about both: a region-level function attribution built from one literature's contrasts collides with another literature's when the same coordinates carry two names ([[wiki/concepts/node-definition-problem.md]]).
+- **[[wiki/concepts/developmental-heterochrony.md]]** — the same evolution/development coincidence measured rather than asserted: this page reports that the cortical regions most expanded across primate evolution overlap those most expanded across human development, which is the timing-shift hypothesis stated at the level of surface area.
+- **[[wiki/concepts/skill-acquisition-efficiency.md]]** — where this page's comparative anchor belongs: 35 vs ~400 trials to criterion on the same relational task relocates part of the human/nonhuman discontinuity onto a *rate* axis, and no wiki benchmark reports trials-to-criterion against a human.
+- **[[wiki/concepts/node-definition-problem.md]]** — the standing discount on every claim here: node degree, hierarchy rank and "no analogue" are all parcellation-dependent statistics, and the cross-species comparison changes the parcellation by construction.
+- **[[wiki/concepts/emergent-modularity.md]]** — a shared relational competence called by many functional modules, now with a location; the switchable RLPFC↔posterior coupling is what a learned rather than wired composer would look like in fMRI.

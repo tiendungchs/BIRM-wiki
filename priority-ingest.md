@@ -8,7 +8,7 @@ Opened from the query on `analogical-mapping` / `working-memory` / Penn 2008. Te
 
 One INGEST each:
 
-- [ ] `vendetti-2014-lateral-frontoparietal-evolution-development.md` — analogy-abstraction · S · 2014 — Neuron review (PMC mirror); rostrolateral-prefrontal ↔ inferior-parietal re-weighting as the anatomy of the behavioural discontinuity · `T289`, `G21`
+- [x] `vendetti-2014-lateral-frontoparietal-evolution-development.md` — analogy-abstraction · S · 2014 — Neuron review (PMC mirror); rostrolateral-prefrontal ↔ inferior-parietal re-weighting as the anatomy of the behavioural discontinuity · `T289`, `G21`
 - [ ] `parsons-2022-analogy-component-processes.md` — analogy-abstraction · S · 2022 — separates access / mapping / inference / schema induction against the neuroimaging record · `G37`
 - [ ] `lambonralph-2017-neural-computational-bases-semantic-cognition.md` — semantic-cognition · S · 2017 — controlled semantic cognition: a learned anterior-temporal hub over modality spokes, with semantic control on a separate network · `G21`, `T289`
 - [ ] `chau-2025-lateral-frontopolar-functions.md` — prefrontal-control · S · 2025 — lateral frontal pole (FPl) as the uniquely human area; information integration and dimensional reduction · `T289`, `G21`

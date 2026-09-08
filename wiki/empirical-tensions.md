@@ -257,7 +257,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T286 | Is write-side randomization content-blind? | `L3` | `LIVE` | 2 | [[wiki/tensions/t286.md]] |
 | T287 | Must a compound representation stay decomposable into its constituents? | `L3` | `BOTH` | 2 | [[wiki/tensions/t287.md]] |
 | T288 | Can a domain-general learner acquire hierarchical syntactic structure from positive evidence alone? | `L0` | `LIVE` | 1 | [[wiki/tensions/t288.md]] |
-| T289 | Did the human-specific capacity require a new component, or a re-weighting of components that were already there? | `L1` | `LIVE` | 5 | [[wiki/tensions/t289.md]] |
+| T289 | Did the human-specific capacity require a new component, or a re-weighting of components that were already there? | `L1` | `LIVE` | 6 | [[wiki/tensions/t289.md]] |
 | T290 | Is the human-unique lateralisation an adaptation for the functions that are lateralised, or a consequence of being large? | `L4` | `LIVE` | 2 | [[wiki/tensions/t290.md]] |
 | T291 | When a model fails a capability test, has the capability been measured, or its deployment under one frame? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t291.md]] |
 | T292 | The ape null on shared intentionality: is the representation absent, or present and undeployed? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t292.md]] |
