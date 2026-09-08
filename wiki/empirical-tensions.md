@@ -303,3 +303,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T333 | Can long-range theta coherence carry content between two modules, or does it only index a shared relay? | `L2` | `LIVE` | 2 | [[wiki/tensions/t333.md]] |
 | T334 | Is an unobserved relational path written at encoding, or composed at retrieval? | `L2` | `LIVE` | 4 | [[wiki/tensions/t334.md]] |
 | T335 | Do matrix problems and four-term analogies measure the same relational competence? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t335.md]] |
+| T336 | Is the analogy integrator a 0.33 cc left frontopolar site, or a right frontal network? | `L1` | `LIVE` | 4 | [[wiki/tensions/t336.md]] |

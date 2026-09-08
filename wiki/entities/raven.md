@@ -74,6 +74,24 @@ Applied to ARC-Kaggle2 (the 2020 Kaggle competition's second-place program, 19% 
 
 ---
 
+## What the psychometric parent depends on, causally
+
+The wiki's matrix stack rests on Raven's Advanced Progressive Matrices (RAPM) being the fluid-intelligence instrument. Mole et al. 2025 (`raw/mole-2025-right-frontal-network-reasoning.md`; primary read at [[wiki/entities/lateral-frontoparietal-network.md]]) is the first large causal test of what RAPM measures in the brain: 247 unilateral focal-lesion patients, graph lesion-deficit mapping by layered Bayesian stochastic block modelling.
+
+| Reading | Result |
+|---|---|
+| Group effect | Frontal patients impaired relative to posterior patients and controls (`F(2,184) = 20.11`, `P < 0.001`) |
+| Laterality | **Right** frontal worse than left (`P < 0.05`), replicated in the 65 newly recruited patients (right `n = 14`: 5.64 ± 2.10; left `n = 10`: 7.30 ± 2.50) |
+| Inferred network | An extensive **right frontal** network dominated by **superior frontal gyrus**; the only remote node is right dorsal postcentral gyrus |
+| Relation to the other two tasks | The four-term analogy network (right middle/inferior frontal, caudal-dominated) and the relational-deduction network (right frontal, rostral, distributed) are **smaller subsets of the same territory** |
+| Posterior cortex | Minimal contribution; posterior patients (`n = 74`) unimpaired on either reasoning test |
+
+**Two consequences for this page's scores.** First, at the resolution of *necessity* the matrix format and the four-term analogy format share a substrate — which is the opposite direction from `T335`, built on an activation subtraction that separates them. Neither result refutes the other (a shared necessary network is compatible with a dissociating activation profile), but any defence of the matrix-as-analogy-proxy assumption now has a lesion result to cite and any attack has an activation result, and no study holds format, response mode and evidence type constant. Second, the **posterior null** is a problem for the standard reading of matrix performance as visuospatial bookkeeping: the parieto-frontal integration theory and the multiple-demand network both predict a parietal contribution to RAPM, and 74 posterior patients show none.
+
+**And a caution about `Gf` transfer that applies to every model trained on this dataset.** The right frontal network is recovered on RAPM, on a visuospatial analogy task **and** on an entirely *verbal* relational-deduction task in the same patients, while Stroop and phonemic fluency in the same cohort recover left frontal networks. Whatever the shared component is, it is not visuospatial and not format-bound — which is exactly the property a solver trained on 70,000 items from one generator cannot be shown to have by its score on that generator.
+
+---
+
 ## Comparison
 
 | | RAVEN (original) | I-RAVEN / RAVEN-FAIR | ARC | Concept-variation sets |
@@ -103,4 +121,5 @@ Applied to ARC-Kaggle2 (the 2020 Kaggle competition's second-place program, 19% 
 - **[[wiki/concepts/excitation-inhibition-balance.md]]** — the human latency curve on this benchmark's psychometric parent, and a scoring axis it does not have: on the 24-item Penn Matrix Reasoning Test, higher-scoring participants are *faster* on the first 8 items and *slower* on the remaining 16 (`N` = 1176), so solve time crosses over with difficulty — a profile no fixed-inference-budget solver can produce (Schirner et al. 2023).
 - **[[wiki/concepts/relational-reinterpretation.md]]** — the axis this benchmark has no version of: Penn et al. 2008 adapt Raven-style matrices as the comparative falsification test, predicting zero-relation items solvable by pigeons, one-relation items by some species, and **two or more jointly-integrated relations by none** — which makes relations-per-item the load variable, and no wiki benchmark reports it.
 - **[[wiki/entities/esbn.md]]** — the stripped ancestor of this benchmark's row rules: distribution-of-three as a 2×3 array with parsing and distractor generation removed, which isolates rule abstraction — and the gap back to this page is exactly the visual attention the ESBN does not have.
+- **[[wiki/entities/lateral-frontoparietal-network.md]]** *(second link, Mole et al. 2025)* — the causal anatomy of this benchmark's psychometric parent, and the counterweight to `T335`: in 247 focal-lesion patients RAPM depends on a right frontal network dominated by superior frontal gyrus that *contains* the analogy and deduction networks as subsets, with no posterior contribution — so lesions do not separate the matrix and four-term formats that activation subtraction does (`T336`).
 - **[[wiki/entities/lateral-frontoparietal-network.md]]** — the construct question under this benchmark's format (`T335`): with the visuospatial domain held fixed, a 27-experiment meta-analysis finds matrix problems recruiting the dorsal attention and fronto-parietal control networks while the left rostrolateral cluster shared by *every* four-term-analogy contrast drops out, so a matrix score may index visuospatial load and multi-relation bookkeeping rather than the second-order integrator analogy isolates.

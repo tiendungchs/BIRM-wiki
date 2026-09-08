@@ -106,7 +106,7 @@ R2–R4 stay as notations to be chosen per problem by which cost they make cheap
 
 ## Open problems
 
-- **No definition here covers deduction.** All seven are inductive or abductive: they select a structure that fits observations. Nothing in the wiki defines a truth-preserving step, and no concept page holds logical inference — [[wiki/entities/ilp-arc-synthesizer.md]] and [[wiki/entities/frontiermath.md]] use proof machinery without the wiki ever stating what it is a definition of.
+- **No definition here covers deduction.** All seven are inductive or abductive: they select a structure that fits observations. Nothing in the wiki defines a truth-preserving step, and no concept page holds logical inference — [[wiki/entities/ilp-arc-synthesizer.md]] and [[wiki/entities/frontiermath.md]] use proof machinery without the wiki ever stating what it is a definition of. **The one empirical constraint the wiki now holds says the missing definition may not need to be a separate one**: in 247 focal-lesion patients, relational syllogisms and visuospatial four-term analogies are damaged by the *same* right frontal network, and the split *inside* deduction does not follow validity — **determinate** items (premises fix one linear ordering) behave like the non-lateralised analogy items, while **indeterminate** items (premises leave two independent relations) are right-lateralised, as is an odd-one-out analogy rule (Mole et al. 2025, [[wiki/entities/lateral-frontoparietal-network.md]]). What the anatomy separates is therefore *how many mutually irreducible structures must be held at once*, not deductive-versus-inductive — which is a load variable this page's R1 already has a place for and a truth-preservation criterion it does not.
 - **The framing half has no operation at all.** R6 names a stage and no procedure occupies it (`G73`); the nearest partial mechanisms build *one* element of a representation whose type was chosen in advance.
 - **Mode-1/Mode-2 is never reported as a variable.** No entity page in the wiki states whether the system runs an inference-time optimisation loop, though it is the cheapest architectural fact to record and it partitions the entity list.
 - **R5 has no instrument.** Certifying a role-based representation is [[wiki/concepts/abstraction.md]]'s format ladder applied to edges, which nobody has built.
@@ -115,6 +115,8 @@ R2–R4 stay as notations to be chosen per problem by which cost they make cheap
 ---
 
 ## Connections
+
+- **[[wiki/entities/lateral-frontoparietal-network.md]]** — the reason this page's missing deduction definition is a smaller hole than it looks: analogy, relational deduction and Raven's matrices depend on one right frontal network in the same patients, and the deficit tracks the number of simultaneously irreducible structures rather than the presence of a truth-preserving step.
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — definition R1 and the wiki's operating commitment; this page's contribution is that R1 is a definition of the *search* half only, so the core framing's hardness sources 1–6 are all downstream of a representation nothing constructs.
 - **[[wiki/concepts/energy-based-models.md]]** — definition R2, and the cleanest statement that the translation to R1 is exact: an edge label and a latent variable are the same free variable, so the choice between them is a choice of which cost (one-to-many transitions, capacity control) is cheap.
