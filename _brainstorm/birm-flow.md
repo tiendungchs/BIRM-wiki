@@ -1,6 +1,6 @@
 # BIRM — Information Flow
 
-**Status: derived, wave F1c. Entirely a re-reading of `_brainstorm/birm-spec.md` §3–§5 and §8–§9; no new reading, no new decision, no ledger row.** Every claim below is a restatement; where the flow is under-determined the spec's `?` is carried through rather than filled.
+**Status: derived, wave F1e. A re-reading of `_brainstorm/birm-spec.md` §3–§9; no new decision, no ledger row.** Every claim below is a restatement except two, both in §1.2 and both marked there as the flow's own: that `D50`'s phase clock already pays for the reverse read's arbiter, and that 9b's read of the scaffold is exact. Where the flow is under-determined — or where two spec cells disagree — the `?` is carried through as a §6 seam rather than filled.
 
 > **What this document is.** The wiring seen as a *graph*, and then the same graph seen as a *story*. Part I is the schema: nodes, edges, what each edge carries and when it is live. Part II walks a signal through it — one observation in, one action out — and then through the two off-line modes. It is written for the reader who has understood §3 and §4 separately and wants to see them move.
 >
@@ -33,7 +33,7 @@ Six organs, no seventh (§3.6). No competence estimator, no conflict/difficulty/
 
 | Organ | Sub-unit | What it is | Architecturally denied to it |
 |---|---|---|---|
-| **Cortex** | **`CX·g`** — the structural half | path integrator: `g_t = ℓ₂(W_{a_{t−1}} g_{t−1})`, `W_a = f_g(a)` *computed* from the action index. One matvec, feed-forward, no settling. **Deterministic — required** (`D88`). `n_mod = ⌈log_K Ŝ⌉` modules of width `K` | **O**, at every beat and in every mode (`D15` → `D65`) |
+| **Cortex** | **`CX·g`** — the structural half | path integrator: `g_t = ℓ₂(W_{a_{t−1}} g_{t−1})`, `W_a = f_g(a)` *computed* from the action index (§6's operator form with §5.1's index — the two spec cells differ, §6 seam). One matvec, feed-forward, no settling. Where `f_g` itself lives is unplaced — §6 seam. **Deterministic — required** (`D88`). `n_mod = ⌈log_K Ŝ⌉` modules of width `K` | **O**, at every beat and in every mode (`D15` → `D65`) |
 | **Cortex** | **`CX·x`** — the content half | settles `m⁻` in phase α, `m⁺` in phase β; iteration count not fixed in advance. Width follows `D_o`. **Stochastic — determinism forbidden** (`D88`) | nothing on the observation side: it is the **only** place **O** lands |
 | **Cortex** | **`CX·p`** — the context term | the single point inside the organ where the context wire meets the content half, and the reason `g` needs no content of its own. **Deliberately unlabelled by any equation** — `f` is spoken for: §6 retypes it as the *hippocampal* addressed write (`D165`), so writing `p = f(g, x)` here would name the TEM place cell BIRM declines. What `CX·p` computes is `?` (§6) | forming a `g` route back: content enters *through* `p`, never *into* `CX·g` |
 | **Cortex** | **`CX·W`** — codes + associative weights | two **separately addressable** parameter blocks. The target of the offline transport channel, and only the associative block moves — the mapping, not the terms (`D23`) | every online write (§3.1(i)); scheduling its own transport (`D57`, `D58`) |
@@ -42,7 +42,7 @@ Six organs, no seventh (§3.6). No competence estimator, no conflict/difficulty/
 | **PFC** | **`PF·cmd`** — the write / bias port | `L_cmd` into `Hippocampus`; the additive bias into `CX·x` and into the `Hippocampus` read; the operating-point offset into `Neuromodulators` | routing, gating, rewiring (E13); writing to `Cortex` (`D25`); setting a gain (E14) |
 | **Hippocampus** | **`HC·scaf`** — the scaffold | the frozen random `g →` slot projection and the fixed points it induces. **Decides which slots exist**, and holds none of their contents. Capacity is this object: `N_slots = c·n_mod` (`D17`, `D18`, `D68`) | holding content; being unfrozen — the one case that unfroze a scaffold got worse (`D68`); carrying any learned similarity (`D188`) |
 | **Hippocampus** | **`HC·cont`** — the content layer | the plastic one-shot layer: the conjunction `(Δ, a_{t−1}, r_t)`, per-slot occupancy, per-feature variance, the provenance bit (`D76`, `D74`, `D173`). **Crossed in both directions** — see §1.2 | **defining the fixed points.** Content never touches the recurrent dynamics; that is what `D68` buys over a Hopfield store |
-| **Hippocampus** | **`HC·conf`** — the read-confidence monitor | the per-read scalar emitted alongside retrieved content, and the store's occupancy scalar (`D69`). A two-threshold read of aggregate activity — **not** a product of the relaxation | being inferred from the retrieved content itself: relaxation supplies no certificate, which is the whole reason this exists |
+| **Hippocampus** | **`HC·conf`** — the read-confidence monitor | the per-read confidence scalar emitted alongside retrieved content (`D69`), and the store's occupancy scalar (§3's output list; no ledger row). A two-threshold read of aggregate activity — **not** a product of the relaxation | being inferred from the retrieved content itself: relaxation supplies no certificate, which is the whole reason this exists |
 
 **Why exactly these seams and not others.** Each one is a place the **Denied** column already cuts. `CX·g`/`CX·x` is cut by **O**; `CX·W` is cut by *when* — it is the one block no online edge may move; `CX·p` is cut by `D45`'s two-wire rule, being the only node fed by both wires. `PF·lv`/`PF·cmd` is cut by `D171`, and `PF·act` splits off `PF·cmd` because `Act`'s denial list and `L_cmd`'s are disjoint. `HC·scaf`/`HC·cont` is cut by `D68`'s regime choice, and `HC·conf` by the fact that a confidence scalar cannot come from the process it certifies. No seam is drawn where the spec denies nothing.
 
@@ -82,7 +82,7 @@ One thing the split makes precise. `HC·scaf` has **no similarity structure at a
 | Bus | It is literally | Written by | How many readers |
 |---|---|---|---|
 | **O** | `o_t`, a float vector | Periphery | **1** |
-| **Bg** | `g_t` — an **address**, content-free | `CX·g` (the integrator); `HC·scaf` (the 9b reset) | 4 |
+| **Bg** | `g_t` — an **address**, content-free | `CX·g` (the integrator); `HC·scaf` (the 9b reset) | 3 (§4) — plus `CX·g` reading its own state back, which is not a bus read |
 | **Bx** | `x` — content, in two registers `Bx⁻` (predicted) / `Bx⁺` (observed) | `CX·x` | 4 |
 | **U** | `m_t`, one low-dimensional vector | Neuromodulators | every organ |
 | **V** | **one scalar**, no address | Periphery (`r_t`); `CX·x` (residual) | 5 |
@@ -102,7 +102,6 @@ flowchart LR
   A0["Periphery<br/>(adapter — not BIRM)"]
 
   subgraph CX["Cortex — the slow model"]
-    direction TB
     CXG["**CX·g** — structural half<br/>path integrator, deterministic<br/>**O** denied at every beat"]
     CXX["**CX·x** — content half<br/>settles m⁻ (α) → m⁺ (β), stochastic<br/>the only place **O** lands"]
     CXP(("**CX·p**<br/>the context term<br/>form: ?"))
@@ -113,7 +112,6 @@ flowchart LR
   end
 
   subgraph PF["PFC — the controller"]
-    direction TB
     PFL["**PF·lv** — k level-searchers<br/>task model, sustained · j → j+1 only<br/>gain_j from its own output entropy"]
     PFA["**PF·act** — the action port"]
     PFW["**PF·cmd** — the write / bias port"]
@@ -122,7 +120,6 @@ flowchart LR
   end
 
   subgraph HC["Hippocampus — the fast instance store"]
-    direction TB
     HCS["**HC·scaf** — the scaffold<br/>frozen random g → slot projection<br/>content-free · sets which slots exist"]
     HCC["**HC·cont** — the content layer<br/>plastic, one-shot · holds (Δ, a at t−1, r_t)"]
     HCQ(["**HC·conf** — read confidence<br/>two-threshold read of aggregate activity"])
@@ -162,7 +159,7 @@ flowchart LR
   CX -.->|"L_part (all organs, each about itself)"| LL
   PFA -->|"a_t, one-hot"| AC
   TH ==>|"the gate"| WW
-  CXX -.->|"payload — a copy, never a transform"| WW
+  CXX -.->|"payload — the winner's, drawn here from CX·x; a copy, never a transform"| WW
 
   O -->|"o_t clamps the plus phase — phase β"| CXX
   BG -->|"g at t−1, plus 9b's reset"| CXG
@@ -170,7 +167,7 @@ flowchart LR
   BG -->|"the store **address**"| HCS
   BG -->|"level context"| PFL
   BX -->|"retrieved transition → settles m⁻"| CXX
-  BX -->|"content to write / to compare"| HCC
+  BX -->|"Bx⁺ as the 9b cue — the write itself reads W, §6"| HCC
   BX -->|"what is here"| PFL
   BX -->|"**aggregate activity only**"| TH
   UU -->|"α — transport rate"| CXW
@@ -180,14 +177,16 @@ flowchart LR
   VV -->|"the write gate"| HCC
   VV -->|"task return"| PFL
   VV -->|"Var(δ), sign, level"| NM
-  VV -->|"the transport gate"| CXW
-  VV -->|"residual → threshold test"| TH
+  VV -.->|"transport gate per §4's reader list — §5.3 gates on L, §6"| CXW
+  VV -->|"residual → mode arbitration (g_rel) — never the threshold, D54"| TH
   LL -->|"addr · lead time · erase"| HCC
   LL -.->|"transport enable"| CXW
   LL -.->|"L_part — δ_j = gate_j · δ"| CR
   WW ==>|"broadcast, one hop"| CX
   WW ==> HC
   WW ==> PF
+  WW ==> TH
+  WW ==> NM
   AC -.->|"efference copy — the operator W_a"| CXG
   AC -.->|"into the write conjunction"| HCC
 
@@ -197,6 +196,8 @@ flowchart LR
   PFW -->|"bias into the read"| HCC
   TH -->|"g_rel / g_acq over *edges*"| CXX
   TH -->|"per-level engagement gains"| PFL
+  PFL -->|"per-level output entropies H[π_j]"| TH
+  TH -->|"attenuates the read path — phase β"| HCC
   TH -->|"phase bit α/β"| CXX
 ```
 
@@ -218,8 +219,8 @@ This is the table that dissolves the "why so many `V`" question. One row per **(
 | **V** | Hippocampus — `HC·cont` | the scalar | opens the **write gate** — should this conjunction be stored |
 | **V** | PFC — `PF·lv` | the scalar | **task return** — the only objective PFC has |
 | **V** | Neuromodulators | the scalar's *statistics*: `Var(δ)`, sign-oscillation, level | sets `γ`, `β`, `α` — never the raw value |
-| **V** | Cortex — `CX·W` | the scalar | the offline **transport gate**. Note the reader: `V` reaches the *parameter block*, never the online path |
-| **V** | Thalamus | the *residual* half of the bus | feeds the threshold test |
+| **V** | Cortex — `CX·W` | the scalar | listed by §4 as the offline **transport gate** — but §5.3 step 3 gates transport on `g(r_S)` over **L**, and §3's Cortex input list carries no **V**. Seam (§6). Either way the reader is the *parameter block*, never the online path |
+| **V** | Thalamus | the residual | raises `g_rel` — mode arbitration (§5.2 step 1). **Never the commit threshold**, which reads aggregate `Bx` (`D54`, `O17`) |
 | | | **The scalar carries no address.** Which organ it belongs to comes from `L_part`, on the credit path, never from the signal. Any organ consuming `V` without emitting `L_part` inherits spurious credit by construction. | |
 | **U** | Cortex — `CX·W` | `f_CX(W_CX·m_t)` → learning rate | how fast a transport step moves a weight |
 | **U** | Hippocampus — `HC·cont` | `f_HC(W_HC·m_t)` → read gains | — |
@@ -230,9 +231,9 @@ This is the table that dissolves the "why so many `V`" question. One row per **(
 | **Bg** | PFC — `PF·lv` | the code, as **level context** | which task-model context is live |
 | **Bg** | Cortex — `CX·g` | the code, as **its own state** | the next integration step, and 9b's reset folded in |
 | **Bg** | Cortex — `CX·p` | the code, as the **context term** | the one node fed by both wires. §4's reader list names it; nothing says what it computes |
-| | | **Content-free at all three.** `g` decides *which* slot, and supplies none of *what* is in it. | |
+| | | **Content-free at all three bus readers.** `g` decides *which* slot, and supplies none of *what* is in it. The `CX·g` row is the integrator's own state, listed so the 9b reset has a landing point — not a fourth reader (§4 lists three). | |
 | **Bx⁻** | Cortex — `CX·x` | the retrieved transition | settles `m⁻` — the prediction |
-| **Bx⁺** | Hippocampus — `HC·cont` | `Δ = m⁺ − m⁻` | half of what gets written; and at 9b, the cue for the **reverse** read |
+| **Bx⁺** | Hippocampus — `HC·cont` | the observed content | at 9b, the cue for the **reverse** read. The write (step 9) reads **W**, not `Bx` (§5.1); which wire supplies `m⁻` to form `Δ` at the write is unsaid — §6 |
 | **Bx⁺** | PFC — `PF·lv` | the content estimate | what is here, for selection |
 | **Bx⁺** | Thalamus | **aggregate activity only — never the payload** | the commit threshold test |
 | **O** | Cortex — `CX·x`, and nothing else in `Cortex` | `o_t` | clamps the plus phase — **and only in phase β** |
@@ -255,15 +256,15 @@ No organ writes to another organ directly. Every pair below is joined **through 
 | Periphery → Hipp / `PF·lv` / NM | **V** | `r_t`, one scalar, no address | every step |
 | **`CX·g` → `HC·scaf`** | **Bg** | **`g_t` — the address.** Picks the slot; carries none of its contents | every step (step 3) |
 | **`CX·x` → `HC·cont`** | **Bx** | **the content register** — `Bx⁻` at the read, `Bx⁺` at 9b's compare | steps 4 and 9b |
-| *(`CX·x` → `HC·cont`, indirectly)* | **W** | `Δ = m⁺ − m⁻`, as the **published payload** — the store writes only committed content | step 9 |
+| *(`CX·x` → `HC·cont`, indirectly)* | **W** | the **committed content** — the store's write reads **W**, not `Bx` (§5.1 step 9). `Δ = m⁺ − m⁻` is formed at the write; the spec does not say which wire supplies `m⁻` there (§6) | step 9 |
 | `CX·g` + `CX·x` → `PF·lv` | **Bg** + **Bx** | level context; content estimate — **two sub-units, two wires**, separately silenceable | every step |
-| `CX·x` → Thalamus | **Bx⁺** + **V** | **aggregate activity only**; the prediction residual | phase β |
+| `CX·x` → Thalamus | **Bx⁺** + **V** | **aggregate activity only** (the threshold test); the prediction residual (mode arbitration, not the threshold — `D54`) | phase β |
 | `CX·g` → `CX·p` ← `CX·x` | *internal, not a bus* | the context term and the content term | every step |
 | `HC·cont` → `CX·x` | **Bx** | the retrieved transition → `Bx⁻` | step 4 |
 | `HC·scaf` → `CX·g` | **Bg** | the discrete **offset-preserving reset** of `g` | step 9b, above threshold only |
 | `HC·cont` → `HC·scaf` | *internal, not a bus* | the **reverse read**: content cue → the address whose basin holds it | step 9b, above threshold only |
 | `HC·scaf` → `HC·cont` | *internal, not a bus* | the forward read: address → the conjunction stored there | step 4; and the write, step 9 |
-| `HC·cont` → `CX·W` | **L** | the transport enable `g(r_S)` | rest periods only — **the only edge into `CX·W`'s gate** |
+| `HC·cont` → `CX·W` | **L** | the transport enable `g(r_S)` | rest periods only — the gate §5.3 specifies; §4's `V` reader on the same block is a seam (§6) |
 | `HC·cont` + `HC·scaf` → `PF·lv` | **Bx** + **Bg** | retrieved content; level context — both wires, separately silenceable | on the schedule |
 | `HC·conf` → NM | — | occupancy scalar, read-confidence scalar | continuous |
 | `PF·cmd` → `HC·cont` | **L_cmd** + bias | address, **lead time**, erase type; an additive bias into the read | every step |
@@ -274,6 +275,8 @@ No organ writes to another organ directly. Every pair below is joined **through 
 | `PF·lv` → `PF·act` / `PF·cmd` | *internal, not a bus* | the resolved level output | every step |
 | Thalamus → `CX·x` | — | `g_rel` / `g_acq` over *edges*; the phase bit | mode switch / every step |
 | Thalamus → `PF·lv` | — | per-level engagement gains | every step |
+| `PF·lv` → Thalamus | — | per-level output entropies `H[π_j]` — the input the engagement gains are computed from (§3, `D30`) | every step |
+| Thalamus → `HC·cont` | — | the read-path attenuation that hands the driving source from the store to **O** (§5.1 step 6) | phase β |
 | Thalamus → **W** | **W** | the gate — open or closed | ≤1 / step |
 | NM → every organ | **U** | `m_t`, decoded privately by each | second-order |
 | **W** → every organ | **W** | payload + `scope` + `generated` | at commit, one hop |
@@ -290,8 +293,8 @@ No organ writes to another organ directly. Every pair below is joined **through 
 | E4 | `CX·g` → `HC·scaf` | **Bg** | `g_t` as the store **address** | step 3, every step | time-locking to `Bx`; carrying content |
 | E5 | `CX·g` → `PF·lv` | **Bg** | level context | every step | — |
 | E6 | `CX·x` → Hipp / `PF·lv` | **Bx** | content estimate, registers `Bx⁻` / `Bx⁺` | α writes `Bx⁻`, β writes `Bx⁺` | carrying context |
-| E7 | `CX·x` → Thalamus | **Bx⁺** | **aggregate activity only** | phase β | reading the payload |
-| E8 | `CX·x` → Thalamus / NM | **V** | prediction residual | every step | carrying an address |
+| E7 | `CX·x` → Thalamus | **Bx⁺** (online) / **Bx⁻** (rollout, §5.2 step 5) | **aggregate activity only** — the threshold test | phase β; every rollout step | reading the payload |
+| E8 | `CX·x` → Thalamus / NM | **V** | prediction residual — at Thalamus the mode-arbitration input (`g_rel`, §5.2 step 1) | every step | carrying an address; **feeding the commit threshold** (`D54`) |
 | E9 | `HC·cont` → `CX·x` | **Bx⁻** | retrieved transition at `g_t` | step 4, on the `PF·cmd`-set schedule | choosing its own address or lead time |
 | E10 | `HC·scaf` → `CX·g` | **Bg** | discrete **offset-preserving reset** of `g` | step 9b, only above the read-confidence threshold | blending; being driven by `O` |
 | E11 | `HC·conf` → NM | — | occupancy scalar, read-confidence scalar | continuous | — |
@@ -303,15 +306,17 @@ No organ writes to another organ directly. Every pair below is joined **through 
 | E17 | Thalamus → **W** | **W** | the gate itself | ≤ 1 commit / step; **may fire with no request** | — |
 | E18 | winner → **W** | **W** | payload, **a copy never a transform**, + `scope` + `generated` | at commit | transforming the payload |
 | E19 | **W** → all organs | **W** | the published content, one hop to every level | for a dwell time, exclusive | a second broadcaster |
-| E20 | Thalamus → edges | — | `g_rel` (internal-periphery), `g_acq` (external-reader) | mode switch | one scalar over an *organ* instead of two gains over *edges* |
+| E20 | Thalamus → edges (drawn into `CX·x`, the first internal-periphery receiver) | — | `g_rel` (internal-periphery), `g_acq` (external-reader) | mode switch | one scalar over an *organ* instead of two gains over *edges* |
 | E20b | Thalamus → `CX·x` | — | the phase bit α/β | every step | being set by `PFC`, or by anything that inspects `o_t` |
 | E21 | Thalamus → `PF·lv` | — | per-level engagement gains | every step | — |
+| E21b | `PF·lv` → Thalamus | — | per-level output entropies `H[π_j]` — what `D30`'s gains are computed from (§3's Thalamus input list) | every step | carrying content; carrying **O** |
+| E20c | Thalamus → `HC·cont` | — | read-path attenuation — the in-step handover from the store to **O** (§5.1 step 6, `D51`) | phase β | being set by `PFC` |
 | E22 | NM → every organ | **U** | `m_t`, decoded as `f_k(W_k·m_t)` | second-order | any organ reading `m_t` raw; any global gain |
 | E23 | every organ → credit path | **L_part** | that organ's licence **on itself** | every step | being read by the action path; being written for another organ |
-| E24 | Hipp → `CX·W` | **L**(transport) | the offline gate `g(r_S)` | rest periods only | firing online; reaching `CX·g` or `CX·x` |
+| E24 | `HC·cont` → `CX·W` | **L**(transport) | the offline gate `g(r_S)` — the gate §5.3 specifies; §4 also lists **V** at this block (§6) | rest periods only | firing online; reaching `CX·g` or `CX·x` |
 | E25 | Periphery → BIRM | — | `done` | episode end | — |
 | **I1** | `CX·g` + `CX·x` → `CX·p` | *internal* | the context term and the content term | every step | a return path — `p` never writes back into `CX·g` |
-| **I2** | `CX·W` → `CX·x` | *internal* | the map `m⁻` settles under | every step (read); written **only** by E24 | being written online |
+| **I2** | `CX·W` → `CX·x` | *internal* | the map both `m⁻` and `m⁺` settle under | every step (read); written **only** by E24 | being written online |
 | **I3** | `PF·lv` → `PF·act` / `PF·cmd` | *internal* | the resolved level output | every step | the two ports reading each other |
 | **I4** | `HC·scaf` → `HC·cont` | *internal* | the forward read — address selects the slot | step 4 (read), step 9 (write) | the content selecting the slot |
 | **I5** | `HC·cont` → `HC·scaf` | *internal* | the **reverse read** — content cue → the address whose basin holds it | step 9b, above `HC·conf`'s threshold | firing unlicensed; returning a blend rather than one address |
@@ -329,7 +334,7 @@ No organ writes to another organ directly. Every pair below is joined **through 
 | **O** admitted (to `CX·x`) | phase β only | **never** — nothing is clamped | no |
 | Phases | α then β | α only | — |
 | `CX·g` advanced by | the action just taken | a **proposed** action | — |
-| Commit | ≤1, `generated = 0` | one per rollout step, `generated = 1` | none |
+| Commit | ≤1, on aggregate `Bx⁺`, `generated = 0` | one per rollout step, on aggregate `Bx⁻`, `generated = 1` | none |
 | Hippocampus | forward read at `g_t`, written, then **reverse** read at 9b | forward read as predictor; **no 9b** — nothing is observed to cue it | **read as the source of candidates**, composed |
 | `CX·W` (Cortex weights) | frozen | frozen | **this is the only channel that moves them** |
 | `V` path | live | **denied to generated content** | transport gate only |
@@ -360,6 +365,11 @@ These five registers are a property of **bus edges**. The `I` rows of §3 have n
 | **`HC·cont`'s plasticity is not declared bidirectional** | Step 9b is a **reverse read** — content cue in, address out. Every fast store in the wiki's inventory exposes one read direction and answers the reverse only by scanning; the one store that answers it natively pays a **duplicate weight matrix plus an arbiter**. BIRM's phase clock (`D50`) already supplies the arbiter, but nothing supplies the second direction: `D32`'s five primitives contain no `content → g`, and no decision row says `HC·cont` is bidirectionally plastic. Drawn as one layer crossed both ways (`I4`/`I5`) — which is the cheap route, and which the spec has not taken in writing. |
 | **9b's comparator has no declared form** | Already `O61`. What §1.2 adds is the *upper bound* on what it could be: `HC·scaf` is a frozen random projection with no similarity structure, so "a similar observation" cannot mean graded similarity — only "a cue inside a stored pattern's basin". If the comparator is ever given a learned form, it is a second key term and re-opens `D18`. |
 | **which sub-unit emits `L_part`** | `L_part` is written by "every organ, about itself" (`D44`) — at organ granularity. Whether `Cortex`'s licence is one gate or one per sub-unit is unasked; if `CX·g` and `CX·x` can be credited separately, `D44`'s gate count is wrong. Drawn as one arrow off the `Cortex` box. |
+| **The transport gate's carrier** | §5.3 step 3 opens transport with `g(r_S)` on **L**(transport enable), and §3's Cortex input list is `Bg`, `Bx`, `Act`, `L` — no **V**. But §4's **V** row lists `Cortex` (transport gate) as a reader. Drawn both ways: E24 solid, the `V → CX·W` edge dotted. Whether **V** reaches `CX·W` at all, and if so as a second gate or as the same scalar under another name, the spec does not say. |
+| **What supplies `m⁻` at the write** | §5.1 step 9 reads **W**, `L_part`, **V**, **Act**(t−1) — not `Bx` — and what **W** publishes at step 8 is the committed content, not `Δ`. So `Δ = m⁺ − m⁻` is formed at the write from `m⁺` off **W** and an `m⁻` whose wire is unlisted: `Bx⁻` was written at step 5 and is the obvious candidate, but no step names the store reading it at step 9. The graph therefore labels `Bx → HC·cont` with the 9b cue only. |
+| **Where `f_g` lives** | `CX·W` is defined here as the two blocks §3.1 names — codes and associative weights — and is written only by E24. But `D85` makes `f_g` a third Cortex parameter object (`k` operators of size `K×K`), and §7 `D77` / §9 P3 **re-fit it per environment** — a write into Cortex that is neither E24 nor any drawn edge. Either `f_g` is a third block of `CX·W` with its own write path, or it is part of `CX·g` and `CX·g` is not parameter-free. §11's "an online step never moves a slow weight" is stated over `CX·W` as drawn and does not cover `f_g`. |
+| **`V` is one scalar and is also two** | §4 types **V** as "one scalar, no address" — and lists its writers as Periphery (`r_t`) *plus* `Cortex`'s residual. E3 and E8 route `r_t` and the residual to different reader sets, which an unaddressed single scalar cannot support. Whether the two are summed onto one wire, time-multiplexed, or two scalars under one bus name is unsaid. |
+| **Step 3's equation** | §5.1 step 3 writes `g_t = f(W g_{t−1} + B a_{t−1})` — additive in the action; §6 writes `g_t = ℓ₂(W_{a_t} g_{t−1})` — a per-action operator, index `t`. Part I and beat 3 use §6's form with §5.1's `t−1` index, since `D63`'s monoid argument needs the operator form and step 3 reads **Act**(t−1). The spec has not reconciled the two cells. |
 | lead time's zero | `lead_time` is referenced to the previous commit, but its origin is unfixed — spec §12 `O43`. |
 | the reset's time constant | E10 fires as a discrete jump whose own time constant no model supplies — `O27`. |
 | commit reliability | rollout depth needs `p > p*`; both are `?` — `O44`. |
@@ -431,7 +441,7 @@ What this does **not** buy is stated plainly in the spec and is worth repeating 
 | `g` | integrated from the action taken; reset by recall at 9b | advanced by a *proposed* action | not advanced |
 | `Δ` | written into `Hippocampus` as part of the conjunction | not formed — there is no `m⁺` | the thing being transported, via `w*` |
 | a commit | publishes the world | publishes a hypothesis, tagged | none |
-| `V` | credits whoever latched `L_part` | **denied** to generated content | opens the transport gate |
+| `V` | credits whoever latched `L_part` | **denied** to generated content | listed by §4 as a transport-gate reader; the gate §5.3 specifies is `g(r_S)` on **L** (§6) |
 | `CX·W` | frozen | frozen | **the only time they move** |
 
 ## 11. Nine things that never happen
@@ -444,7 +454,7 @@ What this does **not** buy is stated plainly in the spec and is worth repeating 
 | The workspace improves what it carries | The payload is a copy. A decoder over the readers plus **W** must not beat a decoder over the readers alone. |
 | An organ reads `m_t` raw | Every receiver decodes **U** privately as `f_k(W_k·m_t)`. There is no global gain to turn up. |
 | An organ that did not act is taught | `δ_j = gate_j · δ`. Credit follows `L_part`, and `L_part` is written by each organ about itself. |
-| An online step moves a slow weight | `CX·W`'s only gate is E24, and E24 fires in rest periods only. Every online edge into `Cortex` terminates at `CX·g` or `CX·x`. |
+| An online step moves a slow weight | The gate §5.3 specifies for `CX·W` is E24, and E24 fires in rest periods only; §4's `V` reader on the same block (§6) is offline too. Every online edge into `Cortex` terminates at `CX·g` or `CX·x` — stated over the graph as drawn, which does not place `f_g` (§6). |
 | Content chooses where a memory goes | The write is forward-only (`I4`): `HC·scaf` picks the slot and content has no vote. A content-keyed write would put content correlations into `g` (`D18`) and turn `ρ` from an audit into a tautology (`D64`). |
 | `PFC` routes something | `PF·cmd` emits bias, `L_cmd` and an operating-point offset. There is no port on it that carries a gain or a route (E13, E14). |
 
@@ -454,6 +464,7 @@ What this does **not** buy is stated plainly in the spec and is worth repeating 
 
 | Wave | Change |
 |---|---|
+| F1e | Coherence pass against the spec. **Four contradictions fixed**: the `V → Thalamus` edge fed the commit threshold, which `D54`/`O17` rule out — relabelled as mode arbitration in the graph, §2.3, §2.4 and E8 (Part II beat 8 already had it right); the write's content source was given three ways (graph `Bx`, §2.3 `Bx⁺`, §2.4 `Δ` on **W**) — now **W** per §5.1 step 9, with `m⁻`'s wire logged as a seam; two edges were each called the only transport gate into `CX·W` — E24 kept as the specified gate, the `V` reader dotted and logged; `Bg`'s reader count said four and "all three" in adjacent tables — three bus readers, `CX·g`'s self-read marked as not one. **Three spec edges added** that §3/§5.1 carry and the graph did not: `PF·lv → Thalamus` (output entropies, E21b), `Thalamus → HC·cont` (read-path attenuation, E20c), **W** → Thalamus and Neuromodulators. **Five seams added** to §6: the transport gate's carrier, `m⁻` at the write, where `f_g` lives, `V` as one scalar with two writers, step 3's two equations. Status line corrected from F1c to the current wave and its "entirely a restatement" claim qualified by §1.2's two own claims. Smaller: E7 and §4 note the rollout commit reads `Bx⁻`; E20's endpoint matches the drawing; I2 covers `m⁺`; `HC·conf`'s occupancy scalar no longer cited to `D69`; the ignored `direction TB` lines removed from the diagram. |
 | F1d | `Hippocampus` split into `HC·scaf` / `HC·cont` / `HC·conf` after the question *are the two reads two stores?*. Answer, from a wiki pass (`vector-hash`, `attractor-dynamics`, `spiking-hippocampal-cam`, `sparse-distributed-memory`, `memory-read-and-erase`, `T28`/`T41`/`T55`/`G42`): **one store, two stages, two directions** — the fixed addressing stage and plastic contents stage that every store in the wiki's inventory repeats. New §1.2 gives the regime table behind `D68`, the direction/fidelity table for the two reads, and the reverse read's price. §2.2, §2.3, §2.4, §3, §4 re-endpointed; `I4`–`I6` added; §11 gains the forward-only-write row. **Two seams logged**: `HC·cont` is nowhere declared bidirectionally plastic though 9b requires it, and 9b's "similar" is bounded to basin membership by `D18`'s frozen projection. One claim added that the spec does not make — BIRM's phase clock already pays for the reverse read's arbiter. **No organ added — §3.6 untouched.** |
 | F1c | `Cortex` and `PFC` split into their §1.1 sub-units (`CX·g` / `CX·x` / `CX·p` / `CX·W`; `PF·lv` / `PF·act` / `PF·cmd`) after the observation edge had to be labelled *"x half only"* to stay true. New §1.1 states the seams and why each one is a place the spec's own `Denied` column already cuts; §2.2's diagram, §2.3, §2.4, §3, §4, §10 and §11 re-endpointed; E20b added (the phase bit had no row) and E24 given its true terminal (`CX·W`, not `Cortex`); `I1`–`I3` list the internal wires so no arrow is unaccounted. **No organ added — §3.6 untouched.** Two seams logged: `CX·p` has no output port anywhere in the spec, and `L_part`'s gate count is stated at organ granularity only. Amended: `CX·p` stripped of the label `p = f(g, x)` — §6 `D165` retypes `f` as the hippocampal addressed write, so the equation was naming the one conjunction BIRM declines; the node keeps its organ (§4's `Bg` reader list) and its form becomes a third seam. |
 | F1b | Writer arrows into the bus bars labelled; §2.4 added (organ→organ, what crosses on which bus), after Cortex→Hippocampus read as unlabelled. Second seam logged: `Bx`'s writer set. |

@@ -11,7 +11,9 @@ Answer from the wiki first, then update it if new insights revealed.
 
 1. **Search** on the question terms:
    ```bash
-   ./tools/qmd-index.sh search "query terms"
+   ./tools/qmd-index.sh search "query terms"          # wiki/ only (default)
+   ./tools/qmd-index.sh search --raw "query terms"    # raw/ sources only
+   ./tools/qmd-index.sh search --all "query terms"    # both
    ```
    Fall back to `grep -r "terms" wiki/` if qmd errors.
 2. **Read `wiki/index-concepts.md` + `wiki/index-entities.md`** to make sure the search did not miss an obvious page.
@@ -29,6 +31,6 @@ technical**, and is **less familiar with neuroscience**. So:
 - In summaries and questions, use plain language. Spell out any symbol or piece of
   jargon in the same sentence you first use it ("the fast binding memory `M` — the
   scratchpad that holds *this* puzzle's specifics").
-- Be explicit, never implicit. State the consequence, not just the change.
+- Be explicit, don't assume the user knows. State the consequence, not just the change.
 - When a decision is needed, surface it as a clearly-marked choice with concrete
   options, their consequences, and a recommendation. Never bury it in a paragraph.

@@ -15,6 +15,24 @@ This skill has you show commands, outputs and captured artifacts. **Redact every
 
 If the redacted output is not enough to diagnose the bug, say so and ask the user.
 
+## Phase 0: Defect or result?
+
+In application code a symptom implies a defect. In a learning system it usually does not: the model is often correctly learning something nobody asked it to learn, and the finding belongs in the registry rather than in a fix.
+
+Classify the symptom before building anything.
+
+| Symptom | What it is | Where it goes |
+|---|---|---|
+| Shape, masking, dtype, device, dataloader order, target misalignment | **plumbing** defect | Phase 1 |
+| Divergence, dead units, throughput regression | **dynamics** defect | Phase 1 |
+| The model solves the task by a shortcut, or reads a label channel it should not see | `L2` — the answer channel was never denied to that reader | `codebase-design`, negative half of the interface |
+| A score does not move, or moves while the named ability does not | `L0-INSTR` — the probe does not measure what it is named after | a row at `wiki/architectural-gaps.md` |
+| The block cannot learn the task at all | `L0`/`L1` — the specification is wrong | `first-principles` |
+
+The bottom three are **results, not bugs**: diagnosing them here yields a fix that suppresses the exact behaviour the specification asked for. This skill presupposes `L0`–`L2` are settled and works at `L3` and below (level key: `wiki/architectural-gaps.md`).
+
+Phase 0 is done when you have named the row the symptom sits in, and it is one of the top two.
+
 ## Phase 1: Build a feedback loop
 
 **This is the skill.** Everything else is mechanical. If you have a **tight** pass/fail signal for the bug (one that goes red on _this_ bug), you will find the cause; bisection, hypothesis-testing, and instrumentation all just consume it. If you don't have one, no amount of staring at code will save you.
@@ -42,13 +60,19 @@ Treat the loop as a product. Once you have _a_ loop, **tighten** it:
 
 - Can I make it faster? (Cache setup, skip unrelated init, narrow the test scope.)
 - Can I make the signal sharper? (Assert on the specific symptom, not "didn't crash".)
-- Can I make it more deterministic? (Pin time, seed RNG, isolate filesystem, freeze network.)
+- Can I make it more deterministic? (Pin time, seed RNG, isolate filesystem, freeze network — for a **plumbing** bug. On a **dynamics** bug, read [Determinism cuts two ways](#determinism-cuts-two-ways) before pinning a seed.)
 
 A 30-second flaky loop is barely better than no loop; a 2-second deterministic one is tight, a debugging superpower.
 
+### Determinism cuts two ways
+
+Pinning is right for a **plumbing** bug: one batch, one seed, one forward pass, same verdict every run.
+
+Pinning hides a **dynamics** bug, where the seed is a variable of the experiment rather than noise around it. A fixed seed hands you one sample from a distribution, so an instability that fires on a third of inits, or a collapse that needs one particular data order, reads as green. Sweep a fixed set of seeds instead, report the band across those runs, and call the loop red when the band separates from the baseline band — not when a single run crosses a threshold.
+
 ### Non-deterministic bugs
 
-The goal is not a clean repro but a **higher reproduction rate**. Loop the trigger 100×, parallelise, add stress, narrow timing windows, inject sleeps. A 50%-flake bug is debuggable; 1% is not, so keep raising the rate until it's debuggable.
+For a flaky **plumbing** bug the goal is not a clean repro but a **higher reproduction rate**. Loop the trigger 100×, parallelise, add stress, narrow timing windows, inject sleeps. A 50%-flake bug is debuggable; 1% is not, so keep raising the rate until it's debuggable.
 
 ### When you genuinely cannot build a loop
 
@@ -59,7 +83,7 @@ Stop and say so explicitly. List what you tried. Ask the user for: (a) access to
 Phase 1 is done when the loop is **tight** and **red-capable**: you can name **one command** (a script path, a test invocation, a curl) that you have **already run at least once** (show the invocation and its output, redacted), and that is:
 
 - [ ] **Red-capable**: it drives the actual bug code path and asserts the **user's exact symptom**, so it can go red on this bug and green once fixed. Not "runs without erroring"; it must be able to _catch this specific bug_.
-- [ ] **Deterministic**: same verdict every run (flaky bugs: a pinned, high reproduction rate, per above).
+- [ ] **Deterministic**: same verdict every run (flaky bugs: a pinned, high reproduction rate, per above). On a **dynamics** bug the verdict is the seed band, per [Determinism cuts two ways](#determinism-cuts-two-ways).
 - [ ] **Fast**: seconds, not minutes.
 - [ ] **Agent-runnable**: you can run it unattended; a human in the loop only via `scripts/hitl-loop.template.sh`.
 

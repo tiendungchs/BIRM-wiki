@@ -64,7 +64,7 @@ python3 tools/registry-index.py   # rebuild both index tables; prints rows cited
 
 `S16` fails if a table row was hand-edited or a detail file changed without a rebuild — the rebuild has already happened by the time you see the message, so review the diff rather than re-running.
 
-Re-index search after a lint that created or renamed pages:
+Re-index search after a lint that created or renamed pages (wiki pages + raw sources):
 ```bash
 ./tools/qmd-index.sh
 ```

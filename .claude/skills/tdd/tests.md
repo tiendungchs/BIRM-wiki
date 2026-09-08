@@ -69,15 +69,19 @@ def test_entropy_of_uniform():
     assert entropy(np.full(4, 0.25)) == pytest.approx(2.0)
 ```
 
-**Stochastic tests**: A model test whose verdict depends on the seed is not a test.
+**Stochastic tests**: A *regression* test whose verdict depends on the seed is not a test. A *claim* about model behaviour is a different thing and needs a different treatment — do not conflate them.
 
 ```python
-# BAD: Passes or fails depending on the run
+# BAD: passes or fails depending on the run, and claims more than it checks
 def test_model_learns():
     assert train(steps=200).accuracy > 0.9
 
-# GOOD: Seeded, and asserts the property the code actually guarantees
-def test_training_reduces_loss_monotonically_on_a_seeded_toy_task():
+# SMOKE TEST: seeded and cheap. Asserts the pipeline runs end to end —
+# gradients reach the parameters, the loss is wired to the output.
+# It does NOT assert the model works.
+def test_training_reduces_loss_on_a_seeded_toy_task():
     losses = train(steps=200, seed=0).losses
     assert losses[-1] < losses[0] / 2
 ```
+
+A claim about behaviour is not a test at all; it is a result. Report it over N seeds with its spread, against a baseline, at a threshold fixed before the runs. Never pick the seed that makes it pass — and a result that holds only at one seed is a finding to report, not a failure to hide.

@@ -1,11 +1,13 @@
 ---
 name: writing-for-agents
-description: Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md.
+description: Use when creating or editing a skill, modifying AGENTS.md or CLAUDE.md, or writing any other document an agent reads on demand — a design note, a contract, a doc reached by a pointer.
 ---
 
 Reference for writing any document an agent consumes: a skill, an `AGENTS.md` / `CLAUDE.md`, a doc reached by a pointer. The packaging differs; the writing does not: the same levers make each one predictable, since the agent takes the same _process_ every run rather than producing the same output.
 
 When the document you're writing is a skill, read [`SKILL-MECHANICS.md`](SKILL-MECHANICS.md) for frontmatter, invocation choice, and router skills.
+
+Level-agnostic: this settles how material is written down, never which level of the design ladder the work itself sits at.
 
 ## Context pointers
 
@@ -44,10 +46,11 @@ Push too little down and the top bloats; push too much and you hide material the
 
 ## Steps and completion criteria
 
-Every step ends on a **completion criterion**, the condition that tells the agent the work is done. Two properties make it a lever:
+Every step ends on a **completion criterion**, the condition that tells the agent the work is done. Three properties make it a lever:
 
 - **Clarity**: can the agent tell done from not-done? A vague bound ("understanding reached") invites **premature completion**: ending the step before it is genuinely done, attention slipping to _being done_. The visible steps still ahead (the **post-completion steps**) supply the pull; the criterion's clarity is the resistance. Defend in order: **sharpen the bound first** (local and cheap); only if it is irreducibly fuzzy _and_ you observe the rush, hide the later steps by splitting the sequence. Hiding only works across a real context boundary (a hand-off or a subagent dispatch; an inline call leaves the later steps in context and clears nothing).
 - **Demand**: how much it requires. "Every modified model accounted for" forces thorough work where "produce a change list" does not. Demand drives **legwork** (the digging the agent does within the work, latent in the wording rather than written as its own step), and it is not step-bound: "every rule applied" binds a body of flat reference just as "every step done" binds a sequence, which is how an all-reference document still carries an exhaustiveness bar.
+- **Settlement**: can the criterion be read, or only run? A bound that only an execution answers (a benchmark, an eval, an ablation) is clear to state and unreadable from context, so it needs a **prediction written first**. Unpredicted, done/not-done collapses onto whatever number arrived — **post-hoc completion**, and costlier than the premature kind, because the run looks like evidence. The criterion is then the prediction's fate, not the number's existence.
 
 The strongest criteria are both checkable and exhaustive.
 
@@ -71,11 +74,14 @@ Hunt for opportunities to refactor with leading words. A triad spelled out at th
 
 You win twice: fewer tokens, and a sharper hook for the agent to hang its thinking on. Assume every document is carrying restatements that leading words retire. Go find them.
 
-**Negation** is the failure mode beside this lever: steering by prohibition drags the forbidden behaviour into context and makes it _more_ available, not less. _Don't think of an elephant_, and the elephant is all there is; the negation is a weak modifier the strongly-activated concept overruns, so the ban half-reads as an instruction to do the thing. Prompt the **positive**: state the target behaviour ("write one-line comments") so the banned one is never spoken. A prohibition earns its place only as a hard guardrail you cannot phrase positively; even then, pair it with the positive target so attention lands on what to do.
+**Collision** is the tax on a pretrained word's free prior. In a domain carrying its own vocabulary the strongest words are already taken (_depth_, _module_, _gate_, _binding_, _pointer_ in machine learning), and the resident meaning overruns yours at every appearance. Check a candidate against the project's own language before adopting it; when it collides, qualify it (_seam adapter_, leaving the bare word to the LoRA sense) rather than coining fresh — a qualifier keeps the prior, a coinage buys a new one at full price.
+
+**Negation** is the second failure mode beside this lever: steering by prohibition drags the forbidden behaviour into context and makes it _more_ available, not less. _Don't think of an elephant_, and the elephant is all there is; the negation is a weak modifier the strongly-activated concept overruns, so the ban half-reads as an instruction to do the thing. Prompt the **positive**: state the target behaviour ("write one-line comments") so the banned one is never spoken. A prohibition earns its place only as a hard guardrail you cannot phrase positively; even then, pair it with the positive target so attention lands on what to do.
 
 ## Pruning
 
 - Keep each meaning in a **single source of truth**: one authoritative place, so changing the behaviour is a one-place edit. **Duplication** (the same meaning in more than one place) costs maintenance and tokens, and inflates a meaning's prominence on the ladder past its real rank. (The accidental inverse of a leading word, which repeats a token on purpose, never the meaning.)
 - The **environment** is a source of truth too (`package.json` scripts, config files, the directory layout, `--help` output), and a document that restates it is a **cache**: a copy of a lookup, earning its load only when the lookup is expensive. Cache what the agent cannot find by looking: the unwritten convention, the reason behind a choice, the gotcha no config confesses. Leave the one-file, one-command lookups to the environment, where they cannot go stale.
+- A **run** is a source of truth no document can hold: the metrics, checkpoints and outcomes one execution produced. Caching one beats caching a lookup for damage — a stale command fails loudly, a stale number reads as a fact and gets reasoned from for months. Cache the **interpretation** (what the run ruled out, why the arm was chosen) and name the run so the value can be fetched; leave the value where it was measured.
 - Check every line for **relevance**: does it still bear on what the document does? A line loses relevance by never bearing on the task (mere exposition, or a branch that should be disclosed) or by going stale as the behaviour or world it describes changes. Shorter documents are easier to keep relevant. Without a pruning discipline the default fate is **sediment**: stale layers that settle because adding feels safe and removing feels risky, until you must core down through them to find what is still live.
 - Hunt **no-ops** sentence by sentence: an instruction the model already obeys by default pays load to say nothing. The test (does it change behaviour versus the default?) is model-relative, not reader-relative: two people disagreeing about a no-op disagree about the default, and settle it by running the document, not by debate. When a sentence fails, delete the whole sentence rather than trim words from it. The test also grades leading words: a word too weak to beat the default (_be thorough_ when the agent is already thorough-ish) is a no-op, and the fix is a stronger word (_relentless_), not a different technique.
