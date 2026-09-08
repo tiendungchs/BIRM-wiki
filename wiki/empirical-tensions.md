@@ -183,7 +183,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T187 | Must a binding operator be invertible? | `L3` | `LIVE` | 2 | [[wiki/tensions/t187.md]] |
 | T188 | Must an induced program be consistent with *all* the demonstrations? | `L0` | `LIVE` | 2 | [[wiki/tensions/t188.md]] |
 | T189 | Should a model be selected for how confidently it answers, or for how well it answers? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t189.md]] |
-| T191 | Should a solver commit to one parse of the input, or carry several? | `L1` | `LIVE` | 2 | [[wiki/tensions/t191.md]] |
+| T191 | Should a solver commit to one parse of the input, or carry several? | `L1` | `LIVE` | 3 | [[wiki/tensions/t191.md]] |
 | T192 | What licenses a candidate analogical inference — its coherence with the target, or a causal model carried over from the source? | `L0` | `LIVE` | 1 | [[wiki/tensions/t192.md]] |
 | T194 | Is approaching a memory's capacity a failure mode or the mechanism that produces generalisation? | `L1` | `LIVE` | 1 | [[wiki/tensions/t194.md]] |
 | T195 | Is sequential presentation a cost paid against joint training? | `L0` | `LIVE` | 2 | [[wiki/tensions/t195.md]] |

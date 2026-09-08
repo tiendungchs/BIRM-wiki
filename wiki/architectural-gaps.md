@@ -19,7 +19,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G1 | Two-level separation exists as a timescale split, not as a factorization | part | `L1` | `PARTIAL` | 22 | [[wiki/gaps/g001.md]] |
 | G2 | De-aliasing without a hand-built state space | part | `L0` | `PARTIAL` | 13 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `L1` | `PARTIAL` | 13 | [[wiki/gaps/g003.md]] |
-| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 24 | [[wiki/gaps/g004.md]] |
+| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 25 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `L1` | `PARTIAL` | 7 | [[wiki/gaps/g005.md]] |
 | G6 | Spurious edges survive training — and are the default, not the exception | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `L0` | `OPEN` | 4 | [[wiki/gaps/g007.md]] |
@@ -31,8 +31,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G13 | No tractable system covers all six hardness sources | part | `L0` | `PARTIAL` | 2 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 21 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 26 | [[wiki/gaps/g015.md]] |
-| G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 21 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 57 | [[wiki/gaps/g017.md]] |
+| G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g016.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 59 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 18 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
@@ -41,11 +41,11 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g023.md]] |
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 14 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 5 | [[wiki/gaps/g025.md]] |
-| G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 20 | [[wiki/gaps/g026.md]] |
+| G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 21 | [[wiki/gaps/g026.md]] |
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 31 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `L0` | `PARTIAL` | 19 | [[wiki/gaps/g028.md]] |
-| G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 9 | [[wiki/gaps/g029.md]] |
-| G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 20 | [[wiki/gaps/g030.md]] |
+| G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 10 | [[wiki/gaps/g029.md]] |
+| G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 22 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `L0-INSTR` | `OPEN` | 10 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `L0` | `OPEN` | 13 | [[wiki/gaps/g032.md]] |
 | G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 15 | [[wiki/gaps/g033.md]] |
@@ -88,7 +88,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g070.md]] |
 | G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g071.md]] |
 | G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g072.md]] |
-| G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 10 | [[wiki/gaps/g073.md]] |
+| G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 11 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `L0` | `OPEN` | 7 | [[wiki/gaps/g074.md]] |
 | G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `L0` | `OPEN` | 7 | [[wiki/gaps/g075.md]] |
 | G76 | A temporally coded output has no loss function | part | `L3` | `PARTIAL` | 6 | [[wiki/gaps/g076.md]] |

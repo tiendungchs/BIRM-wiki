@@ -494,14 +494,28 @@ One INGEST each:
 - [x] `locatello-2019-challenging-disentanglement-assumptions.md` — ssl-representation · R · 2019
 - [x] `lightman-2023-lets-verify-step-by-step.md` — reasoning-eval · R · 2023
 - [x] `ha-2018-world-models.md` — world-models · M · 2018 — self-fetched; MathJax equations flattened
+- [x] `chandra-2025-episodic-associative-memory-spatial-scaffolds.md` — hippocampal-entorhinal · M · 2025 — user-clipped between waves and ingested directly; validated retroactively (ACQUIRE part B, clean)
 
 ## Wave 18 — the relational supermodule, located: where System 2 relational reasoning runs, and by what mechanism
 
-Opened from the query on `analogical-mapping` / `working-memory` / Penn 2008. Ten targets on `_work/want-list.md`; one filed so far.
+Opened from the query on `analogical-mapping` / `working-memory` / Penn 2008. Ten targets on `_work/want-list.md`; nine filed, two still open.
 
 One INGEST each:
 
+- [ ] `vendetti-2014-lateral-frontoparietal-evolution-development.md` — analogy-abstraction · S · 2014 — Neuron review (PMC mirror); rostrolateral-prefrontal ↔ inferior-parietal re-weighting as the anatomy of the behavioural discontinuity · `T289`, `G21`
+- [ ] `parsons-2022-analogy-component-processes.md` — analogy-abstraction · S · 2022 — separates access / mapping / inference / schema induction against the neuroimaging record · `G37`
+- [ ] `chau-2025-lateral-frontopolar-functions.md` — prefrontal-control · S · 2025 — lateral frontal pole (FPl) as the uniquely human area; information integration and dimensional reduction · `T289`, `G21`
 - [ ] `knowlton-2012-neurocomputational-relational-reasoning.md` — analogy-abstraction · F · 2012 — user-clipped; LISA's mechanisms mapped onto prefrontal synchrony, proxy units, inhibition
+- [ ] `roux-2014-wm-oscillations-alpha-gamma-theta-gamma.md` — working-memory · F · 2014 — gamma maintains, theta orders, alpha inhibits; cross-frequency coupling as the binding mechanism · `G104`, `T293`
+- [ ] `zeithamova-2012-retrieval-mediated-learning-inference.md` — hippocampal-entorhinal · R · 2012 — ventral medial prefrontal biases reinstatement, hippocampus binds; integrated code supports A→C inference · `T203`, `T100`
+- [ ] `hobeika-2016-analogical-reasoning-metaanalysis.md` — analogy-abstraction · R · 2016 — 27 experiments / 506 subjects; domain-general left rostrolateral prefrontal over domain-specific ventral/dorsal inputs · `G21`, `T289`
+- [ ] `urbanski-2016-left-frontal-pole-analogy.md` — analogy-abstraction · R · 2016 · **LOSSY** (pdf2md) — 27 focal frontal patients, voxel-based lesion mapping: left frontal pole causally required · `T289`, `T92`
+- [ ] `mole-2025-right-frontal-network-reasoning.md` — analogy-abstraction · R · 2025 — 247 unilateral-lesion patients: *right* frontal network. Ingest after Urbanski 2016; open a lesion-mapping tension (left frontal pole vs right frontal network) at ingest unless the task difference explains it · `T289`
+
+Still on `_work/want-list.md`, not yet clipped:
+
+- Lambon Ralph et al. 2017, *The neural and computational bases of semantic cognition* (`clip`) · `G21`, `T289`
+- Waltz et al. 1999, *A system for relational reasoning in human prefrontal cortex* (`pdf`, LOSSY) · `G104`, `T293`
 
 ## Unfiled clippings — dropped in `raw/` between waves
 
