@@ -187,7 +187,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T192 | What licenses a candidate analogical inference — its coherence with the target, or a causal model carried over from the source? | `L0` | `LIVE` | 1 | [[wiki/tensions/t192.md]] |
 | T194 | Is approaching a memory's capacity a failure mode or the mechanism that produces generalisation? | `L1` | `LIVE` | 1 | [[wiki/tensions/t194.md]] |
 | T195 | Is sequential presentation a cost paid against joint training? | `L0` | `LIVE` | 2 | [[wiki/tensions/t195.md]] |
-| T197 | Is un-flagged retrieval error a defect to engineer away or a phenomenon to reproduce? | `L0` | `LIVE` | 1 | [[wiki/tensions/t197.md]] |
+| T197 | Is un-flagged retrieval error a defect to engineer away or a phenomenon to reproduce? | `L0` | `LIVE` | 2 | [[wiki/tensions/t197.md]] |
 | T199 | Is relational retrieval bought by building indices, or by making the encoding uniform? | `L1` | `LEANING` | 2 | [[wiki/tensions/t199.md]] |
 | T200 | Is systematicity a property of the architecture or of the training distribution? | `L0` | `LIVE` | 1 | [[wiki/tensions/t200.md]] |
 | T202 | Does installing an inductive bias by sampling it into `p(T)` give you the bias, or only its frequency? | `L0` | `LEANING` | 4 | [[wiki/tensions/t202.md]] |
@@ -297,3 +297,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T327 | Is a world model's payoff the rollout, or the state it carries? | `L1` | `LIVE` | 4 | [[wiki/tensions/t327.md]] |
 | T328 | Does a per-neuron error need an electrically independent compartment, or is a magnitude residual on coincident events enough? | `L3` | `LIVE` | 3 | [[wiki/tensions/t328.md]] |
 | T329 | Do pre/post spike pairs contribute to plasticity independently? | `L3` | `LEANING` | 5 | [[wiki/tensions/t329.md]] |
+| T330 | Is analogy a pipeline of separable subprocesses, or one search whose "subprocesses" are facets of it? | `L1` | `LIVE` | 3 | [[wiki/tensions/t330.md]] |
