@@ -99,7 +99,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T97 | Does the cortical controller hold a memory from the start, or only after consolidation? | `L2` | `LEANING` | 1 | [[wiki/tensions/t097.md]] |
 | T98 | Does the episodic store address the controller by delivering content, or by setting its inhibitory gain? | `L2` | `LIVE` | 4 | [[wiki/tensions/t098.md]] |
 | T99 | What indexes which module a memory needs — its age, or its overlap with what is already stored? | `L2` | `LEANING` | 1 | [[wiki/tensions/t099.md]] |
-| T100 | At which task phase does the hippocampal→prefrontal channel matter — encoding or retrieval? | `L2` | `LIVE` | 1 | [[wiki/tensions/t100.md]] |
+| T100 | At which task phase does the hippocampal→prefrontal channel matter — encoding or retrieval? | `L2` | `LIVE` | 2 | [[wiki/tensions/t100.md]] |
 | T101 | Can the control layer address the episodic store directly, or only through a relay? | `L2` | `LEANING` | 1 | [[wiki/tensions/t101.md]] |
 | T102 | When forward and reverse inference disagree about a region's function, which wins? | `META` | `LEANING` | 2 | [[wiki/tensions/t102.md]] |
 | T103 | What is the common component of control? | `L1` | `LEANING` | 1 | [[wiki/tensions/t103.md]] |
@@ -231,7 +231,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T257 | In the default/control switch, who drives whom? | `L2` | `LIVE` | 3 | [[wiki/tensions/t257.md]] |
 | T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 1 | [[wiki/tensions/t259.md]] |
 | T260 | Does the brain have an absolute activity baseline, or only relative ones? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t260.md]] |
-| T262 | During an externally directed task, does the default mode network decouple from task-positive systems or integrate with them? | `L2` | `BOTH` | 2 | [[wiki/tensions/t262.md]] |
+| T262 | During an externally directed task, does the default mode network decouple from task-positive systems or integrate with them? | `L2` | `BOTH` | 3 | [[wiki/tensions/t262.md]] |
 | T263 | Does within-module connectivity move with brain state, or only between-module connectivity? | `L4` | `LIVE` | 2 | [[wiki/tensions/t263.md]] |
 | T264 | Is default-mode anticorrelation a neural phenomenon or a product of global signal regression? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t264.md]] |
 | T265 | Where does the default mode network sit relative to the sensory-fugal hierarchy? | `L4` | `LEANING` | 2 | [[wiki/tensions/t265.md]] |
@@ -301,3 +301,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T331 | Do generalizable concepts require one transmodal store, or do direct modality-to-modality connections suffice? | `L1` | `LEANING` | 2 | [[wiki/tensions/t331.md]] |
 | T332 | Which frontal region is the apex of the lateral-frontal control hierarchy, and does "apex" survive the choice of ordering criterion? | `L2` | `LIVE` | 7 | [[wiki/tensions/t332.md]] |
 | T333 | Can long-range theta coherence carry content between two modules, or does it only index a shared relay? | `L2` | `LIVE` | 2 | [[wiki/tensions/t333.md]] |
+| T334 | Is an unobserved relational path written at encoding, or composed at retrieval? | `L2` | `LIVE` | 4 | [[wiki/tensions/t334.md]] |

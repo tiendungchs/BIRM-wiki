@@ -115,6 +115,8 @@ Human associative inference under fMRI (interleaved A–B then B–C, tested on 
 - Greater vmPFC recruitment **in the presence of greater mnemonic conflict predicts better later inference** — conflict is not noise to be suppressed, it is the signal that the expensive integration is worth running.
 - vmPFC–hippocampal coupling **persists into post-task rest**, and correct use of a newly acquired conceptual rule is predicted by hippocampal–vmPFC connectivity.
 
+**The primary source for the first two bullets is now on its own page** ([[wiki/concepts/retrieval-mediated-learning.md]], Zeithamova et al. 2012), and it corrects the review's summary in two ways this page should carry. The reinstatement is *measured*, by a classifier reading the unseen third element during re-presentation of the first pair — null on the first repetition, significant on the second and third — and it is **anterior MTL cortex, not hippocampus**, whose learning-related change tracks reinstatement magnitude (r = 0.54, the only one of 13 regions). And the conflict claim is weaker than "greater recruitment under greater conflict": what is shown is that vmPFC activation *increases* across repetitions in better inferrers, surviving a partial correlation for premise memory (partial r = 0.53), while the hippocampal effect largely does not survive it (r = 0.51 → 0.22 n.s., right hemisphere only at p = 0.05). Mnemonic conflict is still not measured within a trial — the open problem below stands.
+
 Against this, lateral prefrontal cortex resolves the *same* competition the other way — by making individual memories more **distinctive** and hence less interference-prone.
 
 | | Ventromedial PFC | Lateral PFC |
@@ -206,6 +208,7 @@ This is a live disagreement with the case-based reasoning tradition, which buys 
 
 ## Connections
 
+- **[[wiki/concepts/retrieval-mediated-learning.md]]** — the primary source for this page's conflict trigger, with the reinstatement measured rather than presumed: it supplies the classifier read-out of the absent element, the anterior-MTL/hippocampus split between reporting reactivation and doing the binding, and the partial correlation that makes integration-at-encoding non-vacuous.
 - **[[wiki/concepts/nonspatial-maps.md]]** — the map operation isolated there and covered by no other: insert new nodes into a map already in use and keep the frame, rather than rebuild it.
 
 - **[[wiki/concepts/priority-map.md]]** — where a selected schema goes once it is selected: a learned face↔scene pairing retrieved in ventrolateral prefrontal cortex during the cue is installed over the following delay as the *attentional template* in the inferior frontal junction and as sensory gain in the associate's own category area, so "prefrontal cortex selects the schema" and "prefrontal cortex sets the search query" are the same operation observed at two stages (Zhou & Geng 2025).
