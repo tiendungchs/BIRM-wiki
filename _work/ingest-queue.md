@@ -495,6 +495,14 @@ One INGEST each:
 - [x] `lightman-2023-lets-verify-step-by-step.md` — reasoning-eval · R · 2023
 - [x] `ha-2018-world-models.md` — world-models · M · 2018 — self-fetched; MathJax equations flattened
 
+## Wave 18 — the relational supermodule, located: where System 2 relational reasoning runs, and by what mechanism
+
+Opened from the query on `analogical-mapping` / `working-memory` / Penn 2008. Ten targets on `_work/want-list.md`; one filed so far.
+
+One INGEST each:
+
+- [ ] `knowlton-2012-neurocomputational-relational-reasoning.md` — analogy-abstraction · F · 2012 — user-clipped; LISA's mechanisms mapped onto prefrontal synchrony, proxy units, inhibition
+
 ## Unfiled clippings — dropped in `raw/` between waves
 
 - [x] `kirsanov-2026-firing-rate-fallacy.md` — neuromorphic-spiking · S · 2026 — self-clipped (Substack); rate-code critique

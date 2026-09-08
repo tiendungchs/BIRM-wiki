@@ -2,6 +2,10 @@
 
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
+## Wave 18 — the relational supermodule, located
+
+- [ ] `knowlton-2012-neurocomputational-relational-reasoning.md` — analogy-abstraction · F · 2012 — user-clipped; LISA's mechanisms mapped onto prefrontal synchrony, proxy units, inhibition
+
 ## Unfiled clippings — dropped in `raw/` between waves
 
 - [x] `kirsanov-2026-firing-rate-fallacy.md` — neuromorphic-spiking · S · 2026 — self-clipped (Substack); rate-code critique
