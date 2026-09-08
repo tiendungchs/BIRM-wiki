@@ -498,12 +498,13 @@ One INGEST each:
 
 ## Wave 18 — the relational supermodule, located: where System 2 relational reasoning runs, and by what mechanism
 
-Opened from the query on `analogical-mapping` / `working-memory` / Penn 2008. Ten targets on `_work/want-list.md`; nine filed, two still open.
+Opened from the query on `analogical-mapping` / `working-memory` / Penn 2008. Ten targets on `_work/want-list.md`; nine filed, one unreachable.
 
 One INGEST each:
 
 - [ ] `vendetti-2014-lateral-frontoparietal-evolution-development.md` — analogy-abstraction · S · 2014 — Neuron review (PMC mirror); rostrolateral-prefrontal ↔ inferior-parietal re-weighting as the anatomy of the behavioural discontinuity · `T289`, `G21`
 - [ ] `parsons-2022-analogy-component-processes.md` — analogy-abstraction · S · 2022 — separates access / mapping / inference / schema induction against the neuroimaging record · `G37`
+- [ ] `lambonralph-2017-neural-computational-bases-semantic-cognition.md` — semantic-cognition · S · 2017 — controlled semantic cognition: a learned anterior-temporal hub over modality spokes, with semantic control on a separate network · `G21`, `T289`
 - [ ] `chau-2025-lateral-frontopolar-functions.md` — prefrontal-control · S · 2025 — lateral frontal pole (FPl) as the uniquely human area; information integration and dimensional reduction · `T289`, `G21`
 - [ ] `knowlton-2012-neurocomputational-relational-reasoning.md` — analogy-abstraction · F · 2012 — user-clipped; LISA's mechanisms mapped onto prefrontal synchrony, proxy units, inhibition
 - [ ] `roux-2014-wm-oscillations-alpha-gamma-theta-gamma.md` — working-memory · F · 2014 — gamma maintains, theta orders, alpha inhibits; cross-frequency coupling as the binding mechanism · `G104`, `T293`
@@ -512,10 +513,7 @@ One INGEST each:
 - [ ] `urbanski-2016-left-frontal-pole-analogy.md` — analogy-abstraction · R · 2016 · **LOSSY** (pdf2md) — 27 focal frontal patients, voxel-based lesion mapping: left frontal pole causally required · `T289`, `T92`
 - [ ] `mole-2025-right-frontal-network-reasoning.md` — analogy-abstraction · R · 2025 — 247 unilateral-lesion patients: *right* frontal network. Ingest after Urbanski 2016; open a lesion-mapping tension (left frontal pole vs right frontal network) at ingest unless the task difference explains it · `T289`
 
-Still on `_work/want-list.md`, not yet clipped:
-
-- Lambon Ralph et al. 2017, *The neural and computational bases of semantic cognition* (`clip`) · `G21`, `T289`
-- Waltz et al. 1999, *A system for relational reasoning in human prefrontal cortex* (`pdf`, LOSSY) · `G104`, `T293`
+Not acquired: Waltz et al. 1999, *A system for relational reasoning in human prefrontal cortex* (`G104`, `T293`) — the only copy is a pre-2000 scan with no usable text layer, so `pdf2md` cannot produce an ingestible file. The wiki keeps citing it second-hand on `analogical-mapping`, `working-memory`, `relational-reinterpretation` and `lisa`; a later wave should look for a source that restates its two-relation frontal-patient result at first hand.
 
 ## Unfiled clippings — dropped in `raw/` between waves
 

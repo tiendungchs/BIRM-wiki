@@ -27,15 +27,8 @@ After clipping, drop the files in `raw/` and run:
 
 ## Active
 
-### Wave 18 — the relational supermodule, located: where in the human brain System 2 relational reasoning runs, and by what mechanism
-
-Anchor: the user's query on `analogical-mapping` / `working-memory` / Penn, Holyoak & Povinelli 2008. The wiki's whole neural account of relational reasoning is second-hand through Holyoak 2012 and now Knowlton et al. 2012 (filed, row 364). Eight of the ten targets are filed (manifest rows 365–372) and queued; the two below remain.
-
-| # | Target | Clip URL | Venue | Route | Closes | Settles | Status |
-|---|---|---|---|---|---|---|---|
-| 8 | Lambon Ralph, Jefferies, Patterson & Rogers 2017, *The neural and computational bases of semantic cognition* | `https://www.nature.com/articles/nrn.2016.150` | Nat. Rev. Neurosci. (cookie-gated → institutional) | `clip` | `G21`, `T289` | **The "semantic units are posterior" premise of LISA, given a model**: hub-and-spoke — a bilateral anterior-temporal hub that *learns* to map between modality-specific spokes, with semantic *control* on a separate left inferior-frontal / posterior-temporal network. For `G21`: a learned composer over encapsulated modality modules, in the brain; for the region table: what "anterior temporal stores the relations" actually means | open |
-| 10 | Waltz et al. 1999, *A system for relational reasoning in human prefrontal cortex*, Psychological Science 10(2) 119–125 | user downloads PDF → `./tools/pdf2md.sh` | Psychological Science (pre-2000, PDF only) | `pdf` | `G104`, `T293` | **Cited second-hand on four pages and filed nowhere** (`analogical-mapping`, `working-memory`, `relational-reinterpretation`, `lisa`): frontal patients fail two-relation Raven's-type problems and are normal on zero/one-relation ones. It is the datum Penn's falsification protocol is built on and the load-variable claim every capacity argument in `working-memory.md` cites. Flag `LOSSY` | open |
-
-**Order of ingest for what is already filed** is fixed in `_work/ingest-queue.md`. Row 8 slots into the survey tier (after Vendetti 2014); row 10 into the result tier, first (1999).
+*Empty.* Wave 18 is closed: nine of ten targets filed (manifest rows 364–373) and queued
+in `_work/ingest-queue.md`; Waltz et al. 1999 is recorded there as not acquired — the only
+copy is a pre-2000 scan with no text layer.
 
 Run the `wiki-acquire` skill to build the next wave.
