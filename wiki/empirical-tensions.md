@@ -44,7 +44,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T29 | Does de-aliasing conflict with generalisation? | `L0` | `LEANING` | 3 | [[wiki/tensions/t029.md]] |
 | T30 | What is replay for — planning the next path, or building a transferable map? | `L2` | `LIVE` | 6 | [[wiki/tensions/t030.md]] |
 | T31 | Is the entorhinal integrator perfect or leaky? | `L3` | `LIVE` | 2 | [[wiki/tensions/t031.md]] |
-| T32 | Is serial order carried by oscillatory phase or by rate-coded time cells? | `L3` | `LIVE` | 4 | [[wiki/tensions/t032.md]] |
+| T32 | Is serial order carried by oscillatory phase or by rate-coded time cells? | `L3` | `LIVE` | 5 | [[wiki/tensions/t032.md]] |
 | T33 | Is CA1 a linear relay or a second recombination-and-completion stage? | `L1` | `LIVE` | 2 | [[wiki/tensions/t033.md]] |
 | T34 | Does hippocampus→cortex transfer happen during sleep or during waking? | `L2` | `LEANING` | 3 | [[wiki/tensions/t034.md]] |
 | T35 | Is remapping controlled by the environment or by the animal's inference history? | `L2` | `LEANING` | 1 | [[wiki/tensions/t035.md]] |
@@ -299,4 +299,5 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T329 | Do pre/post spike pairs contribute to plasticity independently? | `L3` | `LEANING` | 5 | [[wiki/tensions/t329.md]] |
 | T330 | Is analogy a pipeline of separable subprocesses, or one search whose "subprocesses" are facets of it? | `L1` | `LIVE` | 3 | [[wiki/tensions/t330.md]] |
 | T331 | Do generalizable concepts require one transmodal store, or do direct modality-to-modality connections suffice? | `L1` | `LEANING` | 2 | [[wiki/tensions/t331.md]] |
-| T332 | Which frontal region is the apex of the lateral-frontal control hierarchy, and does "apex" survive the choice of ordering criterion? | `L2` | `LIVE` | 6 | [[wiki/tensions/t332.md]] |
+| T332 | Which frontal region is the apex of the lateral-frontal control hierarchy, and does "apex" survive the choice of ordering criterion? | `L2` | `LIVE` | 7 | [[wiki/tensions/t332.md]] |
+| T333 | Can long-range theta coherence carry content between two modules, or does it only index a shared relay? | `L2` | `LIVE` | 2 | [[wiki/tensions/t333.md]] |

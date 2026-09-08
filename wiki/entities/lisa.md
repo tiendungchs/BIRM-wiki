@@ -2,7 +2,7 @@
 
 **A symbolic-connectionist model of analogy in which role-filler bindings are carried by *neural synchrony*, so working-memory capacity is not a parameter but a consequence: only as many bindings can be live as there are mutually out-of-phase time slots. Every other component of analogy — retrieval, mapping, inference, schema induction — is then made to run inside that budget.**
 
-> **Provenance.** Described in Holyoak, K. J. (2012), *Analogy and relational reasoning*, in Holyoak & Morrison (eds.), *The Oxford Handbook of Thinking and Reasoning*, ch. 13 (`raw/holyoak-2012-analogy-relational-reasoning.md`), which reviews the model rather than presenting it. Primary sources are Hummel & Holyoak 1997, 2003 and Doumas, Hummel & Sandhofer 2008 — **not read**; every number and mechanism below is second-hand and the architectural detail is at review grain.
+> **Provenance.** Described in Holyoak, K. J. (2012), *Analogy and relational reasoning*, in Holyoak & Morrison (eds.), *The Oxford Handbook of Thinking and Reasoning*, ch. 13 (`raw/holyoak-2012-analogy-relational-reasoning.md`), which reviews the model rather than presenting it. Primary sources are Hummel & Holyoak 1997, 2003 and Doumas, Hummel & Sandhofer 2008 — **not read**; every number and mechanism above the "neural realization" section below is second-hand and the architectural detail is at review grain. That section is from **Knowlton, Hummel & Holyoak 2012** (two of the model's three authors), which is the wiki's one first-party statement of what LISA claims about tissue.
 
 The wiki reaches LISA from [[wiki/concepts/analogical-mapping.md]], where it already occupies one row of the model-landscape table as the model whose vector similarity measures "do not apply". This page states what it buys in exchange.
 
@@ -82,11 +82,98 @@ The authors' own verdict on the model is worth keeping beside the limitations be
 
 ---
 
+## The neural realization, stated by the model's own authors
+
+> Knowlton, B. J., Morrison, R. G., Hummel, J. E. & Holyoak, K. J. (2012), *A neurocomputational system for relational reasoning*, **Trends in Cognitive Sciences** (`raw/knowlton-2012-neurocomputational-relational-reasoning.md`). An Opinion piece that takes each LISA construct and names the neural mechanism that would have to carry it. Everything here is a *hypothesis with converging evidence*, not a measurement of LISA in a brain: the authors state outright that "no direct evidence yet connects such activity to the coding of propositions."
+
+### The capacity number is derived, not fitted
+
+The table above records 2–3 propositions as a reviewed estimate. Here it is an arithmetic consequence of the carrier:
+
+```
+max phase set = (period of the carrier oscillation) / (duration of one phase)
+```
+
+| Term | Value assumed |
+|---|---|
+| Carrier | gamma, > 30 Hz — one spike or burst per population every ≈ **25 ms** |
+| One phase | one role binding (an RB unit and its constituents) — the smallest unit of working memory |
+| Phase duration | set by population burst width and/or single-spike temporal precision |
+| → phase set | **4–6 role bindings ≈ 2–3 propositions** |
+
+Two consequences no other capacity account in the wiki carries. **The limit is a ratio of two time constants**, so it moves with either — a slower carrier or a sharper temporal precision raises capacity, which is a manipulable prediction rather than a fitted slot count. And **it is not prefrontal-specific**: the same arithmetic runs wherever populations bind by synchrony, which is the authors' proposed reason a ~4 limit recurs in low-level posterior tasks. Set against [[wiki/concepts/working-memory.md]], where Rolls derives `7 ± 2` from noise-driven attractor transitions with no clock at all — the two derivations are the two positions of [[wiki/empirical-tensions.md]] T32.
+
+### One band per LISA operation
+
+| LISA requirement | Proposed carrier | Evidence offered |
+|---|---|---|
+| Keep distinct role bindings **mutually out of phase** inside prefrontal cortex | Local gamma, separation maintained by local inhibition | Monkey prefrontal single units + local field potential: spikes to a given stimulus land at a characteristic point of a **32 Hz** cycle, and with two items held the second item's spikes occupy a *different* point of the wave |
+| **Bind** role to filler | Within-phase synchrony | Human priming evidence for synchrony in perceptual relations; fronto-parietal phase synchrony binds object properties in working memory (EEG); task-dependent synchronous pairs in monkey prefrontal cortex that reconfigure with working-memory content |
+| Move **semantics** (posterior cortex) into prefrontal RB units | Long-range **theta** | Low-band coherence is detectable between sites several mm apart; prefrontal cortex also shows ≈3 Hz spike synchronization alongside the 32 Hz structure |
+| Couple the two | **Cross-frequency coupling** — theta phase modulates gamma amplitude, so the slow long-range wave sets *when* local gamma bursts occur | Standard phase–amplitude coupling; the authors' proposal is that posterior semantic activity thereby schedules prefrontal binding |
+| Grow **M units** and **proxy units** within a trial | **STDP** riding the same gamma | At high gamma, inputs arrive just before the postsynaptic cell is depolarized → potentiation; hippocampal LTP is induced preferentially at theta peaks and blocked when theta is blocked; monkey prefrontal single units learn new connections rapidly |
+| **Unbind** — return a proxy unit to the free pool | LTD, from a millisecond shift of the *same* spike timing | The potentiation → depression sign flip occurs over a few ms of relative timing |
+
+**The design claim worth extracting.** One physical variable — spike timing — is asked to do four jobs at once: *represent* a binding (phase), *separate* bindings (anti-phase), *route* between areas (cross-frequency coupling), and *write* the binding into weights (STDP). That is unusually parsimonious and correspondingly brittle: any jitter large enough to cost the code its phase separation is also large enough to flip the sign of the learning rule, so representation and learning fail together rather than independently. **(brainstorm)** No model in the wiki shares one timing variable between its binding code and its plasticity rule — and the cheap test is to add jitter to a synchrony-binding model and check whether the two failures are correlated, which is the signature this architecture predicts and a separated architecture forbids.
+
+### Proxy units have a candidate cell type
+
+Proxy units are LISA's transient prefrontal copies of long-term structure units — recruited per problem, released afterwards. What the monkey lateral prefrontal literature offers:
+
+| Property a proxy unit needs | Observation |
+|---|---|
+| Codes an **abstract** category, not features | ≈ **⅓** of lateral prefrontal neurons are category-selective on *conceptual* grounds; they respect sharp category boundaries and respond alike to typical and atypical members — unlike inferotemporal neurons, whose firing is graded by visual form |
+| Codes a **rule or relation**, not the stimuli | Cromer et al.: **41%** of recorded prefrontal neurons — the most common type — track the current rule (match vs. non-match) irrespective of which stimuli are present; found throughout prefrontal cortex, majority lateral |
+| Is **re-assignable** between problems | The same neuron responds to different categories under different tasks, trial by trial — the opposite of the static inferotemporal profile |
+
+**This is the same population [[wiki/concepts/population-geometry.md]] reads as mixed selectivity, and the two readings are not the same claim.** A random-mixing account calls the heterogeneity a *high-dimensional basis* that a linear readout exploits and that is therefore permanent; LISA calls it a *pool of unassigned units awaiting recruitment*, in which case the tuning of a given cell should turn over between problems and the dimensionality is a by-product. **(brainstorm)** The two are separated by a turnover measurement nobody has run: re-record the same cells across two structurally distinct analogies and ask whether selectivity is re-drawn or merely re-weighted.
+
+### The rostro-caudal abstraction gradient is the model's own hierarchy
+
+Badre & D'Esposito's caudal → rostral ordering (specific stimulus–response actions → actions based on integrated abstract goals) is read here as the anatomy of LISA's layering, with **M units at the rostral end**: mapping units encode shared relational roles across two analogs and are the most abstract objects in the model, matching RLPFC's selective engagement by abstract concepts (Christoff et al.). The constraint this puts on a builder is real: mapping units are not a data structure stored beside the propositions, they are a *level* with its own tissue and its own abstraction rank. The direction of the arrow along that gradient is itself contested — [[wiki/empirical-tensions.md]] T332.
+
+### Inhibition has a location, and it is not the integrator
+
+LISA requires **top-down inhibition of propositions tagged low in goal-relevance**, so they never enter the phase set at all; this raises the signal-to-noise ratio favouring goal-relevant matches, and is separate from the circuit-level inhibition that keeps admitted bindings out of phase with each other.
+
+| Function | Region | Evidence |
+|---|---|---|
+| Suppress interfering relations during analogy | **right inferior frontal gyrus** | Cho et al. 2010: activity rises with the amount of interfering information. Sweis et al. 2012 (scalp EEG): right prefrontal cortex modulated at *late* stages of processing when a distracting relation must be ignored, and the degree of modulation **interacts with the reasoner's working-memory capacity** |
+| Suppress a prepotent response | right inferior prefrontal cortex | Lesion → failure to inhibit prepotent responses |
+| Social and emotional inhibition | orbitofrontal cortex | Lesion → social/emotional disinhibition |
+
+So "dynamic filtering of posterior activation" is **domain-split by subregion**, and the analogy channel is a *late*, capacity-dependent one. That timing is the awkward part for the model: LISA's filter is supposed to act *before* admission to the phase set, and a late modulation looks instead like eviction of something already loaded.
+
+### Where the authors put LISA among neural models of thinking
+
+| Model | Binding scheme | Relation to LISA |
+|---|---|---|
+| **SMRITI** | synchrony, localist, mapped onto known hippocampal architecture | **Complementary, not rival** — same coding scheme, episodic encoding/retrieval rather than reflective reasoning |
+| **STAR-2** | tensor products | **Tensor rank = relational complexity**, so task difficulty is read directly off the representation ([[wiki/concepts/tensor-product-representation.md]]) — the one rival that predicts the same behavioural variable from a different code |
+| **ACT-R** with neural modules | production system + modules mapped to brain areas, with a per-module activation time course | Not a rival: the *control structure* within which LISA's reasoning would run |
+| **SAL** (ACT-R + Leabra) | symbolic control over point-neuron subsymbolic layers | Same role, with the subsymbolic layer supplied |
+
+### What the authors concede is unmeasured
+
+- **No direct evidence** that oscillatory activity codes propositions in human prefrontal cortex — the load-bearing claim of the whole account.
+- No oscillatory model predicts the measured network dynamics of relational reasoning.
+- The several kinds of inhibition the model needs — circuit-level phase separation vs. goal-relevance filtering — have not been separated in time or anatomy.
+- **The relation between prefrontal dynamic role binding and hippocampal/medial-temporal binding is unspecified**, though both are synchrony claims in this wiki ([[wiki/entities/hippocampal-prefrontal-channel.md]]).
+- **Where the semantic units come from.** No learning process is offered for the pools that carry object and relation meaning — the same hand-coding objection the Limitations section below records, now stated by the authors.
+- Fronto-striatal circuits are guessed as the maintainer of M units over intervals when attention is elsewhere; untested.
+- Neuromodulation is absent from the model entirely. Dopamine, noradrenaline and serotonin are proposed as the route to individual differences (receptor-gene polymorphisms) and to psychiatric reasoning deficits, with anterior cingulate → locus coeruleus as one concrete loop ([[wiki/concepts/neuromodulatory-metaparameters.md]]).
+
+### The conflict this section creates with the wiki's own band rule
+
+LISA needs long-range **theta** to be the channel that carries posterior semantic content into prefrontal binding units. The wiki's band rule, derived from cut-the-wire experiments, says the opposite about what theta coherence indexes: silencing the direct projection **abolishes gamma coupling and leaves theta coupling untouched**, so theta coherence is the signature of a common relay rather than of drive along the link ([[wiki/concepts/inter-areal-synchrony.md]]). If that generalizes to the fronto-temporal semantic link, LISA's content channel runs in the band that is *least* diagnostic of a direct pathway, and the model silently requires a third structure it does not have. Logged as [[wiki/empirical-tensions.md]] T333.
+
+---
+
 ## Limitations
 
 - **Does not scale.** Reviewed as failing on large analogs; the demonstrations are laboratory-scale propositions.
 - **Representations are hand-coded.** Holyoak's own verdict on the whole field: "modelers have allowed themselves an indefinite number of free parameters to facilitate data-fitting." The DORA extension (Doumas et al. 2008) learns relations from non-relational inputs — but *those* inputs are hand-coded too.
-- **Synchrony is untested at the level LISA needs.** Testing gamma-band dynamic binding and rapid cortical learning of mapping connections requires simultaneous fine temporal *and* spatial resolution, which the review states is not available.
+- **Synchrony is untested at the level LISA needs.** Testing gamma-band dynamic binding and rapid cortical learning of mapping connections requires simultaneous fine temporal *and* spatial resolution, which the review states is not available. The section above raises the indirect evidence considerably — item-specific gamma phase in monkey prefrontal cortex, rule-selective and re-assignable lateral prefrontal cells, an inhibitory locus for the goal-relevance filter — without touching the claim itself: no recording anywhere shows a *proposition* carried by a phase (Knowlton et al. 2012).
 - **No re-representation.** LISA cannot see that `lift(John, hammer)` and `cause(John, rise(hammer))` are the same structure; the review lists flexible re-representation as an unsolved prerequisite for any analogy model.
 - **No integration with problem solving.** Sequencing operators, establishing subgoals, and combining rules across non-isomorphic problems are "beyond the capabilities of current computational models of analogy," LISA included.
 - **Perception is absent.** Isomorphic problems differ enormously in difficulty with perceptual encoding (Tower-of-Hanoi isomorphs); no analogy model accounts for it.
@@ -97,6 +184,10 @@ The authors' own verdict on the model is worth keeping beside the limitations be
 
 ## Connections
 
+- **[[wiki/concepts/population-geometry.md]]** — the same lateral prefrontal cells, claimed for a different construct: what that page reads as a standing high-dimensional mixed-selectivity basis is read here as a recruitable pool of proxy units written and erased within a trial by spike-timing-dependent plasticity, and the two are separated by whether selectivity turns over between problems.
+- **[[wiki/concepts/tensor-product-representation.md]]** — the rival code that predicts the same behavioural curve: STAR-2 makes tensor **rank** the measure of relational complexity where this model makes it the number of bindings that fit in a phase set, so difficulty is derived from the representation in both cases and no experiment separates the two quantities.
+- **[[wiki/concepts/neuromodulatory-metaparameters.md]]** — the dimension the model has none of, by its authors' own admission: monoamine modulation of prefrontal transmission is proposed as the route to individual differences in reasoning (receptor-gene polymorphisms) and to psychiatric reasoning deficits, with anterior cingulate → locus coeruleus as one concrete loop, and nothing in the phase-set architecture has a gain parameter for it to act on.
+- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the unspecified junction the authors flag: prefrontal dynamic role binding and hippocampal/medial-temporal binding are both synchrony claims in this wiki, on a wire whose theta and gamma channels are dissociable, and no account says whether a role binding is ever transferred between them or only re-derived.
 - **[[wiki/concepts/analogical-mapping.md]]** — the operation this model exists to perform, and the alternative cost model: mapping by Hebbian growth of correspondence links under a phase-capacity bound, against mapping by `argmax` of a similarity between re-represented codes.
 - **[[wiki/concepts/temporal-coding.md]]** — the mechanism claim in its home page's vocabulary: LISA is the wiki's only *cognitive-level* consumer of phase as a variable-binding carrier, and it converts a spike-timing scheme directly into a behavioural capacity limit.
 - **[[wiki/concepts/working-memory.md]]** — where the capacity limit is derived rather than assumed: the number of simultaneously maintainable role-filler bindings is the number of resolvable phases, which makes relational complexity (how many relations must be integrated) the load variable rather than item count.
