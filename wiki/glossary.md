@@ -590,6 +590,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | V1 | Primary Visual Cortex | Simple/complex cells; origin of convolutional architecture — and the stage where predictive adequacy collapses to ~40% of explainable variance under natural viewing ([[wiki/entities/early-visual-system.md]]) |
 | V2 / V2M | Secondary Visual Cortex / its Medial subdivision | Site of reported rat grid, place and head-direction cells that persist in darkness ([[wiki/concepts/distributed-reference-frames.md]]) |
 | S1 / S1HL | Primary Somatosensory Cortex / its HindLimb area | Site of reported rat grid, place and head-direction cells that persist after whisker trimming |
+| ATL | Anterior Temporal Lobe | Site of the transmodal semantic hub; graded in function across subregions, with the cross-modal centre-point ventral–ventrolateral ([[wiki/concepts/controlled-semantic-cognition.md]]) |
+| pMTG | posterior Middle Temporal Gyrus | Semantic-control node wired to the ATL; with ventral prefrontal cortex it boosts retrieval of weakly encoded semantic associations |
+| IFS | Inferior Frontal Sulcus | Domain-general multiple-demand node; slows semantic *and* non-semantic decisions under inhibitory TMS, unlike the inferior semantic-control nodes |
+| CSC | Controlled Semantic Cognition | Lambon Ralph et al. 2017's two-system framework: a hub-and-spoke representation network plus a separate control network gating propagation through it |
+| SD / SA | Semantic Dementia / Semantic Aphasia | The two lesion syndromes whose opposite behavioural profiles double-dissociate semantic representation from semantic control (`G109`) |
+| HSVE | Herpes Simplex Virus Encephalitis | Acute anteromedial temporal damage followed by recovery; gives an artefact-over-animate deficit that progressive ATL degeneration does not, from the damage *schedule* alone |
 | PPC | Posterior Parietal Cortex | Bridges perception, action and cognition; the candidate site of the egocentric→allocentric transform |
 | OFC | OrbitoFrontal Cortex | Value and goal coding; shows grid-like fMRI modulation in conceptual tasks and location-selective tuning in rat |
 | vmPFC / dmPFC | ventromedial / dorsomedial PreFrontal Cortex | Carry the hexadirectional signal in conceptual and social-hierarchy tasks |

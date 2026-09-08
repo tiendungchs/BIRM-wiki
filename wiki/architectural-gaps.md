@@ -36,7 +36,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 18 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
-| G21 | No mechanism composes the outputs of two specialized modules | part | `L2` | `CONTESTED` | 15 | [[wiki/gaps/g021.md]] |
+| G21 | No mechanism composes the outputs of two specialized modules | part | `L2` | `CONTESTED` | 16 | [[wiki/gaps/g021.md]] |
 | G22 | Nothing selects which compositions get built | part | `L2` | `OPEN` | 7 | [[wiki/gaps/g022.md]] |
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g023.md]] |
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 14 | [[wiki/gaps/g024.md]] |
@@ -123,6 +123,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `L3` | `OPEN` | 4 | [[wiki/gaps/g106.md]] |
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 7 | [[wiki/gaps/g107.md]] |
 | G108 | No label-free criterion selects a good representation out of a training run | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g108.md]] |
+| G109 | No model claiming a knowledge/control split has been scored on the lesion profile that certifies one | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g109.md]] |
 
 ## How gaps are used
 
