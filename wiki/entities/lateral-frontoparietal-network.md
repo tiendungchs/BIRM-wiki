@@ -249,6 +249,18 @@ The review concedes more to the animals than [[wiki/concepts/relational-reinterp
 - **The relational store is parietal and the integrator is frontal, and they are separately damageable.** This matches the four-way decomposition already read off the analogy literature ([[wiki/concepts/analogical-mapping.md]]: temporal content store, hippocampal episode store, frontopolar integrator, inferior-frontal suppressor) and adds the parietal first-order term to it.
 - **`G21`'s composer now has a candidate location.** The gap asks what composes the outputs of two encapsulated modules. This page's answer: a single region whose coupling to *whichever* posterior module supplies the current relational content is itself task-dependent — RLPFC's coupling to visuospatial vs semantic processing regions changes with the type of relation being considered (Wendelken et al. 2012). That is a composer implemented as a **switchable fan-in** rather than as a fixed wiring, which is precisely the "afferent diversity" mechanism `T289` Position B names and nowhere instantiates.
 
+### Three mechanism readings of one tissue, and the sweep that separates them
+
+The five ingests on this page and its sibling leave three accounts of *what the integrator does*, each with a different load-bearing variable and a different scaling prediction. None has been tested against the others, and no wiki architecture reports any of the three sweeps.
+
+| Reading | Source | What the site does | Load-bearing variable | Degrades with | Machine ablation |
+|---|---|---|---|---|---|
+| **Fan-in convergence** | Urbanski et al. 2016 (this page) | One small site where several content feeds meet; the comparison happens at the meeting point | Number of distinct afferents reaching the site | The number of **sources** cut — graded by count, indifferent to which (`rs = −0.553`) | Cut inputs into a candidate composition site one at a time; the deficit must grade with the count and not with the identity of the cut |
+| **Parallel occupancy** | Mole et al. 2025 (this page, `T336`) | A wide network holding several novel, mutually irreducible structures live at once | Number of simultaneous incomparable structures at fixed source count | The number of **co-active structures** — flat in source count | Hold the source count fixed and raise the number of irreducible relations a decision needs; an indeterminate premise pair holds two from one feed |
+| **Multi-filter decomposition** | Chau et al. 2025 ([[wiki/entities/lateral-frontal-pole.md]], `G21`) | Project high-dimensional input onto several low-dimensional features in parallel, filter weights set top-down, an older region recombines | Number of parallel filters (heads) | The number of **heads** cut toward one — monotonic; unaffected by source count if the basis is shared | Reduce head count at fixed input; representational similarity to the reference must fall monotonically |
+
+The three are not exclusive, and that is the point of the table `(brainstorm)`: a fan-in bottleneck with `n` heads and an exclusive output slot instantiates all three at once, so one architecture can be scored on all three predictions in one sweep — and a system that has any of the three fixed by wiring (a fan-in set by type, an occupancy of one on an exclusive bus, a single frozen codebook) has that column's sweep closed and must say so.
+
 ---
 
 ## Open problems
