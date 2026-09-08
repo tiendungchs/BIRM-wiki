@@ -11,14 +11,10 @@
             "id": "143968b04b3097a5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "raw/Episodic and associative memory from spatial scaffolds in the hippocampus.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Episodic and associative memory from spatial scaffolds in the hippocampus"
+              "title": "New tab"
             }
           }
         ]
@@ -187,6 +183,18 @@
   },
   "active": "143968b04b3097a5",
   "lastOpenFiles": [
+    "raw/The neural and computational bases of semantic cognition - Nature Reviews Neuroscience.md",
+    "raw/lambonralph-2017-neural-computational-bases-semantic-cognition.md",
+    "raw/Reasoning by analogy requires the left frontal pole.pdf",
+    "raw/Hippocampal and Ventral Medial Prefrontal Activation during Retrieval-Mediated Learning Supports Novel Inference.md",
+    "raw/The Neural Correlates of Analogy Component Processes.md",
+    "raw/Working memory and neural oscillations alpha–gamma versus theta–gamma codes for distinct WM information?.md",
+    "raw/Complex functions of human lateral frontopolar cortex.md",
+    "raw/A right frontal network for analogical and deductive reasoning.md",
+    "raw/Evolutionary and Developmental Changes in the Lateral Frontoparietal Network A Little Goes a Long Way for Higher-Level Cognition.md",
+    "raw/General and specialized brain correlates for analogical reasoning A meta‐analysis of functional imaging studies.md",
+    "raw/A neurocomputational system for relational reasoning.md",
+    "raw/knowlton-2012-neurocomputational-relational-reasoning.md",
     "raw/Episodic and associative memory from spatial scaffolds in the hippocampus.md",
     "wiki/tensions/closed/t313.md",
     "wiki/tensions/closed/t280.md",
@@ -202,17 +210,6 @@
     "wiki/tensions/closed/t126.md",
     "wiki/tensions/closed/t115.md",
     "wiki/tensions/closed/t109.md",
-    "wiki/tensions/closed/t091.md",
-    "wiki/tensions/closed/t084.md",
-    "wiki/tensions/closed/t074.md",
-    "wiki/tensions/closed/t073.md",
-    "wiki/tensions/closed/t072.md",
-    "wiki/tensions/closed/t071.md",
-    "wiki/tensions/closed/t070.md",
-    "wiki/tensions/closed/t069.md",
-    "wiki/tensions/closed/t061.md",
-    "wiki/tensions/closed/t060.md",
-    "wiki/tensions/closed/t054.md",
     "wiki/tensions/closed",
     "_work/pl-cited.tsv",
     "_work/problem-levels.tsv",
@@ -221,7 +218,6 @@
     "_work/ingest-logs/20260901-110443-pass6.log",
     "_work/ingest-logs/20260901-110443-pass6.err",
     "_work/ingest-logs/20260901-105759-pass5.log",
-    "_work/ingest-logs/20260901-105759-pass5.jsonl",
-    "_work/ingest-logs/20260901-105759-pass5.err"
+    "_work/ingest-logs/20260901-105759-pass5.jsonl"
   ]
 }
