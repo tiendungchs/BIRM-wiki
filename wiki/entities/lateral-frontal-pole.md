@@ -32,7 +32,7 @@ Frontal-pole patients pass the tests built to detect frontal damage and fail at 
 | `n = 3` extended frontal (Shallice & Burgess) | Wechsler verbal and performance IQ **> 112** | Six Element Test; Multiple Errands Test (both lack imposed structure) |
 | `n = 45` mixed lesions (Volle et al.) | Retrospective memory, general intelligence | Prospective memory for **time-based** responses; the critical voxels sit on the FPl/FPm border |
 | Patient Z.P. | Recalled *both* action sets and recalled the instructions accurately | Could not recall **which** set he had been asked to reproduce; missed the cued responses. Content retained, enactment lost |
-| Focal FPl vs non-FPl frontal lesions (Urbanski et al. 2016) | — | Abstract-feature matching (choose the alternative sharing an abstract property such as symmetry with an exemplar) |
+| Focal frontal lesions, `n = 27`, VLSM (Urbanski et al. 2016) | Frontal Assessment Battery, Stroop interference, lexical and semantic fluency, Mini-Mental State Examination, naming and semantic matching — **impaired and preserved analogy groups are indistinguishable on all of them** | Visuospatial **analogy** (match two sets on the relation among their elements) with a perceptual-matching control on the same stimuli held normal. Primary read at [[wiki/entities/lateral-frontoparietal-network.md]] |
 
 **The common factor is stated by the authors and is the machine-relevant part: failure appears only when the task is naturalistic, information-rich and/or poorly structured.** Every test these patients pass supplies the problem's decomposition in the instructions. Every test they fail requires them to produce the decomposition themselves.
 
@@ -48,7 +48,7 @@ Frontal-pole patients pass the tests built to detect frontal damage and fail at 
 | **Relative uncertainty** | FPl tracks the *difference* in uncertainty between two options, **not** total uncertainty (Tomov et al.) | — |
 | **Prospective memory** | Time-based prospective memory; FPl/FPm border. Imaging localises maintenance of a future intention here | Lesion (Volle et al.), patient Z.P. |
 | **Temporal control** | In the caudal→rostral control ladder, FPl carries *temporal* control (integrating past information into future action) above mid-DLPFC's contextual control and the inferior frontal junction's feature control; activity ramps over an instruction sequence and scales with proximity-to-end × reward size | TMS to FPl, but not premotor cortex, raises error rate on the instruction-execution task |
-| **Analogical reasoning** | Present in every analogy contrast; social and non-social | Urbanski et al. 2016 lesion mapping (but see the discrepancy below) |
+| **Analogical reasoning** | Present in every analogy contrast; social and non-social | Urbanski et al. 2016 lesion mapping — a 0.33 cc left BA 10/47 cluster (MNI −31/51/−3), specific to analogy over a matched perceptual control, with severed-afferent count grading the deficit (but see the discrepancy below) |
 | **High-dimensional choice** | See next section | — |
 
 **The exploration comparison is the sharpest evolutionary argument here.** A POMDP model dissociating exploratory from exploitative signals found humans and macaques using the *same computational mechanism*, but the human implementation additionally recruits FPl; macaques do the counterfactual bookkeeping in ACC/dorsomedial frontal cortex, and humans show the ACC-adjacent signal **plus** an FPl one, specifically when chosen and unchosen outcomes are revealed simultaneously. So the human-unique area is not doing a human-unique computation — it is an *added parallel stage* on a computation both species run ([[wiki/concepts/epistemic-value.md]], `T289`).
@@ -115,10 +115,12 @@ Badre & Nee's reconciliation: mid-DLPFC is the **domain-general controller** (co
 
 | Study | Sample | Result |
 |---|---|---|
-| Urbanski et al. 2016 | 27 focal frontal patients, voxel-based lesion mapping | Left frontal pole (incl. FPl) causally required for abstract-feature matching |
+| Urbanski et al. 2016 | 27 focal frontal patients, voxel-based lesion mapping | Left frontal pole (incl. FPl) causally required for visuospatial **analogy**, not for a perceptual match on the same stimuli |
 | Mole et al. 2025 | **247** patients, diverse lesion sites | Analogy impairment mapped to a frontal network **posterior to** FPl |
 
 Chau et al.'s proposed reconciliation — and they have an interest in it — is that Mole's task required *identifying* an analogy rather than *applying* one to a new problem, and only the latter needs the high-dimensional decomposition they attribute to FPl. Not tested. The tension is opened at the Mole 2025 ingest; this row is its first half.
+
+**Reading the Urbanski primary weakens the reconciliation without settling it.** That study crossed its analogy task with exactly one supplied-versus-derived manipulation — *AnalogyApply* states the schema in words, *AnalogyFind* requires extracting it — and the frontopolar-lesion patients were impaired **equally** on the two (and equally on cross- versus intra-dimensional trials). The deficit therefore survives handing the subject the decomposition, which is the opposite of what a demand-for-decomposition account predicts, and is why the authors read the region as doing *relational matching/integration* rather than inference or schema induction. Find/Apply is not identify/apply, and the null rests on `n = 5` patients in the cluster, so this bounds the reconciliation rather than refuting it. Two further facts from the same study sit on Mole's side of the discrepancy: analogy-preserved patients' lesions overlapped in **right** prefrontal cortex, and no right-hemisphere tract disconnection predicted any deficit.
 
 ---
 
@@ -137,7 +139,7 @@ Chau et al.'s proposed reconciliation — and they have an interest in it — is
 
 ## Connections
 
-- **[[wiki/entities/lateral-frontoparietal-network.md]]** — the same tissue under the wiki's other name for it (RLPFC), with a different function assigned: that page's *second-order relational integrator* and this page's *goal-conditioned multi-filter decomposer* are rival descriptions of one region, and the decomposition account subsumes the relational one only if comparing relations is a special case of projecting onto a learned feature basis — which nobody has argued.
+- **[[wiki/entities/lateral-frontoparietal-network.md]]** — holds the primary for this page's Urbanski et al. 2016 rows (lesion coordinates, tract-disconnection dose-response, the Find/Apply null, the clinical difference score), and is the same tissue under the wiki's other name for it (RLPFC), with a different function assigned: that page's *second-order relational integrator* and this page's *goal-conditioned multi-filter decomposer* are rival descriptions of one region, and the decomposition account subsumes the relational one only if comparing relations is a special case of projecting onto a learned feature basis — which nobody has argued.
 - **[[wiki/concepts/certification-instruments.md]]** — supplies `I37`: the frontal-pole patients pass every structured test of the very competences they have lost, so a capability score is only interpretable against the *same* capability tested without an author-supplied decomposition.
 - **[[wiki/concepts/abstraction.md]]** — a fourth entry for family O2 with a measured parameter attached: abstraction as dimensionality reduction, but *multi-headed*, with a filter-count ablation showing the plurality is the part that matches the tissue.
 - **[[wiki/concepts/broadcast-hierarchy.md]]** — that page states abstraction as anatomical dimensionality reduction defined by endpoints; this page adds that the reduction's *filters are set by a separate controller per task*, so the anatomy fixes the compression site without fixing the compression.
