@@ -71,6 +71,7 @@ The source places displacement cells in **layer 5 thick-tufted pyramidal cells**
 
 ## Connections
 
+- **[[wiki/concepts/vector-coding.md]]** — the measured half of this page's algebra: object-vector cells implement the agent-to-object case allocentrically, with a metric role code that generalises over the referent, which converts "a relation is a vector in the location format" from a prediction into a recording — and leaves the object-to-object case, where neither endpoint is the agent, still unmeasured.
 - **[[wiki/concepts/path-integration.md]]** — the forward operator this page inverts; together they close a two-operator algebra over one modular code, which is what makes a relation storable in the same format as a position and therefore usable as an argument to a further relation.
 - **[[wiki/concepts/compositionality.md]]** — supplies a composition operator with a *metric*: a part-whole description is one vector naming both relata and their offset, hierarchy and recursion come free from the format, and an object's behaviour is a sequence in the same space — at the cost of requiring the two spaces to be commensurate.
 - **[[wiki/concepts/vector-symbolic-binding.md]]** — the same "relation as a vector" move with the opposite choice of role code: random and similarity-destroying there, a metric offset in a shared modular basis here, so displacement codes keep arrangement similarity that binding deliberately randomises.

@@ -161,6 +161,7 @@ Everything above negotiates *where the border goes*. Two constructions instead c
 
 ## Connections
 
+- **[[wiki/concepts/vector-coding.md]]** — the same question asked of a referent rather than a region: an object-vector code needs its origin segmented before it can measure anything, and the height threshold (43% of cells respond to a 2 cm object, nearly all to a 40 cm one) is the wiki's one quantitative handle on when a thing is salient enough to become a node.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the step that framing assumes has already happened: nodes and edges are taken as given, and this page shows the assumption is a *choice with a conservation law* — relational content moves between node-internal structure and edges as granularity changes, so "discover the graph" is underspecified until the vertex set is fixed (G27), and fMRI edges are additionally undirected by instrument.
 - **[[wiki/concepts/mean-field-reduction.md]]** — the same coarse-graining question asked of *dynamics* rather than of *space*: that ladder decides how many moments of a population's density to keep, this page decides which patch of cortex counts as a population at all, and the two choices are made independently by every whole-brain model in the wiki.
 - **[[wiki/concepts/dynamic-repertoire.md]]** — a third confound stacked on that page's window-dependence: a functional network is window-dependent *and* its very nodes were fixed by a parcellation that mixes coupling with topography, so a "network" is doubly a construct of the measurement.

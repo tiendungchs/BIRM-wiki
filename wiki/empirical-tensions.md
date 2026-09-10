@@ -49,14 +49,14 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T34 | Does hippocampus→cortex transfer happen during sleep or during waking? | `L2` | `LEANING` | 3 | [[wiki/tensions/t034.md]] |
 | T35 | Is remapping controlled by the environment or by the animal's inference history? | `L2` | `LEANING` | 1 | [[wiki/tensions/t035.md]] |
 | T37 | Is grid-like coding a discovery or a detection artefact? | `L0-INSTR` | `LIVE` | 8 | [[wiki/tensions/t037.md]] |
-| T38 | Do grid cells emerge from training on path integration? | `L3` | `LEANING` | 7 | [[wiki/tensions/t038.md]] |
+| T38 | Do grid cells emerge from training on path integration? | `L3` | `LEANING` | 8 | [[wiki/tensions/t038.md]] |
 | T39 | Is place-cell remapping random? | `L3` | `LEANING` | 5 | [[wiki/tensions/t039.md]] |
 | T40 | Is a place cell a conjunctive cell or a memory index? | `L1` | `LIVE` | 2 | [[wiki/tensions/t040.md]] |
 | T41 | Must the grid↔hippocampal weights be learned, or must they be frozen? | `L3` | `LIVE` | 3 | [[wiki/tensions/t041.md]] |
 | T42 | Is the conjunctive place cell `p = f(g̃ ⊙ x̃)` required, or does it block the structural code? | `L2` | `LIVE` | 2 | [[wiki/tensions/t042.md]] |
 | T44 | Is a periodic `g` necessary for structural generalization, or just one solution among several? | `L3` | `LIVE` | 3 | [[wiki/tensions/t044.md]] |
 | T45 | Is the hippocampal map amodal, or biased to space? | `L1` | `LIVE` | 4 | [[wiki/tensions/t045.md]] |
-| T46 | When landmarks and self-motion disagree, which one sets the structural code? | `L2` | `LIVE` | 4 | [[wiki/tensions/t046.md]] |
+| T46 | When landmarks and self-motion disagree, which one sets the structural code? | `L2` | `LIVE` | 5 | [[wiki/tensions/t046.md]] |
 | T47 | Are concurrent structural codes independent frames or one code read out in many places? | `L1` | `LIVE` | 3 | [[wiki/tensions/t047.md]] |
 | T48 | Where is an inferred, never-experienced association computed — inside the medial temporal lobe or downstream? | `L1` | `LIVE` | 2 | [[wiki/tensions/t048.md]] |
 | T49 | How densely is CA3 recurrently connected — and does pattern completion need *structured* wiring or just enough of it? | `L3` | `LIVE` | 3 | [[wiki/tensions/t049.md]] |
@@ -315,3 +315,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T345 | Is movement-correlated activity in a sensory area a valid proxy for the prediction term? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t345.md]] |
 | T346 | Is a cortical action→sensory-consequence map stored in the sender's activity, or in the sender→receiver synaptic matrix? | `L2` | `LIVE` | 2 | [[wiki/tensions/t346.md]] |
 | T347 | Does the entorhinal-hippocampal code de-alias geometrically identical subspaces, or only positions within one? | `L2` | `LIVE` | 5 | [[wiki/tensions/t347.md]] |
+| T348 | Is an object-vector block path-integrated, or measured online from the referent? | `L2` | `LIVE` | 3 | [[wiki/tensions/t348.md]] |

@@ -134,6 +134,7 @@ The second coupling is the important one architecturally: it makes sensory predi
 
 ## Connections
 
+- **[[wiki/concepts/vector-coding.md]]** — the complementary anchoring discipline, in the same region and dissociable in one session: the grid integrator survives darkness on self-motion while the object-vector code degrades in it, so medial entorhinal cortex holds two position codes that fail under opposite deprivations (`T46`, `T348`).
 - **[[wiki/concepts/nonspatial-maps.md]]** — which non-spatial domains this mechanism is even available in: displacement must compose, concept space composes (a morph rate ratio is a direction) and a social network does not, and the domains showing grid signatures are largely the composing ones.
 
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — shares the continuous-attractor formalism while declining to place path integration in CA3, and adds two properties of the same network type: many uncorrelated charts coexist, and continuous and discrete patterns can be stored together and retrieved from each other.

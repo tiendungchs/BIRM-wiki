@@ -178,6 +178,7 @@ No spatial supervision, no periodicity prior, no `(x,y)` target; the only loss i
 
 ## Connections
 
+- **[[wiki/concepts/vector-coding.md]]** — the primary behind this model's cell-zoo claim: object-vector cells are real, abundant (14.7% of medial entorhinal cells, above grid cells at 11.3%) and carry exactly the invariance the `g`/`x` split predicts, which removes the readout-artefact explanation for them (`T38`) and leaves the basis-reweighting proposal still untested.
 - **[[wiki/concepts/nonspatial-maps.md]]** — the test set this model's central claim needs and has never been run on: if one structural code is reused across worlds, the non-spatial domains are where that must show, and every demonstration to date is spatial.
 
 - **[[wiki/entities/rolls-treves-hippocampal-model.md]]** — the same anatomy optimised for the opposite quantity: capacity and one-trial arbitrary binding there, transfer and structural generalisation here, with no model in the wiki supplying both.

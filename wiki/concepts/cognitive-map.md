@@ -195,6 +195,7 @@ The transferable point is that G39's missing ingredient is a *group*: anchoring 
 
 ## Connections
 
+- **[[wiki/concepts/vector-coding.md]]** — sharpens this page's "boundaries rather than objects anchor the map" rule: objects *do* anchor a code, just not the global one, and the separating variable turns out to be whether the referent obstructs the path (border cells) rather than what kind of thing it is (object-vector cells fire to a suspended object, 32/32).
 - **[[wiki/concepts/nonspatial-maps.md]]** — this page's evidence base outside physical space, split off at the 244-source lint: the same three elements tested in concept, social, discrete-graph, rank, gaze and evidence spaces, where two of them generalise and anchoring does not — which is why `G39` is a gap with no biological template rather than an unbuilt mechanism.
 
 - **[[wiki/entities/vector-hash.md]]** — the strongest argument in the wiki that the map machinery is not *for* space: spatial and episodic memory are co-localised because a low-dimensional vector-updatable code is what high-capacity sequence memory requires, whatever the episode contains — non-spatial sequences are stored on the same scaffold by choosing an arbitrary trajectory through it.

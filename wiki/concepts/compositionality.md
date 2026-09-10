@@ -267,6 +267,7 @@ Three consequences for this page.
 
 ## Connections
 
+- **[[wiki/concepts/vector-coding.md]]** — a compositional primitive with its own frame, measured: an extended object is coded as vectors anchored to its *ends* rather than to its surface, so the parts a composition operates over are recovered by the code instead of being supplied by the modeller.
 - **[[wiki/entities/pcfg-set.md]]** — the operationalisation of this page: five task-independent behavioural tests that split "compositional" into separately failable facets, plus the consistency score, which measures composition without measuring competence.
 - **[[wiki/entities/cfq.md]]** — makes the split axis a computed quantity instead of a hand-picked holdout: compound divergence over derivation subgraphs predicts accuracy at `R² = 0.81–0.88` where length ratio predicts it at 0.11–0.22, which both re-scores every benchmark on this page and puts the facet decomposition itself in question (T312).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the productivity of the meta-graph: a finite installed vocabulary generates an unbounded set of instance-graphs, which is why binding can be one-shot.
