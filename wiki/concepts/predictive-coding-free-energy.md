@@ -58,6 +58,69 @@ The scope variable is the one this page has no expression for. `γ → 0, β ≪
 
 **And the target is not reconstruction.** The same source states plainly that cortical abstraction is **lossy by design**: the generative model does not reproduce expected sensory input in its original form but generates metabolically efficient approximations *sufficient for guiding action*. Every implementation on this page scores itself by the residual `e^{S_{i−1}}` going to zero. If the biological objective is sufficiency-for-action at minimum cost, the residual has a floor that is not noise, and driving it below that floor is spending energy on detail the policy will not use.
 
+
+---
+
+## The origin: the residual *is* the extra-classical surround (Rao & Ballard 1999)
+
+> `raw/rao-1999-predictive-coding-visual-cortex.md` — Rao & Ballard, *Nature Neuroscience* 2(1):79–87, 1999. The primary this page has so far cited only through Friston 2009 and Whittington & Bogacz. Its contribution is not the update rule (which it inherits from Kalman filtering, Rao & Ballard 1997) but the **one falsifiable physiological consequence** the rule has: a class of receptive-field effects nobody had connected to prediction falls out of it with no free parameters.
+
+### The scheme, in the notation it was written in
+
+```
+I      = f(U r) + n                       level 0 ← level 1 : image from causes           (1,2)
+r      = f(U^h r^h) + n^td                level 1 ← level 2 : causes from higher causes   (3)
+E      = ‖I − f(Ur)‖²/σ²  +  ‖r − r^td‖²/σ²_td  +  g(r) + h(U)                            (4,5)
+ṙ  ∝  (∂f/∂x)ᵀ Uᵀ (I − f(Ur))  +  (r^td − r)/σ²_td  −  g′(r)                              (7)
+U̇  ∝  (∂f/∂x)ᵀ (I − f(Ur)) rᵀ  −  h′(U)                                                   (9)
+```
+
+| Feature | Statement |
+|---|---|
+| **Two residuals per level, not one** | a level is driven by a *bottom-up* residual `I − f(Ur)` (in the level below's coordinates) **and** a *top-down* residual `r^td − r` (in its own). Equation (1) of this page compresses both into `e`; the simulation kept them on separate cell populations — 32 error-detecting neurons carrying `r − r^td` upward, 256 feedback neurons carrying `Ur` downward |
+| **Weighting is by inverse noise variance** | `σ²` vs `σ²_td` — the precision gates `α, β, γ` above, present in the original as variances of the two noise processes rather than as free scalars |
+| **The learning rule is Hebbian with the *error* postsynaptic** | `ΔU ∝ (residual)·rᵀ`: presynaptic activity is the representation, postsynaptic is the residual. Local at every level; the top-down prediction never appears in it and influences `U` only through `r` |
+| **The objective is code length** | `E` is a negative log posterior, and the authors read it as **minimum description length** — accurate *and* cheap to encode. See [[wiki/concepts/prediction-compression-equivalence.md]] |
+| **Receptive-field growth is derived, not stipulated** | one level-2 module predicts several level-1 modules, so effective field size multiplies up the hierarchy; the only assumption is that a dendritic arbor spans a finite patch |
+
+Level-1 basis vectors trained on natural images came out as oriented edges/bars (Gabor-like); level-2 vectors as combinations of them. Localisation required *either* a Gaussian dendritic window *or* a sparse kurtotic prior on `r` — and the physiological results below hold under **both** priors, so they are a consequence of the residual, not of sparseness.
+
+### End-stopping as a positive prediction error, with no fitted parameter
+
+A short bar inside a level-1 field drives the error units hard; extend the same bar past the field and they fall silent. The mechanism is entirely in the training distribution: **in natural images a bar is almost never local**, so the flanking context predicts the centre and the residual vanishes. The authors measured the statistic the argument needs — image autocorrelation along the locally dominant orientation stays high out to **±50 pixels**, against a much faster fall-off in the orthogonal direction, replicated at three image scales and absent in white noise.
+
+| Result | Number |
+|---|---|
+| Model length-tuning curves vs. cat striate layer 2/3 | close match, and **parameter-free** — the curve is set by natural-image statistics, not fitted to the physiology |
+| Error units end-stopped (>50% inhibition), feedback intact | **28 / 32** |
+| Same units after cutting level-2 → level-1 feedback | **5 / 32** (82% reduction); the survivors were those whose field orientation was misaligned with the test bar |
+| Iso-oriented surround grating | −85.3% response |
+| Cross-oriented surround grating | **+19.1%** — orientation contrast *raises* the residual, so facilitation and suppression are one mechanism at two signs |
+| Orientation-contrast vs. homogeneous texture, tonic phase | +93.5%, developing over time as in alert macaque V1 |
+
+Corroborating physiology cited by the paper: inactivating higher visual areas disinhibits surround responses in lower areas (anaesthetised monkey); removing areas 17/18 feedback to cat LGN strongly reduces end-inhibition; and extra-classical effects in alert monkey V1 L2/3 appear only **80–100 ms** after stimulus onset — a latency consistent with a cortico-cortical loop rather than with feedforward wiring.
+
+**Why this matters beyond vision.** It is the wiki's cleanest case of a **context effect that is a property of the training distribution rather than of the architecture**. The same network trained on a corpus without long-range oriented correlations would show no end-stopping. Read as a design rule: in a residual architecture, *which* contexts a unit is silent for is a read-out of what its generative model has learned to be predictable — so a suppression map is a free probe of the learned prior, and stimuli constructed to **violate** the training statistics are the sharpest drive available. The authors state this as a prediction: L2/3 cells should respond most vigorously to input whose statistics deviate drastically from natural images.
+
+### The feedback route is not identified by the dynamics
+
+In the linear case (`f(x) = x`) equation (7) can be rewritten with `W = UᵀU` so that the residual descent becomes **recurrent lateral inhibition among the `r` units of one level**:
+
+```
+ṙ  ∝  Uᵀ I  −  W r  +  (r^td − r)/σ²_td  −  g′(r)          (8)
+```
+
+Some of what equation (1) attributes to descending feedback is therefore reproducible by within-level horizontal connections computing the same quantity, and the paper further notes that repeated subtraction of neighbours' activity approximates **divisive normalization** ([[wiki/concepts/inhibitory-control-of-coding.md]]) — a third wiring for the same arithmetic. This is an identifiability limit of a different kind from [[wiki/concepts/objective-identifiability.md]]'s: there the objective is not recoverable from the representation; here the **route** is not recoverable from the dynamics, even with the objective fixed. Logged as [[wiki/empirical-tensions.md]] **T343**, and it is a third structural consideration for **T259** — a level able to substitute its own lateral connections for the level above's feedback is not straightforwardly a link in a chain of command.
+
+### Two error populations, proposed in 1999 on a different argument
+
+Because the residual is signed and the early visual pathway already splits sign across ON-centre and OFF-centre cells, the authors propose **two distinct cortical populations, one for positive and one for negative prediction error** — the decomposition [[wiki/concepts/prediction-error-neurons.md]] carries from Keller & Mrsic-Flogel 2018 and [[wiki/empirical-tensions.md]] **T341** records. The premises are independent: 1999 argues from *sign representation plus an anatomical precedent*, 2018 from a *firing-rate budget*. Position B of T341 therefore does not stand or fall with the rate-budget premise alone.
+
+### The generalisation claim, and its reach
+
+The paper's closing list of loci where a response looks like a residual — all offered as suggestions, none demonstrated here: MT surround suppression by matching motion direction (predicting that inactivating MST should reduce it); inferotemporal cells firing to a *non-match* against an item held in memory ([[wiki/concepts/memory-read-and-erase.md]]); cerebellum-like structures in electric fish subtracting a corollary-discharge-based sensory expectation ([[wiki/entities/cerebellum.md]]); and midbrain dopamine reward prediction error ([[wiki/concepts/reward-prediction-error.md]]). The claim that predictive coding is *the* canonical cortical computation is 1999 vintage and still rests on the same evidence base that [[wiki/concepts/prediction-error-neurons.md]]'s falsification test 3 was written to supply.
+
+**Limits.** Three levels, static images only (the temporal extension `r(t+1) = f(V r(t))` is written down and not run); linear generative model for the end-stopping simulations; the physiological comparison is to published tuning curves rather than to a held-out recording; and the model has no account of *why* the level-2 field is the size it is, which is what sets the spatial scale of the whole effect.
 ---
 
 ## The precision ratio selects the objective — backpropagation is one setting of one scalar
@@ -408,3 +471,6 @@ It also sharpens the picture the illusion is usually used to support. The mask i
 - **[[wiki/concepts/reasoning.md]]** — the rival reduction in which reasoning stops being a separately-defined operation at all, since one minimised quantity governs perception, action and inference together.
 - **[[wiki/entities/entorhinal-cortex.md]]** — the same subtract-the-prediction motif proposed at the entrance to a *memory store* rather than inside a sensory hierarchy: entorhinal layer Vb receives a copy of what layer II sent to the hippocampus alongside the hippocampus's processed return of that same input, under a transverse topology preserved across mammals, which is the wiring a comparator needs (Witter et al. 2017).
 - **[[wiki/concepts/prediction-error-neurons.md]]** — the cell-class layer this formalism needs and does not specify, and the three corrections it returns: the single signed `ξ` may have to split into two oppositely wired circuits under cortex's low baseline rate (**T341**), the spike-efficiency justification fails a counting argument, and the strict level-to-level coupling is optional once any two areas hold a learned transformation between their coordinate systems.
+- **[[wiki/entities/early-visual-system.md]]** — the one physiological consequence of this page's rule that costs no free parameter: end-stopping and extra-classical surround suppression fall out of a residual hierarchy trained on natural images, and are therefore a read-out of the *training distribution* rather than of the architecture — which also supplies that page's unexplained "lateral or feedback" contextual suppression with a normative account and a proof that response data cannot settle the route (Rao & Ballard 1999, T343).
+- **[[wiki/concepts/prediction-compression-equivalence.md]]** — the original objective of this page's scheme stated as code length: Rao & Ballard's `E` is read as minimum description length, so the earliest biological predictive-coding model already filled the objective slot with description length rather than with reconstruction error.
+- **[[wiki/concepts/inhibitory-control-of-coding.md]]** — the third wiring for the same arithmetic: repeated subtraction of neighbouring activity under the lateral rewrite `W = UᵀU` approximates divisive normalization, so normalization, horizontal inhibition and descending prediction are one quantity computed on three routes (T343).

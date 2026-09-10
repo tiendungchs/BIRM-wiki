@@ -310,3 +310,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T340 | Does the episodic store return its output to the stream that wrote it, or to the other one? | `L2` | `LIVE` | 1 | [[wiki/tensions/t340.md]] |
 | T341 | Does a cortical area carry one signed prediction-error population, or two sign-specific ones? | `L1` | `LIVE` | 4 | [[wiki/tensions/t341.md]] |
 | T342 | Does a cerebellar module emit a motor command, or a prediction of that command's sensory consequence? | `L1` | `LIVE` | 2 | [[wiki/tensions/t342.md]] |
+| T343 | Is the extra-classical surround carried by inter-areal feedback or by within-level lateral connections, and can any dynamical measurement tell? | `L2` | `LIVE` | 5 | [[wiki/tensions/t343.md]] |
