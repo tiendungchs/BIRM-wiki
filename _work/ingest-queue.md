@@ -523,3 +523,6 @@ Not acquired: Waltz et al. 1999, *A system for relational reasoning in human pre
 - [x] `kirsanov-2026-vectorized-dendritic-gradients.md` — plasticity · S · 2026 — self-clipped (Substack); secondary treatment of Francioni et al. 2026, ingest after it
 - [x] `kirsanov-2026-plasticity-beyond-textbook-rules.md` — plasticity · S · 2026 — self-clipped (Substack); plasticity rules beyond spike-timing-dependent plasticity
 - [x] `talk-nd-motor-cortex-dynamics.txt` — attractor-dynamics · X · nd — transcript, no frontmatter; motor cortex as a dynamical system (preparatory activity as initial condition, output-null subspace)
+- [ ] `webb-2024-relational-bottleneck-inductive-bias.md` — analogy-abstraction · F · 2024 — user-clipped; the relational bottleneck as an architectural inductive bias: deny the reader attribute information, keep only relations · `G4`, `G40`
+- [ ] `lundqvist-2016-gamma-beta-bursts-underlie-working-memory.md` — working-memory · R · 2016 — user-clipped; monkey PFC, delay activity is discrete gamma bursts, not sustained firing; ingest before `lundqvist-2018` · `G104`, `T293`
+- [ ] `wendelken-2012-rlpfc-domain-general-or-domain-sensitive.md` — analogy-abstraction · R · 2012 — user-clipped; RLPFC domain-general with a dorsal-ventral gradient in its afferent connectivity · `G21`, `T289`

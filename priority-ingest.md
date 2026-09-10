@@ -18,3 +18,10 @@ One INGEST each:
 - [x] `hobeika-2016-analogical-reasoning-metaanalysis.md` — analogy-abstraction · R · 2016 — 27 experiments / 506 subjects; domain-general left rostrolateral prefrontal over domain-specific ventral/dorsal inputs · `G21`, `T289`
 - [x] `urbanski-2016-left-frontal-pole-analogy.md` — analogy-abstraction · R · 2016 · **LOSSY** (pdf2md) — 27 focal frontal patients, voxel-based lesion mapping: left frontal pole causally required · `T289`, `T92`
 - [x] `mole-2025-right-frontal-network-reasoning.md` — analogy-abstraction · R · 2025 — 247 unilateral-lesion patients: *right* frontal network. Ingest after Urbanski 2016; opened `T336` (left frontopolar site vs right frontal network); task difference does not explain it · `T289`
+## Unfiled clippings — dropped in `raw/` after wave 18
+
+Validated by `./tools/clip-check.sh` (0 FAIL, 0 WARN). Ingest order S → F → R.
+
+- [ ] `webb-2024-relational-bottleneck-inductive-bias.md` — analogy-abstraction · F · 2024 — user-clipped; the relational bottleneck as an architectural inductive bias: deny the reader attribute information, keep only relations · `G4`, `G40`
+- [ ] `lundqvist-2016-gamma-beta-bursts-underlie-working-memory.md` — working-memory · R · 2016 — user-clipped; monkey PFC, delay activity is discrete gamma bursts, not sustained firing; ingest before `lundqvist-2018` · `G104`, `T293`
+- [ ] `wendelken-2012-rlpfc-domain-general-or-domain-sensitive.md` — analogy-abstraction · R · 2012 — user-clipped; RLPFC domain-general with a dorsal-ventral gradient in its afferent connectivity · `G21`, `T289`
