@@ -2,7 +2,9 @@
 
 **A hidden Markov model whose emission structure is fixed and degenerate — every sensory observation owns a private pool of "clone" latent states — so learning transitions *is* learning a de-aliased state space.**
 
-The wiki's requirement list has said "clone cells, or path-integrated identity" for de-aliasing (hardness source 3, gap G2) since the framing page was written. CSCG is the clone half made concrete (George et al. 2021, as reviewed by Whittington et al. 2022).
+The wiki's requirement list has said "clone cells, or path-integrated identity" for de-aliasing (hardness source 3, gap G2) since the framing page was written. CSCG is the clone half made concrete.
+
+> **Provenance.** George, Rikhye, Gothoskar, Guntupalli, Dedieu & Lázaro-Gredilla 2021, *Clone-structured graph representations enable flexible learning and vicarious evaluation of cognitive maps*, Nat. Commun. 12:2392 (`raw/george-2021-clone-structured-cognitive-graphs.md`) — the primary, ingested after the page was written from Whittington et al. 2022's review and Sun et al. 2025's in-vivo test. **It corrects two limits the second-hand summary asserted:** the model does transfer a learned graph to a new environment (§Schema transfer), and it does yield a hierarchy (§Hierarchy by community detection). Both come with a caveat the review dropped, recorded below.
 
 **It is also, since Sun et al. 2025, the only model in the wiki matched to a brain on its *learning trajectory* rather than on its endpoint** — see "The in-vivo test" below.
 
@@ -18,6 +20,11 @@ The wiki's requirement list has said "clone cells, or path-integrated identity" 
 | Objective | `p(X, A) = Σ_Z Π_t p(x_t \| z_t) p(z_t, a_t \| z_{t-1})`, trained by expectation–maximisation |
 | Inference | Which clone is active now (Bayes), given the sequence |
 | Planning | **By inference**: condition the model on a start and a goal clone, infer the distribution over intervening action sequences |
+| Learning rule | Baum–Welch expectation-maximisation. E-step `α(n+1)ᵀ = α(n)ᵀ T(x_n, a_n, x_{n+1})`, `β(n) = T(x_n, a_n, x_{n+1}) β(n+1)`; M-step is row-normalisation of the accumulated `ξ_{ikj}` |
+| Regularisation | A pseudocount `κ` added to the count statistic before normalising — a Laplacian prior on `T`, so every action has non-zero probability everywhere. Kept as a rank-1 term added to a block-sparse matrix, so it costs nothing. Then re-run with `κ = 0` (Viterbi training) to delete unused clones |
+| Cost | `O(M²N)` time and `O(H²+MN)` memory for `M` clones per symbol, versus `O(H²N)` for a plain HMM with `H = ME` states — **independent of alphabet size `E`**, because a frozen 0/1 emission means only one `T(i,·,j)` block is touched per step |
+
+The action is grouped with the *next* hidden state, `p(z_{t+1}, a_t | z_t)`, which removes the loop in the graphical model and leaves a chain — so belief propagation is **exact**, not approximate. Two consequences the model gets for free rather than by design: actions are *observed integers with unknown semantics* (the agent knows `a=0` happened, not that it means "north"), and because the model scores `p(z_{t+1}, a_t | z_t)` rather than `p(z_{t+1} | z_t, a_t)`, it learns which actions are **feasible** in a state, which an action-conditioned formulation cannot ask.
 
 The whole trick is in the emission. Because `p(x|z)` is frozen at 0/1, no capacity is spent learning what a state looks like, and the only free parameters are the edges. Aliasing is handled structurally: a frog seen in two places is two different clones with different neighbours.
 
@@ -35,15 +42,55 @@ The whole trick is in the emission. Because `p(x|z)` is frozen at 0/1, no capaci
 
 ---
 
+## What the primary demonstrates (George et al. 2021)
+
+All experiments: random walks of action–observation pairs in gridworlds where observations are severely aliased and no Euclidean, 2D or metric assumption enters the model. Learning is judged by whether the recovered transition graph is *the* graph — Viterbi decoding uses exactly 48 states on a 6×8 room, the theoretical optimum.
+
+| Result | Setup | Why it matters here |
+|---|---|---|
+| **Map from aliasing alone** | 6×8 room, 48 locations, **4** distinct observations, 50k steps | The state space is recovered when observation carries almost no location information. Degrades gracefully with size: a 9×11 room's periphery is exact, a few interior cells stay merged. Partial recovery even with actions withheld |
+| **Transitive inference by stitching** | Two 8×6 rooms sharing a 3×3 corner patch, experienced in two *separate* 10k random walks, one CSCG trained on both as independent sequences | The overlap is merged and the combined map supports navigation between regions **no trajectory ever connected**. A second patch in room 1 that is *observationally identical* to the overlap stays unmerged — sequential context, not local appearance, decides identity. During the first traversal of the overlap, clones of both candidate patches are simultaneously active; stepping out resolves it |
+| **Schema transfer** | Freeze `T` learned in room 1, re-initialise the emission matrix, learn only `E` in a new room from **20 action–observation pairs** along its periphery | Shortest-path queries return correct action sequences through cells **never visited**; blocking the path returns the next Dijkstra-optimal route. Viterbi decoding of a path in room 2 recovers the same hidden states as the same path in room 1. With `T` reused, the new room is fully learned the moment every cell has been visited once |
+| **Hierarchy by community detection** | InfoMap run on the learned `T`, twice: 4×4 grid of aliased rooms joined by corridors, itself grouped into four hyper-rooms | Communities **respect room boundaries** (a room may split, no community straddles rooms); a second pass recovers the hyper-rooms. Planning top-down through the hierarchy gives paths **25% shorter** than flat Dijkstra on the same graph; surrogate communities that ignore room boundaries give paths **35% longer** — so the gain is in the partition, not in being hierarchical |
+| **The negative control for the row above** | Successor representation computed on *observations*, same maze | Community detection and multidimensional scaling on the SR **fail** to recover the communities. Partitioning must run on the de-aliased latent graph; under partial observability a first-order model of the observation stream has no modularity to find |
+| **Remapping as two knobs** | One CSCG trained on five 5×5 rooms (identical 25 observations, permuted) and on five mazes, switched at unsignalled irregular intervals | Global remapping = EM run to convergence (clone sets maximally disjoint). Partial remapping = partial training. **Rate remapping = smoothing/soft evidence at convergence** — the same clones fire, at lower rates, because uncertainty spreads evidence across clones of one observation. Environment identity is decodable from the population despite every observation being shared |
+| **Error correction** | 20% of symbols corrupted uniformly | Forward-pass MAP fixes 50/55 corrupted symbols in rooms and 46/54 in mazes, corrupting none of the clean ones — de-aliasing and denoising are the same operation run on the same messages |
+| **Lap cells and splitters** | 4 laps of a rectangular track before reward; T-maze figure-of-eight | Distinct clones per lap with **no lap-boundary marker in the input**, and graded cross-lap activity (a signature of event-specific representation) falling out of smoothing rather than being fitted. Elongating the maze preserves the lap-specific traces — the repeated observation is explained away as noise at the previous step |
+
+**Planning is one algorithm, not a family.** Clamp the current clone and a goal (specified as an observation *or* as a specific clone), run belief propagation, read the action sequence off the backward pass; a forward pass says at what horizon the goal becomes feasible. The same machinery, with no retraining and only a change of which variables carry evidence, answers: where am I, which actions are feasible here, what will I see `k` steps ahead marginalising over unseen actions, which actions get me there, generate a plausible trajectory. Goals are arbitrary and chosen at test time.
+
+---
+
+## Neurobiological circuit
+
+The mapping is stated by the authors, not derived from data — but it is unusually literal, and it is what makes the model's cost local.
+
+| Model object | Circuit claim |
+|---|---|
+| One clone | One neuron (or a small assembly — the representation is unchanged) |
+| Transition matrix `p(z_{t+1}|z_t)` | **Lateral** connections among clone neurons; axonal branches are the graph's directed edges |
+| Emission `C(x)` | The shared **bottom-up** input: all clones of one observation receive the same afferent |
+| Forward message | Clone output = weighted sum of lateral inputs **×** bottom-up input — a multiplicative gate, so context selects among the sequences an observation participates in |
+| Soft evidence | Graded activation over observation neurons; ambiguity shows as a spread population code over clones, in proportion to posterior probability |
+| Learning | EM approximated by spike-timing-dependent plasticity |
+| Anatomy | Representation learning in CA3/CA1; CSCG-based decision-making in orbitofrontal cortex |
+| Replay | Two distinct roles — post-learning Viterbi consolidation of trajectories, and behaviour-time sampling for vicarious evaluation of multiple goals |
+
+**Grid cells are demoted to an input.** In this account the grid code is "just another sensory modality" feeding the sequencer, useful because it gives a periodic tiling when other cues are degenerate — not a scaffold the map is built on. The authors go further: SR eigenvectors look grid-like because *any* method with a transition matrix has such eigenvectors, and they suspect the property has no behavioural relevance. That is an explicit challenge to [[wiki/concepts/abstract-structural-codes.md]]'s spectral derivation, offered as a suspicion with a supplementary result behind it.
+
+---
+
 ## What it cannot do
 
 | Limit | Consequence |
 |---|---|
-| **Learns each map *de novo*** | No benefit from having learned a structurally identical world before — zero transfer, the meta-graph level is absent. Measured against biology this is now a *quantified* deficit and not a stylistic one: mice reuse an established state machine for a new cue pair at 147 vs 483 trials, rebinding only the sensory leaf (Sun et al. 2025) |
+| **Transfers only when the modeller performs the transfer** | Not "zero transfer" — the primary reuses `T` across rooms and relearns only `E`, which is genuine structural transfer and buys shortcut planning through unvisited cells (§Schema transfer). What is absent is every part that would make it autonomous: nothing stores more than one `T`, nothing **selects** which stored `T` fits the new environment, nothing detects that no stored `T` fits, and the reuse is *identity* on the graph rather than a deformation of it (which is why G83 still stands). The environments must also share topology exactly. Measured against biology the autonomy is what is missing: mice reuse an established state machine for a new cue pair at 147 vs 483 trials, rebinding only the sensory leaf, with no experimenter freezing anything (Sun et al. 2025) |
 | **Predicts nothing about the order of learning without the modeller's help** | The one thing the model uniquely gets right — the decorrelation sequence — inverts if the reward and reward-cue symbols are presented in the other order, a choice the task itself does not fix (Sun et al. 2025, G46) |
 | **No place cells for space** | Without extra assumptions it learns splitter cells but *not* the spatial cells that co-exist with them, because it cannot profit from generalising the structure of space ([[wiki/empirical-tensions.md]] T29) |
-| **Clone pool is a hyperparameter** | Capacity per observation is set by hand — the allocate-vs-reuse threshold of gap G38 in its crudest form |
-| **Discrete and flat** | No hierarchy, no compositional bases, no continuous interpolation |
+| **Clone pool is a hyperparameter** | Capacity per observation is set by hand — the allocate-vs-reuse threshold of gap G38 in its crudest form. The pseudocount does some of the work automatically (20 clones allocated where 7 suffice, redundant ones removed by the regulariser plus Viterbi training), but the ceiling is still the modeller's |
+| **Hierarchy is extracted, not represented** | Community detection does recover the room/hyper-room nesting, but it runs *outside* the model, offline, on the finished `T` — the CSCG's own state space stays flat and single-scale. Nothing in the model schedules re-partitioning when the graph estimate changes, and the number of levels is set by how many times the modeller re-runs InfoMap |
+| **Discrete and non-compositional** | No compositional bases, no continuous interpolation; a state is an index, so two states cannot be *partly* the same |
+| **Vocabulary is given** | Observations arrive as integers and actions as integers with unknown semantics — the model never has to decide what counts as an observation or an action, which is hardness source 2 handed to the modeller (gap G4) |
 
 ---
 
@@ -88,12 +135,18 @@ Three readings the wiki should carry:
 | Hippocampus is | the **map** (its edges are the graph) | a **memory index** binding cortical codes | the map (rows of `S`) |
 | State space | learned per environment | reused across environments | supplied |
 | Learning | local, EM, fast | gradient, slow, many environments | TD or closed form |
-| Generalises to a new world of the same shape | No | Yes | No |
+| Generalises to a new world of the same shape | Only if the modeller freezes `T` and relearns `E` | Yes, automatically | No |
+| Inference | **exact** (chain, belief propagation) | approximate — the representational complexity forbids exact | closed form, but for a fixed policy |
+| Goal chosen at test time | Yes — clamp any clone or observation and infer | No | Requires recomputing `S` when the policy or the goal moves |
+| Native handling of ambiguous or erroneous observations | Yes (soft evidence; 50/55 corrupted symbols repaired) | Not stated | No |
+| Recovers latent hierarchy | Yes, by partitioning `T` offline | Not demonstrated | Only under **full** observability |
 | De-aliases | Yes | Yes (via `g`) | No |
+
+**The primary's own comparison** is sharper than the review's, and the four rows above the de-aliasing row are its claims. Against TEM: arbitrary test-time goals, exact inference, native uncertainty. Against SR: the SR aggregates future occupancy *under a policy*, so dynamic planning means recomputing it, and it is first-order over observations, so it cannot find communities when observations are aliased.
 
 **The proposed merge.** Both models use multiple clone cells per observation, and both are probabilistic, so they compose directly: a TEM-like architecture in which hippocampus additionally predicts *future hippocampal states*. Fast per-task map construction from CSCG, transfer from TEM. Whittington et al. state this as the unification, not as a result — nobody has built it.
 
-**Hardness-source coverage** ([[wiki/concepts/latent-graph-discovery.md]]): source 3 (aliasing) ✓ · source 4 (simultaneity) ✓ (online Bayesian filtering while acting) · source 1 (two-level) ✗ · source 2 (vocabulary — observations and actions are given) ✗ · source 5 (spurious edges) ✗ · source 6 (non-stationary topology) ✗.
+**Hardness-source coverage** ([[wiki/concepts/latent-graph-discovery.md]]): source 3 (aliasing) ✓ · source 4 (simultaneity) ✓ (online Bayesian filtering while acting) · source 1 (two-level) ~ (a nesting *is* recovered, but by an external partitioner run on the finished graph, not by the learner) · source 2 (vocabulary — observations and actions are given as integers) ✗ · source 5 (spurious edges) ✗ · source 6 (non-stationary topology) ✗.
 
 ---
 
@@ -120,3 +173,7 @@ Three readings the wiki should carry:
 - **[[wiki/entities/hidden-state-inference-remapping.md]]** — the same inference run one level down, over states *within* a single map rather than over maps: a metrically stretched track makes CA1 hold the current state past its usual extent or jump to the next plausible one, then reset on the first disambiguating cue.
 - **[[wiki/entities/hami.md]]** — the same discrete-allocation answer to aliasing one level out: clones are allocated over latent states inferred from transitions, symbols over sensory identities scored by a frozen contrastive metric, and both then get de-aliasing free from the allocation bookkeeping — with the clone pool's hand-set size and HAMI's similarity threshold being the same free parameter (Poursiami et al. 2025).
 - **[[wiki/concepts/circuit-size-separation.md]]** — the cost of this model's founding operation on a different substrate: deciding whether two identical observations are one latent state or two is element distinctness, which one spiking neuron computes in temporal coding and a sigmoidal net provably needs `Ω(n)` hidden units for (Maass 1997).
+- **[[wiki/concepts/temporal-abstraction-options.md]]** — the graph-partitioning family of option discovery, built and measured: InfoMap on this model's learned `T` returns a room/hyper-room nesting that respects the true boundaries and plans 25% shorter paths, and the SR-on-observations control shows the partition has to run on the *de-aliased latent* graph rather than on the observation stream (George et al. 2021).
+- **[[wiki/concepts/schema-assimilation.md]]** — assimilation and accommodation as two matrices: reusing `T` and relearning only `E` is assimilation of a new world into an existing schema, running EM on both matrices is accommodation, and the model has no rule that chooses between them.
+- **[[wiki/concepts/loopy-belief-propagation.md]]** — the reason this model's inference is exact rather than approximate: grouping the action with the next hidden state removes the loop and leaves a chain, so one forward and one backward sweep answer every query, and the "loopy" caveats do not apply.
+- **[[wiki/concepts/abstract-structural-codes.md]]** — the claim aimed directly at that page: George et al. suspect grid-like SR eigenvectors are a generic property of *any* transition matrix with no behavioural relevance, and treat the grid code as one more sensory input to the sequencer rather than as the scaffold the map is built on.

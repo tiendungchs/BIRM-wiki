@@ -19,7 +19,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G1 | Two-level separation exists as a timescale split, not as a factorization | part | `L1` | `PARTIAL` | 23 | [[wiki/gaps/g001.md]] |
 | G2 | De-aliasing without a hand-built state space | part | `L0` | `PARTIAL` | 13 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `L1` | `PARTIAL` | 13 | [[wiki/gaps/g003.md]] |
-| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 25 | [[wiki/gaps/g004.md]] |
+| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 26 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `L1` | `PARTIAL` | 7 | [[wiki/gaps/g005.md]] |
 | G6 | Spurious edges survive training — and are the default, not the exception | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `L0` | `OPEN` | 4 | [[wiki/gaps/g007.md]] |
@@ -97,7 +97,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G80 | The wiki's most expressive per-parameter variable is the one nothing optimises | part | `L3` | `PARTIAL` | 4 | [[wiki/gaps/g080.md]] |
 | G81 | No graph-discovery mechanism in the wiki estimates edges through an observation model | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g081.md]] |
 | G82 | Every low-dimensional manifold in the wiki is measured, none is generated | part | `L3` | `PARTIAL` | 4 | [[wiki/gaps/g082.md]] |
-| G83 | Every structure-discovery mechanism in the wiki outputs a structure; none outputs a reusable map between structures | part | `L0` | `PARTIAL` | 3 | [[wiki/gaps/g083.md]] |
+| G83 | Every structure-discovery mechanism in the wiki outputs a structure; none outputs a reusable map between structures | part | `L0` | `PARTIAL` | 4 | [[wiki/gaps/g083.md]] |
 | G84 | No architecture in the wiki knows the topological position of its own modules, and none has a component whose job is to be the crossing point | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g084.md]] |
 | G85 | No architecture in the wiki reads its own network topology, and none treats it as a demand-graded control variable | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g085.md]] |
 | G86 | Every architecture in the wiki tunes its stopping rule and its memory separately, and nothing couples them | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g086.md]] |
