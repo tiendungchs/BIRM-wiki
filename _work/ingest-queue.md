@@ -1,4 +1,4 @@
-# Ingest queue — 359 sources, wave-ordered
+# Ingest queue — 386 sources, wave-ordered
 
 Generated from `manifest.tsv`. Ingest top to bottom.
 Within a wave: **S**urvey → **F**ramework → **M**echanism/**B**enchmark → **R**esult → e**X**position, oldest first.
@@ -503,9 +503,9 @@ Opened from the query on `analogical-mapping` / `working-memory` / Penn 2008. Te
 One INGEST each:
 
 - [x] `vendetti-2014-lateral-frontoparietal-evolution-development.md` — analogy-abstraction · S · 2014 — Neuron review (PMC mirror); rostrolateral-prefrontal ↔ inferior-parietal re-weighting as the anatomy of the behavioural discontinuity · `T289`, `G21`
-- [ ] `parsons-2022-analogy-component-processes.md` — analogy-abstraction · S · 2022 — separates access / mapping / inference / schema induction against the neuroimaging record · `G37`
-- [ ] `lambonralph-2017-neural-computational-bases-semantic-cognition.md` — semantic-cognition · S · 2017 — controlled semantic cognition: a learned anterior-temporal hub over modality spokes, with semantic control on a separate network · `G21`, `T289`
-- [ ] `chau-2025-lateral-frontopolar-functions.md` — prefrontal-control · S · 2025 — lateral frontal pole (FPl) as the uniquely human area; information integration and dimensional reduction · `T289`, `G21`
+- [x] `parsons-2022-analogy-component-processes.md` — analogy-abstraction · S · 2022 — separates access / mapping / inference / schema induction against the neuroimaging record · `G37`
+- [x] `lambonralph-2017-neural-computational-bases-semantic-cognition.md` — semantic-cognition · S · 2017 — controlled semantic cognition: a learned anterior-temporal hub over modality spokes, with semantic control on a separate network · `G21`, `T289`
+- [x] `chau-2025-lateral-frontopolar-functions.md` — prefrontal-control · S · 2025 — lateral frontal pole (FPl) as the uniquely human area; information integration and dimensional reduction · `T289`, `G21`
 - [x] `knowlton-2012-neurocomputational-relational-reasoning.md` — analogy-abstraction · F · 2012 — user-clipped; LISA's mechanisms mapped onto prefrontal synchrony, proxy units, inhibition
 - [x] `roux-2014-wm-oscillations-alpha-gamma-theta-gamma.md` — working-memory · F · 2014 — gamma maintains, theta orders, alpha inhibits; cross-frequency coupling as the binding mechanism · `G104`, `T293`
 - [x] `zeithamova-2012-retrieval-mediated-learning-inference.md` — hippocampal-entorhinal · R · 2012 — ventral medial prefrontal biases reinstatement, hippocampus binds; integrated code supports A→C inference · `T203`, `T100`
@@ -517,17 +517,27 @@ Not acquired: Waltz et al. 1999, *A system for relational reasoning in human pre
 
 ## Unfiled clippings — dropped in `raw/` between waves
 
+Ingested in place. Kept out of the wave blocks because none came from a want-list —
+each was clipped opportunistically and anchored to its registry rows after the fact.
+
 - [x] `kirsanov-2026-firing-rate-fallacy.md` — neuromorphic-spiking · S · 2026 — self-clipped (Substack); rate-code critique
 - [x] `kirsanov-2026-surrogate-gradients-spikes.md` — neuromorphic-spiking · S · 2026 — self-clipped (Substack); surrogate-gradient training of SNNs
 - [x] `francioni-2026-vectorized-instructive-signals-dendrites.md` — plasticity · S · 2026 — self-clipped (Nature); per-dendrite instructive signals, the primary source
 - [x] `kirsanov-2026-vectorized-dendritic-gradients.md` — plasticity · S · 2026 — self-clipped (Substack); secondary treatment of Francioni et al. 2026, ingest after it
 - [x] `kirsanov-2026-plasticity-beyond-textbook-rules.md` — plasticity · S · 2026 — self-clipped (Substack); plasticity rules beyond spike-timing-dependent plasticity
 - [x] `talk-nd-motor-cortex-dynamics.txt` — attractor-dynamics · X · nd — transcript, no frontmatter; motor cortex as a dynamical system (preparatory activity as initial condition, output-null subspace)
-- [ ] `webb-2024-relational-bottleneck-inductive-bias.md` — analogy-abstraction · F · 2024 — user-clipped; the relational bottleneck as an architectural inductive bias: deny the reader attribute information, keep only relations · `G4`, `G40`
+- [x] `webb-2024-relational-bottleneck-inductive-bias.md` — analogy-abstraction · F · 2024 — user-clipped; the relational bottleneck as an architectural inductive bias: deny the reader attribute information, keep only relations · `G4`, `G40`
 - [x] `lundqvist-2016-gamma-beta-bursts-underlie-working-memory.md` — working-memory · R · 2016 — user-clipped; monkey PFC, delay activity is discrete gamma bursts, not sustained firing; ingest before `lundqvist-2018` · `G104`, `T293`
-- [ ] `wendelken-2012-rlpfc-domain-general-or-domain-sensitive.md` — analogy-abstraction · R · 2012 — user-clipped; RLPFC domain-general with a dorsal-ventral gradient in its afferent connectivity · `G21`, `T289`
-- [ ] `eichenbaum-2017-prefrontal-hippocampal-episodic-memory.md` — hippocampal-entorhinal · S · 2017 — user-clipped; prefrontal↔hippocampal pathways and their intermediaries (nucleus reuniens, perirhinal / lateral entorhinal), oscillatory synchrony as the coupling; context-cued retrieval model · `T98`, `T100`, `G52`
-- [ ] `shin-2016-hippocampal-prefrontal-interaction-modes.md` — hippocampal-entorhinal · S · 2016 — user-clipped; theta coherence vs sharp-wave-ripple as two distinct communication modes on one pathway, each serving a different cognitive demand · `T100`, `T333`, `G54`
+- [x] `wendelken-2012-rlpfc-domain-general-or-domain-sensitive.md` — analogy-abstraction · R · 2012 — user-clipped; RLPFC domain-general with a dorsal-ventral gradient in its afferent connectivity · `G21`, `T289`
+
+## Pending — the hippocampal–prefrontal axis
+
+Dropped in `raw/` after wave 18 closed; validated by `./tools/clip-check.sh` (0 FAIL, 0 WARN),
+manifest rows 377–381. Four reviews establish the anatomy and the channel, then the one model
+that claims the hippocampal side is a learned graph. Ingest order S → F, anatomy before the model.
+
 - [ ] `strange-2014-hippocampal-longitudinal-axis.md` — hippocampal-entorhinal · S · 2014 — user-clipped; long-axis gradients superimposed on sharply demarcated gene-expression domains — the dorsal/ventral dichotomy revised · `T51`, `G93`
+- [ ] `shin-2016-hippocampal-prefrontal-interaction-modes.md` — hippocampal-entorhinal · S · 2016 — user-clipped; theta coherence vs sharp-wave-ripple as two distinct communication modes on one pathway, each serving a different cognitive demand · `T100`, `T333`, `G54`
+- [ ] `eichenbaum-2017-prefrontal-hippocampal-episodic-memory.md` — hippocampal-entorhinal · S · 2017 — user-clipped; prefrontal↔hippocampal pathways and their intermediaries (nucleus reuniens, perirhinal / lateral entorhinal), oscillatory synchrony as the coupling; context-cued retrieval model · `T98`, `T100`, `G52`
 - [ ] `witter-2017-entorhinal-cortex-architecture.md` — hippocampal-entorhinal · S · 2017 — user-clipped; lateral vs medial entorhinal architecture, layer-specific input/output, the anatomy behind the two-stream split · `G43`, `T47`, `T41`
 - [ ] `george-2021-clone-structured-cognitive-graphs.md` — hippocampal-entorhinal · F · 2021 — user-clipped; the CSCG primary source, cited second-hand across the wiki with no file in `raw/` until now; ingest last, after the anatomy · `T28`, `T29`, `G2`
