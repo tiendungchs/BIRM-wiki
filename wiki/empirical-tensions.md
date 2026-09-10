@@ -40,7 +40,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T24 | Does an adaptation curve measure learning? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t024.md]] |
 | T25 | Does a decodable internal structure license the claim that the model reasons over it? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t025.md]] |
 | T27 | Is the brain's map metric or topological? | `L1` | `LIVE` | 4 | [[wiki/tensions/t027.md]] |
-| T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 7 | [[wiki/tensions/t028.md]] |
+| T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 8 | [[wiki/tensions/t028.md]] |
 | T29 | Does de-aliasing conflict with generalisation? | `L0` | `LEANING` | 3 | [[wiki/tensions/t029.md]] |
 | T30 | What is replay for — planning the next path, or building a transferable map? | `L2` | `LIVE` | 6 | [[wiki/tensions/t030.md]] |
 | T31 | Is the entorhinal integrator perfect or leaky? | `L3` | `LIVE` | 2 | [[wiki/tensions/t031.md]] |
@@ -91,7 +91,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T88 | What is prefrontal delay-period activity *about* — the item held, or the place attention is pointed? | `L1` | `LEANING` | 4 | [[wiki/tensions/t088.md]] |
 | T89 | Is a working memory cleared by decay or by an addressed erase signal? | `L2` | `LIVE` | 1 | [[wiki/tensions/t089.md]] |
 | T90 | Is a working-memory operation implemented by one controller, or by the conjunction of several subsystems each representing it differently? | `L1` | `LIVE` | 1 | [[wiki/tensions/t090.md]] |
-| T92 | Is working memory the specialized function of prefrontal cortex? | `L4` | `LIVE` | 3 | [[wiki/tensions/t092.md]] |
+| T92 | Is working memory the specialized function of prefrontal cortex? | `L4` | `LIVE` | 5 | [[wiki/tensions/t092.md]] |
 | T93 | Does abstracting a rule enable generalization, or only speed it up? | `L0` | `LIVE` | 2 | [[wiki/tensions/t093.md]] |
 | T94 | When a behaviour becomes automatic, does the controller drop out or hand over? | `L2` | `LIVE` | 5 | [[wiki/tensions/t094.md]] |
 | T95 | Does the control layer store knowledge of its own, or only run procedures over knowledge stored elsewhere? | `L1` | `LIVE` | 1 | [[wiki/tensions/t095.md]] |
@@ -261,7 +261,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T290 | Is the human-unique lateralisation an adaptation for the functions that are lateralised, or a consequence of being large? | `L4` | `LIVE` | 2 | [[wiki/tensions/t290.md]] |
 | T291 | When a model fails a capability test, has the capability been measured, or its deployment under one frame? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t291.md]] |
 | T292 | The ape null on shared intentionality: is the representation absent, or present and undeployed? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t292.md]] |
-| T293 | Does role-filler independence require the compound to preserve its constituents, or does an invertible conjunctive code with a scheduled unbinding step suffice? | `L3` | `LIVE` | 5 | [[wiki/tensions/t293.md]] |
+| T293 | Does role-filler independence require the compound to preserve its constituents, or does an invertible conjunctive code with a scheduled unbinding step suffice? | `L3` | `LIVE` | 6 | [[wiki/tensions/t293.md]] |
 | T294 | Is the human developmental lever an *extended* schedule or an *accelerated* one — and does the wiki's `G100` cite the wrong window? | `L4` | `BOTH` | 2 | [[wiki/tensions/t294.md]] |
 | T295 | Do jumping spiders belong in the convergence census at all — and does the wiki's only source for them survive inspection? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t295.md]] |
 | T296 | Does a sparse expert router have to be learned, or is a fixed random partition of the input enough? | `L3` | `LIVE` | 4 | [[wiki/tensions/t296.md]] |
@@ -284,7 +284,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T314 | Should an anti-collapse provision protect the space the loss sees, or the space the read-out sees? | `L2` | `LIVE` | 5 | [[wiki/tensions/t314.md]] |
 | T315 | Is an uncorrected self-model *inflated*, or merely *insensitive*? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t315.md]] |
 | T316 | Does betweenness centrality measure routing load, or only a property of the graph? | `L0-INSTR` | `BOTH` | 2 | [[wiki/tensions/t316.md]] |
-| T317 | Is gated-slot binding a different mechanism from algebraic binding, or the same operator with a one-hot role code? | `L3` | `BOTH` | 3 | [[wiki/tensions/t317.md]] |
+| T317 | Is gated-slot binding a different mechanism from algebraic binding, or the same operator with a one-hot role code? | `L3` | `BOTH` | 4 | [[wiki/tensions/t317.md]] |
 | T318 | Is a network's depth a property of the data distribution? | `L3` | `LIVE` | 2 | [[wiki/tensions/t318.md]] |
 | T319 | Is an area's integration timescale a fixed property of that area, or a run-time property of the network and its current input? | `L1` | `BOTH` | 3 | [[wiki/tensions/t319.md]] |
 | T320 | Does a model's own softmax rank its own errors? | `L0-INSTR` | `BOTH` | 5 | [[wiki/tensions/t320.md]] |
