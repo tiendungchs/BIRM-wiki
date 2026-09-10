@@ -115,7 +115,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T114 | Does behavioural guidance by a feature imply an attentional gain signal for that feature in sensory cortex? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t114.md]] |
 | T116 | When a functionally defined subensemble and its parent population rank two channels in opposite orders, which reading is the pathway's function? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t116.md]] |
 | T117 | Does perceiving a sequence rest mainly on top-down predictions, or on within-level priors over motion? | `L2` | `LIVE` | 1 | [[wiki/tensions/t117.md]] |
-| T118 | What does a superficial pyramidal spike mean — a candidate interpretation, or a residual? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t118.md]] |
+| T118 | What does a superficial pyramidal spike mean — a candidate interpretation, or a residual? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t118.md]] |
 | T119 | Where does the variability in a learning task enter the generative model? | `L1` | `LEANING` | 1 | [[wiki/tensions/t119.md]] |
 | T120 | Is an infinitesimal nudge unusable, or is it the correct regime? | `L3` | `LIVE` | 2 | [[wiki/tensions/t120.md]] |
 | T121 | Is event-model updating controlled by one signal or by several? | `L2` | `LEANING` | 1 | [[wiki/tensions/t121.md]] |
@@ -229,7 +229,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L0-INSTR` | `LEANING` | 2 | [[wiki/tensions/t254.md]] |
 | T256 | Is the precuneus (area 7m) part of the default mode network? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t256.md]] |
 | T257 | In the default/control switch, who drives whom? | `L2` | `LIVE` | 3 | [[wiki/tensions/t257.md]] |
-| T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 1 | [[wiki/tensions/t259.md]] |
+| T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 2 | [[wiki/tensions/t259.md]] |
 | T260 | Does the brain have an absolute activity baseline, or only relative ones? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t260.md]] |
 | T262 | During an externally directed task, does the default mode network decouple from task-positive systems or integrate with them? | `L2` | `BOTH` | 3 | [[wiki/tensions/t262.md]] |
 | T263 | Does within-module connectivity move with brain state, or only between-module connectivity? | `L4` | `LIVE` | 2 | [[wiki/tensions/t263.md]] |
@@ -246,7 +246,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T274 | Is a consciously experienced feature maintained, or recomputed on demand? | `L1` | `LIVE` | 1 | [[wiki/tensions/t274.md]] |
 | T275 | Does suppressing the irrelevant need its own channel, or does it fall out of biasing the relevant? | `L2` | `LEANING` | 2 | [[wiki/tensions/t275.md]] |
 | T276 | What does a transthalamic cortico-cortical route carry — a copy of the content, or the sender's state? | `L2` | `LIVE` | 2 | [[wiki/tensions/t276.md]] |
-| T277 | Is the single-neuron receptive field still the right unit of description above the thalamus? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t277.md]] |
+| T277 | Is the single-neuron receptive field still the right unit of description above the thalamus? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t277.md]] |
 | T278 | Is a single feedforward pass sufficient for object recognition, or is inter-areal feedback part of the computation? | `L2` | `BOTH` | 2 | [[wiki/tensions/t278.md]] |
 | T279 | Does decoding an attended feature from a population imply that population carries a feature-tuned gain signal? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t279.md]] |
 | T281 | Is a neuromodulatory channel unaddressed by construction? | `L2` | `LEANING` | 1 | [[wiki/tensions/t281.md]] |
@@ -308,3 +308,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T338 | Is the relational integrator one shared head with routed inputs, or a tiled family of heads each wired to its own content feed? | `L2` | `LIVE` | 5 | [[wiki/tensions/t338.md]] |
 | T339 | Does nucleus reuniens carry content between controller and store, or only open the direction? | `L2` | `LIVE` | 2 | [[wiki/tensions/t339.md]] |
 | T340 | Does the episodic store return its output to the stream that wrote it, or to the other one? | `L2` | `LIVE` | 1 | [[wiki/tensions/t340.md]] |
+| T341 | Does a cortical area carry one signed prediction-error population, or two sign-specific ones? | `L1` | `LIVE` | 4 | [[wiki/tensions/t341.md]] |

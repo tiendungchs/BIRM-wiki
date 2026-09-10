@@ -12,7 +12,7 @@ Anchor: the user's query on TEM / Vector-HaSH generalisation. The wiki's answer 
 
 One INGEST each:
 
-- [ ] `keller-2018-predictive-processing-canonical-cortical-computation.md` — predictive-coding · S · 2018 — user-clipped; positive and negative prediction-error neurons in L2/3, the top-down prediction they subtract, and which tests of the cell-class assignment have been run · `T28`, `T107`
+- [x] `keller-2018-predictive-processing-canonical-cortical-computation.md` — predictive-coding · S · 2018 — user-clipped; positive and negative prediction-error neurons in L2/3, the top-down prediction they subtract, and which tests of the cell-class assignment have been run · `T28`, `T107`
 - [ ] `wolpert-1998-internal-models-cerebellum.md` — world-models · F · 1998 — user-clipped; forward and inverse internal models as cerebellar computations with efference copy as input — a third locus `T107` never names; the wiki has no cerebellum page · `T107`
 - [ ] `rao-1999-predictive-coding-visual-cortex.md` — predictive-coding · F · 1999 — user-clipped; the origin the predictive-coding page cites through Friston 2009: hierarchical generative model of natural images, feedback = prediction, feedforward = residual, end-stopping falls out · `T259`
 - [ ] `hawkins-2019-framework-intelligence-cortical-grid-cells.md` — cortical-columns · F · 2019 — user-clipped (want-list route was `self`); the primary for `thousand-brains-theory`, which rested on an undated talk: displacement cells, the L6 location code, every column predicts its next input from a movement-updated location · `T66`, `T28`
