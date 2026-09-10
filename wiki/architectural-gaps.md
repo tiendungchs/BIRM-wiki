@@ -19,7 +19,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G1 | Two-level separation exists as a timescale split, not as a factorization | part | `L1` | `PARTIAL` | 23 | [[wiki/gaps/g001.md]] |
 | G2 | De-aliasing without a hand-built state space | part | `L0` | `PARTIAL` | 13 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `L1` | `PARTIAL` | 13 | [[wiki/gaps/g003.md]] |
-| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 26 | [[wiki/gaps/g004.md]] |
+| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 27 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `L1` | `PARTIAL` | 7 | [[wiki/gaps/g005.md]] |
 | G6 | Spurious edges survive training — and are the default, not the exception | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `L0` | `OPEN` | 4 | [[wiki/gaps/g007.md]] |
@@ -37,7 +37,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 18 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
 | G21 | No mechanism composes the outputs of two specialized modules | part | `L2` | `CONTESTED` | 17 | [[wiki/gaps/g021.md]] |
-| G22 | Nothing selects which compositions get built | part | `L2` | `OPEN` | 7 | [[wiki/gaps/g022.md]] |
+| G22 | Nothing selects which compositions get built | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g022.md]] |
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g023.md]] |
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 14 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 5 | [[wiki/gaps/g025.md]] |

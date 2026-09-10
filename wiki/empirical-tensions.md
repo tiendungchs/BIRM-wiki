@@ -42,7 +42,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T27 | Is the brain's map metric or topological? | `L1` | `LIVE` | 4 | [[wiki/tensions/t027.md]] |
 | T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 8 | [[wiki/tensions/t028.md]] |
 | T29 | Does de-aliasing conflict with generalisation? | `L0` | `LEANING` | 3 | [[wiki/tensions/t029.md]] |
-| T30 | What is replay for — planning the next path, or building a transferable map? | `L2` | `LIVE` | 6 | [[wiki/tensions/t030.md]] |
+| T30 | What is replay for — planning the next path, or building a transferable map? | `L2` | `LIVE` | 8 | [[wiki/tensions/t030.md]] |
 | T31 | Is the entorhinal integrator perfect or leaky? | `L3` | `LIVE` | 2 | [[wiki/tensions/t031.md]] |
 | T32 | Is serial order carried by oscillatory phase or by rate-coded time cells? | `L3` | `LIVE` | 5 | [[wiki/tensions/t032.md]] |
 | T33 | Is CA1 a linear relay or a second recombination-and-completion stage? | `L1` | `LIVE` | 2 | [[wiki/tensions/t033.md]] |

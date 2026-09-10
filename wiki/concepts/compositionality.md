@@ -78,7 +78,7 @@ The third row is the one that closes the argument: because the scene is rendered
 
 ## Bases that come pre-credit-assigned, and when factorisation stops paying
 
-The hippocampal-formation models supply a vocabulary of *spatial* bases and one strong claim about what composition is for (Whittington et al. 2022).
+The hippocampal-formation models supply a vocabulary of *spatial* bases and one strong claim about what composition is for (Whittington et al. 2022). **The full model is now in the wiki** ([[wiki/entities/state-space-composition.md]], Bakermans et al. 2025) — see the two subsections after the table for what it adds beyond the review's paragraph.
 
 | Basis type | Cells | Property |
 |---|---|---|
@@ -88,6 +88,18 @@ The hippocampal-formation models supply a vocabulary of *spatial* bases and one 
 Two exports:
 
 **1. Composition can carry value, not just structure.** If a goal-vector basis is learned with a policy or value already attached, then a new goal configuration is handled by composing bases rather than by learning — the only online work is *inferring which bases apply*. Credit assignment becomes a retrieval-and-compose problem ([[wiki/concepts/cognitive-map.md]]). What makes this possible is that the bases path-integrate: one instance at the goal generates the rest for free ([[wiki/concepts/path-integration.md]]).
+
+**1a. The formal condition, and what makes it exact.** A representation is compositional in this sense when the world model decomposes into sub-blocks `z = (z¹, z², z³, …)` whose dynamics are **independent**, `z_t^i = g(z_{t-1}^i)`. That single independence assumption is what buys everything: a configuration of blocks never seen before has *predictable* dynamics, so the transitions of a novel state space are **inferred rather than observed**. Compositionality here is therefore not a property of the readout or of the training distribution — it is a factorisation of the *dynamics*, and it fails exactly where blocks interact (an object whose affordance depends on another; a wall that moves the reward). Nothing detects that failure.
+
+**1b. What is conjoined decides what generalises, and the wiki had the wrong operand.** Conjunctive-hippocampus models split three ways, and only the third predicts behaviour:
+
+| Conjunction | Generalises | Zero-shot output |
+|---|---|---|
+| sensory ⊗ sensory (REMERGE) | within an environment only | — |
+| **structural ⊗ sensory** ([[wiki/entities/tolman-eichenbaum-machine.md]]) | sensory inference across environments | **what you will see** |
+| **structural ⊗ structural** (grid ⊗ object-/border-/reward-vector) | *behaviour* across environments | **what you will do** |
+
+The demonstration: a feedforward policy `f(s) = a` trained on absolute-location states fails immediately when a wall or reward moves; the same network trained on concatenated vector-cell codes routes correctly around multiple walls in held-out environments, discrete and continuous. Space is deliberately *excluded* from the policy input — action selection needs the relations, not the coordinate. The cost of the win is a demand the other two rows do not make: **global relational structure must be present in the local representation at every state**, which is why this model needs an offline construction process ([[wiki/concepts/offline-replay.md]]) where TEM does not.
 
 **2. Factorisation is a trade-off with a predicted switch.** Grid cells were thought factorised from everything non-spatial, but they *warp* toward consistently rewarded locations — and a warped code is by definition environment-specific, so it does not transfer. The proposed rule:
 
@@ -331,3 +343,4 @@ Three consequences for this page.
 - **[[wiki/concepts/relational-bottleneck.md]]** — compositionality priced on both sides by one argument: the shared vocabulary that lets a code recombine is the same overlap that makes two concurrent bindings interfere, so a capacity limit is *derived* from the property this page treats as the goal, and a system cannot buy the flexibility without buying the bound (Frankland et al. 2021, via Webb et al. 2024).
 - **[[wiki/concepts/displacement-codes.md]]** — a composition operator with a metric, and the one place in the wiki where hierarchy and recursion fall out of the *format* rather than being imposed: a part-whole compound is a single modular vector naming both relata and their offset, so placing a part implicitly carries that part's own sub-parts, and a moving part is a sequence in the same space — conditional on the two spaces being commensurate, which nothing guarantees (Hawkins et al. 2019).
 - **[[wiki/concepts/activity-slots.md]]** — a compositionality criterion measurable on a trained network with no task attached: substitution in one slot must be a fixed vector offset regardless of what the other slots hold (**slot algebra**), and the architectures that fail it still solve the task at full accuracy — so performance and compositional structure are separately checkable, and the discriminating variable is where the routing signal enters (Whittington et al. 2025).
+- **[[wiki/entities/state-space-composition.md]]** — this page's strongest form of the pre-credit-assigned claim, formalised and measured: independent sub-block dynamics `z_t^i = g(z_{t-1}^i)` make a novel configuration's transitions *inferable*, and conjoining structure with *structure* (rather than with sensory identity) upgrades zero-shot generalisation from predicting observations to predicting actions — at the price of an offline process that must carry global structure into every local state (Bakermans et al. 2025).

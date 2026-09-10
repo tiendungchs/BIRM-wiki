@@ -108,7 +108,7 @@ The mechanism proposed for the REM half is not replay-as-rehearsal but **oscilla
 | **Interleaving** — decorrelate a sequential stream for a slow learner | [[wiki/concepts/complementary-learning-systems.md]] | Uniform, or reward-prioritised; `Gain × Need` gain-dominated, if learning and planning are one operation (Mattar & Daw 2018) |
 | **Consolidation** — move instance structure into meta structure | Gap G14 | Generalisability (this page) |
 | **Planning** — roll out candidate trajectories at a choice point | [[wiki/concepts/simulation-based-planning.md]] | `Gain × Need`, need-dominated: expected future occupancy of the target state (Mattar & Daw 2018) |
-| **Offline state-space construction** — path-integrate away from a reward to attach a goal-vector cell to every location | [[wiki/entities/tolman-eichenbaum-machine.md]], [[wiki/concepts/cognitive-map.md]] | Coverage of the space |
+| **Offline state-space construction** — path-integrate away from a reward to attach a goal-vector cell to every location | [[wiki/entities/state-space-composition.md]], [[wiki/concepts/cognitive-map.md]] | Coverage of the space — and *only* coverage: the criterion is trajectory-independent (section below) |
 | **Amortization** — compile model-based rollouts into cached values | [[wiki/concepts/amortized-inference.md]] | Where the cache is stale |
 | **Structural organisation** — train a generative model so that sequences are organised *into* a structure, i.e. learn `g` itself | [[wiki/entities/tolman-eichenbaum-machine.md]] (Whittington et al. 2020) | Whatever the generative model would sample — the wake-sleep criterion |
 | **Edge construction** — write a *new* edge between two items never experienced together, and fire it in reverse to push value back along it | Section below (Barron et al. 2020) | Logical composability × reward: pairs that close a chain into a profitable outcome |
@@ -123,6 +123,29 @@ The mechanism proposed for the REM half is not replay-as-rehearsal but **oscilla
 **A machine interface for the arbitration.** `P(i) ∝ pᵢ^α` with `p` swappable, mixable per-minibatch, and `α` interpolating to uniform is the one place a builder can *write* an arbitration policy between these jobs without adding a mechanism ([[wiki/concepts/replay-prioritisation.md]]); the same page shows the choice is worth an exponential factor in sample complexity on a sparse-reward chain, so the arbitration is not a tuning detail.
 
 **(brainstorm)** Eight jobs, eight incompatible sampling distributions, one substrate — and the newest of them (edge construction) is the only one whose output is *not* a resampling of anything stored. Either the brain arbitrates between them — in which case the arbitration policy is a missing component nobody has named — or the criteria coincide more than they appear to. [[wiki/concepts/successor-representation.md]] offers the only unification currently in the wiki: all five could be the *same eigenbasis* under different diagonal reweightings `ϒ`, which converts the arbitration problem into choosing one vector. That is the cheapest available hypothesis and it is testable — fit one basis, then check whether consolidation-replay and planning-replay differ only in `ϒ`.
+
+---
+
+## Replay as construction: the job whose criterion is coverage, and nothing else
+
+Bakermans et al. 2025 ([[wiki/entities/state-space-composition.md]]) makes the fourth row of the job table above a mechanism, a theorem and a recording rather than a prediction.
+
+**The operation.** During a replay, the agent imagines an action, path-integrates *both* an allocentric location code and each discovered object/wall/reward vector code, and writes their conjunction to memory at the imagined location. No reward, no value, no error term appears anywhere in the update.
+
+**The theorem, and why it matters here.** Path integration through a world model is path-independent, so the content composed at a state is identical regardless of the route the replay took to reach it. Therefore:
+
+| Account | Replays needed to reach the optimal policy | Sensitivity to replay trajectory |
+|---|---|---|
+| Bellman backup / Dyna | One per state **only if** the replay is the reverse of the *new* optimal policy — which requires prescience. Otherwise many | **Exquisite** |
+| Compositional construction | **One visit per state, any trajectory** | **None** |
+
+This is the first discriminating instrument this page has between two of its jobs. Every other separation on this page is a difference in *what* is sampled; this one is a difference in whether *order* matters at all, and it is measurable in existing paradigms: manipulate replay ordering and ask whether the behavioural benefit degrades. It is what [[wiki/empirical-tensions.md]] T30's `Closes when` asks for, in a form that needs no content suppression.
+
+**The price is symmetric.** Construction inherits path-integration noise in both the memory *key* (the location) and the *value* (the vector code), so replay-built memories are noisy but unbiased — which makes repetition necessary and makes "consolidation" and "construction" the same operation performed twice rather than two jobs. In a noisy homing task, replay-built memories reach a given homing error with *fewer* replays than `Q`-update replay, because backups also suffer integration noise and additionally assign credit to the wrong state when they do.
+
+**The recording.** In an alternating home–away well task, decoding each replay *leaving out the neuron being measured*, a cell's rate map increases precisely at the location where that cell fired in the replay — for replays from the home well, not for time-matched control replays elsewhere, and still when restricted to replay spikes >50 cm from home. Across days, when the home well moves, the change map aligned on the new home *anti*correlates with the change map aligned on the old one, and the cells showing this are the ones whose replay locations best match their rate-map changes. So the ripple is writing a **vector-to-landmark** field, not a reward field, and rebuilding it at the same relative offset when the landmark moves.
+
+**What this adds beyond the Barron et al. 2020 section below.** There the ripple composes two *stored* edges into a third. Here the ripple composes a *cortical basis* with an *imagined location* — the content written was never an edge and was never experienced in any form, and the criterion selecting it is spatial coverage rather than logical composability × reward. Two write modes, one substrate, and no proposal for how they share it.
 
 ---
 
@@ -326,3 +349,4 @@ The third point is the one with teeth for a machine: it makes **use frequency th
 
 - **[[wiki/entities/world-models-vmc.md]]** — the machine analogy this page is repeatedly cited for, with the disanalogy worth keeping: dream training samples *novel* trajectories from a fitted distribution where replay reinstates recorded ones, and the paper's own quoted framing ("less like dreaming and more like thought") is doing the opposite work from its method's name.
 - **[[wiki/concepts/retrieval-mediated-learning.md]]** — the same reinstatement with the world clamped: the store completes an absent associate *while* an overlapping event is being encoded, so replay here manufactures the overlap that integration needs instead of transporting or resampling afterwards — one mechanism split by whether external input is present.
+- **[[wiki/entities/state-space-composition.md]]** — the one job on this page whose criterion is pure coverage, and the only one with a *falsifiable ordering signature*: composing path-integrable blocks at an imagined location is trajectory-independent, so one replay visit per state suffices whatever route the replay takes, where a Bellman backup needs the reverse of the new optimal policy — and the accompanying recording puts a cell's rate-map change exactly at its replay-spike location (Bakermans et al. 2025).
