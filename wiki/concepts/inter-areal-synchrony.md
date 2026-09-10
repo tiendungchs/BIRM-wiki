@@ -70,6 +70,25 @@ Two claims a builder can use, and they are separable from the WM framing:
 
 ---
 
+## A fourth band rule: within one band, the sub-band names *which afferent stream* is driving the receiver
+
+> Shin & Jadhav 2016 (`raw/shin-2016-hippocampal-prefrontal-interaction-modes.md`), reviewing Colgin et al. and Schomburg et al.
+
+The three rules above type a coupling by mechanism (direct vs. relay), by direction (feedforward vs. feedback) and by content format. A fourth cut runs *inside* the gamma band and types the **source** of the drive on a receiver with two afferents:
+
+| Sub-band | Theta phase it occupies in CA1 | Afferent it indexes |
+|---|---|---|
+| **Slow gamma, 40–60 Hz** | one phase | Internally driven — CA3 recurrent input |
+| **Fast gamma, 80–120 Hz** | a different phase | Externally driven — entorhinal input |
+
+Slow gamma additionally accompanies sharp-wave-ripple replay, where it is proposed to shape the attractor states the replay passes through.
+
+**What a builder takes from it.** The wiki's read-out proposals so far ask *whether* a receiver is coupled to a source. This says a receiver whose two input streams are separated in **frequency and in phase of a shared frame** can be read for *which stream currently dominates* from the receiver's own spectrum, with no access to either source — and, since the two phases are non-overlapping, that the streams are **time-division multiplexed** rather than summed. That is the concrete mechanism behind [[wiki/concepts/encoding-retrieval-alternation.md]]'s phase-scheduled switch between storing external input and reading internal recurrence, and it makes the schedule measurable in an artificial network: band-pass the hidden state, check whether recurrent-dominated and input-dominated timesteps fall at consistent phases of a slower carrier.
+
+**A caveat this source raises against its own band rule, and it bounds this page's headline claim.** Prefrontal gamma is coordinated with hippocampal *theta*, and silencing the direct hippocampal terminals abolishes prefrontal gamma — but hippocampal–prefrontal gamma **coherence** has, on the review's own statement, "yet to be shown". So the "gamma = direct drive" rule in the section above is supported by an *abolition* result at one endpoint, not by a demonstrated inter-areal gamma coupling that the abolition removes. The content channel is inferred from what disappears, not from what was measured passing.
+
+---
+
 ## Synchrony predicts which neurons carry the task variable
 
 | Observation | Detail | Source |
@@ -154,6 +173,8 @@ Three rules follow, and they generalise past this experiment.
 - **[[wiki/concepts/working-memory.md]]** — supplies the band-typed version of that page's phase dissociation: gamma on the direct link at encoding, theta at the choice point on a route that survives cutting the link, so the encoding and retrieval requirements are carried by *different pathways*, not just different phases — and the consumer of this page's third rule: gamma carries the item, alpha keeps the irrelevant regions out, theta orders, and the frame/slot frequency ratio *is* the capacity number (Roux & Uhlhaas 2014).
 - **[[wiki/concepts/temporal-coding.md]]** — the single-neuron mechanism under these population measures: a phase-locked cell is a coincidence detector whose input volley is already coherent, which is precisely the assumption that page lists as unexplained — and here the coherence is supplied by a named third region rather than computed locally.
 - **[[wiki/concepts/representation-probing.md]]** — a probe method the wiki does not have: band-limited coupling between a unit and a candidate source module identifies *where a representation is arriving from*, without ablation or a trained classifier.
+- **[[wiki/concepts/encoding-retrieval-alternation.md]]** — the mechanism this page's fourth band rule supplies: CA1's internal (CA3, slow gamma) and external (entorhinal, fast gamma) streams occupy different theta phases, which makes that page's storage/recall alternation a time-division multiplex readable off the receiver's own spectrum.
+- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the worked edge these rules are mostly derived from, now with the mode taxonomy attached: which logical channel is open is set by behavioural state, and no coupling measure on this page can say what any of them carries.
 - **[[wiki/concepts/offline-replay.md]]** — the same measurement logic applied at rest: hippocampal sharp waves and cortical spindles co-occur within a few hundred milliseconds, which is a cross-correlation claim with the same directionality caveat, and hippocampal activity leads prefrontal activity during sleep.
 - **[[wiki/concepts/cognitive-control.md]]** — a constraint on how a controller could be biased by its inputs: whether a control signal is being *delivered* or merely *timed* is decidable from the band, so "top-down bias" is two testably different operations. It also supplies this page's only *interventional* entry: electrically driving the fibre bundle into the control loop raises induced theta and improves conflict performance, which makes band power a candidate control resource rather than a read-out — a claim this page's coupling results neither support nor exclude ([[wiki/empirical-tensions.md]] T113, Widge et al. 2019).
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — supplies the one *derived* band rule on this page: taking the Fourier transform of the update equation shows expectations low-pass their own prediction errors, so a population's high/low power ratio reads off whether it holds the estimate or the residual, independently of the cut-the-wire test.

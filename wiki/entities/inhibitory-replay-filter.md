@@ -121,6 +121,7 @@ Sparse optogenetic induction of *artificial* cue cells in awake behaving mice (C
 
 ## Connections
 
+- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the inter-regional twin of this model's selectivity: awake ripples excite prefrontal cells whose representation matches the replayed sequence and suppress the rest, so the same two-sided sign appears on a long-range channel where no equivalent inhibitory-plasticity rule has been looked for.
 - **[[wiki/concepts/offline-replay.md]]** — the primary source behind that page's "the filter" row: it upgrades inhibitory plasticity from a modelling conjecture to a mechanism with a necessity test, a sufficiency test and an implanted-representation experiment, and it answers that page's open problem "is the inhibitory filter learned?" in the affirmative.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the inhibitory-plasticity row's worked instance, and the resolution of that page's "models both require it and reproduce replay without it": the two model families explain sequence *generation* and sequence *selection* respectively, and both regimes appear in this network as a function of distractor density.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — the same claim at a different grain: that page shows inhibitory channels set the *features* of the online code, this one shows an inhibitory channel sets the *content* of the offline sample; and its cell-type taxonomy is the instrument that would identify the interneuron population this model needs.

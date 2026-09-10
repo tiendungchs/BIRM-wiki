@@ -4,7 +4,7 @@
 
 > **Why this is an entity page and not a section.** Every architecture in the wiki draws inter-module connections as wires: a matrix, a gate, or a skip connection with at most a learned scalar. This pathway is the wiki's one worked example of a connection with **its own state, its own plasticity, its own external gate and its own failure signature** — a connection that can be lesioned, potentiated, depotentiated, locked and desynchronised independently of either endpoint. Gap **G52** is the statement that no wiki architecture has such a thing; this page is the specification it would be built from. Split out of [[wiki/entities/medial-prefrontal-cortex.md]] at the 125-ingest lint pass, where it had grown to ~30% of that page while being about neither endpoint.
 
-**Sources.** Euston et al. 2012 (`raw/euston-2012-prefrontal-cortex-memory.md`); Spedding & Jay 2012 (`raw/spedding-2012-hippocampal-prefrontal-pathway.md`); Preston & Eichenbaum 2013 (`raw/preston-2013-hippocampus-prefrontal-memory.md`); Jin & Maren 2015 (`raw/jin-2015-prefrontal-hippocampal-interactions.md`); Sigurdsson & Duvarci 2016 (`raw/sigurdsson-2016-hippocampal-prefrontal-interactions.md`).
+**Sources.** Euston et al. 2012 (`raw/euston-2012-prefrontal-cortex-memory.md`); Spedding & Jay 2012 (`raw/spedding-2012-hippocampal-prefrontal-pathway.md`); Preston & Eichenbaum 2013 (`raw/preston-2013-hippocampus-prefrontal-memory.md`); Jin & Maren 2015 (`raw/jin-2015-prefrontal-hippocampal-interactions.md`); Sigurdsson & Duvarci 2016 (`raw/sigurdsson-2016-hippocampal-prefrontal-interactions.md`); Shin & Jadhav 2016 (`raw/shin-2016-hippocampal-prefrontal-interaction-modes.md`).
 
 ---
 
@@ -163,6 +163,52 @@ Two further constraints from the same source:
 
 ---
 
+## Two communication modes on one wire, and the selector is the animal's behavioural state
+
+> **Provenance (seventh ingest).** Shin & Jadhav 2016, *Multiple modes of hippocampal-prefrontal interactions in memory-guided behavior*, Curr Opin Neurobiol 40:161–169 (`raw/shin-2016-hippocampal-prefrontal-interaction-modes.md`). The review that states the multiplexing claim above as a *thesis* rather than an inference from a band correlation: network patterns are not epiphenomena of local processing but **conduits selected by current cognitive demand and internal state**.
+
+### The modes, and what each is anchored to
+
+| Mode | Band | Behavioural epoch it occupies | What is coordinated across the two regions | Causal status |
+|---|---|---|---|---|
+| **Theta** | 6–12 Hz | Locomotion, active exploration, approach to a choice point | Prefrontal cells phase-lock to hippocampal theta at region-characteristic phases; coherence rises at the choice point, is higher on correct trials, and **emerges only after the rule is learned** | Correlational. Inactivating the *direct* hippocampus→prefrontal terminals leaves theta synchrony intact (T333 Position B); ventral-hippocampal inactivation disrupts it — so the theta mode is carried by a relay, not by these axons |
+| **Awake sharp-wave ripple** | 150–250 Hz, ~100 ms transients | Immobility, consummatory behaviour at reward wells — i.e. the complement of the theta epoch | Coordinated *reactivation*: hippocampal place-cell sequence replay co-occurs with structured prefrontal ensemble activity representing the same trajectory | Awake ripple disruption impairs spatial learning (Jadhav et al. 2012); the *coordination* itself has not been perturbed |
+| **Gamma** | slow 40–60 Hz, fast 80–120 Hz | Both epochs — nested under theta during running, and under ripples at rest | Prefrontal gamma is coordinated with hippocampal theta; silencing ventral-hippocampal terminals abolishes prefrontal gamma and prefrontal task representations, and selectively impairs *encoding* (T100 Position A) | Interventional on one direction. **Hippocampal–prefrontal gamma *coherence* itself is asserted, not measured** — the source's own caveat |
+| **Beta, 4 Hz** | 15–20 Hz; ~4 Hz | Proposed, not localised | — | Named only |
+
+**The two principal modes are mutually exclusive in time and the exclusion is not negotiated between the endpoints.** Theta runs while the animal moves; ripples occur when it stops. The variable that selects which logical channel is open is **running speed / behavioural state** — a signal both endpoints have access to and neither computes. No wiki architecture has this: an inter-module link whose active channel is set by a *global state scalar external to both modules*, rather than by a gate computed from the content on the wire.
+
+### The ripple-mode read rule is content-addressed and two-sided
+
+The one mechanism here that is specific enough to implement (Jadhav et al. 2016, the source's ref 26):
+
+- Prefrontal cells whose spatial representation **overlaps** the hippocampal sequence being replayed are **excited** during the ripple.
+- Prefrontal cells whose representations are **unrelated** are **suppressed**.
+- The reactivated content mirrors the hippocampal–prefrontal pairings that were coordinated during the *theta* mode earlier in the same session.
+
+So the offline mode is not a broadcast into the controller: it is a **match-gated read with an inhibitory complement**, and its addressing key is the receiver's own tuning. Two consequences a builder can take:
+
+- Every replay interface in the wiki writes *additively* into a downstream learner ([[wiki/concepts/offline-replay.md]], [[wiki/concepts/complementary-learning-systems.md]]). Here the same event **lowers** the activity of the non-matching part of the target — which is a signal-to-noise operation on the receiver, not a delivery, and is the population-level twin of the inhibitory selectivity [[wiki/entities/inhibitory-replay-filter.md]] localises inside the store.
+- The third bullet makes the two modes *sequentially coupled*: theta-mode coactivation during behaviour determines which cell pairs are eligible for ripple-mode reactivation at rest. The online mode writes the address book the offline mode reads.
+
+**(brainstorm)** Written as an update rule for a two-module machine: online, `s ∈ {move, still}` selects the channel; in `move`, module pairs that co-fire accumulate an eligibility `e_{ij}`; in `still`, a sampled sequence from the store drives target units with gain `+g·e_{ij}` and non-matching units with `−g·(1−e_{ij})`. That is three lines on top of any replay buffer and it makes the offline pass contrast-enhancing rather than merely rehearsing — testable directly against an additive-replay control on any continual-learning benchmark.
+
+### The causal test none of the modes has passed, and its shape
+
+The source's methodological core, and it is a specification for an instrument the wiki keeps needing: **real-time pattern detection closed onto temporally precise perturbation.** Detect a ripple, a theta phase, or a bout of high inter-regional coherence *as it happens*, and perturb only then. Demonstrated for patterns *within* hippocampus (Jadhav et al. 2012); never yet for an inter-regional coupling. The stricter version — perturb the *coherence* without perturbing either population's firing — has no known method, since it would require changing one region's oscillation frequency by neuromodulation alone.
+
+Why this matters beyond neuroscience: the analogous machine experiment is equally unrun. Cutting an inter-module link and cutting the link *only during events of a named type* are different ablations, and only the second discriminates a communication mode from a wire ([[wiki/concepts/certification-instruments.md]], [[wiki/concepts/perturbation-elicitability.md]]).
+
+### What the modes are still missing
+
+| Open question | Why it is load-bearing |
+|---|---|
+| Are prefrontal representations aligned with hippocampal **theta sequences** — the within-cycle compressed trajectories — or only with the theta rhythm? | Decides whether the theta mode transports *content* (a candidate future trajectory) or only a timing frame. This is G54's question asked of the wiki's best-characterised edge, and it is open |
+| Is ripple-mode coordinated reactivation **retrospective** (consolidating what happened) or **prospective** (proposing what to do)? | The same event would be a consolidation write or a planning read; the two demand opposite arbitration policies in [[wiki/concepts/offline-replay.md]]'s eight-job table |
+| How do the two modes **trade off across learning**? Theta coherence appears after learning; ripples are upregulated by novelty and reward | If the mode mixture is a function of learning stage, the state variable that selects the channel is not just behavioural state but a competence estimate |
+
+---
+
 ## The channel as a specification, in one table
 
 What a builder would have to implement to have this edge rather than a weight matrix.
@@ -175,6 +221,8 @@ What a builder would have to implement to have this edge rather than a weight ma
 | **Operating point** | One elevated-platform stress exposure blocks induction; developmental stress blocks it into adulthood; reversed pharmacologically | A global scalar displacing the whole tuple, on a timescale far longer than the task | **No** |
 | **Sign at the target** | Terminals contact GABAergic interneurons; inactivating the source *disinhibits* the target | A projection whose default action is suppression, not delivery | **No** — every wiki channel is additive content |
 | **Multiplexing** | Gamma carries content at encoding; theta carries coordination at choice; the two dissociate under terminal silencing | Several logical channels on one anatomical connection, separated by band | **No** — one logical channel per connection |
+| **Mode selection** | Theta mode during locomotion, ripple mode during immobility; the two never overlap and the selector is the animal's running speed | A global state scalar, computed by neither endpoint, choosing which logical channel is open | **No** — where a wiki channel is gated at all, the gate is a function of the content on it |
+| **Read rule of the offline mode** | Ripple-coordinated reactivation *excites* target cells whose representation matches the replayed sequence and *suppresses* those whose does not | A match-gated write with an inhibitory complement on the receiver | **No** — every replay interface in the wiki writes additively |
 | **Direction typing** | Ventral hippocampus → ventral medial wall carries *context in*; anterior cingulate → dorsal CA1/CA3 carries a *retrieval trigger* out; prefrontal → reuniens → hippocampus carries a *goal-conditioned trajectory* down | Distinct, separately addressed forward and return links with different payload types | **No** — return arrows are transposes |
 | **Target addressing** | The return arrow preferentially innervates high-degree hub neurons that *emerge after learning* | Addressing by the target's graph degree inside the store, rather than by content similarity | **No** ([[wiki/concepts/attention.md]] is content-addressed throughout) |
 
@@ -190,6 +238,8 @@ What a builder would have to implement to have this edge rather than a weight ma
 | The dorsolateral prefrontal cortex receives only a *light* direct hippocampal projection | Most primate control-layer evidence in the wiki is about a region this channel barely reaches; human "hippocampal–prefrontal" working-memory results are medial/orbital, or multi-synaptic |
 | The frequency-multiplexing claim rests on band correlations plus one terminal-silencing dissociation | "One wire, several logical channels" is the reading, not a demonstrated decoding of two independent payloads |
 | Nothing measures what the channel *carries*, only when it is required and at what frequency | The cargo is inferred from the origin's tuning (ventral pole = context generality), never read off the axons |
+| The mode taxonomy is built from separate experiments, never from one recording of a full learning curve | "Two modes trading off across learning" is a proposal; no study measures theta coherence and ripple coordination in the same animals from naive to expert (Shin & Jadhav 2016) |
+| No mode has been perturbed *as a mode* | Every causal result cuts an anatomical link or silences a region for a block of time; closed-loop detection-triggered perturbation of an inter-regional pattern has not been done, so "communication mode" rests on the co-occurrence of a band and an epoch |
 | The psychiatric convergence is correlational | The "weak link" thesis is a strong organising claim built on coupling abnormalities that could be downstream of either endpoint |
 
 ---
@@ -202,6 +252,8 @@ What a builder would have to implement to have this edge rather than a weight ma
 - **[[wiki/concepts/contextual-inference.md]]** — names the carrier of the context posterior: asymmetric disconnection of ventral hippocampus from prelimbic cortex abolishes fear renewal without degrading either memory, so cutting this edge removes the *selection* between contexts rather than any content.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — a worked instance of addressed suppression at the level of a whole projection: the channel's terminals drive feed-forward inhibition, so the context input withholds prefrontal output the context does not license, and removing it disinhibits the controller.
 - **[[wiki/concepts/schema-assimilation.md]]** — supplies the channel's cargo type: the hippocampal long axis is a generality gradient and the controller is wired only to its general end, so what travels the edge is what all events of a context share, not an event.
+- **[[wiki/concepts/certification-instruments.md]]** — the instrument this channel's evidence is missing and names: every causal result here cuts a wire or silences a region, while discriminating a *communication mode* from an anatomical link requires closed-loop detection of the pattern gating a perturbation to just those events.
+- **[[wiki/entities/inhibitory-replay-filter.md]]** — the same sign trick one level down: this channel's ripple mode suppresses non-matching prefrontal cells while exciting matching ones, and that model derives the intra-hippocampal version of the selectivity from Hebbian potentiation at inhibitory synapses.
 - **[[wiki/concepts/offline-replay.md]]** — the channel's idle-time traffic: prefrontal replay is accelerated, selective for rewarded routes, and coupled to hippocampal sharp waves via spindles, with the initiating direction still unresolved.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the architectural claim this channel tests: the fast/slow arrow every version of that theory draws bidirectionally is, anatomically, two separate directed edges with different endpoints, different cargo and different task phases.
 - **[[wiki/concepts/engram.md]]** — the return arrow's targets are high-degree hub neurons that emerge *after* learning, which makes hub formation rather than the trace itself the thing consolidation has to produce.

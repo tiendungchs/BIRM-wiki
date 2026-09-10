@@ -191,6 +191,21 @@ This partly dissolves the arbitration problem rather than adding to it: if awake
 
 **Methodological import, independent of the result.** Fitting a low-dimensional manifold on behaviour and then projecting offline events onto it is the first instrument in the wiki that gives replay content a *coordinate* rather than a template match — including a trial index, i.e. a position along the learning trajectory. [[wiki/concepts/population-geometry.md]] had this as an untested prediction (sequences are paths on a manifold, so replay should be too); this is a direct test of it, with the caveat that the manifold is defined by the running data and therefore cannot represent anything the animal never expressed while running.
 
+### The awake ripple has a second address, outside the hippocampus, and it reads by match
+
+> Shin & Jadhav 2016 (`raw/shin-2016-hippocampal-prefrontal-interaction-modes.md`), reviewing Jadhav et al. 2016. Awake sharp-wave ripples are not an intra-hippocampal event with a downstream consumer to be named later — prefrontal ensembles are **co-reactivated inside the ripple window**, and the co-reactivation is selective in both signs.
+
+| Observation | Reading for a builder |
+|---|---|
+| Prefrontal cells whose spatial representation **overlaps** the replayed hippocampal sequence are excited during the ripple; cells with **unrelated** representations are suppressed | The offline write is **match-gated with an inhibitory complement** — the target's own tuning is the address, and the event raises contrast rather than adding content |
+| The co-reactivated pairs are the ones that were coordinated during **theta** earlier in the same session | The online mode writes the address book the offline mode reads; eligibility is accumulated awake and spent at rest |
+| Awake ripples are up-regulated by **novelty and by reward**, and continue after learning is complete | Rate is not a pure function of learning progress, so no single-criterion sampling policy in the jobs table above accounts for the schedule |
+| Whether the co-reactivation is **retrospective or prospective** is unknown | The same event is a consolidation write under one reading and a planning read under the other — the two occupy different rows of the jobs table and demand opposite arbitration |
+
+**Why this bears on the arbitration problem.** Every job in the table above is stated as a resampling of the store, with the downstream learner an additive consumer. This is the one measured case where an offline event's effect on the consumer depends on **what the consumer already represents**, and where part of the effect is negative. A replay buffer cannot express it; a replay interface that carries an eligibility mask can. See [[wiki/entities/hippocampal-prefrontal-channel.md]] for the channel-level statement and the proposed update rule.
+
+---
+
 ---
 
 ## What replay costs in wiring: `c · M ≈ const`
@@ -299,7 +314,7 @@ The third point is the one with teeth for a machine: it makes **use frequency th
 - **[[wiki/concepts/inter-areal-synchrony.md]]** — the measurement caveats that apply to every sharp-wave/spindle coupling result here: co-occurrence within a few hundred milliseconds is a cross-correlation statistic, field-potential-only measures volume-conduct, and a correlation between two structures survives cutting the wire between them, so co-occurrence alone does not establish transfer.
 - **[[wiki/entities/spacetime-attractor.md]]** — a new consumer for replay: a spacetime attractor needs one copy of the adjacency matrix between every pair of consecutive delay-subspaces, which is redundant to learn independently, so hippocampus→cortex replay of experienced trajectories is proposed as the shared training cache that writes all copies from the same data (Jensen et al. 2026).
 - **[[wiki/entities/pfc-columnar-planning-model.md]]** — a forward trajectory sequence generated without an episodic store: the anterograde path wave lays out the planned state order in advance (prospective units anticipating place units, sequence-order ranking as in monkey prefrontal cortex) using only synaptic propagation, so sequence generation need not be resampling of stored experience (Martinet et al. 2011).
-- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the wire the cortical end of replay runs on: prefrontal replay is time-compressed, selective for rewarded routes and coupled to hippocampal sharp waves through spindles, with the initiating direction still unresolved.
+- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the wire the cortical end of replay runs on: prefrontal replay is time-compressed, selective for rewarded routes and coupled to hippocampal sharp waves through spindles, with the initiating direction still unresolved — and *awake* ripples reach the same wire under a match-gated read rule that excites representationally overlapping prefrontal cells and suppresses the rest, which is the one offline write in the wiki whose effect depends on the receiver's prior tuning.
 - **[[wiki/concepts/default-self-model.md]]** — a competing claim on the same resource: the idle period this page spends consolidating experience into transferable structure is the same "cognitive downtime" the default self-model is said to spend updating a competence inventory, and nothing in the wiki splits the budget.
 - **[[wiki/entities/default-mode-network.md]]** — a third claimant on the same idle budget, and the source of the only causal-grade mechanism in its review: hippocampal ensembles sweeping ahead down each arm at a high-cost choice point (~10% of the dwell time) and back down the correct path after errors.
 - **[[wiki/concepts/encoding-retrieval-alternation.md]]** — the same oscillatory scaffold running online: theta phase sets encode-vs-retrieve during behaviour, and the sleep model above is that mechanism repurposed offline with the plasticity sign, rather than the drive, flipped across the half-cycles — so one clock serves error-driven learning awake and interference reduction asleep (Norman et al. 2005, 2007).
