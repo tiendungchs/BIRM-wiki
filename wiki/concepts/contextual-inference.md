@@ -173,6 +173,22 @@ Two things this adds that no other source on this page supplies.
 
 ---
 
+## The failure mode of a broken responsibility signal is confident intrusion, not chance
+
+The clearest lesion evidence for what a context posterior is *for* comes from the interference side, and its signature is asymmetric (Eichenbaum 2017, [[wiki/entities/hippocampal-prefrontal-channel.md]]):
+
+| Lesion | Failure | What it says the module was doing |
+|---|---|---|
+| Hippocampus | Memory for **today's** odour list is lost | Holding the current context's contents |
+| Prefrontal cortex | Today's list is intact; odours from **previous days'** lists are falsely recognised | Setting responsibility — suppressing the memories a *past* context licensed |
+| Ageing | Both together | — |
+
+The human match is the `A–B` / `A–C` paired-associate design: prefrontal damage impairs the second set specifically by **intruding the original associate**, and memory for one list is degraded by intrusions from another even when the lists share no items.
+
+**Why this matters for the computation on this page.** A responsibility posterior that goes flat does not produce hesitation or chance performance — it produces a *fluent* response drawn from the wrong context, indistinguishable at the behavioural level from a correct one except by its content. So an evaluation that scores accuracy alone cannot detect a failing context-inference stage in a machine either; the discriminating measurement is the **provenance** of the error — whether the wrong answer is noise or is the right answer to a previously-valid context ([[wiki/concepts/continual-learning.md]]). The wiki's continual-learning scores are accuracy curves and none of them reports this.
+
+---
+
 ## Open problems
 
 - **The contexts are atoms — in both instantiations.** Sanders et al. state the same gap independently (no hierarchical inference; nothing lets one map be another map with one feature changed) and point at two places a hierarchy would live in the hippocampus: McKenzie et al. 2014's nested representational similarity within one population, and the dorsoventral gradient of place-field size, which they suggest could be the *same* inference run at several values of `α` in parallel — so two observations share a state at one end of the axis and not at the other, giving partial sharing of learning. Nothing implements it.
@@ -214,7 +230,7 @@ Two things this adds that no other source on this page supplies.
 - **[[wiki/entities/nucleus-reuniens.md]]** — the return arm of the same selection loop: the controller does not only receive the context evidence, it writes a goal-conditioned trajectory back into the store through a midline-thalamic relay, so responsibility can be applied by *constraining* the store's dynamics rather than by re-weighting its outputs.
 - **[[wiki/entities/c-ts-model.md]]** — this page's posterior with the clustered object upgraded from a scalar to a policy and the inference collapsed to an argmax, plus the circuit this page lacks: a two-loop corticostriatal gating network that approximates a Dirichlet-process mixture, with the clustering prior `α` identified as the randomness of the context→prefrontal projection rather than as a fitted constant (Collins & Frank 2013).
 - **[[wiki/entities/meta-rl-agent.md]]** — the same latent-state tracking reached without inference machinery: recurrent activity clusters by which cue is currently rewarded and abruptly reverses at the switch, and the volatility that sets this page's update rate is tracked by 37 ± 1% of units with the learning rate emerging rather than being computed (Wang et al. 2018).
-- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the named anatomical carrier of the context posterior: asymmetric disconnection of ventral hippocampus from prelimbic cortex abolishes fear renewal while leaving both memories intact, so severing the edge removes the *selection* between contexts and nothing else.
+- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the named anatomical carrier of the context posterior: asymmetric disconnection of ventral hippocampus from prelimbic cortex abolishes fear renewal while leaving both memories intact, so severing the edge removes the *selection* between contexts and nothing else. The same circuit supplies the posterior's failure signature: losing the controller leaves the current context's contents intact and admits *previously-valid* memories, so a flat responsibility is a fluent wrong answer rather than a degraded one.
 - **[[wiki/concepts/compositionality.md]]** — the counterexample separating retrieval from composition: allocation and graded retrieval over an unbounded library work perfectly while the memories stay exchangeable atoms with no internal structure to compose.
 - **[[wiki/entities/cscg.md]]** — the same allocate-or-reuse question answered structurally instead of statistically: a fixed clone pool per observation, where this page runs a posterior over an unbounded context set.
 - **[[wiki/concepts/event-segmentation.md]]** (second edge, T23) — an experimental route to deciding T23 rather than restating it: with error-driven and uncertainty-driven boundary generators now scored against the same fMRI pattern-dissimilarity timecourses, latent-cause inference is named as the candidate for the ~16% of explainable variance the two prediction-quality triggers miss, and can be scored the same way (Nguyen et al. 2025).

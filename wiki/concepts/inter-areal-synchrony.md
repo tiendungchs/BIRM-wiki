@@ -52,6 +52,22 @@ Two consequences the wiki has to carry:
 
 ---
 
+---
+
+## The lag is not the wire, and the direction is not the architecture
+
+> Eichenbaum 2017 (`raw/eichenbaum-2017-prefrontal-hippocampal-episodic-memory.md`), full treatment at [[wiki/entities/hippocampal-prefrontal-channel.md]].
+
+Cross-correlation with the two signals time-shifted against each other is the standard way this literature assigns a *direction* to a coupling. Three facts constrain what that measurement licenses.
+
+- **The measured lead is ~30 ms in every hippocampal–prefrontal study that reports one**, in either direction, and the monosynaptic conduction delay on that pathway is **~15 ms**. So the lag is not the wire's latency. Two readings: theta synchronises the two areas and information moves in **one-gamma-cycle packets** of ~30 ms; or the transfer is polysynaptic at the target even on the "monosynaptic" route (interneuron → pyramidal cell). Either way, **a directed lag is not a conduction time and cannot be used to infer path length.**
+- **Direction reverses within a trial.** Hippocampus leads prefrontal cortex by ~30 ms at context entry and across a memory delay; prefrontal cortex leads hippocampus by ~30 ms at object sampling and at the choice point — same animals, same task, and *both* directions present only on correct trials. A single-number directionality index computed over a whole session would report zero.
+- **The band of the return leg is not stable across tasks.** One study puts the prefrontal→hippocampal lead in low gamma (30–80 Hz) at the choice point; another puts it in theta in the same epoch of a different task. This is an unresolved problem for the band-types-the-mechanism rule above, which was derived from the *forward* leg only.
+
+One control from these studies worth importing wholesale: the correct/error comparison is restricted to trials on which the animal made the **same behavioural response**, so the connectivity difference cannot be a motor or reward-expectation confound. Most "coupling predicts performance" claims in the wiki do not have this.
+
+---
+
 ## A third band rule: the frame band types the *content format*, and the ratio is a capacity
 
 The two rules above type a correlation by **mechanism** (direct drive vs relayed clock) and by **direction** (feedforward fast, feedback slow). A third types it by **what is being held** (Roux & Uhlhaas 2014, `raw/roux-2014-wm-oscillations-alpha-gamma-theta-gamma.md`).
@@ -131,6 +147,8 @@ The learning row is the one with no machine analogue. Every inter-module connect
 | **Type your channels by band, not by endpoint pair** | One wire, ≥2 concurrent logical channels: a content channel whose gain is the afferent drive, and a coordination channel supplied externally. |
 | **Give the clock a source** | If an architecture needs two modules aligned in time, the biology does not have them negotiate it — a third region broadcasts it (septum, midline thalamus). **(brainstorm)** A shared phase signal is cheaper than any mutual-synchronization scheme and is exactly the collateralised-bus motif of [[wiki/entities/nucleus-reuniens.md]]. |
 | **Read the source of a unit's tuning off its coupling** | Phase-locking selects the cells carrying the task variable; use band-limited coupling as a routing diagnostic. |
+| **Never read a lag as a path length** | The measured lead is ~30 ms where the monosynaptic delay is ~15 ms; a directed lag indexes a transfer quantum or a polysynaptic hop, not conduction. |
+| **Estimate direction per epoch, never per session** | The same module pair reverses direction inside one trial; a session-level directionality index averages the two reversals to nothing. |
 | **Match the measurement timescale before comparing systems** | A < 0.1 Hz correlation and a 40 Hz coherence are not the same quantity; the gamma envelope is the only offered bridge. |
 
 ---
@@ -174,7 +192,7 @@ Three rules follow, and they generalise past this experiment.
 - **[[wiki/concepts/temporal-coding.md]]** — the single-neuron mechanism under these population measures: a phase-locked cell is a coincidence detector whose input volley is already coherent, which is precisely the assumption that page lists as unexplained — and here the coherence is supplied by a named third region rather than computed locally.
 - **[[wiki/concepts/representation-probing.md]]** — a probe method the wiki does not have: band-limited coupling between a unit and a candidate source module identifies *where a representation is arriving from*, without ablation or a trained classifier.
 - **[[wiki/concepts/encoding-retrieval-alternation.md]]** — the mechanism this page's fourth band rule supplies: CA1's internal (CA3, slow gamma) and external (entorhinal, fast gamma) streams occupy different theta phases, which makes that page's storage/recall alternation a time-division multiplex readable off the receiver's own spectrum.
-- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the worked edge these rules are mostly derived from, now with the mode taxonomy attached: which logical channel is open is set by behavioural state, and no coupling measure on this page can say what any of them carries.
+- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the worked edge these rules are mostly derived from, now with the mode taxonomy attached: which logical channel is open is set by behavioural state, and no coupling measure on this page can say what any of them carries. It is also the source of the two limits on directed lags: the ~30 ms lead exceeds the ~15 ms monosynaptic delay, and it reverses inside a single trial.
 - **[[wiki/concepts/offline-replay.md]]** — the same measurement logic applied at rest: hippocampal sharp waves and cortical spindles co-occur within a few hundred milliseconds, which is a cross-correlation claim with the same directionality caveat, and hippocampal activity leads prefrontal activity during sleep.
 - **[[wiki/concepts/cognitive-control.md]]** — a constraint on how a controller could be biased by its inputs: whether a control signal is being *delivered* or merely *timed* is decidable from the band, so "top-down bias" is two testably different operations. It also supplies this page's only *interventional* entry: electrically driving the fibre bundle into the control loop raises induced theta and improves conflict performance, which makes band power a candidate control resource rather than a read-out — a claim this page's coupling results neither support nor exclude ([[wiki/empirical-tensions.md]] T113, Widge et al. 2019).
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — supplies the one *derived* band rule on this page: taking the Fourier transform of the update equation shows expectations low-pass their own prediction errors, so a population's high/low power ratio reads off whether it holds the estimate or the residual, independently of the cut-the-wire test.

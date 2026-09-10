@@ -56,6 +56,26 @@ The Ito result is the specific one. The direct hippocampus → prefrontal channe
 
 ---
 
+## A third review argues the relay is a coordinator, not a courier
+
+> Eichenbaum 2017 (`raw/eichenbaum-2017-prefrontal-hippocampal-episodic-memory.md`), fully summarized at [[wiki/entities/hippocampal-prefrontal-channel.md]].
+
+The page's central content claim — prefrontal → reuniens → hippocampus delivers a *goal-conditioned future path* — is contested by four results from the same literature, logged as [[wiki/empirical-tensions.md]] `T339`:
+
+| Result | Why it argues for coordination |
+|---|---|
+| Reuniens rates differentiate left- from right-turn routes on the maze's common segment, but the firing patterns carry **no detailed trajectory information** (Ito et al.) | Enough to bias which hippocampal ensemble wins, not enough to specify a path |
+| Optogenetic reuniens inactivation eliminates the **rate coding** of trajectory in CA1 itself | The relay's effect is on the store's own discriminability, which is what a bias produces |
+| **Artificial** drive works: net excitation raises and net inhibition lowers context-specific freezing (Xu & Südhof 2013) | An arbitrary pattern that improves a memory's specificity cannot be that memory's content |
+| Muscimol inactivation during delay or choice reduces prefrontal phase-locking to hippocampal theta and **eliminates bidirectional connectivity** | The measured effect is the coupling, in both directions at once |
+| Prefrontal→reuniens inactivation spares contextual-fear acquisition and causes **overgeneralisation**, only when applied during training | Loss of a discrimination, not loss of a delivered message |
+
+**What the coordination reading buys.** The same review reports that the direction of hippocampal–prefrontal information flow **reverses within a single trial** — hippocampus leads by ~30 ms at context entry and across a memory delay, prefrontal cortex leads by ~30 ms at object sampling and the choice point, both only on correct trials — and that reuniens inactivation abolishes both directions. A switch that opens one direction of an existing edge is a cheaper explanation of that pattern than a courier, and it costs one scalar rather than a trained module with its own capacity (`G110`).
+
+**(brainstorm)** The collateralised topology is *better* evidence for the coordinator reading than for the courier one. One axon delivering the identical spike train to two structures at the same time is the ideal way to distribute a phase and a poor way to deliver two differently-typed payloads, since the two endpoints receive the same vector by construction.
+
+---
+
 ## Limitations
 
 - **Everything here is rat, and almost all of it is lesion or electrical stimulation.** No cell-type-specific causal dissection of the collateralising population, so "the same spike goes to both" is anatomy (dual retrograde labelling) plus inference, not a simultaneous recording of both terminals.
@@ -79,7 +99,7 @@ The Ito result is the specific one. The direct hippocampus → prefrontal channe
 - **[[wiki/concepts/schema-assimilation.md]]** — supplies the missing write channel for the selection story: the controller narrows what the store returns by constraining it through this relay, which is why controller inactivation leaves retrieval intact but indiscriminate.
 - **[[wiki/concepts/inter-areal-synchrony.md]]** — assigns this relay a measurable signature: the coupling band that *survives* cutting the direct hippocampus→prefrontal wire (theta, peaking at choice points) must come from a common input, which is what a collateralising relay delivers by construction.
 - **[[wiki/entities/pfc-columnar-planning-model.md]]** — the functional load this relay would carry: the columnar model's forward path-wave *is* a representation of the future trajectory, which is the signal this pathway's inactivation abolishes (Martinet et al. 2011).
-- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the indirect arm of the channel this relay serves: the direct hippocampus→prefrontal projection is unreciprocated, so this nucleus is the return half of a pair of separately-typed directed edges rather than the transpose of the forward one.
+- **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the indirect arm of the channel this relay serves: the direct hippocampus→prefrontal projection is unreciprocated, so this nucleus is the return half of a pair of separately-typed directed edges rather than the transpose of the forward one. It also supplies the case *against* this page's content reading — the relay's rates bias but do not specify a trajectory, arbitrary drive improves memory specificity, and its inactivation removes coupling in both directions at once (`T339`).
 - **[[wiki/concepts/contextual-inference.md]]** — what this relay's return arm is for, in inferential terms: responsibility can be applied by *constraining the store's dynamics* through the midline thalamus rather than by re-weighting the store's outputs.
 - **[[wiki/entities/mediodorsal-thalamus.md]]** — the other thalamic relay in the wiki, and the contrast that types both: this nucleus collateralises one spike train to two structures and carries *content* (a goal-conditioned future path), where the mediodorsal nucleus pools from one structure and returns a *context* that gates it — a broadcast bus against a closed control loop.
 - **[[wiki/concepts/transthalamic-context-routing.md]]** — completes the three-way thalamic contrast: reuniens collateralises one spike train carrying *content* to two structures, the mediodorsal nucleus returns a *context* to its own source, and the higher-order visual thalamus hands an upstream area's *state* to a downstream one — same cell type, three routing topologies, three cargoes (Neske & Cardin 2025).

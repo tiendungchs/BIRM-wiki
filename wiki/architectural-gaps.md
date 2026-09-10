@@ -58,7 +58,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G40 | Nothing decides when to factorise and when to entangle | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g040.md]] |
 | G41 | No test decides whether a domain's actions compose | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g041.md]] |
 | G42 | No machine fast store has a capacity model, so nothing knows when it is full | part | `L1` | `PARTIAL` | 25 | [[wiki/gaps/g042.md]] |
-| G43 | Nothing arbitrates between concurrent reference frames | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g043.md]] |
+| G43 | Nothing arbitrates between concurrent reference frames | part | `L2` | `OPEN` | 9 | [[wiki/gaps/g043.md]] |
 | G44 | Nothing accounts for how much of an emergent phenomenon came from the training target rather than the task | part | `L0-INSTR` | `OPEN` | 3 | [[wiki/gaps/g044.md]] |
 | G45 | No architecture can be told its latent structure | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g045.md]] |
 | G46 | Nothing predicts the *order* in which a learner disambiguates its aliased states | part | `L4` | `OPEN` | 2 | [[wiki/gaps/g046.md]] |
@@ -124,6 +124,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 7 | [[wiki/gaps/g107.md]] |
 | G108 | No label-free criterion selects a good representation out of a training run | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g108.md]] |
 | G109 | No model claiming a knowledge/control split has been scored on the lesion profile that certifies one | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g109.md]] |
+| G110 | Top-down control is always applied to a module or its output; nothing applies it to the interface that feeds the module | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g110.md]] |
 
 ## How gaps are used
 

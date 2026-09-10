@@ -4,7 +4,7 @@
 
 > **Why this is an entity page and not a section.** Every architecture in the wiki draws inter-module connections as wires: a matrix, a gate, or a skip connection with at most a learned scalar. This pathway is the wiki's one worked example of a connection with **its own state, its own plasticity, its own external gate and its own failure signature** — a connection that can be lesioned, potentiated, depotentiated, locked and desynchronised independently of either endpoint. Gap **G52** is the statement that no wiki architecture has such a thing; this page is the specification it would be built from. Split out of [[wiki/entities/medial-prefrontal-cortex.md]] at the 125-ingest lint pass, where it had grown to ~30% of that page while being about neither endpoint.
 
-**Sources.** Euston et al. 2012 (`raw/euston-2012-prefrontal-cortex-memory.md`); Spedding & Jay 2012 (`raw/spedding-2012-hippocampal-prefrontal-pathway.md`); Preston & Eichenbaum 2013 (`raw/preston-2013-hippocampus-prefrontal-memory.md`); Jin & Maren 2015 (`raw/jin-2015-prefrontal-hippocampal-interactions.md`); Sigurdsson & Duvarci 2016 (`raw/sigurdsson-2016-hippocampal-prefrontal-interactions.md`); Shin & Jadhav 2016 (`raw/shin-2016-hippocampal-prefrontal-interaction-modes.md`).
+**Sources.** Euston et al. 2012 (`raw/euston-2012-prefrontal-cortex-memory.md`); Spedding & Jay 2012 (`raw/spedding-2012-hippocampal-prefrontal-pathway.md`); Preston & Eichenbaum 2013 (`raw/preston-2013-hippocampus-prefrontal-memory.md`); Jin & Maren 2015 (`raw/jin-2015-prefrontal-hippocampal-interactions.md`); Sigurdsson & Duvarci 2016 (`raw/sigurdsson-2016-hippocampal-prefrontal-interactions.md`); Shin & Jadhav 2016 (`raw/shin-2016-hippocampal-prefrontal-interaction-modes.md`); Eichenbaum 2017 (`raw/eichenbaum-2017-prefrontal-hippocampal-episodic-memory.md`).
 
 ---
 
@@ -209,6 +209,86 @@ Why this matters beyond neuroscience: the analogous machine experiment is equall
 
 ---
 
+## The third route is cortical, and it is where the controller does its suppressing
+
+> **Provenance (eighth ingest).** Eichenbaum 2017, *Prefrontal–hippocampal interactions in episodic memory*, Nat Rev Neurosci 18:547–558 (`raw/eichenbaum-2017-prefrontal-hippocampal-episodic-memory.md`). A review that assembles the direct pathway, the thalamic relay and a **third, cortical** route into one circuit model of context-cued retrieval, and assigns each route a task phase.
+
+The page has carried two routes: the direct ventral-hippocampal input and the reuniens relay. There is a third, and it is the one the top-down half of every schema story in the wiki has been missing a carrier for.
+
+| Route | Wiring | Cargo assigned by the model | Task phase |
+|---|---|---|---|
+| **Direct** | Ventral/intermediate CA1 + proximal subiculum → **all layers** of medial and orbital prefrontal cortex | *Context* — broad spatial/contextual code of the ventral pole, not detailed memories | Context entry / sample |
+| **Thalamic** | Medial prefrontal ↔ **nucleus reuniens** ↔ CA1 (whole dorsal–ventral extent), perirhinal and entorhinal cortex | Coordination — which direction is open, and when | Both, as the selector |
+| **Cortical** | Medial prefrontal → **superficial** layers of perirhinal cortex and **deep** layers of lateral entorhinal cortex; reciprocal back to prefrontal layers I, II, VI. Projection to *medial* entorhinal cortex is **weaker** | *Rule-based suppression* of context-inappropriate object and event representations | Choice / retrieval |
+
+Two things the asymmetry buys a builder:
+
+- **The top-down arm is typed for objects and events, not for space.** Perirhinal and lateral entorhinal cortex represent items and specific behavioural events ([[wiki/concepts/nonspatial-maps.md]]); the medial entorhinal projection is weak. So the controller's write is addressed to the *what* stream of the store's input and largely bypasses the *where* stream — the two-stream split of `G43`/`T47` read from the control side.
+- **The suppression is applied at the store's input gateway, not at the store.** Perirhinal and lateral entorhinal cortex gate what enters the hippocampus at all; the prefrontal cortex projects to inhibitory neurons in cortical targets. So "top-down control of retrieval" is implemented as narrowing the *input* the store is allowed to complete from, not as filtering the store's output — an arrangement no wiki architecture has (`G110`).
+
+### The controller's contribution to the store's code is one feature dimension, and it is measured
+
+Navawongse & Eichenbaum 2013 — dorsal CA1 recorded in a context-guided object–reward task, before and after muscimol inactivation of either prefrontal cortex or medial entorhinal cortex. The channel page's limitation "nothing localises the content on this channel" now has a partial exception:
+
+| Inactivation | Effect on dorsal CA1 conjunctive cells |
+|---|---|
+| Medial prefrontal, **bilateral** — or **unilateral ipsilateral** to the recorded cells | **Object selectivity lost, spatial specificity intact.** Cells that had fired for one object in one place now fire for *multiple* objects in that same place |
+| Medial prefrontal, unilateral **contralateral** | No effect — the influence is ipsilateral, matching the crossed-lesion result |
+| Medial entorhinal | Broad **remapping** of both object and spatial coding: cells fall silent, acquire new place or object fields, or change unpredictably |
+
+**The reading.** The entorhinal input sets the *organisation* of the store's code; the controller sets the *selectivity* of one dimension inside it. Removing the controller does not degrade the store toward noise — it degrades one factor of a conjunctive code toward *promiscuity*, which is the population-level version of the behavioural failure mode below. This is the sharpest content localisation the wiki has for any controller→store arrow, and it is a **factorised** result: an architecture in which the controller's write is a global gain or a retrieval query cannot produce a lesion that touches one factor of a conjunction and leaves the other exact.
+
+### The controller's failure mode is confident intrusion, not forgetting
+
+The double dissociation that types the two modules, run on the same odour-list recognition task in rats:
+
+| Lesion | Failure |
+|---|---|
+| Hippocampus | Memory for odours on **today's** list is lost (Fortin et al.) |
+| Prefrontal cortex | Today's list is remembered; odours from **previous days' lists** are falsely recognised (Farovik et al.) |
+| Ageing | **Both** failures together |
+
+The human match: patients with prefrontal damage learning `A–B` then `A–C` paired associates are severely impaired on the second set, and the impairment takes the form of **intrusions of the original associate** — and memory for one list is compromised by intrusions from the other even when the two lists share no items. Extinction of contextual fear and selective attention to specific cues fail the same way.
+
+**This is exactly `T98` Position B's predicted ablation signature — but it is produced by removing the *controller*, not by removing the hippocampal input to it.** The reconciliation the model offers: the forward leg delivers *context content* up, and the suppression happens on the *return* leg, applied by the controller to perirhinal/lateral entorhinal cortex. Content and gain are then not competing readings of one wire; they are the two legs of a loop, and `T98`'s dissociation experiment should be run per-direction.
+
+Miller & Cohen's framing, which the review adopts: the hippocampus lays down **tracks**, the prefrontal cortex **switches between them** by contextual rule. The interference results say the switch's failure is not a stall — it is running the previous track confidently.
+
+### The direction of the channel reverses *within* a trial, and both reversals predict accuracy
+
+| Task epoch | Lead | Band | Trials on which it appears |
+|---|---|---|---|
+| Waiting in the start box during a memory delay (delayed spatial alternation) | Dorsal hippocampus leads prefrontal by **~30 ms** | Theta | Correct only |
+| Traversing the choice point, memory-driven decision | Prefrontal leads dorsal hippocampus | **Low gamma, 30–80 Hz** | Correct only |
+| Entering a spatial context (context-guided memory) | Hippocampus leads prefrontal by **~30 ms** | Theta | Correct only |
+| Sampling an object before the decision, same task | **Prefrontal leads hippocampus by ~30 ms** | Theta | Correct only |
+
+Neither direction appears in a control task that makes no trial-specific memory demand. In the context-guided study the correct/error comparison is restricted to trials with the *same* behavioural response, so the connectivity difference is not a motor or reward-expectation confound — a control worth importing into any claim that a measured coupling "predicts performance".
+
+Three constraints follow:
+
+- **The two studies disagree on the band of the return leg** (low gamma vs theta) while agreeing on its direction and its timing. The review leaves this open; it is a live problem for the band-types-the-mechanism rule at [[wiki/concepts/inter-areal-synchrony.md]].
+- **~30 ms exceeds the monosynaptic conduction delay of ~15 ms.** So the lead is not the wire's latency. Two readings offered: the theta rhythm synchronises the two areas and information moves in **~30 ms packets, one gamma cycle each**; or the transfer is polysynaptic even inside the "monosynaptic" pathway, via interneurons at the target. **(brainstorm)** The first reading is the importable one — it says the inter-module link has a **quantum**, a fixed-size packet whose duration is set by a nested faster rhythm and not by the message. Every inter-module link in the wiki transfers a whole tensor per step at whatever size it happens to be; nothing has a per-transfer budget that the sender must chunk into.
+- **Direction is a per-epoch variable, not a property of the architecture.** The same pair of modules runs store→controller during the delay and controller→store at the decision, with a third module (reuniens) doing the switching. No wiki architecture re-selects which way an edge runs partway through one forward pass (`G110`).
+
+### The relay may not be carrying anything
+
+The reuniens evidence in this review argues against the content reading [[wiki/entities/nucleus-reuniens.md]] takes from Ito et al. 2015:
+
+- Reuniens firing rates **differentiate** left-turn from right-turn routes on the common maze segment, but the firing patterns **contain no detailed trajectory information** — enough to bias, not enough to specify (Ito et al., continuous spatial alternation). Optogenetic inactivation of reuniens eliminates the *rate coding* of trajectory in CA1 itself.
+- **Artificial** optogenetic drive of reuniens works: net excitation increases freezing in a novel context, net inhibition decreases it (Xu & Südhof 2013). A channel whose *arbitrary* activation improves the specificity of a memory is not delivering that memory's content.
+- Muscimol inactivation of reuniens during the delay or the choice phase reduces prefrontal phase-locking to dorsal-hippocampal theta and **eliminates bidirectional functional connectivity** — the relay's measured effect is on the coupling, not on either representation.
+- Prefrontal→reuniens inactivation leaves contextual-fear *acquisition* intact and causes **overgeneralisation** to a different context, and only when applied during training.
+
+Logged as [[wiki/empirical-tensions.md]] `T339`. The distinction matters because the two readings need different machine constructs: a content relay is a trained module with its own representation, a coordinator is a low-dimensional switch that opens one direction of an existing edge and carries no payload at all.
+
+### What the model predicts and nobody has run
+
+The review's own missing element, and it is a clean experimental specification the wiki can hold as an open row: **the perirhinal/lateral-entorhinal route has never been manipulated.** The predictions are (i) prefrontal inactivation should reduce the *specificity* of representations in perirhinal and lateral entorhinal cortex, and (ii) inactivation of perirhinal/lateral entorhinal cortex should reduce dorsal-CA1 cells' ability to respond to specific stimuli. Until (i) is run, the claim that the controller suppresses at the gateway rests entirely on the CA1 read-out two synapses downstream.
+
+
+---
+
 ## The channel as a specification, in one table
 
 What a builder would have to implement to have this edge rather than a weight matrix.
@@ -225,6 +305,9 @@ What a builder would have to implement to have this edge rather than a weight ma
 | **Read rule of the offline mode** | Ripple-coordinated reactivation *excites* target cells whose representation matches the replayed sequence and *suppresses* those whose does not | A match-gated write with an inhibitory complement on the receiver | **No** — every replay interface in the wiki writes additively |
 | **Direction typing** | Ventral hippocampus → ventral medial wall carries *context in*; anterior cingulate → dorsal CA1/CA3 carries a *retrieval trigger* out; prefrontal → reuniens → hippocampus carries a *goal-conditioned trajectory* down | Distinct, separately addressed forward and return links with different payload types | **No** — return arrows are transposes |
 | **Target addressing** | The return arrow preferentially innervates high-degree hub neurons that *emerge after learning* | Addressing by the target's graph degree inside the store, rather than by content similarity | **No** ([[wiki/concepts/attention.md]] is content-addressed throughout) |
+| **Direction, per epoch** | Hippocampus leads by ~30 ms at context entry, prefrontal leads by ~30 ms at object sampling, in the same task and only on correct trials; a third module (reuniens) does the switching | An edge whose direction is re-selected partway through one forward pass by a signal from neither endpoint | **No** (`G110`) |
+| **Transfer quantum** | The ~30 ms lead exceeds the ~15 ms monosynaptic delay; proposed as one gamma-cycle packet inside a theta frame | A per-transfer size budget the sender must chunk its message into | **No** — every link moves a whole tensor per step |
+| **Site of top-down control** | The controller projects to perirhinal/lateral entorhinal cortex, which gate the store's *input*, and its removal costs the store one factor of a conjunctive code (object selectivity) while sparing the other (place) | Control applied to the interface module upstream of the store rather than to the store or its output | **No** (`G110`) |
 
 **(brainstorm)** Read as a whole, the table says the wiki has been modelling inter-module communication at roughly the level of detail it models a single synapse — and that the interesting variables all live one level up. The cheapest experiment that would put a number on it: take any two-module model with a learned interface, add *only* the write-mask row (a third module emitting a binary licence on the interface's plasticity), and measure whether continual-learning interference falls. Every other row costs an architecture change; that one costs a mask.
 
@@ -240,6 +323,9 @@ What a builder would have to implement to have this edge rather than a weight ma
 | Nothing measures what the channel *carries*, only when it is required and at what frequency | The cargo is inferred from the origin's tuning (ventral pole = context generality), never read off the axons |
 | The mode taxonomy is built from separate experiments, never from one recording of a full learning curve | "Two modes trading off across learning" is a proposal; no study measures theta coherence and ripple coordination in the same animals from naive to expert (Shin & Jadhav 2016) |
 | No mode has been perturbed *as a mode* | Every causal result cuts an anatomical link or silences a region for a block of time; closed-loop detection-triggered perturbation of an inter-regional pattern has not been done, so "communication mode" rests on the co-occurrence of a band and an epoch |
+| The cortical (perirhinal / lateral entorhinal) route has never been manipulated | The claim that the controller suppresses at the store's input gateway rests on a CA1 read-out two synapses downstream, plus anatomy; Eichenbaum 2017 states the two missing experiments himself |
+| The direction-reversal studies disagree on the band of the return leg | Low gamma in one task, theta in another, with the same ~30 ms lead and the same correct-trials-only signature — so the band-types-the-mechanism rule does not yet cover the return direction |
+| Rodent–primate prefrontal homology is unresolved and the review says so | Every pathway assignment on this page is rat; which human prefrontal region inherits which route is not settled |
 | The psychiatric convergence is correlational | The "weak link" thesis is a strong organising claim built on coupling abnormalities that could be downstream of either endpoint |
 
 ---
@@ -268,4 +354,5 @@ What a builder would have to implement to have this edge rather than a weight ma
 - **[[wiki/entities/default-mode-network.md]]** — the resting-state context for this edge, with a routing twist: the medial temporal and dorsomedial prefrontal subsystems are *anticorrelated* and reach each other through shared hubs (posterior cingulate/retrosplenial, ventral medial prefrontal), not directly.
 - **[[wiki/entities/lisa.md]]** — the open question this channel is the anatomy for: prefrontal role binding by synchrony and hippocampal/medial-temporal binding are both phase claims, running over a wire whose theta and gamma channels are separately silenceable, and no account says whether a role binding is ever *transferred* across it or independently re-derived at each end (Knowlton, Hummel & Holyoak 2012 flag it as unspecified).
 - **[[wiki/concepts/retrieval-mediated-learning.md]]** — human encoding-phase evidence on this channel with an unusual control attached: hippocampus–ventromedial-prefrontal coupling rises with repetition number *within* a run and not across runs, so the channel's bandwidth tracks assembly of one particular overlapping structure rather than time on task or a task mode (`T100`).
+- **[[wiki/concepts/nonspatial-maps.md]]** — types the top-down leg's cargo: the controller's cortical route lands on perirhinal and lateral entorhinal cortex, which code items and events, and only weakly on the medial entorhinal cortex, so the write is addressed to the *what* stream of the store's input (Eichenbaum 2017).
 - **[[wiki/concepts/hippocampal-long-axis.md]]** — explains why the channel originates where it does: the controller is wired to the end of a scale gradient whose fields are widest and whose code generalizes over the events of a context, so the anatomy fixes the cargo's grain before any computation does; the same gradient carries the cingulate input topography in the other direction.
