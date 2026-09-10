@@ -92,7 +92,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T89 | Is a working memory cleared by decay or by an addressed erase signal? | `L2` | `LIVE` | 1 | [[wiki/tensions/t089.md]] |
 | T90 | Is a working-memory operation implemented by one controller, or by the conjunction of several subsystems each representing it differently? | `L1` | `LIVE` | 1 | [[wiki/tensions/t090.md]] |
 | T92 | Is working memory the specialized function of prefrontal cortex? | `L4` | `LIVE` | 5 | [[wiki/tensions/t092.md]] |
-| T93 | Does abstracting a rule enable generalization, or only speed it up? | `L0` | `LIVE` | 2 | [[wiki/tensions/t093.md]] |
+| T93 | Does abstracting a rule enable generalization, or only speed it up? | `L0` | `LIVE` | 4 | [[wiki/tensions/t093.md]] |
 | T94 | When a behaviour becomes automatic, does the controller drop out or hand over? | `L2` | `LIVE` | 5 | [[wiki/tensions/t094.md]] |
 | T95 | Does the control layer store knowledge of its own, or only run procedures over knowledge stored elsewhere? | `L1` | `LIVE` | 1 | [[wiki/tensions/t095.md]] |
 | T96 | Is the controller one homogeneous pool or partitioned by content? | `L1` | `BOTH` | 3 | [[wiki/tensions/t096.md]] |
@@ -155,7 +155,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T156 | When a compositional model fails out of distribution, is the deficit in the vocabulary or in the search over it? | `L1` | `LIVE` | 7 | [[wiki/tensions/t156.md]] |
 | T157 | When a linear probe fails, is the representation non-linear or is the label basis wrong? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t157.md]] |
 | T158 | When a model is shown to use its world model, does it use it on every input? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t158.md]] |
-| T159 | Is a geometric structure that appears only after dimensionality reduction a property of the representation or of the projection? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t159.md]] |
+| T159 | Is a geometric structure that appears only after dimensionality reduction a property of the representation or of the projection? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t159.md]] |
 | T160 | Does the geometric quality of a representation predict whether the model uses it? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t160.md]] |
 | T161 | Does a stable signature failure profile identify an *installed* prior? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t161.md]] |
 | T162 | Does relational understanding require decoding back to the input space? | `L2` | `LIVE` | 7 | [[wiki/tensions/t162.md]] |
@@ -317,3 +317,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T347 | Does the entorhinal-hippocampal code de-alias geometrically identical subspaces, or only positions within one? | `L2` | `LIVE` | 5 | [[wiki/tensions/t347.md]] |
 | T348 | Is an object-vector block path-integrated, or measured online from the referent? | `L2` | `LIVE` | 3 | [[wiki/tensions/t348.md]] |
 | T349 | Does structure come from predicting forward, or from being allowed to see the past? | `L2` | `LIVE` | 4 | [[wiki/tensions/t349.md]] |
+| T350 | Is a memory library a set of discrete atoms, or one continuous family plus a metaparameter? | `L1` | `LIVE` | 4 | [[wiki/tensions/t350.md]] |

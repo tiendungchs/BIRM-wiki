@@ -32,7 +32,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 21 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 26 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 59 | [[wiki/gaps/g017.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 60 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 18 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
@@ -42,7 +42,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 14 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 5 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 21 | [[wiki/gaps/g026.md]] |
-| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 32 | [[wiki/gaps/g027.md]] |
+| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 33 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `L0` | `PARTIAL` | 19 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 10 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 22 | [[wiki/gaps/g030.md]] |
@@ -76,7 +76,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G58 | No control layer is instantiated by the existence of a choice at its own level | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g058.md]] |
 | G59 | Every hierarchical controller lets its lower level see the same observation as its upper level | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g059.md]] |
 | G60 | Every architecture derives its retrieval query from the goal; none chooses the query | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g060.md]] |
-| G61 | Exploration is always an external schedule, never part of the selector | part | `L1` | `OPEN` | 9 | [[wiki/gaps/g061.md]] |
+| G61 | Exploration is always an external schedule, never part of the selector | part | `L1` | `OPEN` | 10 | [[wiki/gaps/g061.md]] |
 | G62 | Nothing scores a world model by what a planner can do with it | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g062.md]] |
 | G63 | The behaviour policy is a load-bearing parameter of world-model estimation, and every mechanism the wiki has for improving an agent destroys it | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g063.md]] |
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g064.md]] |
@@ -96,7 +96,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G78 | Nothing sets a slow variable's time constant, and memory span is that time constant | part | `L3` | `PARTIAL` | 7 | [[wiki/gaps/g078.md]] |
 | G80 | The wiki's most expressive per-parameter variable is the one nothing optimises | part | `L3` | `PARTIAL` | 4 | [[wiki/gaps/g080.md]] |
 | G81 | No graph-discovery mechanism in the wiki estimates edges through an observation model | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g081.md]] |
-| G82 | Every low-dimensional manifold in the wiki is measured, none is generated | part | `L3` | `PARTIAL` | 4 | [[wiki/gaps/g082.md]] |
+| G82 | Every low-dimensional manifold in the wiki is measured, none is generated | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g082.md]] |
 | G83 | Every structure-discovery mechanism in the wiki outputs a structure; none outputs a reusable map between structures | part | `L0` | `PARTIAL` | 4 | [[wiki/gaps/g083.md]] |
 | G84 | No architecture in the wiki knows the topological position of its own modules, and none has a component whose job is to be the crossing point | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g084.md]] |
 | G85 | No architecture in the wiki reads its own network topology, and none treats it as a demand-graded control variable | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g085.md]] |
