@@ -40,7 +40,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T24 | Does an adaptation curve measure learning? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t024.md]] |
 | T25 | Does a decodable internal structure license the claim that the model reasons over it? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t025.md]] |
 | T27 | Is the brain's map metric or topological? | `L1` | `LIVE` | 4 | [[wiki/tensions/t027.md]] |
-| T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 6 | [[wiki/tensions/t028.md]] |
+| T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 7 | [[wiki/tensions/t028.md]] |
 | T29 | Does de-aliasing conflict with generalisation? | `L0` | `LEANING` | 3 | [[wiki/tensions/t029.md]] |
 | T30 | What is replay for — planning the next path, or building a transferable map? | `L2` | `LIVE` | 6 | [[wiki/tensions/t030.md]] |
 | T31 | Is the entorhinal integrator perfect or leaky? | `L3` | `LIVE` | 2 | [[wiki/tensions/t031.md]] |
@@ -313,3 +313,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T343 | Is the extra-classical surround carried by inter-areal feedback or by within-level lateral connections, and can any dynamical measurement tell? | `L2` | `LIVE` | 5 | [[wiki/tensions/t343.md]] |
 | T344 | What does the layer-5 branch to higher-order thalamus carry: an efference copy, or a composite-object representation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t344.md]] |
 | T345 | Is movement-correlated activity in a sensory area a valid proxy for the prediction term? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t345.md]] |
+| T346 | Is a cortical action→sensory-consequence map stored in the sender's activity, or in the sender→receiver synaptic matrix? | `L2` | `LIVE` | 2 | [[wiki/tensions/t346.md]] |

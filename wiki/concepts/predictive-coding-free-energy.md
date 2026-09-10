@@ -414,6 +414,7 @@ It also sharpens the picture the illusion is usually used to support. The mask i
 
 ## Connections
 
+- **[[wiki/entities/m2-auditory-cortex-filter.md]]** — a measured descending term in a functional form this formalism's implementations rarely offer: neither a scalar gain nor a full content prediction, but an **addressed gain** — a movement-gated notch at one point on the tonotopic axis, whose width is inherited from the tuning of the interneurons that deliver it. It also supplies the acquisition schedule the update rule is silent about: 5–9 days for an arbitrary contingency, and nothing at all unless the sensory rate is a function of the movement's magnitude.
 - **[[wiki/entities/affordance-active-inference-model.md]]** — this scheme reused unmodified with the whole content in the generative model: nested winnerless competition as the prior, reflex arcs as the action channel, and `Π` placed regionally — which turns an abstract update rule into a behaving agent whose lesions have syndromes.
 - **[[wiki/concepts/epistemic-value.md]]** — the other half of the alternation, and where the distinction this page maintains gets broken: every epistemic quantity there is defined over a distribution that variational fitting produced, and every deep implementation surveyed substitutes a factor of the *generative* model for the variational one inside the expectation, which silently severs the epistemic term from the free-energy bound it is supposed to descend.
 

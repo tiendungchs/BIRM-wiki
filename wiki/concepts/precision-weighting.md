@@ -193,6 +193,7 @@ What it does not supply: `τ` is estimated from signal-to-noise ratios by a hand
 
 ## Connections
 
+- **[[wiki/entities/m2-auditory-cortex-filter.md]]** — a case where bandwidth alone fails to classify a channel: what motor cortex delivers to auditory cortex is close to a gain, but it is *addressed* to one learned band, so the low-dimensional/content distinction has to be drawn by whether the address is learned rather than by how many numbers are on the wire.
 - **[[wiki/entities/affordance-active-inference-model.md]]** — this page's dopamine reading put inside a behaving agent, and the correction it forces: precision is a *field over hierarchical levels*, and the behavioural sign of a change in it flips with height, so "dopamine is precision" is not a prediction until the level is named (T122).
 
 - **[[wiki/concepts/epistemic-value.md]]** — the fitted coefficients on the three expected-free-energy terms are precisions, and the human study there returns a null this page has to absorb: the *value of resolving* each uncertainty has a cortical correlate and the *degree* of it has none, which is the opposite of treating uncertainty as a first-class encoded quantity.

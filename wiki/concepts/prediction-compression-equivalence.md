@@ -125,6 +125,7 @@ This is the cleanest available demonstration that "understanding" claims and "co
 
 ## Connections
 
+- **[[wiki/entities/m2-auditory-cortex-filter.md]]** — the neural counter-case, measured: a week of imposed movement→tone reafference **redistributed** auditory cortical suppression along the frequency axis rather than reducing it, and the payoff appeared as improved detection of the *unpredicted* tone — so in this substrate predicting bought sensitivity out of a conserved budget, not a shorter code.
 - **[[wiki/concepts/universal-induction.md]]** — the computable shadow of that page's ceiling: set `ℓ_c = K` and the compressor-induced predictor is Solomonoff's, so every measured compression rate is a lower-bounded distance from the ideal inductor.
 - **[[wiki/concepts/skill-acquisition-efficiency.md]]** — the antagonist made empirical: this page's models are near-optimal compressors of their curricula, which is exactly the object Chollet argues discards what evaluation needs ([[wiki/empirical-tensions.md]] T16), and the in-context rate curve is a computable proxy for the conversion rate that page cannot compute.
 - **[[wiki/concepts/three-component-framework.md]]** — identifies what is already in the objective slot: autoregressive log-loss *is* minimum code length, and the adjusted rate is the same two-part code the genome-bottleneck argument uses with the design/parameter split moved.
