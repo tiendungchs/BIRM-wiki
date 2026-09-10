@@ -1,4 +1,4 @@
-# Ingest queue — 397 sources, wave-ordered
+# Ingest queue — 398 sources, wave-ordered
 
 Generated from `manifest.tsv`. Ingest top to bottom.
 Within a wave: **S**urvey → **F**ramework → **M**echanism/**B**enchmark → **R**esult → e**X**position, oldest first.
@@ -557,10 +557,11 @@ One INGEST each:
 
 ## Between-wave clips — dropped in `raw/` with wave 19
 
-Not from the want-list; anchored to open registry rows after the fact. Validated with wave 19 (0 FAIL, 0 WARN), manifest rows 388–392. Two duplicate clips of the bioRxiv preprint of Whittington et al. 2025 were deleted — the Neuron version below supersedes them. Ingest order F → R, oldest first.
+Not from the want-list; anchored to open registry rows after the fact. Validated with wave 19 (0 FAIL, 0 WARN), manifest rows 388–392; row 393 dropped later and appended at the end of this block. Two duplicate clips of the bioRxiv preprint of Whittington et al. 2025 were deleted — the Neuron version below supersedes them. Ingest order F → R, oldest first.
 
 - [ ] `whittington-2025-tale-of-two-algorithms-structured-slots.md` — working-memory · F · 2025 — user-clipped; Neuron 113(2):321–333, published version of bioRxiv 2023.11.05.565662; prefrontal sequence memory as structured activity slots (one-hot role code), unified with hippocampal weight-stored cognitive maps — the slot-vs-weight comparison `T317` asks for · `T317`, `G104`, `T293`
 - [ ] `bakermans-2025-hippocampal-composition-and-replay.md` — hippocampal-entorhinal · F · 2025 — user-clipped; Nat. Neurosci. 2025; hippocampal state space composed from reusable sub-blocks, replay as the mechanism that builds and stitches the composition; the `spacetime-attractor` page cites its preprint as the proposed training route · `T30`, `G22`, `T28`
 - [ ] `derdikman-2009-grid-map-fragmentation-multicompartment.md` — hippocampal-entorhinal · R · 2009 — user-clipped; Nat. Neurosci. 12:1325–1332; grid maps fragment into per-compartment submaps in a hairpin maze, resetting at each turn — the environment, not the inference history, sets the map boundary · `T35`, `T46`, `T39`
 - [ ] `hoydal-2019-object-vector-coding-mec.md` — hippocampal-entorhinal · R · 2019 — user-clipped; Nature 568:400–404; MEC cells fire at a fixed distance and direction from discrete objects, generalising across objects and environments — a landmark-anchored code alongside the self-motion grid · `T46`, `G39`
 - [ ] `gornet-2024-cognitive-maps-visual-predictive-coding.md` — hippocampal-entorhinal · R · 2024 — user-clipped; Nat. Mach. Intell. 6:820–833; a network trained only on visual next-frame prediction assembles an implicit spatial map in its latent space with no coordinates or path-integration signal — a cortex-side route to a map, bearing on `T38` and `T28` position B · `T38`, `T28`, `G34`
+- [ ] `braun-2009-motor-task-variation-structural-learning.md` — world-models · R · 2009 — user-clipped; Curr. Biol. 19(4):352–357; randomly varying the *parameter* of a visuomotor transformation with zero mean teaches its *structure* — a low-dimensional subspace of control space plus a metaparameter that moves along it; yields structure-specific facilitation, reduced anterograde/retrograde interference between ±60° rotations, and movement variability shaped *along* the learned subspace · `T93`, `G61`, `G82`
