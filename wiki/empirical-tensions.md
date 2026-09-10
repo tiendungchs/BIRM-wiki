@@ -106,7 +106,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T104 | Is the working-memory capacity limit a resource ceiling or a safety margin the system imposes on itself? | `L1` | `LIVE` | 2 | [[wiki/tensions/t104.md]] |
 | T105 | Does model-based *behaviour* license the inference that a model-based *algorithm* is running? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t105.md]] |
 | T106 | Do task-trained prefrontal-like recurrent networks settle into attractors, or avoid them? | `L3` | `LIVE` | 3 | [[wiki/tensions/t106.md]] |
-| T107 | Which structure holds the graph that a plan runs on — the hippocampal formation, or the cortical controller? | `L1` | `LIVE` | 3 | [[wiki/tensions/t107.md]] |
+| T107 | Which structure holds the graph that a plan runs on — the hippocampal formation, or the cortical controller? | `L1` | `LIVE` | 5 | [[wiki/tensions/t107.md]] |
 | T108 | When a new situation is ambiguous between stored structures, does the learner mix them or commit to one? | `L2` | `LIVE` | 4 | [[wiki/tensions/t108.md]] |
 | T110 | When a task affords no higher-order structure, does the learner withdraw from the abstract level or keep imposing it? | `L2` | `LIVE` | 2 | [[wiki/tensions/t110.md]] |
 | T111 | Is a control representation a stable property of the tissue, or instantiated by the demand? | `L1` | `LIVE` | 3 | [[wiki/tensions/t111.md]] |
@@ -309,6 +309,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T339 | Does nucleus reuniens carry content between controller and store, or only open the direction? | `L2` | `LIVE` | 2 | [[wiki/tensions/t339.md]] |
 | T340 | Does the episodic store return its output to the stream that wrote it, or to the other one? | `L2` | `LIVE` | 1 | [[wiki/tensions/t340.md]] |
 | T341 | Does a cortical area carry one signed prediction-error population, or two sign-specific ones? | `L1` | `LIVE` | 4 | [[wiki/tensions/t341.md]] |
-| T342 | Does a cerebellar module emit a motor command, or a prediction of that command's sensory consequence? | `L1` | `LIVE` | 2 | [[wiki/tensions/t342.md]] |
+| T342 | Does a cerebellar module emit a motor command, or a prediction of that command's sensory consequence? | `L1` | `LIVE` | 3 | [[wiki/tensions/t342.md]] |
 | T343 | Is the extra-classical surround carried by inter-areal feedback or by within-level lateral connections, and can any dynamical measurement tell? | `L2` | `LIVE` | 5 | [[wiki/tensions/t343.md]] |
 | T344 | What does the layer-5 branch to higher-order thalamus carry: an efference copy, or a composite-object representation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t344.md]] |
+| T345 | Is movement-correlated activity in a sensory area a valid proxy for the prediction term? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t345.md]] |
