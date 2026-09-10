@@ -289,7 +289,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T319 | Is an area's integration timescale a fixed property of that area, or a run-time property of the network and its current input? | `L1` | `BOTH` | 3 | [[wiki/tensions/t319.md]] |
 | T320 | Does a model's own softmax rank its own errors? | `L0-INSTR` | `BOTH` | 5 | [[wiki/tensions/t320.md]] |
 | T321 | Does a per-input compute budget buy anything on language modelling? | `L3` | `LIVE` | 2 | [[wiki/tensions/t321.md]] |
-| T322 | Does the ESBN's out-of-distribution generalisation come from its binding mechanism, or from normalising each problem's embeddings against itself? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t322.md]] |
+| T322 | Does the ESBN's out-of-distribution generalisation come from its binding mechanism, or from normalising each problem's embeddings against itself? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t322.md]] |
 | T323 | Is a module's integration timescale carried by its individual units, or only by the population? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t323.md]] |
 | T324 | Does network controllability rank nodes by anything degree does not already say? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t324.md]] |
 | T325 | Does capacity make a system's stated confidence worse or better? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t325.md]] |
