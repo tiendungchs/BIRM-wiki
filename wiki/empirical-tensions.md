@@ -314,3 +314,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T344 | What does the layer-5 branch to higher-order thalamus carry: an efference copy, or a composite-object representation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t344.md]] |
 | T345 | Is movement-correlated activity in a sensory area a valid proxy for the prediction term? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t345.md]] |
 | T346 | Is a cortical action→sensory-consequence map stored in the sender's activity, or in the sender→receiver synaptic matrix? | `L2` | `LIVE` | 2 | [[wiki/tensions/t346.md]] |
+| T347 | Does the entorhinal-hippocampal code de-alias geometrically identical subspaces, or only positions within one? | `L2` | `LIVE` | 5 | [[wiki/tensions/t347.md]] |
