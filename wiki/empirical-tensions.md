@@ -316,3 +316,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T346 | Is a cortical action→sensory-consequence map stored in the sender's activity, or in the sender→receiver synaptic matrix? | `L2` | `LIVE` | 2 | [[wiki/tensions/t346.md]] |
 | T347 | Does the entorhinal-hippocampal code de-alias geometrically identical subspaces, or only positions within one? | `L2` | `LIVE` | 5 | [[wiki/tensions/t347.md]] |
 | T348 | Is an object-vector block path-integrated, or measured online from the referent? | `L2` | `LIVE` | 3 | [[wiki/tensions/t348.md]] |
+| T349 | Does structure come from predicting forward, or from being allowed to see the past? | `L2` | `LIVE` | 4 | [[wiki/tensions/t349.md]] |

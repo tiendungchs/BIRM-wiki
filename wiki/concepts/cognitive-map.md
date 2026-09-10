@@ -174,6 +174,22 @@ Sun et al. 2025 is the only source in the wiki that records a hippocampal map th
 
 The transferable point is that G39's missing ingredient is a *group*: anchoring is computable here precisely because installing the topology also installs the symmetry group that relates a stored frame to the present one. That is why the operation exists on a torus and nowhere abstract.
 
+### And the model that installs nothing at all
+
+[[wiki/entities/visual-predictive-coder.md]] (Gornet & Thomson 2024) is the opposite extreme, and it is the cheapest route in the wiki to element 1. A ResNet-18 encoder–decoder with one self-attention layer, trained on nothing but the mean-squared error to the *next* frame of a Minecraft trajectory — no coordinates, no odometry, no path-integration input, no place-cell readout, no spatial loss term — has a latent space from which position is decodable to ±4 lattice units in a 40 × 65 arena, whose pairwise distances fit `α·log‖x−x′‖ + β` at `r = 0.827`, and whose 128 units are localised place-like fields (mean 9.79% of the arena) covering it combinatorially (the active-unit count differs across 87.6% of blocks).
+
+| This page's element | Status in the emergent map |
+|---|---|
+| **1. Spatial coding** | Present, and free — a by-product of predicting pixels. The formal reason is that the next-image posterior factors into encoder × spatial transition × decoder over latent coordinates the agent never observes, so position is the sufficient statistic of the history for the future |
+| **2. Anchoring** | **Absent, and unavailable.** With no installed topology there is no symmetry group, hence no `φ_k` to fit — the exact converse of GCQ. The one anchoring-adjacent result is negative-space evidence: remove and randomly redistribute the movable landmarks (the trees) and the fields barely move (Jaccard 0.828), so the network arrived at this page's stability-ranking bias without any notion of a boundary |
+| **3. Route planning** | Absent. Nothing in the paper navigates; the "vector navigation" is a linear decoder fitted from `z₁ − z₂` to `x₁ − x₂` (distance mean 7.89 units, direction mean 30.6°), not a policy |
+
+Three things it adds to this page:
+
+- **The metric is logarithmic, not Euclidean.** Every distance code the page carries — entorhinal distance-to-goal, object-vector fields, hippocampal path distance — is treated as linear. A map that falls out of prediction compresses the far field, because distant frames are equally unpredictable. Unremarked in the source.
+- **A displacement algebra without periodicity.** Subtracting two thresholded overlapping-field codes is linearly decodable to a heading. The wiki has assumed vector navigation needs a torus or a referent object; it needs only fields wide enough to overlap.
+- **The de-aliasing is done by history, and the paper's proof does not say what it claims.** Two pixel-identical rooms on a loop are separated to 0.071 lattice units of position error, and Theorem 1 shows no estimator reading a *single stationary observation* can do this at all. But the control that fails is single-frame **and** same-target, so whether the credit belongs to the forward target or to the observation window is untested (`T349`).
+
 ---
 
 ## Open problems
@@ -243,3 +259,4 @@ The transferable point is that G39's missing ingredient is a *group*: anchoring 
 - **[[wiki/concepts/hippocampal-long-axis.md]]** — the map's resolution is a function of anatomical position rather than a global constant: CA3 place-field width runs ~1 m → ~10 m from dorsal to ventral pole, so every scale is held at once along one axis, which is what lets hippocampal patterns discriminate corners-within-a-room and rooms in different places.
 - **[[wiki/concepts/activity-slots.md]]** — a map held entirely in working-memory activity: each slot's contents answer "what would I see if I took *this* action sequence", so the whole set of one-step-to-`k`-step counterfactuals is materialised simultaneously rather than visited one state at a time — and the same latent-structure task is solved identically by a synaptic map with a moving position code, which makes carrier and map two separable choices (Whittington et al. 2025).
 - **[[wiki/entities/state-space-composition.md]]** — makes element 3 a property of the representation rather than a search: a reward- or border-vector code already *is* a policy, so a composed map need not be traversed to be used — and it supplies the wiki's first recording of the map being built offline, with a cell's rate-map change localised at its own replay-spike location.
+- **[[wiki/entities/visual-predictive-coder.md]]** — element 1 obtained for free and elements 2 and 3 shown to be what the freedom costs: a pixel-MSE next-frame predictor with nothing installed recovers a distance-preserving, place-field-tiled latent map, but with no installed topology there is no symmetry group to anchor in and nothing in the paper navigates on it.
