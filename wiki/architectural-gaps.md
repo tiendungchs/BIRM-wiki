@@ -125,6 +125,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G108 | No label-free criterion selects a good representation out of a training run | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g108.md]] |
 | G109 | No model claiming a knowledge/control split has been scored on the lesion profile that certifies one | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g109.md]] |
 | G110 | Top-down control is always applied to a module or its output; nothing applies it to the interface that feeds the module | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g110.md]] |
+| G111 | Every predictor in the wiki compares its prediction with feedback in temporal register by fiat; none learns its own delay | part | `L2` | `OPEN` | 2 | [[wiki/gaps/g111.md]] |
 
 ## How gaps are used
 
