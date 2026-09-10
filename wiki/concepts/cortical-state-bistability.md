@@ -124,6 +124,25 @@ The source's own proposal is that they are the same event seen at two levels —
 
 **(brainstorm) The same machinery is claimed for cognitive control.** The source notes rule-selective prefrontal ensembles are beta-coherent, with low-frequency activity inhibiting a rule that is about to be de-selected (Jensen & Bonnefond 2013) — i.e. the identical hold/release pair, with a rule in the slot instead of a percept. If that generalises, then *task-set switching and perceptual switching are one mechanism operating on different payloads*, and [[wiki/concepts/cognitive-control.md]]'s task-set bias should be implementable as an occupancy of this same state variable rather than as a separate module. The testable consequence: a system's perceptual alternation rate and its task-switch cost should be governed by one parameter.
 
+
+---
+
+## A second band pair in the same lobe, with the roles reassigned
+
+Lundqvist et al. 2016 (`raw/lundqvist-2016-gamma-beta-bursts-underlie-working-memory.md`) report the same hold/release *shape* in macaque lateral prefrontal cortex — a default burst regime interrupted by a coding regime — but every band assignment differs, and the two accounts cannot both be literally the mechanism:
+
+| | This page (Dwarakanath et al. 2023) | Lundqvist et al. 2016 |
+|---|---|---|
+| Default / hold regime | **Beta** 20–40 Hz; the dominant content's spikes are *coherent* with it | **Beta** 20–35 Hz; spiking inside beta bursts is indistinguishable from outside (`p = 0.98`) and carries no stimulus information |
+| Interrupting regime | **Low frequency** 1–9 Hz, content-free, releases the incumbent | **Gamma** 45–100 Hz, item-specific, expresses the content (spikes and information both raised inside) |
+| Duration | Beta ≥25 ms, low-frequency ≥111 ms | Beta 130 ± 37 ms, gamma 67 ± 19 ms |
+| Antagonism | Burst rates anti-correlated, `r = −0.08` | Beta–gamma power anti-correlated over the trial at 112/126 informative sites, `r = −0.41`, but **no within-trial, within-50 ms-bin relation between any sub-band pair** |
+| What the state variable is for | Permitting a *switch of content* | Permitting *expression* of content already held |
+
+Two things survive the disagreement and are the transferable part. **Beta is the default in both**, so the resting condition of prefrontal cortex is a hold state and the controller emits permissions rather than suppressions. And **in both the antagonism is a slow occupancy statistic** (`r = −0.08` here, `r = −0.41` there, both with no single-event predictive power) — so "bistable" describes how the tissue distributes its time, and no implementation should model it as an instantaneous mutual-inhibition pair.
+
+What differs is whether the release signal is content-free (here) or item-specific (there), and that is a genuine fork: a content-free release needs a *separate* mechanism to decide what takes over, an item-specific one does not.
+
 ---
 
 ## Open problems
@@ -148,3 +167,4 @@ The source's own proposal is that they are the same event seen at two levels —
 - **[[wiki/concepts/activity-baseline.md]]** — where the alternation lives when nothing is asked: the same low-frequency/beta cycle runs in resting state at a matched rate, so the idle mode is this oscillator free-running rather than a distinct network state.
 - **[[wiki/concepts/perturbation-elicitability.md]]** — the missing instrument for this page's causal claim: precedence by 300 ms is not causation, and the untried experiment is to drive the rhythm rather than the site — which is a different perturbation from the one that returns 0% in prefrontal cortex.
 - **[[wiki/concepts/working-memory.md]]** — the protection problem stated in this page's terms: beta occupancy shields the held item from replacement while *lowering* sensitivity to new input, so maintenance is not free and the cost is paid in detection.
+- **[[wiki/concepts/inhibitory-control-of-coding.md]]** — where this page's state variable becomes one of that page's channels: a rhythm-defined gate addressed by *when* rather than by cell type, with the same slow-occupancy antagonism (no within-trial, within-bin coupling between beta and gamma sub-bands) and the same default-hold reading, which together mean neither pair should be implemented as instantaneous mutual inhibition.

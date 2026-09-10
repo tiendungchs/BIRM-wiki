@@ -86,7 +86,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T82 | Is permanent hippocampal dependence an optimal refusal or a transport failure? | `L1` | `LIVE` | 2 | [[wiki/tensions/t082.md]] |
 | T83 | Is memory allocation decided by the excitability of neurons just before learning? | `L3` | `LEANING` | 2 | [[wiki/tensions/t083.md]] |
 | T85 | Is phasic dopamine a reward *prediction* or a reward *association*? | `L4` | `LIVE` | 4 | [[wiki/tensions/t085.md]] |
-| T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `L1` | `LEANING` | 2 | [[wiki/tensions/t086.md]] |
+| T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `L1` | `LEANING` | 3 | [[wiki/tensions/t086.md]] |
 | T87 | Is a working memory held at a fixed point, or in a moving trajectory? | `L3` | `LEANING` | 2 | [[wiki/tensions/t087.md]] |
 | T88 | What is prefrontal delay-period activity *about* — the item held, or the place attention is pointed? | `L1` | `LEANING` | 4 | [[wiki/tensions/t088.md]] |
 | T89 | Is a working memory cleared by decay or by an addressed erase signal? | `L2` | `LIVE` | 1 | [[wiki/tensions/t089.md]] |
@@ -304,3 +304,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T334 | Is an unobserved relational path written at encoding, or composed at retrieval? | `L2` | `LIVE` | 4 | [[wiki/tensions/t334.md]] |
 | T335 | Do matrix problems and four-term analogies measure the same relational competence? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t335.md]] |
 | T336 | Is the analogy integrator a 0.33 cc left frontopolar site, or a right frontal network? | `L1` | `LIVE` | 4 | [[wiki/tensions/t336.md]] |
+| T337 | Is working-memory capacity a duty cycle over a periodic frame, or a rate of aperiodic bursts? | `L1` | `LIVE` | 2 | [[wiki/tensions/t337.md]] |

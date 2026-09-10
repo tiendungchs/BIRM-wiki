@@ -227,6 +227,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | STD | Short-Term Depression | Activity-dependent depletion of releasable synaptic resources; the presynaptic alternative to SFA as an adaptation mechanism |
 | STP | Short-Term Plasticity | Activity-dependent, seconds-scale modulation of synaptic efficacy `u·x` (Tsodyks–Markram); facilitation `τ_f` and depression-recovery `τ_r`, with `τ_f > τ_r` producing a post-activity rebound ([[wiki/entities/stp-flickering-cann.md]]) |
 | LFP | Local Field Potential | The low-frequency extracellular signal from which theta phase and power are estimated |
+| CV₂ | Local Coefficient of Variation (of inter-event intervals) | Regularity statistic computed on adjacent interval pairs; `1.0` = Poisson (no periodicity), `→0` = clock-like. Prefrontal gamma bursts during a working-memory delay give `0.997 ± 0.028` ([[wiki/concepts/working-memory.md]], [[wiki/empirical-tensions.md]] T337) |
+| PEV | Percentage Explained Variance | Per-neuron measure of how much of the firing-rate variance is explained by stimulus identity; the wiki's standard single-unit information measure (Olejnik & Algina 2003) |
 | VCO | Velocity-Coupled Oscillator | Path integration by phase interference between theta and velocity-modulated dendritic oscillations |
 | EM | Expectation-Maximisation | Alternating latent-inference / parameter-update algorithm; how CSCG is trained |
 | DoG / DoS | Difference-of-Gaussians / Difference-of-Softmaxes | Centre–surround readout target functions in deep grid-cell models; DoS (used in code, DoG in text) is what actually produces lattices, because the readout correlation matrix plays the role of the attractor interaction kernel ([[wiki/concepts/objective-identifiability.md]]) |

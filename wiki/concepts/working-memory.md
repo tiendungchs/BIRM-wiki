@@ -328,6 +328,51 @@ Three things this changes for fast **M**:
 
 ---
 
+## And the frame may not exist: the delay is aperiodic bursts, and load buys more of them, not longer ones
+
+> Lundqvist, Rose, Herman, Brincat, Buschman & Miller 2016, *Gamma and beta bursts underlie working memory*, Neuron 90(1):152–164 (`raw/lundqvist-2016-gamma-beta-bursts-underlie-working-memory.md`). Two macaques, 321 lateral-prefrontal/frontal-eye-field electrodes with isolatable units, 293 units; sequential 2- or 3-item colour-change detection (73% / 56% correct). This is the founding measurement behind the read schedule on [[wiki/concepts/memory-read-and-erase.md]] and the beta channel on [[wiki/concepts/inhibitory-control-of-coding.md]]; what it settles for *this* page is the carrier.
+
+**The trial-averaged spectrogram is an artefact of averaging, with the number attached.** A burst is defined as ≥2 SD above mean band power for ≥3 cycles:
+
+| | Gamma burst | Beta burst |
+|---|---|---|
+| Band | 45–100 Hz | 20–35 Hz |
+| Duration | **67 ± 19 ms** | 130 ± 37 ms |
+| Spectral half-width | 9.5 ± 2.9 Hz — narrow-band, and centre frequency varies burst to burst | 5.1 ± 1.7 Hz |
+| Correlation of burst rate with trial-averaged power | `r = 0.93` | `r = 0.91` |
+| Spiking inside vs outside | **Higher** (`p < 10⁻¹²`), and more so in the 70–100 Hz sub-band than the 40–65 Hz one (`p < 10⁻⁸`) | No difference (`p = 0.98`) |
+
+The `r ≈ 0.9` row is the whole methodological point: the broad-band, smoothly sustained delay power that the human EEG/MEG literature reports *is* the across-trial density of these bursts, so a load curve on averaged power cannot distinguish "more bursts" from "longer bursts" — and the two are different architectures.
+
+**Load buys rate, not duration**, which discriminates the two:
+
+| Manipulation | Burst count over presentation + first 300 ms of delay | Burst length |
+|---|---|---|
+| Load 1 → 2 → 3 items | Monotone increase, `p < 10⁻¹²` (pairwise all `p < 10⁻⁸`) | **No change**, `p > 0.31` |
+
+Lisman & Idiart's duty-cycle account predicts the opposite assignment — the frame lengthens or fills, the burst count per item is fixed — and it is the account the duty-cycle arithmetic in the section above inherits. This measurement gives the other answer in prefrontal cortex ([[wiki/empirical-tensions.md]] T337).
+
+**And the frame itself is not observed.** The gamma amplitude envelope does peak at 8–10 Hz, which is what a theta/alpha frame would produce — but the peak comes from the *stereotyped lifetime* of individual bursts, not from their periodic occurrence: the burst auto-correlogram has a central peak and **no side peaks**, and the coefficient of variation of inter-burst intervals is `CV₂ = 0.997 ± 0.028` over the delay (1.0 = Poisson). Cross-site correlograms show only a small central peak — weak spatial coordination, no shared clock. The paper reports no low-frequency delay oscillation at all. So an envelope spectrum is *not* evidence of a frame ([[wiki/empirical-tensions.md]] T32, T337).
+
+**Information lives in a spatially clustered minority of the tissue, and the field signal names it without spikes.** 126/321 sites (39%) showed stimulus-induced gamma; the other 61% stayed in beta throughout. Of the 71 units carrying significant stimulus information (24% of 293), **71/71 were at gamma-modulated sites** (Fisher's exact `p < 10⁻²⁴`); non-modulated sites carried none. Not a recording-quality artefact — equalising mean spike rate in either direction leaves mean percent explained variance at 0.031 vs 0.0008 — and gamma-modulated sites were anatomically clustered on the grid, resampled with fresh electrodes daily.
+
+**Hold and read are carried by different neurons, not just different times.** Splitting the 71 informative units by when their firing peaked:
+
+| Group | `n` | Peak | Relation to the gamma burst rate |
+|---|---|---|---|
+| **Encoding/decoding** | 50 | Stimulus presentation, suppressed at delay onset, **ramps again over the second half of the delay** | Tracks it; late-delay rise in burst rate (`p < 10⁻¹⁴`), spike rate (`p < 10⁻³`) and information (`p < 10⁻³`) together |
+| **Maintenance** | 21 | Mid-delay, when beta burst rate is high | Different time course |
+
+The late-delay ramp is *anticipation of the read*, not of a stimulus: predictable sample presentations produced no anticipatory gamma, and in a separate delayed-saccade task in two further monkeys — where the go cue is the *removal* of the fixation dot, so nothing appears to be encoded — gamma rose and beta fell at the end of the standard 750 ms delay and **stayed elevated through the entire second half of the 1/7 trials whose delay was doubled to 1500 ms**.
+
+Three things this changes for fast **M**:
+
+- **Expression is discrete and the item is absent between bursts.** A 67 ms burst every so often, aperiodically, is the read side of the activity-silent designs above: the store holds in synapses, spiking re-instantiates it, and each re-instantiation is a transient attractor whose short lifetime is what stops two items being retrieved at once ([[wiki/concepts/attractor-dynamics.md]]). Interference protection is bought by *brevity*, which no wiki store charges for ([[wiki/empirical-tensions.md]] T86).
+- **Capacity is a rate, so it is bounded by a refractory-like quantity rather than by a slot count.** If load raises burst count at fixed duration, the ceiling is how many 67 ms non-overlapping expressions fit before they collide — a bandwidth, not a register file. **(brainstorm)** The machine form is a per-item read budget: each slot may be expressed at most once per `Δt`, and the capacity number falls out of `Δt` and the tolerated collision rate, with no `k` anywhere in the code.
+- **Where the content is, is decidable from a signal that is not the content.** 39% of sites, identifiable by band power alone, hold 100% of the information. **(brainstorm)** A machine equivalent — a cheap scalar per module predicting whether that module currently holds task-relevant state — would let a controller route reads without probing, which every key-value store in the wiki does by probing everything.
+
+---
+
 ## Open problems
 
 - **Binding and variables.** The DNC demonstrates variable-binding-like behaviour without showing that a reusable variable *representation* exists; whether the binding generalizes to novel structures is untested here.
@@ -370,7 +415,7 @@ Three things this changes for fast **M**:
 - **[[wiki/entities/dense-sequence-memory.md]]** — maintenance and transition built from one weight matrix: the `MixedNet`'s symmetric term holds the current pattern for `τ` steps while its asymmetric term (driven by a low-pass filtered state) releases it, so the gate and the dwell timer are properties of the store rather than of a separate controller — and holding the *timing* needs a stronger nonlinearity than getting the order right.
 - **[[wiki/entities/adaptive-cann.md]]** — prices maintenance exactly: the same slow negative feedback that makes a held state quick to update is what ends the holding, and `m = τ/τ_v` is the closed-form point at which a maintained value starts moving on its own — the continuous-manifold counterpart of the adaptation term in this page's noise-driven attractor chain.
 - **[[wiki/entities/context-modular-memory-network.md]]** — storage/control separation implemented at the connectivity rather than at the buffer: the control variable holds no content (`s` discrete states) yet determines the whole set of retrievable attractors, so the controller's state is a handful of bits and its effect is an entire energy landscape.
-- **[[wiki/concepts/attractor-dynamics.md]]** — maintenance is occupancy of a fixed point, and the noise-driven attractor chain is where sequence order comes from without a scheduler.
+- **[[wiki/concepts/attractor-dynamics.md]]** — maintenance is occupancy of a fixed point, and the noise-driven attractor chain is where sequence order comes from without a scheduler — but the prefrontal measurement makes occupancy *brief*: each item is re-instantiated in a 67 ms gamma burst and the short lifetime, not a shallow basin, is what stops two items being retrieved at once (Lundqvist et al. 2016).
 - **[[wiki/entities/differentiable-neural-computer.md]]** — the primary source for this page's control/storage argument, and the store whose *addressing* is fully specified: content lookup, write-order links and a usage-based free list, with one learned gate choosing between allocating a fresh slot and editing a matched one.
 - **[[wiki/entities/stsp-working-memory-rnn.md]]** — the controlled comparison of this page's two maintenance designs on one task, and the design whose central prediction this page's read-out section measures (information is expressed in bursts, not continuously): the synaptic store reproduces prefrontal cortex's collapse of delay decoding while the attractor store does not, reading it requires spiking (so maintain and use are separate metabolic regimes), and it survives ablation of half its synapses because the memory is not in the trained weights.
 - **[[wiki/entities/pbwm.md]]** — the one design in this page where the *write policy itself* is learned: prefrontal stripes hold, basal-ganglia disinhibition enables the write, and which inputs deserve a write is trained by reinforcement — with the ablation (no dopamine modulation → 0% of networks learn any task) that shows a store without a trained gate is useless.
@@ -412,7 +457,7 @@ Three things this changes for fast **M**:
 - **[[wiki/concepts/parallel-timescale-streams.md]]** — the biological provisioning of multiple maintenance horizons: not one store with a decay constant but six concurrent state streams over a shared discrete codebook, coupled by a shared transition prior rather than by a common clock (Alderson et al. 2026).
 - **[[wiki/entities/global-neuronal-workspace.md]]** — a two-tier reading of this page's store with a sharp design rule attached: only the *attended* item is globally broadcast, and only an **active** state can be mentally transformed — activity-silent synaptic traces merely store what was already computed, and whenever content must be manipulated a decodable active state re-emerges with conscious-access signatures (Trübutschek et al. 2017, 2019; [[wiki/empirical-tensions.md]] T266).
 - **[[wiki/concepts/ignition.md]]** — the entry event: the transition of a weak sensory signal into the attended working-memory state is a threshold-crossing cascade, and the same signature recurs at every refresh, so admission to the store and admission to the global bus are one operation.
-- **[[wiki/concepts/cortical-state-bistability.md]]** — the price of protecting a held item: beta occupancy shields the incumbent content from replacement while measurably *lowering* detection of new input, so maintenance and openness trade off on one axis rather than being independent settings.
+- **[[wiki/concepts/cortical-state-bistability.md]]** — the price of protecting a held item: beta occupancy shields the incumbent content from replacement while measurably *lowering* detection of new input, so maintenance and openness trade off on one axis rather than being independent settings — and it is where the two prefrontal band assignments are set against each other, since beta is the default hold state in both accounts but the interrupting band differs (1–9 Hz and content-free vs 45–100 Hz and item-specific).
 - **[[wiki/entities/integrated-information-theory.md]]** — where its preregistered failure lands on this page: content stayed decodable at a sparse set of posterior sites while the sustained connectivity supposed to constitute it did not appear, so persistent content did not require persistent recurrent traffic — the opening this page's activity-silent accounts need.
 - **[[wiki/entities/mediodorsal-thalamus.md]]** — splits this page's thalamo-cortical maintenance loop into two loops of opposite sign: transient thalamic cells sustain the item being held through the delay (their removal drops prefrontal cue and rule tuning), persistent cells suppress the items the current context does not license (their removal raises out-of-context spiking) — and only the second has a behavioural cost, which appears at context switches rather than inside a block (Rikhye et al. 2018).
 - **[[wiki/concepts/random-feedback-addressing.md]]** — the same random-coupling architecture run backwards: the hub whose random reciprocal connections to ring sub-networks explain this page's capacity limits is *driven* deliberately, and the identical randomness that makes it a bottleneck going up makes it a precise feature-addressing device coming down (Park & Serences 2025, adapting Bouchacourt & Buschman 2019).
