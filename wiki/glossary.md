@@ -722,6 +722,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MFG | Middle Frontal Gyrus | Dorsolateral prefrontal gyrus between the superior and inferior frontal sulci (≈ BA 9/46); its activation is the strongest single across-subject predictor of novel-rule accuracy in the wiki's rule-learning sources (`R² = 0.59`) |
 | PV (parvalbumin) | Parvalbumin-expressing interneuron | Fast-spiking perisomatic-targeting inhibitory cell class, the pacemaker of gamma; contrasted in the wiki with SOM⁺, VIP⁺ and NDNF⁺ populations when a manipulation is shown to be marker-specific |
 | PV (primary value) | Primary Value | In [[wiki/entities/pbwm.md]]'s PVLV, the Rescorla–Wagner system that cancels the dopamine burst at expected reward delivery, paired with LV (learned value), which creates it at the cue (`T85`) |
+| 5HT3aR | Serotonin 3A Receptor | Marker of the third major cortical interneuron group (containing VIP⁺, calretinin⁺ and CCK⁺ cells); the dominant interneuron population of lateral entorhinal layer II, and the class that closes the calbindin⁺ pyramidal subcircuit in medial entorhinal layer II ([[wiki/entities/entorhinal-cortex.md]]) |
+| Etv1 / Ctip2 | ETS Variant transcription factor 1 / COUP-TF-Interacting Protein 2 | The two transcription factors whose expression splits entorhinal layer V into sublayer Va (`Etv1`⁺, the cortical output cells) and Vb (`Ctip2`⁺, the cells receiving the hippocampal return) across the whole extent of both divisions ([[wiki/entities/entorhinal-cortex.md]]) |
 
 ## Benchmarks
 
