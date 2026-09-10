@@ -27,8 +27,7 @@ After clipping, drop the files in `raw/` and run:
 
 ## Active
 
-*Empty.* Wave 18 is closed: nine of ten targets filed (manifest rows 364–373) and queued
-in `_work/ingest-queue.md`; Waltz et al. 1999 is recorded there as not acquired — the only
-copy is a pre-2000 scan with no text layer.
+*Empty.* Wave 19 is closed: all six targets filed (manifest rows 382–387) and queued in
+`_work/ingest-queue.md`, together with five between-wave clips (rows 388–392).
 
 Run the `wiki-acquire` skill to build the next wave.
