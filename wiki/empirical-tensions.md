@@ -17,7 +17,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T1 | Does the implementation level carry computational content? | `META` | `LEANING` | 20 | [[wiki/tensions/t001.md]] |
 | T2 | Is the fast level a separate store or recurrent activity? | `L1` | `LIVE` | 10 | [[wiki/tensions/t002.md]] |
 | T3 | Is backpropagation biologically realizable? | `L3` | `LEANING` | 2 | [[wiki/tensions/t003.md]] |
-| T4 | Do abstract structural codes exist in the brain? | `L4` | `LIVE` | 1 | [[wiki/tensions/t004.md]] |
+| T4 | Do abstract structural codes exist in the brain? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t004.md]] |
 | T5 | Was neuroscience causally responsible for the transferred mechanisms? | `META` | `LIVE` | 4 | [[wiki/tensions/t005.md]] |
 | T6 | What is out-of-distribution failure a failure *of*? | `L0` | `LIVE` | 2 | [[wiki/tensions/t006.md]] |
 | T7 | Are backpropagation-derived local rules worth pursuing at all? | `L3` | `LEANING` | 2 | [[wiki/tensions/t007.md]] |
@@ -252,7 +252,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T281 | Is a neuromodulatory channel unaddressed by construction? | `L2` | `LEANING` | 1 | [[wiki/tensions/t281.md]] |
 | T282 | Does eliminating catastrophic forgetting solve continual learning, or only relocate it? | `L0` | `LIVE` | 3 | [[wiki/tensions/t282.md]] |
 | T283 | Can the router that selects among stored structures be a learned discriminative network, or must it be Bayes' rule over generative models? | `L3` | `LIVE` | 2 | [[wiki/tensions/t283.md]] |
-| T284 | Does a world model's own predictive uncertainty help or hurt when learning tasks in sequence? | `L3` | `LIVE` | 1 | [[wiki/tensions/t284.md]] |
 | T285 | Is there a floor below which mechanistic description is impossible in principle, or only in practice? | `META` | `LIVE` | 1 | [[wiki/tensions/t285.md]] |
 | T286 | Is write-side randomization content-blind? | `L3` | `LIVE` | 2 | [[wiki/tensions/t286.md]] |
 | T287 | Must a compound representation stay decomposable into its constituents? | `L3` | `BOTH` | 2 | [[wiki/tensions/t287.md]] |

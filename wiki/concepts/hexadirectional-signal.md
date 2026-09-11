@@ -55,6 +55,7 @@ The two readouts are independent in construction — one needs a prior ROI and a
 - **No position.** See above; the instrument is blind to the part of the grid code that carries location.
 - **Direction is confounded with view** in a first-person VR paradigm (viewing direction = running direction). Handled here by the exclusive mask, not by design.
 - **The validation is in physical space with real self-motion.** Links 2 and 3 are rat entorhinal measurements over a foraging box. No conjunctive-alignment result and no speed-gating result exists for a conceptual space, where "direction" is an angle in a designed feature plane and "speed" has no obvious referent — see [[wiki/empirical-tensions.md]] T37, which this sharpens: the objection to the abstract-grid literature is not that the detector is unvalidated but that **its validation was earned in a domain those studies do not occupy**.
+- **And the generalisation the instrument is used to support is the contested one.** The step from "a sixfold signal appears in a conceptual space" to "abstract structural codes exist" requires the code to be object-invariant and relational, neither of which this fit can see; the nearest independent non-spatial map is coded as vector *angle* plus magnitude and is not periodic at all. Recorded as `T4` — re-levelled to `L0-INSTR` at the wave-20 lint precisely because it is a question about this instrument rather than about tissue ([[wiki/concepts/abstract-structural-codes.md]]).
 
 ---
 

@@ -124,7 +124,7 @@ And in the other direction (3-task Minigrid, buffer ∈ {10⁴, 10⁵, 10⁶, 2�
 
 ---
 
-- **`T284` — does a world model's own predictive uncertainty help or hurt across a task sequence?** This page holds both halves of the answer from one architecture: latent disagreement works as an exploration bonus and fails as a replay priority. The cheapest hypothesis that fits both is that an exploration bonus is *consumed* by acting on it while a replay priority is not, which nothing here tests.
+- **Does a world model's own predictive uncertainty help or hurt across a task sequence?** (`T284`, retired to [[wiki/tensions/closed/t284.md]] at the wave-20 lint as `L3` regrowth — this page is the carrier.) This page holds both halves of the answer from one architecture: latent disagreement works as an exploration bonus and fails as a replay priority. The cheapest hypothesis that fits both is that an exploration bonus is *consumed* by acting on it while a replay priority is not, which nothing here tests.
 
 ## Connections
 

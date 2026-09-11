@@ -68,7 +68,7 @@ The mapping is stated by the authors, not derived from data — but it is unusua
 | Model object | Circuit claim |
 |---|---|
 | One clone | One neuron (or a small assembly — the representation is unchanged) |
-| Transition matrix `p(z_{t+1}|z_t)` | **Lateral** connections among clone neurons; axonal branches are the graph's directed edges |
+| Transition matrix `p(z_{t+1}\|z_t)` | **Lateral** connections among clone neurons; axonal branches are the graph's directed edges |
 | Emission `C(x)` | The shared **bottom-up** input: all clones of one observation receive the same afferent |
 | Forward message | Clone output = weighted sum of lateral inputs **×** bottom-up input — a multiplicative gate, so context selects among the sequences an observation participates in |
 | Soft evidence | Graded activation over observation neurons; ambiguity shows as a spread population code over clones, in proportion to posterior probability |
