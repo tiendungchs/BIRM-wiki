@@ -272,7 +272,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T302 | How deep is a single cortical pyramidal neuron? | `L4` | `LIVE` | 3 | [[wiki/tensions/t302.md]] |
 | T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `L1` | `LIVE` | 2 | [[wiki/tensions/t303.md]] |
 | T304 | Should a joint-embedding's output be ℓ₂-normalised onto the hypersphere? | `L3` | `LIVE` | 5 | [[wiki/tensions/t304.md]] |
-| T305 | Should a joint-embedding's predictor be kept *optimal*, or merely *fast*? | `L3` | `LIVE` | 4 | [[wiki/tensions/t305.md]] |
+| T305 | Should a joint-embedding's predictor be kept *optimal*, or merely *fast*? | `L3` | `LIVE` | 5 | [[wiki/tensions/t305.md]] |
 | T306 | Should an analogical matcher emit every consistent interpretation, or commit to one? | `L1` | `LIVE` | 2 | [[wiki/tensions/t306.md]] |
 | T307 | Does neural predictivity certify that a model implements the brain's algorithm? | `META` | `LEANING` | 6 | [[wiki/tensions/t307.md]] |
 | T308 | Is the momentum encoder necessary to prevent collapse, or only the stop-gradient? | `L3` | `LEANING` | 3 | [[wiki/tensions/t308.md]] |
@@ -317,3 +317,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T348 | Is an object-vector block path-integrated, or measured online from the referent? | `L2` | `LIVE` | 3 | [[wiki/tensions/t348.md]] |
 | T349 | Does structure come from predicting forward, or from being allowed to see the past? | `L2` | `LIVE` | 4 | [[wiki/tensions/t349.md]] |
 | T350 | Is a memory library a set of discrete atoms, or one continuous family plus a metaparameter? | `L1` | `LIVE` | 4 | [[wiki/tensions/t350.md]] |
+| T351 | Does an easy-to-hard curriculum pay at *fixed* capacity, or only when capacity is small and then grows? | `L0` | `LIVE` | 1 | [[wiki/tensions/t351.md]] |

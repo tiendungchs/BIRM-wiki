@@ -47,7 +47,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 10 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 22 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `L0-INSTR` | `OPEN` | 10 | [[wiki/gaps/g031.md]] |
-| G32 | Nothing designs the experience stream | part | `L0` | `OPEN` | 13 | [[wiki/gaps/g032.md]] |
+| G32 | Nothing designs the experience stream | part | `L0` | `OPEN` | 14 | [[wiki/gaps/g032.md]] |
 | G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 15 | [[wiki/gaps/g033.md]] |
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g035.md]] |
@@ -114,7 +114,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G97 | The read-out of a sparse store is dense, and that is where the interference comes back | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g097.md]] |
 | G98 | Nothing decides which knowledge belongs in weights and which belongs in an addressable store | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g098.md]] |
 | G99 | No architecture in the wiki can call a module's *operation* on an argument from outside the module's own domain; every transfer mechanism here moves representations, none exposes an operator | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g099.md]] |
-| G100 | No architecture in the wiki has a growth schedule: capacity is fully available at step 0, so nothing can arrive already conditioned on what an earlier, smaller version of itself learned | part | `L0` | `PARTIAL` | 4 | [[wiki/gaps/g100.md]] |
+| G100 | No architecture in the wiki has a growth schedule: capacity is fully available at step 0, so nothing can arrive already conditioned on what an earlier, smaller version of itself learned | part | `L0` | `PARTIAL` | 5 | [[wiki/gaps/g100.md]] |
 | G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `L3` | `OPEN` | 2 | [[wiki/gaps/g101.md]] |
 | G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g103.md]] |
