@@ -82,7 +82,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g064.md]] |
 | G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `L3` | `CONTESTED` | 4 | [[wiki/gaps/g065.md]] |
 | G66 | No sampler draws training pairs with respect to the quantity being learned | part | `L3` | `OPEN` | 6 | [[wiki/gaps/g066.md]] |
-| G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `L1` | `OPEN` | 14 | [[wiki/gaps/g067.md]] |
+| G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `L1` | `OPEN` | 15 | [[wiki/gaps/g067.md]] |
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `L1` | `OPEN` | 15 | [[wiki/gaps/g068.md]] |
 | G69 | No architecture creates variables on demand | part | `L1` | `PARTIAL` | 10 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `PARTIAL` | 9 | [[wiki/gaps/g070.md]] |
@@ -128,6 +128,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G111 | Every predictor in the wiki compares its prediction with feedback in temporal register by fiat; none learns its own delay | part | `L2` | `OPEN` | 2 | [[wiki/gaps/g111.md]] |
 | G112 | Which carrier holds the fast store is not identifiable from behaviour: the synaptic and activity solutions to structured sequence memory are provably the same function | part | `L0-INSTR` | `OPEN` | 7 | [[wiki/gaps/g112.md]] |
 | G113 | A probe that perturbs the system to read it is certified read-only by a null, and no instrument in the wiki has a positive control for non-interference | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g113.md]] |
+| G114 | Every timescale the wiki cites is a biased point estimate, and the estimator that prices the bias has never been run on any of them | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g114.md]] |
 
 ## How gaps are used
 
