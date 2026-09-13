@@ -454,6 +454,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | PID | Partial Information Decomposition | Splits the information two or more *predictors* carry about a *target* into unique, redundant and synergistic atoms; needs a predictor/target split, has no agreed definition of its atoms, and its lattice grows super-exponentially — which is what [[wiki/concepts/o-information.md]]'s symmetric scalar is offered as a tractable substitute for |
 | TSE | Tononi–Sporns–Edelman complexity | The convexity of the average subset total correlation, `Σ_k [(k/n)C(Xⁿ) − C_n(k)]`, proposed as a measure of the local-segregation/global-integration balance; shown empirically to approximate `C + B` and therefore to score interdependency *strength* only ([[wiki/concepts/o-information.md]]) |
 | NLL | Negative Log-Likelihood | `−log p(y\|x)` under the model; the standard training loss for a probabilistic predictor, and the quantity that can keep falling on the training set after accuracy has saturated |
+| HOG | Histogram of Oriented Gradients | Hand-designed local gradient-orientation descriptor (Dalal & Triggs 2005); the wiki's standard *shallow* control — a linear read-out on HOG features is what a self-supervised trunk has to beat to have learned anything ([[wiki/entities/saycam-baby-vision.md]]) |
+| CSI | Class-Selectivity Index | `(⟨f⟩_Cmax − ⟨f⟩_C−max)/(⟨f⟩_Cmax + ⟨f⟩_C−max)` for a unit `f`: 0 = agnostic between classes, 1 = perfectly selective for one. Low throughout a self-supervised trunk and rising toward the output ([[wiki/entities/saycam-baby-vision.md]]) |
+| MoCo | Momentum Contrast | He et al. 2019 / Chen et al. 2020 (v2): contrastive self-supervision with negatives held in a queue and the key encoder an EMA of the query encoder; the wiki's usual augmentation-defined-pairing baseline ([[wiki/entities/byol.md]], [[wiki/entities/saycam-baby-vision.md]]) |
 
 ## Neuroscience
 

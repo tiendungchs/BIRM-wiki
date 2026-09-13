@@ -47,7 +47,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 10 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 22 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `L0-INSTR` | `OPEN` | 10 | [[wiki/gaps/g031.md]] |
-| G32 | Nothing designs the experience stream | part | `L0` | `OPEN` | 16 | [[wiki/gaps/g032.md]] |
+| G32 | Nothing designs the experience stream | part | `L0` | `OPEN` | 17 | [[wiki/gaps/g032.md]] |
 | G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 15 | [[wiki/gaps/g033.md]] |
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g035.md]] |
@@ -109,7 +109,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `L0` | `OPEN` | 1 | [[wiki/gaps/g092.md]] |
 | G93 | Context in every wiki architecture is either one global scalar or a hand-supplied task label; none has an *addressed* context channel | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g093.md]] |
 | G94 | Nothing in the wiki adapts a unit's *time constant*, and nothing pools its gain locally — input normalization is a global, offline, once-per-dataset operation | part | `L3` | `OPEN` | 2 | [[wiki/gaps/g094.md]] |
-| G95 | Every self-supervised system in the wiki has its invariance group *declared* by a hand-written augmentation list; nothing here discovers which directions are nuisance from the input's own statistics | part | `L3` | `PARTIAL` | 10 | [[wiki/gaps/g095.md]] |
+| G95 | Every self-supervised system in the wiki has its invariance group *declared* by a hand-written augmentation list; nothing here discovers which directions are nuisance from the input's own statistics | part | `L3` | `PARTIAL` | 11 | [[wiki/gaps/g095.md]] |
 | G96 | Top-down control needs an address inside the control layer, and every model gets it by reading the ground truth | part | `L2` | `PARTIAL` | 3 | [[wiki/gaps/g096.md]] |
 | G97 | The read-out of a sparse store is dense, and that is where the interference comes back | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g097.md]] |
 | G98 | Nothing decides which knowledge belongs in weights and which belongs in an addressable store | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g098.md]] |

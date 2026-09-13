@@ -163,7 +163,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T164 | Must a collapse-avoiding self-supervised learner descend a well-defined objective? | `L3` | `LIVE` | 8 | [[wiki/tensions/t164.md]] |
 | T165 | Is augmentation fragility a consequence of the *contrastive* objective? | `L3` | `LIVE` | 4 | [[wiki/tensions/t165.md]] |
 | T166 | Are anti-collapse mechanisms from different families composable? | `L3` | `LEANING` | 6 | [[wiki/tensions/t166.md]] |
-| T167 | Is a self-supervised representation's character set by its objective or by its pair sampler? | `L3` | `LEANING` | 11 | [[wiki/tensions/t167.md]] |
+| T167 | Is a self-supervised representation's character set by its objective or by its pair sampler? | `L3` | `LEANING` | 12 | [[wiki/tensions/t167.md]] |
 | T168 | Is collapse-avoidance a property a design *has*, or a state a training run must be *kept in*? | `L3` | `LEANING` | 6 | [[wiki/tensions/t168.md]] |
 | T169 | Is the isotropic Gaussian the right target for an embedding distribution, or only the right *shape* at a dimension nobody knows how to choose? | `L3` | `LIVE` | 3 | [[wiki/tensions/t169.md]] |
 | T170 | When several targets are equally valid, should the predictor represent the modes or should the target space quotient them away? | `L3` | `LIVE` | 2 | [[wiki/tensions/t170.md]] |
