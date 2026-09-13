@@ -81,7 +81,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G63 | The behaviour policy is a load-bearing parameter of world-model estimation, and every mechanism the wiki has for improving an agent destroys it | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g063.md]] |
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g064.md]] |
 | G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `L3` | `CONTESTED` | 4 | [[wiki/gaps/g065.md]] |
-| G66 | No sampler draws training pairs with respect to the quantity being learned | part | `L3` | `OPEN` | 5 | [[wiki/gaps/g066.md]] |
+| G66 | No sampler draws training pairs with respect to the quantity being learned | part | `L3` | `OPEN` | 6 | [[wiki/gaps/g066.md]] |
 | G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `L1` | `OPEN` | 14 | [[wiki/gaps/g067.md]] |
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `L1` | `OPEN` | 15 | [[wiki/gaps/g068.md]] |
 | G69 | No architecture creates variables on demand | part | `L1` | `PARTIAL` | 10 | [[wiki/gaps/g069.md]] |

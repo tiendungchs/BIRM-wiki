@@ -190,7 +190,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T197 | Is un-flagged retrieval error a defect to engineer away or a phenomenon to reproduce? | `L0` | `LIVE` | 2 | [[wiki/tensions/t197.md]] |
 | T199 | Is relational retrieval bought by building indices, or by making the encoding uniform? | `L1` | `LEANING` | 2 | [[wiki/tensions/t199.md]] |
 | T200 | Is systematicity a property of the architecture or of the training distribution? | `L0` | `LIVE` | 1 | [[wiki/tensions/t200.md]] |
-| T202 | Does installing an inductive bias by sampling it into `p(T)` give you the bias, or only its frequency? | `L0` | `LEANING` | 4 | [[wiki/tensions/t202.md]] |
+| T202 | Does installing an inductive bias by sampling it into `p(T)` give you the bias, or only its frequency? | `L0` | `LEANING` | 5 | [[wiki/tensions/t202.md]] |
 | T203 | Is abstract format a hippocampal specialisation, or a shared property of the fronto-hippocampal system? | `L1` | `LIVE` | 1 | [[wiki/tensions/t203.md]] |
 | T204 | Does test-time compute buy generalization on ARC, or does it only buy the tail? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t204.md]] |
 | T208 | Does an application-layer harness measure a capability the model has, or one the harness author has? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t208.md]] |
