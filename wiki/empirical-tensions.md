@@ -206,7 +206,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T231 | Is the accuracy of deep spiking networks evidence about spiking *learning*, or only about spiking *inference*? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t231.md]] |
 | T232 | Within the timing camp, which temporal code actually carries the information — and can the question be settled empirically? | `L3` | `LIVE` | 5 | [[wiki/tensions/t232.md]] |
 | T233 | Is an adaptation variable a memory or the thing that prevents one? | `L3` | `LIVE` | 4 | [[wiki/tensions/t233.md]] |
-| T234 | Is the spiking substrate's advantage expressive power, or unit count? | `L3` | `LIVE` | 4 | [[wiki/tensions/t234.md]] |
+| T234 | Is the spiking substrate's advantage expressive power, or unit count? | `L3` | `LIVE` | 5 | [[wiki/tensions/t234.md]] |
 | T235 | Should two heterogeneous subnetworks be coupled neuron-to-neuron, or through an interface module? | `L2` | `LIVE` | 1 | [[wiki/tensions/t235.md]] |
 | T236 | Does converting a spike train into a continuous function before measuring error destroy the timing code? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t236.md]] |
 | T237 | Is a delay a more valuable parameter than a weight? | `L3` | `LEANING` | 2 | [[wiki/tensions/t237.md]] |
