@@ -120,6 +120,8 @@ The last two rows are the pair to keep. Barlow Twins and LeWM sit at the same co
 
 ## Connections
 
+- **[[wiki/entities/ssl-transfer-benchmark.md]]** — the matched-backbone transfer suite this page's family is normally compared in second-hand: 13 self-supervised ResNet-50s on the same ImageNet-1k split across 40 downstream tasks, with the finding that no objective family dominates and that the clustering lineage (DeepCluster-v2, SwAV) leads recognition while the contrastive lineage (SimCLR-v2) leads dense prediction.
+
 - **[[wiki/concepts/energy-based-models.md]]** — the founding instance of that page's *dimension-contrastive* column, previously cited there only by name: the volume-minimising regulariser is here an explicit `D×D` matrix penalty, and its ablations add a locus the page's taxonomy lacks (a normalisation, not a term) plus the finding that dimension-contrastive and dynamical anti-collapse are mutually destructive.
 - **[[wiki/concepts/alignment-uniformity.md]]** — the derivation behind this page's estimator argument: the contrastive term is a resubstitution entropy estimator of the embedding marginal under a von Mises–Fisher KDE with bandwidth `κ = 1/τ`, which is the "non-parametric estimator" half of the Gaussian-proxy claim stated as a theorem rather than an analogy.
 - **[[wiki/entities/vicreg.md]]** — the sibling that keeps the off-diagonal penalty and replaces everything else: per-branch covariance instead of cross-branch cross-correlation, an explicit variance hinge instead of batch standardisation (the 57.3/57.5 identification), and the resulting freedom for the two branches to differ in weights, architecture and modality — which is worth 2–4 points wherever this page's cross-correlation matrix has to compare unlike statistics.

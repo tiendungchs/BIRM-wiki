@@ -126,6 +126,8 @@ These sit beside the Barlow Twins (−10) and VICReg (0.0) grafts in T166. The p
 
 ## Connections
 
+- **[[wiki/entities/ssl-transfer-benchmark.md]]** — where this page's subtraction argument gets its downstream price list: the objective-family comparison run at matched backbone and dataset, showing that the choice of anti-collapse provision reorders methods differently on recognition, detection and dense prediction, so "which provision is best" has no read-out-independent answer (T310).
+
 - **[[wiki/entities/byol.md]]** — the method this is a subtraction of, and the direct empirical conflict: BYOL reports 0.3% when its momentum encoder is removed and SimSiam reports 68.1% for the same removal under a different recipe (T308); it is also the system whose solved linear dynamics are literally this one with `W_a = W`.
 - **[[wiki/concepts/representational-collapse.md]]** — the home page for the provision: this is locus 4 stripped to its minimum, and it is the source of three of that page's negative results — BN is not the provision (34.6% without it, no collapse), the batch is not the provision (flat 64→2048), and the cosine is not the provision (cross-entropy works).
 - **[[wiki/concepts/objective-identifiability.md]]** — the strongest available answer to that page's sixth direction: there may be no loss over `θ` *alone*, but there is a candidate two-variable objective whose alternating minimisation has the stop-gradient as a consequence, with multi-step alternation as the confirming experiment.

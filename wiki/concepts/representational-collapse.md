@@ -218,6 +218,8 @@ This is the same shape as G17 one level down: the certification instrument admit
 
 ## Connections
 
+- **[[wiki/entities/ssl-transfer-benchmark.md]]** — this page's family comparison at matched backbone and matched pre-training corpus: 8 contrastive and 5 clustering encoders, all ResNet-50 on ImageNet-1k, so the anti-collapse provisions can be ranked without the architecture confound. Its warning for that ranking is T310's: the frozen probe those comparisons use preserves rank on recognition and none at all on detection.
+
 - **[[wiki/concepts/energy-based-models.md]]** — the parent page and the source of the typing result: collapse is the landscape going flat, and *where the free capacity sits* in an energy `F_w(x,y)` is what predicts whether it can happen at all.
 - **[[wiki/concepts/alignment-uniformity.md]]** — locus 1's missing derivation, and the result that folds it into the ladder: the contrastive loss provably converges to an invariance term plus a `σ_{m-1}`-targeted distribution-matching term, so five loci rather than six — plus the proof that its own minimum is unreachable on a finite dataset, and a two-number label-free monitor validated on a dense read-out.
 - **[[wiki/concepts/objective-identifiability.md]]** — the strongest available instance: BYOL shows the representation may be a fixed point of a dynamics with *no minimum of anything* behind it, so not merely that several losses share a minimum but that there may be no loss to recover.

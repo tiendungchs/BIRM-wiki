@@ -140,6 +140,8 @@ ViT-L/14 distilled from ViT-g/14 beats ViT-L/14 trained from scratch on **12/12*
 
 ## Connections
 
+- **[[wiki/entities/ssl-transfer-benchmark.md]]** — the fourth axis of this page's instrument-dependence concern, and the one with a sample size: DINOv2's recipe was selected on a frozen `k`-NN probe, and across 14 encoders the frozen probe's rank information is 0.74 on recognition and 0.17 on detection — so a recipe selected on a frozen recognition probe is unconstrained with respect to dense downstream tasks (T310).
+
 - **[[wiki/concepts/energy-based-models.md]]** — adds a fifth anti-collapse locus to that page's taxonomy and it is neither a term nor an update rule: a **normalisation of the teacher's output distribution** (running-mean centering, or Sinkhorn–Knopp equipartition over the batch's prototype assignments), sitting where Barlow Twins' batch standardisation sits but applied to the target rather than to the loss's input.
 - **[[wiki/concepts/retrieval-capacity.md]]** — supplies the term that buys the read-out that page bounds: KoLeo maximises nearest-neighbour spacing and is worth +8.3 mAP on instance retrieval and ~0 on segmentation, so spreading features is specifically a purchase of inner-product-ranking quality, not a general representational virtue.
 - **[[wiki/concepts/representation-probing.md]]** — a probe-choice confound with the recipe built on top of it: `k`-NN and linear top-1 rank four of this model's design decisions in opposite directions, and the authors selected components by `k`-NN on the assumption that linear is lower-bounded by it.

@@ -112,10 +112,15 @@ This closes a loop the wiki had open in two places at once:
 
 ---
 
+**A residual that survives the scalar, and it is set before the downstream task exists.** (Ericsson et al. 2021, [[wiki/entities/ssl-transfer-benchmark.md]].) Fourteen ImageNet-pre-trained ResNet-50s — 13 self-supervised, one supervised — transferred to 10 recognition datasets and scored by ECE at `M` = 15, with and without temperature scaling. Three findings this page's headline does not predict. (i) **Pre-training strategy is a downstream calibration variable:** several self-supervised encoders are significantly better calibrated than the supervised baseline under a frozen linear read-out, and downstream ECE correlates *inversely* with the encoder's ImageNet top-1 — better pre-training buys calibration, not just accuracy. (ii) The read-out depth flips the winner: supervised is best-calibrated after fine-tuning and beaten under a linear probe. (iii) **Temperature scaling weakens the effect but does not remove it** — after scaling, the fine-tuned supervised model is surpassed by DeepCluster-v2 and SwAV. Read against this page's central claim, that is a qualification rather than a refutation: "one scalar removes the defect" was established on a *single* training pipeline's networks, and what survives here is a difference *between* pipelines that the scalar cannot absorb because it is not a uniform logit rescaling. Whether the residual is a genuine second calibration dimension or an artefact of `M` = 15 binning on 10 small transfer sets is unmeasured — the source reports these graphically and quotes no post-scaling ECE numbers, so the wiki carries the claim without a value. (No registry row: the wiki has one measurement on each side and no controlled comparison.)
+
+---
+
 ## Open problems
 
 | Problem | Why it is open |
 |---|---|
+| **A calibration difference that outlives temperature scaling** | Pre-training strategy shifts downstream ECE, and the shift is only partly absorbed by the scalar ([[wiki/entities/ssl-transfer-benchmark.md]]). Either the one-parameter result is pipeline-specific, or the residual is binning noise. Deciding it costs one ECE table at two `M` values on encoders that differ only in objective |
 | **Why capacity, BN and low weight decay miscalibrate is unexplained** | The authors state it as future work. Sharpening-after-fit explains capacity; it does not explain BN at matched accuracy |
 | **Nothing here survives distribution shift** | The validation set is assumed i.i.d. with deployment. `T` fitted on one distribution is a constant applied to another — the same bill [[wiki/concepts/selective-prediction.md]] pays for its bound |
 | **Undefined for open-ended generation** | `P̂` needs a normalised posterior over a bounded answer set. A sequence log-probability is not one, so neither ECE nor `T` transfers to a generator without first constructing a closed candidate set (`T320`'s proposed boundary) |
@@ -126,6 +131,8 @@ This closes a loop the wiki had open in two places at once:
 ---
 
 ## Connections
+
+- **[[wiki/entities/ssl-transfer-benchmark.md]]** — the first source in the wiki where calibration is treated as a property of the *pre-training* strategy rather than of the classifier: downstream ECE tracks the encoder's ImageNet accuracy inversely, flips sign between a frozen and an adapted read-out, and leaves a residual after the scalar fit this page shows is otherwise sufficient.
 
 - **[[wiki/concepts/metacognitive-efficiency.md]]** — supplies the machine instance of that page's central dissociation: the calibration term `C` is removable by a one-parameter affine correction on the logits with the resolution term `R` provably untouched (rank-preserving), so its "scale-learning is barely studied" open problem is answered for closed-set classifiers and remains open for everything else.
 - **[[wiki/concepts/selective-prediction.md]]** — the orthogonal half of the same confidence number: temperature scaling changes `κ_f`'s *values* and not its *order*, so it moves ECE by 10× and the risk–coverage curve by exactly nothing; and the two per-class fits (`{T_c}` for bias, `{θ_c}` for policy) come off the same labelled sample.

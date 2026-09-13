@@ -106,6 +106,8 @@ Tuning a *single* Transformer block moves MAE 7.5 points; tuning half of one mov
 
 ## Connections
 
+- **[[wiki/entities/ssl-transfer-benchmark.md]]** — the same read-out-depth finding on the other substrate and at 7× the sample: 14 ResNet-50s instead of 2 ViT-Ls, two depths instead of a continuous sweep. It confirms the effect is not architecture- or method-pair-specific and adds the split this page could not see — the frozen/adapted rank correlation is 0.74 on recognition but 0.17 on detection, so this page's COCO/ADE20K inversion is the *general* case for spatially sensitive tasks, not an anecdote (T310).
+
 - **[[wiki/entities/i-jepa.md]]** — the one-variable counterfactual: same masking, same ViT, same data, target moved from pixels to an EMA encoder's output for +26.2 points on ImageNet-1% linear evaluation — a measurement this page's partial-fine-tuning result says is taken with the wrong instrument, and which this page's efficiency trick (encode only visible patches) I-JEPA keeps wholesale.
 - **[[wiki/entities/byol.md]]** — the augmentation-dependence contrast with a number on both sides: crop-only costs BYOL 13 points and SimCLR 28, while this system loses 7.8 linear (and 0.9 fine-tuned) with augmentation removed *entirely*, because a fresh random mask each iteration is already a fresh example.
 - **[[wiki/entities/simsiam.md]]** — the same question asked from the other pole: SimSiam subtracts anti-collapse machinery until only the stop-gradient remains, while this page needs none at all, because a fixed pixel target has a unique minimiser and no degenerate solution to defend against.

@@ -209,6 +209,8 @@ The right-hand columns are the reason this 2020 paper is in the wiki: the JEPA l
 
 ## Connections
 
+- **[[wiki/entities/ssl-transfer-benchmark.md]]** — this page's encoder re-measured against 12 rivals at a matched backbone: BYOL is 3rd on the many-shot linear average (77.05), the strongest few-shot self-supervised model on the Kornblith set, and 1st of 14 on *fine-tuned* VOC detection AP (54.91) while 4th frozen — one of the encoders whose rank depends on read-out depth (T310).
+
 - **[[wiki/entities/simsiam.md]]** — this page minus the momentum encoder, and the reason the `τ = 0` ablation row is now a recipe-dependent result rather than a fact about the mechanism (T308); it also supplies the candidate objective this page says does not exist — an alternating minimisation over a per-image variable `η` in which the stop-gradient is a consequence rather than a device.
 - **[[wiki/entities/vl-jepa.md]]** — this page's *rate ratio between two networks* as a literal scalar with an interior optimum: with a genuinely separate target network in another modality, a learning-rate multiplier on the target branch is swept and both endpoints lose (full speed −3.6, frozen −7.3, best at 0.05–0.10), so the lineage's two shipped settings are the two ends of a continuum.
 - **[[wiki/concepts/energy-based-models.md]]** — supplies the fourth anti-collapse family for that page's contrastive/regularised split, and the one that breaks its framing: the provision is in the update rule rather than the loss, so a joint-embedding architecture can avoid the collapse its energy landscape permits without any term that pushes energy up anywhere.
