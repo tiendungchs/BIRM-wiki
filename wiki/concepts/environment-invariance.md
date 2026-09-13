@@ -47,6 +47,17 @@ The objective to be minimised is worst-case rather than average risk — `R^OOD(
 
 The negative result that matters for this wiki: **robustness is not invariance.** A min-max objective over environments is algebraically a re-weighted ERM, so every "train on the hardest environment" scheme inherits ERM's shortcut. Invariance is the strictly stronger requirement, and it is the one that buys extrapolation.
 
+**The bound on that result, from the other side (Sagawa et al. 2020, [[wiki/entities/waterbirds.md]]).** The min-max ⇒ weighted-ERM reduction holds *at stationarity*: under regularity conditions there is always a `Q` for which the robust solution `θ*` is a first-order stationary point of `E_Q[ℓ]`. With a non-convex loss that does not make it the **minimiser**, and the gap is not hypothetical — on a two-point problem with `Θ = [0,1]`, the min-max solution attains worst-case loss 0.6 while *every* weighting in `Δ₂` has its minimiser at worst-case loss 1.0 (Counterexample 1). Even in the convex case where the equivalence does hold (Prop. 1), the weights depend on `θ*` and obtaining them means solving the dual robust problem, so reweighting is never the cheap substitute it looks like — empirically inverse-frequency weighting falls *below* ERM on both average and worst-group accuracy on MultiNLI.
+
+The two results therefore scope each other rather than conflict, and the wiki should carry both clauses together:
+
+| Claim | Scope |
+|---|---|
+| Robust min-max cannot extrapolate | **Across** the environment family — it interpolates within the convex hull of `E_tr`, which is Prop. 2's point and stands |
+| Robust min-max is strictly stronger than any reweighting | **Within** the given family, once the loss is non-convex — Counterexample 1, which is where every deep model lives |
+
+So "robustness is not invariance" is a statement about what robustness cannot *reach*, not a claim that the objective is redundant. Worst-case optimisation over a declared partition buys a real, large gain (21.3 → 84.6 worst-group on Waterbirds) and buys nothing outside the partition.
+
 ---
 
 ## IRMv1: from a bi-level problem to one penalty
@@ -167,6 +178,7 @@ This costs **one** distribution rather than `d − r + d/r` of them, and it is o
 - **[[wiki/entities/mlc.md]]** — the same identifiability argument realised by *presentation* rather than by penalty: resampling the latent mapping per episode makes stored associations worthless, which is environment diversity paid for in the sampler instead of in the loss.
 - **[[wiki/entities/simsiam.md]]** — invariance built into the architecture rather than penalised in the loss: weight-sharing across two augmented views is argued to be an inductive bias for augmentation-invariance in the same sense convolution is one for translation-invariance, and the code it converges on is identified as the augmentation-averaged representation `E_T[f(T(x))]`.
 - **[[wiki/entities/bib.md]]** — supplies the diagnostic reading of Colored MNIST's 17.1%: below-chance accuracy is evidence of an anti-correlated shortcut, not of failure to learn.
+- **[[wiki/entities/waterbirds.md]]** — the counterexample that scopes Prop. 2: the min-max-equals-weighted-ERM reduction is a statement about stationary points, so with a non-convex loss no weighting need attain the robust solution at all — worst-case optimisation is strictly stronger than reweighting *inside* the declared partition and still cannot extrapolate outside it, which is the division of labour between that page's objective and this one's.
 - **[[wiki/entities/imagenet-c.md]]** — what an *average*-case robustness benchmark can and cannot certify, in this page's own vocabulary: `E_{c∼C}[·]` over a declared corruption family is the weighted-ERM object shown here to interpolate between environments and never extrapolate, so a low mCE certifies coverage of the authored corruptions and is silent about an unauthored one — and its held-out corruption set is the closest thing that literature has to an unseen environment.
 - **[[wiki/entities/stylized-imagenet.md]]** — the non-parametric version of this page's move: instead of penalising an environment-varying classifier, *author* an environment in which the spurious feature is pure noise (every texture replaced by a random painting's style). It needs no environment labels, no penalty and no linear-general-position assumption, and it recovers the invariant feature — at the cost of requiring the spurious feature to be named in advance, which is exactly what the IRM formulation avoids.
 - **[[wiki/concepts/independent-causal-mechanisms.md]]** — the principle this page's penalty enforces, and the reason an invariance should exist at all: the conditional `P(Y|Pa(Y))` is stable because it *is* an autonomous mechanism, and its Sparse Mechanism Shift corollary supplies the only candidate in the wiki for scoring a factorization without the environment partition this page is handed.

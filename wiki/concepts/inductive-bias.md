@@ -78,6 +78,7 @@ The definition does the work: **`er_Q(H)` measures how appropriate a bias is for
 
 ## Connections
 
+- **[[wiki/entities/waterbirds.md]]** — the demonstration that shrinking `H` is not by itself a bias *toward* anything: an `ℓ2` penalty leaves the objective to decide which solution is surrendered, and the identical penalty lands Waterbirds' worst group at 84.6 under a max-over-groups objective and 21.3 under a mean one that scored 60.0 unpenalised.
 - **[[wiki/concepts/meta-learning.md]]** — the same two-level object from the optimisation side rather than the statistical one: `p(T)` is `Q`, the inner loop searches `H`, and this page supplies what that page's objective does not — the number of tasks and examples per task that make the outer loop's product generalise to a *novel* task (Baxter 2000).
 - **[[wiki/concepts/universal-induction.md]]** — the same bias-as-hypothesis-space idea with the family taken maximal: `ξ` is the bias that needs no environment because it dominates every computable one, and the price is uncomputability; Baxter's `C(ε, H)` is the finite, estimable stand-in for `K(µ)`, and the arbitrary choice of `H` here is the arbitrary choice of reference machine `U` there.
 - **[[wiki/concepts/shortcut-learning.md]]** — that page enumerates the four places a bias can be inserted; this one says what inserting it costs and what it must be validated against, converting "choose the right invariances" from a prescription into a measurement with two sample axes.

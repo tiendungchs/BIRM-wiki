@@ -21,7 +21,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G3 | Nothing enforces path-consistency of `g` | part | `L1` | `PARTIAL` | 13 | [[wiki/gaps/g003.md]] |
 | G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 27 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `L1` | `PARTIAL` | 7 | [[wiki/gaps/g005.md]] |
-| G6 | Spurious edges survive training — and are the default, not the exception | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g006.md]] |
+| G6 | Spurious edges survive training — and are the default, not the exception | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `L0` | `OPEN` | 4 | [[wiki/gaps/g007.md]] |
 | G8 | Rule reification has no implementation | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g008.md]] |
 | G9 | W is flat; there is no third tier | part | `L1` | `PARTIAL` | 9 | [[wiki/gaps/g009.md]] |
