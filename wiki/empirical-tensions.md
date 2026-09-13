@@ -155,7 +155,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T156 | When a compositional model fails out of distribution, is the deficit in the vocabulary or in the search over it? | `L1` | `LIVE` | 7 | [[wiki/tensions/t156.md]] |
 | T157 | When a linear probe fails, is the representation non-linear or is the label basis wrong? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t157.md]] |
 | T158 | When a model is shown to use its world model, does it use it on every input? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t158.md]] |
-| T159 | Is a geometric structure that appears only after dimensionality reduction a property of the representation or of the projection? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t159.md]] |
+| T159 | Is a geometric structure that appears only after dimensionality reduction a property of the representation or of the projection? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t159.md]] |
 | T160 | Does the geometric quality of a representation predict whether the model uses it? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t160.md]] |
 | T161 | Does a stable signature failure profile identify an *installed* prior? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t161.md]] |
 | T162 | Does relational understanding require decoding back to the input space? | `L2` | `LIVE` | 7 | [[wiki/tensions/t162.md]] |
