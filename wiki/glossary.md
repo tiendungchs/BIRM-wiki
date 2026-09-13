@@ -93,6 +93,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MNM | Metalearned Neural Memory | An external memory that is itself a network trained by a meta-objective to act as a key→value map; one of the six baselines in [[wiki/entities/esbn.md]] |
 | PrediNet | Predicate Network | A module designed to be "explicitly relational": multi-head attention over entities with each head emitting comparisons along learned feature axes; one of the six baselines in [[wiki/entities/esbn.md]] |
 | NTM | Neural Turing Machine | The DNC's predecessor: same controller/memory split, but addressing is content plus index-shift, with no de-allocation and no write-order record across address jumps |
+| NPI | Neural Programmer-Interpreter | Reed & de Freitas 2016: an LSTM core that dispatches subprograms over a task-specific external environment, trained on full execution traces rather than input/output pairs; the hidden state is zeroed and the caller's context stacked at every call ([[wiki/entities/recursive-npi.md]]) |
+| NPA | Neural Programming Architecture | The general class the NPI instantiates: a core controller acting as a dispatcher over a list of neural programs, with caller context pushed on a stack — any architecture with this call structure supports recursion for free |
 | bAbI | (not an abbreviation) | 20 synthetic question-answering tasks over short generated stories, each a set of constraints on an underlying graph; the DNC's language benchmark |
 | DAGGER | Dataset Aggregation | Imitation-learning scheme mixing the expert and the learner's own policy so training states match the states the learner will actually visit |
 | DNN | Deep Neural Network | |

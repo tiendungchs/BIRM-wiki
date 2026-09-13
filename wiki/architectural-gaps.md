@@ -85,7 +85,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `L1` | `OPEN` | 14 | [[wiki/gaps/g067.md]] |
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `L1` | `OPEN` | 15 | [[wiki/gaps/g068.md]] |
 | G69 | No architecture creates variables on demand | part | `L1` | `PARTIAL` | 10 | [[wiki/gaps/g069.md]] |
-| G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g070.md]] |
+| G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `PARTIAL` | 9 | [[wiki/gaps/g070.md]] |
 | G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g071.md]] |
 | G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g072.md]] |
 | G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 11 | [[wiki/gaps/g073.md]] |
