@@ -277,10 +277,10 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T307 | Does neural predictivity certify that a model implements the brain's algorithm? | `META` | `LEANING` | 6 | [[wiki/tensions/t307.md]] |
 | T308 | Is the momentum encoder necessary to prevent collapse, or only the stop-gradient? | `L3` | `LEANING` | 3 | [[wiki/tensions/t308.md]] |
 | T309 | Does a learned proposer beat blind enumeration, or only when the library is co-adapting? | `L3` | `LIVE` | 5 | [[wiki/tensions/t309.md]] |
-| T310 | Does a frozen linear probe rank self-supervised representations? | `L0-INSTR` | `LEANING` | 11 | [[wiki/tensions/t310.md]] |
+| T310 | Does a frozen linear probe rank self-supervised representations? | `L0-INSTR` | `LEANING` | 12 | [[wiki/tensions/t310.md]] |
 | T311 | Is non-normality how a contractive linear recurrence holds information longer than its eigenvalues suggest? | `L3` | `LEANING` | 3 | [[wiki/tensions/t311.md]] |
 | T312 | Is compositional generalisation one tunable scalar, or an irreducible facet vector? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t312.md]] |
-| T314 | Should an anti-collapse provision protect the space the loss sees, or the space the read-out sees? | `L2` | `LIVE` | 5 | [[wiki/tensions/t314.md]] |
+| T314 | Should an anti-collapse provision protect the space the loss sees, or the space the read-out sees? | `L2` | `LIVE` | 7 | [[wiki/tensions/t314.md]] |
 | T315 | Is an uncorrected self-model *inflated*, or merely *insensitive*? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t315.md]] |
 | T316 | Does betweenness centrality measure routing load, or only a property of the graph? | `L0-INSTR` | `BOTH` | 2 | [[wiki/tensions/t316.md]] |
 | T317 | Is gated-slot binding a different mechanism from algebraic binding, or the same operator with a one-hot role code? | `L3` | `BOTH` | 4 | [[wiki/tensions/t317.md]] |
