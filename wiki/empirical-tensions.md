@@ -317,4 +317,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T348 | Is an object-vector block path-integrated, or measured online from the referent? | `L2` | `LIVE` | 3 | [[wiki/tensions/t348.md]] |
 | T349 | Does structure come from predicting forward, or from being allowed to see the past? | `L2` | `LIVE` | 4 | [[wiki/tensions/t349.md]] |
 | T350 | Is a memory library a set of discrete atoms, or one continuous family plus a metaparameter? | `L1` | `LIVE` | 4 | [[wiki/tensions/t350.md]] |
-| T351 | Does an easy-to-hard curriculum pay at *fixed* capacity, or only when capacity is small and then grows? | `L0` | `LIVE` | 1 | [[wiki/tensions/t351.md]] |
+| T351 | Does an easy-to-hard curriculum pay at *fixed* capacity, or only when capacity is small and then grows? | `L0` | `LIVE` | 2 | [[wiki/tensions/t351.md]] |
+| T352 | Should a fast store hold the *maximum* return ever seen, or an estimate of the expectation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t352.md]] |
+| T353 | Does a sample-efficiency result measure the agent, or the benchmark's exact-state-revisit rate? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t353.md]] |
