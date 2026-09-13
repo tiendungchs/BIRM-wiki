@@ -87,6 +87,7 @@ Two nulls worth carrying separately. PCL-v1 is the *worst* recognition encoder i
 - Supervised reconstructions are perceptually closest to the originals and have **markedly cleaner colour**; SSL reconstructions lose colour fidelity.
 - Correlation of reconstruction quality with ImageNet top-1: perceptual (VGG) distance **−0.69**; colour error red **−0.56**, green −0.11, blue −0.22.
 - The authors' conjecture: the heavy colour-distortion augmentations that every modern SSL method uses train colour-*invariant* features, so the information is discarded rather than reformatted.
+- **This is `G95`'s first measurement of what the declared invariance list *deleted*, rather than what it bought**: the augmentation list is the only place colour invariance could have come from, and no fixed list has a mechanism for noticing that it discarded variation a downstream task needed.
 
 **Occlusion-based, task-agnostic attention** (slide an occluder; per-pixel mean feature distance between clean and occluded encodings; summarised as the % of the attention map above its own mean):
 

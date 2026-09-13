@@ -467,6 +467,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | HOG | Histogram of Oriented Gradients | Hand-designed local gradient-orientation descriptor (Dalal & Triggs 2005); the wiki's standard *shallow* control — a linear read-out on HOG features is what a self-supervised trunk has to beat to have learned anything ([[wiki/entities/saycam-baby-vision.md]]) |
 | CSI | Class-Selectivity Index | `(⟨f⟩_Cmax − ⟨f⟩_C−max)/(⟨f⟩_Cmax + ⟨f⟩_C−max)` for a unit `f`: 0 = agnostic between classes, 1 = perfectly selective for one. Low throughout a self-supervised trunk and rising toward the output ([[wiki/entities/saycam-baby-vision.md]]) |
 | MoCo | Momentum Contrast | He et al. 2019 / Chen et al. 2020 (v2): contrastive self-supervision with negatives held in a queue and the key encoder an EMA of the query encoder; the wiki's usual augmentation-defined-pairing baseline ([[wiki/entities/byol.md]], [[wiki/entities/saycam-baby-vision.md]]) |
+| MS-SSM | Multi-Scale State Space Model | Karami et al. 2025: a state-space model that decomposes the sequence into resolutions and gives each its own state-space dynamics, so the selection is over *timescales* rather than over content; the time-invariant recurrence that beats content-dependent selection by ~25 points on Long Range Arena ([[wiki/concepts/attention.md]], [[wiki/concepts/timescale-hierarchy.md]]) |
+| HAMI | Hippocampal-Augmented Memory Integration | An external-memory agent with an episodic buffer read through a dense decoder; one of the memory architectures whose write is sparse and whose read is dense ([[wiki/concepts/complementary-learning-systems.md]], [[wiki/concepts/encoding-retrieval-alternation.md]]) |
 
 ## Neuroscience
 

@@ -2,6 +2,8 @@
 
 **Pick the good run out of a training sweep using only the model and the unlabelled training data. This is the instrument `G108` asks for; what the field has are anti-collapse statistics that rank by how much of the representation's capacity survived, and none of them ranks by a structural property.**
 
+> **Provenance.** Garrido, Balestriero, Najman & LeCun 2023, *RankMe: Assessing the Downstream Performance of Pretrained Self-Supervised Representations by Their Rank* (`raw/garrido-2023-rankme-representation-rank-downstream.md`).
+
 > **Created at the Garrido et al. 2023 ingest.** `G108` had accumulated evidence on four pages ([[wiki/concepts/objective-identifiability.md]], [[wiki/concepts/disentanglement.md]], [[wiki/entities/lejepa.md]], [[wiki/concepts/alignment-uniformity.md]]) and owned none of them. The gap it answers is `G108`; the tensions it bears on are T310 and T314.
 
 The slot exists because **every self-supervised objective in the wiki is tuned against labels it is not supposed to have.** The hyperparameters, the augmentation lists and the published numbers of the whole joint-embedding family were selected by monitoring a supervised linear probe on ImageNet's validation set — so "this method works without labels" is a statement about the weight updates and not about the design procedure (Garrido et al. 2023). The same point one level up is [[wiki/concepts/objective-identifiability.md]]'s audit item 1.

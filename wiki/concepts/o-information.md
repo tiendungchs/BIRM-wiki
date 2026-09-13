@@ -13,7 +13,7 @@ The total information a discrete system can hold splits into what its statistics
 | Quantity | Definition | Reading | Other names |
 |---|---|---|---|
 | **`C(Xⁿ)`** collective constraints | `𝒩(Xⁿ) − Σ_j 𝒩(X_j) = Σ_j H(X_j) − H(Xⁿ)` | How much of the constraint budget acts on groups rather than on single variables | total correlation, multi-information |
-| **`R_j`** private randomness | `H(X_j | X⁻ʲ)` | Information reachable *only* by measuring `X_j` | residual / erasure entropy |
+| **`R_j`** private randomness | `H(X_j \| X⁻ʲ)` | Information reachable *only* by measuring `X_j` | residual / erasure entropy |
 | **`B(Xⁿ)`** shared randomness | `H(Xⁿ) − Σ_j R_j` | Information reachable by measuring more than one variable | dual total correlation, binding information, excess entropy |
 | **`Ω(Xⁿ)`** O-information | `C − B` | Which of the two descriptions is more parsimonious | "enigmatic information" in the reference the authors rename |
 
@@ -30,7 +30,7 @@ Intuition behind the sign: a redundant system needs *many* constraints to keep i
 | **Agrees at `n = 3`** | `Ω(X³) = I(X_1;X_2;X_3)`, the interaction information | Inherits the one case where synergy-minus-redundancy is agreed on |
 | **Generalises where interaction information fails** | `Ω ≠ I(X_1;…;X_n)` for `n > 3`; on an `n`-bit xor, `Ω = 2−n` decreases monotonically while `I = (−1)^{n+1}` oscillates between `±1` | The reason to replace the classical quantity rather than extend it |
 | **Path decomposition** | Every source→sink path in the partition lattice gives `W(p;v_s) = Ω`, and it is always a **sum of triple interaction informations**; the assembly path gives `Ω(Xⁿ) = Σ_{k=2}^{n−1} I(X_k; X^{k−1}; X^n_{k+1})` | The higher-order number is built from three-way terms, not from pairs — and the decomposition is order-invariant |
-| **Bounds, tight** | `(n−2)log|𝒳| ≥ Ω ≥ (2−n)log|𝒳|`; `(n−1)log|𝒳| ≥ C, B ≥ 0` | Normalisation: divide by `(n−2)log|𝒳|` to compare groups of different size and alphabet |
+| **Bounds, tight** | `(n−2)log\|𝒳\| ≥ Ω ≥ (2−n)log\|𝒳\|`; `(n−1)log\|𝒳\| ≥ C, B ≥ 0` | Normalisation: divide by `(n−2)log\|𝒳\|` to compare groups of different size and alphabet |
 | **Extremes are unique** | For binary `Xⁿ`, `n ≥ 3`: `Ω = n−2` **iff** `Xⁿ` is an `n`-bit copy (`X_1` a fair coin, `X_1 = … = X_n`); `Ω = 2−n` **iff** `Xⁿ` is an `n`-bit xor (`X_1…X_{n−1}` i.i.d. fair coins, `X_n = Σ_{j<n} X_j mod 2`). For alphabet size `m`: `±(n−2)log m`, xor replaced by mod-`m` sum | Two labelled reference points for any measurement on a learned representation — "the units are copies" and "the information is only in the combination" |
 | **Continuity** | `Ω` is a linear combination of Shannon entropies, hence continuous in `p` | Distributions *near* a copy have `Ω > 0`, near an xor `Ω < 0`; the extremes are not isolated |
 | **Additivity** | For independent subsystems, `Ω(Xⁿ) = Σ_k Ω(X^{α_k})` | Lets a system be scored part-wise — and creates the ambiguity below |
@@ -51,8 +51,8 @@ Intuition behind the sign: a redundant system needs *many* constraints to keep i
 
 | Regime | Constraint (Corollaries 3–4) |
 |---|---|
-| `Ω ≥ 0` | `min_{|γ|=m} C(X^γ) ≥ Ω − (n−m−1)log|𝒳|` — strong redundancy **forces** every large-enough subgroup to be correlated |
-| `Ω ≤ 0` | `max_{|γ|=m} C(X^γ) ≤ Ω + (n−2)log|𝒳|` — strong synergy **caps** the correlation of every subgroup |
+| `Ω ≥ 0` | `min_{\|γ\|=m} C(X^γ) ≥ Ω − (n−m−1)log\|𝒳\|` — strong redundancy **forces** every large-enough subgroup to be correlated |
+| `Ω ≤ 0` | `max_{\|γ\|=m} C(X^γ) ≤ Ω + (n−2)log\|𝒳\|` — strong synergy **caps** the correlation of every subgroup |
 | Converse | Fixing one `m`-subset's `C(X^γ)` shrinks the achievable range of `Ω` from `2(n−2)` to `2(n−2) − (m−1)` |
 
 So the sign chooses whether the constraint is a floor or a ceiling, and `|Ω|` chooses how small a subgroup it can reach — smaller groups need larger `|Ω|`. **The honest caveat**: for binary variables and pairs (`m = 2`) the bounds bite only when `n−3 ≤ |Ω| ≤ n−2`, i.e. only near the extremes. For a mid-range `Ω` the scale bounds say nothing.
