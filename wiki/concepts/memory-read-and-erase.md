@@ -90,6 +90,27 @@ Four consequences for a machine store:
 
 ---
 
+## The erase measured on the content, not on the control signal
+
+Both measurements above read the *clear* off a control channel — beta elevation at informative sites, or a representational geometry over cued operations. Neither shows the item going away. Wolff et al. 2017 do, non-invasively, by probing the carrier with a content-free impulse ([[wiki/concepts/working-memory.md]], [[wiki/concepts/representation-probing.md]]).
+
+| Item's status when the ping arrives | Decodable from the impulse response? |
+|---|---|
+| Cued as the one that will be probed | **yes**, 148–398 ms (`P` = 0.002) |
+| Retro-cued as irrelevant (`suppress`, instructed) | **no** — average `P` = 0.687, no cluster |
+| Relevant but *unattended* (probed second) | **yes** (`P` = 0.045), weaker than the attended item (`P` = 0.031) |
+| Already probed, now useless (`clear`, self-triggered by task progress) | **no** (`P` = 0.112), while the still-relevant item stays decodable (`P` = 0.012) |
+
+Three things this changes for the specification above.
+
+- **`suppress` is a real operation with a measured effect on the store, and it is fast.** A single arrow cue removes the trace of one of two items within the delay, leaving the other intact — a targeted removal that does not reclaim space for an incoming item, which is the primitive this page says every machine store lacks (G49). It is now evidenced on the *contents* rather than on a cue-locked control pattern.
+- **Relevance is the address, and attention is not.** The unattended-but-still-required item survives the ping undiminished in kind, while the attended-but-now-irrelevant item is gone. So the erase is addressed by *task relevance*, not by the attentional pointer — the two dissociate in the same experiment, which is the cleanest available argument that a store's eviction policy cannot be driven by whatever its attention mechanism is currently selecting (G48). Trial-wise, alpha lateralisation (the attention index) does not predict impulse decodability at all.
+- **A failure to erase is a measurable error mode.** Trials with *high* uncued-item decodability had *lower* accuracy on the cued item (`P` = 0.002) — the store was not cleared, and the residue cost performance. This is the diagnostic this page asks for from the erase side: score the clear separately from the contents, and a stale entry shows up as interference rather than as a missing answer.
+
+**What it does not settle.** The removal is instructed in Experiment 1 and merely *implied by task progress* in Experiment 2's second ping, so this is still cued forgetting; and "no significant decoding" is a null on a decoder, which bounds the residue only to the impulse response's sensitivity. The same caveat as the instrument itself (gap G113).
+
+---
+
 ## What a machine store would have to add
 
 The two measurements above are correlational and cued, so what they license is a *specification*, not a mechanism. Stated as one:
@@ -123,7 +144,7 @@ The two measurements above are correlational and cued, so what they license is a
 
 ## Connections
 
-- **[[wiki/concepts/working-memory.md]]** — the carrier this page is the protocol for: that page asks what physically holds an item over a delay and what it costs to hold, this one asks when the held item is read, by whom, and how it is removed — and the two are dissociable in exactly the place the split predicts, since a correctly encoded item can still be read on the wrong schedule — and the split is anatomical as well as temporal, since the prefrontal units that ramp with the read are a different set from those active mid-delay (Lundqvist et al. 2016).
+- **[[wiki/concepts/working-memory.md]]** — the carrier this page is the protocol for: that page asks what physically holds an item over a delay and what it costs to hold, this one asks when the held item is read, by whom, and how it is removed — and the two are dissociable in exactly the place the split predicts, since a correctly encoded item can still be read on the wrong schedule — and the split is anatomical as well as temporal, since the prefrontal units that ramp with the read are a different set from those active mid-delay (Lundqvist et al. 2016) — and where this page's `suppress` is finally measured on the carrier instead of on the controller, since an impulse-probed activity-silent store loses the retro-cued item entirely while keeping an unattended-but-still-relevant one (Wolff et al. 2017).
 - **[[wiki/concepts/attention.md]]** — the operation whose machine form has no schedule: a softmax row is recomputed from the current query every step, which makes preparation-in-advance inexpressible and makes retrieval precision degrade with occupancy by arithmetic rather than by policy.
 - **[[wiki/entities/differentiable-neural-computer.md]]** — the closest existing read/erase machinery, and the measure of the gap: its free list and temporal-link matrix free by usage and order by write time, so it has an erase with the wrong address and a read with no lead time.
 - **[[wiki/entities/pbwm.md]]** — the write-side twin: a gate learned by reinforcement decides what enters the store, and the same argument applied to the read side is what G49 asks for; the anatomical split it makes with basal ganglia matches the scheduler-is-a-different-circuit-from-the-store result here.

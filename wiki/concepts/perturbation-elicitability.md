@@ -98,6 +98,26 @@ The second escape is the interesting one for this page, because it makes elicita
 
 ---
 
+## The read-only perturbation: the same instrument used to interrogate rather than to edit
+
+Everything above perturbs in order to **change** the content, and scores whether the report changes. There is a second use of the same act, and it inverts every term. Wolff et al. 2017 flash a fixed, content-free high-contrast stimulus during a working-memory delay and decode the memorandum from the *response* to it — the perturbation is the carrier wave, not the edit ([[wiki/concepts/working-memory.md]], [[wiki/concepts/representation-probing.md]]).
+
+| | Intracranial electrical stimulation (above) | Impulse-response probing (Wolff et al. 2017) |
+|---|---|---|
+| Perturbation basis | Substrate — a contiguous block of tissue | **Input** — the system's own sensory port, so the edit is delivered in whatever basis the circuit maps that port into |
+| Target state | Active, reportable content | A state with **no activity to perturb**; the ping exists because there is nothing to record |
+| Success criterion | The report *changes* | The report **does not change**, and the content is recovered from the evoked response instead |
+| What a null means | The code is not locally addressable (this page's gradient) | The instrument is **valid** — the probe read without writing |
+| Certification | Interleaved sham trials, scored per trial | A behavioural null across impulse–probe asynchronies (`F`(4,76) = 1.184, `P` = 0.325), `n` = 20 — no sham, no positive control (gap G113) |
+
+Three consequences.
+
+- **Unelicitability is a precondition, not a failure.** The regime this page measures as a floor — a perturbation that moves nothing reportable — is exactly the regime in which a ping is usable as a probe. A site that could be steered by the impulse could not be read by it without the read being contaminated by the write. **(brainstorm)** The two instruments are therefore complementary along the same axis: elicitation rate high ⇒ steerable, unreadable-without-disturbance; elicitation rate low ⇒ unsteerable, readable by impulse. Transmodal cortex, where this page's gradient bottoms out, is where perturb-and-decode should work best — and it has never been tried there.
+- **A read-only perturbation still needs a sham.** The protocol this page praises — an interleaved null condition with identical framing, scored per trial — is precisely what the impulse literature's validity claim lacks, and the claim is the load-bearing one: if the ping reactivated the latent item, the result would be a retro-cue effect in disguise.
+- **The input port is a third basis.** This page's central distinction is substrate-basis versus code-basis edits. An impulse delivered through the sensory input is neither: it is applied in the *input's* basis and reaches the code through the circuit's own transform, which is why the decodable pattern it evokes has **no cross-generalization** with the pattern the remembered item itself evoked (`P` > 0.32). The system, not the experimenter, chooses where the perturbation lands.
+
+---
+
 ## What this gives an abstract-reasoning architecture
 
 | Finding | Design consequence |
@@ -132,3 +152,4 @@ The second escape is the interesting one for this page, because it makes elicita
 - **[[wiki/concepts/constitutive-vs-enabling.md]]** — the taxonomy this page supplies the causal column for: elicitation rate is how a correlate is moved out of the content cell, and the review that frames the partition (Boly et al. 2017) assembles the lesion, no-report and reverse-inference columns around it.
 - **[[wiki/concepts/intrinsic-timescale-measurement.md]]** — the passive counterpart of this page's causal gradient: both produce a monotone ordering of cortical areas running to the transmodal apex, one from whether focal stimulation changes reportable content and one from the decay of spontaneous spike-count covariance, and whether the two orderings coincide has never been checked in the same areas.
 - **[[wiki/concepts/abstraction.md]]** — the census that files elicitability as the one *negative* proxy for abstraction: obtained causally rather than by decoding, returning a rate over a region instead of a verdict on a variable, and the only sense that prices the property rather than certifying it.
+- **[[wiki/concepts/working-memory.md]]** — the inverted use of this page's instrument, and the one place a perturbation is run *hoping* for a null: a content-free impulse delivered through the sensory port reads an activity-silent store out of its evoked response, so unelicitability stops being a limit on the method and becomes its precondition (Wolff et al. 2017; gap G113).

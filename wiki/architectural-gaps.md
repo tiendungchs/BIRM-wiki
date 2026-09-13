@@ -126,7 +126,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G109 | No model claiming a knowledge/control split has been scored on the lesion profile that certifies one | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g109.md]] |
 | G110 | Top-down control is always applied to a module or its output; nothing applies it to the interface that feeds the module | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g110.md]] |
 | G111 | Every predictor in the wiki compares its prediction with feedback in temporal register by fiat; none learns its own delay | part | `L2` | `OPEN` | 2 | [[wiki/gaps/g111.md]] |
-| G112 | Which carrier holds the fast store is not identifiable from behaviour: the synaptic and activity solutions to structured sequence memory are provably the same function | part | `L0-INSTR` | `OPEN` | 6 | [[wiki/gaps/g112.md]] |
+| G112 | Which carrier holds the fast store is not identifiable from behaviour: the synaptic and activity solutions to structured sequence memory are provably the same function | part | `L0-INSTR` | `OPEN` | 7 | [[wiki/gaps/g112.md]] |
+| G113 | A probe that perturbs the system to read it is certified read-only by a null, and no instrument in the wiki has a positive control for non-interference | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g113.md]] |
 
 ## How gaps are used
 
