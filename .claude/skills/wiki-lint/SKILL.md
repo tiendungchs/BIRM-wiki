@@ -32,7 +32,7 @@ Structural maintenance pass over the whole wiki. Find decay, propose a fix plan 
    - Every detail file has a `**Closes when:**` naming an observation, not a wish. Rows still `_unset_` are lint debt.
    - `python3 tools/registry-index.py` reports rows cited by no concept or entity page — each is either wired to its carrying page or retired.
    - Rows whose `Closes when` is already satisfied by the wiki's own evidence are retired at this pass, not carried.
-   - **Admission rule** (same rule the ingest skill applies): a row may exist only at `L0`, `L1`, `L2` or `L0-INSTR`, or because it closes a `§12` open slot in `_brainstorm/birm-spec.md`. `L3`/`L4` findings live in concept/entity page bodies, not in the registries.
+   - **Admission rule** (same rule the ingest skill applies): a row may exist only at `L0`, `L1`, `L2` or `L0-INSTR`. `L3`/`L4` findings live in concept/entity page bodies, not in the registries.
 
 9. **Update** `wiki/priority-tasks.md` with fixes requiring multiple operations to apply, and new ingests to close the gaps/tensions (use WebSearch/WebFetch).
 10. **Update cross-references** on every page touched, both directions.

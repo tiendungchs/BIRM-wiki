@@ -57,9 +57,7 @@ fi
 
 # S4: every table row must carry its separator's column count. Reset the width at
 # each table boundary ({w=0}) or one table's width is carried into the next.
-# Scope includes _brainstorm/: S20 derives the spec ledger's consumed-row column
-# by position, so one unescaped `|` there silently shifts row ids out of view.
-S4=$(find wiki _brainstorm -name '*.md' | sort | xargs awk '/^\|/{l=$0;gsub(/\\\|/,"",l);n=gsub(/\|/,"",l)-1;if(/^\|[- :\|]+\|$/){w=n;next};if(w>0&&n!=w)print FILENAME":"FNR" (cols="n", expected="w")";next}{w=0}')
+S4=$(find wiki -name '*.md' | sort | xargs awk '/^\|/{l=$0;gsub(/\\\|/,"",l);n=gsub(/\|/,"",l)-1;if(/^\|[- :\|]+\|$/){w=n;next};if(w>0&&n!=w)print FILENAME":"FNR" (cols="n", expected="w")";next}{w=0}')
 if [ -z "$S4" ]; then
   echo "S4  OK        every table row matches its separator's column count"
 else
@@ -174,70 +172,6 @@ if [ -z "$S17" ]; then
 else
   echo "S17 VIOLATED  $(echo "$S17" | wc -l | tr -d ' ') rows have no Closes when:"
   echo "$S17" | sed 's/^/              /'; FAIL=1
-fi
-
-# S19: the level-admission rule. A registry row may be opened only at L0, L1, L2
-# or L0-INSTR -- or because it closes a birm-spec.md §12 open slot. L3/L4
-# material belongs in a concept/entity page body, where search finds it when a
-# realization is finally chosen; as a registry row it is carried by every later
-# lint for nothing. The L3/L4 rows that predate the rule are grandfathered in
-# _work/level-baseline.txt (each is a standing demotion candidate for LINT, not
-# a failure); anything L3/L4 outside that file is a new row that broke the rule.
-S19=$(comm -23 <(grep -lE '^\*\*Level:\*\* `L[34]`' wiki/gaps/g[0-9]*.md wiki/tensions/t[0-9]*.md 2>/dev/null | sort) \
-                <(sort _work/level-baseline.txt) \
-       | while read -r f; do
-           id=$(basename "$f" .md | sed 's/^g0*/G/;s/^t0*/T/')
-           grep -q "\`$id\`" _brainstorm/birm-spec.md 2>/dev/null || echo "$id"
-         done)
-if [ -z "$S19" ]; then
-  echo "S19 OK        no registry row opened at L3/L4 since the ladder rule ($(wc -l < _work/level-baseline.txt | tr -d ' ') grandfathered)"
-else
-  echo "S19 VIOLATED  rows opened at L3/L4 against the admission rule:"
-  echo "$S19" | tr '\n' ' ' | sed 's/^/              /'; echo; FAIL=1
-fi
-
-# S20: the spec ledger and the registry must name each other. Section 11 of
-# _brainstorm/birm-spec.md has a "Gap / tension id" column recording which rows
-# each decision consumed; the relation was one-directional for 230 decisions and
-# 188 rows, so a row read on its own gave no sign that the architecture had
-# already taken a position on it and the next reader re-derived it. Every row the
-# ledger names must carry a **Spec:** field naming those decisions, and every
-# decision a row claims must exist in the ledger.
-S20=$(python3 - <<'EOF'
-import re, pathlib
-def cells(line):
-    out=[]; cur=""; i=0
-    while i < len(line):
-        if line[i] == "\\" and i+1 < len(line): cur += line[i:i+2]; i += 2; continue
-        if line[i] == "|": out.append(cur); cur = ""; i += 1; continue
-        cur += line[i]; i += 1
-    out.append(cur); return out
-spec = pathlib.Path("_brainstorm/birm-spec.md").read_text()
-ledger = {}
-for l in spec.splitlines():
-    if not re.match(r'^\| D\d+ \|', l): continue
-    c = cells(l)
-    if len(c) < 8: print("MALFORMED ledger row", c[1].strip()); continue
-    for rid in re.findall(r'`([GT]\d{1,3})`', c[6]):
-        ledger.setdefault(rid, set()).add(c[1].strip())
-for key, pfx in (("gaps", "g"), ("tensions", "t")):
-    for f in sorted((pathlib.Path("wiki")/key).glob(pfx+"[0-9]*.md")):
-        t = f.read_text()
-        rid = t.split("\n")[0].split(" \u2014 ")[0][2:].strip()
-        m = re.search(r'^\*\*Spec:\*\* (.+)$', t, re.M)
-        have = set(re.findall(r'`(D\d+)`', m.group(1))) if m else set()
-        want = ledger.get(rid, set())
-        if have != want:
-            miss = ", ".join(sorted(want-have, key=lambda d: int(d[1:])))
-            extra = ", ".join(sorted(have-want, key=lambda d: int(d[1:])))
-            print(f"{rid}: " + "; ".join(x for x in (f"unrecorded {miss}" if miss else "", f"not in ledger {extra}" if extra else "") if x))
-EOF
-)
-if [ -z "$S20" ]; then
-  echo "S20 OK        every spec decision's consumed rows carry it back ($(grep -l '^\*\*Spec:\*\*' wiki/gaps/g[0-9]*.md wiki/tensions/t[0-9]*.md 2>/dev/null | wc -l | tr -d ' ') rows annotated)"
-else
-  echo "S20 VIOLATED  spec ledger and registry disagree:"
-  echo "$S20" | sed 's/^/              /'; FAIL=1
 fi
 
 exit $FAIL

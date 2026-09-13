@@ -26,10 +26,8 @@ Fold a source into the wiki so the insight lives on concept/entity pages.
 
 ## Admission rule (registry rows)
 
-A new registry row — gap or tension — may be opened **only** if either:
-
-- its `**Level:**` is `L0`, `L1`, `L2` or `L0-INSTR`; **or**
-- it closes an existing `§12` open slot in `_brainstorm/birm-spec.md`.
+A new registry row — gap or tension — may be opened **only** if its
+`**Level:**` is `L0`, `L1`, `L2` or `L0-INSTR`.
 
 Levels: `L0` behaviour · `L0-INSTR` measurement validity, worked at `L0`
 priority · `L1` decomposition · `L2` signal flow (including what is
