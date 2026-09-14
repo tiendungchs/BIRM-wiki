@@ -14,7 +14,6 @@
 |---|---|---|---|
 | In | `o_t ∈ ℝ^{D_o}`, float32, `[0,1]` — one per env step | unparsed; lands on **one** block only | spec §2.1 |
 | In | `r_t ∈ [−1,1]` scalar, same step | no address, no shaping | spec §2.1 |
-| In | `done_t` bit | wipes the fast store, re-seeds `g` to a random phase | spec §2.1 `D11` |
 | Out | `a_t` one-hot over `k` | indices only; semantics latent | spec §2.1 `D9` |
 | Instantiate with | `⟨D_o, k, Ŝ⟩` | every width below is a function of these plus two free scalars `K`, `c` | spec §2.2 `D85` |
 
@@ -32,7 +31,7 @@ Six organs, no seventh. Three of them are drawn as sub-units because the spec al
 | | `CX·x` | content half: effect-equivalence codebook front end, then settles `m⁻` (phase α, from structure) and `m⁺` (phase β, under clamped `o_t`). Stochastic — determinism forbidden | width follows `D_o` | codebook frozen after P0; associative weights only on the offline channel | spec §3.1 `D86`–`D88`; §6 `D71` |
 | | `CX·W` | codes + associative weights as two separately addressable blocks — the **meta-graph** (action-conditioned next-content predictor) | derived from `⟨D_o, k, Ŝ⟩` | slow gradient, associative block only, **never online** | spec §3.1 `D22`–`D24` |
 | **Hippocampus** | `HC·scaf` | frozen random `g → slot` projection + pointwise nonlinearity; decides which slots exist | `N_slots = c·n_mod` | **never** | spec §3.2, §6 `D17`, `D18`, `D68` |
-| | `HC·cont` | one-shot content layer: per slot the conjunction `(Δ = m⁺ − m⁻, a_{t−1}, r_t)`, occupancy, per-feature variance, provenance bit | — | Hebbian one-shot write at address `g_t`; typed erase from PFC; wiped at `done` | spec §3.2 `D32`, `D74`, `D76`, `D173` |
+| | `HC·cont` | one-shot content layer: per slot the conjunction `(Δ = m⁺ − m⁻, a_{t−1}, r_t)`, occupancy, per-feature variance, provenance bit | — | Hebbian one-shot write at address `g_t`; typed erase from PFC, and nothing else | spec §3.2 `D32`, `D74`, `D76`, `D173` |
 | | `HC·conf` | per-read confidence scalar + occupancy scalar → Neuromodulators | — | — | spec §3.2 `D69` |
 | **PFC** | `PF·lv` | `k` parallel level-searchers holding the task model as sustained state; level `j+1` gets `(abstract var, resolved output)` from `j` only; `gain_j = σ(H[π_j] − h₀)` | one common component + `θ_upd` + `θ_shift`; no inhibition parameters | reward-gated association among co-active units (P2) | spec §3.3 `D25`–`D31` |
 | | `PF·act` | action port: argmax over a biased competition → `Act` | — | RL on gate/schedule outputs, per-slot credit `δ_j = gate_j·δ` | spec §3.3, §5.1 step 10 |
@@ -63,7 +62,7 @@ Every edge carries four registers — weight, terminal gain, writability, operat
 
 ```
                  o_t (β only)         r_t
-   env ──► Periphery ────────────┐      │                 done ─► wipe HC, reseed g
+   env ──► Periphery ────────────┐      │            no boundary: HC and g persist
                                  ▼      ▼
    Act(t−1) ─► CX·g ──Bg──► HC·scaf ─► HC·cont ──Bx⁻──► CX·x ──Bx⁺──► Thalamus ──W──► all
                  ▲            ▲  (reset, 9b)               ▲  (bias)        (commit)  │
@@ -82,7 +81,7 @@ Two phases inside one env step, driven by Thalamus's clock. Phase α predicts fr
 
 | # | Who | Does | Detail |
 |---|---|---|---|
-| 1 | Periphery | `o_t`, `r_t`, `done` arrive | spec §5.1 |
+| 1 | Periphery | `o_t`, `r_t` arrive | spec §5.1 |
 | 2 | Thalamus | **phase α**: **O** gated off | `D50` |
 | 3 | `CX·g` | `g_t = ℓ₂(W_{a_{t−1}} g_{t−1})` | `D63` |
 | 4 | Hippocampus | scheduled read at address `g_t`, lead time from `PF·cmd` → `Bx⁻` | `D32` |

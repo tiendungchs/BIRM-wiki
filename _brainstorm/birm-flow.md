@@ -18,7 +18,7 @@
 |---|---|---|---|
 | **Periphery** | adapter, **outside BIRM** | nothing (fixed codec) | env step |
 | **Cortex** | slow model | `W` (codes + associative weights); `g_t` | written only on the transport channel |
-| **Hippocampus** | fast instance store | content slots, pointer register, occupancy, per-feature variance, provenance bit | one-shot write; scheduled read; wiped at `done` |
+| **Hippocampus** | fast instance store | content slots, pointer register, occupancy, per-feature variance, provenance bit | one-shot write; scheduled read; typed erase only |
 | **PFC** | controller | task model (sustained, swapped); `k` engagement gains; pointer/schedule registers | per step |
 | **Thalamus** | arbitrator / commit gate | mode, `g_rel`, `g_acq`, `k` engagement gains, slow set-points | fast switch, slow set-point |
 | **Neuromodulators** | metaparameter source | eight set-points | second-order — strictly slower than what it gates |
@@ -142,7 +142,7 @@ flowchart LR
   WW[/"**W** — the commit"/]
   AC[/"**Act** — one-hot over k"/]
 
-  ENV -->|"o_t, r_t, done"| A0
+  ENV -->|"o_t, r_t"| A0
   AC -->|"actuate"| A0
   A0 --> ENV
 
@@ -287,7 +287,7 @@ No organ writes to another organ directly. Every pair below is joined **through 
 
 | # | From → To | Bus | Carries | Live when | Denied |
 |---|---|---|---|---|---|
-| E1 | env → Periphery | — | `o_t`, `r_t`, `done` | every env step | — |
+| E1 | env → Periphery | — | `o_t`, `r_t` | every env step | — |
 | E2 | Periphery → `CX·x` | **O** | `o_t` | **phase β only** | **`CX·g`**; `PF·lv` at every level; Thalamus; Neuromodulators; Hippocampus; **phase α** |
 | E3 | Periphery → {Hipp, `PF·lv`, NM} | **V** | `r_t`, one scalar, **no address** | every step | carrying an address — the address comes from `L_part` |
 | E4 | `CX·g` → `HC·scaf` | **Bg** | `g_t` as the store **address** | step 3, every step | time-locking to `Bx`; carrying content |
@@ -314,7 +314,6 @@ No organ writes to another organ directly. Every pair below is joined **through 
 | E22 | NM → every organ | **U** | `m_t`, decoded as `f_k(W_k·m_t)` | second-order | any organ reading `m_t` raw; any global gain |
 | E23 | every organ → credit path | **L_part** | that organ's licence **on itself** | every step | being read by the action path; being written for another organ |
 | E24 | `HC·cont` → `CX·W` | **L**(transport) | the offline gate `g(r_S)` — the gate §5.3 specifies; §4 also lists **V** at this block (§6) | rest periods only | firing online; reaching `CX·g` or `CX·x` |
-| E25 | Periphery → BIRM | — | `done` | episode end | — |
 | **I1** | `CX·g` + `CX·x` → `CX·p` | *internal* | the context term and the content term | every step | a return path — `p` never writes back into `CX·g` |
 | **I2** | `CX·W` → `CX·x` | *internal* | the map both `m⁻` and `m⁺` settle under | every step (read); written **only** by E24 | being written online |
 | **I3** | `PF·lv` → `PF·act` / `PF·cmd` | *internal* | the resolved level output | every step | the two ports reading each other |
@@ -385,7 +384,7 @@ These five registers are a property of **bus edges**. The `I` rows of §3 have n
 
 **Beat 0 — before anything arrives.** The system is not idle in the sense of being blank. `Cortex` holds `g_{t−1}`, a code that says *where I am* and nothing at all about what is there. `Hippocampus` holds whatever this episode has written into it, filed under the addresses the agent has visited. `PFC` holds a task model it did not rebuild this step and will not rebuild next step — it is swapped, never accumulated. `Thalamus` sits at some distance below its commit threshold, and that distance is not a constant: `Neuromodulators` set it, which is why the idle state is a legitimate place to spend control effort. Nothing here is waiting for the observation. That matters, because the first thing the step does is refuse it.
 
-**Beat 1 — the observation arrives, and `done` is checked first.** The Periphery runs one codec pass and puts `o_t` on **O** and the scalar `r_t` on **V**. `r_t` has no address on it; whichever organ ends up credited for it will be decided by `L_part`, on the credit path, never by the signal. If `done` came back true, the step does not continue as described: `Hippocampus` is wiped whole — not reclaimed slot by slot — and `g` is re-seeded to a random phase. The map is always newly learned.
+**Beat 1 — the observation arrives.** The Periphery runs one codec pass and puts `o_t` on **O** and the scalar `r_t` on **V**. `r_t` has no address on it; whichever organ ends up credited for it will be decided by `L_part`, on the credit path, never by the signal. There is no boundary to check and nothing is re-initialised: `Hippocampus` and `g` carry in from the previous step whatever environment that step belonged to (`D263`). The map is carried forward, not rebuilt.
 
 **Beat 2 — phase α opens, and `O` is gated off the belief path.** This is the move that makes everything downstream mean something. `Thalamus` flips a phase bit, and the flip is driven by an endogenous clock — not by `PFC`, not by a mode bit any organ has to supply, not by anything that inspects the observation. For the next several beats the observation is *sitting on the bus, unread*. BIRM is about to guess what it says.
 
