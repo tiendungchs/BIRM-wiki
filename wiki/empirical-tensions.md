@@ -119,7 +119,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T119 | Where does the variability in a learning task enter the generative model? | `L1` | `LEANING` | 1 | [[wiki/tensions/t119.md]] |
 | T120 | Is an infinitesimal nudge unusable, or is it the correct regime? | `L3` | `LIVE` | 2 | [[wiki/tensions/t120.md]] |
 | T121 | Is event-model updating controlled by one signal or by several? | `L2` | `LEANING` | 1 | [[wiki/tensions/t121.md]] |
-| T122 | What does phasic dopamine carry — a reward prediction error, or the precision of a prediction error? | `L2` | `LIVE` | 8 | [[wiki/tensions/t122.md]] |
+| T122 | What does phasic dopamine carry — a reward prediction error, or the precision of a prediction error? | `L2` | `LIVE` | 9 | [[wiki/tensions/t122.md]] |
 | T123 | Does active inference remove the exploration–exploitation weight, or only fix its value? | `L3` | `LEANING` | 2 | [[wiki/tensions/t123.md]] |
 | T124 | Which epistemic term does the work — uncertainty about the *state*, or uncertainty about the *model*? | `L3` | `LIVE` | 4 | [[wiki/tensions/t124.md]] |
 | T125 | Does the epistemic term help or hurt once it is implemented? | `L3` | `LIVE` | 2 | [[wiki/tensions/t125.md]] |
