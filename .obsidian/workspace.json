@@ -11,14 +11,10 @@
             "id": "143968b04b3097a5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "raw/Distributionally Robust Neural Networks for Group Shifts On the Importance ofRegularization for Worst-Case Generalization.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Distributionally Robust Neural Networks for Group Shifts On the Importance ofRegularization for Worst-Case Generalization"
+              "title": "New tab"
             }
           }
         ]
@@ -187,6 +183,18 @@
   },
   "active": "143968b04b3097a5",
   "lastOpenFiles": [
+    "raw/Liking, Wanting and the Incentive-Sensitization Theory of Addiction.md",
+    "raw/campos-2018-parabrachial-cgrp-danger-encoding.md",
+    "raw/betley-2015-hunger-thirst-negative-valence-teaching-signal.md",
+    "raw/lammel-2012-input-specific-reward-aversion-vta.md",
+    "raw/berridge-2016-liking-wanting-incentive-sensitization.md",
+    "raw/boureau-2010-opponency-dopamine-serotonin.md",
+    "raw/brombergmartin-2010-dopamine-motivational-value-salience-alerting.md",
+    "raw/Encoding of danger by parabrachial CGRP neurons.md",
+    "raw/Neurons for hunger and thirst transmit a negative-valence teaching signal.md",
+    "raw/Input-specific control of reward and aversion in the ventral tegmental area.md",
+    "raw/Opponency Revisited Competition and Cooperation Between Dopamine and Serotonin.md",
+    "raw/Dopamine in Motivational Control Rewarding, Aversive, and Alerting.md",
     "raw/A model of inductive bias learning.pdf",
     "raw/Curriculum Learning.pdf",
     "raw/Making neural programming architectures generalize via recursion.pdf",
@@ -204,24 +212,12 @@
     "raw/How Well Do Self-Supervised Models Transfer?.md",
     "raw/Motor Task Variation Induces Structural Learning.md",
     "raw/A cortical filter that learns to suppress the acoustic consequences of movement.md",
-    "raw/Internal models in the cerebellum.md",
-    "raw/A Framework for Intelligence and Cortical Function Based on Grid Cells in the Neocortex.md",
-    "raw/Predictive coding in the visual cortex a functional interpretation of some extra-classical receptive-field effects.md",
-    "raw/A Sensorimotor Circuit in Mouse Cortex for Visual Flow Predictions.md",
-    "raw/Predictive Processing A Canonical Cortical Computation.md",
-    "raw/Fragmentation of grid cell maps in a multicompartment environment.md",
-    "raw/Object-vector coding in the medial entorhinal cortex.md",
-    "raw/On prefrontal working memory and hippocampal episodic memory Unifying memories stored in weights and activity slots 1.md",
-    "raw/On prefrontal working memory and hippocampal episodic memory Unifying memories stored in weights and activity slots.md",
-    "raw/A tale of two algorithms Structured slots explain prefrontal sequence memory and are unified with hippocampal cognitive maps.md",
-    "raw/Automated construction of cognitive maps with visual predictive coding - Nature Machine Intelligence.md",
     "_work/ingest-logs/20260908-202805-pass10.log",
     "_work/ingest-logs/20260908-202805-pass10.jsonl",
     "_work/ingest-logs/20260908-202805-pass10.err",
     "_work/ingest-queue.md.tmp",
     "_work/ingest-logs/20260908-202059-pass9.log",
     "_work/ingest-logs/20260908-202059-pass9.jsonl",
-    "_work/ingest-logs/20260908-202059-pass9.err",
-    "_work/ingest-logs/20260908-201232-pass8.jsonl"
+    "_work/ingest-logs/20260908-202059-pass9.err"
   ]
 }
