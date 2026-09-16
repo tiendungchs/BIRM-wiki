@@ -193,6 +193,7 @@ What it does not supply: `τ` is estimated from signal-to-noise ratios by a hand
 
 ## Connections
 
+- **[[wiki/concepts/broadcast-channel-decomposition.md]]** — supplies a candidate carrier this page has been missing and relocates `T122`: the dorsolateral dopamine population emits an *unsigned, event-present magnitude* — excited by reward and by aversive events alike, silent on omission — which is what a gain term needs and what a signed value error cannot be, so the question becomes which population rather than which reading.
 - **[[wiki/entities/m2-auditory-cortex-filter.md]]** — a case where bandwidth alone fails to classify a channel: what motor cortex delivers to auditory cortex is close to a gain, but it is *addressed* to one learned band, so the low-dimensional/content distinction has to be drawn by whether the address is learned rather than by how many numbers are on the wire.
 - **[[wiki/entities/affordance-active-inference-model.md]]** — this page's dopamine reading put inside a behaving agent, and the correction it forces: precision is a *field over hierarchical levels*, and the behavioural sign of a change in it flips with height, so "dopamine is precision" is not a prediction until the level is named (T122).
 

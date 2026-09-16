@@ -63,6 +63,17 @@ value   ∝  a_DA − a_5HT        (constrained by the outcome)
 
 **(brainstorm)** The obvious candidates for the sum are the ones the wiki keeps needing and has nowhere to put: *salience* (the motivational-salience population fires to both valences), *precision* (`T122` position B), or the *magnitude of the origin shift* above. A two-population opponent code is therefore strictly more expressive than the signed scalar every architecture here uses, at the price of a second baseline that must be held stable.
 
+**A rival arrangement that delivers the same two quantities, and it is not a sum.** Bromberg-Martin et al. 2010 ([[wiki/concepts/broadcast-channel-decomposition.md]]) make salience a *separate dopamine population* with its own inputs (central nucleus of the amygdala, proposed) and its own targets (accumbens core, dorsolateral prefrontal cortex) rather than a quantity recovered by adding two opponent activations. The two designs are cheap to tell apart and the wiki should not blur them:
+
+| | **Sum of an opponent pair** (this page) | **Second population** (Bromberg-Martin et al.) |
+|---|---|---|
+| Wires | one pair, two quantities | two channels, one quantity each |
+| Salience on reward *omission* | large — the difference goes negative, the sum need not | **zero** — the measured salience channel is silent when the event is absent, which a sum over two non-negative rates cannot generally reproduce |
+| Failure mode | baseline drift in either population corrupts *both* value and salience | drift corrupts one quantity only |
+| Targets | necessarily identical — one pair of wires reaches one place | independently routable |
+
+The omission row is the discriminator and it currently favours the two-population account: a rectified, event-present magnitude is not a function of the opponent difference, so the information is not in the pair at all. That does not retire the free-sum observation — it says the free degree of freedom is real and is probably carrying something *other* than salience.
+
 ---
 
 ## The assignment, then and now
@@ -138,4 +149,5 @@ This matters to a builder because it separates two things the wiki collapses: *n
 - **[[wiki/concepts/simulation-based-planning.md]]** — the serotonergic pruning rule applied to rollout: stop expanding a branch on encountering a large predicted punishment, which bounds search cost and *biases* the surviving estimate upward — the search-control mechanism whose failure mode (depressive realism) is more accurate than its success.
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the third-factor slot read at two timescales: this page separates the phasic error from the tonic average rate carried by the same chemical, so a rule consuming "dopamine" is consuming two signals whose pharmacological manipulations move mainly the second.
 - **[[wiki/concepts/multi-horizon-value-learning.md]]** — the alternative home for the average-rate term: average-reward reinforcement learning antagonizes the phasic error with the long-run rate, and this page's authors concede the antagonism "could be realized in many other ways" — a bank of discount factors being one, which is why the withdrawal of the tonic assignment costs the chemistry and not the algebra.
+- **[[wiki/concepts/broadcast-channel-decomposition.md]]** — the rival arrangement for this page's free degree of freedom: salience as a separately-sourced, separately-routed dopamine population rather than as the unconstrained *sum* of an opponent pair, with reward-omission trials discriminating the two because the measured salience channel is silent there and a sum need not be.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the priors as a restriction on the hypothesis space: preparedness, species-typical response types and the Go/No-Go × valence coupling are constraints on *which* edges an agent will entertain, bought at the cost of the edges it can never learn.

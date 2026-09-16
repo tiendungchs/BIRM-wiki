@@ -85,7 +85,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T81 | What determines whether a memory consolidates — that it *recurs*, or that the slow learner can *model* it? | `L2` | `LIVE` | 2 | [[wiki/tensions/t081.md]] |
 | T82 | Is permanent hippocampal dependence an optimal refusal or a transport failure? | `L1` | `LIVE` | 2 | [[wiki/tensions/t082.md]] |
 | T83 | Is memory allocation decided by the excitability of neurons just before learning? | `L3` | `LEANING` | 2 | [[wiki/tensions/t083.md]] |
-| T85 | Is phasic dopamine a reward *prediction* or a reward *association*? | `L4` | `LIVE` | 5 | [[wiki/tensions/t085.md]] |
+| T85 | Is phasic dopamine a reward *prediction* or a reward *association*? | `L4` | `LIVE` | 6 | [[wiki/tensions/t085.md]] |
 | T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `L1` | `LEANING` | 3 | [[wiki/tensions/t086.md]] |
 | T87 | Is a working memory held at a fixed point, or in a moving trajectory? | `L3` | `LEANING` | 2 | [[wiki/tensions/t087.md]] |
 | T88 | What is prefrontal delay-period activity *about* — the item held, or the place attention is pointed? | `L1` | `LEANING` | 4 | [[wiki/tensions/t088.md]] |
@@ -119,7 +119,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T119 | Where does the variability in a learning task enter the generative model? | `L1` | `LEANING` | 1 | [[wiki/tensions/t119.md]] |
 | T120 | Is an infinitesimal nudge unusable, or is it the correct regime? | `L3` | `LIVE` | 2 | [[wiki/tensions/t120.md]] |
 | T121 | Is event-model updating controlled by one signal or by several? | `L2` | `LEANING` | 1 | [[wiki/tensions/t121.md]] |
-| T122 | What does phasic dopamine carry — a reward prediction error, or the precision of a prediction error? | `L2` | `LIVE` | 7 | [[wiki/tensions/t122.md]] |
+| T122 | What does phasic dopamine carry — a reward prediction error, or the precision of a prediction error? | `L2` | `LIVE` | 8 | [[wiki/tensions/t122.md]] |
 | T123 | Does active inference remove the exploration–exploitation weight, or only fix its value? | `L3` | `LEANING` | 2 | [[wiki/tensions/t123.md]] |
 | T124 | Which epistemic term does the work — uncertainty about the *state*, or uncertainty about the *model*? | `L3` | `LIVE` | 4 | [[wiki/tensions/t124.md]] |
 | T125 | Does the epistemic term help or hurt once it is implemented? | `L3` | `LIVE` | 2 | [[wiki/tensions/t125.md]] |
@@ -130,7 +130,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T131 | When a behaviour becomes automatic, is the policy distilled into a new substrate or migrated to another loop? | `L2` | `LEANING` | 3 | [[wiki/tensions/t131.md]] |
 | T132 | Is the indirect pathway a veto or an exploration channel? | `L1` | `LIVE` | 2 | [[wiki/tensions/t132.md]] |
 | T133 | What does the direct/indirect pathway balance set — the discount factor or the exploration temperature? | `L2` | `LIVE` | 2 | [[wiki/tensions/t133.md]] |
-| T134 | Does serotonin set the prediction horizon or report the average reward? | `L2` | `LIVE` | 2 | [[wiki/tensions/t134.md]] |
+| T134 | Does serotonin set the prediction horizon or report the average reward? | `L2` | `LIVE` | 4 | [[wiki/tensions/t134.md]] |
 | T135 | What is compared when a brain decides whether to plan — the reliability of the two answers, or the cost and benefit of computing one? | `L2` | `LIVE` | 2 | [[wiki/tensions/t135.md]] |
 | T136 | Does a hierarchical learner deliver a subgoal-specific reward of its own? | `L2` | `LIVE` | 1 | [[wiki/tensions/t136.md]] |
 | T137 | Is the subthalamic nucleus a threshold unit or an exponentiator? | `L3` | `LEANING` | 2 | [[wiki/tensions/t137.md]] |

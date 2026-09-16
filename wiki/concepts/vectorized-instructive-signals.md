@@ -12,12 +12,14 @@ The wiki's credit-assignment machinery ([[wiki/concepts/biologically-plausible-c
 
 ## The axis: scalar broadcast vs. per-neuron vector
 
-| | Scalar | Vectorized |
-|---|---|---|
-| Signal | One number, no address ([[wiki/concepts/reward-prediction-error.md]]) | One number *per neuron*, signed by that neuron's contribution |
-| Who receives it | Everyone; specificity comes from which units happen to be active (eligibility) | Each unit separately, by construction |
-| Scaling | Variance grows with the number of parameters — the perturbation family's problem | Cost is a delivery channel, not variance |
-| Cortical candidate | Midbrain dopamine | **Distal apical tuft input**, this page |
+| | Scalar | **Channel-split** | Vectorized |
+|---|---|---|---|
+| Signal | One number, no address ([[wiki/concepts/reward-prediction-error.md]]) | A *handful* of numbers, each with a different sign convention and a different target set ([[wiki/concepts/broadcast-channel-decomposition.md]]) | One number *per neuron*, signed by that neuron's contribution |
+| Who receives it | Everyone; specificity comes from which units happen to be active (eligibility) | Whoever that channel's axons reach — address by anatomy, fixed at development | Each unit separately, by construction |
+| Scaling | Variance grows with the number of parameters — the perturbation family's problem | Variance unchanged; what grows is the number of distinct projections, which is a wiring cost | Cost is a delivery channel, not variance |
+| Cortical candidate | Midbrain dopamine | Midbrain dopamine, **split** into value / salience / alerting populations | **Distal apical tuft input**, this page |
+
+The middle column matters because the axis was stated here as a dichotomy and it is a spectrum with a very cheap intermediate: addressing can be bought with *anatomy* instead of with a per-neuron signal. The price is that an anatomical address cannot be relearned — the partition is fixed at development — so it delivers coarse, permanent routing where the vectorized signal delivers fine, task-dependent routing.
 
 The **separability** requirement rides alongside vectorization: the instructive signal must not be confused with the feedforward drive. Artificial networks separate them **in time** (forward pass, then backward pass) — objection 6, the phase-control signal the wiki keeps failing to pay for. The hypothesis tested here is that cortex separates them **in space**: feedforward input perisomatically and on basal dendrites, feedback input in layer 1 onto the distal tuft.
 
@@ -108,6 +110,7 @@ The decoding classifier was trained for binary classification only, never on mag
 - **[[wiki/concepts/biologically-plausible-credit-assignment.md]]** — supplies the biological evidence that page's dendritic-error column was assumed to have: an apical compartment carrying a signed, cell-specific, pre-outcome error whose removal blocks learning — and it lands *across* that page's temporal/explicit dichotomy, since the measured quantity is a derivative of error held in a dedicated compartment.
 - **[[wiki/concepts/dendritic-computation.md]]** — turns one entry of that page's "what is a dendritic match *for*" list into a measured answer, and weakens its independence premise: the credit channel rides on the *magnitude* of events whose *timing* is shared with the soma, so semi-independence suffices and full branch autonomy is not required.
 - **[[wiki/concepts/reward-prediction-error.md]]** — the exact contrast case: a broadcast scalar with no address, versus a per-neuron signal whose sign is set by that neuron's causal contribution. The two are not rivals so much as the two ends of the axis this page defines, and dopamine is a candidate *source* for the vectorized signal, which would collapse them.
+- **[[wiki/concepts/broadcast-channel-decomposition.md]]** — the intermediate point on this page's axis, which was stated as a dichotomy: a few broadcast channels addressed by projection target, giving coarse routing for the cost of extra axons rather than fine routing for the cost of a per-neuron signal — and it is the cheaper hypothesis this page's result has to beat, not only the single-scalar one.
 - **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — the wiring the result presupposes and now uses causally: feedback terminates in layer 1 on distal apical tufts while drive arrives perisomatically, and the layer-1 inhibitory population is the switch that turns the feedback channel off.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — the same cell class in a second control job: NDNF⁺ neurogliaform cells gate the apical teaching channel in cortex here, and set ensemble overlap in CA1 there — so "which inhibitory family controls what gets written" is one question with two measured instances.
 - **[[wiki/entities/pbwm.md]]** — the engineered version of this page's axis: a broadcast scalar is *made* vectorized by multiplying it with each stripe's own gating activation (`δ_j = snr_j·δ`), which is structural credit assignment as an anatomical product. This page's result says cortex may not need that trick because the vector arrives already addressed.
