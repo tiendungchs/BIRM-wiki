@@ -18,7 +18,6 @@ wiki/gaps/g104.md
 wiki/gaps/g106.md
 wiki/gaps/g107.md
 wiki/tensions/t003.md
-wiki/tensions/t004.md
 wiki/tensions/t007.md
 wiki/tensions/t013.md
 wiki/tensions/t031.md
@@ -87,7 +86,6 @@ wiki/tensions/t263.md
 wiki/tensions/t265.md
 wiki/tensions/t271.md
 wiki/tensions/t283.md
-wiki/tensions/t284.md
 wiki/tensions/t286.md
 wiki/tensions/t287.md
 wiki/tensions/t290.md

@@ -174,4 +174,25 @@ else
   echo "$S17" | sed 's/^/              /'; FAIL=1
 fi
 
+# S19: the level-admission rule. A registry row may be opened only at L0, L1, L2
+# or L0-INSTR. L3/L4 material belongs in a concept/entity page body, where search
+# finds it when a realization is finally chosen; as a registry row it is carried by
+# every later lint for nothing. The L3/L4 rows that predate the rule are
+# grandfathered in _work/level-baseline.txt (each is a standing demotion candidate
+# for LINT, not a failure); anything L3/L4 outside that file is a new row that broke
+# the rule. The spec-slot exception was removed with the spec (012c108); the check
+# was deleted with it and restored at lint(23) without the clause.
+L34=$(grep -lE '^\*\*Level:\*\* `L[34]`' wiki/gaps/g[0-9]*.md wiki/tensions/t[0-9]*.md 2>/dev/null | sort)
+S19=$(comm -23 <(echo "$L34") <(sort _work/level-baseline.txt))
+if [ -z "$S19" ]; then
+  echo "S19 OK        no registry row opened at L3/L4 since the ladder rule ($(wc -l < _work/level-baseline.txt | tr -d ' ') grandfathered)"
+else
+  echo "S19 VIOLATED  rows opened at L3/L4 against the admission rule:"
+  echo "$S19" | sed 's/^/              /'; FAIL=1
+fi
+# A baseline entry that is no longer an L3/L4 row (re-levelled or retired) inflates
+# the grandfather count; tracked, not enforced.
+S19STALE=$(comm -13 <(echo "$L34") <(sort _work/level-baseline.txt) | wc -l | tr -d ' ')
+[ "$S19STALE" -gt 0 ] && echo "S19 note      $S19STALE baseline entries are no longer L3/L4 rows -- prune _work/level-baseline.txt"
+
 exit $FAIL

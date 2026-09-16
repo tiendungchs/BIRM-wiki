@@ -469,6 +469,16 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | MoCo | Momentum Contrast | He et al. 2019 / Chen et al. 2020 (v2): contrastive self-supervision with negatives held in a queue and the key encoder an EMA of the query encoder; the wiki's usual augmentation-defined-pairing baseline ([[wiki/entities/byol.md]], [[wiki/entities/saycam-baby-vision.md]]) |
 | MS-SSM | Multi-Scale State Space Model | Karami et al. 2025: a state-space model that decomposes the sequence into resolutions and gives each its own state-space dynamics, so the selection is over *timescales* rather than over content; the time-invariant recurrence that beats content-dependent selection by ~25 points on Long Range Arena ([[wiki/concepts/attention.md]], [[wiki/concepts/timescale-hierarchy.md]]) |
 | HAMI | Hippocampal-Augmented Memory Integration | An external-memory agent with an episodic buffer read through a dense decoder; one of the memory architectures whose write is sparse and whose read is dense ([[wiki/concepts/complementary-learning-systems.md]], [[wiki/concepts/encoding-retrieval-alternation.md]]) |
+| CI | Confidence Interval | The interval a reported estimate is bracketed by, written bare on nine pages (`95% CI [0.401, 0.607]`); one page, [[wiki/concepts/rule-level-evaluation.md]], redefines `CI` locally as *correct-intended* and says so where it does |
+| MI | Mutual Information | `I(X;Y)` — the quantity the information bottleneck trades and the per-input-bit capacity measure of [[wiki/entities/vector-hash.md]]; written bare wherever an *estimator* for it is the issue ([[wiki/concepts/information-bottleneck.md]]) |
+| KDE | Kernel Density Estimate | Non-parametric density from a kernel placed on every sample; the reading under which InfoNCE's temperature `τ` is the bandwidth `κ = 1/τ` of a von Mises–Fisher kernel rather than a free softness knob ([[wiki/concepts/alignment-uniformity.md]]) |
+| vMF | von Mises–Fisher distribution | The isotropic distribution on the unit hypersphere with concentration `κ`; the kernel whose density estimate gives the uniformity term its meaning ([[wiki/concepts/divergence-objectives.md]]) |
+| PCN | Predictive Coding Network | A stack whose energy is the sum of squared layer-wise prediction errors, `E_PCN = ½ Σ_k ‖h_k − f_k(θ_k, h_{k−1})‖²` — the energy equilibrium propagation and predictive coding share and differ on the update rule for ([[wiki/concepts/equilibrium-propagation.md]]) |
+| OV | Output–Value matrix | The product `W_O W_V` of one attention head — what the head writes to the residual stream once its attention pattern is fixed; a head with a constant pattern *is* its OV matrix ([[wiki/concepts/multi-token-embedding.md]]) |
+| FIFO | First In, First Out | The replay-buffer admission rule that evicts the oldest trajectory; the baseline uniform reservoir sampling beats in continual learning ([[wiki/entities/continual-dreamer.md]]) |
+| SOTA | State Of The Art | The best published number on a benchmark at the time of writing, quoted as a comparison row on entity pages |
+| VQ-VAE | Vector-Quantised Variational AutoEncoder | An autoencoder whose latent passes through VQ (above), so the code is a discrete symbol index; the learned static codebook that [[wiki/entities/gcq.md]] replaces with a fixed one |
+| STM / LTM | Short-Term / Long-Term Memory store | The two stores of recall-gated consolidation, `Δw_LTM ∝ g(w_STM · w*)`: the fast store's recall of a proposed update gates the slow store's write ([[wiki/concepts/recall-gated-consolidation.md]]); also the FIFO short-term buffer of [[wiki/entities/cn-dpm.md]] |
 
 ## Neuroscience
 
@@ -769,6 +779,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | PV (primary value) | Primary Value | In [[wiki/entities/pbwm.md]]'s PVLV, the Rescorla–Wagner system that cancels the dopamine burst at expected reward delivery, paired with LV (learned value), which creates it at the cue (`T85`) |
 | 5HT3aR | Serotonin 3A Receptor | Marker of the third major cortical interneuron group (containing VIP⁺, calretinin⁺ and CCK⁺ cells); the dominant interneuron population of lateral entorhinal layer II, and the class that closes the calbindin⁺ pyramidal subcircuit in medial entorhinal layer II ([[wiki/entities/entorhinal-cortex.md]]) |
 | Etv1 / Ctip2 | ETS Variant transcription factor 1 / COUP-TF-Interacting Protein 2 | The two transcription factors whose expression splits entorhinal layer V into sublayer Va (`Etv1`⁺, the cortical output cells) and Vb (`Ctip2`⁺, the cells receiving the hippocampal return) across the whole extent of both divisions ([[wiki/entities/entorhinal-cortex.md]]) |
+| RT | Reaction Time | Time from stimulus to response — the behavioural variable a diffusion-model fit decomposes into drift rate, boundary and non-decision time ([[wiki/concepts/integration-segregation-balance.md]]) |
+| L5PC | Layer-5 Pyramidal Cell | The thick-tufted cortical output neuron whose full compartmental model is the wiki's reference cell for single-neuron depth ([[wiki/concepts/neuron-complexity-index.md]]) |
+| TE | area TE | von Bonin & Bailey's anterior inferotemporal area (TEO its posterior neighbour): the ventral stream's last unimodal stage and the frontal lobe's visual input via perirhinal cortex ([[wiki/entities/ventral-visual-stream.md]]) |
 
 ## Benchmarks
 
