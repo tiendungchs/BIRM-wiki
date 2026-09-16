@@ -785,6 +785,15 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | L5PC | Layer-5 Pyramidal Cell | The thick-tufted cortical output neuron whose full compartmental model is the wiki's reference cell for single-neuron depth ([[wiki/concepts/neuron-complexity-index.md]]) |
 | TE | area TE | von Bonin & Bailey's anterior inferotemporal area (TEO its posterior neighbour): the ventral stream's last unimodal stage and the frontal lobe's visual input via perirhinal cortex ([[wiki/entities/ventral-visual-stream.md]]) |
 
+| VTA | Ventral Tegmental Area | The midbrain dopamine nucleus projecting to accumbens, prefrontal cortex and amygdala; decomposed into afferent-selected channels in [[wiki/entities/ventral-tegmental-area.md]] |
+| SNc | Substantia Nigra pars compacta | The neighbouring midbrain dopamine nucleus, projecting mainly to dorsal striatum; where dopamine-cell identification by firing properties is judged reliable ([[wiki/concepts/broadcast-channel-decomposition.md]]) |
+| LDT | LateroDorsal Tegmentum | Brainstem nucleus whose VTA projection is 95% glutamatergic and only ~7% cholinergic; drives the reward channel ([[wiki/entities/ventral-tegmental-area.md]]) |
+| LHb | Lateral Habenula | Epithalamic nucleus excited by omitted or worse-than-expected reward; drives both the aversion channel and the GABAergic brake on the reward channel ([[wiki/entities/ventral-tegmental-area.md]]) |
+| RMTg | RostroMedial Tegmental nucleus | The GABAergic "tail of the VTA"; the relay by which lateral habenula input inhibits dopamine cells |
+| NAc | Nucleus Accumbens | Ventral striatum; resolves into **core**, **lateral shell** and **medial shell**, which take different midbrain afferents and are three separate addresses, not one ([[wiki/entities/ventral-tegmental-area.md]]) |
+| CPP / CPA | Conditioned Place Preference / Aversion | Time spent in a chamber paired with a manipulation, relative to an unpaired chamber; the approach/avoid assay both dopamine channels are read out with — and an approach/avoid measure, so it cannot separate valence from action (`G116`) |
+| EPSC / IPSC | Excitatory / Inhibitory PostSynaptic Current | Whole-cell voltage-clamp measurement of a synaptic input; the currency of "connection probability" in circuit-tracing results |
+
 ## Benchmarks
 
 | Abbrev. | Expansion | Note |

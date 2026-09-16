@@ -42,6 +42,29 @@ The value/salience difference is an **anatomical gradient**, not a partition: so
 
 ---
 
+## The measured wiring, and the three places it disagrees with the inferred one
+
+> Lammel et al. 2012, Nature 491:212–217 (`raw/lammel-2012-input-specific-reward-aversion-vta.md`), mouse. Full circuit detail on [[wiki/entities/ventral-tegmental-area.md]]. This is close to the experiment the section below names as missing: rabies and *Phaseolus vulgaris* leucoagglutinin tracing, channelrhodopsin-2 drive of identified afferents in behaviour and in slice, whole-cell recording from retrobead-identified projection neurons, and receptor pharmacology at the target.
+
+Two afferent nuclei select two near-disjoint ventral tegmental area channels, measured rather than inferred:
+
+| Afferent | Dopamine cells contacted (connection probability) | Target | Behaviour on phasic drive | Target-receptor necessity |
+|---|---|---|---|---|
+| laterodorsal tegmentum (glutamatergic — 95% express the glutamate transporter EAAC1, only ~7% choline acetyltransferase) | nucleus accumbens **lateral shell**-projecting: **100%**; medial shell / substantia nigra: ~30–40%; medial prefrontal cortex-projecting: ~10% | accumbens lateral shell | conditioned place **preference** | D₁+D₂ antagonists in accumbens lateral shell abolish it |
+| lateral habenula (glutamatergic) | medial prefrontal cortex-projecting: **100%**; rostromedial tegmental nucleus GABAergic: **100%**; accumbens medial or lateral shell, substantia nigra: **undetectable** | medial prefrontal cortex, plus feed-forward inhibition of the reward channel (IPSCs in ~60% of accumbens-lateral-shell-projecting dopamine cells, 0% of medial-shell-projecting ones) | conditioned place **aversion** | D₁ antagonist in medial prefrontal cortex abolishes it |
+
+**Where it confirms this page.** Address by axon is real and is measured: two dopamine populations sorted by projection target receive categorically different synaptic input, and dopamine release at *their own* target is necessary for the behaviour. It also adds an address the page did not have — **the input end**. Which channel fires is set by which afferent nucleus is driven, and those afferents are dedicated wires: laterodorsal-tegmentum and lateral-habenula cells projecting to the ventral tegmental area almost never collateralize to six other tested targets, against a ~20% double-labelling positive control in dorsal raphe.
+
+**Three disagreements, each load-bearing.**
+
+| The inferred diagram above | The measured one |
+|---|---|
+| The lateral habenula is the **source of the value channel**, sign-inverted through `GPb → LHb → RMTg → DA` — i.e. a brake | The lateral habenula is *also* the monosynaptic **excitatory driver of a second dopamine population**, and that population's dopamine release is necessary for aversion. Bad news is an increment on a different wire, not only a decrement on this one |
+| The second channel is a rectified, **valence-blind salience** magnitude routed to accumbens **core** and dorsolateral prefrontal cortex | The second channel is **aversion-specific** and routed to medial prefrontal cortex. This is `T355`, and it is undecided: Lammel et al. measure no firing at all, so whether the mPFC line also responds to reward is unknown |
+| Value versus salience is an **anatomical gradient with mixtures** | The *synaptic input* map is close to binary once cells are sorted by target — 100% versus 0%. Graded firing and binary connectivity are compatible, but the wiki should stop citing "gradient" as if it described the wiring |
+
+Two further facts the shell/core partition above cannot hold. Accumbens **lateral** and **medial** shell take different afferents and different feed-forward inhibition, so "shell" is not one address; and a third dopamine population — the medial-shell-projecting one — receives neither afferent and neither inhibition, so it is on no axis this page names.
+
 ## The alerting channel is dissociated from the value channel, three ways
 
 The default explanation — alerting bursts are ordinary reward prediction errors emitted before the stimulus has been discriminated — is argued against on three grounds, and they are the load-bearing content of the paper's second half:
@@ -77,6 +100,8 @@ Behaving-animal recordings identify dopamine neurons **indirectly** — firing r
 
 This bites the two-population claim exactly where it is most load-bearing: the shell/core and value/salience assignments in the ventral tegmental area rest on the least reliable identification. Against that, the split is also visible in SNc, where identification is sound.
 
+**The fix has partly been applied.** Lammel et al. 2012 identify ventral tegmental area dopamine cells by *projection target* (retrograde beads or rabies) plus tyrosine-hydroxylase immunostaining rather than by firing properties, which removes this objection from the connectivity claims. It does not remove it from any claim about what the cells *encode*, because that study records no behaving firing — the identification problem and the coding problem have been separated, not jointly solved.
+
 ---
 
 ## What a builder takes
@@ -86,6 +111,8 @@ This bites the two-population claim exactly where it is most load-bearing: the s
 | One modulator, three signals | "Add a neuromodulator" is underspecified. The design question is *how many channels, with what sign conventions*, before it is *what chemical* |
 | The salience channel is rectified | A magnitude channel that is silent on omission is not `\|δ\|` and is not obtainable by post-processing a signed error — the information is destroyed. It must be computed separately or taken from a separate source |
 | Address by axon, not by signal | Selectivity is buyable structurally: two populations reading the same events with different sign conventions and projecting to different targets give addressing with zero run-time cost and zero learnability |
+| Address by **afferent**, not only by axon | Which channel fires is set by which input nucleus is driven, over dedicated non-collateralizing wires (Lammel et al. 2012). A router that selects a teaching channel by *source identity* needs no tag in the signal, no learned gate and no content inspection |
+| Aversion is a release on a second wire, not a dip on the first | Blocking D₁ receptors at the second channel's target abolishes aversion. A single signed scalar cannot express this; two non-negative channels whose difference a reader can take, can |
 | Alerting is keyed to rough features and leaks into value | An exploration bonus can be had for almost nothing, at the price of being driven by surface novelty rather than by uncertainty |
 | The alerting burst migrates to the earliest unpredictably-timed event | The same migration signature as the value burst, but driven by *timing predictability* rather than by value — so two different learning processes produce the same backward-shift phenomenology, and observing the shift does not identify which one ran |
 
@@ -94,8 +121,9 @@ This bites the two-population claim exactly where it is most load-bearing: the s
 ## Open problems
 
 - **Nothing in the wiki has more than one broadcast channel for the same event** (`G117`). Every architecture here has one scalar per quantity; none splits one outcome into a signed channel and a rectified channel with disjoint targets.
-- **The pathway diagram is inference, not measurement.** Source and target assignments come from response properties and functional roles of candidate areas. The paper names the test — optogenetic control plus DA-specific measurement — and notes that several candidate structures are themselves topographic, so the communication may be topographic on both ends.
+- **The pathway diagram is inference, not measurement** — *partly resolved*. Source and target assignments here come from response properties and functional roles of candidate areas; Lammel et al. 2012 ran the named test for two afferents and confirmed target-sorted, categorical connectivity, while reassigning what the second channel carries (`T355`). The topography-on-both-ends prediction is confirmed: the afferents are themselves dedicated, non-collateralizing wires.
 - **Is salience a separate population or the *sum* of an opponent pair?** [[wiki/concepts/affective-opponency.md]] shows a two-population opponent code constrains only the difference, leaving the sum free to carry a second quantity — salience being the obvious candidate. This source instead makes salience its own population with its own inputs and outputs. The two are architecturally very different (one pair of wires versus two) and nothing here decides between them.
+- **Is the second population salience or aversion?** (`T355`) The firing evidence says valence-blind and omission-silent; the circuit-and-behaviour evidence says lateral-habenula-driven, medial-prefrontal-targeted and aversion-producing. Nobody has recorded a projection-identified second-channel neuron across reward, aversion and omission in one animal.
 - **Is the salience population the same thing as incentive salience?** [[wiki/concepts/incentive-salience.md]] reaches a valence-blind, cue-triggered, attention-directing mesolimbic quantity from a behavioural dissociation — and reports the same circuitry generating an active-coping *fearful* salience in an aversive mode (Richard & Berridge 2011), which is independent support for a valence-blind population and a partial answer to the row below. The two constructs are defined by incompatible evidence classes (a firing profile versus a depletion/stimulation dissociation) and nobody has measured them in one animal.
 - **Whether alerting responses occur for stimuli resembling *only* aversive cues is unknown** — stated by the authors as an open question. It decides whether the alerting channel is valence-blind or appetitively biased.
 - **The rectified channel's downstream consumer is unidentified.** Salience-coding targets are proposed on functional grounds; no recording shows a target neuron consuming an unsigned magnitude as a gain.
@@ -105,6 +133,7 @@ This bites the two-population claim exactly where it is most load-bearing: the s
 
 ## Connections
 
+- **[[wiki/entities/ventral-tegmental-area.md]]** — the measurement under this page's inferred diagram, and its partial correction: two afferents select two near-disjoint dopamine channels with categorical connectivity and dedicated input wiring, but the second channel there is aversion-specific and medial-prefrontal-targeted rather than valence-blind and core-targeted (`T355`).
 - **[[wiki/concepts/reward-prediction-error.md]]** — the channel this page decomposes away from, and a direct qualification of its opening premise: the "one broadcast scalar with no address" is one of at least three signals in the same projection, and the address it lacks is supplied by which population's axons reach which target rather than by any content in the signal.
 - **[[wiki/concepts/incentive-salience.md]]** — the same valence-blind motivational quantity reached from behaviour rather than from a firing profile, plus a finer address problem for this page's shell/core claim: the hedonic generator is a ~1 mm³ hotspot nested inside accumbens whose remaining 90% does motivation only, and dopamine cannot drive it even locally.
 - **[[wiki/concepts/affective-opponency.md]]** — the rival arrangement for the same requirement: there value and a free second quantity ride on the *difference* and *sum* of one opponent pair, here they are two separately-sourced populations; both deliver value plus salience, at different wiring costs and with different failure modes if one baseline drifts.

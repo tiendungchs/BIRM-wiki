@@ -321,3 +321,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T352 | Should a fast store hold the *maximum* return ever seen, or an estimate of the expectation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t352.md]] |
 | T353 | Does a sample-efficiency result measure the agent, or the benchmark's exact-state-revisit rate? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t353.md]] |
 | T354 | Does a growth schedule buy *competence*, or only *compute*? | `L0` | `LIVE` | 4 | [[wiki/tensions/t354.md]] |
+| T355 | Is the second midbrain dopamine channel a valence-blind salience magnitude, or a signed aversion channel? | `L2` | `LIVE` | 2 | [[wiki/tensions/t355.md]] |

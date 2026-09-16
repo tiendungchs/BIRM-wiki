@@ -76,6 +76,17 @@ value   ∝  a_DA − a_5HT        (constrained by the outcome)
 
 The omission row is the discriminator and it currently favours the two-population account: a rectified, event-present magnitude is not a function of the opponent difference, so the information is not in the pair at all. That does not retire the free-sum observation — it says the free degree of freedom is real and is probably carrying something *other* than salience.
 
+**A third arrangement, and it is the one with measured wiring.** Lammel et al. 2012 ([[wiki/entities/ventral-tegmental-area.md]]) find the opponency built as **feed-forward inhibition inside the source**: the lateral habenula excites its own dopamine channel (medial ventral tegmental area → medial prefrontal cortex, 100% connection probability) *and* drives GABAergic rostromedial tegmental nucleus cells that inhibit the rival channel (inhibitory postsynaptic currents in ~60% of accumbens-lateral-shell-projecting dopamine cells, 0% of medial-shell-projecting ones). So the subtraction is performed upstream, between two non-negative channels, and never appears as a signed rate anywhere:
+
+```
+head_+  ∝  a_LDT                       (reward channel, non-negative)
+head_-  ∝  a_LHb                       (aversion channel, non-negative)
+value   ∝  head_+ − head_-             (taken by wiring, not by a read-out)
+????    ∝  head_+ + head_-             (still free)
+```
+
+This keeps the free-sum property while fixing the failure mode in the middle column of the table above — the two channels *are* independently routable, because the difference is taken at the source rather than at a shared target. It also supplies the anatomy for this page's `punishment × Go` problem from a different direction: aversion here is dopamine **release** on a second line whose target-receptor blockade abolishes the behaviour, so the upper-left quadrant is reached without moving any origin and without re-signing the outcome.
+
 ---
 
 ## The assignment, then and now
@@ -152,5 +163,6 @@ This matters to a builder because it separates two things the wiki collapses: *n
 - **[[wiki/concepts/synaptic-plasticity.md]]** — the third-factor slot read at two timescales: this page separates the phasic error from the tonic average rate carried by the same chemical, so a rule consuming "dopamine" is consuming two signals whose pharmacological manipulations move mainly the second.
 - **[[wiki/concepts/multi-horizon-value-learning.md]]** — the alternative home for the average-rate term: average-reward reinforcement learning antagonizes the phasic error with the long-run rate, and this page's authors concede the antagonism "could be realized in many other ways" — a bank of discount factors being one, which is why the withdrawal of the tonic assignment costs the chemistry and not the algebra.
 - **[[wiki/concepts/incentive-salience.md]]** — a second route into this page's `punishment × Go` quadrant that leaves the valence origin alone: the 'wanting' circuit running in an aversive mode generates attention-riveting active coping directly, and its motivational multiplier is applied at the *cue* where this page's origin shift is applied to the *outcome*.
+- **[[wiki/entities/ventral-tegmental-area.md]]** — the third arrangement, with the wiring measured: one afferent excites its own dopamine channel and di-synaptically inhibits the rival channel, so the opponent subtraction happens in the source between two non-negative rates, the sum stays free, and the `punishment × Go` quadrant is reached by release on a second line rather than by moving the origin.
 - **[[wiki/concepts/broadcast-channel-decomposition.md]]** — the rival arrangement for this page's free degree of freedom: salience as a separately-sourced, separately-routed dopamine population rather than as the unconstrained *sum* of an opponent pair, with reward-omission trials discriminating the two because the measured salience channel is silent there and a sum need not be.
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the priors as a restriction on the hypothesis space: preparedness, species-typical response types and the Go/No-Go × valence coupling are constraints on *which* edges an agent will entertain, bought at the cost of the edges it can never learn.
