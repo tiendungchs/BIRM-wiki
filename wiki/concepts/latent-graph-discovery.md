@@ -32,15 +32,15 @@ Tasks differ by *which graph components are hidden*. This is more principled tha
 
 **Derivation.** A task hands the solver some evidence and asks one question. Everything the solver must then do is one of two things: *infer* a component of the graph it was not given, or *compute* an answer over the graph it now holds. So the latent bits are exactly the components of the graph object in the formalization table above — no more, no fewer — and the query and the evidence are *shape parameters*, not bits. Writing the graph out component by component gives seven bits:
 
-| Bit | Component | The bit is set when… | Recovering it costs… |
+| Bit | What it is | The bit is set when… | Recovering it costs… |
 |---|---|---|---|
-| `V` | Node set | the states are not handed over as discrete symbols and must be carved from the stream | discretisation / entity carving (G27) |
-| `o` | Observation map `o: V → O` | `o` is not injective — one observation recurs at several nodes | clone states or path-integrated identity (G2) |
-| `E` | Edge existence | which transitions are possible is not stated | structure learning from traversal |
-| `ℓ` | Edge label `ℓ: E → Σ` | the operation on an edge must be induced from its endpoints | single-hop function induction |
-| `Σ` | Edge vocabulary | the alphabet of operations is not enumerated | primitive invention (G4) |
-| `D` | Edge driver | edges the solver does not drive have an unstated generator — physics, another agent's policy | dynamics identification / inverse planning |
-| `c` | Context index, `G = G_c` | which of several edge-sets over `V` is live must be inferred — from the query (several structures on one node set) or from time (rewrites within the episode) | contextual inference (G37); the rewrite generator when `c` moves mid-episode (G7) |
+| **Node set** | which states exist | the states are not handed over as discrete symbols and must be carved from the stream | discretisation / entity carving (G27) |
+| **Observation map** | observation → node | the map is not one-to-one — one observation recurs at several nodes | clone states or path-integrated identity (G2) |
+| **Edge existence** | which transitions exist | which transitions are possible is not stated | structure learning from traversal |
+| **Edge label** | which operation an edge applies | the operation on an edge must be induced from its endpoints | single-hop function induction |
+| **Edge vocabulary** | the alphabet of operations | the alphabet is not enumerated | primitive invention (G4) |
+| **Edge driver** | who fires an edge | edges the solver does not drive have an unstated generator — physics, another agent's policy | dynamics identification / inverse planning |
+| **Context index** | which graph is live | which of several edge-sets over one node set is live must be inferred — from the query (several structures on one node set) or from time (rewrites within the episode) | contextual inference (G37); the rewrite generator when the context moves mid-episode (G7) |
 
 These are **independent latent variables, not a partition**. A task is a *subset* of set bits — a bit-vector, not a category — and most real tasks set several at once.
 
@@ -48,18 +48,18 @@ These are **independent latent variables, not a partition**. A task is a *subset
 
 | Value | Meaning | Where the value lives |
 |---|---|---|
-| `L` | **latent** — the value for this instance is recoverable only from this instance's own evidence (demonstrations, interaction) | must be bound into fast `M` at test time |
-| `W` | in the **family** — not in the input, but a function of the input under a map that is public or learnable from the training distribution | can sit in slow `W` before the instance arrives |
-| `in` | in the **input** — literally supplied | — |
-| `–` | degenerate — the component does not exist for this task shape (a single edge has no topology; a passive task has no driver) | — |
+| **latent** | the value for this instance is recoverable only from this instance's own evidence (demonstrations, interaction) | must be bound into fast memory at test time |
+| **family** | not in the input, but a function of the input under a map that is public or learnable from the training distribution | can sit in slow weights before the instance arrives |
+| **given** | literally supplied in the input | — |
+| **n/a** | the component does not exist for this task shape (a single edge has no topology; a passive task has no driver) | — |
 
-A cell marked `L` usually has a `W` prior behind it (ARC's core-knowledge priors over `Σ`; BIB's rationality prior over `D`); the cell records where the *instance value* comes from. Three consequences of reading it this way:
+A cell marked latent usually has a family prior behind it (ARC's core-knowledge priors over the edge vocabulary; BIB's rationality prior over the edge driver); the cell records where the *instance value* comes from. Three consequences of reading it this way:
 
-- **The bit-vector is the meta/instance split per benchmark.** The `W`-mask is what the meta-graph must hold, the `L`-mask what the instance-graph must bind (see Two-Level Graph Hierarchy below). A benchmark with an empty `L`-mask tests only whether the family was absorbed as a composition rather than as a lookup.
-- **Only `L` cells measure the solver.** A `W` cell measures the developer and the training set. The previous six-row table wrote both as "given", which is why it could not say why PGM and ARC feel different when both mark the edge label latent.
-- **Moving a cell one column has a price, and it has been measured once.** [[wiki/entities/agent-benchmark.md]] runs the same items with `V = in` (ground-truth 3-D state) and `V = W` (a trained derenderer): .96 → .65 and .90 → .51. That is the cost of one cell.
+- **The bit-vector is the meta/instance split per benchmark.** The family cells are what the meta-graph must hold, the latent cells what the instance-graph must bind (see Two-Level Graph Hierarchy below). A benchmark with no latent cell tests only whether the family was absorbed as a composition rather than as a lookup.
+- **Only latent cells measure the solver.** A family cell measures the developer and the training set. The previous six-row table wrote both as "given", which is why it could not say why PGM and ARC feel different when both mark the edge label latent.
+- **Moving a cell one column has a price, and it has been measured once.** [[wiki/entities/agent-benchmark.md]] runs the same items with the node set given (ground-truth 3-D state) and with the node set from the family (a trained derenderer): .96 → .65 and .90 → .51. That is the cost of one cell.
 
-**What the previous table had that this one does not, and why.** *Node content* split into `V` and `o` — discretisation and aliasing are different failures with different mechanisms. *Path* and *goal node* moved to the query table below: a path is never given (if it were there would be nothing to compute), so it is a hop count; a goal is part of what is asked, not of the graph. *Dimensionality* (Park et al. 2021, below) is not a new bit: it is `E` over the product of two node sets, and what is missing is the composition operator, not a latent. *Which structure* (Zheng et al. 2024, below) is the `c` bit. *Edge driver* was in the formalization table and had never reached the bits.
+**What the previous table had that this one does not, and why.** *Node content* split into node set and observation map — discretisation and aliasing are different failures with different mechanisms. *Path* and *goal node* moved to the query table below: a path is never given (if it were there would be nothing to compute), so it is a hop count; a goal is part of what is asked, not of the graph. *Dimensionality* (Park et al. 2021, below) is not a new bit: it is edge existence over the product of two node sets, and what is missing is the composition operator, not a latent. *Which structure* (Zheng et al. 2024, below) is the context-index bit. *Edge driver* was in the formalization table and had never reached the bits.
 
 **What the estimate looks like when it is measured.** The one case where an *organism's* graph estimate has been read out directly (human entorhinal fMRI adaptation over a 12-node object graph, Garvert et al. 2017) returns three facts a model builder should treat as targets rather than as artefacts: the estimate is (i) acquired **incidentally** — no reward, no goal, no task that uses the structure, and no reportable awareness of it; (ii) **symmetric**, even though the experienced transitions were not; (iii) **not the adjacency matrix and not a Euclidean embedding**, but a traffic-weighted sum over paths (communicability / successor representation) that shortens well-travelled edges and lengthens rarely-used ones. So "discover the graph" in the biological case means *discover a predictive metric over it* ([[wiki/concepts/successor-representation.md]]), which is a strictly weaker object than the topology — enough to rank distances and to plan, not enough to recover which edges exist.
 
@@ -67,12 +67,12 @@ A cell marked `L` usually has a `W` prior behind it (ARC's core-knowledge priors
 
 **And the graph can be assembled from *marginals* the observer never saw jointly.** Park et al. 2021 taught subjects two 1-D rank orders over the same 16 entities on separate days, by adjacent-pair comparisons only, never presenting the two dimensions together and never asking for their combination. Hippocampal and entorhinal pattern dissimilarity then scaled with **2-D Euclidean** distance in the product space, significantly better than with either 1-D distance alone, and inferred direct vectors across that plane drove a six-fold entorhinal/prefrontal code — including on pairs faced for the first time. Two things this adds to the taxonomy above:
 
-- **A latent the bit table absorbs only as `E` over a product node set: the *dimensionality* of the space the nodes live in.** Both marginals were fully observed; what was latent was that they are axes of one space rather than two separate orderings. Nothing in the wiki's model inventory performs this composition — TEM-family learners and successor-representation estimators alike consume transitions *within* the space they build, so a dimension never co-sampled with another cannot be joined to it.
+- **A latent the bit table absorbs only as edge existence over a product node set: the *dimensionality* of the space the nodes live in.** Both marginals were fully observed; what was latent was that they are axes of one space rather than two separate orderings. Nothing in the wiki's model inventory performs this composition — TEM-family learners and successor-representation estimators alike consume transitions *within* the space they build, so a dimension never co-sampled with another cannot be joined to it.
 - **The joint estimate is built unprompted and then queried off-policy.** No reward, no task demand, no report of having built it — the same incidental profile as Garvert et al. 2017 — but here it is subsequently *used* for a decision value that was never trained (see [[wiki/concepts/cognitive-map.md]]), which is the discover-then-navigate loop (G5) running end-to-end in a human on a structure with no continuum in the input.
 
 **And one node set can carry several graphs at once — "the" graph is a modelling assumption, not a fact about the domain.** The same 12 objects that carry Garvert et al. 2017's learned transition graph also carry a lifetime semantic taxonomy over the identical nodes, and a re-analysis entering both distances as competing regressors recovers **both** in the hippocampal formation, in **non-overlapping** territory, with each effect at zero in the other's region (Zheng et al. 2024, [[wiki/concepts/cognitive-map.md]]). Three consequences for the taxonomy above:
 
-- **This is the `c` bit: *which* structure the observations are being read against.** Every entry assumes a single target graph, so "discover the edges" is well-posed. With several structures live over one node set, an estimator that fits one distance function per item pair silently averages them, and the averaged metric is a graph no structure has.
+- **This is the context-index bit: *which* structure the observations are being read against.** Every entry assumes a single target graph, so "discover the edges" is well-posed. With several structures live over one node set, an estimator that fits one distance function per item pair silently averages them, and the averaged metric is a graph no structure has.
 - **The two were acquired by different channels and stayed separate.** One arrived as sampled transitions, the other as accumulated semantic experience with no transitions at all — so the two halves of the discovery problem (edge existence from a walk, similarity from co-occurring properties) are not competing accounts of one mechanism but *both running*, on the same items, at once.
 - **The parallel structures are the substrate a routing policy would need (G12), and nothing supplies the router.** Keeping them apart is what makes it cheap to switch which dimension a query reads; nothing in the source says what performs the switch, which leaves G37's retrieval one step short again — it picks the context, not the structure over the items in it.
 
@@ -82,84 +82,84 @@ A cell marked `L` usually has a `W` prior behind it (ARC's core-knowledge priors
 
 **"Topology given" ≠ "the solver knows the graph."** It is the technical claim that adjacency is *fixed in advance by an explicit map or by known rules*, so no structure-learning-from-observation is required. The graph may still be astronomically large and mostly dark. Edge *existence* and edge *semantics* are orthogonal: an affordance can be enumerable (topology given) while what it does is latent (label ✓, vocabulary ✓).
 
-**Benchmark × latent bits** (extended by each ingest that adds a benchmark page). Rows are grouped by task shape: a group is the set of benchmarks sharing an `L`-mask. Cell values as defined above; superscripts are the notes below the second table.
+**Benchmark × latent bits** (extended by each ingest that adds a benchmark page). Rows are grouped by task shape: a group is the set of benchmarks with the same latent cells. Cell values as defined above (given / family / latent / n/a); superscripts are the notes below the second table.
 
-| Benchmark | `V` | `o` | `E` | `ℓ` | `Σ` | `D` | `c` |
+| Benchmark | Node set | Observation map | Edge existence | Edge label | Edge vocabulary | Edge driver | Context index |
 |---|---|---|---|---|---|---|---|
 | **Rule induction from pairs** | | | | | | | |
-| [[wiki/entities/arc-agi.md]] | in | in | – | **L** | **L** ¹ | – | in |
-| [[wiki/entities/arc-agi-2.md]] | in | in | – | **L** | **L** ¹ | – | **L** ² |
-| [[wiki/entities/conceptarc.md]] | in | in | – | **L** | **L** ¹ | – | in |
-| [[wiki/entities/pgm.md]] | in | in | – | **L** | W ³ | – | in |
-| [[wiki/entities/raven.md]] | in | in | – | **L** | W | – | in |
-| [[wiki/entities/neo-neural-theorizer.md]] (OTIB) | in | in | – | **L** | **L** | – | **L** ⁴ |
-| Omniglot ([[wiki/entities/bayesian-program-learning.md]]) | in | in | – | **L** | W ⁵ | – | in |
+| [[wiki/entities/arc-agi.md]] | given | given | n/a | **latent** | **latent** ¹ | n/a | given |
+| [[wiki/entities/arc-agi-2.md]] | given | given | n/a | **latent** | **latent** ¹ | n/a | **latent** ² |
+| [[wiki/entities/conceptarc.md]] | given | given | n/a | **latent** | **latent** ¹ | n/a | given |
+| [[wiki/entities/pgm.md]] | given | given | n/a | **latent** | family ³ | n/a | given |
+| [[wiki/entities/raven.md]] | given | given | n/a | **latent** | family | n/a | given |
+| [[wiki/entities/neo-neural-theorizer.md]] (OTIB) | given | given | n/a | **latent** | **latent** | n/a | **latent** ⁴ |
+| Omniglot ([[wiki/entities/bayesian-program-learning.md]]) | given | given | n/a | **latent** | family ⁵ | n/a | given |
 | **Composition over a public grammar** | | | | | | | |
-| [[wiki/entities/scan.md]] | in | in | W | W | W | – | in |
-| [[wiki/entities/cfq.md]] | in | in | W | W | W | – | in |
-| [[wiki/entities/pcfg-set.md]] | in | in | W | W | W | – | in |
+| [[wiki/entities/scan.md]] | given | given | family | family | family | n/a | given |
+| [[wiki/entities/cfq.md]] | given | given | family | family | family | n/a | given |
+| [[wiki/entities/pcfg-set.md]] | given | given | family | family | family | n/a | given |
 | **Search over a public, dark graph** | | | | | | | |
-| Tokenised mazes ([[wiki/entities/maze-solving-transformers.md]]) | in | in | in ⁶ | in | in | – | in |
-| [[wiki/entities/gsm8k.md]] · [[wiki/entities/math-dataset.md]] · [[wiki/entities/math-perturb.md]] · [[wiki/entities/aime.md]] · [[wiki/entities/olymmath.md]] · [[wiki/entities/frontiermath.md]] | in | in | W | W | W | – | in |
-| [[wiki/entities/gpqa.md]] · [[wiki/entities/hle.md]] | in | in | W | W | W | – | in |
+| Tokenised mazes ([[wiki/entities/maze-solving-transformers.md]]) | given | given | given ⁶ | given | given | n/a | given |
+| [[wiki/entities/gsm8k.md]] · [[wiki/entities/math-dataset.md]] · [[wiki/entities/math-perturb.md]] · [[wiki/entities/aime.md]] · [[wiki/entities/olymmath.md]] · [[wiki/entities/frontiermath.md]] | given | given | family | family | family | n/a | given |
+| [[wiki/entities/gpqa.md]] · [[wiki/entities/hle.md]] | given | given | family | family | family | n/a | given |
 | **Discover while navigating** | | | | | | | |
-| [[wiki/entities/arc-agi-3.md]] | in | in | **L** | **L** ⁷ | in ⁷ | **L** | in |
-| Atari ([[wiki/entities/dqn.md]]) | in | **L** ⁸ | W | W | in | W | in |
-| [[wiki/entities/baba-is-ai.md]] | W | in | in ⁹ | in | W | – | in ⁹ |
-| [[wiki/entities/fluxx.md]] (environment spec) | in | in | in | in | W | **L** ¹⁰ | in ¹⁰ |
-| [[wiki/entities/nomic.md]] (environment spec) | in | in | in | in | **L** ¹¹ | **L** | in ¹¹ |
-| Aliased gridworlds ([[wiki/entities/cscg.md]]; a model page, not a benchmark) | **L** | **L** | **L** | in | in | – | in |
+| [[wiki/entities/arc-agi-3.md]] | given | given | **latent** | **latent** ⁷ | given ⁷ | **latent** | given |
+| Atari ([[wiki/entities/dqn.md]]) | given | **latent** ⁸ | family | family | given | family | given |
+| [[wiki/entities/baba-is-ai.md]] | family | given | given ⁹ | given | family | n/a | given ⁹ |
+| [[wiki/entities/fluxx.md]] (environment spec) | given | given | given | given | family | **latent** ¹⁰ | given ¹⁰ |
+| [[wiki/entities/nomic.md]] (environment spec) | given | given | given | given | **latent** ¹¹ | **latent** | given ¹¹ |
+| Aliased gridworlds ([[wiki/entities/cscg.md]]; a model page, not a benchmark) | **latent** | **latent** | **latent** | given | given | n/a | given |
 | **Another agent's generator** | | | | | | | |
-| [[wiki/entities/bib.md]] | in | in | in | in | in | **L** ¹² | in |
-| [[wiki/entities/agent-benchmark.md]] | in / W ¹³ | in | in / **L** ¹⁴ | in | in | **L** ¹² | in |
+| [[wiki/entities/bib.md]] | given | given | given | given | given | **latent** ¹² | given |
+| [[wiki/entities/agent-benchmark.md]] | given / family ¹³ | given | given / **latent** ¹⁴ | given | given | **latent** ¹² | given |
 | **One edge over a public map** | | | | | | | |
-| NLI: [[wiki/entities/anli.md]] · [[wiki/entities/shortcut-suite.md]] | in | in | – | W | in | – | in |
-| Image classification: [[wiki/entities/imagenet-c.md]] · [[wiki/entities/stylized-imagenet.md]] · [[wiki/entities/waterbirds.md]] · [[wiki/entities/ssl-transfer-benchmark.md]] | in | in | – | W | in | – | in |
+| NLI: [[wiki/entities/anli.md]] · [[wiki/entities/shortcut-suite.md]] | given | given | n/a | family | given | n/a | given |
+| Image classification: [[wiki/entities/imagenet-c.md]] · [[wiki/entities/stylized-imagenet.md]] · [[wiki/entities/waterbirds.md]] · [[wiki/entities/ssl-transfer-benchmark.md]] | given | given | n/a | family | given | n/a | given |
 | **Carving the node set** | | | | | | | |
-| SpelkeBench ([[wiki/entities/spelkenet.md]]) | W ¹⁵ | – | – | – | – | – | – |
+| SpelkeBench ([[wiki/entities/spelkenet.md]]) | family ¹⁵ | n/a | n/a | n/a | n/a | n/a | n/a |
 
-**Benchmark × query and evidence shape.** The non-binary parameters: what is asked, over how many hops, from what evidence, and whether the developer could have seen the family. *Unknown* — `node` (a successor under a rule), `label` (the rule itself), `path` (an action sequence), `edge` (whether a transition is consistent with the graph), `V` (the partition). *Goal* — `in` / `L` / `–`. *Hops `h`* — `1` / `k` bounded / `open`. *Answer* — `build` / `k`-way. *Evidence* — `pairs` (before/after, passive) / `traj` (passive trajectories) / `act` (interactive) / `item` (the input alone). *`n`* — per-instance demonstrations. *Family withheld from the developer* — `yes` / `split` (public spec, held out along a declared axis) / `adv` (items selected against a model) / `no`.
+**Benchmark × query and evidence shape.** The non-binary parameters: what is asked, over how many hops, from what evidence, and whether the developer could have seen the family. *Unknown* — node (a successor under a rule), label (the rule itself), path (an action sequence), edge (whether a transition is consistent with the graph), node set (the partition). *Goal* — given / latent / n/a. *Hops* — one / bounded / open. *Answer* — build / k-way. *Evidence* — pairs (before/after, passive) / trajectories (passive) / interactive / item (the input alone). *Shots* — per-instance demonstrations. *Family withheld from the developer* — yes / split (public spec, held out along a declared axis) / adversarial (items selected against a model) / no.
 
-| Benchmark | Unknown | Goal | `h` | Answer | Evidence | `n` | Family withheld |
+| Benchmark | Unknown | Goal | Hops | Answer | Evidence | Shots | Family withheld |
 |---|---|---|---|---|---|---|---|
-| ARC-AGI-1 | node | in | 1–k | build | pairs | ~3 | yes (private evaluation set) |
-| ARC-AGI-2 | node | in | k | build | pairs | ~3 | yes (+ 407-participant calibration) |
-| ConceptARC | node | in | 1 | build | pairs | 3 | no (public at release) |
-| PGM | node | in | 1 | 8-way ᵃ | pairs | 2 rows | split (8 regimes over `R × O × A`) |
-| RAVEN | node | in | 1 | 8-way ᵃ | pairs | 2 rows | no |
-| OTIB | label, then node | in | k (`α`; 6-step length-OOD) | build | pairs | 1 | split (`α`) |
-| Omniglot | node | in | k (stroke program) | 20-way / build | item | 1 | split (held-out alphabets) |
-| SCAN | node | in | k (derivation depth) | build | item | 0 | split (length; add-primitive) |
-| CFQ | node | in | k | build | item | 0 | split (`D_C` swept) |
-| PCFG-SET | node | in | k | build | item | 0 | split (five behavioural tests) |
-| Tokenised mazes | path | in | open | build | item | 0 | no |
-| GSM8K · MATH · MATH-P · AIME · OlymMath · FrontierMath | path, then node | in | open (2–8 on GSM8K) | build ᵇ | item | 0 | no · no · split · yes at release · yes · yes |
-| GPQA · HLE | node | in | open | 4-way / 5+-way and build | item | 0 | no · adv |
-| ARC-AGI-3 | path | **L** (win condition, G72) | open | build | act | 0 | yes (private environments) |
-| Atari | path | in (score) | open | build | act | ∞ (train = test) | no |
-| Baba Is AI | path | in (a tile) | k (two rule edits) | build | item (image) | 0 | no |
-| Fluxx | path | in, replaced by others | open | build | act | 0 | no (spec) |
-| Nomic | path | in, amendable | open | build | act | 0 | no (spec) |
-| Aliased gridworlds | node (de-aliased state), then path | –, then in | open | build | traj (random walk) | 50k steps | no |
-| BIB | edge | in | 1 | 2-way (paired trial) | traj | 8 | split (4 background tasks disjoint from 5 evaluation tasks) |
-| AGENT | edge | in | 1 | 2-way | traj | few | split (2×2 lattice) |
-| NLI | label | in | 1 | 3-way | item | 0 | adv · no |
-| Image classification | node | in | 1 | 1000-way / 2-way | item | 0 | split (corruptions, styles, groups) |
-| SpelkeBench | `V` | in (point prompt) | 1 | build (mask) | item | 0 | no |
+| ARC-AGI-1 | node | given | one to bounded | build | pairs | ~3 | yes (private evaluation set) |
+| ARC-AGI-2 | node | given | bounded | build | pairs | ~3 | yes (+ 407-participant calibration) |
+| ConceptARC | node | given | one | build | pairs | 3 | no (public at release) |
+| PGM | node | given | one | 8-way ᵃ | pairs | 2 rows | split (8 regimes over relation × object × attribute) |
+| RAVEN | node | given | one | 8-way ᵃ | pairs | 2 rows | no |
+| OTIB | label, then node | given | bounded (`α`; 6-step length-OOD) | build | pairs | 1 | split (`α`) |
+| Omniglot | node | given | bounded (stroke program) | 20-way / build | item | 1 | split (held-out alphabets) |
+| SCAN | node | given | bounded (derivation depth) | build | item | 0 | split (length; add-primitive) |
+| CFQ | node | given | bounded | build | item | 0 | split (compound divergence swept) |
+| PCFG-SET | node | given | bounded | build | item | 0 | split (five behavioural tests) |
+| Tokenised mazes | path | given | open | build | item | 0 | no |
+| GSM8K · MATH · MATH-P · AIME · OlymMath · FrontierMath | path, then node | given | open (2–8 on GSM8K) | build ᵇ | item | 0 | no · no · split · yes at release · yes · yes |
+| GPQA · HLE | node | given | open | 4-way / 5+-way and build | item | 0 | no · adversarial |
+| ARC-AGI-3 | path | **latent** (win condition, G72) | open | build | interactive | 0 | yes (private environments) |
+| Atari | path | given (score) | open | build | interactive | unlimited (train = test) | no |
+| Baba Is AI | path | given (a tile) | bounded (two rule edits) | build | item (image) | 0 | no |
+| Fluxx | path | given, replaced by others | open | build | interactive | 0 | no (spec) |
+| Nomic | path | given, amendable | open | build | interactive | 0 | no (spec) |
+| Aliased gridworlds | node (de-aliased state), then path | n/a, then given | open | build | trajectories (random walk) | 50k steps | no |
+| BIB | edge | given | one | 2-way (paired trial) | trajectories | 8 | split (4 background tasks disjoint from 5 evaluation tasks) |
+| AGENT | edge | given | one | 2-way | trajectories | few | split (2×2 lattice) |
+| NLI | label | given | one | 3-way | item | 0 | adversarial · no |
+| Image classification | node | given | one | 1000-way / 2-way | item | 0 | split (corruptions, styles, groups) |
+| SpelkeBench | node set | given (point prompt) | one | build (mask) | item | 0 | no |
 
-Notes. ¹ Priors described (four core-knowledge systems, `W`), operator set never supplied in program form. ² Contextually-gated rules — which rule applies depends on where in the grid, several structures over one node set selected by the query — plus in-context symbols. ³ `R × O × A` is 29 public triples; regimes vary which of them training sampled. ⁴ Training is i.i.d. `(x, y)` pairs with no grouping, so which examples share a mechanism is withheld; the support pair at test supplies it. ⁵ Pen-stroke primitives and the part library are learned from the background alphabets — not authored, but not per-instance. ⁶ Adjacency list in the prompt, in randomised order — must be re-represented, not discovered. ⁷ Alphabet fixed (5 key actions + Undo + `ACTION6(x,y)`); which subset is live and what each does varies per environment and is never stated. ⁸ Single frames alias velocity; the four-frame stack is the de-aliasing, bought by architecture. ⁹ Active rules are word tiles in the observation; the activation predicate (three tiles aligned) is public, and the solver's own moves rewrite them — hardness source 6 with the generator given. ¹⁰ Rules, hand limits and the goal are face-up cards other players replace every turn; conflicts resolved by a `contradicts` predicate the designers handed to a ruling database. ¹¹ Amendments are free text (the rule vocabulary is open) and the amendment rules are themselves amendable — gap G9's third tier. ¹² The observed agent's goal, and how rational it is, generates every edge in the familiarisation trajectory; recovering it is inverse planning. ¹³ Headline numbers on ground-truth 3-D state (`in`); behind a trained derenderer (`W`) the two baselines fall .96 → .65 and .90 → .51. ¹⁴ The *unobserved constraints* scenario hides a barrier. ¹⁵ The node set is the answer: entities are what moves together under an imagined poke; the carving function is learned from video and is what the benchmark probes. ᵃ The candidate set alone is worth 22.4% vs 12.5% chance on PGM and >90% on RAVEN. ᵇ AIME's integer 000–999 is nominally 1000-way; FrontierMath grades by a per-problem witness predicate.
+Notes. ¹ Priors described (four core-knowledge systems, in the family), operator set never supplied in program form. ² Contextually-gated rules — which rule applies depends on where in the grid, several structures over one node set selected by the query — plus in-context symbols. ³ Relation × object × attribute is 29 public triples; regimes vary which of them training sampled. ⁴ Training is i.i.d. input–output pairs with no grouping, so which examples share a mechanism is withheld; the support pair at test supplies it. ⁵ Pen-stroke primitives and the part library are learned from the background alphabets — not authored, but not per-instance. ⁶ Adjacency list in the prompt, in randomised order — must be re-represented, not discovered. ⁷ Alphabet fixed (5 key actions + Undo + one coordinate-select action); which subset is live and what each does varies per environment and is never stated. ⁸ Single frames alias velocity; the four-frame stack is the de-aliasing, bought by architecture. ⁹ Active rules are word tiles in the observation; the activation predicate (three tiles aligned) is public, and the solver's own moves rewrite them — hardness source 6 with the generator given. ¹⁰ Rules, hand limits and the goal are face-up cards other players replace every turn; conflicts resolved by a "contradicts" predicate the designers handed to a ruling database. ¹¹ Amendments are free text (the rule vocabulary is open) and the amendment rules are themselves amendable — gap G9's third tier. ¹² The observed agent's goal, and how rational it is, generates every edge in the familiarisation trajectory; recovering it is inverse planning. ¹³ Headline numbers on ground-truth 3-D state (given); behind a trained derenderer (family) the two baselines fall .96 → .65 and .90 → .51. ¹⁴ The *unobserved constraints* scenario hides a barrier. ¹⁵ The node set is the answer: entities are what moves together under an imagined poke; the carving function is learned from video and is what the benchmark probes. ᵃ The candidate set alone is worth 22.4% vs 12.5% chance on PGM and >90% on RAVEN. ᵇ AIME's integer 000–999 is nominally 1000-way; FrontierMath grades by a per-problem witness predicate.
 
 **Reading rules — the tables mapped back onto the rest of the page.**
 
-- **Hardness sources in bit form.** 1 = any `L` cell (each carries a `W` prior, and the instance value must be separated from the family value in the same observations) · 2 = `Σ ∈ L` · 3 = `o ∈ L` · 4 = `E ∈ L` with evidence `act` (G5) · 5 = not a bit: a `W` cell that absorbed the wrong map, detectable only when the family column reads `split` or `yes` · 6 = `c` moving within the episode.
-- **No benchmark in the wiki sets `o`.** The only task with the aliasing bit is the CSCG gridworld, carried on a model page. Hardness source 3 has no instrument.
-- **`Σ ∈ L` on three groups only** — the ARC family, OTIB, and Nomic as a spec. Every other benchmark hands over the alphabet.
-- **The compositional-generalisation, mathematics and knowledge benchmarks have an empty `L`-mask.** They measure `W`, and all their information is in the *family withheld* column — which is why [[wiki/concepts/benchmark-contamination.md]] is the upstream question for them and not for ARC.
+- **Hardness sources in bit form.** 1 = any latent cell (each carries a family prior, and the instance value must be separated from the family value in the same observations) · 2 = edge vocabulary latent · 3 = observation map latent · 4 = edge existence latent with interactive evidence (G5) · 5 = not a bit: a family cell that absorbed the wrong map, detectable only when the family column reads split or yes · 6 = the context index moving within the episode.
+- **No benchmark in the wiki sets the observation map.** The only task with the aliasing bit is the CSCG gridworld, carried on a model page. Hardness source 3 has no instrument.
+- **Edge vocabulary latent on three groups only** — the ARC family, OTIB, and Nomic as a spec. Every other benchmark hands over the alphabet.
+- **The compositional-generalisation, mathematics and knowledge benchmarks have no latent cell.** They measure the family, and all their information is in the *family withheld* column — which is why [[wiki/concepts/benchmark-contamination.md]] is the upstream question for them and not for ARC.
 - **The certification instruments collapse into one row.** ImageNet-C, Stylized-ImageNet, Waterbirds, the SSL transfer suite, ANLI and the shortcut suite share a bit-vector and differ only in how the family is split. That is what they are for.
-- **`D ∈ L` is the theory-of-mind family, exactly.** BIB and AGENT hide nothing about the graph except who drives it.
-- **The previous table's "goal latent" was three different things**: an answer that must be constructed (ARC → answer `build`), another agent's target (BIB → `D ∈ L`), and a success criterion withheld (ARC-AGI-3 → the only true `goal = L`, G72).
+- **Edge driver latent is the theory-of-mind family, exactly.** BIB and AGENT hide nothing about the graph except who drives it.
+- **The previous table's "goal latent" was three different things**: an answer that must be constructed (ARC → answer built), another agent's target (BIB → edge driver latent), and a success criterion withheld (ARC-AGI-3 → the only true goal latent, G72).
 
-A benchmark is only informative about a latent variable *the solver's developer also did not know* — see [[wiki/concepts/skill-acquisition-efficiency.md]] on developer-aware generalization. On that criterion every row whose family column reads `no` measures local generalization regardless of how many `L` cells it carries — ConceptARC, RAVEN, Atari, the tokenised mazes, Baba Is AI — because their task types were public when the solvers were written.
+A benchmark is only informative about a latent variable *the solver's developer also did not know* — see [[wiki/concepts/skill-acquisition-efficiency.md]] on developer-aware generalization. On that criterion every row whose family column reads no measures local generalization regardless of how many latent cells it carries — ConceptARC, RAVEN, Atari, the tokenised mazes, Baba Is AI — because their task types were public when the solvers were written.
 
 ---
 
