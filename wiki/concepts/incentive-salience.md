@@ -130,6 +130,7 @@ Every planner in the wiki is the right-hand column and every model-free value le
 ## Open problems
 
 - **No architecture here separates an outcome's hedonic magnitude from the motivation it commands** — `G118`. One scalar does both jobs in every model in the wiki.
+- **The two-controller arbitration this page names may be downstream of a more basic fact** (`G119`). Cue-bound 'wanting' opposing a declarative goal is treated here as two controllers reading one value; if reinforcers are non-fungible — admissible to one learning rule and not another — the two controllers were never trained on the same signal, and an architecture that trains both on one `δ` has erased the distinction before arbitration is reached.
 - **'Liking' has no stated computational role.** If it is not what motivates, not what dopamine reports, and not what learning is driven by, the source never says what consumes it. The wiki's `r` is assumed to be it, and on this evidence that assumption is the one thing ruled out.
 - **The drug-free sensitization mechanism is unknown** — the authors' own concession for behavioural addictions, which is the case a builder actually cares about, since no artificial agent takes cocaine.
 - **Neuroimaging hyper-reactivity is mostly blood-oxygen-level-dependent signal, not dopamine.** The authors concede it and lean on Ferenczi et al. 2016 (dopamine release does drive striatal blood-oxygen-level-dependent activation) plus positron-emission-tomography displacement studies to bridge it.

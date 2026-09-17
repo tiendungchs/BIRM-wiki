@@ -63,7 +63,7 @@ The collateralization result is the one a builder should not skip: these are **d
 - **Stimulation is not physiology.** Phasic ChR2 drive of an afferent is a sufficiency test. It does not show that the LHb→mPFC line is what carries naturally occurring aversion, and low-frequency drive does nothing — so the effect exists only in a firing regime whose natural occurrence is unmeasured here.
 - **The NAc medial shell line has no assigned input.** It is negative for both afferents tested and for the feed-forward inhibition; what addresses it is unknown.
 - **Cell identification is by projection plus tyrosine hydroxylase, not by optogenetic tagging in a behaving animal** — better than the firing-property identification [[wiki/concepts/broadcast-channel-decomposition.md]] flags as unreliable in VTA, but the behavioural and the synaptic experiments are still in different preparations.
-- **Whether the two channels are separately usable by one learner is untested.** Both CPP and CPA are single-outcome conditioning; nothing requires the animal to learn a value and an engagement level about the same event.
+- **Whether the two channels are separately usable by one learner is untested** (`G117`). Both CPP and CPA are single-outcome conditioning; nothing requires the animal to learn a value and an engagement level about the same event — which is also why no architecture has been forced to carry one event on two differently-signed channels.
 
 ---
 

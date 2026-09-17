@@ -144,6 +144,7 @@ This matters to a builder because it separates two things the wiki collapses: *n
 
 ## Open problems
 
+- **The free sum has no architectural competitor here, and the rival arrangement is unbuilt** (`G117`). This page's opponent pair leaves the sum available for a second quantity on *one* pair of wires; the midbrain evidence instead splits one event across two channels with disjoint targets and different sign conventions. No architecture in the wiki implements either, so the two arrangements have never been compared.
 - **The `reward × No-Go` shift has no mechanism.** The left (safety) shift is derived; the right (frustration) shift is asserted and the behavioural evidence — omission schedules, negative automaintenance — is that it works badly.
 - **Nothing here reaches the goal-directed controller.** The source's own stated lacuna: where the model-based system sits in the affect–effect plot "is unfortunately less clear", and the priors above are all Pavlovian or habitual. The one candidate bridge is serotonergic value-pruning of search.
 - **Pavlovian evaluation may itself be model-based or model-free** (outcome-specific versus general Pavlovian-instrumental transfer) and nobody has separated them in aversive contexts.
