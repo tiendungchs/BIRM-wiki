@@ -17,7 +17,7 @@ Two halves, run in either order:
 
 1. **Read the demand side, not the supply side.** `wiki/priority-tasks.md` (the `Acquire …` rows and `Blocked on: human curation or a web-search pass`), then `wiki/architectural-gaps.md` and `wiki/empirical-tensions.md`. A target is admissible only if it names the `G`/`T` row it addresses **and the decision that row cannot currently make**. No topic-shaped targets.
 2. **Prefer rows that are cheap to settle**: read the indexes to shortlist by `Status` token and `Cited by` count, then open the shortlisted `wiki/gaps/gNNN.md` / `wiki/tensions/tNNN.md` for the detail — a row's `Closes when` field states exactly what a source must supply. Cheap rows: a `LIVE` tension between two named positions that have never been run head-to-head; a gap whose `Best current answer` is a brainstorm; an instrument (`I…`) with no primary source; an artefact cited second-hand on ≥3 pages with no file in `raw/`.
-3. **Search** for the canonical source (`WebSearch`), then **resolve to a clip-optimal URL** — see the table below. The URL, not the DOI, is the deliverable.
+3. **Search** for the canonical source (`WebSearch`), then **resolve to a clip-optimal URL** — see the two tables below. The URL, not the DOI, is the deliverable. A URL on an **excluded venue** never reaches the user: re-resolve it to a mirror, or drop the target and say which registry row stays unsettled.
 4. **Probe every URL with `WebFetch`** before it reaches the user. Classify:
 
    | Verdict | Meaning | Route |
@@ -48,6 +48,23 @@ The user has **institutional access (UBO Brest)**, so a paywall is not a filter.
 | Benchmarks · leaderboards · docs · model cards | the page itself | `self` route |
 | Books, pre-2000 papers, scans | user downloads the PDF to `raw/`, then `./tools/pdf2md.sh` | flag `LOSSY` in the manifest. `--layout` for table-heavy sources; the script falls back to the OCR layer on scans |
 
+### Excluded venues — outside the institutional subscription
+
+The institution (UBO Brest) does **not** cover these. A target here is not a `clip`: the user
+hits the same paywall `WebFetch` does, and the row sits `open` on the want-list forever. `WebFetch`
+cannot tell this apart from a bot-block, so the list is the only source of truth — **check it
+before probing**.
+
+| Excluded | Scope | Evidence | Do instead |
+|---|---|---|---|
+| `science.org` | Science, Science Advances, all AAAS titles | Mongillo, Barak & Tsodyks 2008 (wave 20 row 9) — never obtainable | PMC mirror, author copy, or `pdf` route from an author PDF; else drop |
+| `academic.oup.com/cercor` | Cerebral Cortex only — **`academic.oup.com/brain` is covered** (manifest rows 368, 369) | Elston 2003 (wave 20 row 11) — never obtainable | PMC mirror; else drop |
+
+Maintenance: the moment the user reports a target they could not reach, add a row here with the
+target that proved it and the narrowest scope that is actually blocked (a title, not a publisher,
+unless the whole publisher is blocked). Then retire the want-list row per that file's rule —
+one *Not acquired* line in `_work/ingest-queue.md`, then delete it.
+
 ---
 
 ## B — File the drop
@@ -63,5 +80,6 @@ The user has **institutional access (UBO Brest)**, so a paywall is not a filter.
 ## Rules
 
 - **Never clip a target that is not on the want-list** without first giving it a `G`/`T` row. Un-anchored acquisition is how a queue fills with sources no page needs.
+- **Never put an excluded venue on the want-list.** A row the user cannot open is worse than no row: it blocks its `G`/`T` row silently.
 - One wave ≈ **20 sources** ≈ one lint interval (`S2`).
 - Do not batch-clip on the user's behalf by scraping; `self` route is for pages `WebFetch` renders faithfully.
