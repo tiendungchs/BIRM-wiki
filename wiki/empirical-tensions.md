@@ -306,7 +306,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T338 | Is the relational integrator one shared head with routed inputs, or a tiled family of heads each wired to its own content feed? | `L2` | `LIVE` | 6 | [[wiki/tensions/t338.md]] |
 | T339 | Does nucleus reuniens carry content between controller and store, or only open the direction? | `L2` | `LIVE` | 2 | [[wiki/tensions/t339.md]] |
 | T340 | Does the episodic store return its output to the stream that wrote it, or to the other one? | `L2` | `LIVE` | 1 | [[wiki/tensions/t340.md]] |
-| T341 | Does a cortical area carry one signed prediction-error population, or two sign-specific ones? | `L1` | `LIVE` | 4 | [[wiki/tensions/t341.md]] |
+| T341 | Does a cortical area carry one signed prediction-error population, or two sign-specific ones? | `L1` | `LEANING` | 4 | [[wiki/tensions/t341.md]] |
 | T342 | Does a cerebellar module emit a motor command, or a prediction of that command's sensory consequence? | `L1` | `LIVE` | 3 | [[wiki/tensions/t342.md]] |
 | T343 | Is the extra-classical surround carried by inter-areal feedback or by within-level lateral connections, and can any dynamical measurement tell? | `L2` | `LIVE` | 5 | [[wiki/tensions/t343.md]] |
 | T344 | What does the layer-5 branch to higher-order thalamus carry: an efference copy, or a composite-object representation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t344.md]] |
@@ -345,3 +345,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T377 | Which structure initiates a coordinated cortico-hippocampal replay event? | `L2` | `LEANING` | 3 | [[wiki/tensions/t377.md]] |
 | T378 | Does a hierarchical depth coordinate exist for association cortex, or only for the sensory streams it was defined on? | `L2` | `LIVE` | 5 | [[wiki/tensions/t378.md]] |
 | T379 | Is the direction of a cortical message set by frequency *order*, or by a fixed set of named channels? | `L2` | `LIVE` | 2 | [[wiki/tensions/t379.md]] |
+| T380 | Is the prediction-error cohort a sparse dedicated subpopulation, or a threshold slice through a variable every superficial cell carries? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t380.md]] |
