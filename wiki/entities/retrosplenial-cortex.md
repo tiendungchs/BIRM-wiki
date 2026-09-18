@@ -1,6 +1,6 @@
 # Retrosplenial Cortex — the Region That Converts Between Frames, Named at Last
 
-**Brodmann areas 29 and 30, immediately behind the splenium of the corpus callosum: a cortex reciprocally wired to the hippocampal formation, the anterior thalamic nuclei and the parietal/visual cortices, which carries head-direction but *no* place cells, whose lesion costs little while one spatial mode suffices and a great deal the moment two modes conflict, and whose leading functional account is that it **translates between viewpoint-dependent (egocentric, parietal) and viewpoint-independent (allocentric, medial-temporal) frames** using head direction to cancel the rotational offset — possibly buffering the representations while the translation runs.**
+**Brodmann areas 29 and 30, immediately behind the splenium of the corpus callosum: a cortex reciprocally wired to the hippocampal formation, the anterior thalamic nuclei and the parietal/visual cortices, which carries head-direction but *no* place cells, and whose lesion costs little while one spatial mode suffices and a great deal the moment two modes conflict. What the region *does* is contested at the level of whether it does one thing at all. One review assigns it a single operation — it **translates between viewpoint-dependent (egocentric, parietal) and viewpoint-independent (allocentric, medial-temporal) frames**, using head direction to cancel the rotational offset, possibly buffering the representations while the translation runs. A second, over a decade of additional recording, finds that no isolated function fits and offers two non-exclusive generalisations instead: **shifting and relating perspectives** (of which egocentric↔allocentric is one special case) and **prediction plus error correction** of sensory state against internal representations, both riding on conjunctive tuning across sensory, motor and spatial streams. `T383`.**
 
 > **Provenance.** Vann, Aggleton & Maguire 2009, *What does the retrosplenial cortex do?*, Nat. Rev. Neurosci. 10(11):792–802 (`raw/vann-2009-what-does-the-retrosplenial-cortex-do.md`). A review across neuroanatomy (monkey and rat tract tracing), rodent lesion/inactivation/electrophysiology, human neuropsychology and fMRI. The translation model it endorses is Burgess and colleagues'; the scene-construction framing is Hassabis & Maguire's.
 
@@ -64,7 +64,7 @@ Why this earns a page. The wiki has cited "retrosplenial" on 20 pages — as the
 
 **It does not generate the head-direction signal, it stabilises it.** Retrosplenial cortex is not required for head-direction generation, but caudal `Rdg` lesions make anterodorsal thalamic head-direction cells' preferred firing direction **unstable and prone to drift** — consistent with `Rdg` supplying the visual evidence that re-pins the integrator. The same relation runs into the hippocampus: temporary retrosplenial inactivation transiently changes hippocampal place-cell spatial tuning while leaving other electrophysiological properties intact.
 
-**Its theta is its own.** Locally generated, only *partially* septal-dependent, and independent of hippocampal theta — though hippocampal 8–12 Hz rhythmical slow activity is partly mediated by retrosplenial cortex and/or the underlying cingulum ([[wiki/concepts/inter-areal-synchrony.md]]).
+**Its theta is its own — contested.** Vann et al. report a locally generated theta, only *partially* septal-dependent and independent of hippocampal theta, with hippocampal 8–12 Hz rhythmical slow activity partly mediated by retrosplenial cortex and/or the underlying cingulum ([[wiki/concepts/inter-areal-synchrony.md]]). Alexander et al. 2023 report the opposite relation on the field potential — retrosplenial theta is **largely coherent with CA1 pyramidal-layer theta**, like entorhinal layer III — while agreeing that retrosplenial *spiking* is not rhythmic. The two claims are reconcilable only if "independent" is read as "not a follower in its generation" and "coherent" as "phase-locked once both exist"; the wiki carries both and treats neither as settled (see the temporal-coupling table below).
 
 ---
 
@@ -122,6 +122,85 @@ This makes scene construction, autobiographical recall, imagining the future and
 
 ---
 
+## The 2023 re-reading: the same region, and no isolated function fits
+
+> **Second provenance.** Alexander, Place, Starrett, Chrastil & Nitz 2023, *Rethinking retrosplenial cortex: perspectives and predictions*, Neuron 111(2):150–175 (`raw/alexander-2023-rethinking-retrosplenial-cortex.md`). A second review, fourteen years after Vann et al., over the decade of rodent electrophysiology (egocentric boundary vector cells, route coding, theta/sharp-wave-ripple coordination) and human fMRI that did not exist for the first. Its verdict is the opposite in form: retrosplenial anatomy and dynamics "are more consistent with roles in multiple sensorimotor and cognitive processes than with any isolated function". Two *generalized, explicitly non-exclusive* categories are offered instead — (1) shifting and relating perspectives, and (2) prediction and error correction of current sensory state against internal representations — both riding on the same substrate, conjunctive tuning across sensory, motor and spatial streams. `T383`.
+
+### The connectivity fork the region's own literature cannot decide — `G122`
+
+The review's Figure 2 states the question the wiki has never asked of any hub it carries. A region with ~15 afferent sources and ~11 efferent targets can be wired along two independent continua:
+
+| Continuum | One extreme | Other extreme |
+|---|---|---|
+| **Afferent targeting** | *Mixed*: every source's terminals distribute evenly over retrosplenial neurons, so every cell sees every stream ([[wiki/concepts/population-geometry.md]]'s mixed selectivity) | *Discrete*: each source is biased toward a particular **projection-defined** sub-population, so the region is several semi-independent circuits sharing one cortical volume |
+| **Intrinsic (`RSC`→`RSC`) density** | Dense — the sub-populations are re-mixed locally even if the afferents were segregated | Sparse — segregation survives, and the "hub" never integrates anything |
+
+**It is undetermined, and the measurement that would settle it is named**: quantify, for each projection class (e.g. retrosplenial→anterior thalamus vs retrosplenial→secondary motor cortex), the input density from each afferent source *including other retrosplenial neurons*. The human version has not even been attempted — the review notes that breaking the region into subregions and measuring their mutual functional connectivity "has not been tested to the best of our knowledge", while the observed anterior↔posterior connectivity gradient (posterior/lateral → occipital and visual networks; anterior/medial → posterior cingulate, medial prefrontal, default network) makes large-scale overlap unlikely.
+
+Under either extreme the region still has a *common* signal; what changes is what the common signal is for. Mixed: one broadcast variable (head direction, self-motion, location) modulates every circuit. Discrete: the shared object is a population conjunctively tuned to many variables, read differently by each output class.
+
+### A third reference frame, and it is topological rather than metric
+
+Beyond egocentric and allocentric the review argues for a **route-centered** frame — position along a trajectory of a given shape, first found in posterior parietal cortex and now here:
+
+| Property | Posterior parietal cortex | Retrosplenial cortex |
+|---|---|---|
+| Codes progress through a route | Yes | Yes ("path-equivalent" coding) |
+| Invariant to where the route sits in allocentric space | **Yes**, largely | **Split** — some cells invariant, some drastically modulated by the route's environmental position |
+| Independent of the specific egocentric action | Yes | Yes |
+| Ensemble readout | Reconstructs position within the route | Reconstructs position within the route |
+
+The split row is the point: retrosplenial route cells are the only population in the wiki that carries a route-relative coordinate **and** its allocentric embedding in the same ensemble, which is what a converter between the two would have to hold.
+
+**And the route code looks like a graph, not a metric.** On routes with recurrent structure, retrosplenial route cells show **periodic** spatial fields mapping onto both local and global topological features of the route space, and the distribution of periodicities **shifts between mazes of different geometry** — the code re-fits itself to the new topology. Posterior parietal route coding likewise rescales when route components change scale. In non-spatial domains, retrosplenial cortex codes structure within **social networks**. This is the wiki's first candidate biological carrier of a *topological* rather than metric map ([[wiki/concepts/latent-graph-discovery.md]], [[wiki/concepts/nonspatial-maps.md]]) — though the authors are explicit that neither the rescaling test nor a human route-coding test has been run.
+
+### The case against localised translation
+
+Four findings the translation account has to absorb, listed by how much they cost it:
+
+| Finding | Cost |
+|---|---|
+| **Retrosplenial inactivation has little effect on boundary-anchored responses in medial entorhinal cortex** — the direct prediction of the model | Highest. The downstream consequence the model exists to produce is not observed |
+| Conjunctive egocentric–allocentric cells (gain-field-like) are found in **many** structures besides this one | The transformation is *distributed*; conjunctive coding here is not diagnostic of a localised converter ([[wiki/concepts/distributed-reference-frames.md]]) |
+| Human deficits after parietal/posterior-cingulate/retrosplenial damage are inconsistent across cases in whether map use or viewpoint use survives in isolation, and in recent vs remote spatial memory | The lesion evidence does not isolate the conversion |
+| "Transformation" has no agreed operational definition — is binding-and-recall of co-occurring egocentric and allocentric signals a transformation, or does the term require a continuous active computation? | **The hypothesis is ill-posed, so falsification attempts cannot be decisive.** An `L0-INSTR`-shaped problem sitting under an `L2` claim |
+
+The review's own replacement for "translator" is **perspective taking in general**: mentally rotating one's viewpoint to an avatar's or an arrow's position activates this region, and that is a shift between two *egocentric* viewpoints, with no allocentric term. The generalisation admits egocentric→egocentric, allocentric→allocentric, and intermediate (oblique) viewpoints, and extends past space into retrospection, prospection, counterfactual thought and social cognition — the same widening [[wiki/entities/default-mode-network.md]] performs, reached here from the frame side.
+
+### The predictive-coding proposal
+
+The second offered function. The claim is directional: retrosplenial cortex is a **top-down predictor** over sensory cortex, not a passive integrator.
+
+| Evidence | Detail |
+|---|---|
+| Learning changes the direction of influence | Mouse primary visual cortex neurons reflect stimulus properties before learning and become **more strongly driven by top-down retrosplenial modulation after** it |
+| An ordinal code independent of content | Multi-voxel human retrosplenial patterns classify an item's **position in a list** independent of item identity — an index, not a content code ([[wiki/concepts/hippocampal-indexing-theory.md]]) |
+| Order assignment is lesion-sensitive at the timescale that needs a sequence | Retrosplenial-lesioned rats cannot assign relative temporal positions to objects *within* a continuous sequence, yet can still discriminate presentation order between blocks separated by 30-min intervals — recency across a gap survives, order within an episode does not |
+| Stable plans over actions | Two-photon imaging decodes long sequences of left/right movement combinations from stable retrosplenial ensembles, and the active ensemble **re-orders** when the environment changes |
+| Sequence-leading spikes | Subsets of subicular and retrosplenial neurons (including egocentric boundary vector cells) spike at **early** CA1 theta phases, ahead of the rest of the theta sequence — the position in the cycle a source of top-down constraint would have to occupy, not the position a recipient would |
+| Mismatch is where the deficit lives | Lesion effects appear when distal cues are disabled or misaligned against learned local structure — a failure to use bottom-up prediction error to update a sensory prediction |
+
+Under this reading the region's job is to emit a prediction of the *full situational context* — sensory, motor and spatial conjunction — and to be corrected by feedforward residuals from sensory areas, which makes perspective taking the *content* and prediction the *mechanism* (the authors' own formulation, offered alongside the alternative that perspective taking is itself a kind of prediction).
+
+### Temporal coupling to the hippocampus, and what it denies
+
+| Measure | Value |
+|---|---|
+| Retrosplenial local-field theta | Prominent during mobility, **coherent with CA1 pyramidal-layer theta** (like entorhinal layer III) |
+| Retrosplenial cells firing rhythmically across continuous theta cycles | **~5%** |
+| Cells *modulated* relative to CA1 theta phase | ~35% dysgranular, ~65% granular |
+| Gamma within theta | Retrosplenial low→high gamma transitions at theta peaks, shadowing CA1, but **phase-shifted** relative to matching CA1 frequencies |
+| Sharp-wave ripples | Retrosplenial high-frequency oscillations and rates often coherent with hippocampal ripples, but individual cells show a **range of excitation and inhibition** at ripple onset |
+
+**The first two rows together are an architectural statement**: the region is entrained by a rhythm it does not itself reproduce in its spiking. A shared clock is imposed on the field potential while individual units stay non-rhythmic, so theta here is a **timing channel without a content code** — `G54`'s distinction, measured. The phase shift and the early-phase leading cells then make the coupling *directional*: an ensemble that fires at the start of a cycle can bias which memory or perspective the rest of the cycle retrieves.
+
+### And the consolidation direction is reversed
+
+Vann et al. report retrograde amnesia for **recent** more than remote autobiographical events and greater retrosplenial engagement at recent retrieval. This review reports the opposite gradient: emergent retrosplenial activity at retrieval of **stable, remote** episodic memories; distinct primate retrosplenial activation for object–scene pairs retrieved a year after encoding versus newly learned ones; preferential activation for familiar scenes; post-training muscimol in anterior retrosplenial cortex impairing memory 24 h later. Its framing is multiple-trace systems consolidation with this region as the cortical trace. `T384`.
+
+
+---
+
 ## The architectural reading
 
 **(brainstorm) This is `G39`'s anchoring operator with the per-instance parameter's *source* named.** `G39` assembled the shape of anchoring — a small per-instance transform against a large reusable code, an `argmax` over a symmetry group — and repeatedly found that the group has to be installed. Here the group is installed (rotation in the plane), a population enumerates its elements (head-direction cells), and the crucial addition is that **the parameter is not inferred inside the transform module**. It is computed by a *separate* integrator (anterior thalamic/postsubicular head-direction system), delivered as an input, and merely *applied* here. That is a design: factor the converter from the estimator of what to convert by. A machine analogue costs one module that outputs a group element and one that applies it — and it predicts the observed failure mode, since damaging the applier leaves both representations intact and breaks only the change of perspective.
@@ -136,6 +215,16 @@ This makes scene construction, autobiographical recall, imagining the future and
 
 **And the region is the wiki's second case of a system named for a function its own data cannot identify.** "It is hard to find a navigation or topographical memory task in which the retrosplenial cortex is not activated"; it is also activated by speech, motivation and pain. The review's closing paragraph is a list of alternatives the evidence does not discriminate — translation, its own stored environmental representations, scene processing, scene construction — and its own title is a question. Same shape as [[wiki/entities/default-mode-network.md]], and the same diagnosis: ubiquity of activation is an *obstacle* to function attribution, not evidence for a general function.
 
+**(brainstorm) `G122`: the wiki builds hubs and has never specified their internal wiring.** Every multi-input module the wiki carries — a workspace, a relational bottleneck, a router, this region — is drawn as one box with `n` inputs and `m` outputs, which silently commits to the *mixed* extreme: every unit sees every stream, every output class reads the same population. The Figure 2 fork says the opposite arrangement is equally available and empirically undecided: afferents biased toward projection-defined sub-populations, with sparse local recurrence, so the box is `k` semi-independent circuits sharing a volume and integrating nothing. The two are not a realization detail. They differ in what is **architecturally denied**: under `discrete`, the retrosplenial→secondary-motor circuit cannot read the thalamic head-direction stream at all, and any capability requiring that conjunction is impossible rather than merely untrained. `G122`.
+
+**(brainstorm) The route code is the first biological candidate for a map that is a graph.** A population whose fields are *periodic in route topology* and whose periodicity distribution **changes when the maze geometry changes** is not storing a metric embedding — it is storing recurrence structure, re-fitted per environment. [[wiki/concepts/latent-graph-discovery.md]] has asked throughout for a code over graph structure rather than over coordinates, and `G47` asks what learns a manifold's topology; this is a measured population that appears to do it, in a region with no place cells to embed anything in. The missing tests are named by the authors (rescaling routes; a human route-coding paradigm), so the wiki carries it as a candidate, not a result.
+
+**A prediction that failed is worth more here than the ten that succeeded.** The translation model's one downstream prediction — silence this region and boundary-anchored responses in medial entorhinal cortex should degrade — has been tested and is essentially null, while the supporting evidence (conjunctive cells, connectivity, lesion deficits) is all *compatibility* evidence. This is the wiki's cleanest instance of the asymmetry [[wiki/concepts/function-to-structure-inference.md]] formalises: a hypothesis can accumulate arbitrary amounts of consistency and still fail its one entailment, because consistency with a hub's data is nearly free.
+
+**The definitional failure is the deeper one, and it generalises to every module the wiki names.** The authors' own diagnosis is that "transformation" has no operational definition, so the hypothesis is ill-posed and falsification attempts cannot be decisive. The wiki assigns operations to modules constantly — *anchor*, *arbitrate*, *gate*, *bind*, *broadcast*, *consolidate* — and almost none of those verbs has a stated neural-code criterion for having been performed. **The transferable discipline: a module's job description must come with the measurement that distinguishes performing it from merely co-representing its arguments.** Binding-and-recall of two co-occurring codes is not a transformation unless something says why not.
+
+**Two reviews, same region, opposite verdicts on whether a function exists — and the second had more data.** Vann et al. 2009 converge on one operation; Alexander et al. 2023, with a decade of additional recording, conclude that no isolated function fits. The wiki's default assumption that more evidence narrows a functional attribution is contradicted here: the additional evidence *broadened* it, because each new recording added another variable the region turned out to encode. If that is the generic trajectory for association cortex ([[wiki/concepts/hierarchy-of-associativity.md]]), then module-level function labels in a brain-inspired architecture should be treated as **provisional compressions of a tuning inventory**, not as design intent recovered from biology.
+
 ---
 
 ## Limitations
@@ -147,18 +236,22 @@ This makes scene construction, autobiographical recall, imagining the future and
 - **The rodent lesion effects are modest and method-sensitive**, with cingulum damage, lesion rostro-caudal extent and training schedule each able to flip an outcome.
 - **The subregional story rests on two studies**, neither of which dissociated `Rdg` from `Rga`/`Rgb` on the same task.
 - **Nothing here is non-spatial in the sense the wiki needs.** Every reference frame in the evidence is a physical one; the review offers no landmark, boundary or heading analogue outside space — the same residue `G39` carries.
+- **The 2023 review's two proposed functions are declared non-exclusive and are not dissociated from each other**, nor from the alternatives it lists (binding hippocampal output to sensory context; comparator; associator). It offers no experiment that separates "perspective taking" from "prediction" — the authors even suggest each may be a special case of the other.
+- **The route-centered frame has never been tested in humans**, the topological rescaling prediction has never been run in this region, and the periodic-field result rests on one rodent study.
+- **The mixed-vs-discrete connectivity question (`G122`) is open in every species**, and the human sub-region mutual-connectivity measurement that would bear on it has not been attempted.
+- **The two reviews disagree on the theta relation and on the consolidation gradient** (`T384`), and neither disagreement has been adjudicated by a study designed to do so.
 
 ---
 
 ## Connections
 
 - **[[wiki/concepts/cognitive-map.md]]** — supplies the substrate that page's anchoring element (`G39`) names and never describes: a region with head-direction but no place cells, whose damage leaves landmark *recognition* intact and destroys landmark-to-heading conversion, which is exactly the orientation half of that page's retrieval/orientation split.
-- **[[wiki/concepts/distributed-reference-frames.md]]** — the named candidate for that page's Prediction 4, a universal egocentric→allocentric conversion: here the conversion is localised to one region, driven by an externally supplied rotation parameter, rather than replicated across every sensory cortex.
+- **[[wiki/concepts/distributed-reference-frames.md]]** — the named candidate for that page's Prediction 4, a universal egocentric→allocentric conversion: Vann et al. localise the conversion to one region driven by an externally supplied rotation parameter, while Alexander et al. 2023 report gain-field-like conjunctive egocentric–allocentric cells in *many* structures and a null effect of retrosplenial inactivation on entorhinal boundary coding — which returns the conversion to that page's distributed reading (`T383`).
 - **[[wiki/concepts/path-integration.md]]** — the correction stage for the integrator: retrosplenial lesions impair ideothetic path integration, and dysgranular lesions let the anterodorsal head-direction signal drift, so this is where visual evidence re-pins an accumulating estimate.
 - **[[wiki/entities/entorhinal-cortex.md]]** — the other end of the posterior fan-in that defines the medial entorhinal division: retrosplenial axons terminate almost exclusively in medial entorhinal layer V, so the directional/frame-conversion signal arrives at the hippocampal interface's *output* layer rather than its input layer.
 - **[[wiki/entities/default-mode-network.md]]** — splits that page's "PCC/Rsp" hub: hippocampal and anterior thalamic connection densities are much higher to areas 29/30 than to area 23, and the two dissociate within one fMRI study (23/31 track real-vs-imagined, retrosplenial tracks self-involvement), so the hub is at least two nodes.
 - **[[wiki/concepts/function-to-structure-inference.md]]** — the causal-manipulation counterpart of that page's correlational bound: in a triad with direct *and* indirect edges, lesion effect size measures how much traffic the cut edge carried, and this region's small deficits coexist with its being required.
-- **[[wiki/concepts/complementary-learning-systems.md]]** — the candidate cortical store for consolidated maps, with a temporal signature: retrosplenial damage disproportionately spares *remote* autobiographical memory while impairing recent, and fMRI shows greater retrosplenial engagement for recent than remote retrieval.
+- **[[wiki/concepts/complementary-learning-systems.md]]** — the candidate cortical store for consolidated maps, with a temporal signature the two reviews sign oppositely: Vann et al. report retrosplenial damage sparing *remote* autobiographical memory while impairing recent, and greater engagement at recent retrieval; Alexander et al. 2023 report emergent activity at *remote* retrieval and a post-training muscimol effect, i.e. the standard cortical-trace gradient (`T384`).
 - **[[wiki/concepts/hippocampal-long-axis.md]]** — fixes this region's position on that gradient: retrosplenial cortex reaches the hippocampus only through dorsolateral entorhinal cortex and therefore only *dorsal* hippocampal levels, the opposite end from the prefrontal loop.
 - **[[wiki/entities/fly-central-complex.md]]** — the same two-input architecture two levels of complexity apart: a self-motion-integrated heading estimate plus a sensory landmark signal that resets it, implemented there as a ring attractor with a single visual bar and here as a cortex receiving V2/V4/parietal input alongside thalamic head direction.
 - **[[wiki/concepts/inter-areal-synchrony.md]]** — a locally generated theta only partially dependent on septal input and independent of hippocampal theta, while hippocampal 8–12 Hz activity is partly mediated by this region — a second cortical oscillator in the memory system rather than a follower of the hippocampal one.
@@ -166,3 +259,9 @@ This makes scene construction, autobiographical recall, imagining the future and
 - **[[wiki/entities/anterior-thalamic-nuclei.md]]** — the source of this region's dominant thalamic input, and the reason a retrosplenial deficit may not be retrosplenial: anterior thalamic lesions leave this cortex persistently hypoactive with de-regulated gene transcription, while `AV` excitation and CA1 inhibition oppose each other in layer 1 with both necessary for contextual fear conditioning — making this the worked-out case of the tripartite model's two-stream convergence zone.
 
 - **[[wiki/entities/posterior-cingulate-cortex.md]]** — the other side of this page's boundary claim: where this page establishes that areas 23/31 are not retrosplenial, that page establishes that 23/31 are themselves *two* regions (dorsal = executive, ventral = mnemonic), both of which may be primate-only since rodents lack the layer IV stellate count that defines them — so the rodent lesion literature here speaks to no part of posterior cingulate cortex except this one, and this region is conversely the leg of the tripartite division its own authors call weakest, with human demarcation varying widely and surface reconstruction pipelines liable to excise it outright.
+
+- **[[wiki/concepts/latent-graph-discovery.md]]** — the first measured population that may carry a *topological* rather than metric map: route cells with periodic fields matched to local and global recurrence structure of the route space, whose periodicity distribution re-fits when the maze geometry changes (Alexander et al. 2023).
+- **[[wiki/concepts/predictive-coding-free-energy.md]]** — the second of the 2023 review's two proposed functions, with this region as a top-down predictor over sensory cortex: primary visual neurons become more strongly driven by retrosplenial modulation *after* learning, and the lesion deficit appears exactly when a learned prediction is violated by misaligned distal cues.
+- **[[wiki/concepts/hippocampal-indexing-theory.md]]** — a content-free ordinal index measured in cortex rather than hippocampus: multi-voxel retrosplenial patterns classify an item's position in a list independently of the item's identity.
+- **[[wiki/concepts/hierarchy-of-associativity.md]]** — the association-cortex trajectory in one worked case: a decade of additional recording *broadened* rather than narrowed the functional attribution, because each new variable the region encodes is another function it could be said to serve.
+- **[[wiki/concepts/population-geometry.md]]** — the fork `G122` opens under that page's mixed-selectivity assumption: this region's afferents may spread evenly over its neurons (one mixed population) or be biased toward projection-defined sub-populations with sparse local recurrence (several semi-independent circuits sharing a volume), and the measurement that would decide it — input density per afferent source per projection class — has not been made in any species.

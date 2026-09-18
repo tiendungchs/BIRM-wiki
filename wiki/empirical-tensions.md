@@ -348,3 +348,5 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T380 | Is the prediction-error cohort a sparse dedicated subpopulation, or a threshold slice through a variable every superficial cell carries? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t380.md]] |
 | T381 | Is the medial diencephalon a relay serving the hippocampal memory stream, or a co-equal second stream? | `L1` | `LIVE` | 2 | [[wiki/tensions/t381.md]] |
 | T382 | Does posterior cingulate cortex carry a signed subjective value, or an unsigned salience? | `L2` | `LIVE` | 2 | [[wiki/tensions/t382.md]] |
+| T383 | Is the egocentric↔allocentric conversion an operation localised to one region, or is "no isolated function" the correct description of that region? | `L1` | `LIVE` | 5 | [[wiki/tensions/t383.md]] |
+| T384 | Does retrosplenial cortex hold the recent trace or the remote one? | `L2` | `LIVE` | 2 | [[wiki/tensions/t384.md]] |
