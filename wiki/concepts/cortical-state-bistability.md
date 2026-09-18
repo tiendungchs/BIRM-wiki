@@ -145,6 +145,23 @@ What differs is whether the release signal is content-free (here) or item-specif
 
 ---
 
+## The alternation is exported to a structure that cannot generate it
+
+> Ji & Wilson 2007 (`raw/ji-2007-coordinated-replay-visual-cortex-hippocampus.md`). Not the same rhythm pair as above — this is the slow-wave-sleep up/down alternation — but it is the one case in the wiki where a hold/release state variable is measured in a *receiver* that has no generator for it.
+
+Identifying up-states from **multiunit activity** rather than from EEG or membrane potential gives **frames**: cortical 0.96 s mean / 0.67 s median at 47.3 min⁻¹, bounded by 80–300 ms of total population silence. The same structure appears in hippocampal CA1 — 0.78 s / 0.50 s at 41.7 min⁻¹ — where **no intrinsic up/down mechanism has been reported**.
+
+| Observation | Reading |
+|---|---|
+| Cortical frame onsets lead hippocampal ones by ~50 ms (`P = 2.2 × 10⁻⁸`), offsets by ~40 ms; robust to the frame-boundary parameters | The hippocampal state is plausibly *imposed* by cortical drive, not intrinsic |
+| Hippocampal interneurons are phase-locked to cortical up/down transitions (Wolansky et al., cited) | The imposition has a named substrate: the receiver's inhibitory population is the clock's antenna |
+| Cross-correlogram peaks are **broad** — no one-to-one frame correspondence | The export is a rate coupling, not an event-locked handshake |
+| Ripples fall almost exclusively *inside* hippocampal frames, ~30 ms after frame onset; a frame holds none, one, or several | The content-bearing event is *grouped* by the imported state variable — hold/release as a container for the store's own read-outs |
+
+**Why this matters for the page's central claim.** The results above make the hold/release variable a *local* property of the tissue holding content. Here it is a variable one area emits and another area obeys, with the obeying area contributing the content. That is the same two-layer design — content layer plus content-free permission layer — but with the **two layers in different structures**, which is the cheapest form for a builder: one global phase signal broadcast from the slow learner, consumed as a write-window by a separate fast store ([[wiki/concepts/sleep-oscillation-nesting.md]], [[wiki/concepts/offline-replay.md]]). **(brainstorm)** It also predicts an asymmetry no single-area recording can show: ablate the emitter and the receiver's alternation should vanish while its content survives.
+
+---
+
 ## Open problems
 
 - **No learning rule for either the threshold or the phase assignment** — same gap as [[wiki/concepts/ignition.md]] (`G91`). What sets the burst rate at which a switch completes, and what assigns a unit its phase, is unmeasured and unmodelled.
@@ -168,5 +185,6 @@ What differs is whether the release signal is content-free (here) or item-specif
 - **[[wiki/concepts/perturbation-elicitability.md]]** — the missing instrument for this page's causal claim: precedence by 300 ms is not causation, and the untried experiment is to drive the rhythm rather than the site — which is a different perturbation from the one that returns 0% in prefrontal cortex.
 - **[[wiki/concepts/working-memory.md]]** — the protection problem stated in this page's terms: beta occupancy shields the held item from replacement while *lowering* sensitivity to new input, so maintenance is not free and the cost is paid in detection.
 - **[[wiki/concepts/inhibitory-control-of-coding.md]]** — where this page's state variable becomes one of that page's channels: a rhythm-defined gate addressed by *when* rather than by cell type, with the same slow-occupancy antagonism (no within-trial, within-bin coupling between beta and gamma sub-bands) and the same default-hold reading, which together mean neither pair should be implemented as instantaneous mutual inhibition.
-- **[[wiki/concepts/sleep-oscillation-nesting.md]]** — the same up/down alternation used as a timing protocol rather than a state variable: the down-state frames a discrete window that opens with the following up-state, and what rides in that window decides whether cortex potentiates or depotentiates.
+- **[[wiki/concepts/sleep-oscillation-nesting.md]]** — the same up/down alternation used as a timing protocol rather than a state variable: the down-state frames a discrete window that opens with the following up-state, and what rides in that window decides whether cortex potentiates or depotentiates. This page adds that the outermost level of that protocol is *exported* — the hippocampal frame lags the cortical one by ~50 ms and has no local generator.
+- **[[wiki/concepts/offline-replay.md]]** — the content that rides the exported state variable: sharp-wave ripples sit inside hippocampal frames (~30 ms after onset, one frame holding none, one or several), so the hold/release alternation is the container for the store's read-outs rather than a competitor to them (Ji & Wilson 2007).
 - **[[wiki/entities/dendritic-integration-theory.md]]** — the same hold/release logic derived from one cell instead of measured in a population, with a matching prediction: decoupled basal compartments participate in slow-oscillation generation while coupled cells' intrinsic properties drive higher frequencies, so this page's beta-holds / low-frequency-releases antagonism would be the network signature of a per-cell coupling variable.

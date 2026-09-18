@@ -342,3 +342,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T374 | When a top-down prediction meets matching feedforward drive, does the receiving cell burst or fall silent? | `L2` | `LIVE` | 5 | [[wiki/tensions/t374.md]] |
 | T375 | Should the consolidated model mirror the environment's statistics, or be deliberately biased away from them? | `L2` | `LIVE` | 2 | [[wiki/tensions/t375.md]] |
 | T376 | Is apical–basal coupling a global state variable, or a per-column gate that can be aimed? | `L2` | `LIVE` | 4 | [[wiki/tensions/t376.md]] |
+| T377 | Which structure initiates a coordinated cortico-hippocampal replay event? | `L2` | `LIVE` | 2 | [[wiki/tensions/t377.md]] |

@@ -16,6 +16,8 @@
 
 **The nesting:** SO up-state → thalamic spindle nests in it → hippocampal ripples phase-lock to the spindle's excitable **troughs** (spindle–ripple events). Learning increases the coupling of all three, and the degree of coupling during post-encoding sleep predicts recall.
 
+**The outermost level measured in spikes rather than field potentials** (Ji & Wilson 2007, `raw/ji-2007-coordinated-replay-visual-cortex-hippocampus.md`): identifying up-states from multiunit activity gives **frames** — cortical 0.96 s mean / 0.67 s median, hippocampal 0.78 s / 0.50 s, at ~47 and ~42 min⁻¹ — and the nesting is **one-to-many and loose**, not one ripple per window: a single frame contains none, one, or several ripples, and the cortical-to-hippocampal frame cross-correlogram peaks are broad, so there is no one-to-one frame pairing across the two areas. Two consequences for the protocol above. The conjunction is a *rate* condition, not a per-event pairing — a window can open and carry nothing. And ~93% of frames carry no detectable replay at all ([[wiki/concepts/offline-replay.md]]), so an open window is much commoner than cargo.
+
 ---
 
 ## The loop has both directions, so no single structure is the scheduler
@@ -27,6 +29,7 @@
 | Bottom-up | Hippocampal ripples can directly induce SOs in medial prefrontal cortex | Ripple precedes the mPFC SO–spindle event by ~130 ms |
 | Bottom-up | Thalamic spindles feed back to cortex to facilitate the *next* SO | Matters when several SO cycles run in a row; spindle-generator refractoriness is what ends the cycling |
 | Cortex→hippocampus→cortex | Auditory-cortex patterns precede (~200 ms) and predict ripple content; ripple content then predicts subsequent cortical patterns | Rothschild et al. 2017; cued sounds during sleep let cortex *tell the hippocampus which memory to reactivate* |
+| Top-down, at the outermost level | Cortical and hippocampal population activity are both organised into **frames** (elevated-activity periods bounded by synchronous silence); cortical frame onsets lead hippocampal ones by ~50 ms and offsets by ~40 ms, and hippocampal ripples fall almost only *inside* frames, ~30 ms after frame onset | Ji & Wilson 2007 (`raw/ji-2007-coordinated-replay-visual-cortex-hippocampus.md`). Hippocampus has no reported intrinsic up/down mechanism, and its interneurons are phase-locked to cortical state transitions — so the store's outermost offline clock is **imposed**, not generated |
 
 So the top-down arm does not only set *when* the hippocampus replays (when cortex is in an excitable up-state) but contributes to *which* memory is replayed — the selection problem [[wiki/concepts/offline-replay.md]] assigns to the store is partly solved by the receiver. See [[wiki/empirical-tensions.md]] T373 for the unresolved question of which structure leads.
 
@@ -103,7 +106,7 @@ The received picture makes the thalamus a spindle generator under cortical comma
 
 ## Open problems
 
-- **Which structure leads the loop** ([[wiki/empirical-tensions.md]] T373) — and with it, whether a machine consolidation scheduler belongs in the slow learner or in a separate relay.
+- **Which structure leads the loop** ([[wiki/empirical-tensions.md]] T373 for the cortex-vs-thalamus arm, T377 for the cortex-vs-hippocampus one) — and with it, whether a machine consolidation scheduler belongs in the slow learner or in a separate relay. The frame result above splits the second question in two: the *window* is opened by cortex and measured, the *content* direction is not.
 - **What informs the spindle of its target.** The SO does not; the attentional-tag proposal is untested. This is the *addressing* half of the consolidation channel and nothing measures it.
 - **How hippocampal information enters the thalamic scheme at all** — the source's own most pressing question, with nucleus reuniens the only named candidate ([[wiki/entities/nucleus-reuniens.md]]).
 - **The SWS-tag → REM-prune sequence is inferred from correlations**, and the immediate-early-gene evidence for it is cortical while the theta-phase selection evidence is hippocampal.
@@ -114,7 +117,8 @@ The received picture makes the thalamus a spindle generator under cortical comma
 
 ## Connections
 
-- **[[wiki/concepts/offline-replay.md]]** — supplies the cargo this page schedules: replay says which sequences are reinstated, this page says the reinstatement only becomes a cortical write inside a spindle nested in an SO up-state, and depotentiates cortex when that nesting fails.
+- **[[wiki/concepts/offline-replay.md]]** — supplies the cargo this page schedules: replay says which sequences are reinstated, this page says the reinstatement only becomes a cortical write inside a spindle nested in an SO up-state, and depotentiates cortex when that nesting fails. It also supplies the occupancy figure that makes the window cheap and the cargo rare — ~7–8% of frames carry a detectable sequence (Ji & Wilson 2007).
+- **[[wiki/concepts/cortical-state-bistability.md]]** — the frame-level result read as a state variable rather than a clock: the up/down alternation identified from spikes is present in hippocampus with no intrinsic generator and lagging cortex by ~50 ms, so this page's outermost rhythm is exported to the store rather than shared with it (Ji & Wilson 2007).
 - **[[wiki/concepts/complementary-learning-systems.md]]** — turns that page's coupling channel into a duty-cycled one: the fast→slow transfer is licensed by a rhythm generated in the *receiver*, which is why prefrontal slow-wave amplitude and not offline time predicts overnight retention.
 - **[[wiki/concepts/schema-assimilation.md]]** — the same two-stage sleep division seen from the content side (SWS builds/refines, REM disbands), with spindle density the measured variable predicting accelerated hippocampal disengagement for schema-congruent material.
 - **[[wiki/concepts/dendritic-computation.md]]** — names the compartment the protocol acts on: the window is opened by *withdrawing* somatostatin-mediated dendritic inhibition while parvalbumin cells clamp the soma, so the consolidation write is an apical-dendritic event with the axonal output muted.
