@@ -104,7 +104,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G87 | Nothing in the wiki has ever shown that a better representation of activity produces a better decision | part | `L0-INSTR` | `OPEN` | 1 | [[wiki/gaps/g087.md]] |
 | G88 | No architecture in the wiki has a direction of information flow that comes from its own weight matrix | arrangement | `L2` | `OPEN` | 1 | [[wiki/gaps/g088.md]] |
 | G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g089.md]] |
-| G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `L2` | `OPEN` | 7 | [[wiki/gaps/g090.md]] |
+| G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `L2` | `OPEN` | 8 | [[wiki/gaps/g090.md]] |
 | G91 | The wiki has no gate that learns what deserves to be broadcast, and no architecture in it has a discrete commit at all | arrangement | `L2` | `OPEN` | 9 | [[wiki/gaps/g091.md]] |
 | G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `L0` | `OPEN` | 1 | [[wiki/gaps/g092.md]] |
 | G93 | Context in every wiki architecture is either one global scalar or a hand-supplied task label; none has an *addressed* context channel | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g093.md]] |

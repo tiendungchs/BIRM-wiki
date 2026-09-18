@@ -226,7 +226,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T252 | Is the direction of large-scale cortical flow fixed by anatomy or set dynamically? | `L2` | `LIVE` | 3 | [[wiki/tensions/t252.md]] |
 | T253 | Is slow connectome dynamics the accumulated expression of fast states, or an independent parallel stream? | `L4` | `LIVE` | 2 | [[wiki/tensions/t253.md]] |
 | T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L0-INSTR` | `LEANING` | 2 | [[wiki/tensions/t254.md]] |
-| T256 | Is the precuneus (area 7m) part of the default mode network? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t256.md]] |
+| T256 | Is the precuneus (area 7m) part of the default mode network? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t256.md]] |
 | T257 | In the default/control switch, who drives whom? | `L2` | `LIVE` | 3 | [[wiki/tensions/t257.md]] |
 | T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 4 | [[wiki/tensions/t259.md]] |
 | T260 | Does the brain have an absolute activity baseline, or only relative ones? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t260.md]] |
@@ -235,7 +235,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T264 | Is default-mode anticorrelation a neural phenomenon or a product of global signal regression? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t264.md]] |
 | T265 | Where does the default mode network sit relative to the sensory-fugal hierarchy? | `L4` | `LEANING` | 2 | [[wiki/tensions/t265.md]] |
 | T266 | Can a working memory held in synaptic weights be operated on, or only stored? | `L1` | `LIVE` | 1 | [[wiki/tensions/t266.md]] |
-| T267 | Which function do the medial prefrontal / posterior cingulate / precuneus hubs serve — broadcasting current content, or generating internal content? | `L1` | `LIVE` | 2 | [[wiki/tensions/t267.md]] |
+| T267 | Which function do the medial prefrontal / posterior cingulate / precuneus hubs serve — broadcasting current content, or generating internal content? | `L1` | `LIVE` | 3 | [[wiki/tensions/t267.md]] |
 | T268 | Is there one commit event or two? | `L2` | `LIVE` | 1 | [[wiki/tensions/t268.md]] |
 | T269 | Does prefrontal cortex constitute conscious perceptual content, or only route it? | `L1` | `LIVE` | 8 | [[wiki/tensions/t269.md]] |
 | T270 | Does a measure of integration detect a world model? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t270.md]] |
@@ -346,4 +346,5 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T378 | Does a hierarchical depth coordinate exist for association cortex, or only for the sensory streams it was defined on? | `L2` | `LIVE` | 5 | [[wiki/tensions/t378.md]] |
 | T379 | Is the direction of a cortical message set by frequency *order*, or by a fixed set of named channels? | `L2` | `LIVE` | 2 | [[wiki/tensions/t379.md]] |
 | T380 | Is the prediction-error cohort a sparse dedicated subpopulation, or a threshold slice through a variable every superficial cell carries? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t380.md]] |
-| T381 | Is the medial diencephalon a relay serving the hippocampal memory stream, or a co-equal second stream? | `L1` | `LIVE` | 1 | [[wiki/tensions/t381.md]] |
+| T381 | Is the medial diencephalon a relay serving the hippocampal memory stream, or a co-equal second stream? | `L1` | `LIVE` | 2 | [[wiki/tensions/t381.md]] |
+| T382 | Does posterior cingulate cortex carry a signed subjective value, or an unsigned salience? | `L2` | `LIVE` | 2 | [[wiki/tensions/t382.md]] |
