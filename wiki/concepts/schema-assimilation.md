@@ -270,6 +270,29 @@ The claim `T82` and `G14` both need, from the source that states it:
 
 ---
 
+## The exception needs no mechanism: it is gradient descent in a network that already knows something
+
+> **Provenance (fifth ingest).** Kumaran, Hassabis & McClelland 2016 (`raw/kumaran-2016-complementary-learning-systems-updated.md`), reporting McClelland 2013 and a deep-linear-network analysis (Saxe et al.). Everything above treats the one-trial-cortical-learning result as an *exception* to slow cortical learning that some mechanism must produce. This says it is what the unmodified mechanism does.
+
+The simulation uses the same architecture and content domain MMO95 used to argue that cortical learning must be slow — a network trained to acquire animal properties (*canary is a bird, can fly*), paralleling the multi-week initial phase of the event arena.
+
+| New item `X` | Learning | Interference |
+|---|---|---|
+| **Consistent** (`X is a bird and can fly`) | rapid | none; existing knowledge undisrupted |
+| **Inconsistent** (`X is a bird but swims, not flies`) | slow | catastrophic unless interleaved with known examples |
+
+**The measurement that matters: the learning-rate parameter was the same small value in both conditions, and the weight changes were large only for the consistent item** — reproducing the schema-dependent neocortical plasticity-gene expression Tse et al. 2011 measured 80 min after learning. The general statement from the linear analysis: the rate of learning in a multilayer network always depends on the current state of knowledge and on the compatibility of the new input with the structure that knowledge represents.
+
+Three consequences for this page.
+
+- **Congruence does not need a licence, a template or a co-activation.** Gilboa & Marlatte's three preconditions (simultaneity, related-but-non-overlapping, representational layers) are conditions for *rapid integration in the brain*; this result says a bare gradient learner already shows the rate split. The preconditions are therefore claims about the biological implementation, not about why the phenomenon exists — and a builder testing them needs the plain-gradient result as the null model, which no wiki source treats it as.
+- **The "cortex builds wiring, hippocampus reweights existing synapses" account of the rate split** ([[wiki/concepts/complementary-learning-systems.md]], Frankland & Bontempi 2005) predicted the schema exception and was recorded here as its best mechanism. It is now over-determined: gradient magnitude alone suffices. The discriminating measurement is unchanged — whether schema-consistent consolidation carries synaptogenesis markers — but it now has to beat a mechanism-free baseline.
+- **The exception propagates to the fast store.** Because hippocampal input *is* the cortical representation, hippocampal learning is also prior-knowledge-dependent. Nothing above says this, and it predicts that the one-trial benefit in a familiar arena is partly an *encoding* benefit rather than wholly a consolidation benefit — separable by measuring day-1 hippocampal binding, which the event-arena experiments do not.
+
+**(brainstorm) The cheap machine version has never been reported.** Pretrain any network on a structured domain, then measure the per-condition **gradient norm** for a consistent versus an inconsistent new item at identical learning rate. If the split reproduces, every schema result in this page's Preston & Eichenbaum column has a one-line explanation, and "integration demand" — the quantity this page lists as unoperationalised — has a candidate estimator that is already computed on every training step.
+
+---
+
 ## Open problems
 
 - **No arbitration between integration and separation** (above). Both are prefrontal, both are triggered by conflict, and nothing predicts which fires.
@@ -293,6 +316,7 @@ The claim `T82` and `G14` both need, from the source that states it:
 - **[[wiki/concepts/controlled-semantic-cognition.md]]** — the destination of an over-trained schema: at three months the object–location associates are read from ventrolateral PFC + anterior temporal lobe + angular gyrus and vmPFC has dropped out, so repeated encoding of *specific* associations converts a schema into denotational semantic content while the template function stays with vmPFC.
 - **[[wiki/concepts/event-segmentation.md]]** *(also)* — supplies the missing dissolution operator from the other side: REM sleep is proposed to *disband* existing schemas so new ones can form (tonal-melody benefit, absent for atonal), which is the only mechanism in the wiki that removes stored structure rather than adding to it.
 - **[[wiki/concepts/retrieval-mediated-learning.md]]** — the primary source for this page's conflict trigger, with the reinstatement measured rather than presumed: it supplies the classifier read-out of the absent element, the anterior-MTL/hippocampus split between reporting reactivation and doing the binding, and the partial correlation that makes integration-at-encoding non-vacuous.
+- **[[wiki/entities/remerge.md]]** — supplies a route to property (iii) that needs no schema at all: inference between indirectly related elements falls out of recirculating an episodic store's own retrievals until they settle, so the page's defining test can be passed by retrieval dynamics rather than by an organized structure.
 - **[[wiki/concepts/nonspatial-maps.md]]** — the map operation isolated there and covered by no other: insert new nodes into a map already in use and keep the frame, rather than rebuild it.
 
 - **[[wiki/concepts/priority-map.md]]** — where a selected schema goes once it is selected: a learned face↔scene pairing retrieved in ventrolateral prefrontal cortex during the cue is installed over the following delay as the *attentional template* in the inferior frontal junction and as sensory gain in the associate's own category area, so "prefrontal cortex selects the schema" and "prefrontal cortex sets the search query" are the same operation observed at two stages (Zhou & Geng 2025).

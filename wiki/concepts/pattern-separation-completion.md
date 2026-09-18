@@ -282,6 +282,8 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 
 ## Connections
 
+- **[[wiki/concepts/continual-learning.md]]** — a job for this page's mechanism that runs *before* any consolidation: orthogonal codes let many task/context representations coexist without interfering, so the fast store is a task-boundary-free module allocator, with >10 simultaneously maintained CA3 charts as the existence proof (Kumaran et al. 2016).
+- **[[wiki/entities/remerge.md]]** — the argument that separation costs less generalization than assumed: recirculating the store's own retrievals until they settle produces links between items never experienced together *from* pattern-separated traces, so the knob need not be moved toward completion to get inference.
 - **[[wiki/entities/inhibitory-replay-filter.md]]** — completion steered rather than merely triggered: which basins a random offline kick can reach is set by a learned inhibitory mask, so the same recurrent store returns different completions before and after the mask accumulates, and the pruning is of *edges between* stored items rather than of overlap within them.
 - **[[wiki/concepts/population-geometry.md]]** — the level at which the separation-vs-abstraction trade-off is actually decided: decorrelation for capacity and disentanglement for transfer were measured together in one hippocampal population and rose together, so a code can be expressive and abstract at once (T50).
 

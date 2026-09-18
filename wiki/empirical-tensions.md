@@ -299,7 +299,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T331 | Do generalizable concepts require one transmodal store, or do direct modality-to-modality connections suffice? | `L1` | `LEANING` | 2 | [[wiki/tensions/t331.md]] |
 | T332 | Which frontal region is the apex of the lateral-frontal control hierarchy, and does "apex" survive the choice of ordering criterion? | `L2` | `LIVE` | 7 | [[wiki/tensions/t332.md]] |
 | T333 | Can long-range theta coherence carry content between two modules, or does it only index a shared relay? | `L2` | `LIVE` | 3 | [[wiki/tensions/t333.md]] |
-| T334 | Is an unobserved relational path written at encoding, or composed at retrieval? | `L2` | `LIVE` | 4 | [[wiki/tensions/t334.md]] |
+| T334 | Is an unobserved relational path written at encoding, or composed at retrieval? | `L2` | `LIVE` | 6 | [[wiki/tensions/t334.md]] |
 | T335 | Do matrix problems and four-term analogies measure the same relational competence? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t335.md]] |
 | T336 | Is the analogy integrator a 0.33 cc left frontopolar site, or a right frontal network? | `L1` | `LIVE` | 4 | [[wiki/tensions/t336.md]] |
 | T337 | Is working-memory capacity a duty cycle over a periodic frame, or a rate of aperiodic bursts? | `L1` | `LIVE` | 2 | [[wiki/tensions/t337.md]] |
@@ -340,3 +340,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T372 | When prior knowledge fits, do the controller and the store compete or cooperate? | `L2` | `LIVE` | 2 | [[wiki/tensions/t372.md]] |
 | T373 | Does the cortical slow oscillation schedule the consolidation window, or does the thalamus? | `L2` | `LIVE` | 3 | [[wiki/tensions/t373.md]] |
 | T374 | When a top-down prediction meets matching feedforward drive, does the receiving cell burst or fall silent? | `L2` | `LIVE` | 4 | [[wiki/tensions/t374.md]] |
+| T375 | Should the consolidated model mirror the environment's statistics, or be deliberately biased away from them? | `L2` | `LIVE` | 2 | [[wiki/tensions/t375.md]] |

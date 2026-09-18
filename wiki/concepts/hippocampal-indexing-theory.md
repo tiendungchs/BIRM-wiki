@@ -94,6 +94,14 @@ Systems consolidation — the eventual hippocampus-independence of old memories 
 
 This matters for two rows. `T97` and `T82` both treat the recent/remote gradient as evidence about the channel; here the theory's own authors decline to stake it. And `G14`'s question — what selects material for transport — is orthogonal to indexing: an index with no transport at all is still the theory.
 
+**And the theory has a maintenance problem its own descendants name and nobody has solved.** Kumaran, Hassabis & McClelland 2016 (`raw/kumaran-2016-complementary-learning-systems-updated.md`) list the **index maintenance problem** as an Outstanding Question: an index points at a *cortical activity pattern*, and the slow learner's representations change continuously as it consolidates, so every stored index is silently invalidated by the very process the index is supposed to feed. Are hippocampal representations updated to track the drift, and if so how?
+
+Three things follow that this page should carry.
+
+- **The problem is specific to content-free indexing** and is the price of the theory's central economy. A store that holds content degrades gracefully as cortex drifts; a pointer is either valid or dangling, so drift converts to hard retrieval failure rather than to blur.
+- **It composes badly with rapid schema-dependent consolidation** ([[wiki/concepts/schema-assimilation.md]]): the faster cortex reorganises around a new schema, the faster the outstanding index set rots, so the two mechanisms this page's parent theory now endorses are in tension on the same timescale.
+- **(brainstorm) It is measurable in a machine today and nobody reports it.** Any retrieval-augmented system whose encoder is fine-tuned after the index was built has exactly this failure — stored keys were computed under old parameters — and the standard remedy is a full re-index, which is precisely what a brain cannot do. The wiki has no mechanism for *pointer repair*; the two candidate shapes are re-encoding on read (validate the retrieved pattern against the current encoder and rewrite the key) and a slow-drift-tolerant address space, and neither has been stated as a design in any source here.
+
 ---
 
 ## Limitations
