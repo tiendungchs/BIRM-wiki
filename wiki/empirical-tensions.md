@@ -57,7 +57,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T44 | Is a periodic `g` necessary for structural generalization, or just one solution among several? | `L3` | `LIVE` | 3 | [[wiki/tensions/t044.md]] |
 | T45 | Is the hippocampal map amodal, or biased to space? | `L1` | `LIVE` | 4 | [[wiki/tensions/t045.md]] |
 | T46 | When landmarks and self-motion disagree, which one sets the structural code? | `L2` | `LIVE` | 5 | [[wiki/tensions/t046.md]] |
-| T47 | Are concurrent structural codes independent frames or one code read out in many places? | `L1` | `LIVE` | 4 | [[wiki/tensions/t047.md]] |
+| T47 | Are concurrent structural codes independent frames or one code read out in many places? | `L1` | `LIVE` | 5 | [[wiki/tensions/t047.md]] |
 | T48 | Where is an inferred, never-experienced association computed — inside the medial temporal lobe or downstream? | `L1` | `LIVE` | 2 | [[wiki/tensions/t048.md]] |
 | T49 | How densely is CA3 recurrently connected — and does pattern completion need *structured* wiring or just enough of it? | `L3` | `LIVE` | 3 | [[wiki/tensions/t049.md]] |
 | T50 | Is an abstract hippocampal code low-dimensional, or is low dimensionality a red herring? | `L3` | `LEANING` | 4 | [[wiki/tensions/t050.md]] |
