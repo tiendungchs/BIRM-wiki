@@ -222,6 +222,22 @@ Extrinsic connections are glutamatergic; the inhibition is **polysynaptic and lo
 
 ---
 
+## The laminar assignment has a time axis: where a memory is read from moves upward over weeks
+
+> Frankland & Bontempi 2005, Nat Rev Neurosci 6:119–130 (`raw/frankland-2005-organization-of-recent-and-remote-memories.md`), reviewing Bontempi et al. 1999 and Frankland et al. 2004. Cellular imaging (*Zif268*/*c-fos*) of mice recalling a spatial discrimination at recent vs. remote delays.
+
+Every layer assignment on this page is stated as fixed wiring. In parietal cortex it is not fixed over the life of a memory: recall-evoked activation shifts from the **deep layers V–VI** at recent delays to **layers II–III and IV** at remote ones, while regional-level activation in some areas does not change at all.
+
+| Reading | Consequence |
+|---|---|
+| Layers II/III are the origin and termination of most cortico-cortical connections | The shift is what "new cortico-cortical connections were established" would look like at cellular resolution, i.e. consolidation moves a trace *into the lateral graph* of this page |
+| Deep layers are the subcortical/inter-areal output tier | At recent delays the same content is read out through the descending tier instead |
+| The shift is **sub-regional** | Regional-level imaging (human fMRI, 2-deoxyglucose at coarse resolution) is blind to it, which the reviewers offer as why cortical remote-memory activation has been hard to find in humans |
+
+**(brainstorm)** For a builder the useful form is that laminar identity indexes *the age of what is being read*, not only the direction of a signal — so a column's supragranular and infragranular populations can hold the same content at different stages of consolidation, and an instrument that averages over depth cannot see the transition. It also predicts that the superficial/deep functional split of the Douglas–Martin model above (explore vs. exploit) should be measurably confounded with content age in any task run over weeks; no experiment here controls for it.
+
+---
+
 ## Limitations
 
 | Limit | Consequence |
@@ -277,3 +293,4 @@ Extrinsic connections are glutamatergic; the inhibition is **polysynaptic and lo
 - **[[wiki/concepts/prediction-error-neurons.md]]** — the rival cell-class assignment on the same lamination, built from mouse closed-loop physiology instead of from the equations: it splits this page's single L2/3 error population in two by sign and demotes L2/3 interneurons from *encoding a variable* to *relaying the drive a comparator subtracts*, so the two schemes predict opposite effects of silencing the same cells.
 - **[[wiki/concepts/displacement-codes.md]]** — a functional reading of two edges this page leaves uninterpreted, and a direct challenge to a third: L6a→L4 plus L4→L6a (~45% of L4's synapses, narrow arbor) becomes the feature×location binding loop, and the L5 thick-tufted branch to higher-order thalamus becomes a composite-object representation rather than the efference copy Guillery & Sherman read it as (`T344`, Hawkins et al. 2019).
 - **[[wiki/entities/a24b-m2-v1-projection.md]]** — a measured laminar termination pattern to test this page's feedback assignment against: dense axons in L1 and L6, main postsynaptic targets L2/3 excitatory, L6 excitatory and PV interneurons, monosynaptic responses in 85%/73%/73% of L1/L2/3/L6 cells against 8% in L5 and 0% in L4 — a real feedback projection's port list, with the input layer excluded.
+- **[[wiki/concepts/complementary-learning-systems.md]]** — puts a time axis on this page's laminar assignment: as a memory consolidates, the population activated at recall shifts from the deep tier into layers II–III/IV, so layer identity indexes the *age* of the content being read as well as the direction of the signal.

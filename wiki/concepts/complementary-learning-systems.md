@@ -125,6 +125,60 @@ Consequences this page did not state:
 
 ---
 
+## Why the two rates differ, and where the channel can be cut
+
+> **Provenance.** Frankland & Bontempi 2005, *The organization of recent and remote memories*, Nat Rev Neurosci 6:119–130 (`raw/frankland-2005-organization-of-recent-and-remote-memories.md`). A review of >30 tabulated hippocampal-lesion studies of retrograde amnesia, the mouse-genetic consolidation experiments, and the (¹⁴C)2-deoxyglucose / immediate-early-gene imaging of memory age.
+
+### 1. A candidate substrate for the rate split: weight plasticity vs wiring plasticity
+
+The interference argument at the top of this page derives that there must be *two rates*; it says nothing about what makes the cortical rate slow, and the review names this as an open neurobiological question with one proposal attached:
+
+| System | Dominant plasticity | Why the rate follows |
+|---|---|---|
+| Hippocampus | **Weight** plasticity — change the strength between neurons *already* connected (LTP-like) | One exposure suffices: the connectivity the binding needs already exists |
+| Neocortex | **Wiring** plasticity — form new synapses between previously **unconnected** neurons (only a small fraction of possible cortical pairs are connected at all) | The substrate for an association must be *built* before it can be weighted, and structural change is slow |
+
+Supporting evidence, indirect but of the right type: GAP43 (growth-associated protein 43), a synaptogenesis marker, is induced in cortex after recall of both spatial and contextual fear memories; and in parietal cortex the activated population shifts over weeks from layers V–VI to layers II–III/IV — the origin and termination of most cortico-cortical connections ([[wiki/concepts/canonical-cortical-microcircuit.md]]), i.e. exactly the layers new cortico-cortical wiring would have to appear in.
+
+**(brainstorm) This breaks the machine analogy at its most load-bearing point.** Every machine CLS instance implements "slow" as a small step size on a **fixed** graph. If the biological slow rate is a *topology-search* cost instead, then (i) the slow learner should be **fast** wherever the required connection already exists — which is precisely the schema result ([[wiki/concepts/schema-assimilation.md]]), otherwise an unexplained exception; (ii) the right machine analogue of consolidation is growing edges/parameters, not annealing a learning rate; and (iii) the rate is not a hyperparameter at all but a function of the current connectivity, so it should drift as the slow learner fills in.
+
+### 2. The two learners are separately ablatable, and the fast store must survive for a week
+
+| Manipulation | Recent (1–3 d) | Remote (10–50 d) | What it isolates |
+|---|---|---|---|
+| α-CaMKII<sup>+/−</sup> — global **cortical** plasticity deficit, hippocampal plasticity normal | Normal | **Impaired**, and the time-dependent cortical reorganization does not occur | The slow learner knocked out alone |
+| Dominant-negative PAK (p21-activated kinase, a regulator of spinogenesis) — cortex-restricted: fewer spines, enlarged synapses, enhanced LTP + reduced LTD | Normal (1 d) | **Impaired** (21 d water maze; faster loss in contextual fear) | Same learner, unrelated lesion — so the effect is cortical plasticity, not one gene |
+| Inducible CA1 NR1 (NMDA-receptor) deletion **in the week after training** | — | **Blocked** | The *fast store's* integrity is required post-encoding, not only at encoding |
+| Forebrain dominant-negative α-CaMKII in the week after training | — | **Blocked** | Same window, different molecule |
+| Either suppression started **after** that week | — | No effect | The window closes; matches hippocampal lesions being harmless after week 1 |
+
+Two design consequences. **The transport is not a single pass**: the fast store must be maintained intact across a ~1-week window of repeated reactivation-dependent, gene-expression-requiring synaptic modification, so a machine buffer that evicts an item after one replay pass is not running this schedule. **The two learners are separately damageable with dissociable behavioural signatures**, which no single-network machine CLS instance on this page can reproduce — and the cortical-deficit rows are a genotype-level double dissociation of *rate* against *content*, the cleanest available support for the page's opening table.
+
+### 3. The channel has a cuttable wire, and the cut is time-limited
+
+Lesioning the **temporoammonic** projection — entorhinal layer III → CA1 ([[wiki/entities/entorhinal-cortex.md]]) — leaves the hippocampus functional and cuts cortical–hippocampal dialogue:
+
+| Time of lesion | Water-maze acquisition | 1-day memory | 28-day memory |
+|---|---|---|---|
+| Before training | Normal | Normal | **Impaired** |
+| 1 day after training | — | — | **Impaired** |
+| 21 days after training | — | — | Normal |
+
+So the channel is a wire that can be severed without damaging either endpoint, its traffic is required *after* encoding, and the requirement expires. Note the direction: this is a **cortex → fast store** projection, not the replay arrow — the third traffic direction this page now carries (with the vmPFC write-geometry control above), and here it is required for the *cortical* copy to form at all. **(brainstorm)** The cheap machine test is a disconnection rather than an ablation: hold both learners intact, zero the interface for a fixed window, and the prediction is intact one-shot performance with no asymptotic consolidation — a failure mode no current architecture would be instrumented to detect, since both components pass their own unit tests.
+
+### 4. Clearance is a required component with its own rate
+
+Most consolidation models need redundant memories *cleared* from the fast store; in connectionist models the clearance rate is what sets gradient length (high decay → short gradient), and it is a free parameter nobody measures.
+
+| Candidate clearance mechanism | Evidence |
+|---|---|
+| Basal protein-phosphatase-1 and NMDA-receptor-dependent processes actively expunging traces | Inhibiting either **after** learning, with no behavioural manipulation, *reduces* memory loss |
+| Adult neurogenesis — new dentate granule cells rapidly synapsing onto CA3 destabilise the existing network | Fear-memory retention is **facilitated** in mice with reduced adult neurogenesis; cortical neurogenesis is far slower, matching cortex's slower assumed decay |
+
+Read against Rolls' account above, these are two different theories of the same requirement: there, forgetting is passive *reallocation* forced by capacity; here it is an **active process with a pharmacologically separable rate**. Both make the retention window a function of the acquisition rate of new episodes rather than of a clock, and neither has a machine analogue — machine buffers evict by recency or by priority, never by a mechanism whose rate is a target of the system's own regulation (gap `G14`, `G42`).
+
+---
+
 ## The 15-year retrospective: four revisions to the original statement
 
 O'Reilly et al. 2011 is the CLS authors' own audit of McClelland, McNaughton & O'Reilly 1995 (MMO95). Their verdict is that the framework held; the interesting content is in what they *changed*.
@@ -228,6 +282,7 @@ The division-of-labour framing predicts the cortex should *drag down* episodic p
   - **Now built, in a linear model, and it comes with a stopping rule.** Sun et al. 2023 run the transport explicitly: a sparse Hopfield notebook one-shot-binds a random index to the slow learner's activity, settles into that index from random initialisation offline, drives the slow learner's input and output layers through the return weights, and the slow learner does gradient descent on *its own reactivated targets* — self-distillation from the fast store, with the environment never re-seen. The result is that this page's central assumption is wrong as stated: transport past a finite point *increases* generalization error, and for a relation the slow learner cannot model the optimal amount of transport is zero. Partial and permanent hippocampal residence are therefore the predicted normal case ([[wiki/concepts/generalization-optimized-consolidation.md]]).
   - **Partly answered, without replay.** Whittington et al. 2018 train the two learners *jointly*: a fast Hebbian write into the conjunctive store and slow gradient descent over the structural generator, end-to-end, so the slow learner is optimised precisely for *making the fast store's contents predictable and addressable*. Transport is continuous and online rather than an offline replay episode. Evidence that the coupling works: memories survive 400+ steps although backpropagation through time is truncated at 25, i.e. the retention is the Hebbian store's and the addressing is the gradient learner's. What it does not model is the CLS claim proper — nothing ever *moves* into cortex, so the fast store is never relieved ([[wiki/entities/tolman-eichenbaum-machine.md]]).
 - **"Slow" is a property of the *content*, not of the cortex.** With a matching cortical schema already in place, a new flavour–place pair is acquired in a single trial and survives 24 h, and hippocampal lesions block retention only within ~3 h of acquisition rather than 24–48 h — so the same tissue consolidates an order of magnitude faster when the new item fits an existing structure, and the benefit does not transfer from a schema built in a different environment. The interference argument at the top of this page derives the *existence* of two systems; it does not predict that the slow one's rate is a function of what it already holds ([[wiki/concepts/schema-assimilation.md]], Tse et al. 2007 via Preston & Eichenbaum 2013).
+  - **A mechanism that would make this the expected case rather than an exception**: if the cortical rate limit is *wiring* plasticity — building connections between previously unconnected neurons — then material whose connections already exist consolidates at hippocampal speed, and the schema result stops being an anomaly (section 1 above, Frankland & Bontempi 2005). Untested as stated; the discriminating measurement would be whether schema-consistent consolidation is accompanied by the synaptogenesis markers that schema-inconsistent consolidation is.
 - **Fast level: separate system or recurrent state?** CLS says a second anatomical store; meta-RL says activity dynamics of one network ([[wiki/concepts/meta-learning.md]]). Unresolved — see [[wiki/empirical-tensions.md]] T2.
 - **What gets replayed** — **partly answered, and against the machine version.** Error-prioritisation is what machine replay actually copies (reward-prioritisation is the version biology motivates and machines never deployed — [[wiki/concepts/replay-prioritisation.md]]); biology's demonstrated criteria run the other way (upsample the under-visited, suppress the non-recurring, prefer remote to imminent), and the proposed principle is an inductive bias toward *transferable* content rather than toward valuable content (Liao & Losonczy 2024; [[wiki/concepts/offline-replay.md]]). What remains open is the mechanism — inhibitory plasticity is predicted by modelling and not established — and whether the criterion is structural in the graph-disambiguating sense.
   - **Now with a normative derivation and a computable statistic.** Lindsey & Litwin-Kumar 2024 show that "keep what recurs" is the *optimal* filter when experience mixes reliably recurring update patterns with one-off ones, and that the separating statistic is the fast store's own recall of the proposed update — realised as prediction accuracy, decision confidence or familiarity depending on the learning problem. The filter therefore needs no offline pass at all ([[wiki/concepts/recall-gated-consolidation.md]]).
@@ -315,3 +370,6 @@ The division-of-labour framing predicts the cortex should *drag down* episodic p
 - **[[wiki/concepts/retrieval-mediated-learning.md]]** — a fourth traffic direction on this page's channel: the fast store's own *read* is injected into its own *write*, so what eventually consolidates to cortex is a composite the animal never experienced, and hippocampal engagement across repetitions falls while ventromedial prefrontal engagement rises in the same subjects who later infer best.
 - **[[wiki/entities/state-space-composition.md]]** — sharpens what each store is supposed to hold: the slow store holds the reusable *primitives* and the policy over them, the fast store holds only which primitives sit where, so what consolidation must extract from experience is a **new primitive** rather than a new map — and a poorly modelled experience, not a rewarded one, is what should trigger it (Bakermans et al. 2025).
 - **[[wiki/concepts/hierarchy-of-associativity.md]]** — supplies the encoder this page leaves implicit: the fast store's input arrives through two further recurrent association stages that make it supermodal before the store sees it, and the feedback arm is causally required to install an association in neocortex (entorhinal+perirhinal lesion abolishes pair-coding in area TE), which is consolidation-by-feedback measured rather than assumed (Higuchi & Miyashita 1996, via Lavenex & Amaral 2000).
+- **[[wiki/entities/entorhinal-cortex.md]]** — supplies the one place this page's channel can be cut without damaging either learner: lesioning the temporoammonic projection (layer III → CA1) leaves acquisition and 1-day memory intact and abolishes the 28-day memory, and only if the cut is made inside a post-encoding window (Frankland & Bontempi 2005).
+- **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — gives the cortical half of consolidation a laminar address: recall-evoked activation in parietal cortex migrates from layers V–VI to layers II–III/IV over weeks, i.e. into the layers that carry cortico-cortical connections, which is what the wiring-plasticity account of the slow rate predicts and what regional-resolution imaging cannot see.
+- **[[wiki/entities/medial-prefrontal-cortex.md]]** — adds a second job to the receiving end of this page's channel: on a successful remote read the controller appears to *suppress* the fast store (hippocampal activity below control, released when the cortical match fails), so the slow learner gates the fast store's re-encoding rather than only consuming its output (Frankland & Bontempi 2005).

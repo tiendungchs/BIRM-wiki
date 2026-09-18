@@ -83,7 +83,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T79 | Where does fast sensorimotor learning physically happen — in the circuit that carries the manifold, or upstream of it? | `L1` | `LIVE` | 2 | [[wiki/tensions/t079.md]] |
 | T80 | Can a population run a stored sequence backwards? | `L1` | `LIVE` | 2 | [[wiki/tensions/t080.md]] |
 | T81 | What determines whether a memory consolidates — that it *recurs*, or that the slow learner can *model* it? | `L2` | `LIVE` | 2 | [[wiki/tensions/t081.md]] |
-| T82 | Is permanent hippocampal dependence an optimal refusal or a transport failure? | `L1` | `LIVE` | 2 | [[wiki/tensions/t082.md]] |
+| T82 | Is permanent hippocampal dependence an optimal refusal or a transport failure? | `L1` | `LIVE` | 3 | [[wiki/tensions/t082.md]] |
 | T83 | Is memory allocation decided by the excitability of neurons just before learning? | `L3` | `LEANING` | 2 | [[wiki/tensions/t083.md]] |
 | T85 | Is phasic dopamine a reward *prediction* or a reward *association*? | `L4` | `LIVE` | 6 | [[wiki/tensions/t085.md]] |
 | T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `L1` | `LEANING` | 3 | [[wiki/tensions/t086.md]] |

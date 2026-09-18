@@ -74,6 +74,16 @@ A gradient orthogonal to the split, conserved into primates: parvalbumin express
 - Layer III is the **main recipient of the deep-to-superficial projection from layer Vb**.
 - No morphology↔connectivity↔physiology correlations have been reported at all. The review calls layer III "terra incognita".
 
+**One functional assignment the connectivity review does not carry** (Frankland & Bontempi 2005, `raw/frankland-2005-organization-of-recent-and-remote-memories.md`, reviewing Remondes & Schuman 2004): lesioning the temporoammonic projection leaves the hippocampus working and cuts cortical–hippocampal dialogue, and the behavioural signature is **selective for the remote memory**.
+
+| Lesion timing | Water-maze acquisition | 1-day memory | 28-day memory |
+|---|---|---|---|
+| Pre-training | Normal | Normal | **Impaired** |
+| 1 day post-training | — | — | **Impaired** |
+| 21 days post-training | — | — | Normal |
+
+So layer III's hippocampal output is not required to acquire or to retrieve a spatial memory at short delay — it is required, for a bounded post-encoding window, for the *cortical* copy to form ([[wiki/concepts/complementary-learning-systems.md]]). That is a systems-consolidation job for a **cortex → fast store** wire, i.e. the direction opposite to replay, and it makes layer III the one cuttable point where the two learners can be disconnected without damaging either.
+
 ---
 
 ## Layer V — the loop, and the reappraisal
@@ -143,3 +153,4 @@ Hippocampal output driven by an input that entered through the lateral division 
 - **[[wiki/concepts/vector-coding.md]]** — the most abundant *measured* code in the superficial medial layers this page describes (14.7% of cells, above grid cells at 11.3%), and a functional constraint on the afferent story: the code degrades in darkness, so whatever computes it needs the postrhinal/visual fan-in this page assigns to the medial division rather than the self-motion drive the grid attractor uses.
 - **[[wiki/entities/state-space-composition.md]]** — assigns this region's vector-cell zoo a computational job: border-, object- and reward-vector cells are *reusable building blocks* precisely because each is a complete path-integrable map in its referent's own frame, so a hippocampal conjunction of grid × vector code specifies a whole state space that arrives with its policy already attached (Bakermans et al. 2025).
 - **[[wiki/concepts/hierarchy-of-associativity.md]]** — the two association stages *upstream* of this one, in macaque: perirhinal and parahippocampal cortices each run their own dense intrinsic associational network and supply two-thirds of the cortical input here, so most cross-modal mixing is finished before the entorhinal stage — and the same deep-to-superficial return loop is reported there independently, twenty years earlier.
+- **[[wiki/concepts/complementary-learning-systems.md]]** — layer III's hippocampal output is that framework's severable wire: cutting the temporoammonic path disconnects the two learners without damaging either, and the memory that fails is the remote one, which assigns "terra incognita" a systems-consolidation job running cortex → fast store.

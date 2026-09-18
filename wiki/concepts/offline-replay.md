@@ -97,6 +97,17 @@ The mechanism proposed for the REM half is not replay-as-rehearsal but **oscilla
 
 **This is a distinct job — the eighth in the table below — and the only one that is not about new information at all.** Every row in the jobs table below transports, plans, constructs or tags something about recent experience. This one spends offline budget on *old* content, with no new data involved, purely to keep the store's existing items separable — the maintenance operation no machine replay buffer performs, and the direct ancestor of the "consolidating everything overfits" result.
 
+**A molecular arm of the same two-stage division, and it makes the cortical half hippocampus-gated** (Frankland & Bontempi 2005, `raw/frankland-2005-organization-of-recent-and-remote-memories.md`, reviewing Ribeiro et al.):
+
+| Observation | Reading |
+|---|---|
+| ~100 known (plus ~400 unidentified) genes are upregulated during sleep independent of circadian time | Offline periods run a transcriptional program, not only a firing pattern |
+| After novel-environment exploration, or after dentate LTP induction in awake rats, *Zif268* is upregulated during subsequent sleep in hippocampus **and** in piriform, frontal, entorhinal, auditory and somatosensory cortices | The cortical half of the channel leaves a molecular trace with an experience-dependent address |
+| Inactivating the hippocampus (tetracaine) **before REM onset** abolishes the cortical *Zif268* upregulation | Cortical remodelling is **under hippocampal control** for at least the first hours — the channel's causal direction measured on the receiver |
+| The upregulation falls in **REM**, while sequence replay falls in slow-wave sleep | A two-stage schedule: SWS transfers, REM **stabilizes** what SWS wrote |
+
+This is a different two-stage claim from the awake-tag/sleep-transfer one below — the stages are *both offline*, split by sleep state rather than by behavioural state, and the second stage is a consolidation of the first stage's synaptic changes rather than a selection for it. The two compose (awake tag → SWS transfer → REM stabilization) and nothing in the wiki tests the composition. Note it also cuts against the REM-runs-the-channel-backwards division in the table above: there REM re-equalises *old* content with no new data involved; here REM is where the *new* cortical write is made permanent. Same stage, two incompatible jobs, unresolved.
+
 **Offline plasticity is a hole, not a mechanism.** Whether synaptic weights change *within* hippocampus during rest has not been studied. The indirect evidence is suggestive: depolarisation during one SWR raises responsivity during subsequent SWRs (King et al. 1999); SWR-patterned spiking induces long-term potentiation in vitro (Sadowski et al. 2016); disrupting awake SWRs impairs learning even when online representations and post-experience replay stay intact (Jadhav et al. 2012). If plasticity does run offline, then the fast store is **refining its own content between exposures** — signal amplified, noise attenuated, before anything reaches cortex — and no machine replay buffer does anything of the kind.
 
 ---
