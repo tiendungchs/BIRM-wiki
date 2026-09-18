@@ -60,6 +60,8 @@
 - **Deduplication by exact vector equality** is brittle for continuous or noisy features; the authors call the approach naïve.
 - **Never hierarchical.** Options over options are listed as future work; one flat library is produced.
 - **Eigenpurposes are defined over the feature difference,** so a representation that does not change when the agent does something important silently denies that direction an option — the option library inherits every blind spot of `φ`.
+- **The library is produced but never *sequenced*.** One flat set is emitted with no ordering over it and nothing selecting which member to invoke for a given task — the reason `G33` stays `PARTIAL` on this source rather than closing: the decomposition is discovered, the subgoal *sequence* is not.
+- **Exploration gets a learned inventory but not a learned rate.** Eigenoptions enter the behaviour policy as extra actions and measurably lower diffusion time, so *where* to explore is read off the representation; *how much* remains a Q-learning `ε` set outside the selector, which is exactly the half of `G61` an option library cannot reach.
 
 ---
 

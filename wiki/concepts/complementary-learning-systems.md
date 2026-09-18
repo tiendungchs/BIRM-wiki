@@ -175,7 +175,7 @@ Section 1 makes the cortical rate slow because the *connection does not exist ye
 | Form | NMDA-receptor-dependent LTP | Voltage-dependent-calcium-channel (VDCC) LTP |
 | Trigger | Modest afferent input and depolarization | Strong input, large depolarization |
 | Durability | Rapid, **reversible by low-frequency input** | Slow to develop, much more stable |
-| Why cortex is the slow one | Not the rule — **both forms exist in both structures**. LTP is harder to induce in cortex *in vivo*, proposed to be strong inhibitory control preventing the required depolarization ([[wiki/concepts/excitation-inhibition-balance.md]]) |
+| Why cortex is the slow one | Not the rule — **both forms exist in both structures** | LTP is harder to induce in cortex *in vivo*, proposed to be strong inhibitory control preventing the required depolarization ([[wiki/concepts/excitation-inhibition-balance.md]]) |
 
 Three consequences for this page:
 
