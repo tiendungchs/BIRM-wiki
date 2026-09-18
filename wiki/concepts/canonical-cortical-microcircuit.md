@@ -2,7 +2,7 @@
 
 **The same laminar wiring diagram — thalamus → L4 → L2/3 → L5 → L6 → L4, with feedforward output from L2/3 and feedback from L5/6 — is found wherever it has been looked for, across areas with utterly different functions and across species separated by 135 million years. If cortex runs one algorithm, this graph is its pseudocode, and the algorithm it suggests is *explore interpretations in the superficial layers, commit to one in the deep layers*.**
 
-Every "cortical column" claim the wiki leans on — columns as reference-frame units voting on object identity ([[wiki/concepts/distributed-reference-frames.md]]), the uniformity argument that licenses importing a hippocampal or visual mechanism into a general architecture ([[wiki/concepts/inhibitory-control-of-coding.md]]) — presupposes that there *is* a canonical circuit. This page holds the anatomy those claims cash out to, and the numbers.
+Every "cortical column" claim the wiki leans on — columns as reference-frame units voting on object identity ([[wiki/concepts/distributed-reference-frames.md]]), the uniformity argument that licenses importing a hippocampal or visual mechanism into a general architecture ([[wiki/concepts/inhibitory-control-of-coding.md]]) — presupposes that there *is* a canonical circuit. This page holds the anatomy those claims cash out to, and the numbers. It also holds the **variations** half: the same circuit re-described by genetically defined cell class rather than by layer (Harris & Shepherd 2015), under which cortical areas are *serially homologous* — one topology whose per-area scalars can invert the sign of its response to the same top-down command, so uniformity buys the wiring and not the computation (`T371`).
 
 > **Provenance.** `raw/douglas-2004-neocortical-circuits.md` — Douglas & Martin, *Annu. Rev. Neurosci.* 27:419–51, 2004. A review, not a new result: it aggregates intracellular-HRP reconstructions, tracer injections, immunochemistry and photostimulation across cat, ferret, rat, tree shrew, macaque and human. The functional model in its last section is explicitly labelled by the authors as "a tentative hypothesis".
 
@@ -139,6 +139,93 @@ Geometry table: a large L3 basket cell's dense perisomatic arbor is ~280 µm acr
 
 ---
 
+## The variations half: the same circuit re-keyed to cell class rather than to layer
+
+> Harris & Shepherd 2015, *Nat. Neurosci.* 18(2):170–181 (`raw/harris-2015-neocortical-circuit-themes-and-variations.md`). Review of optogenetic circuit mapping, paired recording, transgenic markers and *in vivo* imaging, largely rodent sensory and motor cortex. Thesis: cortical areas are **serially homologous** — hands and feet, not copies — and *"lamination is not the sole or even primary organizing principle of neocortex. Instead, what different regions share is their hodology: the patterns of connection between different genetically defined cell classes."* Everything above this section is keyed to layers; this section is the same circuit keyed to classes, and the two keys do not commute.
+
+### The three excitatory classes (Table 1, condensed)
+
+| | **IT** — intratelencephalic | **PT** — pyramidal tract | **CT** — corticothalamic |
+|---|---|---|---|
+| Layer | L2–L6; **L4 IT** a hodologically distinct subclass | L5B, thick-tufted | L6 |
+| Genes | *Satb2* (*Rorb* in L4) | *Fezf2*, *Ctip2* | *Tbr1* |
+| Local excitatory input | Many, from L4 IT and other IT | Many, **mainly from IT** | Few, mainly deep-layer (L5B/6) IT |
+| Local excitatory output | IT, PT, CT | **Few** — a local sink | Some IT, possibly PT |
+| Long-range input | Thalamus, higher *and* lower cortex | Thalamus (core-type), higher and lower cortex | **Higher-order cortex**, not thalamus, not local |
+| Long-range output | Telencephalon only (cortex, striatum, amygdala, claustrum); **the only excitatory class with callosal axons** | Brainstem, tectum, spinal cord, thalamus, basal ganglia; intracortical collaterals ipsilateral only, seen mostly in *feedback*-type projections | Thalamus only; **the only excitatory class with no long-range corticocortical axon** |
+| *In vivo* rate | Sparse (L2 sparser than L3) | **Dense — the highest of all excitatory classes** | Very sparse; "remarkably silent" across behaviours |
+
+**Sequential hodology:** `L4 IT → IT of other layers → PT`, asymmetric at every step (L4 receives little back; PT gives little back). The interneurons are sequential too — `Vip ⊣ Sst ⊣ Pvalb ⊣ pyramidal cell` — and the same order is reported in several areas.
+
+**The caveat the authors put in italics and that simplified schematics lose:** the sequence is *not* a pipeline. Every excitatory class has its own long-range input (multiple **entry** points) and every excitatory class is a projection neuron (multiple **exit** points). A three-stage local chain with an independent input and an independent output at each stage is a different object from a three-layer feedforward net — it is closer to a bus with taps.
+
+### What the re-keying does to this page's canonical graph
+
+| Edge as stated above (Douglas & Martin 2004) | Under Harris & Shepherd 2015 |
+|---|---|
+| `L5 → L6 → L4` closes the loop | Not a step in the local excitatory sequence. PT is the **terminus**, giving little back locally; CT sits off the path, driven by higher-order *cortex* rather than by local cells |
+| `L6 → L4` | In rodent, L6→L4 excitation is weak-to-absent and its net effect is often **inhibitory** — in mouse S1 CT cells innervate L5A IT but indirectly *inhibit* L4; in V1 they inhibit all other layers via a Pvalb subclass. The loop closes as gain control, not as re-entrant excitation |
+| "L5" and "L6" as tiers | Both layers are **class-mixed**: IT and PT intermingle in L5B, IT and CT in L6. A laminar electrode, a laminar lesion or a laminar term in a model pools two classes with opposite jobs (one broadcasting subcerebrally at the highest rate in cortex, one nearly silent) |
+| Feedback comes from "L5/6" | CT has no corticocortical axon at all, so the feedback sender is IT subclasses plus PT collaterals — a **class** statement, and PT's systematic contribution to feedback is flagged as untested |
+| Thalamus → L4 is *the* driving afferent | Core-type thalamic input also reaches **PT directly, strongly enough to drive it without L2/3** — the deep tier is not downstream-only |
+
+### Serial homology: identical topology, opposite sign
+
+The sharpest result for anyone copying a column:
+
+| Area | Locomotion's effect on Vip cells | Locomotion's effect on superficial excitatory-cell sensory responses |
+|---|---|---|
+| V1 | **Increase** | **Increase** (via Vip-mediated disinhibition) |
+| A1 | **Increase** | **Decrease** in L2/3 IT and Pvalb cells |
+
+Both effects are mimicked by optogenetic drive of the higher-order cortical input, so the same top-down command produces opposite-signed changes through apparently identical hodology. The authors' analogy: one electronic topology is an amplifier or an attenuator depending on component impedances; candidate loci are the relative strengths of Vip→Sst / Vip→Pvalb / Vip→pyramidal inhibition, neuromodulator sensitivity per interneuron class, or the strength of top-down input onto each class.
+
+**(brainstorm) This is the load-bearing qualification on cortical uniformity, and the wiki has been running without it.** Every argument on this page that licenses copying one column everywhere ([[wiki/concepts/distributed-reference-frames.md]], [[wiki/entities/thousand-brains-theory.md]]) buys the *wiring* and not the *computation*: sign-inverted behaviour is reachable from one topology by changing scalars. The right machine analogue is therefore **shared topology with per-module gains**, not weight sharing — a hypernetwork emitting a small per-area parameter vector over a fixed connectivity mask. It also predicts the failure mode of the uniformity programme: a single trained column transplanted to a new modality will be functionally wrong even when it is structurally right, and the error will be in a handful of scalars rather than in the graph.
+
+### Cell class, not laminar position, determines connectivity
+
+Mutually suppressive transcription factors specify the top-level classes (*Fezf2*/*Ctip2* → PT, *Satb2* → IT, *Tbr1* → CT), and downstream gene modules control the axon-guidance and synapse-formation machinery that gives each class its connectivity profile. Manipulating those factors in **postmigratory** neurons changes their connectivity and physiology — the cell has already reached its layer and its wiring changes anyway. The review's conclusion: *it is the genetically specified cell class, rather than laminar location per se, that is the fundamental determinant of cortical connectivity.*
+
+Area differences then arise two ways: (i) graded transcription-factor expression across the cortical sheet sets long-range targets and the quantitative circuit parameters, (ii) thalamocortical innervation and afferent activity sculpt the thalamorecipient tier — barrel formation, spiny-stellate dendrite retraction and L4-specific gene expression all require thalamocortical input, and barrel cortex adapts to the number of intact whiskers.
+
+Against every laminar assignment above — Douglas–Martin's explore/exploit split, Bastos et al.'s one-quantity-per-population table — this says the layer index is a **proxy for a type label**, and the proxy fails exactly where the two class-mixed layers are. Recorded as [[wiki/empirical-tensions.md]] `T371`.
+
+### L4 is where areas actually differ
+
+| Observation | Area/species |
+|---|---|
+| Spiny stellates present | cat and monkey V1 |
+| Spiny stellates absent | rodent V1; generally absent in A1 |
+| L4 markers present without a granular layer | agranular motor cortex ("rudimentary L4") |
+| L4 stratified into input-stream sublayers | primate and human V1 |
+| L4 carries a map of the nose | star-nosed mole S1 |
+| L4 receives massive core-type thalamocortical input and little else | primary sensory cortex generally |
+| L4 receives lower-order *cortical* input | higher-order sensory areas — the input pattern used to define hierarchy |
+
+Outside L4 the review finds "little evidence for major inter-areal differences in local circuit hodology". **(brainstorm)** The importable shape is a conserved trunk with a **per-modality input adaptor** whose architecture is *sculpted by its own input statistics during development* rather than designed — which is what "input-driven malleability of L4 might help accelerate the evolution of new sensory strategies" says. In model terms: freeze the shared body, let the front end's connectivity (not just its weights) be produced by the data it is trained on.
+
+### Thalamic input is typed, and the type is relative to the target
+
+| Type | Source | Termination | Reading |
+|---|---|---|---|
+| **Core** | First-order relay nuclei (VPM, ventral MGN, dorsal LGN) | L4, topographic; also L3, L5B/6; drives PT directly | Rapid sensory/motor content; the *driver* |
+| **Matrix** | Higher-order nuclei (POm, dorsal/medial MGN, LP/LD) | **L1** and L5A; **avoids L4** | Cargo "poorly understood" — arrives on the apical tuft, i.e. on the compartment [[wiki/concepts/dendritic-computation.md]] types as the prediction/context channel |
+| **Intralaminar** | Intralaminar nuclei | L5/6 of motor and frontal cortex, plus striatum | A third stream that no laminar scheme in the wiki represents |
+
+Two refinements worth carrying. **(i) The typing is not intrinsic to the source:** matrix-type nuclei projecting to *secondary* somatosensory and auditory cortex terminate heavily in L4 and appear to **drive** those areas, while the same class of cell modulates primary areas. Driver/modulator is therefore a property of the edge, not of the sending nucleus — which sharpens the typed-edge claim made in the driver/modulator paragraph above and constrains [[wiki/concepts/transthalamic-context-routing.md]]'s per-edge context channel. **(ii) The two streams are split at single-cell resolution and by sublayer:** L3 IT receives core input on its **basal** dendrites and matrix plus higher-order cortical input on its **apical** tuft; L2 IT receives matrix input but little core, its basal dendrites barely overlapping the core axons. So the evidence/context separation is implemented twice — once by compartment, once by sublayer — and the supragranular layer that most models treat as one population is at least two.
+
+### IT subclasses as a generator for the inter-areal connectivity matrix
+
+The SLN% rule above makes hierarchy a laminar measurement. In rodent it partly fails: feedforward and feedback projections arise from **distinct populations that do not always occupy different layers**, with the main laminar signature being feedback's avoidance of L4. The proposed replacement:
+
+- A molecularly distinct deep-layer subclass (latexin⁺, *Nr4a2*⁺) in secondary visual, auditory and somatosensory cortex sends feedback to the **corresponding primary area** and rarely anywhere else — a gene module that appears to specify a projection *role*.
+- Within superficial barrel cortex, distinct IT subclasses project to M1 versus S2, with different intrinsic physiology and different coding *in vivo* — hypothesised as homologues of the dorsal (where) and ventral (what) streams, whose primate counterparts also differ in firing pattern.
+- Hypothesis: a small set of homologous IT subclasses, each with a gene module fixing its input connectivity, physiology and long-range target class, diversified by area-specific gradients that say *which* area of that class to target (V2→V1 rather than V2→A1).
+
+**(brainstorm) Read as a parameterization this is a low-rank factorization of the connectome**: instead of `N²` free inter-areal weights, `k` subclass types × an areal gradient, with the type fixing *what kind* of edge and the gradient fixing *which* endpoint. That is directly buildable — a growing modular architecture where a new module instantiates the same `k` port types and an embedding picks its partners — and it makes hierarchy a *consequence* of port types rather than a designed depth index, which is what [[wiki/concepts/broadcast-hierarchy.md]] needs and what a layer index cannot express. It also says the primate/rodent laminar disagreement may be a **re-layering of conserved types**, not a different circuit: homology at the level of classes, not of positions.
+
+---
+
 ## The Douglas–Martin functional model: explore in the superficial layers, exploit in the deep
 
 The review's closing hypothesis, and the reason a 2004 anatomy paper belongs on a reasoning wiki:
@@ -249,6 +336,9 @@ Every layer assignment on this page is stated as fixed wiring. In parietal corte
 | Nonclassical-receptive-field explanations are contested | Whether the lateral spread exceeds the classical receptive field by 8× or matches it is disputed within the cited literature |
 | Rodent V1/S1 lack the patchy connections | The patch motif, the most distinctive feature here, is the *least* canonical thing on this page |
 | The evidence base is skewed to visual cortex of cat and primate | Canonicity is partly an extrapolation from where people looked |
+| The hodological evidence is skewed the other way — to one mouse strain | The sequential excitatory and inhibitory hodologies come largely from techniques applied only in rodent (much of it C57BL/6 *Mus musculus*); Harris & Shepherd state there are as yet insufficient data to know whether the sequence holds in other mammals, so "themes" and "variations" rest on partly disjoint evidence bases |
+| The subclass homologies are a hypothesis, not a result | The IT-subclass generator for inter-areal connectivity is offered as an extrapolation from one clear case (latexin⁺/*Nr4a2*⁺ feedback cells); whether top-level classes even have homologous *long-range inputs* across areas is unknown (PT cells in barrel cortex get almost no matrix-type thalamic input — nobody has checked elsewhere) |
+| CT is a hole in every functional model on this page | L6 is a substantial fraction of cortical volume; CT cells are driven mainly by higher-order cortex rather than locally or thalamically, are near-silent *in vivo*, and their strongest measured effect is inhibition of other layers. No assignment here — modulator, location code, gain control — has been tested against that profile |
 
 - **The L6 typing is doing work it was never tested for.** Douglas & Martin's driver/modulator distinction was imported from thalamic work with its inter-areal function stated as unexplored, and the Thousand Brains Theory assigns the same layer a *content* role — a path-integrated location code that is half of a conjunctive object representation. Modulator or location code is [[wiki/empirical-tensions.md]] T66, and it decides whether a machine column's location input is a multiplicative gain on an evidence stream or a first-class content input.
 
@@ -256,9 +346,9 @@ Every layer assignment on this page is stated as fixed wiring. In parietal corte
 
 ## Connections
 
-- **[[wiki/concepts/distributed-reference-frames.md]]** — supplies the circuit that theory presupposes and never specifies: "columns vote on a consistent pose" becomes soft winner-take-all among superficial pyramids, with lateral patches carrying the vote between columns and L5 feedback carrying it between areas; it also supplies the uniformity evidence that whole argument rests on.
-- **[[wiki/concepts/dendritic-computation.md]]** — the anatomy that makes the apical/basal split load-bearing: feedback and subcortical input terminate in layer 1 on distal apical tufts while drive arrives on basal and proximal compartments, so the prediction channel and the evidence channel are physically separated at the level of wiring, not just of theory.
-- **[[wiki/concepts/inhibitory-control-of-coding.md]]** — the same interneuron populations sorted by a different criterion: that page splits them by transcriptomic family and assigns each a *code feature*, this one splits them by axon geometry and assigns each a *computational role* (perisomatic → selection, dendritic → transfer-function control) — and adds that which channels reach a cell is set by its layer, which is a wiring answer to that page's open "what sets the gains" question.
+- **[[wiki/concepts/distributed-reference-frames.md]]** — supplies the circuit that theory presupposes and never specifies: "columns vote on a consistent pose" becomes soft winner-take-all among superficial pyramids, with lateral patches carrying the vote between columns and L5 feedback carrying it between areas; it also supplies the uniformity evidence that whole argument rests on — and now the qualification on it: identical hodology in V1 and A1 produces opposite-signed responses to the same top-down drive, so a transplanted column is functionally wrong while structurally right, and what must be per-area is a handful of scalars (Harris & Shepherd 2015).
+- **[[wiki/concepts/dendritic-computation.md]]** — the anatomy that makes the apical/basal split load-bearing: feedback and subcortical input terminate in layer 1 on distal apical tufts while drive arrives on basal and proximal compartments, so the prediction channel and the evidence channel are physically separated at the level of wiring, not just of theory — separated twice over, since matrix-type thalamic input and higher-order cortex land on the L3 pyramid's apical tuft while core-type thalamic input lands on its basal dendrites, and L2 IT cells receive the matrix stream with barely any core stream at all.
+- **[[wiki/concepts/inhibitory-control-of-coding.md]]** — the same interneuron populations sorted by a different criterion: that page splits them by transcriptomic family and assigns each a *code feature*, this one splits them by axon geometry and assigns each a *computational role* (perisomatic → selection, dendritic → transfer-function control) — and adds that which channels reach a cell is set by its layer, which is a wiring answer to that page's open "what sets the gains" question; a third cut, by genetic class, recovers that page's `Vip ⊣ Sst ⊣ Pvalb` chain in neocortex as a *sequential hodology* running parallel to the excitatory one, with Vip addressed by layer-1 corticocortical axons and ionotropic acetylcholine/serotonin receptors and Pvalb the only interneuron class on the feedforward drive path.
 - **[[wiki/concepts/predictive-coding-free-energy.md]]** — the laminar substrate that hierarchy assumes: feedforward from L2/3 into L4 of the area above, feedback from L5/6 into layer 1 below, with the SLN% distance rule making hierarchical depth a measurable continuous quantity rather than a stipulated layer index — and the rival functional assignment to this page's explore/exploit reading: superficial pyramids are **error units** (the only thing that goes up is prediction error) and deep pyramids **state units** (the only thing that comes down is a prediction), which explains the driver/modulator asymmetry as linear bottom-up error mixing against nonlinear top-down entry through `f, g`, and predicts that local field potentials measure prediction error directly (Friston & Kiebel 2009). Bastos et al. 2012 completes that assignment to cell-class resolution (causes excitatory, states inhibitory; expectations supragranular, errors granular and superficial-pyramidal; precision on the L2/3 pyramid's gain) and derives the gamma-superficial / beta-deep asymmetry from the fact that expectations integrate errors.
 - **[[wiki/concepts/attention.md]]** — the biological form of the soft-max: selection over a population implemented by perisomatic inhibition, iterated rather than one-shot, and with a second channel (dendrite-targeting inhibition) that changes what each unit can integrate before the competition runs — a control the standard attention block has no counterpart for.
 - **[[wiki/concepts/energy-based-models.md]]** — the closest machine reading of the explore/exploit lamination split: superficial layers relaxing toward a consistent interpretation under mutual inhibition is a settling process, and the deep layers are the read-out that commits and then constrains the input.
@@ -284,7 +374,7 @@ Every layer assignment on this page is stated as fixed wiring. In parietal corte
 - **[[wiki/concepts/effective-connectivity.md]]** — where this circuit became the state vector of an *estimator*: the current Dynamic Causal Model for fMRI puts four coupled populations per region, with inter- and intra-laminar connections and two hidden states each, in place of the abstract bilinear graph — so laminar connection strengths become quantities fitted to imaging data rather than anatomical priors (Friston et al. 2019, in Li & Yap 2022).
 - **[[wiki/concepts/broadcast-hierarchy.md]]** — the second laminar hierarchy metric and what it buys: laminar differentiation grades an area by its own layering rather than by its projections' origins, and the laminar type rule that comes with it (similar profiles connect) converts hierarchical depth from a coordinate into a coupling-eligibility constraint, which is how a deep system can nevertheless be a heterarchy.
 - **[[wiki/concepts/microarchitectural-topography.md]]** — where the laminar-type coupling rule stops coinciding with locality: on a smooth cytoarchitectural gradient the type-matched partner is the spatial neighbour, on an interdigitated patch it is the next-but-one patch, which is the pattern prefrontal tract-tracing reports.
-- **[[wiki/concepts/transthalamic-context-routing.md]]** — the measurement this page's open transthalamic question was waiting for, and a partial answer that changes the question: the disynaptic mirror of a feedforward edge (V1→LP→PM) does not carry re-typed content but the sender's arousal state, since silencing it leaves the target's visual responses near-intact and deletes its pupil-linked modulation — so the feedforward/feedback typing may not apply to the transthalamic route at all (Neske & Cardin 2025, [[wiki/empirical-tensions.md]] T276).
+- **[[wiki/concepts/transthalamic-context-routing.md]]** — the measurement this page's open transthalamic question was waiting for, and a partial answer that changes the question: the disynaptic mirror of a feedforward edge (V1→LP→PM) does not carry re-typed content but the sender's arousal state, since silencing it leaves the target's visual responses near-intact and deletes its pupil-linked modulation — so the feedforward/feedback typing may not apply to the transthalamic route at all (Neske & Cardin 2025, [[wiki/empirical-tensions.md]] T276) — and the anatomical typing is itself target-relative, since matrix-type (higher-order) nuclei modulate primary cortex through L1 while the same class drives *secondary* sensory cortex through L4 (Harris & Shepherd 2015).
 - **[[wiki/entities/early-visual-system.md]]** — the functional readout of this circuit at the one place it has been modelled quantitatively, and the number that frames the contextual-modulation problem: ~60–80% of a layer-4 V1 cell's response variance is contributed by other V1 neurons or by non-geniculate input, so the feedforward drive this page types so carefully is a minority shareholder in the response it is supposed to explain (Olshausen & Field 2005, in Carandini et al. 2005).
 - **[[wiki/entities/ventral-visual-stream.md]]** — a *functional* proposal for a unit deliberately an order of magnitude larger than this page's circuit: a ~500 µm, ~40K-neuron, ~10K-in/~10K-out dimensionality-preserving block, on the argument that the canonical microcircuit is too small to have a population-level job description at all.
 - **[[wiki/concepts/neuron-complexity-index.md]]** — multiplies this page's stage count and then freezes most of the product: fitting one L5 pyramidal cell's I/O needs 5–8 network layers, so a circuit's computational depth is `~5–8 ×` its anatomical depth, but only the synaptic (between-cell) layers are plastic. It also makes the layer-1 feedback channel conditional on a receptor: with NMDA deleted, apical tuft synapses carry *zero* weight in every fitted filter even though nexus Ca²⁺ spikes still occur (Beniaguev et al. 2021).

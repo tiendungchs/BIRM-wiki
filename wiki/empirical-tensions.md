@@ -336,3 +336,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T368 | Is the basolateral→central amygdala projection a valence-general output route or the negative-valence channel? | `L1` | `LIVE` | 4 | [[wiki/tensions/t368.md]] |
 | T369 | Under a state change, is the anti-reward channel an error against a prediction, or a valence read-out with a state-set origin? | `L2` | `LIVE` | 4 | [[wiki/tensions/t369.md]] |
 | T370 | Does uninstructed free play converge on an intermediate-difficulty set-point, or does it under-challenge? | `L0` | `LIVE` | 2 | [[wiki/tensions/t370.md]] |
+| T371 | Is the cortical circuit's invariant unit the layer or the genetically defined cell class? | `L1` | `LEANING` | 4 | [[wiki/tensions/t371.md]] |
