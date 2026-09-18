@@ -1,0 +1,13 @@
+---
+title: "The neocortical circuit: themes and variations"
+source: "https://www.nature.com/articles/nn.3917/tables/1"
+author:
+  - "[[Kenneth D Harris]]"
+  - "[[Gordon M G Shepherd]]"
+published: 2015-01-27
+created: 2026-09-18
+description: "table 1"
+tags:
+  - "clippings"
+---
+<table><thead><tr><th><p>Top-level class:</p></th><th colspan="2"><p>IT</p></th><th><p>PT</p></th><th><p>CT</p></th></tr><tr><th><p>Major subclass:</p></th><th><p>L4</p></th><th><p>Other layers</p></th><th></th><th></th></tr></thead><tbody><tr><td><p>Some characteristic genes:</p></td><td><p><i>Rorb, Satb2</i></p></td><td><p><i>Satb2</i></p></td><td><p><i>Fezf2, Ctip2</i></p></td><td><p><i>Tbr1</i></p></td></tr><tr><td><p>Inputs from other local excitatory classes:</p></td><td><p>Few</p></td><td><p>Many, including L4 IT and other IT</p></td><td><p>Many, mainly from IT</p></td><td><p>Few, mainly deep-layer (L5B/6) IT</p></td></tr><tr><td><p>Outputs to other local cell classes:</p></td><td><p>Mainly IT, especially in L3; in at least some cases, also PT</p></td><td><p>IT (but not L4 IT), PT, CT</p></td><td><p>Few</p></td><td><p>Some interconnectivity with IT, possibly PT</p></td></tr><tr><td><p>Long-range inputs:</p></td><td><p>Thalamus, lower order cortex</p></td><td><p>Thalamus, higher and lower order cortex</p></td><td><p>Thalamus, higher and lower order cortex</p></td><td><p>Higher order cortex</p></td></tr><tr><td><p>Long-range outputs:</p></td><td><p>Few</p></td><td><p>Many, but only within telencephalon (neocortex, striatum); the only ECs sending callosal/commissural projections</p></td><td><p>Many, to many subcortical and subcerebral regions (brainstem, tectum, spinal cord, thalamus, basal ganglia)</p></td><td><p>Thalamus; the only ECs to excite reticular nucleus and the only ECs without longer range corticocortical axons</p></td></tr><tr><td><p>Layer and morphology:</p></td><td><p>L4 pyramidal or stellate</p></td><td><p>L2/3, L5A, L5B, L6; pyramidal</p></td><td><p>L5B, thick tufted pyramidal</p></td><td><p>L6, pyramidal</p></td></tr><tr><td><p>Intrinsic physiology:</p></td><td><p>Regular spiking or bursting</p></td><td><p>Hyperpolarized (L2/3), little <i>I</i> <sub>h</sub>, spike train adaption</p></td><td><p>Depolarized, strong <i>I</i> <sub>h</sub>, little adaptation, bursting (subset)</p></td><td><p>Regular spiking</p></td></tr><tr><td><p><i>In vivo</i> activity:</p></td><td><p>Rapid sensory response</p></td><td><p>Sparse code</p></td><td><p>Dense code</p></td><td><p>Very sparse</p></td></tr></tbody></table>
