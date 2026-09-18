@@ -48,7 +48,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 25 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `L0-INSTR` | `OPEN` | 10 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `L0` | `OPEN` | 18 | [[wiki/gaps/g032.md]] |
-| G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 16 | [[wiki/gaps/g033.md]] |
+| G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 17 | [[wiki/gaps/g033.md]] |
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L0-INSTR` | `OPEN` | 1 | [[wiki/gaps/g036.md]] |
