@@ -144,6 +144,20 @@ The shuffled-weight control is what makes this a finding: an MLP is nonlinear an
 
 ---
 
+## Completion needs an address, and the address is learned at write time
+
+The transfer curve says CA3 will settle into the stored attractor from a fragment. It does not say how the settled state reaches *the* cortical pattern that fragment came from, rather than everything the hippocampus projects to. Indexing theory's answer, imported from O'Reilly & Rudy 2001 (Teyler & Rudy 2007; [[wiki/concepts/hippocampal-indexing-theory.md]]):
+
+| Path | Built when | Role |
+|---|---|---|
+| Entorhinal → dentate → CA3 | Encoding | The separated, conjunctive index |
+| Entorhinal → CA1 (direct) | Encoding | A **second**, less separated representation of the same input |
+| CA3 ↔ CA1 | Encoding, by coactivity | Lets the completed index reach CA1 |
+| **CA1 → entorhinal** | Encoding, by coactivity of backward-driven CA1 cells with the forward-driven entorhinal cells | The **return address**, potentiated onto exactly the cells the experience was driving |
+
+Two consequences for this page. (i) The read-out is not a fixed decoder — it is written in the same event as the item, so completion's specificity is a *stored* quantity that can be damaged independently of the attractor. (ii) It gives CA1 a job that is neither relaying nor recombining: holding the learned inverse of the encoder (`T33`). **(brainstorm)** The machine version is one line and nobody writes it: at write time, also potentiate the store→encoder path onto the units currently active, giving a per-item decoder instead of a shared one — which is the only arrangement under which a very sparse store is cheap to read back out (contrast the `C^HBP` fan-out cost above).
+
+
 ## Necessity, not just correlation
 
 | Manipulation | Result | Reads as |
@@ -337,3 +351,4 @@ Neurocognitive aging is the wiki's cleanest natural experiment on a mis-set sepa
 - **[[wiki/entities/visual-predictive-coder.md]]** — de-aliasing by temporal context rather than by orthogonalisation: two pixel-identical rooms on a loop are separated to 0.071 lattice units of position error because the observation histories reaching them differ, and a proof that no single-observation estimator can do it at all (Gornet & Thomson 2024).
 - **[[wiki/entities/model-free-episodic-control.md]]** — the completion extreme with no separation control at all: the read for an unseen state is an *unweighted* mean over the `k` nearest stored values however far away they are, which is the setting [[wiki/entities/neural-episodic-control.md]]'s inverse-square kernel was chosen to back away from, and whose `k`-sweep is a free test of whether the neighbours carry anything (flat on Atari, strongly rising on Labyrinth).
 - **[[wiki/concepts/hierarchy-of-associativity.md]]** — bounds what the transfer curve can be asked to do: the codes it operates on have already been mixed across modalities by the perirhinal, parahippocampal and entorhinal associational networks, so two episodes made identical upstream are unseparable by any dentate/CA3 mechanism, and anything the stack keeps apart arrives pre-separated at no cost (`T347`).
+- **[[wiki/concepts/hippocampal-indexing-theory.md]]** — supplies what the transfer curve omits: completion must reach *the* cortical pattern the cue came from, and the return address is potentiated onto CA1→entorhinal synapses during the same encoding event, making retrieval specificity a stored quantity separately damageable from the attractor.

@@ -57,6 +57,21 @@ Afferent and efferent projections between the two cortices and neocortex are *br
 
 ---
 
+### The stack is what makes indexing affordable
+
+> Teyler & Rudy 2007, revising their own 1986 claim. Full treatment: [[wiki/concepts/hippocampal-indexing-theory.md]].
+
+The original indexing theory had the hippocampus addressing *every* neocortical locus. The update retracts that and puts this page's stack in the middle of the address path, on two grounds:
+
+| Ground | Statement |
+|---|---|
+| Anatomy | Direct hippocampus↔neocortex projections are confined to the adjacent medial-temporal association cortices — the stages on this page |
+| Scaling | Human neocortex expanded enormously with **no** proportional hippocampal expansion; a flat index would have had to grow with the thing it addresses |
+| Revised scheme | Hippocampus indexes **association cortex**, which indexes the rest — "an association cortex for the association cortex" |
+
+So the monotone-integration property above is not only a constraint on what the store can see; it is the reason the store can be small. **(brainstorm)** The exponent is the point for a builder: a flat index scales with the number of addressable encoder sites, a two-level index with the number of *summary* sites, and the fan-out is spent at the stage that has already compressed. The prediction is that a machine store addressing a learned intermediate layer instead of the encoder's full activation has its capacity set by that layer's dimension and its retrieval fidelity set by that layer's invertibility — two quantities every flat design confounds.
+
+
 ## The interface is an active memory participant, not a relay
 
 | Observation | Source (cited in the review) | What it shows |
@@ -127,3 +142,4 @@ Stated as an architectural constraint, since that is the form the wiki can use:
 - **[[wiki/concepts/retrieval-mediated-learning.md]]** — where the reciprocity failure is testable: reinstatement is measured there as a classifier read-out of an absent element, and this page predicts the read-out should be systematically more faithful in early sensory cortex than in frontal cortex, because the return path is wide to the former and narrow to the latter.
 - **[[wiki/concepts/temporal-coding.md]]** — supplies the stack's coincidence window and its source: perirhinal theta is imposed by deep entorhinal layers rather than by the septal pacemaker, so the plasticity window at the store's input stage is set by the stage above it.
 - **[[wiki/concepts/representation-probing.md]]** — a probe specification this page derives: decode coarse-category and fine-identity labels from *one* layer as a function of recurrent step; a within-layer coarse→fine time course is the signature of a feedback contribution and cannot exist in a strictly feedforward encoder (after Sugase et al. 1999).
+- **[[wiki/concepts/hippocampal-indexing-theory.md]]** — this stack is the thing the index actually addresses: the hippocampus reaches only the medial-temporal association cortices and they index the rest, so the store's capacity is set by the summary layer's dimension rather than by the number of cortical sites — and the same page's reciprocity failure is what limits how far addressing can extend past entorhinal cortex.

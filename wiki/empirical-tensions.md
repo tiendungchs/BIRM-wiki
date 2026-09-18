@@ -40,7 +40,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T24 | Does an adaptation curve measure learning? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t024.md]] |
 | T25 | Does a decodable internal structure license the claim that the model reasons over it? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t025.md]] |
 | T27 | Is the brain's map metric or topological? | `L1` | `LIVE` | 4 | [[wiki/tensions/t027.md]] |
-| T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 10 | [[wiki/tensions/t028.md]] |
+| T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 12 | [[wiki/tensions/t028.md]] |
 | T29 | Does de-aliasing conflict with generalisation? | `L0` | `LEANING` | 3 | [[wiki/tensions/t029.md]] |
 | T30 | What is replay for — planning the next path, or building a transferable map? | `L2` | `LIVE` | 8 | [[wiki/tensions/t030.md]] |
 | T31 | Is the entorhinal integrator perfect or leaky? | `L3` | `LIVE` | 2 | [[wiki/tensions/t031.md]] |
@@ -83,7 +83,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T79 | Where does fast sensorimotor learning physically happen — in the circuit that carries the manifold, or upstream of it? | `L1` | `LIVE` | 2 | [[wiki/tensions/t079.md]] |
 | T80 | Can a population run a stored sequence backwards? | `L1` | `LIVE` | 2 | [[wiki/tensions/t080.md]] |
 | T81 | What determines whether a memory consolidates — that it *recurs*, or that the slow learner can *model* it? | `L2` | `LIVE` | 2 | [[wiki/tensions/t081.md]] |
-| T82 | Is permanent hippocampal dependence an optimal refusal or a transport failure? | `L1` | `LIVE` | 4 | [[wiki/tensions/t082.md]] |
+| T82 | Is permanent hippocampal dependence an optimal refusal or a transport failure? | `L1` | `LIVE` | 5 | [[wiki/tensions/t082.md]] |
 | T83 | Is memory allocation decided by the excitability of neurons just before learning? | `L3` | `LEANING` | 2 | [[wiki/tensions/t083.md]] |
 | T85 | Is phasic dopamine a reward *prediction* or a reward *association*? | `L4` | `LIVE` | 6 | [[wiki/tensions/t085.md]] |
 | T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `L1` | `LEANING` | 3 | [[wiki/tensions/t086.md]] |
@@ -96,7 +96,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T94 | When a behaviour becomes automatic, does the controller drop out or hand over? | `L2` | `LIVE` | 5 | [[wiki/tensions/t094.md]] |
 | T95 | Does the control layer store knowledge of its own, or only run procedures over knowledge stored elsewhere? | `L1` | `LIVE` | 1 | [[wiki/tensions/t095.md]] |
 | T96 | Is the controller one homogeneous pool or partitioned by content? | `L1` | `BOTH` | 3 | [[wiki/tensions/t096.md]] |
-| T97 | Does the cortical controller hold a memory from the start, or only after consolidation? | `L2` | `LEANING` | 1 | [[wiki/tensions/t097.md]] |
+| T97 | Does the cortical controller hold a memory from the start, or only after consolidation? | `L2` | `LEANING` | 2 | [[wiki/tensions/t097.md]] |
 | T98 | Does the episodic store address the controller by delivering content, or by setting its inhibitory gain? | `L2` | `LIVE` | 4 | [[wiki/tensions/t098.md]] |
 | T99 | What indexes which module a memory needs — its age, or its overlap with what is already stored? | `L2` | `LEANING` | 1 | [[wiki/tensions/t099.md]] |
 | T100 | At which task phase does the hippocampal→prefrontal channel matter — encoding or retrieval? | `L2` | `LIVE` | 2 | [[wiki/tensions/t100.md]] |

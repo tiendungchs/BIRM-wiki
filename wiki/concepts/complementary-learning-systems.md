@@ -160,6 +160,27 @@ Supporting evidence, indirect but of the right type: GAP43 (growth-associated pr
 
 **(brainstorm) This breaks the machine analogy at its most load-bearing point.** Every machine CLS instance implements "slow" as a small step size on a **fixed** graph. If the biological slow rate is a *topology-search* cost instead, then (i) the slow learner should be **fast** wherever the required connection already exists — which is precisely the schema result ([[wiki/concepts/schema-assimilation.md]]), otherwise an unexplained exception; (ii) the right machine analogue of consolidation is growing edges/parameters, not annealing a learning rate; and (iii) the rate is not a hyperparameter at all but a function of the current connectivity, so it should drift as the slow learner fills in.
 
+### 1b. A rival substrate for the rate split: one rule, two induction thresholds
+
+> Teyler & Rudy 2007. Full treatment: [[wiki/concepts/hippocampal-indexing-theory.md]].
+
+Section 1 makes the cortical rate slow because the *connection does not exist yet*. Indexing theory makes it slow because the *threshold to change it is higher*, with no topology change at all:
+
+| | Fast write | Slow write |
+|---|---|---|
+| Form | NMDA-receptor-dependent LTP | Voltage-dependent-calcium-channel (VDCC) LTP |
+| Trigger | Modest afferent input and depolarization | Strong input, large depolarization |
+| Durability | Rapid, **reversible by low-frequency input** | Slow to develop, much more stable |
+| Why cortex is the slow one | Not the rule — **both forms exist in both structures**. LTP is harder to induce in cortex *in vivo*, proposed to be strong inhibitory control preventing the required depolarization ([[wiki/concepts/excitation-inhibition-balance.md]]) |
+
+Three consequences for this page:
+
+- **The two rates are one rule under two gains**, so they are not separately parameterizable — which is the opposite of the genotype-level double dissociation in section 2, and the two accounts are not obviously compatible.
+- **Decay of the fast write is the forgetting mechanism**, not a separate clearance process (contrast section 4): depotentiation by interfering input *is* the eviction policy, and it is the same synapses that stored the item.
+- **The fast store can also make its own trace permanent.** VDCC-LTP is present in hippocampus too, so repetition or reward can produce an enduring *index* without anything consolidating into cortex — a third outcome the two-store picture has no slot for, and the one that would look like failed transport from outside (`T82`).
+
+**(brainstorm)** The machine translation is a **thresholded** write rather than a small learning rate: no update to the slow learner below an activation threshold, a large and stable one above it, with the threshold set by an inhibitory gain some other system controls. That makes consolidation a gating decision instead of an integration, and predicts that a slow learner with its inhibition removed degrades into a second fast store and re-inherits the interference the split exists to remove.
+
 ### 2. The two learners are separately ablatable, and the fast store must survive for a week
 
 | Manipulation | Recent (1–3 d) | Remote (10–50 d) | What it isolates |
@@ -408,3 +429,4 @@ This is the interference argument at the top of the page with its exception made
 - **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — gives the cortical half of consolidation a laminar address: recall-evoked activation in parietal cortex migrates from layers V–VI to layers II–III/IV over weeks, i.e. into the layers that carry cortico-cortical connections, which is what the wiring-plasticity account of the slow rate predicts and what regional-resolution imaging cannot see.
 - **[[wiki/entities/medial-prefrontal-cortex.md]]** — adds a second job to the receiving end of this page's channel: on a successful remote read the controller appears to *suppress* the fast store (hippocampal activity below control, released when the cortical match fails), so the slow learner gates the fast store's re-encoding rather than only consuming its output (Frankland & Bontempi 2005).
 - **[[wiki/concepts/sleep-oscillation-nesting.md]]** — supplies the schedule this page's coupling channel runs on: a three-rhythm nesting generated in the receiver licenses the write, the licence inverts to depotentiation when the nesting fails, and the transfer is a local exception inside a global synaptic downscaling.
+- **[[wiki/concepts/hippocampal-indexing-theory.md]]** — the theory this page's fast store is usually read through, with a rival account of *why* the two rates differ: one plasticity rule under two induction thresholds (NMDA-receptor vs voltage-dependent-calcium-channel LTP), cortex made slow by inhibition preventing the required depolarization rather than by having to build connections.
