@@ -146,7 +146,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T148 | Should a discovered action alphabet be discrete or continuous? | `L1` | `LIVE` | 5 | [[wiki/tensions/t148.md]] |
 | T149 | Must a vision encoder be trained with language supervision to align well with a language model? | `L3` | `LEANING` | 3 | [[wiki/tensions/t149.md]] |
 | T150 | Should a quantisation codebook be learned from data or installed by construction? | `L3` | `LIVE` | 2 | [[wiki/tensions/t150.md]] |
-| T151 | Where do a model's objects live — in its architecture, or in a read-out of its predictions? | `L1` | `LIVE` | 3 | [[wiki/tensions/t151.md]] |
+| T151 | Where do a model's objects live — in its architecture, or in a read-out of its predictions? | `L1` | `LIVE` | 4 | [[wiki/tensions/t151.md]] |
 | T152 | Is a world model's conditioning interface a design requirement, or an implementation detail? | `L2` | `LEANING` | 5 | [[wiki/tensions/t152.md]] |
 | T153 | Is a straight latent trajectory a good representation or a partial collapse? | `L3` | `LIVE` | 3 | [[wiki/tensions/t153.md]] |
 | T154 | Does a control-usable visual world model need foundation-scale pretraining? | `L3` | `LIVE` | 6 | [[wiki/tensions/t154.md]] |
@@ -194,7 +194,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T204 | Does test-time compute buy generalization on ARC, or does it only buy the tail? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t204.md]] |
 | T208 | Does an application-layer harness measure a capability the model has, or one the harness author has? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t208.md]] |
 | T211 | Should an intelligence benchmark equalise human priors, or withhold them? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t211.md]] |
-| T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t215.md]] |
+| T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t215.md]] |
 | T217 | Does conditioning on a self-generated intermediate trace help or hurt? | `L2` | `LEANING` | 6 | [[wiki/tensions/t217.md]] |
 | T218 | Is normalised exact match an adequate acceptance test? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t218.md]] |
 | T220 | Is best-of-`k` monotone in `k`? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t220.md]] |

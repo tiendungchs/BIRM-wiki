@@ -99,6 +99,7 @@ Two things this does to the page's argument. **It supports the claim in text and
 | **Supplied as a symbolic state space** | [[wiki/entities/hbtom.md]], [[wiki/entities/autotom.md]] — hand-written PDDL, with the modelling problem starting after it |
 | **Learned, but over a fixed variable set** | [[wiki/entities/cscg.md]], [[wiki/entities/tolman-eichenbaum-machine.md]], world models generally: the *graph* is discovered, the observation vocabulary is not |
 | **Constructed by the system** | None |
+| **Assembled per task from an operation set** | Proposed and never built: [[wiki/concepts/visual-routines.md]] (Ullman 1984) — the representation is a *program* over shift / index / bounded-activation / trace / mark, compiled per goal, with its intermediate results written to a task-dependent store |
 
 The last row is the gap. The nearest partial mechanisms the wiki holds are [[wiki/concepts/event-segmentation.md]] (carves a stream into typed edges, but with a hand-thresholded detector — G27) and [[wiki/entities/spelkenet.md]] (computes the objectness entry test from video rather than declaring it), each of which builds *one* element of a representation whose type was chosen in advance.
 
@@ -107,6 +108,7 @@ The last row is the gap. The nearest partial mechanisms the wiki holds are [[wik
 ## Open problems
 
 - **Nothing in the wiki constructs a representation** (gap G73). Every discovery result is discovery of structure *over a given variable set*.
+- **The framing language has one candidate and no implementation.** [[wiki/concepts/visual-routines.md]] specifies what an open space of representations could be *made of* — compositions of a small fixed set of elemental visual operations — and leaves the assembly mechanism (what compiles a routine for a goal) as four paragraphs of desiderata. Nothing in the wiki has built it, so the last row of the table above is proposed rather than empty.
 - **Nothing chooses a parse of the input either** (gap G75), which is the one framing decision that survives inside a format designed to fix the framing, and the one humans are observed making per task.
 - **No criterion decides that a framing is wrong**, as opposed to that a solution within it failed — the framing-level instance of `G17`, and the harder one, since every certification instrument in the wiki is scored inside a framing that is handed to it. A learner that cannot distinguish these will spend unbounded compute optimising inside a bad representation — which is the shape of every reported large-compute ARC failure.
 - **The cost of a wrong attempt is unpriced everywhere** (gap G74). Every score in the wiki is obtained under free retries; no benchmark here reports first-attempt performance separately, except where exact-match scoring at `pass@2` forces it.
@@ -142,3 +144,4 @@ The last row is the gap. The nearest partial mechanisms the wiki holds are [[wik
 - **[[wiki/entities/nomic.md]]** — the limit case of a frame that will not stay handed over: every rule is written down before it is voted on, and the rule that decides which written rule governs a conflict is itself amendable.
 - **[[wiki/concepts/reasoning.md]]** — the census in which this page's split is the one genuine rival: navigation, energy minimisation, program induction and probabilistic-LoT are all *optimisation within a representation*, which is why all four of the wiki's impossibility arguments are arguments about the framing half.
 - **[[wiki/concepts/abstraction.md]]** — the upstream limit on every abstraction instrument: each of them scores an abstraction over a given variable set, and none can report that the variable set itself is wrong.
+- **[[wiki/concepts/visual-routines.md]]** — the only mechanism-level candidate for this page's empty last row: a representation is *compiled*, per goal, from a small fixed set of elemental operations over an unarticulated base, so "constructing a framing" becomes a program-assembly problem with a caching story attached rather than a primitive nobody can decompose (Ullman 1984).
