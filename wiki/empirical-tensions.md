@@ -237,7 +237,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T266 | Can a working memory held in synaptic weights be operated on, or only stored? | `L1` | `LIVE` | 1 | [[wiki/tensions/t266.md]] |
 | T267 | Which function do the medial prefrontal / posterior cingulate / precuneus hubs serve — broadcasting current content, or generating internal content? | `L1` | `LIVE` | 2 | [[wiki/tensions/t267.md]] |
 | T268 | Is there one commit event or two? | `L2` | `LIVE` | 1 | [[wiki/tensions/t268.md]] |
-| T269 | Does prefrontal cortex constitute conscious perceptual content, or only route it? | `L1` | `LIVE` | 7 | [[wiki/tensions/t269.md]] |
+| T269 | Does prefrontal cortex constitute conscious perceptual content, or only route it? | `L1` | `LIVE` | 8 | [[wiki/tensions/t269.md]] |
 | T270 | Does a measure of integration detect a world model? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t270.md]] |
 | T271 | Does the workspace commit on stimulus offset? | `L3` | `LEANING` | 3 | [[wiki/tensions/t271.md]] |
 | T272 | Does failure to decode a content from prefrontal cortex mean the content is not there? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t272.md]] |
@@ -339,5 +339,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T371 | Is the cortical circuit's invariant unit the layer or the genetically defined cell class? | `L1` | `LEANING` | 4 | [[wiki/tensions/t371.md]] |
 | T372 | When prior knowledge fits, do the controller and the store compete or cooperate? | `L2` | `LIVE` | 2 | [[wiki/tensions/t372.md]] |
 | T373 | Does the cortical slow oscillation schedule the consolidation window, or does the thalamus? | `L2` | `LIVE` | 3 | [[wiki/tensions/t373.md]] |
-| T374 | When a top-down prediction meets matching feedforward drive, does the receiving cell burst or fall silent? | `L2` | `LIVE` | 4 | [[wiki/tensions/t374.md]] |
+| T374 | When a top-down prediction meets matching feedforward drive, does the receiving cell burst or fall silent? | `L2` | `LIVE` | 5 | [[wiki/tensions/t374.md]] |
 | T375 | Should the consolidated model mirror the environment's statistics, or be deliberately biased away from them? | `L2` | `LIVE` | 2 | [[wiki/tensions/t375.md]] |
+| T376 | Is apical–basal coupling a global state variable, or a per-column gate that can be aimed? | `L2` | `LIVE` | 4 | [[wiki/tensions/t376.md]] |

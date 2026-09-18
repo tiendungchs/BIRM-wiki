@@ -64,6 +64,26 @@ Because background dendritic inhibition is normally present, the hypothesis make
 
 ---
 
+## The controller the coupling compartment turned out to have
+
+> Aru, Suzuki & Larkum 2020, *Trends Cogn. Sci.* 24(10):814–825 (`raw/aru-2020-cellular-mechanisms-of-conscious-processing.md`), around Suzuki & Larkum 2020, *Cell* 180:666–676. Full treatment: [[wiki/entities/dendritic-integration-theory.md]].
+
+Compartment `C` above is written as a fixed conductance. It is not: it is a **controlled variable**, and the controller is outside the cell.
+
+| | Measured |
+|---|---|
+| Optogenetic stimulation of the apical compartment, **awake** | Large effect at the soma — high-frequency firing |
+| Same stimulation, **anaesthetised** | Does not propagate to the soma at all. Apical and basal are *decoupled* |
+| Generality | Replicated across anaesthetics with disjoint molecular targets and across frontal, somatosensory and primary visual cortex |
+| Where | Localised to the coupling compartment, ~layer 5a |
+| By what | **Metabotropic** receptors — blocking them in an *awake* animal reproduces the decoupling |
+| Under whose control | **Higher-order thalamus** — inactivating it breaks the coupling; stimulating it restores waking in mice and monkeys |
+| What does *not* move it | Locomotion and visual stimulation leave apical–basal correlation unchanged (Beaulieu-Laroche et al. 2019; Francioni et al. 2019) — the variable tracks *state*, not content |
+
+**Consequence for this page's import.** The three-compartment model needs a fourth term: `burst = coupling · AND(apical, basal)`, where `coupling` is set by a third party on a slow timescale and by neither data stream. The page already names the fast per-compartment veto (GABA_B, ~0.5 s); this adds a slow permissive gain with a different source and a different timescale, and whether *selection* lives in the fast veto or the slow gain is `T376`.
+
+---
+
 ## Why the wiring matches the cell
 
 | Anatomical fact | What the mechanism makes of it |
@@ -139,3 +159,4 @@ Recorded as [[wiki/empirical-tensions.md]] **T374**. Note the two are not trivia
 - **[[wiki/concepts/attention.md]]** — a multiplicative gain applied at the receiving cell by a descending stream is what an attentional modulation is, and here it has a locus (the apical Ca²⁺ zone), a timescale (~30 ms coincidence, ~50 ms plateau) and a hard-wired off switch (dendritic inhibition) that the standard attention block has no counterpart for.
 - **[[wiki/entities/global-neuronal-workspace.md]]** — a cell-level alternative to the framework's central question: if the cells receiving both streams simply fire hardest and therefore dominate their targets, "what is currently broadcast" needs no dedicated long-axon workspace population, only a rate threshold.
 - **[[wiki/concepts/three-component-framework.md]]** — an architecture-slot contribution with the other two slots empty: the coincidence nonlinearity and the compartment topology are specified precisely, and no objective and no learning rule are offered for what the apical synapses should come to predict.
+- **[[wiki/entities/dendritic-integration-theory.md]]** — supplies the controller this page's coupling compartment `C` lacks: coupling between the two initiation zones is itself a variable, set at layer 5a by higher-order thalamus through metabotropic receptors and abolished by general anaesthesia across three cortical areas and several chemically disjoint anaesthetics, so whether a coincidence produces a burst at all is decided by neither data stream (Suzuki & Larkum 2020; Aru et al. 2020, `T376`).
