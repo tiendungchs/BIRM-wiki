@@ -246,7 +246,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T275 | Does suppressing the irrelevant need its own channel, or does it fall out of biasing the relevant? | `L2` | `LEANING` | 2 | [[wiki/tensions/t275.md]] |
 | T276 | What does a transthalamic cortico-cortical route carry — a copy of the content, or the sender's state? | `L2` | `LIVE` | 2 | [[wiki/tensions/t276.md]] |
 | T277 | Is the single-neuron receptive field still the right unit of description above the thalamus? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t277.md]] |
-| T278 | Is a single feedforward pass sufficient for object recognition, or is inter-areal feedback part of the computation? | `L2` | `BOTH` | 2 | [[wiki/tensions/t278.md]] |
+| T278 | Is a single feedforward pass sufficient for object recognition, or is inter-areal feedback part of the computation? | `L2` | `BOTH` | 3 | [[wiki/tensions/t278.md]] |
 | T279 | Does decoding an attended feature from a population imply that population carries a feature-tuned gain signal? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t279.md]] |
 | T281 | Is a neuromodulatory channel unaddressed by construction? | `L2` | `LEANING` | 2 | [[wiki/tensions/t281.md]] |
 | T282 | Does eliminating catastrophic forgetting solve continual learning, or only relocate it? | `L0` | `LIVE` | 3 | [[wiki/tensions/t282.md]] |
@@ -351,3 +351,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T383 | Is the egocentric↔allocentric conversion an operation localised to one region, or is "no isolated function" the correct description of that region? | `L1` | `LIVE` | 8 | [[wiki/tensions/t383.md]] |
 | T384 | Does retrosplenial cortex hold the recent trace or the remote one? | `L2` | `LIVE` | 2 | [[wiki/tensions/t384.md]] |
 | T385 | In a delayed-match task, which region holds the item and which one filters — prefrontal or parietal? | `L1` | `LIVE` | 2 | [[wiki/tensions/t385.md]] |
+| T386 | Is the sensory render on the retrieval path, or an optional strategy a system can pass the task without? | `L1` | `BOTH` | 4 | [[wiki/tensions/t386.md]] |

@@ -30,7 +30,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G12 | No routing policy between structure types | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `L0` | `PARTIAL` | 2 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 26 | [[wiki/gaps/g014.md]] |
-| G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 26 | [[wiki/gaps/g015.md]] |
+| G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 61 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
@@ -104,7 +104,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G87 | Nothing in the wiki has ever shown that a better representation of activity produces a better decision | part | `L0-INSTR` | `OPEN` | 1 | [[wiki/gaps/g087.md]] |
 | G88 | No architecture in the wiki has a direction of information flow that comes from its own weight matrix | arrangement | `L2` | `OPEN` | 1 | [[wiki/gaps/g088.md]] |
 | G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g089.md]] |
-| G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `L2` | `OPEN` | 8 | [[wiki/gaps/g090.md]] |
+| G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `L2` | `OPEN` | 9 | [[wiki/gaps/g090.md]] |
 | G91 | The wiki has no gate that learns what deserves to be broadcast, and no architecture in it has a discrete commit at all | arrangement | `L2` | `OPEN` | 9 | [[wiki/gaps/g091.md]] |
 | G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `L0` | `OPEN` | 1 | [[wiki/gaps/g092.md]] |
 | G93 | Context in every wiki architecture is either one global scalar or a hand-supplied task label; none has an *addressed* context channel | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g093.md]] |
@@ -124,7 +124,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 7 | [[wiki/gaps/g107.md]] |
 | G108 | No label-free criterion selects a good representation out of a training run | part | `L0-INSTR` | `OPEN` | 12 | [[wiki/gaps/g108.md]] |
 | G109 | No model claiming a knowledge/control split has been scored on the lesion profile that certifies one | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g109.md]] |
-| G110 | Top-down control is always applied to a module or its output; nothing applies it to the interface that feeds the module | arrangement | `L2` | `OPEN` | 6 | [[wiki/gaps/g110.md]] |
+| G110 | Top-down control is always applied to a module or its output; nothing applies it to the interface that feeds the module | arrangement | `L2` | `OPEN` | 7 | [[wiki/gaps/g110.md]] |
 | G111 | Every predictor in the wiki compares its prediction with feedback in temporal register by fiat; none learns its own delay | part | `L2` | `OPEN` | 2 | [[wiki/gaps/g111.md]] |
 | G112 | Which carrier holds the fast store is not identifiable from behaviour: the synaptic and activity solutions to structured sequence memory are provably the same function | part | `L0-INSTR` | `OPEN` | 7 | [[wiki/gaps/g112.md]] |
 | G113 | A probe that perturbs the system to read it is certified read-only by a null, and no instrument in the wiki has a positive control for non-interference | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g113.md]] |
