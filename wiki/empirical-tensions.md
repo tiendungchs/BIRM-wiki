@@ -329,5 +329,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T360 | Is non-instrumental information demand a drive to resolve uncertainty, or a drive to engage with positive items? | `L0` | `LIVE` | 3 | [[wiki/tensions/t360.md]] |
 | T361 | Is the lateral habenula a disappointment channel or a general aversion channel? | `L2` | `LIVE` | 4 | [[wiki/tensions/t361.md]] |
 | T362 | Does an internal state modulate learned value by a multiplicative gain or by an additive offset? | `L2` | `LIVE` | 2 | [[wiki/tensions/t362.md]] |
-| T363 | Does maximising control capacity land an agent on the states a task would have designated? | `L0` | `LIVE` | 1 | [[wiki/tensions/t363.md]] |
+| T363 | Does maximising control capacity land an agent on the states a task would have designated? | `L0` | `LIVE` | 2 | [[wiki/tensions/t363.md]] |
 | T364 | Is the dorsomedial control layer a level-blind evaluator of control, or a level-specific selector organised by abstraction? | `L1` | `LIVE` | 3 | [[wiki/tensions/t364.md]] |
+| T365 | Do topological bottlenecks make the right subgoals, or the wrong ones? | `L0` | `LIVE` | 3 | [[wiki/tensions/t365.md]] |
