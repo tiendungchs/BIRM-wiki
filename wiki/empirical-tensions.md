@@ -332,3 +332,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T363 | Does maximising control capacity land an agent on the states a task would have designated? | `L0` | `LIVE` | 2 | [[wiki/tensions/t363.md]] |
 | T364 | Is the dorsomedial control layer a level-blind evaluator of control, or a level-specific selector organised by abstraction? | `L1` | `LIVE` | 3 | [[wiki/tensions/t364.md]] |
 | T365 | Do topological bottlenecks make the right subgoals, or the wrong ones? | `L0` | `LIVE` | 3 | [[wiki/tensions/t365.md]] |
+| T366 | Does widening the training goal set help the one task you care about, or destroy it? | `L0` | `LIVE` | 2 | [[wiki/tensions/t366.md]] |
