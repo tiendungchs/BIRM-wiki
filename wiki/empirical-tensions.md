@@ -128,8 +128,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T129 | Is the direct/indirect relation a scalar balance, or two concurrently active ensembles? | `L1` | `LIVE` | 2 | [[wiki/tensions/t129.md]] |
 | T130 | In a gated working memory, is the basal ganglia a write-enable or the maintenance loop itself? | `L1` | `LIVE` | 3 | [[wiki/tensions/t130.md]] |
 | T131 | When a behaviour becomes automatic, is the policy distilled into a new substrate or migrated to another loop? | `L2` | `LEANING` | 3 | [[wiki/tensions/t131.md]] |
-| T132 | Is the indirect pathway a veto or an exploration channel? | `L1` | `LIVE` | 2 | [[wiki/tensions/t132.md]] |
-| T133 | What does the direct/indirect pathway balance set — the discount factor or the exploration temperature? | `L2` | `LIVE` | 2 | [[wiki/tensions/t133.md]] |
+| T132 | Is the indirect pathway a veto or an exploration channel? | `L1` | `LIVE` | 3 | [[wiki/tensions/t132.md]] |
+| T133 | What does the direct/indirect pathway balance set — the discount factor or the exploration temperature? | `L2` | `LIVE` | 3 | [[wiki/tensions/t133.md]] |
 | T134 | Does serotonin set the prediction horizon or report the average reward? | `L2` | `LIVE` | 4 | [[wiki/tensions/t134.md]] |
 | T135 | What is compared when a brain decides whether to plan — the reliability of the two answers, or the cost and benefit of computing one? | `L2` | `LIVE` | 2 | [[wiki/tensions/t135.md]] |
 | T136 | Does a hierarchical learner deliver a subgoal-specific reward of its own? | `L2` | `LIVE` | 1 | [[wiki/tensions/t136.md]] |
@@ -321,9 +321,10 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T352 | Should a fast store hold the *maximum* return ever seen, or an estimate of the expectation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t352.md]] |
 | T353 | Does a sample-efficiency result measure the agent, or the benchmark's exact-state-revisit rate? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t353.md]] |
 | T354 | Does a growth schedule buy *competence*, or only *compute*? | `L0` | `LIVE` | 4 | [[wiki/tensions/t354.md]] |
-| T355 | Is the second midbrain dopamine channel a valence-blind salience magnitude, or a signed aversion channel? | `L2` | `LIVE` | 3 | [[wiki/tensions/t355.md]] |
+| T355 | Is the second midbrain dopamine channel a valence-blind salience magnitude, or a signed aversion channel? | `L2` | `LIVE` | 4 | [[wiki/tensions/t355.md]] |
 | T356 | Does a homeostatic need drive behaviour by signalling a deficit to be reduced, or by potentiating the positive value of the outcome? | `L2` | `LIVE` | 4 | [[wiki/tensions/t356.md]] |
-| T357 | Does a negative teaching signal carry its address, or is the address discarded at the first relay? | `L2` | `LIVE` | 5 | [[wiki/tensions/t357.md]] |
+| T357 | Does a negative teaching signal carry its address, or is the address discarded at the first relay? | `L2` | `LIVE` | 6 | [[wiki/tensions/t357.md]] |
 | T358 | Does novelty enter valuation as a bonus or as a penalty? | `L0` | `LIVE` | 5 | [[wiki/tensions/t358.md]] |
 | T359 | Is the motivational quantity a gain applied to one value estimate, or a second valuation system with its own associative structure? | `L1` | `LIVE` | 3 | [[wiki/tensions/t359.md]] |
 | T360 | Is non-instrumental information demand a drive to resolve uncertainty, or a drive to engage with positive items? | `L0` | `LIVE` | 3 | [[wiki/tensions/t360.md]] |
+| T361 | Is the lateral habenula a disappointment channel or a general aversion channel? | `L2` | `LIVE` | 4 | [[wiki/tensions/t361.md]] |

@@ -809,6 +809,13 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | RMTg | RostroMedial Tegmental nucleus | The GABAergic "tail of the VTA"; the relay by which lateral habenula input inhibits dopamine cells |
 | CPP / CPA | Conditioned Place Preference / Aversion | Time spent in a chamber paired with a manipulation, relative to an unpaired chamber; the approach/avoid assay both dopamine channels are read out with — and an approach/avoid measure, so it cannot separate valence from action (`G116`) |
 | EPSC / IPSC | Excitatory / Inhibitory PostSynaptic Current | Whole-cell voltage-clamp measurement of a synaptic input; the currency of "connection probability" in circuit-tracing results |
+| LHbM / LHbL | Lateral Habenula, Medial / Lateral division | The two principal subdivisions of [[wiki/entities/lateral-habenula.md]] (≥7 subnuclei in all): LHbL takes basal-ganglia input, LHbM limbic input, in largely parallel streams; whether they do different jobs is untested because no manipulation reaches subnucleus resolution |
+| MHb | Medial Habenula | The habenula's other half — cholinergic/substance-P/glutamatergic, septal input, interpeduncular output; discussed only as a contrast to the lateral division |
+| EPN | EntoPeduncular Nucleus | Rodent equivalent of the internal globus pallidus (GPi); its habenula-projecting cells are inhibited by reward-predicting cues and excited by reward omission, and are the proposed source of the negative reward prediction error ([[wiki/entities/lateral-habenula.md]]) |
+| T-VSCC | T-type Voltage-Sensitive Calcium Channel | Low-threshold calcium channel de-inactivated by hyperpolarization below ~−55 mV; opens the burst mode in lateral-habenula neurons, with NMDA receptors sustaining it |
+| RMP | Resting Membrane Potential | A neuron's baseline voltage; in the lateral habenula it is the variable that selects firing *mode* (bursting cells sit ~12 mV more hyperpolarized), and it is set from outside the neuron by an astrocytic potassium channel |
+| Kir4.1 | Inwardly-rectifying Potassium channel 4.1 | Astrocytic channel clearing extracellular potassium around lateral-habenula somata; overexpression hyperpolarizes the neurons, drives bursting and precipitates depressive-like behaviour, knockdown reverses it — a gain variable held outside both neuron and synapse |
+| cLH | congenitally Learned Helplessness | A rat line selectively bred for helpless behaviour; the depression model most of the lateral-habenula bursting and Kir4.1 results are measured in |
 
 ## Benchmarks
 

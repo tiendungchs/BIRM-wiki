@@ -130,8 +130,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G113 | A probe that perturbs the system to read it is certified read-only by a null, and no instrument in the wiki has a positive control for non-interference | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g113.md]] |
 | G114 | Every timescale the wiki cites is a biased point estimate, and the estimator that prices the bias has never been run on any of them | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g114.md]] |
 | G115 | Every geometric claim read off a fitted low-dimensional embedding is uncontrolled, because no one runs the arbitrary-target embedding that scores the same | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g115.md]] |
-| G116 | No task in the wiki's neuromodulator literature orthogonalizes valence against action, so no result there distinguishes a value signal from an action signal | part | `L0-INSTR` | `OPEN` | 9 | [[wiki/gaps/g116.md]] |
-| G117 | No architecture broadcasts one event on two differently-signed channels to different targets | arrangement | `L2` | `OPEN` | 4 | [[wiki/gaps/g117.md]] |
+| G116 | No task in the wiki's neuromodulator literature orthogonalizes valence against action, so no result there distinguishes a value signal from an action signal | part | `L0-INSTR` | `OPEN` | 10 | [[wiki/gaps/g116.md]] |
+| G117 | No architecture broadcasts one event on two differently-signed channels to different targets | arrangement | `L2` | `OPEN` | 5 | [[wiki/gaps/g117.md]] |
 | G118 | No architecture separates an outcome's hedonic magnitude from the motivation it commands | part | `L1` | `OPEN` | 4 | [[wiki/gaps/g118.md]] |
 | G119 | No architecture has a reinforcer that is admissible to one of its learning systems and inadmissible to another | arrangement | `L2` | `OPEN` | 5 | [[wiki/gaps/g119.md]] |
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
