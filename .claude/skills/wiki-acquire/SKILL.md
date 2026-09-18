@@ -46,6 +46,7 @@ The user has **institutional access (UBO Brest)**, so a paywall is not a filter.
 | eLife · PLOS · Frontiers · MDPI | publisher HTML | open and HTML-native |
 | Blogs · LessWrong · Alignment Forum · Distill · Transformer Circuits | canonical post | already HTML |
 | Benchmarks · leaderboards · docs · model cards | the page itself | `self` route |
+| `onlinelibrary.wiley.com` (Hippocampus, Eur. J. Neurosci., …) | PMC mirror if one exists → else the `pdf` route | Wiley serves the article as PDF only: the DOI page is a landing shell, so a clip captures nothing. Reachable through the institution — a format limit, not an exclusion, so it never belongs in the excluded-venues table. Evidence: Lavenex 2000, Teyler 2007 (wave 22) |
 | Books, pre-2000 papers, scans | user downloads the PDF to `raw/`, then `./tools/pdf2md.sh` | flag `LOSSY` in the manifest. `--layout` for table-heavy sources; the script falls back to the OCR layer on scans |
 
 ### Excluded venues — outside the institutional subscription
