@@ -121,8 +121,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T121 | Is event-model updating controlled by one signal or by several? | `L2` | `LEANING` | 1 | [[wiki/tensions/t121.md]] |
 | T122 | What does phasic dopamine carry — a reward prediction error, or the precision of a prediction error? | `L2` | `LIVE` | 9 | [[wiki/tensions/t122.md]] |
 | T123 | Does active inference remove the exploration–exploitation weight, or only fix its value? | `L3` | `LEANING` | 2 | [[wiki/tensions/t123.md]] |
-| T124 | Which epistemic term does the work — uncertainty about the *state*, or uncertainty about the *model*? | `L3` | `LIVE` | 4 | [[wiki/tensions/t124.md]] |
-| T125 | Does the epistemic term help or hurt once it is implemented? | `L3` | `LIVE` | 2 | [[wiki/tensions/t125.md]] |
+| T124 | Which epistemic term does the work — uncertainty about the *state*, or uncertainty about the *model*? | `L3` | `LIVE` | 5 | [[wiki/tensions/t124.md]] |
+| T125 | Does the epistemic term help or hurt once it is implemented? | `L3` | `LIVE` | 3 | [[wiki/tensions/t125.md]] |
 | T127 | Is uncertainty itself represented, or only the value of resolving it? | `L2` | `LIVE` | 4 | [[wiki/tensions/t127.md]] |
 | T128 | Are all precisions inferred, or are some structural constants? | `L3` | `LIVE` | 3 | [[wiki/tensions/t128.md]] |
 | T129 | Is the direct/indirect relation a scalar balance, or two concurrently active ensembles? | `L1` | `LIVE` | 2 | [[wiki/tensions/t129.md]] |
@@ -324,5 +324,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T355 | Is the second midbrain dopamine channel a valence-blind salience magnitude, or a signed aversion channel? | `L2` | `LIVE` | 3 | [[wiki/tensions/t355.md]] |
 | T356 | Does a homeostatic need drive behaviour by signalling a deficit to be reduced, or by potentiating the positive value of the outcome? | `L2` | `LIVE` | 4 | [[wiki/tensions/t356.md]] |
 | T357 | Does a negative teaching signal carry its address, or is the address discarded at the first relay? | `L2` | `LIVE` | 5 | [[wiki/tensions/t357.md]] |
-| T358 | Does novelty enter valuation as a bonus or as a penalty? | `L0` | `LIVE` | 4 | [[wiki/tensions/t358.md]] |
+| T358 | Does novelty enter valuation as a bonus or as a penalty? | `L0` | `LIVE` | 5 | [[wiki/tensions/t358.md]] |
 | T359 | Is the motivational quantity a gain applied to one value estimate, or a second valuation system with its own associative structure? | `L1` | `LIVE` | 3 | [[wiki/tensions/t359.md]] |
+| T360 | Is non-instrumental information demand a drive to resolve uncertainty, or a drive to engage with positive items? | `L0` | `LIVE` | 3 | [[wiki/tensions/t360.md]] |
