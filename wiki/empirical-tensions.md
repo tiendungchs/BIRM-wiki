@@ -99,7 +99,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T97 | Does the cortical controller hold a memory from the start, or only after consolidation? | `L2` | `LEANING` | 2 | [[wiki/tensions/t097.md]] |
 | T98 | Does the episodic store address the controller by delivering content, or by setting its inhibitory gain? | `L2` | `LIVE` | 4 | [[wiki/tensions/t098.md]] |
 | T99 | What indexes which module a memory needs — its age, or its overlap with what is already stored? | `L2` | `LEANING` | 1 | [[wiki/tensions/t099.md]] |
-| T100 | At which task phase does the hippocampal→prefrontal channel matter — encoding or retrieval? | `L2` | `LIVE` | 2 | [[wiki/tensions/t100.md]] |
+| T100 | At which task phase does the hippocampal→prefrontal channel matter — encoding or retrieval? | `L2` | `LIVE` | 4 | [[wiki/tensions/t100.md]] |
 | T101 | Can the control layer address the episodic store directly, or only through a relay? | `L2` | `LEANING` | 2 | [[wiki/tensions/t101.md]] |
 | T102 | When forward and reverse inference disagree about a region's function, which wins? | `META` | `LEANING` | 2 | [[wiki/tensions/t102.md]] |
 | T103 | What is the common component of control? | `L1` | `LEANING` | 1 | [[wiki/tensions/t103.md]] |
