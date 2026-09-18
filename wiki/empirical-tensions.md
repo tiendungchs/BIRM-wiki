@@ -323,7 +323,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T355 | Is the second midbrain dopamine channel a valence-blind salience magnitude, or a signed aversion channel? | `L2` | `LIVE` | 5 | [[wiki/tensions/t355.md]] |
 | T356 | Does a homeostatic need drive behaviour by signalling a deficit to be reduced, or by potentiating the positive value of the outcome? | `L2` | `LIVE` | 5 | [[wiki/tensions/t356.md]] |
 | T357 | Does a negative teaching signal carry its address, or is the address discarded at the first relay? | `L2` | `LIVE` | 6 | [[wiki/tensions/t357.md]] |
-| T358 | Does novelty enter valuation as a bonus or as a penalty? | `L0` | `LIVE` | 6 | [[wiki/tensions/t358.md]] |
+| T358 | Does novelty enter valuation as a bonus or as a penalty? | `L0` | `LIVE` | 7 | [[wiki/tensions/t358.md]] |
 | T359 | Is the motivational quantity a gain applied to one value estimate, or a second valuation system with its own associative structure? | `L1` | `LIVE` | 3 | [[wiki/tensions/t359.md]] |
 | T360 | Is non-instrumental information demand a drive to resolve uncertainty, or a drive to engage with positive items? | `L0` | `LIVE` | 3 | [[wiki/tensions/t360.md]] |
 | T361 | Is the lateral habenula a disappointment channel or a general aversion channel? | `L2` | `LIVE` | 4 | [[wiki/tensions/t361.md]] |
@@ -335,3 +335,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T367 | Is the subgoal-level prediction error carried on its own channel, or on the reward channel with the running option as a mask? | `L2` | `LIVE` | 7 | [[wiki/tensions/t367.md]] |
 | T368 | Is the basolateral→central amygdala projection a valence-general output route or the negative-valence channel? | `L1` | `LIVE` | 4 | [[wiki/tensions/t368.md]] |
 | T369 | Under a state change, is the anti-reward channel an error against a prediction, or a valence read-out with a state-set origin? | `L2` | `LIVE` | 4 | [[wiki/tensions/t369.md]] |
+| T370 | Does uninstructed free play converge on an intermediate-difficulty set-point, or does it under-challenge? | `L0` | `LIVE` | 2 | [[wiki/tensions/t370.md]] |
