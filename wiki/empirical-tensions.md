@@ -228,7 +228,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L0-INSTR` | `LEANING` | 2 | [[wiki/tensions/t254.md]] |
 | T256 | Is the precuneus (area 7m) part of the default mode network? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t256.md]] |
 | T257 | In the default/control switch, who drives whom? | `L2` | `LIVE` | 3 | [[wiki/tensions/t257.md]] |
-| T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 2 | [[wiki/tensions/t259.md]] |
+| T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 4 | [[wiki/tensions/t259.md]] |
 | T260 | Does the brain have an absolute activity baseline, or only relative ones? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t260.md]] |
 | T262 | During an externally directed task, does the default mode network decouple from task-positive systems or integrate with them? | `L2` | `BOTH` | 3 | [[wiki/tensions/t262.md]] |
 | T263 | Does within-module connectivity move with brain state, or only between-module connectivity? | `L4` | `LIVE` | 2 | [[wiki/tensions/t263.md]] |
@@ -268,7 +268,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T299 | Does prioritising replay by surprise speed learning up, or destroy it? | `L3` | `LIVE` | 2 | [[wiki/tensions/t299.md]] |
 | T300 | Does added capacity buy robustness beyond what accuracy explains? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t300.md]] |
 | T301 | Did the human cortex scale in units or in wiring-per-unit? | `L4` | `LIVE` | 2 | [[wiki/tensions/t301.md]] |
-| T302 | How deep is a single cortical pyramidal neuron? | `L4` | `LIVE` | 3 | [[wiki/tensions/t302.md]] |
+| T302 | How deep is a single cortical pyramidal neuron? | `L4` | `LIVE` | 4 | [[wiki/tensions/t302.md]] |
 | T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `L1` | `LIVE` | 2 | [[wiki/tensions/t303.md]] |
 | T304 | Should a joint-embedding's output be ℓ₂-normalised onto the hypersphere? | `L3` | `LIVE` | 5 | [[wiki/tensions/t304.md]] |
 | T305 | Should a joint-embedding's predictor be kept *optimal*, or merely *fast*? | `L3` | `LIVE` | 5 | [[wiki/tensions/t305.md]] |
@@ -339,3 +339,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T371 | Is the cortical circuit's invariant unit the layer or the genetically defined cell class? | `L1` | `LEANING` | 4 | [[wiki/tensions/t371.md]] |
 | T372 | When prior knowledge fits, do the controller and the store compete or cooperate? | `L2` | `LIVE` | 2 | [[wiki/tensions/t372.md]] |
 | T373 | Does the cortical slow oscillation schedule the consolidation window, or does the thalamus? | `L2` | `LIVE` | 3 | [[wiki/tensions/t373.md]] |
+| T374 | When a top-down prediction meets matching feedforward drive, does the receiving cell burst or fall silent? | `L2` | `LIVE` | 4 | [[wiki/tensions/t374.md]] |
