@@ -178,6 +178,7 @@ Control has to affect *many* circuits at once and change on the timescale of a t
 
 ## Connections
 
+- **[[wiki/concepts/incentive-salience.md]]** — names what control is fighting rather than how control works: an amplified cue-triggered motivational gain is the urge prefrontal control has to restrain, so a control deficit and a gain excess are behaviourally identical and are separated only by whether the urge is target-specific — and the failure is a per-encounter probability, so a controller scored on average accuracy can look intact while failing over a sequence.
 - **[[wiki/entities/affordance-active-inference-model.md]]** — set switching with no controller and no gate: the switch is inference on a slow hidden state, the switch *cost* is the evidence-accumulation delay before that state is expelled from its fixed point, and perseveration is that delay diverging as the gain on lower-level prediction errors falls — which makes switch rate a property of a precision ratio rather than of a decision rule.
 - **[[wiki/concepts/epistemic-value.md]]** — a controller factorised by *kind of uncertainty* rather than by task: state variability is valued and updated orbitofrontally, parameter novelty is valued in rostral middle frontal cortex and updated precentrally, so the two epistemic terms have different addresses at both stages.
 

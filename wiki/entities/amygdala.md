@@ -74,6 +74,24 @@ The associability function is the one with no machine counterpart. Pearce–Hall
 
 ---
 
+## Stimulating the basolateral nucleus manufactures 'wanting', and the target is set by pairing
+
+> **Second source.** Warlow et al. 2020 as reported in Robinson & Berridge 2025 (`raw/robinson-2025-incentive-sensitization-30-years-on.md`); see [[wiki/concepts/incentive-salience.md]].
+
+Optogenetic basolateral-amygdala stimulation, described there as *recruiting mesolimbic incentive-salience circuitry*, paired with a target:
+
+| Paired target | Result |
+|---|---|
+| Electrified shock rod | the rat returns to it, hovers, touches it repeatedly, climbs a barrier to reach it, seeks out shock-associated cues — while the shocks remain unpleasant and 'liking' is not enhanced |
+| Sugar | a sugar-addicted rat that ignores cocaine |
+| Cocaine | a cocaine-addicted rat that ignores sugar |
+
+Two additions to this page's account. First, the nucleus that holds `CS → value(specific US)` can, when driven, **write pursuit onto whatever co-occurs with the drive**, including a stimulus whose specific outcome is pain — so the specificity this page attributes to the basolateral nucleus is specificity of *address*, and the address is assigned by coincidence rather than by outcome identity. Second, it is another datum against reading either nucleus as a valence channel: the manipulation is appetitive in its effect and its object here is a punisher (`G116`, `G118`).
+
+Alongside it, a transmitter-level version of the same warning. Corticotropin-releasing factor is released in the central nucleus by **pleasant** food with no distress present (Merali et al. 1998), and stimulating corticotropin-releasing-factor signalling in the amygdala or accumbens raises incentive motivation for food and drug rewards — with animals **seeking out** the stimulation rather than avoiding it (Peciña et al. 2006; Lemos et al. 2012; Baumgartner et al. 2022). A stress transmitter in this structure amplifies pursuit; the sign is not in the chemistry.
+
+---
+
 ## Limitations
 
 - **Review, not primary data**; several dissociations rest on a single lab's lesion studies, and lesion specificity within the amygdala is the chronic methodological risk.
@@ -88,7 +106,7 @@ The associability function is the one with no machine counterpart. Pearce–Hall
 ## Connections
 
 - **[[wiki/concepts/valuation-system-decomposition.md]]** — this page is the anatomy under that page's assay-level split: the basolateral nucleus holds the `CS → US(motivational)` valuation and the central nucleus the `CS → UR` link, and the double dissociations are what make the two separately ablatable rather than two readings of one store.
-- **[[wiki/concepts/incentive-salience.md]]** — supplies the source of the motivational gain that page's multiplier needs and denies it a valence: the central nucleus is required for Pavlovian–instrumental transfer, conditioned approach and amphetamine potentiation of conditioned reinforcement, and reaches the accumbens only through the ventral tegmental area — so 'wanting' is gated by a nucleus that equally gates conditioned suppression to shock.
+- **[[wiki/concepts/incentive-salience.md]]** — supplies the source of the motivational gain that page's multiplier needs and denies it a valence: the central nucleus is required for Pavlovian–instrumental transfer, conditioned approach and amphetamine potentiation of conditioned reinforcement, and reaches the accumbens only through the ventral tegmental area — so 'wanting' is gated by a nucleus that equally gates conditioned suppression to shock. Driving the basolateral nucleus supplies that page's strongest result in the other direction: pursuit of a purely painful target, with the pursued object fixed by whatever was paired with the stimulation.
 - **[[wiki/entities/ventral-tegmental-area.md]]** — the amygdala's only route to the accumbens: the central nucleus has no direct accumbens projection, so every claim here about amygdalar control of striatal dopamine is a claim about an afferent to that structure's cell groups, and the valence-selectivity that page reports for its lines is not inherited from this one.
 - **[[wiki/concepts/affective-opponency.md]]** — populates that page's conflict quadrants from the substrate: basolateral damage removes `punishment × Go` (instrumental avoidance) while sparing `punishment × No-Go` (conditioned suppression), and the central nucleus does the reverse — a lesion-side partial four-cell design bearing on `G116`.
 - **[[wiki/concepts/neuromodulatory-metaparameters.md]]** — the single structure that writes those metaparameters: the central nucleus projects to the dopaminergic, noradrenergic, serotonergic and cholinergic source nuclei, and its associability function is a per-stimulus learning rate raised by unsigned surprise — a written `α`, which that page's metaparameters otherwise lack an author for.

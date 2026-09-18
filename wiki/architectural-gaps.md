@@ -87,7 +87,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G69 | No architecture creates variables on demand | part | `L1` | `PARTIAL` | 10 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `PARTIAL` | 9 | [[wiki/gaps/g070.md]] |
 | G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g071.md]] |
-| G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g072.md]] |
+| G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 10 | [[wiki/gaps/g072.md]] |
 | G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 11 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `L0` | `OPEN` | 7 | [[wiki/gaps/g074.md]] |
 | G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g075.md]] |
@@ -132,9 +132,10 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G115 | Every geometric claim read off a fitted low-dimensional embedding is uncontrolled, because no one runs the arbitrary-target embedding that scores the same | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g115.md]] |
 | G116 | No task in the wiki's neuromodulator literature orthogonalizes valence against action, so no result there distinguishes a value signal from an action signal | part | `L0-INSTR` | `OPEN` | 10 | [[wiki/gaps/g116.md]] |
 | G117 | No architecture broadcasts one event on two differently-signed channels to different targets | arrangement | `L2` | `OPEN` | 5 | [[wiki/gaps/g117.md]] |
-| G118 | No architecture separates an outcome's hedonic magnitude from the motivation it commands | part | `L1` | `OPEN` | 4 | [[wiki/gaps/g118.md]] |
+| G118 | No architecture separates an outcome's hedonic magnitude from the motivation it commands | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g118.md]] |
 | G119 | No architecture has a reinforcer that is admissible to one of its learning systems and inadmissible to another | arrangement | `L2` | `OPEN` | 5 | [[wiki/gaps/g119.md]] |
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
+| G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g121.md]] |
 
 ## How gaps are used
 
