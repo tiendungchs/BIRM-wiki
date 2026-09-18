@@ -328,3 +328,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T359 | Is the motivational quantity a gain applied to one value estimate, or a second valuation system with its own associative structure? | `L1` | `LIVE` | 3 | [[wiki/tensions/t359.md]] |
 | T360 | Is non-instrumental information demand a drive to resolve uncertainty, or a drive to engage with positive items? | `L0` | `LIVE` | 3 | [[wiki/tensions/t360.md]] |
 | T361 | Is the lateral habenula a disappointment channel or a general aversion channel? | `L2` | `LIVE` | 4 | [[wiki/tensions/t361.md]] |
+| T362 | Does an internal state modulate learned value by a multiplicative gain or by an additive offset? | `L2` | `LIVE` | 2 | [[wiki/tensions/t362.md]] |
