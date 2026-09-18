@@ -196,6 +196,80 @@ This is a live disagreement with the case-based reasoning tradition, which buys 
 
 ---
 
+## The primary source, and the process this page was missing: instantiation
+
+> **Provenance (fourth ingest).** Gilboa & Marlatte 2017, *Neurobiology of schemas and schema-mediated memory*, Trends Cogn Sci 21(8):618–631 (`raw/gilboa-2017-neurobiology-of-schemas.md`). The schema literature's own review, with an activation-likelihood-estimation meta-analysis over two contrast families (132 foci / 12 experiments for instantiation; 96 foci / 15 experiments for schema-related encoding). Everything above arrived second-hand through Preston & Eichenbaum or through the analogy literature; this is the source that defines the object.
+
+The page above treats a schema as a store that new items are written into. This source splits off a **separate, earlier process** that the page has no name for: the schema is *reinstated* as a template of variables and their interrelations, and then **instantiated** — its variables bound to the particulars of the current input. Mnemonic effects are downstream of that.
+
+| | **Reinstatement / instantiation** | **Schema-mediated encoding** |
+|---|---|---|
+| What runs | activate an abstracted template; populate its slots from the input stream | bind the now-interpreted event for later retrieval |
+| Timing | pre-stimulus tonic effects; stimulus-locked from **170 ms** | **~400 ms** (online integration), then a congruence-*insensitive* subsequent-memory effect at **~650 ms** |
+| Peak sites (ALE) | vmPFC (posterior medial orbitofrontal, subcallosal, rostral anterior cingulate), bilateral anterior temporal, TPJ/angular gyrus (R>L), bilateral hippocampus, fusiform/parahippocampal, posterior cingulate/retrosplenial | anterior cingulate, **left ventrolateral** PFC, superior/inferior parietal + angular gyrus, right anterior hippocampus/parahippocampal |
+| Separable? | neuroimaging finds prior-knowledge effects and subsequent-memory effects as independent contributions within the same network; ERP signatures differ in latency and scalp topography | — |
+
+**Why a builder should care about the split.** The wiki's schema mechanisms are all write-side or read-side: assimilation, accommodation, replay selection, index building. Instantiation is neither — it is a *slot-binding pass over the input*, run before anything is stored, whose output is the interpretation the rest of the pipeline then operates on. It is the operation [[wiki/concepts/analogical-mapping.md]] performs between two representations, applied here between a stored template and a live percept, and it is the earliest point at which prior structure can be wrong ([[wiki/concepts/latent-graph-discovery.md]]: which subgraph you decide you are in determines every later query).
+
+### The template is a bound set, and the binder is vmPFC
+
+The proposed functional anatomy: long-term representations distributed over posterior neocortex (retrosplenial, middle temporal gyrus/STS, anterior temporal lobe, TPJ) are **temporarily bound together by vmPFC** into a superordinate template, with the binding context-sensitive — vmPFC biases the context-relevant associative pathways and leaves (or inhibits) the contextually irrelevant ones. The angular gyrus is separately implicated as a **convergence zone** binding low-level perceptual features to high-level decision rules within one schema.
+
+So the schema has no single storage site: it is a *transient coalition* over posterior stores, addressed by a prefrontal index. That is a different architecture from every schema mechanism above, which treats the schema as content held somewhere.
+
+### The top-down influence is causal, and it reaches early sensory cortex
+
+| Evidence | Result |
+|---|---|
+| Expert cardiologists/pulmonologists verifying a diagnosis against an ECG or chest radiograph | domain expertise predicts **N170** amplitude — an organized knowledge structure changes *early perceptual* processing of complex images |
+| Self-schema task (endorse only personally known faces) | N170 discriminates known from unknown |
+| Same task, **vmPFC lesion** | the N170 familiarity modulation is **abolished**, though it source-localizes to inferior posterior cortex (fusiform) |
+| vmPFC lesion + confabulation, judging whether a word belongs to an everyday schema | impaired **with memory unchallenged** — the deficit is in holding an active template |
+| vmPFC lesion or mPFC TMS, DRM word lists | **protected** against the false-lure effect: no meta-mnemonic theme is built, so the lure is never activated and memory is paradoxically more accurate |
+| Pre-stimulus interval, healthy controls vs vmPFC lesion | controls show **decreased** vmPFC↔inferior/lateral temporal low-frequency (theta) coherence before stimulus onset; patients do not |
+
+**The mechanism proposed is tonic low-frequency *desynchronization*, not synchronization** — vmPFC holds schema-relevant posterior networks in a decoupled state that lets them express fine-grained codes, rather than driving them into a shared rhythm. This is the opposite sign from the wiki's default communication-through-coherence reading ([[wiki/concepts/inter-areal-synchrony.md]]) and it is a *prestimulus, stimulus-independent* setting — i.e. a precision/gain state ([[wiki/concepts/precision-weighting.md]]) rather than a message.
+
+**(brainstorm)** The pair "lesion abolishes the sensory effect / lesion protects against the false memory" is the cleanest available demonstration that a prior is not a free win: the same top-down edge that makes the expert's N170 informative is the edge that manufactures the lure. A machine ablation with this shape is cheap and nobody runs it — remove the retrieval conditioning from a retrieval-augmented model and measure *both* accuracy on in-schema items and hallucination rate on schema-adjacent distractors; the prediction is that the two move together, so the operating point is a choice and not a bug.
+
+### Acquisition does not stop at vmPFC
+
+The one long-training study (nine months, ten arrays of object–location paired associates, with empty slots later trainable inside the learned array):
+
+| Elapsed | Retrieval substrate |
+|---|---|
+| Pre-sleep, day 1 | hippocampal |
+| After the **first night** | shift to **vmPFC** |
+| **3 months** | **no vmPFC**; ventrolateral PFC + anterior temporal lobe + angular gyrus/TPJ |
+
+Reinstatement of even highly learned schemas still requires vmPFC (lesion evidence above), so the two are not in conflict: what moves off vmPFC with over-training is the *specific paired associate*, which has become denotational semantic content ([[wiki/concepts/controlled-semantic-cognition.md]]'s ATL hub), while the *template* function stays. The source's own caution: training protocols that repeat specific associations may produce semantic representations rather than schemas, and a genuine schema needs variable encoding episodes so that both nodes and interrelations are abstracted.
+
+**Consequence for the wiki's consolidation timeline.** Every retrograde table on [[wiki/entities/medial-prefrontal-cortex.md]] and [[wiki/concepts/complementary-learning-systems.md]] is two-stage (hippocampus → cortex). This is **three**-stage, with the middle stage a prefrontal way-station that is later vacated — and the last transition happens between 1 and 3 months, past the end of essentially every consolidation experiment in the wiki.
+
+### Rapid neocortical integration has two stated preconditions
+
+The claim `T82` and `G14` both need, from the source that states it:
+
+| Precondition | Statement |
+|---|---|
+| **Simultaneity** | rapid neocortical consolidation is greatly enhanced when prior knowledge is **activated at the same time** as the incoming information; amodal hubs (vmPFC, ATL) may need to potentiate synchronous neocortical activity for it to happen at all |
+| **Related but non-overlapping** | catastrophic interference is avoided only when the new associations are *related* to stored ones and do **not overlap** them; congruent-but-overlapping material still interferes |
+| **Which layers** | integration occurs through rapid change in **representational** layers rather than hidden layers, mapped to lateral/inferior temporal cortex and TPJ |
+
+**This is directly implementable and contradicts how the wiki's consolidation machinery is built.** `G14`'s transport writes into the slow learner's parameters generally; this says the safe write is confined to the read-out/representational layer, is licensed by a *conjunction* (related ∧ non-overlapping) rather than by a similarity scalar, and requires the prior to be *co-active* — i.e. the write is a Hebbian coincidence between a reinstated template and a live input, not a replayed sample. The related-but-non-overlapping condition is also the missing arbitration rule the section above asks for: **overlap** with a stored association is what forces the expensive hippocampal/integration route, **relatedness without overlap** is what licenses the cheap cortical one.
+
+### Sleep does two opposite things to a schema
+
+| Stage | Operation | Evidence |
+|---|---|---|
+| **Slow-wave sleep** | build/refine: slow oscillations synchronize cortex, thalamic spindles open plasticity windows, hippocampal ripples reinstate; synaptic downscaling then keeps only the strongly potentiated — so *shared* elements of several reactivated memories survive and idiosyncrasies are lost | associating new material with prior knowledge is **essential** for successful reactivation and integration, via increased spindle activity; spindle density predicts **accelerated hippocampal disengagement** in schema-dependent consolidation |
+| **REM** | **disintegrate**: preexisting schemas are broken up so new ones can form; proposed substrate of associative/creative recombination | REM-associated consolidation benefit for **tonal** melodies (Western musical schema) but not atonal ones |
+| **Wake** | preselection: wake-dependent replay tags memories for later sleep reactivation, and this tagging is proposed to be **biased by currently activated schemas** | — |
+
+**The wake-tagging claim is what `G14` asks for, in a form nobody has implemented**: the replay *selector* reads the currently instantiated schema, so what gets consolidated is chosen by fit to the active template rather than by recency, salience or reward. And the REM half gives the schema an explicit **decay/dissolution** operator, which no consolidation mechanism in the wiki has — every one of them only ever adds structure.
+
+---
+
 ## Open problems
 
 - **No arbitration between integration and separation** (above). Both are prefrontal, both are triggered by conflict, and nothing predicts which fires.
@@ -204,12 +278,20 @@ This is a live disagreement with the case-based reasoning tradition, which buys 
 - **Accommodation has no mechanism.** The review assigns it to prefrontal cortex and describes its behavioural signature; it names no plasticity rule that rewrites an existing structure without destroying it — which is the continual-learning problem ([[wiki/concepts/continual-learning.md]]) stated in memory terms.
 - **Schema identity is unoperationalised.** "The same schema" is defined ostensively — the same arena, the same list. Two experiences overlapping in some features and not others have no defined membership, and property (i) (one-trial learning) was shown to fail across environments, so the boundary is doing real work while remaining undefined (this is G37/G27 in another vocabulary).
 - **Homology.** "mPFC in rats ≈ vmPFC in humans" carries the entire cross-species argument and the source flags it as unfinished.
+- **Competition or cooperation between controller and store is unresolved, and the deciding variable is the same unmeasured one** ([[wiki/empirical-tensions.md]] T372). SLIMM has vmPFC inhibiting medial-temporal binding when the input resonates with a schema; the associative-inference literature has the two coupling more, and the coupling predicting inference. The source's reconciliation is an inverted U over relatedness — weak coupling for arbitrary material *and* for very strongly schematic material, peak in between — which no study has tested because none varies relatedness at more than two levels.
+- **How schemas are *constructed and accommodated* is barely studied at all.** The source says so directly: almost all work is on assimilation of new information into an existing schema. Accommodation still has no mechanism (above), and now neither does construction.
+- **Whether general-form schemas are the same object as the low-level knowledge structures actually tested.** Nearly every paradigm uses informationally specific prior knowledge (a trained array of paired associates, a weather-prediction rule set). Whether a superordinate template recruits a broader compilation of the same subprocesses or something qualitatively different is stated as unknown — which is the source's own version of this page's *schema identity is unoperationalised*.
+- **Statistical learning alone, or a prior that constrains it?** Open in the source: whether detection of regularities can by itself yield structured symbolic schemas, or whether prior abstract knowledge must be assumed to constrain acquisition — the [[wiki/concepts/inductive-bias.md]] question stated inside the memory literature.
 - **The schema's slot list is asserted, not derived.** "Spatial, temporal, causal, evaluative and social" is a plausible enumeration with no principle behind it and no test that the five are separable or exhaustive; nothing says what a sixth aspect would look like or how the aspects are bound into one representation (Lieberman & Meyer 2018).
 
 ---
 
 ## Connections
 
+- **[[wiki/concepts/inter-areal-synchrony.md]]** — carries the opposite-sign prediction this page now rests on: the schema template is held over posterior cortex by *tonic pre-stimulus de*synchronization of vmPFC↔temporal theta, absent after vmPFC lesion, so preparing a network to express a fine-grained code looks like decoupling rather than coherence (Gilboa & Marlatte 2017).
+- **[[wiki/concepts/precision-weighting.md]]** — what instantiation is, in gain terms: a stimulus-independent, sustained prefrontal setting over posterior stores that biases which associations can be expressed, measurable before the input arrives and causally necessary for the earliest sensory signature of expertise (N170).
+- **[[wiki/concepts/controlled-semantic-cognition.md]]** — the destination of an over-trained schema: at three months the object–location associates are read from ventrolateral PFC + anterior temporal lobe + angular gyrus and vmPFC has dropped out, so repeated encoding of *specific* associations converts a schema into denotational semantic content while the template function stays with vmPFC.
+- **[[wiki/concepts/event-segmentation.md]]** *(also)* — supplies the missing dissolution operator from the other side: REM sleep is proposed to *disband* existing schemas so new ones can form (tonal-melody benefit, absent for atonal), which is the only mechanism in the wiki that removes stored structure rather than adding to it.
 - **[[wiki/concepts/retrieval-mediated-learning.md]]** — the primary source for this page's conflict trigger, with the reinstatement measured rather than presumed: it supplies the classifier read-out of the absent element, the anterior-MTL/hippocampus split between reporting reactivation and doing the binding, and the partial correlation that makes integration-at-encoding non-vacuous.
 - **[[wiki/concepts/nonspatial-maps.md]]** — the map operation isolated there and covered by no other: insert new nodes into a map already in use and keep the frame, rather than rebuild it.
 

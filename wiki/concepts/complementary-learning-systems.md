@@ -246,6 +246,22 @@ The division-of-labour framing predicts the cortex should *drag down* episodic p
 
 ---
 
+### 5. Rapid cortical learning is licensed by a conjunction, not by congruence alone
+
+> **Provenance.** Gilboa & Marlatte 2017 (`raw/gilboa-2017-neurobiology-of-schemas.md`). Full treatment on [[wiki/concepts/schema-assimilation.md]].
+
+The one-trial-cortical-learning exception to this page's slow-cortex premise is usually stated as "schema-congruent material integrates fast". The review states three conditions instead, and two of them are constraints the wiki's machine consolidation mechanisms violate:
+
+| Condition | Consequence for a builder |
+|---|---|
+| Prior knowledge must be **co-active** with the incoming information; amodal hubs (ventromedial prefrontal, anterior temporal) potentiate the synchronous neocortical activity that allows it | the write is a Hebbian coincidence between a reinstated template and a live input, **not** a replayed sample — so this route does not run offline at all |
+| New associations must be **related but non-overlapping**; related *and* overlapping material still interferes | the licence is a conjunction, not a similarity scalar. Overlap forces the expensive hippocampal route; relatedness without overlap licenses the cheap cortical one |
+| The rapid change occurs in **representational** layers rather than hidden layers (lateral/inferior temporal cortex, temporoparietal junction) | a *partial* write confined to the read-out, which composes with the Euston et al. constraint above (freeze the terms, write only the mapping) |
+
+This is the interference argument at the top of the page with its exception made precise: the reason distributed networks were thought incapable of fast integration is the overlapping case, and connectionist models that update representational layers show little interference on related non-overlapping material. It also sharpens `T82` and `G14`, and it makes the acceleration reported by the sleep literature (spindle density predicting accelerated hippocampal disengagement for schema-dependent material) a consequence of a licence rather than of a rate.
+
+---
+
 ## Machine instantiations
 
 | System | Mechanism | What it borrows | What it drops |
