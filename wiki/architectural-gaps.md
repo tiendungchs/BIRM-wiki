@@ -71,7 +71,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G53 | No architecture delivers one signal to two modules by the same wire, and none lets a third module license a pair's connection | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g053.md]] |
 | G54 | No architecture distinguishes a channel that carries content from one that only carries timing | part | `L2` | `PARTIAL` | 13 | [[wiki/gaps/g054.md]] |
 | G55 | Every machine controller is either one resource or *n* independent ones; none has a shared component plus operation-specific parameters | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g055.md]] |
-| G56 | No architecture has a run-time gain register on its own connections | part | `L2` | `OPEN` | 9 | [[wiki/gaps/g056.md]] |
+| G56 | No architecture has a run-time gain register on its own connections | part | `L2` | `OPEN` | 10 | [[wiki/gaps/g056.md]] |
 | G57 | No architecture makes its teaching signal one of its own inputs | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g057.md]] |
 | G58 | No control layer is instantiated by the existence of a choice at its own level | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g058.md]] |
 | G59 | Every hierarchical controller lets its lower level see the same observation as its upper level | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g059.md]] |
@@ -116,7 +116,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G99 | No architecture in the wiki can call a module's *operation* on an argument from outside the module's own domain; every transfer mechanism here moves representations, none exposes an operator | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g099.md]] |
 | G100 | No architecture in the wiki has a growth schedule: capacity is fully available at step 0, so nothing can arrive already conditioned on what an earlier, smaller version of itself learned | part | `L0` | `PARTIAL` | 6 | [[wiki/gaps/g100.md]] |
 | G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g101.md]] |
-| G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g102.md]] |
+| G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g103.md]] |
 | G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `L3` | `PARTIAL` | 8 | [[wiki/gaps/g104.md]] |
 | G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `L0` | `OPEN` | 7 | [[wiki/gaps/g105.md]] |

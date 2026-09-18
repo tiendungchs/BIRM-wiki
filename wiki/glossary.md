@@ -678,6 +678,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | OFC | OrbitoFrontal Cortex | Value and goal coding; shows grid-like fMRI modulation in conceptual tasks and location-selective tuning in rat |
 | vmPFC / dmPFC | ventromedial / dorsomedial PreFrontal Cortex | Carry the hexadirectional signal in conceptual and social-hierarchy tasks |
 | ACC / PCC | Anterior / Posterior Cingulate Cortex | Also report grid-like modulation; PCC carries the magnitude half of the social-space vector code |
+| dACC | dorsal Anterior Cingulate Cortex | The cingulate gyrus and sulcus from the plane of the anterior commissure to the genu of the corpus callosum; assigned monitoring plus control-signal specification, and *not* regulation or valuation, by the expected-value-of-control theory ([[wiki/concepts/expected-value-of-control.md]]) |
+| EVC | Expected Value of Control | The net value of deploying a given control signal in a given state — expected payoff minus the intrinsic cost of the signal's intensity — maximised to specify what to control and how hard ([[wiki/concepts/expected-value-of-control.md]]) |
 | MEC / LEC | Medial / Lateral Entorhinal Cortex | Structural (grid-like, path-integrating) and sensory input streams to hippocampus respectively |
 | OVC / BVC / GVC | Object-Vector / Border-Vector / Goal-Vector Cell | Local bases: fire at a given distance and direction from any object, border or goal ([[wiki/concepts/compositionality.md]]) |
 | ESR | Event-Specific Rate | Per-lap deviation from the mean firing at a cell's peak location; measures non-spatial (which-lap) selectivity while ignoring spatial selectivity ([[wiki/entities/tolman-eichenbaum-machine.md]]) |
