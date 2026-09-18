@@ -22,7 +22,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 27 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `L1` | `PARTIAL` | 7 | [[wiki/gaps/g005.md]] |
 | G6 | Spurious edges survive training — and are the default, not the exception | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g006.md]] |
-| G7 | Non-stationary topology is tractable only under untested conditions | part | `L0` | `OPEN` | 4 | [[wiki/gaps/g007.md]] |
+| G7 | Non-stationary topology is tractable only under untested conditions | part | `L0` | `OPEN` | 5 | [[wiki/gaps/g007.md]] |
 | G8 | Rule reification has no implementation | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g008.md]] |
 | G9 | W is flat; there is no third tier | part | `L1` | `PARTIAL` | 9 | [[wiki/gaps/g009.md]] |
 | G10 | Self-generated intermediate nodes are unreliable | part | `L0` | `OPEN` | 5 | [[wiki/gaps/g010.md]] |
@@ -87,7 +87,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G69 | No architecture creates variables on demand | part | `L1` | `PARTIAL` | 10 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `PARTIAL` | 9 | [[wiki/gaps/g070.md]] |
 | G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g071.md]] |
-| G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g072.md]] |
+| G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 7 | [[wiki/gaps/g072.md]] |
 | G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 11 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `L0` | `OPEN` | 7 | [[wiki/gaps/g074.md]] |
 | G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g075.md]] |
