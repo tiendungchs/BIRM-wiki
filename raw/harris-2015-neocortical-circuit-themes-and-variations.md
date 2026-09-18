@@ -24,7 +24,28 @@ To understand the serially homologous organization of the neocortex, it is neces
 
 **Table 1 Properties of top-level excitatory classes**
 
+| Top-level class: | IT | IT | PT | CT |
+|---|---|---|---|---|
+| Major subclass: | L4 | Other layers |  |  |
+| Some characteristic genes: | Rorb, Satb2 | Satb2 | Fezf2, Ctip2 | Tbr1 |
+| Inputs from other local excitatory classes: | Few | Many, including L4 IT and other IT | Many, mainly from IT | Few, mainly deep-layer (L5B/6) IT |
+| Outputs to other local cell classes: | Mainly IT, especially in L3; in at least some cases, also PT | IT (but not L4 IT), PT, CT | Few | Some interconnectivity with IT, possibly PT |
+| Long-range inputs: | Thalamus, lower order cortex | Thalamus, higher and lower order cortex | Thalamus, higher and lower order cortex | Higher order cortex |
+| Long-range outputs: | Few | Many, but only within telencephalon (neocortex, striatum); the only ECs sending callosal/commissural projections | Many, to many subcortical and subcerebral regions (brainstem, tectum, spinal cord, thalamus, basal ganglia) | Thalamus; the only ECs to excite reticular nucleus and the only ECs without longer range corticocortical axons |
+| Layer and morphology: | L4 pyramidal or stellate | L2/3, L5A, L5B, L6; pyramidal | L5B, thick tufted pyramidal | L6, pyramidal |
+| Intrinsic physiology: | Regular spiking or bursting | Hyperpolarized (L2/3), little I h, spike train adaption | Depolarized, strong I h, little adaptation, bursting (subset) | Regular spiking |
+| In vivo activity: | Rapid sensory response | Sparse code | Dense code | Very sparse |
+
 **Table 2 Main classes of interneurons and their properties**
+
+| Top-level class: | Htr3a | Htr3a | Pvalb | Pvalb | Sst | Sst |
+|---|---|---|---|---|---|---|
+| Subclass: | Vip | Neurogliaform | Basket | Chandelier | Martinotti | L4 Sst |
+| Local outputs: | Descending axon, inhibiting Sst and Pvalb | Nonsynaptic GABA release | Inhibiting ECs (soma), other Pvalb | Inhibiting axon initial segment of ECs | Inhibiting Pvalb, EC dendrites including tufts | Inhibiting L4 Pvalb |
+| Local inputs: | Excited by ECs | Excited by ECs | Excited by ECs, inhibited by Pvalb, Sst, Vip | Excited by ECs | Excited by ECs, inhibited by Vip | Excited by ECs |
+| Long-range input: | Higher order cortex | ? | Thalamus, lower order cortex | ? | ? | ? |
+| Intrinsic physiology: | Irregular spiking | Late spiking | Fast spiking | Fast spiking | Low threshold spiking | Intermediate fast/low-threshold pattern |
+| In vivo activity: | Driven by behavior | ? | Dense code, weakly tuned | ? | Modulated by motor activity; wide visual receptive fields | ? |
 
 Neocortical neurons are extensively interconnected, but in a highly specific manner. Indeed, a 1 mm <sup>3</sup> volume spanning the layers of rodent neocortex—corresponding, for example, to a whisker barrel–related column in primary somatosensory cortex (S1)—contains ∼10 <sup>5</sup> neurons, ∼4 km of axon and ∼0.4 km of dendrite [^5] [^6]. In contrast to the 10 <sup>10</sup> potential connections these cells could in principle form, there are 'only' ∼10 <sup>9</sup> actual synapses [^5]. Moreover, a substantial fraction of these synapses come from extrinsic axons (>50% in one estimate) [^7], and presynaptic axons typically connect to postsynaptic neurons via multiple (for example, 4 or 5) synapses [^8]. Consistent with these calculations, paired recordings show that connectivity rates between excitatory neurons are in general low, rising to 10–20% or higher only for specific pre- and postsynaptic cells, such as functionally co-tuned neurons in primary visual cortex [^9]. While most neuronal pairs in the local circuit are thus either unconnected or only weakly connected, the connections that do occur follow systematic patterns.
 
