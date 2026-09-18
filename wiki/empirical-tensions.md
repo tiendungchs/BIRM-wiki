@@ -100,7 +100,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T98 | Does the episodic store address the controller by delivering content, or by setting its inhibitory gain? | `L2` | `LIVE` | 4 | [[wiki/tensions/t098.md]] |
 | T99 | What indexes which module a memory needs — its age, or its overlap with what is already stored? | `L2` | `LEANING` | 1 | [[wiki/tensions/t099.md]] |
 | T100 | At which task phase does the hippocampal→prefrontal channel matter — encoding or retrieval? | `L2` | `LIVE` | 2 | [[wiki/tensions/t100.md]] |
-| T101 | Can the control layer address the episodic store directly, or only through a relay? | `L2` | `LEANING` | 1 | [[wiki/tensions/t101.md]] |
+| T101 | Can the control layer address the episodic store directly, or only through a relay? | `L2` | `LEANING` | 2 | [[wiki/tensions/t101.md]] |
 | T102 | When forward and reverse inference disagree about a region's function, which wins? | `META` | `LEANING` | 2 | [[wiki/tensions/t102.md]] |
 | T103 | What is the common component of control? | `L1` | `LEANING` | 1 | [[wiki/tensions/t103.md]] |
 | T104 | Is the working-memory capacity limit a resource ceiling or a safety margin the system imposes on itself? | `L1` | `LIVE` | 2 | [[wiki/tensions/t104.md]] |
@@ -304,7 +304,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T336 | Is the analogy integrator a 0.33 cc left frontopolar site, or a right frontal network? | `L1` | `LIVE` | 4 | [[wiki/tensions/t336.md]] |
 | T337 | Is working-memory capacity a duty cycle over a periodic frame, or a rate of aperiodic bursts? | `L1` | `LIVE` | 2 | [[wiki/tensions/t337.md]] |
 | T338 | Is the relational integrator one shared head with routed inputs, or a tiled family of heads each wired to its own content feed? | `L2` | `LIVE` | 6 | [[wiki/tensions/t338.md]] |
-| T339 | Does nucleus reuniens carry content between controller and store, or only open the direction? | `L2` | `LIVE` | 2 | [[wiki/tensions/t339.md]] |
+| T339 | Does nucleus reuniens carry content between controller and store, or only open the direction? | `L2` | `LIVE` | 3 | [[wiki/tensions/t339.md]] |
 | T340 | Does the episodic store return its output to the stream that wrote it, or to the other one? | `L2` | `LIVE` | 1 | [[wiki/tensions/t340.md]] |
 | T341 | Does a cortical area carry one signed prediction-error population, or two sign-specific ones? | `L1` | `LEANING` | 4 | [[wiki/tensions/t341.md]] |
 | T342 | Does a cerebellar module emit a motor command, or a prediction of that command's sensory consequence? | `L1` | `LIVE` | 3 | [[wiki/tensions/t342.md]] |
@@ -346,3 +346,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T378 | Does a hierarchical depth coordinate exist for association cortex, or only for the sensory streams it was defined on? | `L2` | `LIVE` | 5 | [[wiki/tensions/t378.md]] |
 | T379 | Is the direction of a cortical message set by frequency *order*, or by a fixed set of named channels? | `L2` | `LIVE` | 2 | [[wiki/tensions/t379.md]] |
 | T380 | Is the prediction-error cohort a sparse dedicated subpopulation, or a threshold slice through a variable every superficial cell carries? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t380.md]] |
+| T381 | Is the medial diencephalon a relay serving the hippocampal memory stream, or a co-equal second stream? | `L1` | `LIVE` | 1 | [[wiki/tensions/t381.md]] |
