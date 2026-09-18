@@ -90,6 +90,24 @@ Stated caveat: cross-sectional mediation across a 50-year age gap, no manipulati
 
 ---
 
+### The generator is also a clock, and the channel is duty-cycled
+
+> Klinzing, Niethard & Born 2019 (`raw/klinzing-2019-mechanisms-of-systems-consolidation-during-sleep.md`). Full treatment: [[wiki/concepts/sleep-oscillation-nesting.md]].
+
+Mander's result gives the channel a throughput variable (prefrontal slow-wave amplitude). This source says why an amplitude is the right variable: the slow oscillation's up-state is a **window**, and the transfer is licensed by a conjunction of three nested rhythms — ripple in spindle trough, spindle in up-state.
+
+| Addition to this page | Statement |
+|---|---|
+| The channel is **duty-cycled by the receiver** | The slow learner emits the window signal; the store's output only becomes a cortical write inside it |
+| Violating the protocol **inverts the sign** | A slow oscillation with no nested spindle depotentiates cortical synapses |
+| The window is a **cell-level circuit state** | Pyramidal cells depolarised, parvalbumin interneurons clamping the soma, somatostatin-mediated dendritic inhibition withdrawn — write-enable with the read-out muted, and the same state supports plasticity during waking |
+| Transport is embedded in **global downscaling** | Net synaptic weakening across sleep, with consolidation as the local exception; regulated per *dendritic branch* |
+| The addressing is unexplained | Spindles are local, slow oscillations global, and the slow oscillation's location does not predict the nested spindle's — so something else decides which cortical network receives the update ([[wiki/empirical-tensions.md]] T373) |
+
+**(brainstorm) What this costs the machine version.** Every CLS implementation here writes to the slow learner whenever a sample is drawn, with forgetting handled by a separate policy. The biological arrangement makes them one schedule: write in-phase-and-addressed, decay in-phase-and-unaddressed, and let the *source* ensemble be downscaled by the very event that transports it.
+
+---
+
 ## The channel also runs backwards, at encoding time
 
 This page's coupling is unidirectional: fast → slow, by replay, offline. Rolls' reverse hierarchy adds cortex ← hippocampus at *retrieval*. de Sousa et al. 2026 adds a third traffic direction the wiki had no slot for — **slow → fast, during encoding, controlling how the fast store writes**.
@@ -389,3 +407,4 @@ This is the interference argument at the top of the page with its exception made
 - **[[wiki/entities/entorhinal-cortex.md]]** — supplies the one place this page's channel can be cut without damaging either learner: lesioning the temporoammonic projection (layer III → CA1) leaves acquisition and 1-day memory intact and abolishes the 28-day memory, and only if the cut is made inside a post-encoding window (Frankland & Bontempi 2005).
 - **[[wiki/concepts/canonical-cortical-microcircuit.md]]** — gives the cortical half of consolidation a laminar address: recall-evoked activation in parietal cortex migrates from layers V–VI to layers II–III/IV over weeks, i.e. into the layers that carry cortico-cortical connections, which is what the wiring-plasticity account of the slow rate predicts and what regional-resolution imaging cannot see.
 - **[[wiki/entities/medial-prefrontal-cortex.md]]** — adds a second job to the receiving end of this page's channel: on a successful remote read the controller appears to *suppress* the fast store (hippocampal activity below control, released when the cortical match fails), so the slow learner gates the fast store's re-encoding rather than only consuming its output (Frankland & Bontempi 2005).
+- **[[wiki/concepts/sleep-oscillation-nesting.md]]** — supplies the schedule this page's coupling channel runs on: a three-rhythm nesting generated in the receiver licenses the write, the licence inverts to depotentiation when the nesting fails, and the transfer is a local exception inside a global synaptic downscaling.

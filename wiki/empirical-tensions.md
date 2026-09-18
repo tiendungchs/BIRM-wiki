@@ -338,3 +338,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T370 | Does uninstructed free play converge on an intermediate-difficulty set-point, or does it under-challenge? | `L0` | `LIVE` | 2 | [[wiki/tensions/t370.md]] |
 | T371 | Is the cortical circuit's invariant unit the layer or the genetically defined cell class? | `L1` | `LEANING` | 4 | [[wiki/tensions/t371.md]] |
 | T372 | When prior knowledge fits, do the controller and the store compete or cooperate? | `L2` | `LIVE` | 2 | [[wiki/tensions/t372.md]] |
+| T373 | Does the cortical slow oscillation schedule the consolidation window, or does the thalamus? | `L2` | `LIVE` | 3 | [[wiki/tensions/t373.md]] |

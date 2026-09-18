@@ -242,6 +242,24 @@ This partly dissolves the arbitration problem rather than adding to it: if awake
 
 ---
 
+## The window, not just the sample: replay only counts when the rhythms nest
+
+> Klinzing, Niethard & Born 2019 (`raw/klinzing-2019-mechanisms-of-systems-consolidation-during-sleep.md`). Full treatment: [[wiki/concepts/sleep-oscillation-nesting.md]].
+
+Everything above treats a replay event as self-sufficient — the sequence is reinstated, therefore the downstream learner is updated. The oscillation literature says the event is one of three required terms.
+
+| Term | Statement |
+|---|---|
+| Ripple inside **spindle trough** | Hippocampal ripples phase-lock to the excitable troughs of thalamic spindles ("spindle–ripple events"), the proposed hippocampus→neocortex transmission vehicle |
+| Spindle inside **slow-oscillation up-state** | Induced spindles enhance memory *only* when phase-locked to spontaneous up-states; ageing's consolidation deficit tracks **mistimed** coupling rather than reduced spindles |
+| Missing spindle → **opposite sign** | A slow oscillation whose up-state has no nested spindle primarily *depotentiates* cortical synapses |
+
+Three consequences for this page. (i) **The jobs table's arbitration problem is partly a scheduling problem** — jobs that need a cortical write can only run inside the window, while jobs whose consumer is intra-hippocampal (construction, planning) are not so constrained, which sorts the table by whether the consumer is the slow learner. (ii) **Replay events and consolidation events are not the same count**; any measurement that regresses behaviour on ripple rate is using the wrong predictor, and the coupling strength is the right one. (iii) **The same ripple downscales its own source** — ripples reduce synaptic weights in the reactivating hippocampal ensembles, so the transfer and the fast store's clearance share one trigger, which is the mechanism the "forgetting is reallocation" claim ([[wiki/entities/rolls-treves-hippocampal-model.md]]) has been missing.
+
+And one for the two-stage schedule above: the awake-tag/sleep-transfer split is *why* the window exists on the talk's own argument (cortex is receptive only in the sleep state), and this source supplies the physiology — the cortical circuit state during a spindle-nested up-state (soma clamped by parvalbumin cells, apical dendrite released by withdrawn somatostatin inhibition) is the receptivity in question, and cortex can occupy that state awake too.
+
+---
+
 ## What replay costs in wiring: `c · M ≈ const`
 
 Sammons et al. 2023 asks the quantitative version of the mechanism question — *how much recurrence does a sequence need to replay at all?* — in a spiking network built to the measured CA3 statistics.
@@ -365,3 +383,4 @@ The third point is the one with teeth for a machine: it makes **use frequency th
 - **[[wiki/entities/model-free-episodic-control.md]]** — the wiki's clearest case of reverse replay cited as provenance for an update whose result is order-independent: the end-of-episode sweep runs `t = T…1` and is offered as an instance of awake reverse replay, but with Monte Carlo returns and a `max` write the backward order changes nothing, so this belongs in the ledger as an analogy rather than a mechanism (Blundell et al. 2016).
 - **[[wiki/concepts/eigenoption-discovery.md]]** — a sixth job for the offline period, and the one that would supply the incrementality that page lacks: building the incidence matrix of stored transition differences and taking its SVD is a batch operation over experience, so re-deriving the whole option library after the graph estimate shifts is replay-time work rather than controller-time work (Machado et al. 2017).
 - **[[wiki/concepts/schema-assimilation.md]]** *(also)* — proposes what reads the tag *before* it is set: wake-dependent replay tags memories for later sleep reactivation, and the tagging is biased by the **currently instantiated schema**, so the selector's input is a run-time template rather than recency, reward or cross-episode recurrence. The same source adds the one job this page's inventory lacks — rapid-eye-movement sleep **disbanding** schemas so new ones can form — and a licence condition on the destination: the fast cortical write needs the prior co-active with the input and related-but-non-overlapping, which a replayed sample cannot supply (Gilboa & Marlatte 2017).
+- **[[wiki/concepts/sleep-oscillation-nesting.md]]** — the gate on this page's channel: a replayed sequence becomes a cortical write only inside a spindle nested in a slow-oscillation up-state, the nesting failure inverts the sign of the plasticity, and the same ripple downscales the hippocampal ensemble it reactivates.
