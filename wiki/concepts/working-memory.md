@@ -264,6 +264,23 @@ All differentiable, so gradients pass through the store. Two readings this wiki 
 
 ---
 
+## And the measured human preference is to use *less* of the store than is available
+
+Every design above treats capacity as a budget to be filled. In the one task where a human's use of the store is read off their eye movements, the store is deliberately underused (Ballard, Hayhoe, Pook & Rao 1997, [[wiki/concepts/active-vision.md]]). Subjects copy a pattern of coloured blocks under an instruction to go **as fast as possible**; the strategies differ in how many values are carried from one block-move to the next:
+
+| Strategy (eye path per block) | Time | Items carried | Frequency |
+|---|---|---|---|
+| model → pickup → model → drop | **3.0 s** | **none** | **modal for all 7 subjects, by a wide margin** |
+| pickup → model → drop | 2.5 s | colour | — |
+| model → pickup → drop | 2.0 s | offset | — |
+| pickup → drop | 1.5 s | colour and offset | the last one or two blocks only |
+
+**The zero-carry strategy is the slowest and it is the one chosen**, at 1.0–1.5 s per block, with memorising two values well inside anyone's capacity. Three controls make it an exchange rate rather than an artefact: separating model and workspace by **70°** (raising the price of a look) moves fixations per block **1.3 → 1.0**; a monochrome version, where sub-patterns can be chunked, drops it to **0.7**; and occluding the model during placement does *not* push subjects into memorising. Changing a block's colour mid-saccade costs **+50 ms** before pickup (colour was not being held) and **+129 ms** after pickup (it was), with subjects mostly unaware and resolving the conflict in favour of the value they held.
+
+**Two consequences for this page.** The carrying cost of an item is not zero and exceeds the cost of re-acquiring it from the world at ordinary saccade amplitudes — so the wiki's stores, which price maintenance in gains, thresholds and decay, are missing the term that actually governs use. And the capacity limit reads as a **consequence** rather than a constraint: a program built from deictic bindings holds only what the current step needs, so the small number falls out of the strategy instead of bounding it. No architecture in the wiki would produce this behaviour, because no objective here penalises carrying a value.
+
+---
+
 ## Maintenance has a price, and it is a threshold
 
 The designs above treat holding and updating as separate problems. In a continuous attractor they are the *same* parameter (Li, Chu & Wu 2024, [[wiki/entities/adaptive-cann.md]]): a stored value is stable precisely because it resists being moved, which is what makes it slow to update and impossible to search. Adding a slow negative feedback `τ_v dV/dt = −V + mU` and raising its gain buys mobility at the exact cost of maintenance, with the exchange rate in closed form:
@@ -413,6 +430,7 @@ Three things this changes for fast **M**:
 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — supplies the only architecture in this ingest that performs explicit multi-hop graph traversal, and marks the boundary: it navigates a *given* graph, it does not discover one.
 - **[[wiki/concepts/attention.md]]** — attention is also where this page's capacity limit can sit: in a minimal transformer trained on `N`-back the item stays inside the context window and the *read* is what degrades, logarithmically in the offset and in step with the entropy of the attention matrix (Gong & Zhang 2024). Attention is the read mechanism of an external memory, and the read is *scheduled*: gamma bursting and object information ramp up several hundred milliseconds before the item is queried, for that item only, and not before an equally predictable event that requires no read (Lundqvist et al. 2018); internal attention and content-addressable retrieval are the same operation — and in prefrontal cortex the two are not separable at the read-out: 61% of delay-tuned cells track the attended location and 16% the remembered one, so the store's persistent signal is mostly its own pointer (Lebedev et al. 2004).
+- **[[wiki/concepts/active-vision.md]]** — the one measurement in the wiki of how much of this store a human *chooses* to use: below capacity, at a cost of 1.0–1.5 s per block under a speed instruction, with the look/remember exchange rate shifting when saccade amplitude rises — which makes the capacity limit a consequence of deictic binding rather than the constraint a program is fitted into, and names the missing term (carrying cost) that every design on this page prices in gains and decay instead.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — external memory is the engineering form of the fast store; working memory adds the controller that decides what is written and read.
 - **[[wiki/entities/nucleus-reuniens.md]]** — the bus between the store and the controller is itself a lesionable cause of working-memory deficit: reuniens damage reproduces the radial-arm-maze and delayed-non-match-to-position failures of a hippocampal–prefrontal disconnection while both endpoints stay intact, so a maintenance deficit need not be located in any maintaining structure.
 - **[[wiki/concepts/meta-learning.md]]** — meta-RL's inner learner lives in recurrent activity, i.e. in entangled working memory; its capacity limits are working-memory limits.

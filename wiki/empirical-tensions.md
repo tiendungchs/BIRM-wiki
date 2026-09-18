@@ -352,3 +352,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T384 | Does retrosplenial cortex hold the recent trace or the remote one? | `L2` | `LIVE` | 2 | [[wiki/tensions/t384.md]] |
 | T385 | In a delayed-match task, which region holds the item and which one filters — prefrontal or parietal? | `L1` | `LIVE` | 2 | [[wiki/tensions/t385.md]] |
 | T386 | Is the sensory render on the retrieval path, or an optional strategy a system can pass the task without? | `L1` | `BOTH` | 4 | [[wiki/tensions/t386.md]] |
+| T387 | Is a visual pointer assigned bottom-up by the stimulus, or bound top-down by the program that needs a variable? | `L2` | `LIVE` | 2 | [[wiki/tensions/t387.md]] |
