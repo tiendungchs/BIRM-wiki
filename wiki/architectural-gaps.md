@@ -29,7 +29,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G11 | No mechanism for the non-embeddable symbolic slice | part | `L0` | `OPEN` | 10 | [[wiki/gaps/g011.md]] |
 | G12 | No routing policy between structure types | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `L0` | `PARTIAL` | 2 | [[wiki/gaps/g013.md]] |
-| G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 25 | [[wiki/gaps/g014.md]] |
+| G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 26 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 26 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 61 | [[wiki/gaps/g017.md]] |
@@ -136,7 +136,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G119 | No architecture has a reinforcer that is admissible to one of its learning systems and inadmissible to another | arrangement | `L2` | `OPEN` | 5 | [[wiki/gaps/g119.md]] |
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
 | G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g121.md]] |
-| G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 2 | [[wiki/gaps/g122.md]] |
+| G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 3 | [[wiki/gaps/g122.md]] |
 
 ## How gaps are used
 
