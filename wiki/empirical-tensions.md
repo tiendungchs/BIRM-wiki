@@ -25,7 +25,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T9 | Are installed priors unitary modules or bundles of independently violable constraints? | `L1` | `LEANING` | 1 | [[wiki/tensions/t009.md]] |
 | T10 | Is an innate prior architecturally necessary, or just knowledge delivered early? | `L1` | `LIVE` | 2 | [[wiki/tensions/t010.md]] |
 | T11 | Is an installed prior a hard constraint or a strong default? | `L1` | `LEANING` | 1 | [[wiki/tensions/t011.md]] |
-| T12 | Are the conceptual primitives of infancy installed, or learned from sensorimotor prediction in the first months? | `L0` | `LIVE` | 4 | [[wiki/tensions/t012.md]] |
+| T12 | Are the conceptual primitives of infancy installed, or learned from sensorimotor prediction in the first months? | `L0` | `LIVE` | 5 | [[wiki/tensions/t012.md]] |
 | T13 | Is long-term potentiation the mechanism behind behavioural learning? | `L4` | `LEANING` | 2 | [[wiki/tensions/t013.md]] |
 | T14 | Are structured representations real, or emergent descriptions of sub-symbolic processes? | `L0` | `LIVE` | 1 | [[wiki/tensions/t014.md]] |
 | T15 | Is training data a design lever or an anchor? | `L0` | `LIVE` | 4 | [[wiki/tensions/t015.md]] |
@@ -88,7 +88,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T85 | Is phasic dopamine a reward *prediction* or a reward *association*? | `L4` | `LIVE` | 6 | [[wiki/tensions/t085.md]] |
 | T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `L1` | `LEANING` | 3 | [[wiki/tensions/t086.md]] |
 | T87 | Is a working memory held at a fixed point, or in a moving trajectory? | `L3` | `LEANING` | 2 | [[wiki/tensions/t087.md]] |
-| T88 | What is prefrontal delay-period activity *about* — the item held, or the place attention is pointed? | `L1` | `LEANING` | 4 | [[wiki/tensions/t088.md]] |
+| T88 | What is prefrontal delay-period activity *about* — the item held, or the place attention is pointed? | `L1` | `LEANING` | 5 | [[wiki/tensions/t088.md]] |
 | T89 | Is a working memory cleared by decay or by an addressed erase signal? | `L2` | `LIVE` | 1 | [[wiki/tensions/t089.md]] |
 | T90 | Is a working-memory operation implemented by one controller, or by the conjunction of several subsystems each representing it differently? | `L1` | `LIVE` | 1 | [[wiki/tensions/t090.md]] |
 | T92 | Is working memory the specialized function of prefrontal cortex? | `L4` | `LIVE` | 5 | [[wiki/tensions/t092.md]] |
@@ -146,7 +146,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T148 | Should a discovered action alphabet be discrete or continuous? | `L1` | `LIVE` | 5 | [[wiki/tensions/t148.md]] |
 | T149 | Must a vision encoder be trained with language supervision to align well with a language model? | `L3` | `LEANING` | 3 | [[wiki/tensions/t149.md]] |
 | T150 | Should a quantisation codebook be learned from data or installed by construction? | `L3` | `LIVE` | 2 | [[wiki/tensions/t150.md]] |
-| T151 | Where do a model's objects live — in its architecture, or in a read-out of its predictions? | `L1` | `LIVE` | 2 | [[wiki/tensions/t151.md]] |
+| T151 | Where do a model's objects live — in its architecture, or in a read-out of its predictions? | `L1` | `LIVE` | 3 | [[wiki/tensions/t151.md]] |
 | T152 | Is a world model's conditioning interface a design requirement, or an implementation detail? | `L2` | `LEANING` | 5 | [[wiki/tensions/t152.md]] |
 | T153 | Is a straight latent trajectory a good representation or a partial collapse? | `L3` | `LIVE` | 3 | [[wiki/tensions/t153.md]] |
 | T154 | Does a control-usable visual world model need foundation-scale pretraining? | `L3` | `LIVE` | 6 | [[wiki/tensions/t154.md]] |
@@ -350,3 +350,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T382 | Does posterior cingulate cortex carry a signed subjective value, or an unsigned salience? | `L2` | `LIVE` | 2 | [[wiki/tensions/t382.md]] |
 | T383 | Is the egocentric↔allocentric conversion an operation localised to one region, or is "no isolated function" the correct description of that region? | `L1` | `LIVE` | 8 | [[wiki/tensions/t383.md]] |
 | T384 | Does retrosplenial cortex hold the recent trace or the remote one? | `L2` | `LIVE` | 2 | [[wiki/tensions/t384.md]] |
+| T385 | In a delayed-match task, which region holds the item and which one filters — prefrontal or parietal? | `L1` | `LIVE` | 2 | [[wiki/tensions/t385.md]] |
