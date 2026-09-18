@@ -60,6 +60,7 @@ before probing**.
 |---|---|---|---|
 | `science.org` | Science, Science Advances, all AAAS titles | Mongillo, Barak & Tsodyks 2008 (wave 20 row 9) — never obtainable | PMC mirror, author copy, or `pdf` route from an author PDF; else drop |
 | `academic.oup.com/cercor` | Cerebral Cortex only — **`academic.oup.com/brain` is covered** (manifest rows 368, 369) | Elston 2003 (wave 20 row 11) — never obtainable | PMC mirror; else drop |
+| `annualreviews.org` | Annual Reviews, all titles | Roelfsema 2006, *Cortical algorithms for perceptual grouping* (wave 24 row 2) — the user hit the paywall with institutional login | PMC mirror, author copy (ResearchGate), or `pdf` route; else drop |
 
 Maintenance: the moment the user reports a target they could not reach, add a row here with the
 target that proved it and the narrowest scope that is actually blocked (a title, not a publisher,
