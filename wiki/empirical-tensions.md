@@ -132,7 +132,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T133 | What does the direct/indirect pathway balance set — the discount factor or the exploration temperature? | `L2` | `LIVE` | 3 | [[wiki/tensions/t133.md]] |
 | T134 | Does serotonin set the prediction horizon or report the average reward? | `L2` | `LIVE` | 4 | [[wiki/tensions/t134.md]] |
 | T135 | What is compared when a brain decides whether to plan — the reliability of the two answers, or the cost and benefit of computing one? | `L2` | `LIVE` | 2 | [[wiki/tensions/t135.md]] |
-| T136 | Does a hierarchical learner deliver a subgoal-specific reward of its own? | `L2` | `LIVE` | 1 | [[wiki/tensions/t136.md]] |
 | T137 | Is the subthalamic nucleus a threshold unit or an exponentiator? | `L3` | `LEANING` | 2 | [[wiki/tensions/t137.md]] |
 | T138 | Does the separation/completion bias actually need a controller, or is a well-placed constant enough? | `L2` | `LIVE` | 2 | [[wiki/tensions/t138.md]] |
 | T139 | What defines a behavioural segment boundary — predictive failure, or clustering under a smoothness prior? | `L0` | `LIVE` | 2 | [[wiki/tensions/t139.md]] |
@@ -330,6 +329,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T361 | Is the lateral habenula a disappointment channel or a general aversion channel? | `L2` | `LIVE` | 4 | [[wiki/tensions/t361.md]] |
 | T362 | Does an internal state modulate learned value by a multiplicative gain or by an additive offset? | `L2` | `LIVE` | 2 | [[wiki/tensions/t362.md]] |
 | T363 | Does maximising control capacity land an agent on the states a task would have designated? | `L0` | `LIVE` | 2 | [[wiki/tensions/t363.md]] |
-| T364 | Is the dorsomedial control layer a level-blind evaluator of control, or a level-specific selector organised by abstraction? | `L1` | `LIVE` | 3 | [[wiki/tensions/t364.md]] |
+| T364 | Is the dorsomedial control layer a level-blind evaluator of control, or a level-specific selector organised by abstraction? | `L1` | `LIVE` | 4 | [[wiki/tensions/t364.md]] |
 | T365 | Do topological bottlenecks make the right subgoals, or the wrong ones? | `L0` | `LIVE` | 3 | [[wiki/tensions/t365.md]] |
 | T366 | Does widening the training goal set help the one task you care about, or destroy it? | `L0` | `LIVE` | 2 | [[wiki/tensions/t366.md]] |
+| T367 | Is the subgoal-level prediction error carried on its own channel, or on the reward channel with the running option as a mask? | `L2` | `LIVE` | 7 | [[wiki/tensions/t367.md]] |
