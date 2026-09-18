@@ -223,7 +223,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T249 | Is more integration always better, or is there an interior optimum? | `L2` | `LIVE` | 2 | [[wiki/tensions/t249.md]] |
 | T250 | Does raising a network's global coupling make its decisions faster or slower? | `L2` | `LIVE` | 2 | [[wiki/tensions/t250.md]] |
 | T251 | Does cortical geometry suffice to explain brain dynamics, or are the rare long-range connections load-bearing? | `L2` | `LIVE` | 3 | [[wiki/tensions/t251.md]] |
-| T252 | Is the direction of large-scale cortical flow fixed by anatomy or set dynamically? | `L2` | `LIVE` | 2 | [[wiki/tensions/t252.md]] |
+| T252 | Is the direction of large-scale cortical flow fixed by anatomy or set dynamically? | `L2` | `LIVE` | 3 | [[wiki/tensions/t252.md]] |
 | T253 | Is slow connectome dynamics the accumulated expression of fast states, or an independent parallel stream? | `L4` | `LIVE` | 2 | [[wiki/tensions/t253.md]] |
 | T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L0-INSTR` | `LEANING` | 2 | [[wiki/tensions/t254.md]] |
 | T256 | Is the precuneus (area 7m) part of the default mode network? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t256.md]] |
@@ -343,4 +343,5 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T375 | Should the consolidated model mirror the environment's statistics, or be deliberately biased away from them? | `L2` | `LIVE` | 2 | [[wiki/tensions/t375.md]] |
 | T376 | Is apical–basal coupling a global state variable, or a per-column gate that can be aimed? | `L2` | `LIVE` | 4 | [[wiki/tensions/t376.md]] |
 | T377 | Which structure initiates a coordinated cortico-hippocampal replay event? | `L2` | `LIVE` | 2 | [[wiki/tensions/t377.md]] |
-| T378 | Does a hierarchical depth coordinate exist for association cortex, or only for the sensory streams it was defined on? | `L2` | `LIVE` | 4 | [[wiki/tensions/t378.md]] |
+| T378 | Does a hierarchical depth coordinate exist for association cortex, or only for the sensory streams it was defined on? | `L2` | `LIVE` | 5 | [[wiki/tensions/t378.md]] |
+| T379 | Is the direction of a cortical message set by frequency *order*, or by a fixed set of named channels? | `L2` | `LIVE` | 2 | [[wiki/tensions/t379.md]] |
