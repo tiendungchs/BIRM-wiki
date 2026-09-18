@@ -313,7 +313,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T345 | Is movement-correlated activity in a sensory area a valid proxy for the prediction term? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t345.md]] |
 | T346 | Is a cortical action→sensory-consequence map stored in the sender's activity, or in the sender→receiver synaptic matrix? | `L2` | `LIVE` | 2 | [[wiki/tensions/t346.md]] |
 | T347 | Does the entorhinal-hippocampal code de-alias geometrically identical subspaces, or only positions within one? | `L2` | `LIVE` | 6 | [[wiki/tensions/t347.md]] |
-| T348 | Is an object-vector block path-integrated, or measured online from the referent? | `L2` | `LIVE` | 3 | [[wiki/tensions/t348.md]] |
+| T348 | Is an object-vector block path-integrated, or measured online from the referent? | `L2` | `LIVE` | 4 | [[wiki/tensions/t348.md]] |
 | T349 | Does structure come from predicting forward, or from being allowed to see the past? | `L2` | `LIVE` | 4 | [[wiki/tensions/t349.md]] |
 | T350 | Is a memory library a set of discrete atoms, or one continuous family plus a metaparameter? | `L1` | `LIVE` | 4 | [[wiki/tensions/t350.md]] |
 | T351 | Does an easy-to-hard curriculum pay at *fixed* capacity, or only when capacity is small and then grows? | `L0` | `LIVE` | 3 | [[wiki/tensions/t351.md]] |
@@ -348,5 +348,5 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T380 | Is the prediction-error cohort a sparse dedicated subpopulation, or a threshold slice through a variable every superficial cell carries? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t380.md]] |
 | T381 | Is the medial diencephalon a relay serving the hippocampal memory stream, or a co-equal second stream? | `L1` | `LIVE` | 2 | [[wiki/tensions/t381.md]] |
 | T382 | Does posterior cingulate cortex carry a signed subjective value, or an unsigned salience? | `L2` | `LIVE` | 2 | [[wiki/tensions/t382.md]] |
-| T383 | Is the egocentric↔allocentric conversion an operation localised to one region, or is "no isolated function" the correct description of that region? | `L1` | `LIVE` | 5 | [[wiki/tensions/t383.md]] |
+| T383 | Is the egocentric↔allocentric conversion an operation localised to one region, or is "no isolated function" the correct description of that region? | `L1` | `LIVE` | 7 | [[wiki/tensions/t383.md]] |
 | T384 | Does retrosplenial cortex hold the recent trace or the remote one? | `L2` | `LIVE` | 2 | [[wiki/tensions/t384.md]] |
