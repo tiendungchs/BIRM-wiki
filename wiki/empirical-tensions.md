@@ -40,7 +40,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T24 | Does an adaptation curve measure learning? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t024.md]] |
 | T25 | Does a decodable internal structure license the claim that the model reasons over it? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t025.md]] |
 | T27 | Is the brain's map metric or topological? | `L1` | `LIVE` | 4 | [[wiki/tensions/t027.md]] |
-| T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 8 | [[wiki/tensions/t028.md]] |
+| T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 10 | [[wiki/tensions/t028.md]] |
 | T29 | Does de-aliasing conflict with generalisation? | `L0` | `LEANING` | 3 | [[wiki/tensions/t029.md]] |
 | T30 | What is replay for — planning the next path, or building a transferable map? | `L2` | `LIVE` | 8 | [[wiki/tensions/t030.md]] |
 | T31 | Is the entorhinal integrator perfect or leaky? | `L3` | `LIVE` | 2 | [[wiki/tensions/t031.md]] |
@@ -223,7 +223,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T249 | Is more integration always better, or is there an interior optimum? | `L2` | `LIVE` | 2 | [[wiki/tensions/t249.md]] |
 | T250 | Does raising a network's global coupling make its decisions faster or slower? | `L2` | `LIVE` | 2 | [[wiki/tensions/t250.md]] |
 | T251 | Does cortical geometry suffice to explain brain dynamics, or are the rare long-range connections load-bearing? | `L2` | `LIVE` | 3 | [[wiki/tensions/t251.md]] |
-| T252 | Is the direction of large-scale cortical flow fixed by anatomy or set dynamically? | `L2` | `LIVE` | 1 | [[wiki/tensions/t252.md]] |
+| T252 | Is the direction of large-scale cortical flow fixed by anatomy or set dynamically? | `L2` | `LIVE` | 2 | [[wiki/tensions/t252.md]] |
 | T253 | Is slow connectome dynamics the accumulated expression of fast states, or an independent parallel stream? | `L4` | `LIVE` | 2 | [[wiki/tensions/t253.md]] |
 | T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L0-INSTR` | `LEANING` | 2 | [[wiki/tensions/t254.md]] |
 | T256 | Is the precuneus (area 7m) part of the default mode network? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t256.md]] |
@@ -303,7 +303,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T335 | Do matrix problems and four-term analogies measure the same relational competence? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t335.md]] |
 | T336 | Is the analogy integrator a 0.33 cc left frontopolar site, or a right frontal network? | `L1` | `LIVE` | 4 | [[wiki/tensions/t336.md]] |
 | T337 | Is working-memory capacity a duty cycle over a periodic frame, or a rate of aperiodic bursts? | `L1` | `LIVE` | 2 | [[wiki/tensions/t337.md]] |
-| T338 | Is the relational integrator one shared head with routed inputs, or a tiled family of heads each wired to its own content feed? | `L2` | `LIVE` | 5 | [[wiki/tensions/t338.md]] |
+| T338 | Is the relational integrator one shared head with routed inputs, or a tiled family of heads each wired to its own content feed? | `L2` | `LIVE` | 6 | [[wiki/tensions/t338.md]] |
 | T339 | Does nucleus reuniens carry content between controller and store, or only open the direction? | `L2` | `LIVE` | 2 | [[wiki/tensions/t339.md]] |
 | T340 | Does the episodic store return its output to the stream that wrote it, or to the other one? | `L2` | `LIVE` | 1 | [[wiki/tensions/t340.md]] |
 | T341 | Does a cortical area carry one signed prediction-error population, or two sign-specific ones? | `L1` | `LIVE` | 4 | [[wiki/tensions/t341.md]] |
@@ -312,7 +312,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T344 | What does the layer-5 branch to higher-order thalamus carry: an efference copy, or a composite-object representation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t344.md]] |
 | T345 | Is movement-correlated activity in a sensory area a valid proxy for the prediction term? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t345.md]] |
 | T346 | Is a cortical action→sensory-consequence map stored in the sender's activity, or in the sender→receiver synaptic matrix? | `L2` | `LIVE` | 2 | [[wiki/tensions/t346.md]] |
-| T347 | Does the entorhinal-hippocampal code de-alias geometrically identical subspaces, or only positions within one? | `L2` | `LIVE` | 5 | [[wiki/tensions/t347.md]] |
+| T347 | Does the entorhinal-hippocampal code de-alias geometrically identical subspaces, or only positions within one? | `L2` | `LIVE` | 6 | [[wiki/tensions/t347.md]] |
 | T348 | Is an object-vector block path-integrated, or measured online from the referent? | `L2` | `LIVE` | 3 | [[wiki/tensions/t348.md]] |
 | T349 | Does structure come from predicting forward, or from being allowed to see the past? | `L2` | `LIVE` | 4 | [[wiki/tensions/t349.md]] |
 | T350 | Is a memory library a set of discrete atoms, or one continuous family plus a metaparameter? | `L1` | `LIVE` | 4 | [[wiki/tensions/t350.md]] |
