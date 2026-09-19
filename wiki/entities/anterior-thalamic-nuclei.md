@@ -47,6 +47,27 @@ The strongest single result in the review is a subtraction. Disconnecting the **
 
 ---
 
+## What `AD`'s population actually looks like — the wiki's best-identified attractor, and it changes shape in sleep
+
+> Chaudhuri, Gerçek, Pandey, Peyrache & Fiete 2019 (`raw/chaudhuri-2019-intrinsic-attractor-manifold-head-direction-circuit.md`), re-analysing Peyrache et al. 2015. 7 mice, `ADn`, open-field foraging plus intervening REM and non-REM sleep; all recorded thalamic cells, no tuning-based subselection. Method and full treatment: [[wiki/concepts/topological-latent-decoding.md]].
+
+| State | Manifold | Latents on it | Dynamics |
+|---|---|---|---|
+| **Waking** | 1-D ring (persistent `H1`, no `H2`), convoluted but purely one-dimensional down to the noise floor — shared ring coding is **94%** of between-neuron covariation, residual structureless | Head direction only | Correlated velocity drive (quadratic short-lag displacement) |
+| **REM** | The *same* ring, essentially identical to waking | Head direction | Unbiased diffusion, `D = 1.1 ± 0.04 rad² s⁻¹` |
+| **non-REM** | A **cone** whose circular rim is the waking ring | Tangential = head direction; **radial = population firing rate** | Confined diffusion alternating with coherent directional **sweeps at 8× waking speed**, coincident with transient ~12 Hz spindle-band local-field-potential power |
+
+Four things this adds that the review above cannot.
+
+- **`AD` is not "the head-direction relay" in the weak sense either — it is a one-variable population.** With extra coding dimensions excluded down to the SNR, the nucleus codes heading *and nothing else*, while the postsubiculum it projects to does carry additional dimensions (head velocity, behavioural state). The review's subtraction argument — that removing the ascending head-direction pathway costs little mnemonically — is therefore a claim about a channel with measurably one cargo.
+- **The ring survives the withdrawal of all directional input from the world**, which is the defining criterion for calling it internally generated rather than imposed ([[wiki/concepts/attractor-identification.md]] C3). The source cannot localise the generator to `ADn` versus a longer loop through the mammillary bodies and postsubiculum — the wiring above is exactly why.
+- **A second, unidentified attractor sits on the amplitude axis.** Reproducing all three states needs one attractor model plus large multiplicative suppressive fluctuations (amplitude ≤ 1) of the *global* drive to all neurons. Read backwards: something pins manifold radius across waking and REM and releases it in non-REM. The source names identifying it as future work; the `ATN`'s own candidate global drivers are the mammillothalamic tract and the diffuse cortical returns in the wiring table.
+- **The sweeps are a timing match to this page's own ripple result.** The review records that `AD` units fire immediately *before* hippocampal sharp-wave ripples in non-REM, possibly reinstating previously experienced movement directions; spindle-band power is correlated with hippocampal sharp waves, and the sweeps occur inside those transients. The two observations are the same event seen from single units and from the population manifold — and the population version says what the sweep *is*: a fast coherent excursion in heading, requiring temporally correlated (200 ms) input through the **velocity** channel rather than the global gain.
+
+**Why the measurement was possible here and not in a cortical area.** `ADn` has no anatomical topography reflecting its function — unlike the fly ellipsoid body — so the ring was invisible to anatomy and to single-unit tuning, and only a state-space method could find it. This is the page's "relay is what you call a module you have not lesioned selectively" argument in its measurement form: *ring is what you call a population you have not embedded*.
+
+---
+
 ## Evidence for functions the hippocampus does not have
 
 | Finding | Why it separates the streams |
@@ -121,6 +142,8 @@ Their inputs to overlapping cortical sites are separated by **topography and lam
 
 ## Connections
 
+- **[[wiki/concepts/topological-latent-decoding.md]]** — the method that turned this nucleus into the wiki's best-identified continuous attractor: persistent homology plus an on-manifold spline recovers the `AD` heading ring with no head-angle data, finds nothing else coded in it, and finds the manifold changing into a cone in non-REM sleep.
+- **[[wiki/concepts/attractor-identification.md]]** — the criteria `AD` is the only circuit to satisfy end to end, and the reason the absence of anatomical topography here matters: it is the worked case for that page's "supporting, not necessary" clause.
 - **[[wiki/entities/nucleus-reuniens.md]]** — the other thalamic route into the store, and this source types the pair by cortical source rather than by function: reuniens is the relay for rostral/ventral prefrontal cortex, these nuclei for cingulate and retrosplenial cortex, with their terminations in shared cortical targets separated by lamina and topography, and `ATN` lesions the more disruptive of the two in rodent spatial memory (`T101`).
 - **[[wiki/entities/mediodorsal-thalamus.md]]** — the contrast that types both: the mediodorsal nucleus has no direct hippocampal connection and runs a closed prefrontal loop carrying a context latent, while these nuclei sit on a hippocampal loop and carry spatial codes — adjacent nuclei, incomparable jobs, and jointly damaged by every real pathology.
 - **[[wiki/entities/retrosplenial-cortex.md]]** — the cortical convergence zone in its most worked-out form: `AV` excitation and CA1 inhibition oppose each other in layer 1 with both necessary for contextual fear conditioning, `ATN` and subicular axons target low-rheobase pyramidal cells there specifically, and `ATN` lesions leave that cortex persistently hypoactive — so a retrosplenial deficit can be a thalamic lesion's footprint.

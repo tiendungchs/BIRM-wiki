@@ -310,7 +310,25 @@ This partly dissolves the arbitration problem rather than adding to it: if awake
 
 **Why this bears on the arbitration problem.** Every job in the table above is stated as a resampling of the store, with the downstream learner an additive consumer. This is the one measured case where an offline event's effect on the consumer depends on **what the consumer already represents**, and where part of the effect is negative. A replay buffer cannot express it; a replay interface that carries an eligibility mask can. See [[wiki/entities/hippocampal-prefrontal-channel.md]] for the channel-level statement and the proposed update rule.
 
----
+### The decoder can be blind to the event — a false negative with a whole literature behind it
+
+> Chaudhuri et al. 2019 (`raw/chaudhuri-2019-intrinsic-attractor-manifold-head-direction-circuit.md`). Method: [[wiki/concepts/topological-latent-decoding.md]].
+
+The head-direction system was on record as **lacking** replay or even coherent temporal dynamics during non-REM, established with wake-trained supervised decoders. That conclusion was an artefact of the basis.
+
+| Step | What happened |
+|---|---|
+| The manifold changes shape between states | Waking/REM: a 1-D heading ring. Non-REM: a **cone** whose rim is that ring, with population firing rate on the radial axis |
+| A wake-trained decoder projects cone states onto the ring *before* estimating dynamics | Reports fast, structureless diffusion — i.e. **noise** |
+| Decoding on the native non-REM manifold instead | Two regimes: confined diffusion, and **coherent sweeps** — directionally persistent, quadratic in squared displacement, at **8× waking speed** |
+| The sweeps are rhythm-locked | They occur during transient increases in ~12 Hz (spindle-band) local-field-potential power, which is in turn correlated with hippocampal sharp waves |
+| Reproducing them in the circuit model | Needs temporally correlated (200 ms) fluctuations through the **low-dimensional velocity input** — not the global gain that produces the cone |
+
+Three consequences for this page.
+
+- **A negative replay result is only as good as the basis it was measured in.** Every decoder in this page's evidence base is fitted on waking behaviour and applied offline. That is exactly the operation that failed here, and the failure mode is reporting noise — the least suspicious outcome. The caveat already recorded above ("the manifold is defined by the running data and therefore cannot represent anything the animal never expressed while running") is stronger than stated: the offline states need not be *outside* the waking manifold to be mis-read, they need only lie on a manifold of a different shape.
+- **It extends replay to a circuit with no place code.** A coherent heading sweep, spindle-locked, at 8× waking speed is structurally a replay event in a pure integrator — so whatever replay is for, it is not specific to the episodic store. The consumer is unidentified, so this is a shape-and-timing inference, not a demonstrated write.
+- **The rhythm-nesting requirement below gets an independent instance.** The sweeps sit inside spindle-band transients, in a thalamic nucleus, matching this page's own record that `AD` units fire immediately before hippocampal sharp-wave ripples ([[wiki/entities/anterior-thalamic-nuclei.md]]) — single-unit timing and population manifold seeing one event.
 
 ---
 
@@ -409,6 +427,8 @@ The third point is the one with teeth for a machine: it makes **use frequency th
 - **[[wiki/concepts/cognitive-map.md]]** — replay respects the current barrier configuration and preserves topological rather than metric adjacency, which is direct evidence that the thing being replayed is the graph and not the trajectory.
 - **[[wiki/concepts/amortized-inference.md]]** — the fifth job: offline reactivation compiling model-based rollouts into cached values, using the same machinery with a staleness-driven sampling criterion.
 - **[[wiki/concepts/amortized-inference.md]]** — and the strongest biological instance of that job: awake ripples cache a two-hop composition as a one-hop link, which is amortization of an inference the animal can also perform online by chained recall (Barron et al. 2020).
+- **[[wiki/concepts/topological-latent-decoding.md]]** — the false-negative mode of every decoder on this page: the head-direction system was on record as *lacking* offline coherent dynamics, and the result reversed once the non-REM manifold (a cone, not the waking ring) was fitted in its own basis — coherent heading sweeps at 8× waking speed, locked to spindle-band power and therefore to hippocampal sharp waves.
+- **[[wiki/entities/anterior-thalamic-nuclei.md]]** — where those sweeps were measured, and the single-unit version of the same event: anterodorsal units firing immediately before hippocampal sharp-wave ripples in non-REM.
 - **[[wiki/entities/temporal-context-model.md]]** — the rival account of the same behaviour: TCM derives transitive-like performance from retrieved-context overlap *inside* the medial temporal lobe, whereas the ripple result puts the composed link in hippocampus and the inferred outcome downstream in medial prefrontal cortex and midbrain ([[wiki/empirical-tensions.md]] T48).
 - **[[wiki/concepts/continual-learning.md]]** — rehearsal is the machine form of this mechanism, and this page supplies the selection rule that machine rehearsal lacks: consolidating everything overfits, so the generator must cull.
 - **[[wiki/concepts/event-segmentation.md]]** — the same unsolved discretisation, one level up: that page asks what licenses a new node, this one asks what sets the boundaries of a replayed *sequence*.

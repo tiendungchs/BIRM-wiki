@@ -62,7 +62,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G44 | Nothing accounts for how much of an emergent phenomenon came from the training target rather than the task | part | `L0-INSTR` | `OPEN` | 3 | [[wiki/gaps/g044.md]] |
 | G45 | No architecture can be told its latent structure | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g045.md]] |
 | G46 | Nothing predicts the *order* in which a learner disambiguates its aliased states | part | `L4` | `OPEN` | 2 | [[wiki/gaps/g046.md]] |
-| G47 | Nothing learns the topology of the state-space manifold it represents on | part | `L3` | `OPEN` | 12 | [[wiki/gaps/g047.md]] |
+| G47 | Nothing learns the topology of the state-space manifold it represents on | part | `L3` | `OPEN` | 13 | [[wiki/gaps/g047.md]] |
 | G48 | Nothing separates a store's content register from its attentional pointer | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g048.md]] |
 | G49 | No store schedules its own reads, and none has a relevance-addressed erase | part | `L2` | `OPEN` | 10 | [[wiki/gaps/g049.md]] |
 | G50 | The controller cannot set the gain of its own teaching signal | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g050.md]] |
@@ -96,7 +96,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G78 | Nothing sets a slow variable's time constant, and memory span is that time constant | part | `L3` | `PARTIAL` | 7 | [[wiki/gaps/g078.md]] |
 | G80 | The wiki's most expressive per-parameter variable is the one nothing optimises | part | `L3` | `PARTIAL` | 4 | [[wiki/gaps/g080.md]] |
 | G81 | No graph-discovery mechanism in the wiki estimates edges through an observation model | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g081.md]] |
-| G82 | Every low-dimensional manifold in the wiki is measured, none is generated | part | `L3` | `PARTIAL` | 6 | [[wiki/gaps/g082.md]] |
+| G82 | Every low-dimensional manifold in the wiki is measured, none is generated | part | `L3` | `PARTIAL` | 7 | [[wiki/gaps/g082.md]] |
 | G83 | Every structure-discovery mechanism in the wiki outputs a structure; none outputs a reusable map between structures | part | `L0` | `PARTIAL` | 4 | [[wiki/gaps/g083.md]] |
 | G84 | No architecture in the wiki knows the topological position of its own modules, and none has a component whose job is to be the crossing point | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g084.md]] |
 | G85 | No architecture in the wiki reads its own network topology, and none treats it as a demand-graded control variable | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g085.md]] |
@@ -138,6 +138,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g121.md]] |
 | G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 3 | [[wiki/gaps/g122.md]] |
 | G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g123.md]] |
+| G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g124.md]] |
 
 ## How gaps are used
 
