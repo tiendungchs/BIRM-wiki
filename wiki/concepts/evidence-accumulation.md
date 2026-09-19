@@ -78,6 +78,18 @@ The indirect (D₂ → pallidum) pathway and the pallidum → output projection 
 
 ---
 
+## The rival implementation: put the threshold *in* the landscape
+
+This page's selection stage is external — a read-out circuit that detects a threshold crossing. The attractor literature offers the same computation with the selector folded into the integrator's own dynamics (Khona & Fiete 2022, [[wiki/concepts/attractor-dynamics.md]]):
+
+- The state moves along a continuous attractor while evidence accumulates, and **at some point the continuum gives way to a pair (or `N`-tuple) of discrete attractors** the state then flows into. Commitment is a change in the shape of the landscape rather than a comparison against a number.
+- **One parameter sets the speed–accuracy trade-off, and it is not a threshold:** the balance between integration and competition in the winner-take-all weights. Tuned toward perfect integration, the response to evidence is gradual and *reversible* — small evidence causes flow along the manifold that later evidence can undo. Tuned toward competition, flow toward one discrete attractor is fast and beyond a point irreversible, so late evidence is discounted. This is the page's "unmodelled threshold" open problem answered by a weight ratio instead of by tonic dopamine, and it predicts the *discounting profile* rather than only the mean decision time.
+- Neural WTA networks with the right nonlinearity reach the best of `N` alternatives in `~log(N)` time under noisy input and across orders of magnitude in `N` — the same `ln N` scaling MSPRT derives, obtained without the exponential/log transfer pair this page's anatomy requires.
+
+The two accounts are not distinguished by decision times, which agree. They are distinguished by **reversibility**: under a landscape implementation the discounting of late evidence is a consequence of basin geometry and should move with any manipulation that changes recurrent gain; under the read-out implementation late evidence is integrated until the bound is hit, full stop.
+
+---
+
 ## Open problems
 
 - **The alternatives must be enumerated and localist.** Each `L_i` is one channel. The source concedes the problem directly ("is moving one's hand 10 cm a different action from 15 cm?") and the only evidence offered is that fine parameters appear to be coded *within* a channel by opposed-sign populations (Georgopoulos et al. 1983). A distributed-representation mapping exists for linear SPRT networks (Bogacz 2006) and **does not extend to MSPRT**, because the subthalamic exponential is nonlinear. This is the gap between an optimal chooser and an agent that must first *construct* its options (gap G33).
@@ -90,6 +102,7 @@ The indirect (D₂ → pallidum) pathway and the pallidum → output projection 
 
 ## Connections
 
+- **[[wiki/concepts/attractor-dynamics.md]]** — the rival implementation of this page's commit step: instead of a read-out detecting a bound, the continuous attractor the evidence flows along *terminates* in a pair of discrete attractors, so the speed–accuracy trade and the discounting of late evidence are set by the integration-versus-competition balance in the recurrent weights rather than by a threshold parameter.
 - **[[wiki/entities/affordance-active-inference-model.md]]** — an accumulation whose bound nobody wrote down: the contextual switch happens when a slow Lotka–Volterra state is expelled from its fixed point, the drift rate is the precision of the level below, and the behavioural switch cost is the latency — so bound and drift are both consequences of the generative model rather than fitted parameters.
 - **[[wiki/entities/basal-ganglia.md]]** — the substrate this page's algorithm is claimed to be: cortical integrators supply the salience, the D₁ direct pathway supplies its inhibitory copy, and the subthalamic–pallidal loop computes `ln Σ_j exp(y_j)` by way of an exponential and a log transfer function, so the tonically inhibited output nucleus holds `−L_i` and selection *is* the threshold crossing downward.
 - **[[wiki/concepts/priority-map.md]]** — the normative correction to that page's `argmax`: the arbitration stage should not take the maximum of the raw similarity scores but threshold their log-softmax, and the denominator is computed by a physically distinct subcircuit — so the two-stage split measured there (score in ventral prearcuate, arbitrate in the frontal eye field) is missing a *third* stage that both pages' `softmax` writes as free.

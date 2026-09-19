@@ -119,6 +119,18 @@ The second coupling is the important one architecturally: it makes sensory predi
 
 ---
 
+---
+
+## The learning cost of an integrator is two correspondences
+
+Khona & Fiete 2022 price this page's trade as sample complexity rather than as computation. Building a representation by association costs **one feedforward correspondence per external state** — a lookup table. A continuous attractor that integrates costs **two, whatever the size of the space**: an *anchoring* map fixing one external state to one internal state, and an association of external velocities with the internal shift mechanism. Everything else is the dynamics.
+
+- The shift mechanism itself is one construction rather than many — **copy-and-offset**: duplicate the attractor network into subpopulations whose excitation is centred slightly off each neuron, couple opposing copies into push–pull balance, and a velocity input projecting differentially to the copies drives the bump at the integral of that input. The fly ellipsoid body implements the double-ring version literally ([[wiki/entities/fly-central-complex.md]]), and every integrator model in the wiki is a variant of it.
+- **All the learned content sits in the anchor.** This is the strongest form of `G39` available here: a spatial representation is not mostly learned, it is *installed*, and the only fitted object is the correspondence that ties it to the world. It also reframes the three arbitration modes above — offset-preserving reset (fly), memory-recall correction (TEM), re-zeroing at a compartment boundary (Derdikman) — as three edits to the one quantity that was ever fitted, rather than as three error-correction schemes.
+- It is also why an integrator supports states **visited for the first time**, can be built rapidly in a new environment, and can be re-pointed at a non-spatial variable at essentially no cost — the architectural basis of [[wiki/concepts/nonspatial-maps.md]] rather than an analogy to it.
+
+---
+
 ## Open problems
 
 - **Which domains admit it?** No test decides whether a set of observed actions composes (G41). "Social networks merely describe generic relationships" is the paper's own counterexample and it has no diagnostic.
@@ -161,6 +173,7 @@ The second coupling is the important one architecturally: it makes sensory predi
 - **[[wiki/entities/thousand-brains-theory.md]]** — this update rule replicated once per cortical column, with `a_t` supplied by the column's own layer-5 efference copy rather than externally; in higher areas the action is a shift of attention, which extends the composition precondition (G41) from physical movements to inferential operators.
 - **[[wiki/concepts/temporal-coding.md]]** — the same periodicity trade in the time domain: a code of period `T` is precise within a cycle and ambiguous across cycles, so a 5 kHz and a 2 kHz channel are jointly unique the way two grid modules are, and neither page has a mechanism that *builds* the several coexisting periods the disambiguation needs.
 - **[[wiki/concepts/attractor-dynamics.md]]** — the continuous-manifold regime is what makes displacement accumulation path-consistent by construction; without a continuum the update has nowhere to move.
+- **[[wiki/concepts/attractor-identification.md]]** — supplies the criterion specific to integrators, **isometry**: equal displacements of the external variable must map to equal lengths of coding space. It is the measurement form of this page's path-consistency requirement, it has been verified for the mammalian head-direction ring, and it has never been checked on a learned integrator anywhere in the wiki.
 - **[[wiki/entities/gcq.md]]** — this page's update rule moved out of the recurrence and into a *perceptual encoder*: quantising a latent sequence against the candidate trajectories `e_i ⊕ a_{1:n−1}` makes path-consistency a loss constraint on what the encoder may emit (G3), compresses `n` frames to one bump index per module given the actions, and makes rollout error non-compounding by construction — at the price that no observation can correct the code after the initialisation window.
 - **[[wiki/entities/transformer.md]]** — this page's commutative-displacement property, adopted for engineering reasons on a 1-D chain: sinusoidal positional encodings were chosen because `PE_{pos+k}` is a *linear* function of `PE_pos` for every fixed offset `k`, so relative displacement is a linear operator and offsets compose additively — the same mechanism this page offers for path consistency, with the extrapolation-to-longer-sequences hope stated in the source and never tested there (Vaswani et al. 2017).
 - **[[wiki/entities/arc-vsa-solver.md]]** — this page's abelian case shipped as a data structure rather than learned: Spatial Semantic Pointers make `φ(x)⊛φ(y) = φ(x+y)`, so distinctness and path-invariance hold by algebra, the origin is the binding identity, and an ARC `Move` operation is a single bind.
