@@ -10,7 +10,7 @@
 
 | Component | Instantiation | What it is for |
 |---|---|---|
-| **Formulation** | Per-pixel cross-entropy, `L(θ) = E_{T,i}[D(y_i, f_θ(x_i | T))]` — semantic segmentation, not sequence modelling | The output grid is a label field, not a token stream; no autoregressive commitment order ([[wiki/entities/poe-arc-solver.md]]'s named defect) |
+| **Formulation** | Per-pixel cross-entropy, `L(θ) = E_{T,i}[D(y_i, f_θ(x_i \| T))]` — semantic segmentation, not sequence modelling | The output grid is a label field, not a token stream; no autoregressive commitment order ([[wiki/entities/poe-arc-solver.md]]'s named defect) |
 | **Canvas** | Fixed 64×64 field of a `(C+1)`-th background token `[BG]`; the raw grid is randomly rescaled by an integer ratio `s` (pixel → `s×s`) and randomly translated onto it | Makes a discrete 10-symbol grid behave like a natural image, and is what *enables* the scale and translation augmentations |
 | **Patchification** | 2×2 patches → sequence length 32² ; each discrete colour index first mapped to a learnable embedding | Raises the token alphabet from `C = 10` to `O(C^4)` local configurations, so a patch cannot be memorised as a symbol |
 | **Positional code** | **Separable 2D** — first half of `D` channels for `x`, second half for `y`; both absolute and RoPE variants | The grid's own topology; 1D RoPE in the final model costs **3.5 points** (54.5 → 51.0) |
@@ -77,7 +77,7 @@ Two of these carry more than they look. **26.4% with no offline training at all*
 ## Limitations
 
 - **The parse is never made.** No object, no segmentation, no individuation, no variable — per-pixel classification end to end. Nothing downstream can be handed "the object"; see `G75` below.
-- **The priors are declared, only in a different currency.** Objectness/geometry do not enter as a DSL; they enter as the invariance group (translation, scale, flip, rotation, colour permutation) plus the canvas. That is [[wiki/concepts/test-time-training.md]]'s relocation of the authored prior, one notch further — from an augmentation *list on tokens* to a geometry *on an image plane*.
+- **The priors are declared, only in a different currency.** Objectness/geometry do not enter as a DSL; they enter as the invariance group (translation, scale, flip, rotation, colour permutation) plus the canvas. That is [[wiki/concepts/test-time-training.md]]'s relocation of the authored prior, one notch further — from an augmentation *list on tokens* to a geometry *on an image plane*. It is `G73` in its cleanest form: the problem representation is handed to the model by the canvas and the augmentation group, and the 60.4% measures optimisation inside it.
 - **ARC-2 is barely moved.** 11.1% against a human-calibrated benchmark whose 5% floor is its own noise threshold: whatever the visual formulation buys, it is largely an ARC-1 property.
 - **Capacity is already past its useful point.** 66M overfits at 400 tasks; the authors name generalisation, not scale, as the next problem.
 - **No recurrence, no iteration, no stopping.** Inference is one forward pass per view. Nothing in the system can spend more time on a harder grid ([[wiki/concepts/adaptive-computation-time.md]]).

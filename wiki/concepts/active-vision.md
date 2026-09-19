@@ -183,6 +183,8 @@ The paper's inversion, and it is a position the wiki should carry explicitly:
 - **The look/remember exchange rate has one data point and no model.** 70° of separation moves 1.3 looks per block to 1.0. Nothing predicts the slope, and no architecture in the wiki has a parameter that would.
 - **The perceptual share of an action budget is never reported.** No agent result in the wiki separates actions spent acquiring information from actions spent changing the world, which is the split this source measures in humans (`G74`, [[wiki/entities/arc-agi-3.md]]).
 - **Aliasing under a reduced deictic state has no general fix.** Adding a pointer is the paper's repair and it re-enters the `(MV)^s` cost it was avoiding; nothing says how many pointers a task needs before it is run.
+- **The agent's looks are its own training distribution, and nothing certifies the result.** A deictic schedule chooses which parts of the world are ever sampled, so the data the policy is evaluated on is a product of the policy — `G25` in its embodied form, and the reason the 22% controller-occupancy figure is a description of one strategy rather than a bound on any.
+- **Nothing designs the look sequence as a curriculum.** The block-copying subjects settle on a schedule; no wiki architecture treats the order in which information is acquired as a thing to be shaped rather than a consequence of the policy (`G32`).
 - **No machine architecture here declines capacity it has.** The measured human preference for the slowest, lowest-memory strategy is a behaviour no wiki model would produce, and no objective in the wiki penalises carrying a value.
 
 ---
