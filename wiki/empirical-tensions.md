@@ -194,7 +194,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T204 | Does test-time compute buy generalization on ARC, or does it only buy the tail? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t204.md]] |
 | T208 | Does an application-layer harness measure a capability the model has, or one the harness author has? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t208.md]] |
 | T211 | Should an intelligence benchmark equalise human priors, or withhold them? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t211.md]] |
-| T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t215.md]] |
+| T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `L0-INSTR` | `LEANING` | 6 | [[wiki/tensions/t215.md]] |
 | T217 | Does conditioning on a self-generated intermediate trace help or hurt? | `L2` | `LEANING` | 6 | [[wiki/tensions/t217.md]] |
 | T218 | Is normalised exact match an adequate acceptance test? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t218.md]] |
 | T220 | Is best-of-`k` monotone in `k`? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t220.md]] |
@@ -257,7 +257,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T288 | Can a domain-general learner acquire hierarchical syntactic structure from positive evidence alone? | `L0` | `LIVE` | 1 | [[wiki/tensions/t288.md]] |
 | T289 | Did the human-specific capacity require a new component, or a re-weighting of components that were already there? | `L1` | `LIVE` | 7 | [[wiki/tensions/t289.md]] |
 | T290 | Is the human-unique lateralisation an adaptation for the functions that are lateralised, or a consequence of being large? | `L4` | `LIVE` | 2 | [[wiki/tensions/t290.md]] |
-| T291 | When a model fails a capability test, has the capability been measured, or its deployment under one frame? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t291.md]] |
+| T291 | When a model fails a capability test, has the capability been measured, or its deployment under one frame? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t291.md]] |
 | T292 | The ape null on shared intentionality: is the representation absent, or present and undeployed? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t292.md]] |
 | T293 | Does role-filler independence require the compound to preserve its constituents, or does an invertible conjunctive code with a scheduled unbinding step suffice? | `L3` | `LIVE` | 6 | [[wiki/tensions/t293.md]] |
 | T294 | Is the human developmental lever an *extended* schedule or an *accelerated* one — and does the wiki's `G100` cite the wrong window? | `L4` | `BOTH` | 2 | [[wiki/tensions/t294.md]] |
@@ -353,3 +353,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T385 | In a delayed-match task, which region holds the item and which one filters — prefrontal or parietal? | `L1` | `LIVE` | 2 | [[wiki/tensions/t385.md]] |
 | T386 | Is the sensory render on the retrieval path, or an optional strategy a system can pass the task without? | `L1` | `BOTH` | 4 | [[wiki/tensions/t386.md]] |
 | T387 | Is a visual pointer assigned bottom-up by the stimulus, or bound top-down by the program that needs a variable? | `L2` | `LIVE` | 3 | [[wiki/tensions/t387.md]] |
+| T388 | When a visual capability is missing, is the information absent from the encoder or unreadable by what follows? | `L2` | `LIVE` | 2 | [[wiki/tensions/t388.md]] |
