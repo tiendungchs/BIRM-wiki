@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "raw/Rethinking Visual Intelligence Insights from Video Pretraining.md",
+                "file": "raw/How the visual brain can learn to parse images using a multiscale, incremental grouping process.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rethinking Visual Intelligence Insights from Video Pretraining"
+              "title": "How the visual brain can learn to parse images using a multiscale, incremental grouping process"
             }
           }
         ]
@@ -187,6 +187,7 @@
   },
   "active": "143968b04b3097a5",
   "lastOpenFiles": [
+    "raw/How the visual brain can learn to parse images using a multiscale, incremental grouping process.md",
     "raw/Deictic-codes.pdf",
     "raw/visual-routines.pdf",
     "raw/Visual-indexes.pdf",
@@ -198,7 +199,6 @@
     "raw/The neuronal code for number - Nature Reviews Neuroscience.md",
     "raw/A new neural framework for visuospatial processing - Nature Reviews Neuroscience.md",
     "raw/The human imagination the cognitive neuroscience of visual mental imagery - Nature Reviews Neuroscience.md",
-    "raw/How the visual brain can learn to parse images using a multiscale, incremental grouping process.md",
     "raw/Anatomy of hierarchy Feedforward and feedback pathways in macaque visual cortex.md",
     "raw/Visual Areas Exert Feedforward and Feedback Influences through Distinct Frequency Channels.md",
     "raw/The neocortical circuit themes and variations 1.md",
@@ -221,7 +221,6 @@
     "raw/Making neural programming architectures generalize via recursion.pdf",
     "_work/ingest-logs/20260908-202805-pass10.log",
     "_work/ingest-logs/20260908-202805-pass10.jsonl",
-    "_work/ingest-logs/20260908-202805-pass10.err",
-    "_work/ingest-queue.md.tmp"
+    "_work/ingest-logs/20260908-202805-pass10.err"
   ]
 }

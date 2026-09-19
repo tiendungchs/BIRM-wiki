@@ -1,7 +1,7 @@
 # ullman-1984-visual-routines
 
 > Converted from `ullman-1984-visual-routines.pdf` on 2026-09-19 via `pymupdf4llm`.
-> Layout artefacts (broken equations, interleaved columns) are conversion noise, not the source.
+> OCR scan, equations broken.
 
 ---
 
@@ -10,40 +10,40 @@ _Cognitiorl, 18_ **(1984) 97-159** 3
 **Visual routines”**
 
 **SHIMON ULLMAN**
-**_Massachwsetts Institute_** _of Technology_
+Massachwsetts Institute _of Technology_
 
-**_Abstract_**
+Abstract
 
-_This_ **_paper exlrmines the processing of visual information beyond_** _the_ **_creation_**
-**_of the early representations. A fundamental requirement at this level is the_**
-**_capacity to establish visually abstract shape properties and spatial_** _relations._
+_This_ paper exlrmines the processing of visual information beyond _the_ creation
+of the early representations. A fundamental requirement at this level is the
+capacity to establish visually abstract shape properties and spatial _relations._
 
-**_This capacity plays a major role in object recognition, visually guided manipu-_**
-**_lation, and more abstract visual thinking._**
+This capacity plays a major role in object recognition, visually guided manipu-
+lation, and more abstract visual thinking.
 
-**_For the human visual system, the perception 6~ Jipatial properties and rela-_**
-**_tions that are complex from a computational standpoint nevertheless often_**
-**_appears deceivingly immediate and effortless. The proficiency of the human_**
-**_system in analyzing spatial information far surpasses the capacities of current_**
-**_artificial systems. The study of the computations that underlie this competence_**
-**_may therefore lead to the development of new more eficient methods for the_**
-**_spatial analysis of visual information._**
+For the human visual system, the perception 6~ Jipatial properties and rela-
+tions that are complex from a computational standpoint nevertheless often
+appears deceivingly immediate and effortless. The proficiency of the human
+system in analyzing spatial information far surpasses the capacities of current
+artificial systems. The study of the computations that underlie this competence
+may therefore lead to the development of new more eficient methods for the
+spatial analysis of visual information.
 
-**_The perception of abstract shape properties and spatial relations raises fun-_**
-**_damental difficulties with major implications for the ojverall processing of visual_**
-**_informatioi. It will be argued that the computation of spatial relations divides_**
-**_the analysis of visual information into two main stages._** The **_first_** **_is the bottom-_**
-**_up creation of certain representations of the visible environment. The second_**
-**_stage involves the application of processes called ‘visual routines’ to the rep-_**
+The perception of abstract shape properties and spatial relations raises fun-
+damental difficulties with major implications for the ojverall processing of visual
+informatioi. It will be argued that the computation of spatial relations divides
+the analysis of visual information into two main stages. The first is the bottom-
+up creation of certain representations of the visible environment. The second
+stage involves the application of processes called ‘visual routines’ to the rep-
 
-**_resentations constructed in the first stage. These rou!ines can establish pro!ler-_**
-**_ties and relations that cannot be represented explicit/y in the initial representa-_**
-**_tions._**
+resentations constructed in the first stage. These rou!ines can establish pro!ler-
+ties and relations that cannot be represented explicit/y in the initial representa-
+tions.
 
-**_Visual routines are composed of sequences of elemental operations. Routines_**
-**_for different nroperties and relations share elemental’ operations. Using a fixed_** .
-**_set of basic operations, the visual syste:m can assemble different routines to_**
-**_extract an unbounded variety of shape properties and sp!atial relations._**
+Visual routines are composed of sequences of elemental operations. Routines
+for different nroperties and relations share elemental’ operations. Using a fixed .
+set of basic operations, the visual syste:m can assemble different routines to
+extract an unbounded variety of shape properties and sp!atial relations.
 
 **‘This report describes research done at the Artificial Intelligence Laboratory of the Massachusetts Institute**
 **of Technology. Support for the laboratory’s artificial intelligence research is provided in part by the Advanced**
@@ -54,19 +54,19 @@ _This_ **_paper exlrmines the processing of visual information beyond_** _the_ *
 
 **OolO-0277/84r:$19.40** **0 Elsevier Sequoia/Printed in The Netherlands**
 
-98 **_S. Ullman_**
+98 S. Ullman
 
-**_At a more detailed level, a number of plausible basic operations are_**
-**_suggested, based primarily on trheir potential usefulness, and supported in part_**
+At a more detailed level, a number of plausible basic operations are
+suggested, based primarily on trheir potential usefulness, and supported in part
 
-**_by empirical evidence. The operations discussed include shifting of the pro-_**
-**_cessing focus, indexing to an odd-man-out location, bounded activation,_**
-**_boundary tracing, and marking. The problem of assembling_** **_such elemental_**
-**_operations into meaningful visual routines is discussed briefly._**
+by empirical evidence. The operations discussed include shifting of the pro-
+cessing focus, indexing to an odd-man-out location, bounded activation,
+boundary tracing, and marking. The problem of assembling such elemental
+operations into meaningful visual routines is discussed briefly.
 
 **I. The perception of spatial relations**
 
-**_1. I. Introduction_**
+1. I. Introduction
 
 Visual perception requires the capacity to extract shape properties and spatial
 relations among objects and objects’ parts. This capacity is fundamental to
@@ -82,15 +82,15 @@ Clearly, the recognition of oibjects depends not only on the presence of certain
 
 The role of establishing properties and relations visually is not confined to
 the task of visual recognition. In the course of manipulating objects we often
-rely on our visual perception to obtain answers to such questions as “is **_A_**
-longer than B”, “does **_A_** fit inside B”, etc. Problems of this type can be solved
+rely on our visual perception to obtain answers to such questions as “is A
+longer than B”, “does A fit inside B”, etc. Problems of this type can be solved
 without necessarily implicating object recognition. They do require, however,
 
-**_Figure 1._** **_Schematic drawings_** of normally-arranged **_(a) and scrambled (b) faces. Fig-_**
-**_ure la is readily recognized as representing a face although the individual_**
-**_features are meaningless. In lb, the same constituents are rearranged, and_**
+Figure 1. Schematic drawings of normally-arranged (a) and scrambled (b) faces. Fig-
+ure la is readily recognized as representing a face although the individual
+features are meaningless. In lb, the same constituents are rearranged, and
 
-**_the figure is no longer perceived as a face._**
+the figure is no longer perceived as a face.
 
 Visual routines 99
 
@@ -144,9 +144,9 @@ visual routines. The second e.xamines the role of visual routines within the
 overall scheme of processing visual information. The third (Sections 3 and 4)
 examines the elemental operations out of which visual routines are constructed.
 
-1.2. **_An example: The perception_** **_of_** **_inside/outside relations_**
+1.2. An example: The perception of inside/outside relations
 
-**_The_** perception of inside/outside relationships is performed by the human
+The perception of inside/outside relationships is performed by the human
 perceptual system with intriguing efficiency. To take a concrete example,
 suppose that the visual input consists of a single closed curve, and a small ‘X’
 figure (see Fig. 2), and one is required to determine visually whether the X
@@ -154,8 +154,8 @@ lies inside or outside the closeId curve. The correct answers in Fig. 2a and 2b
 appear to be immediate and effortless, and the response would be fast and
 accurate.2
 
-**_Figure 2._** **_Perceiving inside and ourside. In 2a and_** **_2b, the perception is immediate_**
-**_and effartless; in 2c, it is not._**
+Figure 2. Perceiving inside and ourside. In 2a and 2b, the perception is immediate
+and effartless; in 2c, it is not.
 
 **‘For simple figures such as 2a, viewing time of less thlan 50 msec with moderate intensity, followed by**
 **effective masking is sufficient. This is well within the limit of what is considered immediate, effortless percep**
@@ -182,8 +182,8 @@ The processes underlying the perception of insde/outside relations are entirely 
 computing ‘insideness’ and compare them with human perception. The comparison will then serve to introduce the general discussion concerning the
 notion of visual routines and their role in visual perception.
 
-I .2. I. **_Computing inside and outside_**
-**_The ray-intersection method._** Shape perception and recognition is often described in terms of a hierarchy of ‘feature detectors’ (IBarlow, 1972; Milner,
+I .2. I. Computing inside and outside
+The ray-intersection method. Shape perception and recognition is often described in terms of a hierarchy of ‘feature detectors’ (IBarlow, 1972; Milner,
 
 1974). According to these hierarchical models, simple feature detecting units
 such as edge detectors are combined to produce higher order units such as,
@@ -205,17 +205,17 @@ Winston, 1977, Ch. 2), and it may appear rather simple and straightforward.
 The success of the ray-intersection method is guaranteed, however, only if .
 ,
 
-**_102_** **_S. Uliman_**
+102 S. Uliman
 
-Figure 3. **_The ray intersection method for establishing insideloutside relations. When_**
+Figure 3. The ray intersection method for establishing insideloutside relations. When
 
-**_the point lies inside the closed curve, the number of intersections is odd_**
-(a); **_when lit lies outside, the numbe,r of intersections is even (b)._**
+the point lies inside the closed curve, the number of intersections is odd
+(a); when lit lies outside, the numbe,r of intersections is even (b).
 
 rather restrictive constraints are met. First, it must be assumed that the curve
 is closed, otherwise an odd number of intersections would not be indicative
 of an ‘inside’ relation (see Fig. 4a). Secondl, it must be assumed that the curve
-**_is_** isolated: in Figs. 4b and 4c, point p lies within the re ! ion bounded by the
+is isolated: in Figs. 4b and 4c, point p lies within the re ! ion bounded by the
 closed curve c, but the number of intersections is even.
 These limitations on the ray-intersection method are not shared by the
 human visual system: in all of the above examples the correct relation is
@@ -241,15 +241,15 @@ the ray-intersection method.
 **however, which is to determine whether p lies within the region bounded by c, the answer provided by the**
 **ray-intersection** **method is inarrect.**
 
-**_Visual routines_** **103**
+Visual routines **103**
 
-**Figure 4.** **_Limitations of the ray-intersection method. a, An open curve. The number_**
-**_of intersections is odd, but_** **Q** **_does not lie inside C. b-c, Additional curves_**
-**_may change the number of intersections, leading to errors. d-g, Variations_**
-**_of the insideloutside problem that render the ray-interstrtinn method in_**
-**_ineffective. In d the task is to determine visually whether any qf the dots lie_**
-**_inside C, in (-f),_** **_whether the two dots lie inside_** the **_same curve,: in g the_**
-**_task is to find a point that lies inside all three curves._**
+**Figure 4.** Limitations of the ray-intersection method. a, An open curve. The number
+of intersections is odd, but **Q** does not lie inside C. b-c, Additional curves
+may change the number of intersections, leading to errors. d-g, Variations
+of the insideloutside problem that render the ray-interstrtinn method in
+ineffective. In d the task is to determine visually whether any qf the dots lie
+inside C, in (-f), whether the two dots lie inside the same curve,: in g the
+task is to find a point that lies inside all three curves.
 
 P
 ## 31 C
@@ -261,7 +261,7 @@ P
 
 f
 
-**_The_** **‘coloring’** **_method,_** An alternative procedure that avoids some of the limitations inherent in the ray-intersection method uses the operation of activating, or ‘coloring’ an area. Starting from a given point, the area around it in
+The **‘coloring’** method, An alternative procedure that avoids some of the limitations inherent in the ray-intersection method uses the operation of activating, or ‘coloring’ an area. Starting from a given point, the area around it in
 the internal representation is somehow activated. This activation spreads outward until a bjoundary is reached, but it is not allowed to cross the boundary.
 Depending on the starting point, either the inside or the outside of the curve,
 but not both, will be activated. This can provide a basis for separating inside
@@ -293,8 +293,8 @@ The coloring method avoids some of the main difficulties with the ray-intersecti
 human perception in similar tasks. It seems, for example, that for human
 perception the computation time is to a large extent scale independent. That
 
-**_Figure 5._** **_That the x does not lie inside the curge C can be established without a_**
-**_detailed am?yGs of the curve._**
+Figure 5. That the x does not lie inside the curge C can be established without a
+detailed am?yGs of the curve.
 
 **%I practical appliitions** **‘i&&y points’ can be located if the curve is known in advance not to extend**
 **beyond ii limited region. In human vision it is not clear what may constitute an ‘infinity point’, but it seems**
@@ -322,7 +322,7 @@ I next turn to a more general discussion of the difficulties associated with the
 perception of spatial relations and shape properties, and the implications of
 these difficulties to the processing of visual information. A
 
-1.3. **_Spatial analysis by visual routines_**
+1.3. Spatial analysis by visual routines
 
 In this section, we shall examine the general requirements imposed by the
 visual analysis of shape properties and spatial relations. The difficulties involved in the analysis of spatial properties and relations are summarized
@@ -331,28 +331,28 @@ to establish abstract properties and relations (abstractness), (ii) the capacity
 to establish a large variety of relations and properties, including newly defined ones (open-endedness), and (iii) the requirement to cope efficiently
 with the complexity involved in the computation of spatial relations (complexity).
 
-1.3. I. **_Abstractness_**
+1.3. I. Abstractness
 The perception of inside/outside relations provides an example of the visual
 system’s capacity to analyze abstract spatial relations. In this section the
 notion of abstract properties and relations and the difficulties raised by their
 perception will be briefly discussed.
 
-Formally, a shape property **_P_** defines a set S of shapes that share this
+Formally, a shape property P defines a set S of shapes that share this
 property. The property of closure, for example, divides the set of all curves
 
 **SThe dependency of inside/outside judgments on the size of the figure is currently under empirical investi-**
 **gation. There seems to be a slight increase in reaction time as a function of the figure size.**
 
-**_106_** **_S. Ullman_**
+106 S. Ullman
 
 into the set of closed curves that share this property, and the complementary
 set **of** open curves. (Similarly, a relation such as ‘inside’ defines a set of
 configurations that satisfy this relation. )
 
 Clearly, in many cases the set of shapes S that satisfy a property P can be
-large and unwieldy. It therefore becomes impossible to test a shape for prop**_erty P_** by comparing it against all the members of S stored in memory. The
+large and unwieldy. It therefore becomes impossible to test a shape for property P by comparing it against all the members of S stored in memory. The
 problem lies in fact not simply in the size of the set S, but in what may be
-called the size of the **_support_** of S. To illustrate this distinction, suppose that
+called the size of the support of S. To illustrate this distinction, suppose that
 given a plane with one special point X marked on it we wish to identify the
 black figures containing X. This set of figures is large, but, given an isolated
 figure, it is simple to test whether it is a member of the set: only a single
@@ -365,9 +365,9 @@ objects can be accomplished by simple template matching. This means that
 a small number of patterns is stored, abld matched against the figure in question! ‘When the set of supports is prohibitively large, a template matching
 decision scheme will become impossible. The classification task may
 nevertheless be feasible if the set contains certain regularities. This roughly
-means that the recognition of a property **_P_** can be broken down into a set of
+means that the recognition of a property P can be broken down into a set of
 operations in such a manner that the overall computation required for estab
-**lishing** **_P_** **is** substantially less demanding than the storing of all the shapes in
+**lishing** P **is** substantially less demanding than the storing of all the shapes in
 S. The set of all closed curves, for example, is not just a random collection
 of shapes, and there are obviously more efficient methods for establishing
 **closure than simple template matching. For** a completely random set of
@@ -402,8 +402,8 @@ perception of inside/outside relations it would be necessary, therefore, to
 unravel the constituent operations tmployed by the visual system, and how
 they are used in different judgments.
 
-I .3.2. **_Open-endedness_**
-**_AS_** we have seen, the perception of an abstract relation is quite a remarkable feat even for a single relation, such as insideness. Additional complications arise from the requirement to recognize not only one, but a large
+I .3.2. Open-endedness
+AS we have seen, the perception of an abstract relation is quite a remarkable feat even for a single relation, such as insideness. Additional complications arise from the requirement to recognize not only one, but a large
 number of different properties and relations. A reasonable approach to the
 problem would be to assume that the computations that establish different
 properties and relations share their underlying elemental operations. In this
@@ -421,7 +421,7 @@ of the vertical line”. That the visual system can cope effectively with such
 goals suggests that it has the capacity to create new processes out of the basic
 set of elemental operations.
 
-**_1.3.3. Complexity_**
+1.3.3. Complexity
 The open-endedness requirement implied that different processes should
 share elemental operations. The same conclusion is also suggested by corn-plexity considerations. The complexity of basic operatrons such as the
 bounded activation (discussed in more detal in Section 3.4) implies that diffcr
@@ -469,9 +469,9 @@ that perform the same routine at different locations are not independent.
 In applying visual routines mechanisms are required for sequencing elemental operations and for selecting the locations at which they are
 applied.
 
-**_Viswl_** **_routirzes_** 109
+Viswl routirzes 109
 
-**_1.4. Conclusions and open problems_**
+1.4. Conclusions and open problems
 
 The discussion **SO** far suggests that the immediate perception of seemiflgly
 simple spatial relations requires in fact complex computations that are difficult to unravel, and difficult to imitate. These computations _were termed_
@@ -489,7 +489,7 @@ rou-:ines are implemented in neural networks within the visual system.
 In concluding this section, major problems raised by the notion of visuai
 routines are listed below under four main categories.
 
-(1) The **_elemental operations._** In the examples discussed above the computation of inside/outside relations employed operations such as drawing a ray,
+(1) The elemental operations. In the examples discussed above the computation of inside/outside relations employed operations such as drawing a ray,
 counting intersections, boundary tracking, and area activation.. The same
 basic operations can also be used in establishing other properties and relations. In this manner a variety of spatial relations can be computed using a
 fixed and powerful set of basic operations, together with means for combining
@@ -498,7 +498,7 @@ The first problem that arises therefore is the identification of the elemental
 operations that constitute the bssic ‘instruction set’ in the composition of
 visual routines.
 
-(2) **_Zntegnztion._** The second problem that arises is how the elemental operations are integrated into meaningful routines. This problem has two aspects.
+(2) Zntegnztion. The second problem that arises is how the elemental operations are integrated into meaningful routines. This problem has two aspects.
 First, the general principles of the ipL2gration process, for example. whether
 different elemental operations can tie applied simultaneously. Second, there
 is the question of how specific routines are composed in terms of the elemental operations. An account of our perception of a given shape prolperlty or
@@ -508,7 +508,7 @@ question, and the composition of each of these routines in terms of the elementa
 
 (3) _Control._ The questions in this category alre how visual routines are
 
-110 S. **_Ullrnan_**
+110 S. Ullrnan
 
 selected and controlled, for example, what triggers the execution of different
 routines during visual recognition and other visual tasks, and how the order
@@ -539,7 +539,7 @@ routines as described in the first half. These problems are: the initial selecti
 of routines (Section 2.3) and the parallel processing of visual information
 (Section 2.4).
 
-2.1. **_Visual routines and the base reprczntations_**
+2.1. Visual routines and the base reprczntations
 
 In the scheme suggested above, the processing of visual information can be
 divided into two main stages. The first is the ‘bottom-up’ creation of some
@@ -550,9 +550,9 @@ representations, establish their shape properties, and extract spatial relations
 among them. In this section we shall examine more closely the distinction
 between these two stages.
 
-**_Visual routines_** 111
+Visual routines 111
 
-**_2. I. I. The base representations_**
+2. I. I. The base representations
 The first stage in the analysis of visual information can usefully be described as the creation of certain representations to be used by subsequent
 visual processes. Marr (1976) and Marr and Nishihara (1978) have suggested
 a division of these early representations into two types: the primal sketch,
@@ -572,7 +572,7 @@ fashion. This means that the base representations depend on the visual input
 alone.7 If the same image is viewed twice, at two different times, the base
 representations associated with it will be identical.
 
-2. I .2. **_Applying visual routines to the base representations_**
+2. I .2. Applying visual routines to the base representations
 Beyond the construction of the base representations, the processing of
 visual information requires the definition of objects and parts in the scene,
 and the analysis of spatial properties and relations. The discussion in Section
@@ -592,7 +592,7 @@ visual input different aspects will be made explicit at different times, depend
 **also show strong similarity in their responses in the awake, anesthetized, and naturally sleeping animal (e.g..**
 **Livingstone and Hubel, 1981).**
 
-**_112_** **_S. Ullman_**
+112 S. Ullman
 
 **ing on the goals of the** computation. Unlike the base representations, the
 computations by visual routines are not applied uniformly over the visual
@@ -629,9 +629,9 @@ three-dimensional space.’
 **that various visual routines such as those used** **in comparing distances, operate** **upon a three-dimensional**
 **representation, rather than a representation that resembles the two-dimensional image.**
 
-**_Visual routirres_** **_113_**
+Visual routirres 113
 
-**_2.2. The incrementaI representations_**
+2.2. The incrementaI representations
 
 The creation of visual representations does not stop at the 1 #dse representations. It is reasonable to expect that results established by viLua1 routines are
 retained temporarily for further use. This means that in addition to the base
@@ -669,7 +669,7 @@ but different computatilonal goals the base representations remain the same,
 
 **‘@This example is due to Ste’\‘e Kosslyn. It is cu rently under empirical investigations.**
 
-**_114_** **_S. Uliman_**
+114 S. Uliman
 
 while the incremental representations would vary.
 
@@ -706,14 +706,14 @@ above as sequences of elementary operations that are assembled to meet
 tion of routines to be applied. This problem is examined briefly in Section
 2.3. Finally, sequential application of elementary operations seems to stand
 in contrast with the notion of parallel processing in visual perception. (Biederman et al., 1973; Donderi and Zelnicker, 1969; Egeth el al., 1972; Jonides
-and Gleitman, 1972; Neisser ec **_al.,_** 1963). Section 2.4 examines the distinction
+and Gleitman, 1972; Neisser ec al., 1963). Section 2.4 examines the distinction
 
-**_Visual routines_** **115**
+Visual routines **115**
 
 between sequential and parallel processing, its significance to the processing
 of visual information, and its relation to visual routines.
 
-2.3. **_Universal routines and the initial access problem_**
+2.3. Universal routines and the initial access problem
 
 The act of perception requires more than the passive
 
@@ -722,7 +722,7 @@ opens a
 door expecting to find his familiar office, but finds an ocean beach instead.
 The contradiction to the expected scene will surely cause a surprise, but no
 
-**_116_** **_S. Ullman_**
+116 S. Ullman
 
 major perceptual difficulties. Although expectations can under some conditions facilitate perceptual processes significantly (e.g. Potter, 1975), their
 role is not indispensable. Perception can usually proceed in the absence of
@@ -738,7 +738,7 @@ selected?
 
 It seems to me that this problem cain be best approached by dividing the
 process of routine selection into two stages. The first stage is the application
-of what may be called universal **_routines. These_** are routines that can be
+of what may be called universal routines. These are routines that can be
 usefully applied to any scene to provide some initial analysis. They may be
 able, for instance, to isolate some prominent parts in the scene and describe,
 perhaps crudely, some general aspects of their shape, motion, color, the
@@ -806,10 +806,10 @@ to form a good idea of what the object is (e.g., a walking person) although
 identifying a specific object (e.g., who the person is) may be considerably
 more difficult [cf. Milner, 19741. These examples serve to illustrate the dis
 
-**118** **S.** **_Ullman_**
+**118** **S.** Ullman
 
-**Figure 6.** _The_ **_routine processor acts as an intermediary between the visual representa-_**
-**_tions and higher level components of the system._**
+**Figure 6.** _The_ routine processor acts as an intermediary between the visual representa-
+tions and higher level components of the system.
 ### I Higher Level Components I
 
 **1 fn&ementaI Representotions** 1
@@ -828,10 +828,10 @@ selective application of specific routines. Intermediate results obtained by
 visual routines are summarized in the incremental representation and can be
 used by subsequent routines.
 
-2.3.1. **_Routines as intermediary between the base representations and_**
-**_higher-level components_**
+2.3.1. Routines as intermediary between the base representations and
+higher-level components
 
-**_The_** general role of visual routines in the overall processing of visual information as discussed so far is illustrated schematically in Fig. 6. The processes
+The general role of visual routines in the overall processing of visual information as discussed so far is illustrated schematically in Fig. 6. The processes
 that assemble and execute visual routines (the ‘routines processor’ module in
 the figure) serve as an intermediary between the visual representations and
 higher level components of the system, such as recognition memory. Communication required between the higher level components and the visual
@@ -867,7 +867,7 @@ system. A full understanding of problem: such as visually guided manipulation an
 level components, how they determine the application of visual routines, and
 how they are affected by the results 8 applying visual routines.
 
-2.4. **_Routines and the parallel process/ ng_** **of** **_visual information_**
+2.4. Routines and the parallel process/ ng **of** visual information
 
 A popular controversy in theories oi visual perception is whether the processing of visual information proceed!* in parallel or sequentially. Since visual
 routines are composed of sequences 01 elementary operations, they may seem
@@ -877,14 +877,14 @@ First, whether the application of visuai routines implies sequential processing.
 Second, what is the significance of the distinction between the parallel and
 sequential processing of visual inform .ition.
 
-**_2.4. I. Three types of parallelism_**
+2.4. I. Three types of parallelism
 The notion of processing visual inr\,rmaticn ‘in parallel’ does not have a
 unique, well-defined meaning. At le Ast three types of parallelism can be
 distinguished in this processing: spasial, functional, and temporal. Spatial
 parallelism means that t-he same or similar operations arc applied simultaneously to different spatial locations. Y‘.re operations performed by the retina
 and the primary visual cortext, for example, fall under this category. Functional parallelism means that different computations are applied simultane
 
-**_124) s. Ullr?lan_**
+124) s. Ullr?lan
 
 ously to the same location. Current views of the visual cortex (e.g., Zeki,
 
@@ -910,7 +910,7 @@ extensive spatial parallelism. The internal tracking of a discontinuity boundary
 not apply to all locations simultaneously. Possible reasons for the limited
 spatial parallelism in visual routines are discussed in the next section.
 
-2.4.2. **_Essential and non-essential sequential processing_**
+2.4.2. Essential and non-essential sequential processing
 When considering sequential versus spatially parallel processing, it is useful
 to distinguish between essential and non-essential sequentially. Suppose, for
 example, that Or and O2 are two independent operations that can, in principle, be applied simultaneously. It is nevertheless still possible to apply them
@@ -919,7 +919,7 @@ other hand, arises when the nature of the task makes parallel processing
 impossible or highly wasteful in terms of the overall computation required.
 
 **‘ZDisagreements exist regarding this view, in particular, the role of area V4 in the rhesus monkey i**
-**promsing ador (Scbein et** **_al.,_** **1982). Although the notion o “one cortical area for each function” is too**
+**promsing ador (Scbein et** al., **1982). Although the notion o “one cortical area for each function” is too**
 **s@Iistic,** **the physi&gical data support in general the notion of functional parallelism.**
 **‘3suppose that a seque nce of operations Or, 0,** . . . 0, **is applied to each input in a temporal sequence I,.**
 **f& I, . . . .** **Fit,** **Or is applied to 1,. Next, as 0, is applied to &, Ot can be applied to 1,. In general Oi, 1 < i**
@@ -962,8 +962,8 @@ relations without the benefit of spatial parallelism, consider solving a tactile
 
 ***‘In the percep r t on** scheme the computation is performed in parallel by a large number of units 0,. Each
 unit examine a restricted part of the ‘retina’ R. In a diamater-limited perceptron. for instance, the region
-examined by each unit is restricted to lie within a circle whose diameter is smalrl compared to the size of **_R._**
-**_The_** computation performed by each unit is a predicate of its inputs (i.e., 8, = 0 or 8, = 1). For example. a
+examined by each unit is restricted to lie within a circle whose diameter is smalrl compared to the size of R.
+The computation performed by each unit is a predicate of its inputs (i.e., 8, = 0 or 8, = 1). For example. a
 unit **may be a ‘comer detector’ at a particular location, signalling 1** in the presence of a comer and 0 otherwise.
 **All the local units then feed a final decision stage, assumed to** be a linear threshold device. That **(is,** **it** tests
 **whether the weighted** sum of the inputs 2, wi $J, exceeds a predetermined threshold 6.
@@ -981,7 +981,7 @@ reflects primarily essential sequentiality, imposed by the nature of the computa
 
 3. Tbe **elemental operations**
 
-3.1. **_Methodological considerations_**
+3.1. Methodological considerations
 
 In **this** section, we examine the set of basic operations that may be used in
 the construction of visual routines. In trying to explore this set of internal
@@ -1024,9 +1024,9 @@ the emphasis will be on computational considerations of usefulness. Finally,
 some of the problems associated with the assembly of basic opzrations into
 visual routines will be briefly discussed.
 
-3.2. **_Shifting the processing focus_**
+3.2. Shifting the processing focus
 
-**_A_** fundamental requirement for the execution of visual routines is the capacity
+A fundamental requirement for the execution of visual routines is the capacity
 to control the location at which certain operations take place. **For**
 
 strong
@@ -1038,7 +1038,7 @@ role **in visual information processing, starting from early processing stages.*
 **The main directions of studies that have** been pursued are reviewed briefly
 **in** the next two **sections.**
 
-**3.2. I** **_Psychological evidence_**
+**3.2. I** Psychological evidence
 A **number of psychological studies have suggested that the focus of visual**
 **processing can be directed, either voluntarily or by manipulating the visual**
 **stimulus, to different spatial location in the visual input. They are listed**
@@ -1075,7 +1075,7 @@ the average per lo of visual angle.
 **A** second line of evidence comes from experiments suggesting that visual
 sensitivity at different locations can be somewhat modified with a fixed eye.
 
-_Visual_ **_routines_** 125
+_Visual_ routines 125
 
 position. Experiments by Shulman et al. (1979) can be interpreted as indicating that a region of somewhat increased sensitivity can be shifted across the
 visual field. A related experiment by Remington (1978, described in Posner,
@@ -1085,11 +1085,11 @@ point 50400 msec after the location has been cued.
 
 A third line of evidence that may bear on the internal shift operations
 comes from experiments exploring the selective readout from some form of
-short term visual memory (e.g., Shiffrin **_et al.,_** 1976; Sperling, 1960). These
+short term visual memory (e.g., Shiffrin et al., 1976; Sperling, 1960). These
 experiments suggest that some internal scanning can be directed to different
 locations a short time after the presentation of a visual stimulus.
 
-**_The shift operation and selective visuai tiltention._** Many of the experiments
+The shift operation and selective visuai tiltention. Many of the experiments
 mentioned above were aimed at exploring the concept of ‘selective attention’.
 This concept has a variety of meanings and connotations (cf. Estes, 1972)
 many of which are not related directly to the proposed shift of processing
@@ -1114,7 +1114,7 @@ to the requirement of the routine in question.
 Many of the results mentioned above are nevertheless in agreement with
 the possible existence of a directable processing focus. They suggest that the
 redirection of the processing focus to a new location may be achieved in two
-ways. The experiments of Posner and Shulm;in **_et al._** suggest that it can be
+ways. The experiments of Posner and Shulm;in et al. suggest that it can be
 ‘programmed’ to move along a straight path using central cueing. In other
 
 **126** **S.** _Ullman_
@@ -1122,7 +1122,7 @@ ways. The experiments of Posner and Shulm;in **_et al._** suggest that it can be
 experiments, such as Remmington’s and Tsal’s, the processing focus is shifted
 by being attracted to a peripheral cue.
 
-_3.2.2._ **_Physiological evidence_**
+_3.2.2._ Physiological evidence
 Shift-related mechanisms have been explored physiologically in the monkey in a number of different visual areas: the superior colliculus, the posterior
 **par&al** **lobe** (area 7) the frontal eye fields, areas Vl, V2, V4, MT, MST,
 and the inferior temporal lobe.
@@ -1137,8 +1137,8 @@ between the enhanced response and the saccade can vary considerably (Wurtz
 and Mohler, 1976a). The enhancement phenomenon was suggested as a
 neural correlate of “directing visual attention”, since it modifies the visual
 input and enhances it at selective locations when the sensory input remains
-constant (Goldberg and Wurtz, **_op. cit.)._** The intimate relation of the enhaccement to eye movements, and its absence when the saccade is replaced
-by other responses (Wurtz and Mohler, **_up. cit.,_** Wuatz **_et al.,_** 1982) suggest,
+constant (Goldberg and Wurtz, op. cit.). The intimate relation of the enhaccement to eye movements, and its absence when the saccade is replaced
+by other responses (Wurtz and Mohler, up. cit., Wuatz et al., 1982) suggest,
 however, that this mechanism is specifically related to saccadic eye movements rather than to operations associated with the shifting of an internal
 processing focus. Similar enhancement that depends on saccade initiation to
 a visual target has also been described in the frontal eye fields (Wurtz and
@@ -1147,12 +1147,12 @@ Mohler, 1976b) and in prestriate cortex, probably area V4 (Fischer and Both,
 1981).
 Another area that exhibits similar enhancement phenomena, but not exclusively to saccades, is area 7 of the posterior parietal lobe of the monkey.
 Using recordings from behaving monkeys, Mountcastle and his collaborators
-(Mountcastle, 1976, Mountcastle **_et al.,_** 1975) found three populations of cells
+(Mountcastle, 1976, Mountcastle et al., 1975) found three populations of cells
 in area 7 that respond selectively (i) when the monkey fixates an object of
 interest within its immediate surrounding (fixation neurons), (ii) when it
 tracks an object of interest (tracking neurons), and (iii) when it saccades to
-an object of interest (:saccade neurons). (Tracking neurons were also described in area MST (Newsome and Wurtz, 1982).) Studies by Robinson **_et_**
-**_al. (1978)_** indicated that all of these neurons can also be driven by passive
+an object of interest (:saccade neurons). (Tracking neurons were also described in area MST (Newsome and Wurtz, 1982).) Studies by Robinson et
+al. (1978) indicated that all of these neurons can also be driven by passive
 sensory stimulation, but their response is considerably enhanced when the
 stimulation is ‘selected’ by the monkey to initiate a res,ponse. On the basis
 of such findings it was suggested by Mountcastle (as well as by Posner, 1980;
@@ -1175,7 +1175,7 @@ and Sato (1982) found units whose responses to a given stimulus were enhanced wh
 in other tasks (e.g., when the stimulus was monitored to detect its dimming).
 
 In a number of visual areas, including Vl, V2, a:nd MT, enhanced responses associated with performing specific visual tasks were not found
-(Newsome and Wurtz, 1982; Wurtz et **_al.,_** 1982). I? remains possible, however, that task-specific modulation would be observed when employing different visual tasks. Finally, responses in the pulvinar (Gattas **_et al.,_** 1979). were
+(Newsome and Wurtz, 1982; Wurtz et al., 1982). I? remains possible, however, that task-specific modulation would be observed when employing different visual tasks. Finally, responses in the pulvinar (Gattas et al., 1979). were
 shown to be strongly modulated by attentional and situational variables. It
 remains unclear, however, whether these modulations are loc,alized (i.e., if
 they are restricted to a particular location in the visual field) and whether
@@ -1193,7 +1193,7 @@ the processing focus it would be useful to distinguish three types of interactio
 the experimental animal. The three types are task-dependent, task-locahn
 dependent, and location-dependent responses.
 
-**“A P owsible exception is some preliminary evidence by Robinson** **_et al._** **(1978) suggesting that, unlike the**
+**“A P owsible exception is some preliminary evidence by Robinson** et al. **(1978) suggesting that, unlike the**
 **superior colliculus, enhancement effects in the parietal cortex may be dissociated from movement. That is. a**
 **response of a cell may be facilitated when the animal is required to attend to a stimulus even when the stimulus**
 **is not used as a target for hand or eye movement.**
@@ -1243,7 +1243,7 @@ of **r=iprocal and** orderly connections with a variety of visual areas (Beneven
 
 _Visud routines_ _129_
 
-**_3.3. Indexing_**
+3.3. Indexing
 
 Computational considerations strongly suggest the use of internal shifts of the
 processing focus. This notion is supported by psychological evidence, and to
@@ -1302,7 +1302,7 @@ color, must be computed! across the base representations. Second, an ‘oddman-o
 processing focus to the indexed location. These three stages are examined in
 turn in the next three subsections.
 
-3.3. I. **_Indexable properties_**
+3.3. I. Indexable properties
 Certain odd-man-out items can serve for immediate indexing, while others
 cannot. For example, orientation and direction of motion are indexable,
 while a single occurrence of the letter ‘A’ among similar letters does not
@@ -1320,7 +1320,7 @@ the number of green distracters.
 
 Using this and other techniques, A. Treisman and her collaborators (Treisman. 1977; Treisman and Gelade, 1980; see also Beck and Ambler, 1972,
 
-1973; Pomerantz **_et al.,_** 1977) have shown that color and simple shape
+1973; Pomerantz et al., 1977) have shown that color and simple shape
 parameters can serve for immediate indexing. For example, the time to detect
 a target blue X in a field of brown T’s and green X’s daes not change signi**ficantly as the** number of distracters is increased (up to 30 in these experiments). The target is immediately indexable by its unique color. Similarly, a
 **target green S** letter is detectable in a field of brown T’s and green X’s in
@@ -1351,7 +1351,7 @@ these properties are known, but a complete list is yet to be establisllled. The
 results are then used in a number of visual tasks including, probably, texture
 discrimination, motion correspondence, stereo, and indexing.
 
-3.3.2. **_Defining an indexable location_**
+3.3.2. Defining an indexable location
 Following the initial computation of the elementary properties, the next
 stage in the indexing operation requires comparisons among properties computed at different locations to define the odd-man-out indexable locations.
 
@@ -1366,11 +1366,11 @@ Earlier experiments have established that such a target is indexable if it has
 a unique color or shape. The question now was whether the conjunction of
 two indexable properties is also immediately indexable. The empirical evidence indicates that items cannot be indexed by a conjunction of properties:
 the time to detect the target increases linearly in the conjunction task with
-the number of distracters. The results obtained by Treisman **_et al._** were con
+the number of distracters. The results obtained by Treisman et al. were con
 
 **Wiesman’s own approach to the problem was somewhat** <sup>**different from the one dkcussed here.**</sup>
 
-**132** **s.** **_Ullman_**
+**132** **s.** Ullman
 
 **sistent** kth a serial self-terminating search in which the items are examined
 sequentially until the target is reached.
@@ -1405,15 +1405,15 @@ explore the computations performed at the distributed stage it would be of
 interest, therefore, to examine the indexability of local odd-men-out. Various
 properties can be tested, while manipulating the size and shape of the surrounding region.
 
-3 3 3 **_Shifiing the processing focus to an indexable location_**
-**_VI!!&-_** biscussion so far suggests the following indexing scheme. A number
+3 3 3 Shifiing the processing focus to an indexable location
+VI!!&- biscussion so far suggests the following indexing scheme. A number
 of elementary properties are computed in parallel across the visual field. For
 each property, local comparisons are performed everywhere. The resulting
 difference signals are combined somehow to produce a final odd-man-out
 signal at each location. The processing focus then shifts to the location of the
 strongest signal. This final shift operation will be examined next.
 
-**_Visual routines_** **_133_**
+Visual routines 133
 
 Several studies of selective visual attention likened the internal shift operation to the directing of a spotlight. A directable spotlight is used to ‘illuminate’ a restricted region of the visual field, and only the information within
 the region can be inspected. This is, or^ course, only a metaphor that still
@@ -1437,12 +1437,12 @@ location. The existence of a horizontal green bar, for example, at a given
 location, will be reflected by the activity of the color- and orientation-detecting units at that location. In addition to these local units there is also a central
 common representation of the various properties, denoted by _CP1, CP,, CP,,_
 
-**_Figure 7._** **_A simplified scheme that can serve as a basis for the indexing operation. In_**
+Figure 7. A simplified scheme that can serve as a basis for the indexing operation. In
 
-**_the first stage (S,), a number of properties (P,,_** Pz, P3 **_in figure) are detected_**
-**_everywhere. In the subsequent stage (S& local comparisons generate differ-_**
-**_ence signals. The element generating the strongest signal is mapped onto the_**
-**_central cummon representations_** (CPI, CP2, CP,).
+the first stage (S,), a number of properties (P,, Pz, P3 in figure) are detected
+everywhere. In the subsequent stage (S& local comparisons generate differ-
+ence signals. The element generating the strongest signal is mapped onto the
+central cummon representations (CPI, CP2, CP,).
 #### cp, 0
 
 cp2 0
@@ -1454,7 +1454,7 @@ CPiJ 0
 **P** 0 c-3 0 0 0
 ,3
 
-134 **S.** **_U~iman_**
+134 **S.** U~iman
 
 **in the figure. For simplicity,** we **shall** assume that all of the local detectors
 are connected **to the corresponding unit in the** central representation. There
@@ -1522,7 +1522,7 @@ Finally, it suggests that psychophysical experiments of the type used by
 described in Section 3.2, can provide guiCance for developing detailed testable models for the shift operations and their implementation in the visual
 system.
 
-In summary, the execution of visual **_1 .v+; -ges_** requires a capacity to control
+In summary, the execution of visual 1 .v+; -ges requires a capacity to control
 the locations at which elemental operations are applied. Psychological evidence, and to some degree physiological zvidencz, are in agreement with the
 general notion of an internal shift of thz processing focus. This shift is obtained by a family of related processes. One l>f them is the indexing operation,
 which directs the processing focus towards certain odd-man-out locations.
@@ -1535,7 +1535,7 @@ be achieved by simple schemes of interactions among the initial detecting
 units and central common representations that lead to a selective mapping
 from the initial detectors to the common representations.
 
-3.4. **_Bounded activation (coloring)_**
+3.4. Bounded activation (coloring)
 
 The bounded activation, or ‘coloring’ operation, was suggested in Section
 
@@ -1546,7 +1546,7 @@ location or contour, and stopping at discontinuity boundaries.
 The results of the coloring operation may be retained in the incremental
 representation for further use by additional routines. Coloring provides in
 
-**_136_** **_S. Ullman_**
+136 S. Ullman
 
 this manner one method for defining larger units in the unarticulated base
 representations: the ‘colored’ region becomes a unit to which routines can be
@@ -1570,17 +1570,17 @@ uses an artificial stimulus, but the ability to identify a region and process it
 selectively seems equally useful for the recognition of objects In natural
 scenes.
 
-**_3.4.2. Discontinuity boundaries for the coloring operation_**
-**_The_** activation operation is supposed to spread until a discontinuity bound
+3.4.2. Discontinuity boundaries for the coloring operation
+The activation operation is supposed to spread until a discontinuity bound
 
-**_F+re_** **_8._** **_The visual task here is to identify the subfigure containing the black dot._**
-**_This figure (the letter ‘C’) can he recognized despite the presence of con-_**
-**_founding features in close proximity to its contours, the capacity to ‘pull out’_**
+F+re 8. The visual task here is to identify the subfigure containing the black dot.
+This figure (the letter ‘C’) can he recognized despite the presence of con-
+founding features in close proximity to its contours, the capacity to ‘pull out’
 
-**_the figure from the irrelevant background may involve the bounded activa-_**
-**_tion operation._**
+the figure from the irrelevant background may involve the bounded activa-
+tion operation.
 
-**_Visual routines_** **_137_**
+Visual routines 137
 
 ary is reached. This raises the question of what constitutes a discontinuity
 boundary for the activation operation. In Fig. 8, lines in the two-dimensional
@@ -1590,7 +1590,7 @@ order to block the coloring spread. In Fig. 9, a curve is defined by a fragmente
 black dot outside this curve. *’ If activation is to be used in this situation as
 well, then incomplete boundaries should have the capacity to block the activation spread. Finally, the activation is sometimes required to spread across
 certain boundaries. For example, in Fig. 10, which is similar to Fig. 8, the
-letter **_G_** is still recognizable, in spite of the internal bounding contours. To
+letter G is still recognizable, in spite of the internal bounding contours. To
 allow the coloring of the entire sub-figure in this case, the activation must
 spread across internal boundaries.
 
@@ -1599,13 +1599,13 @@ with different contours, is a complicated process. It is possible that as far as
 the activation operation is concerned, boundaries are not defined universally,
 but may be defined somewhat differently in different routines.
 
-3.4.2. **_A_** **_mechanism for bounded activation and its implications_**
+3.4.2. A mechanism for bounded activation and its implications
 The ‘coloring’ spread can be realized by using only simple, local operations. The activation can spread in a network in which each element excites
 alli of its neighbors.
 
-Figure 9. **_Fragmented boundwies. The curve_** **_is defined by a dashed line, but insidel_**
+Figure 9. Fragmented boundwies. The curve is defined by a dashed line, but insidel
 
-**_outside judgments are still immediate._**
+outside judgments are still immediate.
 . .
 
 /-
@@ -1625,12 +1625,12 @@ L
 **J. Varanese at HQarvard Universiiy this cost averaged about 20 msec. The mean response time was about 540**
 **msec (Varanese, 1983).**
 
-**_138_** **_S. Ullman_**
+138 S. Ullman
 
-Figure **10.** **_Additional internal lines are introduced into the G-shaped subfigure. If_**
+Figure **10.** Additional internal lines are introduced into the G-shaped subfigure. If
 
-**_bounded activation is used to ‘color’ this figure, it must spread across the_**
-**_internal contours._**
+bounded activation is used to ‘color’ this figure, it must spread across the
+internal contours.
 
 A second network containing a map of the discontinuity boundaries will
 be used to check the activation spread. An element in the activation network
@@ -1664,7 +1664,7 @@ but in terms of the basic operations performed by the networks. Elucidating
 the basic operations would therefore provide clues for understanding the
 activity in such networks and their patterns of interconnections.
 
-3.5. **_Boundary tracing and activation_**
+3.5. Boundary tracing and activation
 
 Since contours and boundaries of different types are fundamental entities in
 visual perception, a basic operation that could serve a useful role in visual
@@ -1674,7 +1674,7 @@ boundary tracing and activation and their use in visual routines. The second
 examines the requirements imposed by the goal of having a useful, flexible,
 tracing operation.
 
-**_3.5. I. Examples of tracing and activation_**
+3.5. I. Examples of tracing and activation
 A simple example that will benefit from the operation af contour tracing
 is the problem of determining whether a contour is open or closed. If the
 contour is isolated in the visual field, an answer can be obtained by detecting
@@ -1698,10 +1698,10 @@ provides in this task a useful identity, or ‘sameness’ operator: it serves t
 verify that the two X figures are marked on the same curve, and not on two
 disconnected curves.
 
-This task has been investigated recently by Jolicoeur **_et al._** (1984, Reference
+This task has been investigated recently by Jolicoeur et al. (1984, Reference
 note 1) and the results strongly supported the use of an internal contour
 
-140 **_S. Ullman_**
+140 S. Ullman
 
 tracing operation. Each display in this study contained two separate curves.
 In all trials there was an X at the fixation point, intersecting one of the
@@ -1731,17 +1731,17 @@ is a path connecting the center of the figure to the surrounding contour. The
 solution can be obtained effortlessly by looking at the figure, but again, it
 **must involve** in fact a complicated chain of processing. To cope with this
 
-Figure **11.** **_The task here is to determine visually whether the two X’s lie on the same_**
+Figure **11.** The task here is to determine visually whether the two X’s lie on the same
 
-**_curve. This simple task requires in fact complex processing that probably_**
-**_includes the use of a contour tracing operation._**
+curve. This simple task requires in fact complex processing that probably
+includes the use of a contour tracing operation.
 
-**_Visual routines_** **_141_**
+Visual routines 141
 
 Figure 12. _The_
 
-of such **_labels relys upon a set of common natural visual_**
-**_routines._**
+of such labels relys upon a set of common natural visual
+routines.
 
 **b**
 
@@ -1770,19 +1770,19 @@ simultaneously, detection will be little affected by the additional paths.
 **eye movements, there are some indications of an ability to start the scanning of a** figure approximately at its
 center.
 
-**_142_** **_5’. Ullman_**
+142 5’. Ullman
 
-**_Tracking boundaries in the base representations._** The examples mentioned
+Tracking boundaries in the base representations. The examples mentioned
 above used contours in schematic line drawings. If boundary tracking is indeed a basic operation in establishing properties and spatial relations, it is
 expected to be applicable not only to such lines, but also to the different types
 of contours and discontinuity boundaries in the base representations. Exper
 
-**Figure 13.** **_Certain texture boundaries can delineate effectively shape_** _for_ **_recognition_**
+**Figure 13.** Certain texture boundaries can delineate effectively shape _for_ recognition
 
-**_(a),_** **_while others cannot (6). Micropatterns that are_** _ineffective_ **_for_** **_delineating_**
-**_shape boundaries can nevertheless give rise to discriminable textures (c)._**
+(a), while others cannot (6). Micropatterns that are _ineffective_ for delineating
+shape boundaries can nevertheless give rise to discriminable textures (c).
 
-**_(From Riley, 1981)._**
+(From Riley, 1981).
 
 **b**
 
@@ -1805,13 +1805,13 @@ applied to them. Other discontinuities that are not represented in the base
 representations can be detected by applying appropriate visual routines, but
 recognition based on these contours will be considerably slower.22
 
-3.5.2. **_Requirements on boundary tracing_**
+3.5.2. Requirements on boundary tracing
 The tracing of a contour is a simple operation when the contour is continuous, isolated, and well defined. When these conditions are not met, the
 tracing operation must cope with a number of challenging requirements.
 These requirements, and their implications for the tracing operation, ;irc
 examined in this section.
 
-**_(a) Tracing incomplete boundaries._** The incompleteness of boundaries and
+(a) Tracing incomplete boundaries. The incompleteness of boundaries and
 contours is a well-known difficulty in image processing slystems. Edges and
 contours produced by such systems often suffer frolm gaps due to such problems as noise and insufficient contrast. This difficulty is probably not confined
 to man-made systems alone; boundaries detected *by the early processes in
@@ -1826,7 +1826,7 @@ fragmented contours can indeed often replace continuous ones.
 **can be matched over discrete frames. The implication is that the boundaries involved in immediate recognition**
 **also preexist in the base representations.**
 
-**_144_** **_S. VIlman_**
+144 S. VIlman
 
 _(b) Trucking across intersections and branches._ In tracing a boundary
 crossings and branching points can be encountered. It will then become necessary to decide which branch is the natural continuation of the curve. Similarity
@@ -1845,20 +1845,20 @@ are traced, and decomposed at places of maxima in curvature. This will lead
 
 **Figure IL**
 
-**_The tracking of a contour through an intersection is used here in generating_**
-**_a stable description of the contour. a, Two instances of the numeral ‘2’. 6,_**
-**_In spite of the marked difference in their shape, their eventual decomposition_**
-**_and description are highly similar._**
+The tracking of a contour through an intersection is used here in generating
+a stable description of the contour. a, Two instances of the numeral ‘2’. 6,
+In spite of the marked difference in their shape, their eventual decomposition
+and description are highly similar.
 
-**_Tracing a skeleton. The overall figure can be traced and recognized without_**
-**_recognizing first ail of the individual components._**
+Tracing a skeleton. The overall figure can be traced and recognized without
+recognizing first ail of the individual components.
 
 _Visud routines_ _145_
 
 decomposition into strokes, and the shapes of the underlying strokes. are
 highly similar.
 
-**(c)** **_Tracking at differenf rcsohtions._** Tracking can proceed along the main
+**(c)** Tracking at differenf rcsohtions. Tracking can proceed along the main
 skeleton of a contour without tracing its individual components. **An ex&n@le**
 is illustrated in Fig. 15, where a figure is constructed from a collection of
 individual tokens. The overall figure can be traced and recognized without
@@ -1896,13 +1896,13 @@ low frequency channels within the visual system. This is not the only possibil-m
 **sentations using dot-interference patterns see Glass (1969), Glass and Perez (1973). Marroquin (1976). Stevens**
 **(1978). See also a discussion of grouping in early visual processing in Barlow (W81).**
 
-146 S. **_Ullman_**
+146 S. Ullman
 
-Figure **16.** **_The collinearity_** of **_tokens (items and endpoints) can easily be perceived._**
+Figure **16.** The collinearity of tokens (items and endpoints) can easily be perceived.
 
-**_This perception may be related to a routine that traces collinear arrange-_**
-**_ments, rather than to sophisticated grouping processes within the base rep-_**
-**_resentations._**
+This perception may be related to a routine that traces collinear arrange-
+ments, rather than to sophisticated grouping processes within the base rep-
+resentations.
 
 ity, however, and in attempting to investigate this operation further, alternative methods for tracing the overall skeleton of figures should also be consid
 
@@ -1913,7 +1913,7 @@ in the analysis of shape and the establishment of spatial relations. This is a
 complicated operation since flexible, reliable, tracing shaluld be able to cope
 with breaks, crossings, and branching, and with different resolution requirements.
 
-3.6. **_Marking_**
+3.6. Marking
 
 In the course of applying a visual routine, the processing shifts across the
 base representations from one location to another. To control and coordinate
@@ -1933,12 +1933,12 @@ whether there are two Xs on the same curve. Once again, the corlrect answer
 is perceived immediately. To establish that only a single X lies on the closed
 curve c, one can use the above strategy of marking the X and tracking the
 
-**_Visual routines_** **_147_**
+Visual routines 147
 
-Figure 17. **_The task here is to determine visually whether there are two X’s on a com-_**
+Figure 17. The task here is to determine visually whether there are two X’s on a com-
 
-**_mon curve. The task_** **_could be accomplished by employing marking and_**
-**_tracing operations._**
+mon curve. The task could be accomplished by employing marking and
+tracing operations.
 
 curve. It is suggested that the perceptual system has marking and tracing in
 its repertoire of basic operations, and that the simple perception of the X on
@@ -1946,13 +1946,13 @@ the **CUIW** sinvolved the application of visual routines that employ such opera
 
 Other tasks may benefit from the marking of more than a single location.
 A simple example is visual counting, that is, the problem of determining as
-fast as possibile the number of distinct items in view (Atkinson **_et al.,_** 1969;
+fast as possibile the number of distinct items in view (Atkinson et al., 1969;
 Kowler and. Steinman, 1979).
 
 For a small number of items visual counting is fast and reliablie. When the
-number of items is four or less, the perception of their numbler is so immediate, that it gave rise to conjecture regarding special **_Gestalt_** mechanisms
+number of items is four or less, the perception of their numbler is so immediate, that it gave rise to conjecture regarding special Gestalt mechanisms
 that can somehow respond directly to the number of items in view, provided
-that this number does not exceed four (Atkinson **_et al._** T 1969).
+that this number does not exceed four (Atkinson et al. T 1969).
 
 In the follolwing section, we shall see that although such mechanisms are
 possible in principle, they are unlikely to be incorporated in the human visual
@@ -1960,15 +1960,15 @@ system. It will be suggested instead that even the perception of a small
 number of items involves in fact the execution of visual routines in which
 marking plays) an important role.
 
-X6.1. **_Com,paring schemes for visual counting_**
+X6.1. Com,paring schemes for visual counting
 
-**_Perception-like_** **_counting networks._** In their book **_Pexeptrons,_** Minsky and
+Perception-like counting networks. In their book Pexeptrons, Minsky and
 Papert(1969, Ch. 1) describe parallel networks that can count the number
 of elements in their input (see also Milner, 1974). Counting is based on
 computing the predicates “the input has exactly 1M points” and “the input has
-between M and N points” for different values of **_M_** and N. For any given
+between M and N points” for different values of M and N. For any given
 
-**148** **_S. Ullman_**
+**148** S. Ullman
 
 value of M, it is thereby possible to construct a special network that will
 respond only when the number of items in view is exactly M. Unlike visual
@@ -1978,7 +1978,7 @@ the presence of M items in view. Unlike the shifting and marking operations.
 the computation is performed by these networks uniformly and in parallel
 over the entire field.
 
-**_Counting by visual routines._** Counting can also be performed by simple
+Counting by visual routines. Counting can also be performed by simple
 **visual** routines that employ elementary operations such as shifting and mark**ing.** For example, the indexing operation described in Section 3.3 can be used
 to perform the counting task provided that it is extended somewhat to include
 marking operations. Section 3.3 illustrated how a simple shifting scheme can
@@ -2015,7 +2015,7 @@ depend **on the number of items,** as **well** as on their spatial configuration
 
 There are two **main differences between counting** by visual routines of one
 
-**_Visual routines_** **_149_**
+Visual routines 149
 
 type or another on the one hand, and by specialized counting networks on
 the other. First, unlike the perception-like networks, the process of determining the number of items by visual routines can be decomposed into a sequence
@@ -2033,7 +2033,7 @@ efficiently as a result of our general capacity to generate and execute visual
 routiltes, and the availability of the appropriate elementary operations that
 can t’e harnessed for the task.
 
-3.6.2. **_Reference frames in marking_**
+3.6.2. Reference frames in marking
 The marking of a location for later reference requires a coordinate system,
 or a frame of reference, with respect to which the location is defined. One
 general question regarding marking is, therefore, what is the referencing
@@ -2043,9 +2043,9 @@ marking would then be analogous to reaching in the dark: the location of one
 or more objects can be remembered, so that they can be reached (approximately) in the dark without external reference cues. It is also possible: to use
 an internal map in combination with external referencing. For example. the
 
-Figure **_18. The use of an external reference. The position of point_** q **_can be definud and_**
+Figure 18. The use of an external reference. The position of point q can be definud and
 
-**_retained relative to the predominant X nearby._**
+retained relative to the predominant X nearby.
 
 _150_ _S. Ullman_
 
@@ -2062,7 +2062,7 @@ locations can be compared. (Care must be taken to avoid apparent motion.)
 One can test the effect of potential reference markers on the accuracy, and
 test marking accuracy across eye movements.
 
-3.6.3. **_Marking and the integration of information in a scene_**
+3.6.3. Marking and the integration of information in a scene
 To **be** useful in the natural analysis of visual scenes, the marking map
 should be preserved across eye motions. This means that if a certain location
 in space is marked prior to an eye movement, the marking should point to
@@ -2098,7 +2098,7 @@ of items in the scene already analyzed. These markers can point to peripheral
 
 **across saccadic** eye **motions, for**
 
-**_Visual routines_** 151
+Visual routines 151
 
 objects, and perhaps even to locations outside the field of view (Attneave
 and Pierce, 1978). If we are currently looking at the dog, we would see it in
@@ -2110,14 +2110,14 @@ appear only as a blurred blob, since they are summarized in the incremental
 representation. To obtain new information, however, we would have to shift
 our gaze back to the man figure, and apply additional visual routines.
 
-3.6.4. **_On the spatiai resolution of marking and other basic operations_**
+3.6.4. On the spatiai resolution of marking and other basic operations
 In the visual routines scheme, accuracy in visual counting will depend on
 the accuracy and spatial resolution of the marking operation. This co, elusion
 is consistent with empirical results obtained in the study of visual canting.“’ 2
 Additional perceptual limitations may arise from limitations on th,e spatial
 resolution of other basic operations. For example, it is known th;& spatial
 relations are difficult to establish in peripheral vision in the presence of distracting figures. An example, due to J. Lettvin (see also Andriessen and
-Bouma, 1976; Townsend **_et al.,_** 1971), is shown in Fig. 19. When fixating on
+Bouma, 1976; Townsend et al., 1971), is shown in Fig. 19. When fixating on
 the central point from a normal reading distance, the N on the left is recognizable, while the IY within the string TNT on the right is not. The flanking
 letters exert some ‘lateral masking’ even when their distance from the cen?ral
 letter is well above the two-point resolution at this eccentricity (Riggs, 1965).
@@ -2126,12 +2126,12 @@ Interaction effects of this type may be related to limitations on the spatial
 resolution of various basic operations, such as indexing, marking, and boundary tracking. The tracking of a line contour, for example, may be distracted
 by the presence of another contour nearby. As a result, contours may inter
 
-**_Figure 19. Spatial limitations of the elemental operations. When the central mark is_**
+Figure 19. Spatial limitations of the elemental operations. When the central mark is
 
-**_fixated, the N_** **on** **_the left is recognizable, while the one on the right is not._**
+fixated, the N **on** the left is recognizable, while the one on the right is not.
 
-**_This effect may reflect limitations on the spatial resolution of basic opera-_**
-**_tions such as indexing, marking, and boundary tracing._**
+This effect may reflect limitations on the spatial resolution of basic opera-
+tions such as indexing, marking, and boundary tracing.
 
 **N** **TNT**
 
@@ -2143,14 +2143,14 @@ by the presence of another contour nearby. As a result, contours may inter
 **that marking accuracy is better near fixation, and that it deteriorates across eye movements. As a result, eye**
 **movements will improve marking accuracy for large, but not for small, displays.**
 
-**_152_** **_S._** _Ullmrrn_
+152 S. _Ullmrrn_
 
 fere with the application of visual routines to other contours, and consequently with the establishment of spatial relations. Experiments involving
 the establishment of spatial relations in the presence of distracters would be
 useful in investigating the spatial resolution of the basic operations, and its
 dependence on eccentricity .
 
-**_The hidden complexities in perceiving spatial relationships._** We have
+The hidden complexities in perceiving spatial relationships. We have
 examined above a number of plausible elemental operations including shift,
 indexing, bounded activation, boundary tracing and activation, and marking.
 These operations would be valuable in establishing abstract shape properties
@@ -2183,7 +2183,7 @@ establishment of relations requires the application of a coordinated sequence
 of basic operations. **We** have discussed abqve a number of plausible basic
 operations. In this section I shall raise some of the general problems as
 
-**_Visual routines_** 153
+Visual routines 153
 
 sociated with the construction of useful routines from combinations of basic
 operations.
@@ -2283,29 +2283,29 @@ field in parallel. It is suggested that this apparent limitation on spatial para
 suggested, based primarily on their potential usefulness, and supported in
 part by empirical evidence. These operations include:
 
-9.1. **_Shift of the processing focus._** This is a family of operations that
+9.1. Shift of the processing focus. This is a family of operations that
 allow the application of the same basic operation to different locations
 across the base representations.
-9.2. **_Indexing._** This is a shift operation towards special odd-man-out locations. **A** location can be indexed if it is sufficiently different from its
+9.2. Indexing. This is a shift operation towards special odd-man-out locations. **A** location can be indexed if it is sufficiently different from its
 surroundings in an indexable property. Indexable properties, which are
 computed in parallel by the early visual processes, include contrast,
 orientation, color, motion, and perhaps also size, binocular disparity,
 curvature, and the existence of terminators, corners, and intersections.
-9.3. **_Bounded activation._** This operation consists of the spread of activation over a surface in the base representation, emanating from a given
+9.3. Bounded activation. This operation consists of the spread of activation over a surface in the base representation, emanating from a given
 location or contour, and stopping at discontinuity boundaries. This is
 not a simple operation, since it must cope with difficult problems that
 arise from the existence of internal contours and fragmented boundaries.
 A discussion of the mechanisms that may be implicated in this operation
 suggests that specialized networks may exist within the visual system,
 for executing and controlling the application of visual routines.
-9.4. **_Boundury tracing._** This operation consists of either the tracing of a
+9.4. Boundury tracing. This operation consists of either the tracing of a
 single contour, or the simultaneous activation of a number of contours.
 This operation must be able to cope with the difficulties raised by the
 tracing of incomplete boundaries, tracing across intersections and
 branching points, and tracing contours defined at different resolution
 scales.
-9.5. **_Marking._** The operation of marking a location means thlat this location is remembered, and processing can return to it whenever necessary. **_i_**
-**_Such_** an operation would be useful in the integration of information in
+9.5. Marking. The operation of marking a location means thlat this location is remembered, and processing can return to it whenever necessary. i
+Such an operation would be useful in the integration of information in
 the processing of different parts of a complete scene.
 
 10. It is suggested that the seemingly simple and immediate perception of
@@ -2316,200 +2316,200 @@ selection, assembly, and execution of visual routines.
 
 **References**
 
-**Andriessen, J.J. and** Bouma, H. (1976) Eccentric vision: adverse interactions between **line segments.** **_Vis._**
+**Andriessen, J.J. and** Bouma, H. (1976) Eccentric vision: adverse interactions between **line segments.** Vis.
 
-**_Res., 16,71-78._**
+Res., 16,71-78.
 **Atkinson, J.,** Campbell, F.W. and Francis, M.R. (1%9) The **magic number 4 f 0:** A **new look at visual**
 
-numerosity judgments. **_Perception, 5,_** 327-3M.
+numerosity judgments. Perception, 5, 327-3M.
 **Attnetive,** F. and Pierce, C.R. (1978) The accuracy of extrapolating a pointer into perceived and imagined
 
-space. **_Am. J. Psychol., 91(3), 371-387._**
-Barlow, H.H. (1972) **Single units and sensation: A neuron doctrine for perceptual** psychology? **_Perception, I,_**
+space. Am. J. Psychol., 91(3), 371-387.
+Barlow, H.H. (1972) **Single units and sensation: A neuron doctrine for perceptual** psychology? Perception, I,
 
-**_371-394._**
+371-394.
 Barlow, H.B. (1981) Critical limitiq factors in the design of the eye and the visual cortex. The Ferrier Lecture
-19&I. **_Proc. Roy. Sot._** **Land.** **_B,_** **212, l-34.**
-**Bartlett. F.C. (1932)** **_Remembering._** **Cambridge, Cambridge University Press.**
+19&I. Proc. Roy. Sot. **Land.** B, **212, l-34.**
+**Bartlett. F.C. (1932)** Remembering. **Cambridge, Cambridge University Press.**
 Beck, 3. and Ambler. B. (1972) Diseriminability of differences in line slope and in **line arrangement as a**
 
-function of mask delay. **_Percep. Psychophys. Z2(ZA), 33-38._**
+function of mask delay. Percep. Psychophys. Z2(ZA), 33-38.
 Beck, 3. and Ambler, B. (1973) The effects of concentrated and distributed attention on peripheral acuity.
-**_Percept. Psychophys., Z4(2), 225-230._**
+Percept. Psychophys., Z4(2), 225-230.
 Beneveneto, L.A. and Davis, ‘Is. (1977) Topographical projections of the prestriate cortex to the pulvinar
-nuclei in the macaque monkey: an autoradiographic study. **_Exp. Bruin Res., 30, 46424._**
-Biedemran, I., Glass, A.L. and Stacy, E.W. (1973) Searching **for objects in real-world scenes. J.** **_exp. Psychol.,_**
+nuclei in the macaque monkey: an autoradiographic study. Exp. Bruin Res., 30, 46424.
+Biedemran, I., Glass, A.L. and Stacy, E.W. (1973) Searching **for objects in real-world scenes. J.** exp. Psychol.,
 
-**_97(Z), 22-27._**
-**_Donderi,_** DC. and **Zelnicker,** D. (1969) Parallel processing in visual same-different decisions. **_Percep._**
-**_Psychophys., S(4), 197-200._**
-**Ege:h. H., Jonides, J. and Wall. S. (1972) Parallel processing of multi-element displays. Cog.** **_Psychol., 3,_**
+97(Z), 22-27.
+Donderi, DC. and **Zelnicker,** D. (1969) Parallel processing in visual same-different decisions. Percep.
+Psychophys., S(4), 197-200.
+**Ege:h. H., Jonides, J. and Wall. S. (1972) Parallel processing of multi-element displays. Cog.** Psychol., 3,
 
-**_676698._**
-**Engel, F.L. (1971) Visual conspecuity, directed attention and retinal locus.** **_Vis. Res., ZZ,_** 563-576.
+676698.
+**Engel, F.L. (1971) Visual conspecuity, directed attention and retinal locus.** Vis. Res., ZZ, 563-576.
 **Eriksen, C.W. and Hoffman, J-E. (1972) Temporal and spatial characteristics of selective encoding from visual**
 
-**displays.** **_Percep. Psychophys., Z2(2B), 201-204._**
-**Eriksen, C.W. and Schultz, D.W. (1977) Retinal locus and acuity in visual information processing.** **_Buff._**
+**displays.** Percep. Psychophys., Z2(2B), 201-204.
+**Eriksen, C.W. and Schultz, D.W. (1977) Retinal locus and acuity in visual information processing.** Buff.
 
-**_Psychon. Sot., 9(2), 81-M_**
-Ester. W.K. (1972) **Interactions of signal and background variables in visual processing.** **_Percep. Psychophys.,_**
+Psychon. Sot., 9(2), 81-M
+Ester. W.K. (1972) **Interactions of signal and background variables in visual processing.** Percep. Psychophys.,
 
-**_Z2(3), 278-286._**
-**_Evans,_** T-G. (1968) A heuristic program to solve geometric analogy problems. In M. Minsky (ed.), **_Semantic_**
+Z2(3), 278-286.
+Evans, T-G. (1968) A heuristic program to solve geometric analogy problems. In M. Minsky (ed.), Semantic
 
-**_Information_** **plocessing. Cambridge, MA, M.I.T. Press.**
-Fantz, R.L. (1961) The origin **of form perception.** **_Gent._** **_Am., 204(5), 66-72._**
+Information **plocessing. Cambridge, MA, M.I.T. Press.**
+Fantz, R.L. (1961) The origin **of form perception.** Gent. Am., 204(5), 66-72.
 F-r, B. and Both, R. (1981) Enhanced activation of neurons in prelunate cortex before visually guided
-=ccades of trained rhesus monkey. **_Exp. Brain Res., 44, 129-137._**
-**_Fustef, 3.M. ad_** Jervey, **J.P.** (1981) Inferotemporal neurons distinguish and retain behaviorally relevant
+=ccades of trained rhesus monkey. Exp. Brain Res., 44, 129-137.
+Fustef, 3.M. ad Jervey, **J.P.** (1981) Inferotemporal neurons distinguish and retain behaviorally relevant
 features of visual stimuli. Science, 212,952-955.
 Gattas, R., osealdo CNZ, E. and Sousa, **A.P.B. (1979) Visual receptive fields of units in the pulvinar of**
 
-**cebus monkey.** **_Bruin Res., Z60,413-430._**
-**C%ss,** L. (1969) Moire effect from random dots. **_Natzue,_** 243,578-tiN.l.
-Glass, L. and Perez, R. (1973) Perception of random dot interference patterns. **_Nature,_** 246, 36&362.
+**cebus monkey.** Bruin Res., Z60,413-430.
+**C%ss,** L. (1969) Moire effect from random dots. Natzue, 243,578-tiN.l.
+Glass, L. and Perez, R. (1973) Perception of random dot interference patterns. Nature, 246, 36&362.
 B, M-E. and Wurtz, R.H. (1972) Activity of superior colliculus in behaving monkey. II. Effect of
-attentionofneural responses. J. **_Neurophysiol, 3,5,X&574._**
-**_He,_** **_J.D. and_** Gazwiga, MS. (1982) **Dual task** interactions due exclusively to limits in processing
+attentionofneural responses. J. Neurophysiol, 3,5,X&574.
+He, J.D. and Gazwiga, MS. (1982) **Dual task** interactions due exclusively to limits in processing
 mources. &i&we, 218,132!&1327.
 Humphreys, G.W. (1981) On varying the span of visual attention: evidence for **two modes of spatial attention.**
 
-**Q. J. exp.** **_Psychol., 33A, 17-31._**
+**Q. J. exp.** Psychol., 33A, 17-31.
 
 _Visual routines_ _157_
 
-Johnston, J.i:. and MrClelland, J.L. (1973) Visual factors in word perception. **_fercep._** **_Psychuphys., 14(2)._**
-**_365-370._**
+Johnston, J.i:. and MrClelland, J.L. (1973) Visual factors in word perception. fercep. Psychuphys., 14(2).
+365-370.
 
 **J~~nides, J. and Gleitman, H. (1972)** A conceptual category effect in visual search: 0 as a letter or as digit.
 
-**_Percep. Psychophys., 12(6), 457-460,_**
+Percep. Psychophys., 12(6), 457-460,
 **Johnson. R.B. and Kirk N.S. (1960)** The perception of size: An experimental synthesis of the associationist
 
-and gestalt accounts of the perception of size. Part III. **_Q. J. exp. Psychol., 12, 221-230._**
-**Juk.** **B. (1975)** Experiments in the visual perception of texture. **_Scienr. Am.,_** 232(#), **_Apsil 1975. ~43._**
-**Juiesz, B.** (1981) Textons, the elements of texture perception, and **their interactions.** **_Nature, 290. 91-97._**
-Kahneman, D. (1973) **_Attention and_** Effort. Englewood Cliffs, NJ. Prentice-Hall.
-Kolmogorw.. A.N. (1968) Logical basis for information theory an’d probability theory. **_IEEE Trans._** info.
-**_Theory, I T-14(5), 662-664._**
+and gestalt accounts of the perception of size. Part III. Q. J. exp. Psychol., 12, 221-230.
+**Juk.** **B. (1975)** Experiments in the visual perception of texture. Scienr. Am., 232(#), Apsil 1975. ~43.
+**Juiesz, B.** (1981) Textons, the elements of texture perception, and **their interactions.** Nature, 290. 91-97.
+Kahneman, D. (1973) Attention and Effort. Englewood Cliffs, NJ. Prentice-Hall.
+Kolmogorw.. A.N. (1968) Logical basis for information theory an’d probability theory. IEEE Trans. info.
+Theory, I T-14(5), 662-664.
 Kowler, E. and Steinman, R.M. (1979) Miniature saccades: eye movements that do not count. _Vis. Res., IV._
 
 105-108.
 Lappin, J.S. and Fuqua, M.A. (1983) Accurate visual measurement of three-dimensional moving patterns.
-**_Science, 221,480-482._**
+Science, 221,480-482.
 Livingstone, M.L. and Hubel, D.J. (1981) Effects of sleep and arousal on the processing of visual information
 
-**in the cat.** **_Nature, 291,_** 554-561.
-Mackworth, N.H. (1965) Visual noise causes tunnel vision. **_fsychm._** **_Sci.,_** 3. 67-68.
-Mart, D. (1976) Early processing of visual information. **_Phil. Trans. Roy. Sot. and 8, 275, 483-524._**
-Marr, D. (1980) Visual information processing: the structure and creation **of visual representations.** **_Phil._**
-**_Trans. Roy. Sot. Lond. B, 290,19!&218._**
-Marr, D. atid Nishihara, H.K. (1978) Representation and recognition of the spatial organization of three-dimensional shapes. **_Proc. Roy. Sot. B,_** 200, 269-29!.
+**in the cat.** Nature, 291, 554-561.
+Mackworth, N.H. (1965) Visual noise causes tunnel vision. fsychm. Sci., 3. 67-68.
+Mart, D. (1976) Early processing of visual information. Phil. Trans. Roy. Sot. and 8, 275, 483-524.
+Marr, D. (1980) Visual information processing: the structure and creation **of visual representations.** Phil.
+Trans. Roy. Sot. Lond. B, 290,19!&218.
+Marr, D. atid Nishihara, H.K. (1978) Representation and recognition of the spatial organization of three-dimensional shapes. Proc. Roy. Sot. B, 200, 269-29!.
 Marroquin, J.L. (1976) Human visual perception of structure. MSc. Thesis, Departmertt of Electrical En
 gineering and Computer Science, Massachusetts Institute of Technologv.
-Milner, P.M. (1974) A model for visual shape recognitio. **_Psychol. Rev._** 81(6), 521-535.
-Minsky, M. and Papert, S. (1969) **_Perceptrons._** Cambridge, MA and London: The M.I.T. Press.
-Minsky, M. (1975) A framework for representing knowledge. In P.H. Winston (ed.), **_The Psychology_** **of**
-**_Computer Vision. New_** York. Prentice Hall.
+Milner, P.M. (1974) A model for visual shape recognitio. Psychol. Rev. 81(6), 521-535.
+Minsky, M. and Papert, S. (1969) Perceptrons. Cambridge, MA and London: The M.I.T. Press.
+Minsky, M. (1975) A framework for representing knowledge. In P.H. Winston (ed.), The Psychology **of**
+Computer Vision. New York. Prentice Hall.
 Mountcastle, V.B. (1976) The world around us: neural command functions for selective attention. The F.0.
 
-Schmitt Lecture in Neuroscience 1975. **_Neurosci. Res. Prog. Bull., 24,_** Supplement l-37.
+Schmitt Lecture in Neuroscience 1975. Neurosci. Res. Prog. Bull., 24, Supplement l-37.
 Mountcastle, V.B., Lynch, J.C., Georgopoulos, A., Sakata, H. and Acuna, A. (1975) Posterior parietal
 association cortex of the monkey: command functions for operations within extrapersonal space. J.
-**_Neurophys., 38, 871-908._**
-Navon, D. (1977) Forest before trees: the precedence of global features m visual perception. Cog. **_Psycho/.,_**
+Neurophys., 38, 871-908.
+Navon, D. (1977) Forest before trees: the precedence of global features m visual perception. Cog. Psycho/.,
 
 9, 353-383.
-Neisser, U., Novick, R. and Lazar, R. (1963) Searching for ten targets simultaneously. **_Percep. Mot. Skifk_**
-**_17,955-%l._**
-Neisser, U. (1967) **_Cognitive Psychofogy. New_** York, Prentice-Hall.
+Neisser, U., Novick, R. and Lazar, R. (1963) Searching for ten targets simultaneously. Percep. Mot. Skifk
+17,955-%l.
+Neisser, U. (1967) Cognitive Psychofogy. New York, Prentice-Hall.
 Newsome, W.T. and Wurtz, R.H. (1982) Identification of architectonic zones containing visual tracking ce%s
 
-in the superior temporal sulcus of macaque monkeys. **_Invest. Ophthaf. Vis. Sci., Suppl. 3.22. 238._**
-Nickerson, R.S. (1966) Response times with memory-dependent decision task. **_J. exp. Psychof., 72(j). XI--_**
+in the superior temporal sulcus of macaque monkeys. Invest. Ophthaf. Vis. Sci., Suppl. 3.22. 238.
+Nickerson, R.S. (1966) Response times with memory-dependent decision task. J. exp. Psychof., 72(j). XI--
 769.
 Noton, D. and Stark, L. (1971) Eye movements and visual perception. ScLnr. Am., 22416). -w3.
 Pomerantz, J.R., Sager, L.C. and Stoever, R.J. (1977) Perception of wholes and of their component parts:
 
-some configural superiority effects. **_J. exp. fsychol.,_** **_Hum._** **_Percep. Perf., 3C3), 422-135._**
-Posner, M.I. (1980) Orienting of attention. Q. **_J. exp. Psychol., 32, 3-25._**
+some configural superiority effects. J. exp. fsychol., Hum. Percep. Perf., 3C3), 422-135.
+Posner, M.I. (1980) Orienting of attention. Q. J. exp. Psychol., 32, 3-25.
 Posner, M.I., Nissen, M.J. and Ogden, W.C. (1978) Attended and unattended processing modes: the role of
 
-**_158_** **_S. Ullman_**
+158 S. Ullman
 
-**set for spatial location. In Saltzman, 1.1. and H.L. Pick (eds.),** **_Modes_** **of &rctlivirrg** **_and Processing_**
-**_hfomation._** **Hillsdale, NJ, Lawrence Erlbaum.**
-**Prstter, M.tZ. (1975) Meaning in visual search.** **_Science,_** **187, 965-966.**
+**set for spatial location. In Saltzman, 1.1. and H.L. Pick (eds.),** Modes **of &rctlivirrg** and Processing
+hfomation. **Hillsdale, NJ, Lawrence Erlbaum.**
+**Prstter, M.tZ. (1975) Meaning in visual search.** Science, **187, 965-966.**
 Rayner, K. (1948) Eye **movements in reading End information processing. PsycIrot. l?uii., 85(3), 618460.**
-Regan, **D. and Beverley, K.I. (1978)** **Looming** **detectors in the human visual pathway.** **_Vis. Res., 28,209-212._**
+Regan, **D. and Beverley, K.I. (1978)** **Looming** **detectors in the human visual pathway.** Vis. Res., 28,209-212.
 Rezak, M. and **Beneveneto, A. (1979) A comparison of the organization of the projectlons of the dorsal**
 
 **lateral geniculate nucleus, the inferior pulvinar and adjacent lateral pulvinar to primary visual area**
-**(area 17) in the macaque monkey.** **_Brai/g Res., 267,_** **19-40.**
-Richards, **W. (1982) How to play twenty ques!ions with nature and win. M. 1. T.A.** 1. **_Laborairory Memo 660._**
+**(area 17) in the macaque monkey.** Brai/g Res., 267, **19-40.**
+Richards, **W. (1982) How to play twenty ques!ions with nature and win. M. 1. T.A.** 1. Laborairory Memo 660.
 **Richmond,** **B.J. and Sato, T. (1982) Visual responses of inferior temporal neurons are modified by attention**
 
-**to different stimuli dimensions. Sec. Wc*urosci.** **_A&.,_** **8. 812.**
-**Riggs, L.A. (1965) Visual acuity. In C.H. Graban (ed.),** **_Vision and Visual Perception. New_** **York, John Wiley.**
+**to different stimuli dimensions. Sec. Wc*urosci.** A&., **8. 812.**
+**Riggs, L.A. (1965) Visual acuity. In C.H. Graban (ed.),** Vision and Visual Perception. New **York, John Wiley.**
 **Riley,** **M.D. (1** **981) rhe representation of image texture. M.Sc. Thesis, Department of Electrical Engineering**
 
 and **Computer Science, Massachusetts Institute of Technology.**
 **Robinson, D-L., Goldberg, M.G. and Staton. G.B. (1978) Parietal association cortex in the primate: sensory**
 
-**mechanisms and behavioral modulations. 1.** **_Neurophysiol., 41(4),_** **910-932.**
-**Rock, I., Halper, F. and Clayton, T. (1972) The perception and recognition of complex figures. Cog.** **_Psychof.,_**
+**mechanisms and behavioral modulations. 1.** Neurophysiol., 41(4), **910-932.**
+**Rock, I., Halper, F. and Clayton, T. (1972) The perception and recognition of complex figures. Cog.** Psychof.,
 
-**_3.65-73._**
-**Rock, I. and Gutman, D. (1981) The effect of inattention of form perception. J.** **_exp. Psychol.: Hum. Percep._**
+3.65-73.
+**Rock, I. and Gutman, D. (1981) The effect of inattention of form perception. J.** exp. Psychol.: Hum. Percep.
 
-**_Perf.,_** **7(2), 275-285.**
-**Rumelhart, D.E. (1970) A multicomponent theory of the perception of briefly exposed visual displays.** **_J._**
+Perf., **7(2), 275-285.**
+**Rumelhart, D.E. (1970) A multicomponent theory of the perception of briefly exposed visual displays.** J.
 
-**_Math. Psychof.,_** **7, 191-218.**
+Math. Psychof., **7, 191-218.**
 **Schein, S-i., Marrocco, R.T. and De Monasterio, F.M. (1982) Is there a high concentration of color-selective**
 
-**cells in area V4 of monkey visual cortex? J.** **_Neurophysiol., 47(2),_** **193-213.**
-**Shiffrin, R-M., McKay, D.P. and Shaffer, W.O. (1976) Attending to forty-nine spatial positions at once.** **_J._**
+**cells in area V4 of monkey visual cortex? J.** Neurophysiol., 47(2), **193-213.**
+**Shiffrin, R-M., McKay, D.P. and Shaffer, W.O. (1976) Attending to forty-nine spatial positions at once.** J.
 
-**_exp. Psychol.: Human Percep. Perf., 2(I), 14-22._**
-**Shulman, G.L., Remington, R.W. and McLean, I.P. (1979) Moving attention through visual space. J.** **_exp._**
+exp. Psychol.: Human Percep. Perf., 2(I), 14-22.
+**Shulman, G.L., Remington, R.W. and McLean, I.P. (1979) Moving attention through visual space. J.** exp.
 
-**_Psychol.: Huma. Percep. Perf., 5,522-526._**
-**_QeZ!bg, G. (1960) The_** **information available in brief visual presentations.** **_Psycho/. Mono., 74, (11,_** **Whole**
+Psychol.: Huma. Percep. Perf., 5,522-526.
+QeZ!bg, G. (1960) The **information available in brief visual presentations.** Psycho/. Mono., 74, (11, **Whole**
 
 **No. 498).**
-**Stevens, K-A. (1978) Computation of locally parallel structure. Biof.** **_Cybernet., 29,_** **19-28.**
-**Sutherland, N-S. (1968) Outline of a theory Iof the visual pattern recognition in animal and man.** **_Proc. Roy._**
+**Stevens, K-A. (1978) Computation of locally parallel structure. Biof.** Cybernet., 29, **19-28.**
+**Sutherland, N-S. (1968) Outline of a theory Iof the visual pattern recognition in animal and man.** Proc. Roy.
 
-**_Sot. Land. B, 171,2!W317._**
+Sot. Land. B, 171,2!W317.
 **Townsend, J.T., Taylor, S-G. and Brown, D.R. (1971) Latest masking for letters with unlimited viewing time.**
 
-**_Percep. Psychofphys., IO(S), 375-378._**
-**Treisman, A. (1977) Focused attention in the perception and retrieval of multidimensional stimuli.** **_Percep._**
+Percep. Psychofphys., IO(S), 375-378.
+**Treisman, A. (1977) Focused attention in the perception and retrieval of multidimensional stimuli.** Percep.
 
-**_Psychophys., 22,_** **l-1 1.**
-Treisman, A. and **Celade, G. (1980) A feature integration theory of attention. Cog.** **_Psychol., 12, !97-136._**
-**_Td, Y. (1983)_** **Movements of attention across the visual field.** **_J. exp. Psychol.: Hum. Percep._** Perf. (In Press).
+Psychophys., 22, **l-1 1.**
+Treisman, A. and **Celade, G. (1980) A feature integration theory of attention. Cog.** Psychol., 12, !97-136.
+Td, Y. (1983) **Movements of attention across the visual field.** J. exp. Psychol.: Hum. Percep. Perf. (In Press).
 
-Ulm, S. (1979) The **_In@~retarion of Visual Motion._** **Cambridge, MA, and London: The M.I.T. Press.**
+Ulm, S. (1979) The In@~retarion of Visual Motion. **Cambridge, MA, and London: The M.I.T. Press.**
 **Vm,** **J. (1983) Abstracting spatial relations from the visual world** B.Sc. thesis **in Neurobiology and**
 **Psychology. Harvard University.**
 **van VoorI& S. and Hillyard, S.A. (1977) Visual evoked potentials and selective attention to points in space.**
 
-**_Percep. Psychophys., 22(I), 54-62._**
-**_Wm,_** **_P-S% (1977)_** AIzificial **_Intelligence._** Reading, MA., Addison-Wesley.
+Percep. Psychophys., 22(I), 54-62.
+Wm, P-S% (1977) AIzificial Intelligence. Reading, MA., Addison-Wesley.
 wum9 R-H- and Mohh, C.W. (1976a) **Organization of monkey superior colliculus: enhanced visual re:;ponse**
-**of superficial layer cells. 3.** **_Nmrophysiol., 39(4), 7d!L76S._**
-**_wU-9 R=H. and mhler, C.W. (1976b)_** **Enhancement of visual response in monkey striate cortex and frontal**
+**of superficial layer cells. 3.** Nmrophysiol., 39(4), 7d!L76S.
+wU-9 R=H. and mhler, C.W. (1976b) **Enhancement of visual response in monkey striate cortex and frontal**
 
-**eye fields. 1.** **_Neurophysiol., 39, 76772._**
+**eye fields. 1.** Neurophysiol., 39, 76772.
 
-**_Percep. Psychophys., 22(I), 54-62._**
-**_Wm,_** **_P-S% (1977)_** AIzificial **_Intelligence._** Reading, MA., Addison-Wesley.
+Percep. Psychophys., 22(I), 54-62.
+Wm, P-S% (1977) AIzificial Intelligence. Reading, MA., Addison-Wesley.
 wum9 R-H- and Mohh, C.W. (1976a) **Organization of monkey superior colliculus: enhanced visual re:;ponse**
-**of superficial layer cells. 3.** **_Nmrophysiol., 39(4), 7d!L76S._**
-**_wU-9 R=H. and mhler, C.W. (1976b)_** **Enhancement of visual response in monkey striate cortex and frontal**
+**of superficial layer cells. 3.** Nmrophysiol., 39(4), 7d!L76S.
+wU-9 R=H. and mhler, C.W. (1976b) **Enhancement of visual response in monkey striate cortex and frontal**
 
 _Visual routines_ _159_
 
