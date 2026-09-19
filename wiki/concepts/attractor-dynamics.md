@@ -39,6 +39,16 @@ The last row is the wiki's cleanest statement of why an attractor network is not
 | **Continuous (CANN)** | A connected manifold of marginally stable states — ring, torus, plane — from translation-invariant recurrence | Position, heading, evidence: any quantity that must be *held and moved smoothly* ([[wiki/concepts/path-integration.md]]) |
 | **Sequential** | Slightly stronger forward than reverse weights, so the state walks a chain | Order for free; the transitions are driven by noise and nothing schedules them ([[wiki/concepts/working-memory.md]], [[wiki/entities/dense-sequence-memory.md]]) |
 
+**How many is also a *temperature*, not only a topology.** In the continuous modern Hopfield store `E = −lse(β, Xᵀξ) + ½ξᵀξ` the energy is, up to a monotone transform, a Gaussian mixture `Σ_i λ(x_i,β) G(ξ; x_i, β⁻¹I)` over the `N` stored patterns, so the number of minima is set by the inverse temperature `β` sweeping the component width ([[wiki/entities/continuous-modern-hopfield-network.md]], Ramsauer et al. 2020):
+
+| `β` | Fixed points | Read returns |
+|---|---|---|
+| low | **one** | the mean of all stored patterns |
+| intermediate | one per cluster of mutually similar, jointly separated patterns — a **metastable state** | the mean of that cluster |
+| high, separation `Δ_i` large | one per pattern | the pattern, in **one** update, at error `≤ 2e(N−1)M exp(−βΔ_i)` |
+
+Two things this adds to the axis. The count is continuously dialable at fixed weights, so "discrete store" and "prototype/pooling layer" are one network at two temperatures rather than two designs. And the count is **not bounded above by `N`**: a Gaussian mixture with `N` components can have more than `N` modes, so spurious states survive the move to exponential capacity, which is the property [[wiki/entities/vector-hash.md]]'s prestructured landscape is the wiki's only defence against.
+
 A continuum is what makes path integration expressible at all: the update `z_t = f(Wz_{t−1} + Ba_t)` moves the bump along the manifold, so equal total displacement lands on the same state *by construction* — the wiki's only mechanical answer to path-consistency (G3).
 
 ---
@@ -194,3 +204,4 @@ Every landscape on this page is rigid across time and conditions, which is why t
 - **[[wiki/entities/bb-model.md]]** — the load-bearing case and its price, measured: pattern completion across place, boundary and identity populations turns a single identity cue into a whole scene, and 20% random cell loss plus 20% rate noise are survivable *exactly* while the place and head-direction attractor states remain stable — attractor stability is the model's one non-graceful failure.
 - **[[wiki/entities/dense-associative-memory.md]]** — the discrete-attractor capacity turned into a tunable exponent: replacing the quadratic energy with `−Σ_μ F(ξ^μ·σ)` for sharply growing `F` narrows and deepens every basin at once, so this page's robustness-versus-count trade runs through one scalar `n` with an interior optimum, and `n = 2` recovers the classical landscape exactly.
 - **[[wiki/entities/two-body-dense-associative-memory.md]]** — the same discrete-attractor landscape with its fixed points guaranteed by a different condition: not weight symmetry among the state units but positive semi-definite Hessians of two Lagrangians, one per layer, which holds for *arbitrary* time constants. Adding hidden memory neurons leaves the feature-space minima where they were and moves all the capacity into the hidden count (Krotov & Hopfield 2021).
+- **[[wiki/entities/continuous-modern-hopfield-network.md]]** — this page's Axis 2 made a continuous parameter: one inverse temperature `β` moves the same weights from a single global fixed point at the mean of everything, through one fixed point per cluster, to one per stored pattern reached in a single update — and because the energy is a Gaussian mixture in disguise, the fixed-point count can exceed the number of stored patterns, so exponential capacity does not buy a clean landscape (Ramsauer et al. 2020).

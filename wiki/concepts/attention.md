@@ -104,6 +104,21 @@ Three things this changes for a builder.
 
 ---
 
+## What regime a trained head is in, and the temperature that sets it
+
+The identity `softmax(QKᵀ/√d_k)V = X softmax(β Xᵀξ) · W_V` at `β = 1/√d_k` ([[wiki/entities/continuous-modern-hopfield-network.md]], Ramsauer et al. 2020) makes `1/√d_k` an **inverse temperature** rather than the numerical patch [[wiki/entities/transformer.md]] introduces it as, and it selects which of three fixed points the read lands on: the mean of everything (`β` low), the mean of a similar *subset* — a metastable state — or a single stored pattern (`β` high, separation `Δ_i` large).
+
+Measured per head as `k̄` = the median over sequences of the minimal number of softmax values summing to 0.90:
+
+| Class | Criterion | Operation | Where in `bert-base-cased` |
+|---|---|---|---|
+| I | `k̄ > N/2` | average over almost everything | first / lower layers |
+| II | `N/8 < k̄ ≤ N/2` | large metastable state | layers 3–5 |
+| III | `N/32 < k̄ ≤ N/8` | medium metastable state | last layers |
+| IV | `k̄ ≤ N/32` | small metastable state or single-pattern retrieval | layers 6–8 |
+
+**Trained heads are predominantly pooling, not retrieving**, which puts them outside the regime the capacity and one-step-retrieval theorems describe ([[wiki/empirical-tensions.md]] T390). Two consequences for this page. Lower-layer heads can be replaced by **input-independent** learned Gaussian position kernels at `2N` parameters per head against `2 d_k d_y` — 95.5× fewer at BERT-base sizes — because neither the input dependence nor the positional resolution is being used. And a head that *does* sharpen stops learning: `p` one-hot makes `∂ξ^new/∂ξ = β X (diag(p) − ppᵀ) Xᵀ ≈ 0`, and middle-layer heads that enter class IV at 9 000–10 000 pre-training steps show a near-zero softmax-Jacobian norm for the remaining 1.44M. **Row entropy is therefore not only the free confidence signal above — it is also the free gradient-flow signal**, and the two readings pull in opposite directions: the sharp read a controller should trust is the read whose keys have stopped being trainable.
+
 ## How a mixed-selectivity controller aims feedback at one feature
 
 Every entry above takes for granted that the controller can *deliver* its bias to the right sensory units — i.e. that the control layer holds an address for the population it means to bias, which is `G96`. It cannot, on the face of it: prefrontal units carry mixed selectivity, so a unit tuned to red and to vertical excites both populations when driven. Park & Serences 2025 show the delivery problem dissolves if the projection is near-random and the weights are balanced ([[wiki/concepts/random-feedback-addressing.md]]). In a two-layer spiking model (8 ring sub-networks × 512 feature-tuned units; 1024 randomly, reciprocally connected control units, `W^FB = (W^FF)ᵀ`), driving the 20% of control units that respond most to the attended feature produces textbook contrast-gain feature attention in the stimulated ring, and in the seven unstimulated rings the off-target feedback is uncorrelated with each ring's tuning axis and cancels.
@@ -222,3 +237,4 @@ The measurement that matters here is a disagreement between two decoders on the 
 - **[[wiki/concepts/incremental-grouping.md]]** — object-based attention given a mechanism, a circuit and a price: the "spread of attention over an object" is a disinhibitory activity tag propagating from an injected seed through locations a frozen feedforward population declares unambiguous, its serial order forced by the propagation rather than by a capacity limit, and its step count predicting human reaction times directly (Mollard, Bohte & Roelfsema 2026).
 - **[[wiki/entities/multiscale-tracing-network.md]]** — object-based attention as a trained behaviour with both halves measured: the injected seed is selection, the propagation to the rest of the object is the object-based part, and the spread is counted in timesteps against a human reaction-time distribution rather than asserted from a cueing benefit (Mollard, Bohte & Roelfsema 2026).
 - **[[wiki/entities/two-body-dense-associative-memory.md]]** — softmax attention *derived* rather than analogised: it is one update, at `dt = τ_f`, of a bipartite feature/memory network in the fast-hidden limit `τ_h → 0`, where the hidden layer's Lagrangian is `log Σ_μ e^{h_μ}`. That attaches three things an attention layer does not otherwise have — an explicit energy `E = ½‖v‖² − log Σ_μ exp(ξ_μ·v)`, a monotone-descent proof for iterating the read, and the capacity ceiling `N_mem ≤ N_h` — and leaves `τ_h/τ_f` as a dial the standard layer has silently set to zero (Krotov & Hopfield 2021).
+- **[[wiki/entities/continuous-modern-hopfield-network.md]]** — the primary source for this page's central identity and for the head-regime table above: `softmax(QKᵀ/√d_k)V` is one update of a continuous modern Hopfield retrieval at `β = 1/√d_k`, which attaches a capacity bound in `d_k`, a retrieval error `∝ exp(−βΔ_i)` in the separation of the keys, and a licence to iterate the layer (the energy descends) — while its measurement of trained BERT heads says most of them sit in the *averaging* regime where none of those bounds apply (`T390`).
