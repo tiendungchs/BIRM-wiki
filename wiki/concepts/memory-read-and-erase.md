@@ -140,7 +140,7 @@ The two measurements above are correlational and cued, so what they license is a
 
 | # | Problem |
 |---|---|
-| 1 | **The schedule's policy.** The output format is known — an item address plus a lead time — and nothing says how the lead time is set, or what it should be a function of (item retrieval latency? deadline? confidence?) (G49) |
+| 1 | **The schedule's policy.** The output format is known — an item address plus a lead time — and nothing says how the lead time is set, or what it should be a function of (item retrieval latency? deadline? confidence?) (G49). The competing answer is that there is no policy to learn: a store that re-reads at a fixed rate on unchanged input needs no lead time, because a commitment made on a weak cue is revisable a few times a second rather than final (`G123`) — so the scheduled read and the free-running clock are two designs for one problem and the wiki has only ever built neither |
 | 2 | **Whether `suppress` is worth having.** It is separable in cortex, and no machine argument yet says what a store gains from removing one item without either overwriting it or reclaiming the space |
 | 3 | **Causal status.** Both primary sources are correlational; no manipulation links a network's representational pattern on a trial to whether the item was actually removed, and removal here is *cued*, so this is instructed forgetting rather than self-initiated forgetting ([[wiki/empirical-tensions.md]] T90) |
 | 4 | **Where the read budget comes from.** A scheduled read has a metabolic cost paid only when it happens, which implies a budget; nothing in the wiki prices a read at all, so no controller can trade reads against anything |

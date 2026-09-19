@@ -359,4 +359,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T391 | Should a fast store's write gate be uncoordinated across units, sequenced, or rate-regulated? | `L2` | `LIVE` | 4 | [[wiki/tensions/t391.md]] |
 | T392 | Is forgetting the loss of a trace, or the loss of its address? | `L1` | `LIVE` | 3 | [[wiki/tensions/t392.md]] |
 | T393 | Is the dentate separator a slope or a threshold? | `L2` | `LIVE` | 2 | [[wiki/tensions/t393.md]] |
-| T394 | What makes map switching discrete: a posterior over hidden states, or a binding to a preconfigured attractor's coordinates? | `L1` | `LIVE` | 6 | [[wiki/tensions/t394.md]] |
+| T394 | What makes map switching discrete: a posterior over hidden states, or a binding to a preconfigured attractor's coordinates? | `L1` | `LIVE` | 8 | [[wiki/tensions/t394.md]] |

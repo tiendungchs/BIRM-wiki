@@ -16,7 +16,7 @@ This page is the estimator [[wiki/concepts/population-geometry.md]] names as mis
 | 2 | Optional pre-reduction | Isomap to `D_e` with `D_m ≪ D_e ≪ N` (3 for pictures, 10 before homology). **Not required** — direct high-dimensional fits were *better* when data sufficed |
 | 3 | Topology | Persistent homology (Ripser) → Betti barcodes `H0, H1, H2`; a feature persisting over many scales is real |
 | 4 | Intrinsic dimension | Correlation dimension and related estimators |
-| 5 | Fit | Piecewise-linear closed curve with `K = 12` knots, initialised by `k`-means, minimising `(Σ_i ‖x_i − L(y)‖)·|L(y)|` — the length factor is the regulariser |
+| 5 | Fit | Piecewise-linear closed curve with `K = 12` knots, initialised by `k`-means, minimising `(Σ_i ‖x_i − L(y)‖)·\|L(y)\|` — the length factor is the regulariser |
 | 6 | Parameterize | Arc length along the curve, rescaled to `[0, 2π)`. This is the **latent variable estimate (LVE)**, `α` |
 | 7 | Decode | Project a state to the nearest point of the curve; read off `α` |
 

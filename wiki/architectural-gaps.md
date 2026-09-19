@@ -54,7 +54,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g036.md]] |
 | G37 | Nothing decides which stored structure applies to the current situation | part | `L2` | `PARTIAL` | 32 | [[wiki/gaps/g037.md]] |
 | G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `L2` | `PARTIAL` | 38 | [[wiki/gaps/g038.md]] |
-| G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 25 | [[wiki/gaps/g039.md]] |
+| G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 26 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g040.md]] |
 | G41 | No test decides whether a domain's actions compose | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g041.md]] |
 | G42 | No machine fast store has a capacity model, so nothing knows when it is full | part | `L1` | `PARTIAL` | 34 | [[wiki/gaps/g042.md]] |
@@ -137,8 +137,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
 | G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g121.md]] |
 | G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 3 | [[wiki/gaps/g122.md]] |
-| G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g123.md]] |
-| G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g124.md]] |
+| G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g123.md]] |
+| G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g124.md]] |
 
 ## How gaps are used
 

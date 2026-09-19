@@ -123,6 +123,7 @@ The repulsion result is the load-bearing one: it is representational change driv
 - **"Never erased" is an argument from behaviour, not a measurement.** Every cited recovery shows *some* memories return under *some* cue; none shows that nothing is ever lost. The wiki's own stores contain explicit erase mechanisms (`T392`).
 - **Where pattern separation/completion happens is left open** — the review explicitly declines between recurrent entorhinal-hippocampal loop ([[wiki/entities/vector-hash.md]]) and dentate-separation/CA3-completion ([[wiki/concepts/pattern-separation-completion.md]], `T49`).
 - **No forgetting rate, no write refusal, no occupancy read** — the framing inherits all three of `G42`'s standing holes and adds none.
+- **The split says nothing about orientation.** A key matches and a value is returned; nothing in the framing identifies *where on the returned structure the agent currently is*, and the separation makes it a live question rather than a settled one — anchoring is a key problem if the address must be recomputed from the present situation, and a value problem if the returned structure carries its own slots (`G39`).
 
 ---
 

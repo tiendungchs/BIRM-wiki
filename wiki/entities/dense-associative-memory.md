@@ -103,7 +103,7 @@ The paper's most transferable result, and it is a dial, not a discovery. `K = 20
 | MNIST, `n = 3` (rectified parabola activation) | **All** sampled hyperparameter settings beat 1.6% |
 | Training speed, epochs to first cross 2% error | `n = 2`: 179–312. `n = 3`: 158–262. Speed-up grows with `n` |
 | XOR | `N = 3` units (2 input, 1 output), `K = 4` memories = the four truth-table rows. `E_n(x,y,z)` is `0` at `n=1`, constant at even `n`, and `C_n·xyz` at odd `n ≥ 3`, giving `z = Sign[−xy]`. Solvable for odd `n ≥ 3` (polynomial) or any `n ≥ 2` (rectified), and **unsolvable at `n = 1,2`** |
-| Training setup | Minibatch 1000 (100 per class), 3000 epochs, per-memory normalised updates (`ξ ← ξ + ε V/max_J|V_J|`), weights clipped to `[−1,1]`, temperature `β = 1/T^n` with `500 ≤ T ≤ 700` at large `n` and an annealed `T` at small `n` |
+| Training setup | Minibatch 1000 (100 per class), 3000 epochs, per-memory normalised updates (`ξ ← ξ + ε V/max_J\|V_J\|`), weights clipped to `[−1,1]`, temperature `β = 1/T^n` with `500 ≤ T ≤ 700` at large `n` and an annealed `T` at small `n` |
 
 **The XOR case is the paper's cleanest architectural statement and it belongs to a different wiki row than capacity.** `n = 2` here *is* the linear perceptron, and its failure on XOR is Minsky & Papert's. The fix is not hidden units added by hand — it is a **three-body term in the energy**, and the resulting network stores `K = 4 > N = 3` patterns reliably. So "more memories than neurons" and "compute a function no pairwise model can" are the same move seen twice.
 
