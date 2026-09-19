@@ -74,6 +74,17 @@ F^bio(Θ) = −θ₀ · e_ℓ y_{ℓ−1}ᵀ                                  (p
 
 The page's open problem — *which restrictions buy generalization and which merely shrink the space* — gets one clean data point. Restriction by **candidate basis + L1 + parameter sharing** does not degrade the discovered rule (three terms match ten) and yields the only interpretable output in the five families. What it does *not* test is out-of-distribution transfer: the rule is meta-trained and evaluated on EMNIST 5-way tasks, so the knowledge-boundedness limit is untouched.
 
+### A second recovery result, with the rule *asymmetry* as the recovered object (Tyulmankov et al. 2021)
+
+The restriction here is a different shape — not a candidate basis, but an affine transfer function on each side of a "pre-times-post" product, `f(x)_j = ã x_j + b̃` and `g(h)_i = ã h_i + b̃`, which interpolates continuously between Hebbian (`ã` both nonzero), anti-Hebbian, and pre-only or post-only (`ã` on one side → 0, its `b̃` → const). Four such functions are meta-learned, two per weight matrix, in a slot-based key-value store ([[wiki/entities/three-factor-key-value-memory.md]]).
+
+| Synapse group | Converged parameters | Rule |
+|---|---|---|
+| Input → hidden (writes the **key**) | `ã^{f^K} ≈ 0.5, b̃^{f^K} ≈ 0`; `ã^{g^K} ≈ 0, b̃^{g^K} ≈ 0.5` | **Presynaptic-only** — the postsynaptic slope goes to zero and stays there |
+| Hidden → output (writes the **value**) | `ã^{g^V} ≈ ã^{f^V} ≈ 1`, `b̃ ≈ 0` | **Hebbian** |
+
+Three things this adds to the restriction question above. (i) The recovered object is not one rule but a **split**: nothing tells the outer loop that the address write and the content write should differ, and it finds that they should. That is the wiki's only meta-learning result whose output is an architectural claim rather than a coefficient vector. (ii) The rule matches a hand-designed rule that was derived from biological constraints, so the search confirms rather than replaces the designer — the same relationship as eHebb's, and the opposite of Oja's. (iii) Biological realism was *increased before* meta-learning, not after: the hidden→output synapses were denied access to the local third factor (an axon cannot see its own cell's dendritic spikes) and their gated erase replaced by a uniform passive decay `λ_t = (1 − q_t) + q_t λ̃` applied on every store event. Performance did not fall and improved slightly at long sequence lengths — a rare case where a plausibility constraint is imposed *and paid for*, instead of being asserted and dropped. Generalization to sequence lengths outside the training range is reported, which is one more data point than the EMNIST result above supplies.
+
 ---
 
 ## A fifth family: meta-learn the *third factor* itself, and run one update
@@ -158,3 +169,4 @@ The open question the review states plainly: **when should a discovered rule rep
 - **[[wiki/concepts/analog-in-memory-computing.md]]** — the substrate that makes this page's cost table decisive rather than academic: on a crossbar a weight write is the dominant energy cost and is stochastic, which is why the deployable member of this family is the one whose inner loop is a single application of the rule to two matrices (Ortner et al. 2025).
 - **[[wiki/concepts/developmental-heterochrony.md]]** — the cheapest extension of this page's outer loop: if a plasticity rule can be discovered, so can the per-module time-warp deciding when the rule stops applying — one scalar per module over a trajectory whose shape is held fixed.
 - **[[wiki/concepts/fast-weight-programming.md]]** — this page's "attention as a weight update" bridge made exact, with a rule attached: the slow projections invent the patterns, the fast matrix is what they write into, and the delta instruction `W ← W + β(v − v̄) ⊗ φ(k)` is a plasticity rule whose learning rate `β = σ(W_β x)` is emitted by the network and trained by the outer loop — the minimal case of the differentiable-plasticity family, at one extra row of parameters (Schlag et al. 2021).
+- **[[wiki/entities/three-factor-key-value-memory.md]]** — the family's cleanest recovery result: an affine pre/post parameterization spanning Hebbian, anti-Hebbian and pre-/post-only rules converges to a hand-designed *asymmetry* (presynaptic-only for the address write, Hebbian for the content write) rather than to something unreadable, and it does so after biological realism was *increased* — the axon-side synapses were denied access to the dendritic gate and given passive decay instead, with no performance cost (Tyulmankov et al. 2021).
