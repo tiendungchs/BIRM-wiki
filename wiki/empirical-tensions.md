@@ -69,7 +69,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T57 | How should a memory store a sequence — the successor state, or the increment that generates it? | `L3` | `LIVE` | 2 | [[wiki/tensions/t057.md]] |
 | T58 | Where does the theta-band structure of hippocampal sequences come from — a rhythm imposed on the network, or a bifurcation inside it? | `L4` | `LIVE` | 4 | [[wiki/tensions/t058.md]] |
 | T59 | Does a stored memory live in the synaptic weights, or in a mask over them? | `L3` | `LIVE` | 2 | [[wiki/tensions/t059.md]] |
-| T62 | Should a fast associative store hold instances, or model a distribution? | `L1` | `LIVE` | 1 | [[wiki/tensions/t062.md]] |
+| T62 | Should a fast associative store hold instances, or model a distribution? | `L1` | `LIVE` | 2 | [[wiki/tensions/t062.md]] |
 | T63 | Is the unit that stores a pattern the neuron or the dendritic segment? | `L4` | `LIVE` | 2 | [[wiki/tensions/t063.md]] |
 | T64 | Is the dendritic tree's *structure* load-bearing, or only its sparsity? | `L4` | `LIVE` | 3 | [[wiki/tensions/t064.md]] |
 | T65 | Do cortical lateral connections link similar units, or deliberately mix dissimilar ones? | `L3` | `LIVE` | 2 | [[wiki/tensions/t065.md]] |
