@@ -146,7 +146,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T148 | Should a discovered action alphabet be discrete or continuous? | `L1` | `LIVE` | 5 | [[wiki/tensions/t148.md]] |
 | T149 | Must a vision encoder be trained with language supervision to align well with a language model? | `L3` | `LEANING` | 3 | [[wiki/tensions/t149.md]] |
 | T150 | Should a quantisation codebook be learned from data or installed by construction? | `L3` | `LIVE` | 2 | [[wiki/tensions/t150.md]] |
-| T151 | Where do a model's objects live — in its architecture, or in a read-out of its predictions? | `L1` | `LIVE` | 4 | [[wiki/tensions/t151.md]] |
+| T151 | Where do a model's objects live — in its architecture, or in a read-out of its predictions? | `L1` | `LIVE` | 5 | [[wiki/tensions/t151.md]] |
 | T152 | Is a world model's conditioning interface a design requirement, or an implementation detail? | `L2` | `LEANING` | 5 | [[wiki/tensions/t152.md]] |
 | T153 | Is a straight latent trajectory a good representation or a partial collapse? | `L3` | `LIVE` | 3 | [[wiki/tensions/t153.md]] |
 | T154 | Does a control-usable visual world model need foundation-scale pretraining? | `L3` | `LIVE` | 6 | [[wiki/tensions/t154.md]] |
@@ -182,7 +182,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T187 | Must a binding operator be invertible? | `L3` | `LIVE` | 2 | [[wiki/tensions/t187.md]] |
 | T188 | Must an induced program be consistent with *all* the demonstrations? | `L0` | `LIVE` | 2 | [[wiki/tensions/t188.md]] |
 | T189 | Should a model be selected for how confidently it answers, or for how well it answers? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t189.md]] |
-| T191 | Should a solver commit to one parse of the input, or carry several? | `L1` | `LIVE` | 3 | [[wiki/tensions/t191.md]] |
+| T191 | Should a solver commit to one parse of the input, or carry several? | `L1` | `LIVE` | 4 | [[wiki/tensions/t191.md]] |
 | T192 | What licenses a candidate analogical inference — its coherence with the target, or a causal model carried over from the source? | `L0` | `LIVE` | 1 | [[wiki/tensions/t192.md]] |
 | T194 | Is approaching a memory's capacity a failure mode or the mechanism that produces generalisation? | `L1` | `LIVE` | 1 | [[wiki/tensions/t194.md]] |
 | T195 | Is sequential presentation a cost paid against joint training? | `L0` | `LIVE` | 2 | [[wiki/tensions/t195.md]] |
@@ -352,4 +352,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T384 | Does retrosplenial cortex hold the recent trace or the remote one? | `L2` | `LIVE` | 2 | [[wiki/tensions/t384.md]] |
 | T385 | In a delayed-match task, which region holds the item and which one filters — prefrontal or parietal? | `L1` | `LIVE` | 2 | [[wiki/tensions/t385.md]] |
 | T386 | Is the sensory render on the retrieval path, or an optional strategy a system can pass the task without? | `L1` | `BOTH` | 4 | [[wiki/tensions/t386.md]] |
-| T387 | Is a visual pointer assigned bottom-up by the stimulus, or bound top-down by the program that needs a variable? | `L2` | `LIVE` | 2 | [[wiki/tensions/t387.md]] |
+| T387 | Is a visual pointer assigned bottom-up by the stimulus, or bound top-down by the program that needs a variable? | `L2` | `LIVE` | 3 | [[wiki/tensions/t387.md]] |
