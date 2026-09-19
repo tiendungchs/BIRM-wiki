@@ -150,6 +150,8 @@ Mattar & Daw 2018 give `S` a second job that costs nothing extra. The normative 
 
 ## Connections
 
+- **[[wiki/concepts/synaptic-plasticity.md]]** — a route to a predictive field that never computes a transition matrix: behavioural-timescale plasticity's potentiation window is asymmetric (≈2.2:1 before/after the plateau), so a population repeatedly gated at a goal comes to peak *before* the goal, with the lookahead horizon set by the eligibility time constant rather than by a discount factor `γ`. The two accounts are distinguishable — this page's `γ` is policy-dependent and horizon-adjustable, the kernel's is a biophysical constant (Milstein et al. 2021).
+
 - **[[wiki/concepts/replay-prioritisation.md]]** — this page's matrix is the *scheduler* for that page's buffer: `Need` in the normative priority `Gain × Need` is a row of `S`, so an SR-carrying agent gets the occupancy half of the optimal replay order for free (Mattar & Daw 2018).
 - **[[wiki/concepts/simulation-based-planning.md]]** — the cached-computation end of the planning spectrum: `v = Sr` replaces rollout with a matrix product, and the eigen-argument turns replanning under a moved reward into a re-read rather than a search.
 - **[[wiki/concepts/path-integration.md]]** — the same machinery in a different basis: action-dependent transition matrices share eigenvectors and differ only in eigenvalues, so integrating a path is adding eigenvalues.
