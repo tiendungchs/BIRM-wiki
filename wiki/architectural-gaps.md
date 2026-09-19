@@ -90,7 +90,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 11 | [[wiki/gaps/g072.md]] |
 | G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 14 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g074.md]] |
-| G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `L0` | `OPEN` | 14 | [[wiki/gaps/g075.md]] |
+| G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `L0` | `OPEN` | 15 | [[wiki/gaps/g075.md]] |
 | G76 | A temporally coded output has no loss function | part | `L3` | `PARTIAL` | 6 | [[wiki/gaps/g076.md]] |
 | G77 | Every high-performing temporal code in the wiki needs a time origin that nothing supplies | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g077.md]] |
 | G78 | Nothing sets a slow variable's time constant, and memory span is that time constant | part | `L3` | `PARTIAL` | 7 | [[wiki/gaps/g078.md]] |
