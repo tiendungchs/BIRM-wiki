@@ -123,14 +123,58 @@ PYEOF
 )
 echo "S18 note      $S18 gap From-edges where the named carrying page never cites the row (tracked, not enforced)"
 
+# S21: S1 checks that a Connections edge between two *pages* is answered. The same
+# relation one level down -- a registry row citing another row by id in its body -- had
+# no check at all, and two hand audits found 11 of 11 sampled references one-way
+# (L33). Both write orders produce it: the new row citing the old one and never being
+# cited back, and the ingest editing the old row to name the new one and never editing
+# the new one back -- so the check runs over every row, not only new ones. The
+# pre-existing one-way references are grandfathered in _work/rowref-baseline.txt (each
+# a standing repair candidate for LINT, not a failure), on the S19 pattern; a pair
+# outside that file is a reference this wave wrote and did not answer. Hard fail.
+S21RAW=$(python3 - <<'PYEOF'
+import re, glob, os
+files = {}
+for d, pre in (('wiki/gaps', 'G'), ('wiki/tensions', 'T')):
+    for f in glob.glob(d + '/*.md') + glob.glob(d + '/closed/*.md'):
+        m = re.match(r'^[gt](\d+)\.md$', os.path.basename(f))
+        if m:
+            files[pre + str(int(m.group(1)))] = f
+txt = {k: open(v).read() for k, v in files.items()}
+out = []
+for rid in files:
+    for ref in sorted(set(re.findall(r'`([GT]\d+)`', txt[rid]))):
+        if ref != rid and ref in files and not re.search(r'\b' + rid + r'\b', txt[ref]):
+            out.append(rid + ' -> ' + ref)
+print('\n'.join(sorted(out)))
+PYEOF
+)
+S21=$(comm -23 <(printf '%s\n' "$S21RAW") <(LC_ALL=C sort _work/rowref-baseline.txt))
+S21N=$(printf '%s\n' "$S21RAW" | grep -c . || true)
+if [ -z "$S21" ]; then
+  echo "S21 OK        no new one-way row-to-row reference ($S21N grandfathered)"
+else
+  echo "S21 VIOLATED  $(echo "$S21" | wc -l | tr -d ' ') row references a wave wrote and did not answer:"
+  echo "$S21" | sed 's/^/              /'; FAIL=1
+fi
+S21STALE=$(comm -13 <(printf '%s\n' "$S21RAW") <(LC_ALL=C sort _work/rowref-baseline.txt) | wc -l | tr -d ' ')
+[ "$S21STALE" -gt 0 ] && echo "S21 note      $S21STALE baseline pairs are now symmetric or gone -- prune _work/rowref-baseline.txt"
+
 # S15: the queue must reconcile exactly against raw/. Every source file is either
 # ingested (- [x]), skipped at the gate (- [-]) or still pending (- [ ]); every queue entry has a file.
 SKIPPED=$(grep -c '^- \[-\]' _work/ingest-queue.md || true)
 PENDING=$(grep -c '^- \[ \]' _work/ingest-queue.md || true)
-RAWFILES=$(cd raw && ls *.md *.txt 2>/dev/null | wc -l | tr -d ' ')
-QNAMES=$(grep -oE '^- \[[x  -]\] `[^`]+`' _work/ingest-queue.md | grep -oE '`[^`]+`' | tr -d '`' | sort -u)
-ORPHAN_Q=$(for f in $QNAMES; do [ -f "raw/$f" ] || echo "$f"; done)
-UNQUEUED=$(cd raw && for f in *.md *.txt; do echo "$QNAMES" | grep -qxF "$f" || echo "$f"; done)
+# L35 (lint 27): the two membership tests were ~480 short-lived `echo | grep -qxF`
+# pipelines whose reader exits on the first match -- the same SIGPIPE-under-pipefail
+# hazard S1's header documents -- and S15 twice named an already-queued file as
+# unqueued while the arithmetic on the same run reconciled. Both sets are now one
+# `comm` over two sorted lists: no early-exiting reader, ~480x fewer processes, and
+# the two halves of the check are derived from the same pair of lists.
+RAWNAMES=$(cd raw && ls *.md *.txt 2>/dev/null | LC_ALL=C sort -u)
+RAWFILES=$(printf '%s\n' "$RAWNAMES" | grep -c . || true)
+QNAMES=$(grep -oE '^- \[[x  -]\] `[^`]+`' _work/ingest-queue.md | grep -oE '`[^`]+`' | tr -d '`' | LC_ALL=C sort -u)
+ORPHAN_Q=$(comm -23 <(printf '%s\n' "$QNAMES") <(printf '%s\n' "$RAWNAMES"))
+UNQUEUED=$(comm -13 <(printf '%s\n' "$QNAMES") <(printf '%s\n' "$RAWNAMES"))
 if [ $((SOURCES + SKIPPED + PENDING)) -eq "$RAWFILES" ] && [ -z "$ORPHAN_Q" ] && [ -z "$UNQUEUED" ]; then
   echo "S15 OK        queue reconciles with raw/: $SOURCES ingested + $SKIPPED skipped + $PENDING pending = $RAWFILES files"
 else
@@ -138,6 +182,27 @@ else
   [ -n "$ORPHAN_Q" ] && { echo "              queued with no file:"; echo "$ORPHAN_Q" | sed 's/^/                /'; }
   [ -n "$UNQUEUED" ] && { echo "              in raw/ but not queued:"; echo "$UNQUEUED" | sed 's/^/                /'; }
   FAIL=1
+fi
+
+# S20: a pending queue row must be *true*. S15 reconciles an arithmetic identity
+# over three terms and never asks whether a `- [ ]` is still unread, so a queue that
+# stopped being maintained certifies itself: on entry to lint 27 the sum was exact at
+# 467 + 1 + 13 = 481 and all thirteen pending terms were false (L30/L32, third
+# recurrence, 28 rows then 17 then 13 of 13). Ingest commits are named by the source
+# slug, so the evidence is one string match per pending row. Positive evidence only:
+# a source ingested before the naming convention leaves no commit, so a missing match
+# is not a claim that the row is genuinely pending -- a *present* match is proof it is
+# not. Hard fail, because every self-count the wiki publishes descends from this file.
+GITLOG=$(git log --format=%s)
+S20=$(for f in $(grep -oE '^- \[ \] `[^`]+`' _work/ingest-queue.md | grep -oE '`[^`]+`' | tr -d '`'); do
+    slug=$(echo "${f%.*}" | cut -d- -f1,2)
+    [[ "$GITLOG" == *"ingest($slug)"* ]] && echo "$f -- ingest($slug) is in the git log"
+  done)
+if [ -z "$S20" ]; then
+  echo "S20 OK        no pending queue row has an ingest commit behind it ($PENDING pending)"
+else
+  echo "S20 VIOLATED  $(echo "$S20" | wc -l | tr -d ' ') of $PENDING pending rows were ingested and never ticked:"
+  echo "$S20" | sed 's/^/              /'; FAIL=1
 fi
 
 # S13: no glossary key may appear twice. A genuine collision between two different
