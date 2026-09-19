@@ -92,6 +92,7 @@ The site page's own summary of the resulting curve: **"log-linear scaling is ins
 | Late 2025 | 31% | Gemini 3 Pro, baseline | $0.81 |
 | Late 2025 | **54%** | Gemini 3 Pro + Poetiq **refinement harness** (application-layer, open-sourced, ARC-Prize-verified) | **$31** |
 | Late 2025 | ~54% | Claude Opus 4.5 + same harness | ~$60 |
+| 2025 papers | **11.1%** | VARC ensemble (ViT-18M + U-Net-55M), ARC-as-image-to-image translation, **trained from scratch on ARC data only**; 8.3% for the single 18M ViT ([[wiki/entities/varc.md]]) | ~70 s/task TTT, one H100 |
 | 2025 papers | 8% | Tiny Recursive Model, **7M parameters** | — |
 | 2025 papers | 4% (20–34% on ARC-AGI-1) | CompressARC, **76K parameters, no pretraining, no dataset, no search** | ~20 min/puzzle, one RTX 4070 |
 
@@ -192,3 +193,4 @@ The 56% → 2.5% drop for the ARChitects' unchanged 2024 system is the number th
 - **[[wiki/concepts/human-baseline.md]]** — the wiki's only first-party human study at source, and the only case where the baseline is used as a *design constraint* — subsets assembled so mean human accuracy differs by ≤1pp — rather than reported as a scoreboard line.
 - **[[wiki/entities/frontiermath.md]]** — the cost-reporting norm arrived at independently by this page's opposite number in mathematics: its interviewed mathematicians reject a tool that costs three days of a datacentre per problem, which is the $/task axis argued from the user's side rather than the leaderboard's.
 - **[[wiki/entities/olymmath.md]]** — the same placement argument made in mathematics: put the benchmark where the frontier currently is rather than on the floor, and the top two models separate by 27.2 points where AIME separates them by 4.7. Its Lean subset also reproduces this benchmark's failure profile in a formal setting — the resistant problems are the ones needing an object or a case decomposition to be *constructed* (combinatorics at 0.0% for two of three provers) rather than an expression rewritten.
+- **[[wiki/entities/varc.md]]** — the ceiling on what the vision reformulation buys: the same system that reaches the reported average human on ARC-AGI-1 (60.4%) gets 11.1% here, so treating the grid as an image is largely an ARC-AGI-1 property and this benchmark's compositional re-authoring is what separates them.
