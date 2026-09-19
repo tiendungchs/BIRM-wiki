@@ -98,6 +98,56 @@ So: *a decoder fitted in one behavioural state can be structurally blind to the 
 
 ---
 
+## The two-dimensional case: a grid module, and a different route from topology to coordinates
+
+> **Provenance.** Gardner, Hermansen, Pachitariu, Burak, Baas, Dunn, Moser & Moser 2022, *Toroidal topology of population activity in grid cells*, Nature 602:123–128, doi:10.1038/s41586-021-04268-7 (`raw/gardner-2022-toroidal-topology-of-grid-cell-population-activity.md`). Neuropixels recordings in medial entorhinal cortex / parasubiculum of freely moving rats: 3 rats, 4 sessions, 7,671 single units, **6 grid modules of 66–189 grid cells**; open-field foraging, an elevated wagon-wheel track with four radial spokes (no walls), REM and slow-wave sleep. Same topological school as the cohomology method cited above (Rybakken, Baas & Dunn).
+
+SPUD fits an *object* of the measured topology and parameterizes it by arc length. That works for a ring and does not extend to a torus — there is no arc length on a 2-manifold. The 2-D route replaces steps 5–7 with **cohomological decoding**: the circular coordinates are read off the barcode's own cocycle representatives, so no object is fitted at all.
+
+| Step | SPUD (1-D) | This route (2-D) |
+|---|---|---|
+| Point cloud | 100 ms–1 s bins, `√`-rates, all cells | 50 ms samples of Gaussian-smoothed rates (`σ` = 50 ms awake / 25 ms slow-wave); speed `> 2.5 cm s⁻¹`; **pure grid cells of one module only** |
+| Pre-reduction | Isomap, optional | **6 principal components, always** — and the number is predicted, not chosen: a hexagonal-torus code has a 6-dimensional linear embedding (`cos`/`sin` of three axes), and the variance drop after PC6 is observed in every module, with the first six PCs individually grid-like in space |
+| Outlier patch | `nt-TDA` density threshold | Keep the 15,000 most active vectors, then a fuzzy-neighbourhood ("UMAP first step") resampling to **1,200 points**, `k` = 1,500 → 800 |
+| Topology | Persistent homology (Ripser) | Persistent **co**homology (Ripser, `ℤ₄₇` coefficients) — cohomology is what supplies cocycle representatives, hence decoding |
+| Fit | Piecewise-linear closed curve, `K` = 12 knots | **Nothing is fitted.** Take the Vietoris–Rips complex at the scale where the two longest `H¹` bars live, lift each bar's cocycle from `ℤ₄₇` to `ℤ`, smooth by least squares over edges → two circular coordinates per vertex |
+| Parameterize / decode | Arc length, project to nearest point | The product of the two circular maps *is* the toroidal coordinate; interpolate to the rest of the session by a firing-rate-weighted mass centre, **leave-one-cell-out** when the coordinate is used to score that cell |
+| Null | Velocity-vector shuffle for flux | Spike trains rolled by a random lag, 1,000 times; the longest bar in any shuffle is the significance criterion |
+
+**What the barcode has to show.** A torus is one `H0`, **two** `H1` and one `H2` bar of long lifetime. All six modules produced exactly that in the open field, all six again on the wagon-wheel track, `p < 0.001` against the roll null.
+
+### Results, and the three that are new to the wiki
+
+| Result | Number | Why it matters |
+|---|---|---|
+| **The torus is measured, and it is the *twisted* (hexagonal) one** | The two decoded circles intersect at **60°**; rhombus sides 0.67 m and 0.72 m; idealized square vs hexagonal tori give distinguishable stripe angles as controls | The geometry is read out, not asserted. A model claiming a grid code now has a two-number target (angle, side ratio) rather than "a torus" |
+| **The internal coordinate beats the external covariate** | Toroidal position carries more bits per spike than physical position in **5/6** modules (open field) and 4/6 (track); cross-validated Poisson GLM deviance favours the toroidal covariate in 5/6 in both environments | The 2-D repeat of this page's central claim: the blind latent is the better description of the units. Here the label is *position*, the most trusted covariate in the field |
+| **Grid distortions are in the chart, not in the code** | Track geometry demonstrably broke the spatial periodicity of single cells (autocorrelogram), and the toroidal barcode and per-cell toroidal fields were unchanged | **The state space is rigid and the world→state map is what deforms.** Every reported grid distortion — walls, corners, landmarks, reward — is therefore a statement about the anchoring map (`G39`), not about the integrator's manifold |
+| **Invariance across environments** | Toroidal field centres move 31.5 ± 6.3° between environments (shuffle 135.8 ± 1.7°, maximum possible ≈ 254.6°); toroidal rate-map correlation `r` = 0.79 ± 0.07 (shuffle 0.01). Using *one* environment's parameterization for both: 16.0 ± 3.4°, `r` = 0.95 ± 0.02 | Criterion C3 of [[wiki/concepts/attractor-identification.md]], in its per-cell form |
+| **Invariance into sleep** | Torus recovered in **5/6** modules in REM, **4/6** in slow-wave sleep; centres move 31.5 ± 15.4° (REM) and 29.8 ± 14.3° (slow-wave) from waking, `r` = 0.80 ± 0.15 and 0.83 ± 0.12; ~99% of cells beat the shuffle on toroidal information | The strongest form of input withdrawal, run on a 2-D manifold. This is the row the wiki previously held on a review's summary |
+| **Cell cost, on real data** | ~**60** cells for `> 50%` detection probability (subsampling a 149-cell module) | Against the ~35 *simulated* grid cells quoted above. The real-data price is roughly double, and still trivial at model scale |
+
+### The failure mode is a mixed population, and that is a measurement-validity result
+
+The two modules that did *not* yield a torus in sleep are explained, and the explanation is not noise. Clustering cells by their **spike-train temporal autocorrelogram** (not by tuning) gives three classes, each present in several modules and each with a characteristic spike width: **bursty**, **non-bursty**, **theta-modulated**.
+
+| Class | Share of conjunctive grid × direction cells | Toroidal information / explained deviance | Sleep |
+|---|---|---|---|
+| Bursty | — | **Highest**, in every module and every state | Carries the torus alone in module R1 during slow-wave sleep |
+| Non-bursty | — | Intermediate | — |
+| Theta-modulated | **80%** of all conjunctive cells (and only 11% of pure grid cells) | Lowest; pairwise correlations track head direction rather than toroidal position | Cohomology on this class alone returns a **circle** — the head-direction one |
+
+Two consequences that generalise past grid cells.
+
+- **Reading the wrong subpopulation returns the wrong manifold, not a noisy one.** The theta-modulated class is a genuine 1-D ring inside a population whose majority is on a 2-torus, and pooling them degraded the barcode. A topology estimate is therefore only as good as the partition of units it is run on, and nothing in the procedure proposes that partition — here it came from a cheap, tuning-blind statistic (temporal autocorrelogram shape) that any model layer also has.
+- **The cheap statistic was enough.** Temporal spiking statistics, with no reference to what the cells encode, recovered a functionally meaningful split. The machine analogue is clustering units by their autocorrelation in time before running any geometry, and it is unrun anywhere in the wiki.
+
+### The simulated positive control, which the 1-D case does not have
+
+Both a lateral-inhibition-only continuous-attractor model (Couey et al. 2013) and a twisted-torus model (Guanella et al. 2007), simulated noiselessly and passed through the same pipeline, return the same four-bar barcode and the same 60° stripe pair; idealized square and hexagonal tori return the expected distinct decodings. So the instrument is calibrated on objects of known topology *and* on the generative models it is being used to adjudicate — which is what licenses reading a negative as a property of the data rather than of the estimator.
+
+---
+
 ## Limits the source states
 
 - Persistent homology is outlier-sensitive (patched above), computationally slow, and **cannot distinguish topologically trivial manifolds of different geometry** (a hyperplane from a filled ball). It is a first pass that detects or excludes non-trivial features; geometry needs a different tool afterwards.
@@ -106,7 +156,7 @@ So: *a decoder fitted in one behavioural state can be structurally blind to the 
 - Autonomy is localised only to "the brain", not to `ADn` — longer-range interactions are not excluded.
 - Temporal resolution was ~100 ms; 5–10 ms decoding, which is what would probe fast dynamics and spike-pattern codes, needs larger simultaneous populations.
 
-**The sample-size fact worth carrying:** ~**35** simulated grid cells suffice for persistent homology to reveal the 2-torus. Topology is cheap in cells — far cheaper than the "thousands" [[wiki/concepts/attractor-identification.md]] quotes for direct manifold recovery.
+**The sample-size fact worth carrying:** ~**35** simulated grid cells suffice for persistent homology to reveal the 2-torus, and ~**60** recorded ones (Gardner et al. 2022, above). Topology is cheap in cells — far cheaper than the "thousands" [[wiki/concepts/attractor-identification.md]] quotes for direct manifold recovery.
 
 ---
 
@@ -126,6 +176,8 @@ So: *a decoder fitted in one behavioural state can be structurally blind to the 
 - **The amplitude attractor is inferred, not found.** A discrete attractor in the total drive that pins manifold radius across waking and REM is required by the model fit; the circuit supplying it is unidentified.
 - **Sweeps have no demonstrated consumer.** Coincidence with spindle-band power and hence hippocampal sharp waves is a timing correlation; nothing shows the heading sweep is used by anything, so "replay in the head-direction system" is an inference from shape and timing only.
 - **No graded score.** Like C3, the topology verdict is pass/fail on a chosen barcode threshold; nothing reports *how much* ring there is, which a model comparison would need.
+- **The one experiment that would separate a deformed chart from a deformed manifold has not been run.** The toroidal manifold survived an elevated track whose geometry broke single-cell periodicity — but that track had **no walls**, and the wiki's other result on environment geometry is that *walls* re-zero the integrator and replace the two-dimensional code with a repeating one-dimensional submap, while a wall-free "virtual hairpin" leaves it intact (Derdikman et al. 2009, [[wiki/concepts/path-integration.md]]). The two findings are therefore consistent and untested against each other. Run persistent cohomology on a grid module in a **walled** multicompartment maze: if the torus survives, compartmentalisation is entirely a property of the space→torus chart; if the barcode loses a `H¹` bar, the manifold itself is being cut, and "the code is rigid" is false exactly where the wiki most needs it (`G47`, `T347`).
+- **Nothing proposes the partition of units the estimate is run on.** Three temporally-defined cell classes share the grid modules and one of them lies on a *different* manifold (a head-direction ring); the pooled estimate is degraded, not merely noisier. Which subset of a population to run topology on is a free parameter of every result on this page, chosen here by a tuning-blind clustering that nobody has justified as the right one.
 
 ---
 
@@ -140,6 +192,6 @@ So: *a decoder fitted in one behavioural state can be structurally blind to the 
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the measurement counterpart of the framing's first step: recover the latent variable's identity and topology from observations alone, with no label and no assumed coordinate system.
 - **[[wiki/concepts/stationary-surrogate-null.md]]** — the same discipline applied to a different estimator class: here the nulls are a velocity-shuffle for flux and a tuning-curve-plus-independent-spiking surrogate for "is there anything besides the ring".
 - **[[wiki/concepts/representation-probing.md]]** — the contrast that defines this page: a probe asks whether a *named* variable is linearly present, this asks what variable is there at all, so it can return a variable that predicts the units better than the task label does.
-- **[[wiki/entities/entorhinal-cortex.md]]** — the system where the same instrument yields a 2-torus, and where the source's own estimate is that ~35 grid cells suffice to reveal it.
+- **[[wiki/entities/entorhinal-cortex.md]]** — the system where the same instrument yields a 2-torus, measured directly in six grid modules across waking, an elevated track and both sleep stages (Gardner et al. 2022), and where the population turns out to be three temporally-defined cell classes of which only the bursty one carries the manifold robustly.
 - **[[wiki/concepts/structured-flows-on-manifolds.md]]** — supplies the flow half of that formalism's central object as a measurement rather than a model: the flux decomposition is the empirical form of "the flow on the manifold does the computation".
 - **[[wiki/concepts/manifold-constrained-learning.md]]** — the same manifold read as a constraint rather than a description; this page's off-manifold flux is the mechanism that page's unlearnable outside-manifold perturbations run into.

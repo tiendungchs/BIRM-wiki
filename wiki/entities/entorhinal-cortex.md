@@ -115,6 +115,35 @@ Layer V also contains multipolar and GABA-negative/calretinin⁺ principal cells
 
 ---
 
+## What the grid population actually looks like — measured, and it is not one population
+
+> Gardner, Hermansen, Pachitariu, Burak, Baas, Dunn, Moser & Moser 2022 (`raw/gardner-2022-toroidal-topology-of-grid-cell-population-activity.md`). Neuropixels in layers II/III of the medial entorhinal–parasubicular region, 3 rats, 4 sessions, 7,671 units, 6 grid modules of 66–189 grid cells. Method: [[wiki/concepts/topological-latent-decoding.md]].
+
+The wiki's strongest attractor claim lives in this tissue, and this is the primary measurement behind it.
+
+| Finding | Number |
+|---|---|
+| Module population activity is a **torus** | One `H0`, two `H1`, one `H2` long bar in 6/6 modules, open field and elevated track, `p < 0.001` against a spike-roll null |
+| It is the **twisted** torus | The two decoded circles meet at **60°**; rhombus sides 0.67 / 0.72 m — the hexagonal geometry is read out of the population, not inferred from single-cell rate maps |
+| Individual cells occupy **one** point on it | Single-peaked toroidal rate maps for the vast majority, in every module and environment |
+| The manifold survives **input withdrawal** | Torus present in 5/6 modules in REM and 4/6 in slow-wave sleep; toroidal field centres move ~30° from waking against a ~136° shuffle |
+| The manifold survives **broken periodicity** | On a spoked elevated track the single-cell grid pattern loses its strict periodicity and the torus is unchanged |
+| The internal coordinate **beats position** | More bits per spike, and better cross-validated Poisson-GLM deviance, for toroidal position than for the rat's physical position, in 5/6 modules |
+
+**The architectural reading, and it is the one a builder should take: the code is rigid and the chart deforms.** Every environment-induced distortion of the grid pattern reported in this region — walls, corners, landmarks, reward sites — is a distortion of the *mapping between physical space and the torus*, because the torus itself is invariant across the same manipulations. The integrator's state space is not a thing the world edits; the anchoring correspondence is (`G39`, [[wiki/concepts/path-integration.md]]).
+
+**And the module is a mixture of three cell types, split by timing alone.** Clustering cells on their spike-train temporal autocorrelogram — no tuning information used — yields **bursty**, **non-bursty** and **theta-modulated** classes, each spanning several modules, each with a characteristic spike width (so they plausibly differ in morphology or biophysics, though none has been matched to the cell classes above).
+
+| Class | Composition | Manifold it carries |
+|---|---|---|
+| Bursty | the majority of grid cells | The torus, most strongly, in every state; in one module it is the **only** class carrying it during slow-wave sleep |
+| Non-bursty | — | The torus, weakly |
+| Theta-modulated | **80%** of all conjunctive grid × direction cells, 11% of pure grid cells | Cohomology on this class alone returns a **circle**, corresponding to head direction |
+
+Two consequences for this page. The superficial-layer "grid population" is at least two codes on two manifolds sharing a tissue volume, separable by a statistic that needs neither behaviour nor tuning — which is the empirical form of the mixed-selectivity worry, and the reason a topology estimate over all grid-classified cells reports the weaker answer. And the temporal-statistics classes cut across grid spacing and orientation, so they are not modules and not scales; whatever they are, layer II's two principal-cell chemistries and layer III's homogeneous pyramidals are the obvious candidates and **no one has matched them**.
+
+---
+
 ## The prediction that fails: input and output are not reciprocated
 
 The strict reciprocal topology of the entorhinal ↔ CA1/subiculum network predicts that a stream that carries information *in* should be the stream that carries it back *out*. The review says plainly that this is **not supported**:
@@ -164,4 +193,4 @@ Hippocampal output driven by an input that entered through the lateral division 
 - **[[wiki/entities/bb-model.md]]** — the implemented model that assigns this region the grid module and a candidate locus for object-vector cells, and whose one downstream entailment lands here: silencing its retrosplenial transform bank should leave boundary-anchored medial entorhinal responses uninstantiated, and inactivation reports them largely intact (`T383`).
 - **[[wiki/concepts/attractor-identification.md]]** — where this region supplies the strongest attractor evidence in the brain, and the contrast it is carried by: a grid module's population states are a 2-torus recovered by persistent homology, and the co-modular cell–cell relationships survive environment changes, environment dimensionality, grid-rescaling deformations *and overnight sleep* — while place-cell relationships in the same recordings survive none of it, which is what rules out models deriving the grid code from place cells (Khona & Fiete 2022, `T389`).
 - **[[wiki/concepts/attractor-dynamics.md]]** — where a designed dissociation puts the hippocampal formation's attractor landscape: whether CA3/CA1 switch abruptly between two maps or blend between them is set by whether *this* region's integrator was given two coordinates for the two environments or one, with feature coactivation in CA3's own collaterals producing no switching on its own (Colgin et al. 2010, `T389`, `T394`).
-- **[[wiki/concepts/topological-latent-decoding.md]]** — the instrument behind this page's torus result, with its cost: ~35 grid cells suffice for persistent homology to reveal the 2-torus, and the same method applied to the upstream heading circuit finds a purely one-dimensional ring with no toroidal component.
+- **[[wiki/concepts/topological-latent-decoding.md]]** — the instrument behind this page's torus result, with its cost: ~35 simulated and ~60 recorded grid cells suffice to reveal the 2-torus, the two-dimensional route reads the toroidal coordinates straight off the barcode's cocycles instead of fitting anything, and the same method applied to the upstream heading circuit finds a purely one-dimensional ring with no toroidal component.
