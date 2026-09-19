@@ -32,7 +32,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 26 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 63 | [[wiki/gaps/g017.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 64 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
@@ -54,7 +54,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L0-INSTR` | `OPEN` | 1 | [[wiki/gaps/g036.md]] |
 | G37 | Nothing decides which stored structure applies to the current situation | part | `L2` | `PARTIAL` | 32 | [[wiki/gaps/g037.md]] |
 | G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `L2` | `PARTIAL` | 38 | [[wiki/gaps/g038.md]] |
-| G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 21 | [[wiki/gaps/g039.md]] |
+| G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 22 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g040.md]] |
 | G41 | No test decides whether a domain's actions compose | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g041.md]] |
 | G42 | No machine fast store has a capacity model, so nothing knows when it is full | part | `L1` | `PARTIAL` | 26 | [[wiki/gaps/g042.md]] |
@@ -90,7 +90,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 11 | [[wiki/gaps/g072.md]] |
 | G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 13 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g074.md]] |
-| G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `L0` | `OPEN` | 12 | [[wiki/gaps/g075.md]] |
+| G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `L0` | `OPEN` | 13 | [[wiki/gaps/g075.md]] |
 | G76 | A temporally coded output has no loss function | part | `L3` | `PARTIAL` | 6 | [[wiki/gaps/g076.md]] |
 | G77 | Every high-performing temporal code in the wiki needs a time origin that nothing supplies | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g077.md]] |
 | G78 | Nothing sets a slow variable's time constant, and memory span is that time constant | part | `L3` | `PARTIAL` | 7 | [[wiki/gaps/g078.md]] |
