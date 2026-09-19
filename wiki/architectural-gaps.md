@@ -36,7 +36,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
-| G21 | No mechanism composes the outputs of two specialized modules | part | `L2` | `CONTESTED` | 17 | [[wiki/gaps/g021.md]] |
+| G21 | No mechanism composes the outputs of two specialized modules | part | `L2` | `CONTESTED` | 18 | [[wiki/gaps/g021.md]] |
 | G22 | Nothing selects which compositions get built | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g022.md]] |
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g023.md]] |
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 14 | [[wiki/gaps/g024.md]] |
@@ -88,7 +88,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `PARTIAL` | 9 | [[wiki/gaps/g070.md]] |
 | G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g071.md]] |
 | G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 11 | [[wiki/gaps/g072.md]] |
-| G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 13 | [[wiki/gaps/g073.md]] |
+| G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 14 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g074.md]] |
 | G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `L0` | `OPEN` | 14 | [[wiki/gaps/g075.md]] |
 | G76 | A temporally coded output has no loss function | part | `L3` | `PARTIAL` | 6 | [[wiki/gaps/g076.md]] |
@@ -109,7 +109,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `L0` | `OPEN` | 1 | [[wiki/gaps/g092.md]] |
 | G93 | Context in every wiki architecture is either one global scalar or a hand-supplied task label; none has an *addressed* context channel | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g093.md]] |
 | G94 | Nothing in the wiki adapts a unit's *time constant*, and nothing pools its gain locally — input normalization is a global, offline, once-per-dataset operation | part | `L3` | `OPEN` | 2 | [[wiki/gaps/g094.md]] |
-| G95 | Every self-supervised system in the wiki has its invariance group *declared* by a hand-written augmentation list; nothing here discovers which directions are nuisance from the input's own statistics | part | `L3` | `PARTIAL` | 12 | [[wiki/gaps/g095.md]] |
+| G95 | Every self-supervised system in the wiki has its invariance group *declared* by a hand-written augmentation list; nothing here discovers which directions are nuisance from the input's own statistics | part | `L3` | `PARTIAL` | 14 | [[wiki/gaps/g095.md]] |
 | G96 | Top-down control needs an address inside the control layer, and every model gets it by reading the ground truth | part | `L2` | `PARTIAL` | 3 | [[wiki/gaps/g096.md]] |
 | G97 | The read-out of a sparse store is dense, and that is where the interference comes back | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g097.md]] |
 | G98 | Nothing decides which knowledge belongs in weights and which belongs in an addressable store | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g098.md]] |

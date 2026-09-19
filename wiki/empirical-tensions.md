@@ -149,7 +149,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T151 | Where do a model's objects live — in its architecture, or in a read-out of its predictions? | `L1` | `LIVE` | 7 | [[wiki/tensions/t151.md]] |
 | T152 | Is a world model's conditioning interface a design requirement, or an implementation detail? | `L2` | `LEANING` | 5 | [[wiki/tensions/t152.md]] |
 | T153 | Is a straight latent trajectory a good representation or a partial collapse? | `L3` | `LIVE` | 3 | [[wiki/tensions/t153.md]] |
-| T154 | Does a control-usable visual world model need foundation-scale pretraining? | `L3` | `LIVE` | 6 | [[wiki/tensions/t154.md]] |
+| T154 | Does a control-usable visual world model need foundation-scale pretraining? | `L3` | `LIVE` | 8 | [[wiki/tensions/t154.md]] |
 | T155 | Does a simplicity prior select structure, or destroy it? *(absorbs T182, "does compression build the library or destroy it?", merged at the 284-source duplicate audit: the two rows asked one question over one measurement.)* | `L0` | `LIVE` | 7 | [[wiki/tensions/t155.md]] |
 | T156 | When a compositional model fails out of distribution, is the deficit in the vocabulary or in the search over it? | `L1` | `LIVE` | 7 | [[wiki/tensions/t156.md]] |
 | T157 | When a linear probe fails, is the representation non-linear or is the label basis wrong? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t157.md]] |
@@ -194,7 +194,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T204 | Does test-time compute buy generalization on ARC, or does it only buy the tail? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t204.md]] |
 | T208 | Does an application-layer harness measure a capability the model has, or one the harness author has? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t208.md]] |
 | T211 | Should an intelligence benchmark equalise human priors, or withhold them? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t211.md]] |
-| T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `L0-INSTR` | `LEANING` | 7 | [[wiki/tensions/t215.md]] |
+| T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `L0-INSTR` | `LEANING` | 8 | [[wiki/tensions/t215.md]] |
 | T217 | Does conditioning on a self-generated intermediate trace help or hurt? | `L2` | `LEANING` | 6 | [[wiki/tensions/t217.md]] |
 | T218 | Is normalised exact match an adequate acceptance test? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t218.md]] |
 | T220 | Is best-of-`k` monotone in `k`? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t220.md]] |
@@ -353,4 +353,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T385 | In a delayed-match task, which region holds the item and which one filters — prefrontal or parietal? | `L1` | `LIVE` | 2 | [[wiki/tensions/t385.md]] |
 | T386 | Is the sensory render on the retrieval path, or an optional strategy a system can pass the task without? | `L1` | `BOTH` | 4 | [[wiki/tensions/t386.md]] |
 | T387 | Is a visual pointer assigned bottom-up by the stimulus, or bound top-down by the program that needs a variable? | `L2` | `LIVE` | 3 | [[wiki/tensions/t387.md]] |
-| T388 | When a visual capability is missing, is the information absent from the encoder or unreadable by what follows? | `L2` | `LIVE` | 2 | [[wiki/tensions/t388.md]] |
+| T388 | When a visual capability is missing, is the information absent from the encoder or unreadable by what follows? | `L2` | `LIVE` | 3 | [[wiki/tensions/t388.md]] |
