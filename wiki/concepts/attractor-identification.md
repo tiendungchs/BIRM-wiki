@@ -34,6 +34,19 @@ Hence the load falls entirely on C3: *the states are internally generated, so th
 
 ---
 
+## The fifth criterion nobody lists, and why it fails both ways
+
+**Abrupt, coherent switching under a graded input morph** — hysteresis — is the test most of the hippocampal literature actually runs, and it is not in the four above. Colgin et al. 2010 (`raw/colgin-2010-attractor-map-versus-autoassociation-hippocampal-dynamics.md`) is the experiment that shows why it should not be promoted.
+
+| Failure | Evidence | Consequence |
+|---|---|---|
+| **It does not localise** | The steepest sigmoid transitions were recorded in **CA1** (slope 26.7 ± 14.5, 7/9 fields at the identical midpoint), a field with almost no recurrent collaterals — the dynamics were imposed by its inputs | A positive result licenses "an attractor exists somewhere upstream", never "this population has one" |
+| **It has a false-negative mode set by training history, at fixed connectivity** | The *same* morph protocol on the *same* circuit gave a linear, incoherent, rate-only trend after single-location training and a coherent 5×-steeper midpoint jump after double-location training; the only difference was whether the two endpoints had been assigned different path-integrator coordinates a week earlier | A negative result is uninformative about the circuit: it reports what the anchoring associations were, not what the landscape is |
+
+The second row generalises past hippocampus and is the reason it belongs on this page: **hysteresis measures the separation of the stored states, which is a property of what was written, while C1–C4 measure the existence of the state set, which is a property of the network.** Two studies reaching opposite conclusions on the same protocol (Wills et al. 2005 vs Leutgeb JK et al. 2005a) differed in the first and were read as differing in the second. The machine translation is direct and unrun: an ablation that shows a trained network "has no attractor" because its outputs interpolate may have shown only that the training distribution never separated the endpoints.
+
+---
+
 ## How the criteria are actually run
 
 | Route | Requirement | Note |
@@ -59,7 +72,7 @@ Hence the load falls entirely on C3: *the states are internally generated, so th
 | **Perceptual bistability** | ✓ | — | — | n/a | Two states are evident in the *report*; no bistable circuit has ever been localized, and top-down modulation across many areas is implicated |
 | **Discrete multistability** (olfactory, auditory, hippocampus) | suggestive | — | — | n/a | Global inhibition plus selective recurrent excitation are documented; C1–C3 have not been tested quantitatively. **The weakest link in the whole programme** — the machine-side workhorse (Hopfield/WTA multistability) is the biologically least-verified regime |
 | **V1 orientation tuning** | ✓ | — | — | n/a | **Departure.** Changing an attractor state needs strong input and is slow, which perception is not; illusory-contour responses lag real ones, implying top-down rather than intra-V1 dynamics. Feedforward drive plus non-normal amplification is the live alternative |
-| **Place cells** | ✓ (low-dimensional within an environment) | — | ✗ (cell–cell correlations are *not* preserved across environments — remapping — nor across sleep) | n/a | **Departure**, and the sharpest one: storing several high-resolution maps in a homogeneous attractor severely limits capacity (G42), so the conjunctive-feedforward reading (grid + border + landmark + reward inputs) fits better — except that CA3 replay sequences still need recurrence (`T389`) |
+| **Place cells** | ✓ (low-dimensional within an environment) | — | ✗ (cell–cell correlations are *not* preserved across environments — remapping — nor across sleep) | n/a | **Departure**, and the sharpest one — with a second, independent line of attack: a designed dissociation finds hippocampal attractor dynamics present or absent depending on whether the *upstream path integrator* was given two coordinates or one, which puts the landscape in medial entorhinal cortex and CA3/CA1 downstream of it (Colgin et al. 2010, `T389`). Also: storing several high-resolution maps in a homogeneous attractor severely limits capacity (G42), so the conjunctive-feedforward reading (grid + border + landmark + reward inputs) fits better — except that CA3 replay sequences still need recurrence (`T389`) |
 | **Motor cortical trajectories** | ✓ | — | — | n/a | **Departure.** The behaviours recorded are themselves stereotyped and low-dimensional (confound 1), and perturbation experiments implicate thalamic input as the driver |
 
 ---
@@ -89,9 +102,10 @@ Hence the load falls entirely on C3: *the states are internally generated, so th
 - **[[wiki/concepts/structured-flows-on-manifolds.md]]** — the formalism whose central claim (a low-dimensional flow does the computation) this page's confound list says a projection alone cannot evidence.
 - **[[wiki/concepts/metastability.md]]** — the alternative explanation C1–C2 cannot exclude: a trajectory deflected by ghost attractors localises and flows back without ever being captured, so the two are separated only by C3's long-dwell invariance.
 - **[[wiki/concepts/dynamic-repertoire.md]]** — the worked case of the confound: three whole-brain models reproduce the same low-dimensional cluster structure, and only one of them contains multistability.
-- **[[wiki/concepts/path-integration.md]]** — C4 (isometry) is this page's only criterion specific to integrators, and it is the measurement form of that page's path-consistency requirement.
+- **[[wiki/concepts/path-integration.md]]** — C4 (isometry) is this page's only criterion specific to integrators, and it is the measurement form of that page's path-consistency requirement. That page also owns the variable behind the hysteresis false negative above: whether two environments got one set of path-integrator coordinates or two is what decides whether the downstream store switches abruptly or blends (Colgin et al. 2010).
 - **[[wiki/concepts/certification-instruments.md]]** — the same methodological shape in the benchmark domain: an instrument only certifies if it can come back negative on a high-scoring system, which is precisely why C1 is excluded here.
 - **[[wiki/entities/fly-central-complex.md]]** — the one system where the anatomical-symmetry support criterion is fully satisfied: a physical ring with a traced connectome implementing the copy-and-offset construction.
 - **[[wiki/entities/entorhinal-cortex.md]]** — the circuit holding the scoreboard's strongest row, and the source of the sleep-invariance contrast that separates grid modules from place cells.
 - **[[wiki/entities/trnn.md]]** — the machine claim this page's tests would arbitrate: fixed points are reported absent by a measured transience index rather than by perturbation and input withdrawal.
 - **[[wiki/concepts/stationary-surrogate-null.md]]** — the complementary null: this page guards against a manifold imposed by the input, that page against structure produced by the statistics of the estimator.
+- **[[wiki/entities/hidden-state-inference-remapping.md]]** — the rival reading of the same abrupt/gradual dichotomy this page's fifth criterion measures: under that model the sharpness of a transition is the log posterior odds of a hidden-state partition rather than the separation of two anchored coordinates, and the two accounts are carried as `T394`.

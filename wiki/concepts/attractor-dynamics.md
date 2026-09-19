@@ -31,6 +31,20 @@ The last row is the wiki's cleanest statement of why an attractor network is not
 | **Orthogonalised** | Content-defined but driven mutually orthogonal | Kanter–Sompolinsky projector regime: maximal capacity, error-free recall, attractors = positive-eigenvalue eigenvectors of `J` | [[wiki/entities/fcann.md]] |
 | **Masked** | A single weight matrix, gated per context: `a_i^k a_j^k c_ij^k` | Non-applicable memories are *deleted from the dynamics*, not out-competed; `O(1)` selection, but the mask's controller costs more than the memory | [[wiki/entities/context-modular-memory-network.md]] |
 
+**The one *in-vivo* test of Axis 1, and it comes down on the scaffold side** (Colgin et al. 2010, `raw/colgin-2010-attractor-map-versus-autoassociation-hippocampal-dynamics.md`). Two groups of rats, an identical morph-day protocol — square → four intermediate octagons → circle, all at one fixed location — and one difference in the prior week. *Single location*: square and circle presented alternately at the same place. *Double location*: the two shapes placed apart and joined by a 22-cm corridor the rat walked through, so the two acquired different path-integrator coordinates; the shapes were then moved to a common location before the morph. What distinguishes the two hypotheses is that only the second group can have learned cue→coordinate bindings, while *both* groups had every opportunity to associate the two shapes' features with each other in CA3's recurrent collaterals.
+
+| Morph day, CA3 unless noted | Single-location training | Double-location training |
+|---|---|---|
+| Population-vector correlation, square vs circle | significant **linear** trend across the series (`p < 0.008`); a central cross-correlogram peak for every shape pair | `0.03 ± 0.11` — **not above zero** (binomial `p > 0.1`); no cross-correlogram peak for any circle-like shape |
+| Fields significantly fit by a sigmoid | 11/28 | 34/51 (`Z = −2.35`, `p < 0.01` against single) |
+| Sigmoid slope (CA3 / CA1) | 7.4 ± 2.2 / 4.4 ± 2.2 | 35.2 ± 12.4 / 26.7 ± 14.5 — **~5×** (`p < 0.01` / `p < 0.03`) |
+| Where the transitions sat | scattered across the series | 30/34 CA3 and 7/9 CA1 fields at the **same** midpoint |
+| What changed across the series | firing **rate** only; field locations constant | rate **and** field location, coherently |
+
+Three things this settles for the page. **(i) Associating content does not build the landscape.** Same shapes, same recurrent network, same probe; the endpoints' features were available for mutual association in both arms, and the hysteresis appeared only where the two had been assigned different coordinates on a preconfigured map. Axis 1's content-defined row therefore has no support from the wiki's most-cited biological instance of it — here the fixed points are scaffold-defined and learning supplies only the attachment of cues to scaffold coordinates ([[wiki/concepts/path-integration.md]], `G39`). **(ii) The learned attachment outranks the scaffold's own estimate.** Putting the two boxes back at a *common* physical location after double-location training left the separation largely intact (small but significant rise in square-vs-circle correlation, no cross-correlogram peak) — the cue→coordinate binding overrode the path integrator's actual reading rather than being corrected by it. **(iii) The abrupt-transition signature is switchable by training history at fixed connectivity**, and the *sharpest* transitions were recorded in CA1, which has almost no recurrent collaterals — so hysteresis neither localises an attractor to the recorded population nor, when absent, licenses the conclusion that there is none ([[wiki/concepts/attractor-identification.md]]).
+
+---
+
 ### Axis 2 — how many
 
 | Regime | Statement | What it is for |
@@ -146,7 +160,7 @@ Every landscape on this page is rigid across time and conditions, which is why t
 
 ## Connections
 
-- **[[wiki/concepts/attractor-identification.md]]** — the measurement half of this page: four state-space criteria (localization, flow-back, invariance, isometry), the argument that only invariance is defining because low-dimensional activity is equally produced by a low-dimensional input or a low-rank feedforward projection, and the scoreboard of which brain systems pass — which is where this page's biological instances are licensed or withdrawn.
+- **[[wiki/concepts/attractor-identification.md]]** — the measurement half of this page: it also carries the false-negative mode of the hysteresis test this page treats as the signature of a landscape — an abrupt transition can be switched off by training history with the circuit unchanged (Colgin et al. 2010). Four state-space criteria (localization, flow-back, invariance, isometry), the argument that only invariance is defining because low-dimensional activity is equally produced by a low-dimensional input or a low-rank feedforward projection, and the scoreboard of which brain systems pass — which is where this page's biological instances are licensed or withdrawn.
 - **[[wiki/entities/hopfield-network.md]]** — the canonical content-defined discrete case: this page's energy function, capacity limit and spurious-state problem are all stated there first.
 - **[[wiki/entities/fcann.md]]** — supplies the orthogonalised regime, the `β`-as-prior-precision reading, and the `J = J^S + J^A` split that separates this page's landscape from its traversal.
 - **[[wiki/entities/adaptive-cann.md]]** — turns the stability-vs-mobility dilemma stated here into one scalar with analytic switching thresholds.
@@ -159,7 +173,7 @@ Every landscape on this page is rigid across time and conditions, which is why t
 - **[[wiki/entities/sparse-distributed-memory.md]]** — the non-recurrent relative, and the source of the per-read confidence signal relaxation itself cannot produce.
 - **[[wiki/entities/boltzmann-machine.md]]** — the stochastic-sampling version of the same energy landscape, where relaxation becomes inference rather than retrieval.
 - **[[wiki/entities/fly-central-complex.md]]** — a ring attractor observed end to end in an identified population, including the offset-preserving reset no model here has.
-- **[[wiki/concepts/path-integration.md]]** — what a continuous attractor is *for*: the manifold is what makes displacement accumulation path-consistent by construction.
+- **[[wiki/concepts/path-integration.md]]** — what a continuous attractor is *for*: the manifold is what makes displacement accumulation path-consistent by construction. It is also where this page's Axis 1 was decided experimentally: whether hippocampal attractor dynamics appear at all is set by whether the animal assigned the two environments different path-integrator coordinates, not by how dissimilar their features were (Colgin et al. 2010).
 - **[[wiki/concepts/pattern-separation-completion.md]]** — completion *is* relaxation; the separation/completion bias is the steepness of this page's basins.
 - **[[wiki/concepts/working-memory.md]]** — maintenance as occupancy of a fixed point, and the noise-driven attractor chain that produces order for free — with the constraint that occupancy in prefrontal cortex is bounded at ~67 ms per visit and load buys more visits rather than longer ones, so a dwell budget belongs in the parameter list alongside basin depth.
 - **[[wiki/concepts/energy-based-models.md]]** — the general frame: an attractor is a minimum of a scalar compatibility function, and inference is `argmin` over it.
