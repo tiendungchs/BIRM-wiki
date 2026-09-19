@@ -64,7 +64,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G46 | Nothing predicts the *order* in which a learner disambiguates its aliased states | part | `L4` | `OPEN` | 2 | [[wiki/gaps/g046.md]] |
 | G47 | Nothing learns the topology of the state-space manifold it represents on | part | `L3` | `OPEN` | 12 | [[wiki/gaps/g047.md]] |
 | G48 | Nothing separates a store's content register from its attentional pointer | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g048.md]] |
-| G49 | No store schedules its own reads, and none has a relevance-addressed erase | part | `L2` | `OPEN` | 9 | [[wiki/gaps/g049.md]] |
+| G49 | No store schedules its own reads, and none has a relevance-addressed erase | part | `L2` | `OPEN` | 10 | [[wiki/gaps/g049.md]] |
 | G50 | The controller cannot set the gain of its own teaching signal | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g050.md]] |
 | G51 | Nothing transfers a representation out of the control layer into the store that will run it automatically | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g051.md]] |
 | G52 | No inter-module connection in the wiki has state of its own | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g052.md]] |
@@ -137,6 +137,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
 | G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g121.md]] |
 | G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 3 | [[wiki/gaps/g122.md]] |
+| G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g123.md]] |
 
 ## How gaps are used
 

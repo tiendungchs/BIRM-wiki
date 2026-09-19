@@ -4,6 +4,18 @@
 
 The target phenomenon is Jezek et al. 2011 "teleportation": switch the visual cue set of a familiar environment instantaneously and CA3 switches map almost immediately, but for a few seconds afterwards individual theta cycles are transiently captured by the *old* map (flickering). The model's claim is that flickering is not noise and not a posterior sample — it is the discharge of a **memory held in synaptic state rather than in activity**, which is the only place it can be held, because the correlation between CA3 activity and the old map essentially vanishes between flickers.
 
+**The target measurements, from the primary source** (Jezek, Henriksen, Treves, Moser & Moser 2011, `raw/jezek-2011-theta-paced-flickering-between-place-cell-maps.md`; 149 analysed teleportation trials, 358 CA3 cells, 6 rats). Four of them the model must hit, and three the model's re-analysis does not mention:
+
+| Measurement | Value | Bearing on this model |
+|---|---|---|
+| Mixed theta cycles | 1.25%, below a per-unit shuffle (`p < 0.03`), margin tightening from the first half-cycle (`p < 0.05`) to the second (`p < 0.001`) | **Matches** — the model's mixed states are a within-cycle transient resolved by the cycle's end |
+| Flicker rate | 1–3% before the switch → 10–15% for ~5 s after → decay | **Matches**, and the pre-switch baseline is the part the no-STP noise control is needed for |
+| Adjacent-cycle full replacement | 30.8% of flickers; new chart complete at onset (`r = −0.06 ± 0.11`) | **Matches** — a theta trough resets the competition and the winner is expressed whole |
+| Flicker duration | IQR 1→1 cycles before, 1–4 after (`Z = 2.27`, `p < 0.03`) | **Matches** the re-arming account |
+| Relapses are seen **occasionally tens of seconds** after the cue switch | Fig. 3c | **Pressure.** Re-arming stretches the transient past `τ_f = 1.9 s`, but nothing in the model sets a ceiling, and a decade-scale tail is not demonstrated to fall out of it |
+| Flicker events were **distributed across the entire recording box**, with no preference for running or heading direction | Supp. Figs 13, 14 | **Pressure on the model's sharpest discriminator.** Not a formal contradiction — the switch position varies across trials, so "everywhere in the box" and "near the switch point" can coexist — but the original authors looked for spatial structure in flickering and reported none, and the model's locality claim rests on a re-analysis giving partial `r = −0.157` with velocity confounded at `c = 0.64` |
+| Flickering present in CA1 but with clearly fewer discrete relapses | — | **Consistent** with the competition living in the recurrent field; the model has no CA1 |
+
 ---
 
 ## Architecture
@@ -112,5 +124,6 @@ The model predicts flicker count should (i) **increase with theta power** and (i
 - **[[wiki/entities/context-modular-memory-network.md]]** — the opposite pole on attractor selection: here expression is self-organised, history-dependent and transiently wrong (gain competition plus short-term plasticity); there it is dictated by an external mask and exact, with non-selected maps provably not attractors at all (`κ̄_inacc → 0`).
 - **[[wiki/entities/hodgkin-huxley-model.md]]** — the same self-limiting motif one level down: short-term depression makes the network abandon the attractor it is in exactly as sodium inactivation `h` makes a unit abandon the spike it is producing — slow negative feedback driven by the fast variable, at population and at channel scale.
 - **[[wiki/concepts/attractor-dynamics.md]]** — the one worked case of a bias over attractors held in synaptic state rather than in the activity, released by a rhythm.
+- **[[wiki/concepts/attractor-identification.md]]** — the ceiling on what the primary data license: the shuffle-null exclusivity statistic establishes that the two charts are mutually exclusive, which this model reproduces without any commitment about where the landscape lives, so a positive coherence result cannot separate it from a learned-attractor account (`T56`).
 - **[[wiki/entities/stsp-working-memory-rnn.md]]** — the same mechanism arrived at by training rather than by construction: networks free to hold a delay item in either activity or synapses are more like recorded prefrontal cortex when they use the synapses, which turns this page's sufficiency argument into a preference result.
 - **[[wiki/concepts/memory-read-and-erase.md]]** — the substrate that makes an intermittent, scheduled read cheap: if the item sits in short-term synaptic plasticity between bursts, expression is an event rather than a continuous cost, which is what the prefrontal gamma-burst measurement is evidence for.

@@ -65,7 +65,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T52 | Is the hippocampal spatial code carried by the sparse, selective excitatory population, or is it equally present in the dense inhibitory one? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t052.md]] |
 | T53 | Is orthogonalization of aliased states a requirement, or a free choice the brain happens to make? | `L3` | `LEANING` | 2 | [[wiki/tensions/t053.md]] |
 | T55 | Should a fast store's addressing be random, or should it follow the data? | `L3` | `LIVE` | 5 | [[wiki/tensions/t055.md]] |
-| T56 | What is theta-paced flickering between hippocampal maps? | `L2` | `LIVE` | 4 | [[wiki/tensions/t056.md]] |
+| T56 | What is theta-paced flickering between hippocampal maps? | `L2` | `LIVE` | 5 | [[wiki/tensions/t056.md]] |
 | T57 | How should a memory store a sequence — the successor state, or the increment that generates it? | `L3` | `LIVE` | 2 | [[wiki/tensions/t057.md]] |
 | T58 | Where does the theta-band structure of hippocampal sequences come from — a rhythm imposed on the network, or a bifurcation inside it? | `L4` | `LIVE` | 4 | [[wiki/tensions/t058.md]] |
 | T59 | Does a stored memory live in the synaptic weights, or in a mask over them? | `L3` | `LIVE` | 3 | [[wiki/tensions/t059.md]] |

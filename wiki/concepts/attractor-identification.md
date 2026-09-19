@@ -47,6 +47,26 @@ The second row generalises past hippocampus and is the reason it belongs on this
 
 ---
 
+## The sixth test, and the one that localises where hysteresis does not
+
+**Population coherence against a unit-shuffle null.** Jezek, Henriksen, Treves, Moser & Moser 2011 (`raw/jezek-2011-theta-paced-flickering-between-place-cell-maps.md`) put a rat in one of two orthogonally-coded boxes and switched the light cues instantaneously, then asked, per theta cycle, how often the CA3 population vector correlated with *both* stored charts at once. The null is the decisive part: recombine the observed cycles unit by unit, drawing each cell's spike count from a cycle recorded at the same spatial bin in the same period. That null is exactly "each cell expresses one chart or the other independently", so the comparison isolates the **joint** statistic.
+
+| | Observed | Null |
+|---|---|---|
+| Mixed cycles (`r·r_A > C` and `r·r_B > C`) | **1.25%** | exceeded by 970/1000 shuffles (`p < 0.03`) |
+| Mixed half-cycles, first half | — | 958/1000 (`p < 0.05`) |
+| Mixed half-cycles, second half | — | **1000/1000** (`p < 0.001`) |
+
+Three reasons it belongs on this page rather than in the hippocampus literature.
+
+- **It tests a different proposition from C1–C4.** Those establish that a state *set* exists and is internally generated. This establishes that the states are mutually **exclusive** — that the circuit actively suppresses the convex combinations its units would produce on their own. A system can pass C1–C4 with a state space that is one connected manifold and no discreteness anywhere; nothing in the battery reports a count.
+- **It localises, and the fifth criterion does not.** Hysteresis fails to localise because its sharpest expression was in CA1, which has no recurrence (above). Coherence runs the other way: flickering was present in CA1 but **discrete relapses were clearly less frequent than in CA3**, which is the direction recurrence predicts. So a within-population exclusivity statistic distinguishes the generator from the relay where a transfer-curve statistic could not.
+- **It is cheap and it is the version a machine can run.** No embedding, no topology estimate, no perturbation, no autonomy precondition — only simultaneous unit activity and a permutation. The machine translation is direct and unrun anywhere in the wiki: **take a store's read under an ambiguous query, and ask whether the output's similarity to two stored items is jointly lower than a per-unit shuffle of the same reads would give.** A softmax-attention read fails this by construction — it *is* the convex combination — so the statistic separates architectures that return a member from architectures that return a mean ([[wiki/entities/continuous-modern-hopfield-network.md]]'s intermediate-`β` metastable state is the explicit machine case of the second).
+
+**What it does not do.** It says nothing about where the exclusivity comes from: global inhibition, a learned landscape and a downstream gate all produce it. And it requires the two candidate states to be near-orthogonal in advance (here, spatial correlation `0.112 ± 0.019` between the boxes) — with overlapping references the null and the data converge and the test loses power.
+
+---
+
 ## How the criteria are actually run
 
 | Route | Requirement | Note |
@@ -70,7 +90,7 @@ The second row generalises past hippocampus and is the reason it belongs on this
 | **Prefrontal / parietal graded working memory** | ✓ | ✓ (bump profile invariant) | partial | n/a | Bump diffuses along a 1-D manifold with variance growing linearly in delay, and the drift **predicts the behavioural error** — the attractor is the memory, not a correlate. Trained on an unnatural task, so C3 across tasks is expected to fail |
 | **Cortical up/down states** | ✓ (bistable, sharply peaked histograms) | ✓ | partial | n/a | Network-driven rather than cellular, but the origin is distributed (synchronous across cortex and striatum), so localization fails |
 | **Perceptual bistability** | ✓ | — | — | n/a | Two states are evident in the *report*; no bistable circuit has ever been localized, and top-down modulation across many areas is implicated |
-| **Discrete multistability** (olfactory, auditory, hippocampus) | suggestive | — | — | n/a | Global inhibition plus selective recurrent excitation are documented; C1–C3 have not been tested quantitatively. **The weakest link in the whole programme** — the machine-side workhorse (Hopfield/WTA multistability) is the biologically least-verified regime |
+| **Discrete multistability** (olfactory, auditory, hippocampus) | suggestive | — | — | n/a | Global inhibition plus selective recurrent excitation are documented; C1–C3 have not been tested quantitatively. **The weakest link in the whole programme** — the machine-side workhorse (Hopfield/WTA multistability) is the biologically least-verified regime. **One quantitative test now exists for the hippocampal case, and it is not one of C1–C4**: under a teleportation cue switch, CA3 theta cycles correlate with both stored charts in 1.25% of cycles, *below* a unit-shuffle null (`p < 0.03`), falling to `p < 0.001` in the second half of each cycle (Jezek et al. 2011; the sixth test above). It measures exclusivity rather than existence, and it favours CA3 over CA1 |
 | **V1 orientation tuning** | ✓ | — | — | n/a | **Departure.** Changing an attractor state needs strong input and is slow, which perception is not; illusory-contour responses lag real ones, implying top-down rather than intra-V1 dynamics. Feedforward drive plus non-normal amplification is the live alternative |
 | **Place cells** | ✓ (low-dimensional within an environment) | — | ✗ (cell–cell correlations are *not* preserved across environments — remapping — nor across sleep) | n/a | **Departure**, and the sharpest one — with a second, independent line of attack: a designed dissociation finds hippocampal attractor dynamics present or absent depending on whether the *upstream path integrator* was given two coordinates or one, which puts the landscape in medial entorhinal cortex and CA3/CA1 downstream of it (Colgin et al. 2010, `T389`). Also: storing several high-resolution maps in a homogeneous attractor severely limits capacity (G42), so the conjunctive-feedforward reading (grid + border + landmark + reward inputs) fits better — except that CA3 replay sequences still need recurrence (`T389`) |
 | **Motor cortical trajectories** | ✓ | — | — | n/a | **Departure.** The behaviours recorded are themselves stereotyped and low-dimensional (confound 1), and perturbation experiments implicate thalamic input as the driver |
@@ -96,6 +116,7 @@ The second row generalises past hippocampus and is the reason it belongs on this
 
 ## Connections
 
+- **[[wiki/entities/stp-flickering-cann.md]]** — what a positive coherence result still leaves open: the same all-or-none per-cycle exclusivity is produced by short-term plasticity plus a theta-paced inhibitory reset, with no commitment about the landscape, so the sixth test licenses "the states are mutually exclusive" and not "the recorded population holds them" (`T56`).
 - **[[wiki/concepts/attractor-dynamics.md]]** — the design half: that page says what a landscape buys and costs, this page says what licenses the claim that one is there, and its scoreboard rows are the evidence base that page's typology is built on.
 - **[[wiki/concepts/population-geometry.md]]** — supplies the estimators (intrinsic dimensionality, held-out reconstruction, the input-geometry control) that C1 is measured with; this page adds the argument that all of them together are *necessary and not sufficient*, and that invariance under input withdrawal is what upgrades a measured manifold to a generated one.
 - **[[wiki/concepts/perturbation-elicitability.md]]** — the same causal move at a different level: C2 asks whether a focal edit decays, elicitability asks whether it changes reportable content, and both read a code's steerability off its response to injected current.
