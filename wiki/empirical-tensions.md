@@ -131,7 +131,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T132 | Is the indirect pathway a veto or an exploration channel? | `L1` | `LIVE` | 3 | [[wiki/tensions/t132.md]] |
 | T133 | What does the direct/indirect pathway balance set — the discount factor or the exploration temperature? | `L2` | `LIVE` | 3 | [[wiki/tensions/t133.md]] |
 | T134 | Does serotonin set the prediction horizon or report the average reward? | `L2` | `LIVE` | 4 | [[wiki/tensions/t134.md]] |
-| T135 | What is compared when a brain decides whether to plan — the reliability of the two answers, or the cost and benefit of computing one? | `L2` | `LIVE` | 2 | [[wiki/tensions/t135.md]] |
+| T135 | What is compared when a brain decides whether to plan — the reliability of the two answers, or the cost and benefit of computing one? | `L2` | `LIVE` | 3 | [[wiki/tensions/t135.md]] |
 | T137 | Is the subthalamic nucleus a threshold unit or an exponentiator? | `L3` | `LEANING` | 2 | [[wiki/tensions/t137.md]] |
 | T138 | Does the separation/completion bias actually need a controller, or is a well-placed constant enough? | `L2` | `LIVE` | 2 | [[wiki/tensions/t138.md]] |
 | T139 | What defines a behavioural segment boundary — predictive failure, or clustering under a smoothness prior? | `L0` | `LIVE` | 2 | [[wiki/tensions/t139.md]] |
@@ -363,3 +363,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T395 | Does a second-order cue retrieve the specific outcome's value, or only a US-general affective state? | `L1` | `LIVE` | 10 | [[wiki/tensions/t395.md]] |
 | T396 | In a common currency, are a gain and a loss of the same magnitude equal and opposite? | `L0` | `LIVE` | 2 | [[wiki/tensions/t396.md]] |
 | T397 | Is the effort cost term one block serving both domains, or two separately-addressed costs for cognitive and physical effort? | `L1` | `LIVE` | 2 | [[wiki/tensions/t397.md]] |
+| T398 | Is the subjective cost of mental effort convex in effort, or concave (hyperbolic)? | `L0` | `LIVE` | 3 | [[wiki/tensions/t398.md]] |

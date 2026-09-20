@@ -48,6 +48,42 @@ The residue after the four exclusions is volitional and motivational, which is w
 
 ---
 
+## The functional form — labour supply theory supplies one, for the net utility only
+
+> Kool & Botvinick 2018, *Mental labour*, Nat Hum Behav 2:899–908 (`raw/kool-2018-mental-labour.md`). A review of the economic programme this page's instrument belongs to.
+
+COGED returns indifference points and declines to fit a kernel. The more tractable move made in this literature is to leave the cost term alone and characterise the **net** utility surface over `(income, leisure)` — economic labour supply theory, imported wholesale (Kagel, Battalio & Green 1995).
+
+| Surface shape | Predicted allocation |
+|---|---|
+| **Concave** (curved toward the origin) | always an interior mix of work and leisure, shifting smoothly with the wage |
+| Convex or planar | **bang-bang**: all time to work or all to leisure, never a mixture |
+| Perfect complements (non-smooth) | complete insensitivity to wage changes |
+
+**The test, and why it is non-trivial.** An *income-compensated* wage change adjusts the wage and the endowment together so that the worker **could** keep working exactly as before and end with exactly the same income. Concavity predicts they will not: a compensated wage increase raises work, a compensated decrease lowers it. Validated in labour markets and in animal physical-effort conditioning; then run on mental effort — a "wage" in candy per minute on a demanding task during a 30-minute period, with the remainder spent on an unremunerated low-demand task — and the shifts came out as labour supply theory predicts (Kool & Botvinick 2014).
+
+**What this buys the wiki.** Two things the cost function alone does not:
+
+- **A shape for the trade-off**, where [[wiki/concepts/expected-value-of-control.md]] flags labour/leisure as the richer alternative to its own intensity-monotone `Cost` and does not commit. The interior optimum that theory asserts is here an *entailment* of concavity, and the falsifier is named: a planar or convex surface would make effort allocation all-or-nothing.
+- **Baseline dependence.** The marginal cost of effort is radically dependent on how much effort is already invested and how much income is already received. An architecture that stores a fixed `Cost(signal)` per signal — every cost term in the wiki — cannot express this: the same control signal in the same state must be priced differently according to the agent's *position on the surface*. Two state variables (cumulative effort, cumulative income) enter the price, and no wiki architecture holds either.
+
+**The cost term itself remains unfitted, and may be unfittable from choice — `T398`.** Effort risk aversion implies a **convex** cost (Apps et al. 2015); a model comparison over discount kernels returns a **concave, hyperbolic** one (Chong et al. 2017). Kool & Botvinick's objection to the hyperbolic reading is architectural: a hyperbolic discount never fully erases a payoff's value, so it cannot produce the complete disengagement that is routinely observed. Their diagnosis of the impasse is the **econometric problem in mental effort research**: inferring a cost function from choices requires a fixed unit of effort, but effort is not a property of the task — it is jointly determined by the agent's capacity and by how much effort they voluntarily mobilise, which is itself a function of reward sensitivity. The two fits may be over different `x`-axes.
+
+---
+
+## Effort also pays — the other sign, and where it comes from
+
+The page's headline result is that demand is aversive for 83 of 85 humans. The same review collects the counter-cases, which are not boredom:
+
+| Route | Content | Open question |
+|---|---|---|
+| **Learned industriousness** (Eisenberger 1992) | a value for *exertion itself* is acquired over a lifetime in which effort usually paid | is effort endowed with intrinsic positive value, cancelling part of the inherent cost — or is the value attached only to effort's extrinsic products? |
+| **Effort justification** | rewards obtained through effort are valued *more* (the martyrdom effect, Olivola & Shafir 2013), perhaps as dissonance reduction | same question; here the value lands on the outcome, not the exertion |
+
+Kool & Botvinick name resolving the intrinsic-vs-extrinsic split a central objective for the field. It is the same fork this page's reverse-COGED control forces on [[wiki/concepts/intrinsic-motivation-typology.md]]: whether demand enters the objective as a term with a learnable sign, or only as a cost whose products happen to be rewarding. A builder cannot pick between them by observing choice — both predict a smaller discount — but they differ in what transfers: an intrinsic value for exertion transfers to a *new* effortful task, an extrinsic one does not.
+
+---
+
 ## Why effort is aversive — three accounts, one of them with a negative result attached
 
 | Account | Precious resource | Prediction | Status in the source |
@@ -59,6 +95,18 @@ The residue after the four exclusions is volitional and motivational, which is w
 **The metabolic negative, in numbers.** Global cerebral glucose consumption rises by **no more than ~1%** during vigorous task engagement, and the brain's resting dynamics are already expensive; astrocytic glycogen is better placed to serve *local*, transient demand than circulating glucose is; and manipulating a participant's **beliefs about willpower** determines whether blood-glucose changes affect self-control at all. So glucose can influence the decision without being its currency — a signal among several that track protracted engagement, not the constraint.
 
 **What opportunity cost is missing.** The account names no function. Two open sub-questions the source states and the wiki inherits: does the brain track the value of *other available goals*, or only the current one — and if the former, what fixes the tracked set? Neither has an answer, which is why the term is directional and not quantitative.
+
+**Three further accounts the table does not have** (Kool & Botvinick 2018), and one argument that undercuts the whole resource framing:
+
+| Account | Content |
+|---|---|
+| **Computational, not metabolic** | the scarce thing is information processing or control bandwidth; decision-makers demonstrably prefer algorithms that minimise computational demand, and several cognitive architectures hard-code a "minimal control" or "least-effort" principle (Taatgen 2007; Gray 2000) |
+| **Opportunity cost of *exploration*** | effort avoidance as an adaptive bias that triggers disengagement from exploitative tasks in order to encourage exploration (Inzlicht & Schmeichel 2016) — which makes the cost a term serving the explore/exploit trade-off rather than a resource guard |
+| **Default-policy regularization** | the cost is what distils good habits; see [[wiki/concepts/default-policy-regularization.md]] |
+
+**The argument that undercuts the resource framing.** A limited resource is *not sufficient* to explain a subjective cost: a rational allocation strategy would already make the most of any limited resource without needing a disutility attached to its use. Kool & Botvinick's own earlier answer (2013) is that the cost is an evolutionary **heuristic** — a blunt discouragement that avoids the expense of computing the optimal allocation, which would itself be a controlled process. That is [[wiki/concepts/expected-value-of-control.md]]'s regress, answered by refusing to run the computation. The default-policy account answers it differently, by giving the cost a job an allocation policy cannot do.
+
+**The glucose result this page argues against is also a null in the depletion literature**: the behavioural depletion effect itself is contested (Inzlicht et al. 2014), while real time-on-task effects exist, interact with incentives and are better explained by motivational than by metabolic variables.
 
 **Two borrowed models, and exactly where each breaks.**
 
@@ -115,13 +163,15 @@ Physical effort is by contrast *well* dissociated from delay and risk: a dopamin
 | Prospective ≠ experienced cost | A dynamic, salience-driven leaky accumulator over features (rather than stable `SV` then comparison) predicts **unstable** effort preferences — the writing project one commits to and then abandons. An architecture computing a single stable `Cost(signal)` cannot produce that reversal |
 | The decision is goal-directed, not habitual | Effort decisions about non-overlearned tasks should sit in the goal-directed system (action–outcome), and the goal-directed/habitual balance should itself be set by tolerance for goal-directed computation — a two-way coupling no arbitration scheme in the wiki has |
 
+**The proposed test in that row has since been run at the group level, and it passes** (Kool & Botvinick 2018 reviewing Kool, Gershman & Cushman 2017/2018). On the two-step task, model-based control **increases when stakes are raised** — and does *not* increase in the task variant where model-based control yields no reward advantage (Kool et al. 2016), which is the control that separates a cost–benefit account from a simple arousal effect. On the other side of the trade-off, holding payoffs constant and raising the **required depth of planning** reduces model-based control. So the arbitration between the wiki's two controllers is priced, and the price is the same quantity COGED elicits. What remains untested is the *individual-difference* version: whether an agent's elicited effort `SV` predicts where its own arbitration point sits. This is the wiki's strongest evidence for `T135` position B.
+
 **(brainstorm) The psychometric–neurometric protocol on [[wiki/concepts/subjective-value.md]] transfers directly to the cost term and has never been run in either field.** Fit `SV(load)` to an agent's choices; fit the same functional form to the activations of the unit hypothesised to carry `Cost(signal)`; require covariation *and* zero mean offset. A controller whose internal cost signal merely correlates with load fails the offset half. In a machine this is cheap — the curve is elicited from the agent's own preferences, so the "subject-specific parameter" problem that made a population `k` fail in humans is solved by construction.
 
 ---
 
 ## Open problems
 
-- **No functional form.** COGED returns indifference points, not a fitted `Cost` function; the source does not commit to hyperbolic, exponential or labour/leisure for effort.
+- **No functional form for the cost.** COGED returns indifference points, not a fitted `Cost` function. The *net* utility surface has one — concave, by the income-compensated wage test — but the cost term alone remains contested between convex and hyperbolic fits (`T398`), and the **econometric problem** (no fixed unit of effort, because effort depends on capacity and on voluntarily mobilised intensity) may make it unidentifiable from choice behaviour at all.
 - **What determines opportunity cost.** Whether the next-best goal's value is tracked, and how its set is fixed — the same under-specification [[wiki/concepts/expected-value-of-control.md]] carries for `state`.
 - **Which control operation is priced.** Switching, maintenance, updating and inhibition are lumped into one demand axis (`N`-back load); nothing says whether they have one cost or several — and [[wiki/entities/lateral-frontoparietal-network.md]] already reports difficulty and relational structure as dissociable resources.
 - **No valuation study of cognitive effort has been run in a scanner**, so no region is yet shown to carry an effort-sensitive *decision* value.
@@ -140,4 +190,6 @@ Physical effort is by contrast *well* dissociated from delay and risk: a dopamin
 - **[[wiki/concepts/policy-abstraction-hierarchy.md]]** — the arbitration this page's trait parameter is proposed to predict: model-based over model-free, and proactive over reactive control, are both hypothesised to be selected by an agent's tolerance for the computational cost of the more expensive controller — which would make the hierarchy's occupancy a function of a priced quantity rather than of task structure.
 - **[[wiki/entities/lateral-frontoparietal-network.md]]** — the evidence that this page's single demand axis is at least two: dorsolateral prefrontal activation tracks task difficulty while rostrolateral tracks relational structure independently of difficulty, so an `N`-back load curve prices one resource and leaves the other unmeasured.
 - **[[wiki/concepts/working-memory.md]]** — the capacity whose opportunity cost the endorsed account names: allocation to any goal precludes allocation to others, so the price of control is the value of the next-best use of a sharply limited store — and the value-based gating literature (phasic dopamine training working-memory allocation) is that account's mechanism.
+- **[[wiki/concepts/default-policy-regularization.md]]** — the constructive account of the cost this page measures: rather than guarding a scarce resource, a divergence penalty between a controlled policy and a distilled default is what *produces* the default, which relocates the cost's argument from demand to distance-from-habit and so predicts that a familiar high-load task is cheap and an unfamiliar low-load one is not. It is also the only origin account in the wiki that is runnable, and the only one that does not reintroduce the allocation regress.
+- **[[wiki/concepts/amortized-inference.md]]** — the arbitration this page's cost term is now shown to price: raising stakes shifts control toward the model-based system only where model-based control pays, and raising planning depth shifts it back — cost–benefit metacontrol rather than a reliability crossing, which is `T135` position B given its strongest evidence.
 - **[[wiki/concepts/metacognitive-efficiency.md]]** — the self-report channel this page's instrument is argued to beat: COGED detected an aging group difference that the Need for Cognition self-report did not, so a revealed-preference readout of an internal cost is more sensitive than the agent's own statement of it.

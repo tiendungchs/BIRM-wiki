@@ -716,7 +716,7 @@ One INGEST each:
 - [x] `gewirtz-2000-pavlovian-higher-order-conditioning-paradigms.md` — rl-planning · S · 2000
 - [x] `hackenberg-2009-token-reinforcement-review-and-analysis.md` — rl-planning · S · 2009
 - [x] `westbrook-2015-cognitive-effort-neuroeconomic-approach.md` — rl-planning · S · 2015
-- [ ] `kool-2018-mental-labour.md` — rl-planning · S · 2018
+- [x] `kool-2018-mental-labour.md` — rl-planning · S · 2018
 - [ ] `eisenberger-1992-learned-industriousness.md` — rl-planning · F · 1992 · **LOSSY** (pdf2md)
 - [ ] `gopnik-2020-childhood-as-solution-to-explore-exploit-tensions.md` — rl-planning · F · 2020
 - [ ] `murayama-2022-reward-learning-framework-of-knowledge-acquisition.md` — rl-planning · F · 2022 · **LOSSY** (pdf2md)

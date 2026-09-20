@@ -72,6 +72,16 @@ where `h` is a free variable initialized from `q` and then updated to increase `
 
 The last row conflates two proposals the wiki has been citing together: arbitration by *reliability* (below) and arbitration by *value of computation* (Keramati et al. 2011). They are separable and predict different things under time pressure — [[wiki/empirical-tensions.md]] T135.
 
+**Position B now has direct evidence, from the incentive side and the cost side** (Kool & Botvinick 2018, `raw/kool-2018-mental-labour.md`, reviewing Kool, Gershman & Cushman 2017/2018):
+
+| Manipulation | Result | What it rules out |
+|---|---|---|
+| Raise the **stakes** on the two-step task | model-based control increases | — |
+| Same stakes manipulation, in the task variant where model-based control yields **no** reward advantage (Kool et al. 2016) | no effect | arousal, general motivation, and any account in which stakes act on control directly rather than through an expected benefit |
+| Hold payoffs fixed, raise the **required depth of planning** | model-based control decreases | a pure benefit account; the cost side moves behaviour on its own |
+
+Both halves of a cost–benefit comparison move the arbitration independently, and the cost is the same quantity elicited by cognitive-effort discounting ([[wiki/concepts/effort-based-decision-making.md]]). This does not refute the reliability account — nothing here varies the deadline, which is T135's discriminating design — but it establishes that *something priced* enters the arbitration, which the uncertainty rule does not contain a term for. Model-based control on this task is independently shown to fall under cognitive load, to track cognitive-control capacity and to depend on prefrontal cortex, so the expensive controller is the one being charged for.
+
 ### Arbitration by relative uncertainty — the primary account
 
 > `raw/daw-2005-uncertainty-based-arbitration.md` — Daw, Niv & Dayan, *Nature Neuroscience* 8:1704–1711, 2005.
@@ -272,3 +282,5 @@ The fourth row of the table above is the architectural proposal: **the neural ne
 - **[[wiki/concepts/reasoning.md]]** — the compilation direction of the Mode-2/Mode-1 distinction, which is what lets "System 1" be stated as an architectural fact (no inference-time optimisation loop) rather than as a psychological label.
 - **[[wiki/concepts/incentive-salience.md]]** — the arbitration problem in its worst form: the cheap cue-bound controller is not merely cached but *amplified* by appetite, stress and sensitization, so an arbitrator that hands control to whichever system is more confident hands it to the amplified one for the wrong reason — the abstinent addict's cognitive wanting losing to cue-triggered 'wanting'.
 - **[[wiki/concepts/visual-routines.md]]** — the compilation half of a parser stated as a cache: routines are stored skeletonised and expanded by an assembly mechanism, and practice moves cost from assembly time to retrieval time, which is this page's trade applied to the construction of a percept rather than to an inference over it.
+- **[[wiki/concepts/effort-based-decision-making.md]]** — the price that moves this page's arbitration: raising the stakes shifts control toward the expensive model-based controller only where that controller pays, and raising planning depth shifts it back with payoffs fixed, so both halves of a cost–benefit comparison act on the switch independently (T135 position B). The cost involved is the one elicited by cognitive-effort discounting, which gives the arbitration a currency the uncertainty rule has no term for.
+- **[[wiki/concepts/default-policy-regularization.md]]** — the same cache/compute split with the arbitration dissolved: if the controlled policy is the default plus a penalised deviation rather than a rival to it, there is no switch to arbitrate, and habitisation is the deviation shrinking under distillation rather than two uncertainty curves crossing.
