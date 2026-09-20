@@ -332,7 +332,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T364 | Is the dorsomedial control layer a level-blind evaluator of control, or a level-specific selector organised by abstraction? | `L1` | `LIVE` | 4 | [[wiki/tensions/t364.md]] |
 | T365 | Do topological bottlenecks make the right subgoals, or the wrong ones? | `L0` | `LIVE` | 3 | [[wiki/tensions/t365.md]] |
 | T366 | Does widening the training goal set help the one task you care about, or destroy it? | `L0` | `LIVE` | 2 | [[wiki/tensions/t366.md]] |
-| T367 | Is the subgoal-level prediction error carried on its own channel, or on the reward channel with the running option as a mask? | `L2` | `LIVE` | 9 | [[wiki/tensions/t367.md]] |
+| T367 | Is the subgoal-level prediction error carried on its own channel, or on the reward channel with the running option as a mask? | `L2` | `LIVE` | 10 | [[wiki/tensions/t367.md]] |
 | T368 | Is the basolateral→central amygdala projection a valence-general output route or the negative-valence channel? | `L1` | `LIVE` | 4 | [[wiki/tensions/t368.md]] |
 | T369 | Under a state change, is the anti-reward channel an error against a prediction, or a valence read-out with a state-set origin? | `L2` | `LIVE` | 4 | [[wiki/tensions/t369.md]] |
 | T370 | Does uninstructed free play converge on an intermediate-difficulty set-point, or does it under-challenge? | `L0` | `LIVE` | 2 | [[wiki/tensions/t370.md]] |
@@ -360,4 +360,5 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T392 | Is forgetting the loss of a trace, or the loss of its address? | `L1` | `LIVE` | 4 | [[wiki/tensions/t392.md]] |
 | T393 | Is the dentate separator a slope or a threshold? | `L2` | `LIVE` | 2 | [[wiki/tensions/t393.md]] |
 | T394 | What makes map switching discrete: a posterior over hidden states, or a binding to a preconfigured attractor's coordinates? | `L1` | `LIVE` | 9 | [[wiki/tensions/t394.md]] |
-| T395 | Does a second-order cue retrieve the specific outcome's value, or only a US-general affective state? | `L1` | `LIVE` | 9 | [[wiki/tensions/t395.md]] |
+| T395 | Does a second-order cue retrieve the specific outcome's value, or only a US-general affective state? | `L1` | `LIVE` | 10 | [[wiki/tensions/t395.md]] |
+| T396 | In a common currency, are a gain and a loss of the same magnitude equal and opposite? | `L0` | `LIVE` | 2 | [[wiki/tensions/t396.md]] |
