@@ -364,3 +364,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T396 | In a common currency, are a gain and a loss of the same magnitude equal and opposite? | `L0` | `LIVE` | 2 | [[wiki/tensions/t396.md]] |
 | T397 | Is the effort cost term one block serving both domains, or two separately-addressed costs for cognitive and physical effort? | `L1` | `LIVE` | 3 | [[wiki/tensions/t397.md]] |
 | T398 | Is the subjective cost of mental effort convex in effort, or concave (hyperbolic)? | `L0` | `LIVE` | 4 | [[wiki/tensions/t398.md]] |
+| T399 | Is the fall in exploration with age a maturational schedule, or just a sharpening posterior? | `L1` | `LIVE` | 2 | [[wiki/tensions/t399.md]] |

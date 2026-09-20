@@ -718,7 +718,7 @@ One INGEST each:
 - [x] `westbrook-2015-cognitive-effort-neuroeconomic-approach.md` — rl-planning · S · 2015
 - [x] `kool-2018-mental-labour.md` — rl-planning · S · 2018
 - [x] `eisenberger-1992-learned-industriousness.md` — rl-planning · F · 1992 · **LOSSY** (pdf2md)
-- [ ] `gopnik-2020-childhood-as-solution-to-explore-exploit-tensions.md` — rl-planning · F · 2020
+- [x] `gopnik-2020-childhood-as-solution-to-explore-exploit-tensions.md` — rl-planning · F · 2020
 - [ ] `murayama-2022-reward-learning-framework-of-knowledge-acquisition.md` — rl-planning · F · 2022 · **LOSSY** (pdf2md)
 - [ ] `bacon-2017-option-critic-architecture.md` — rl-planning · M · 2017
 - [ ] `vezhnevets-2017-feudal-networks-hierarchical-reinforcement-learning.md` — rl-planning · M · 2017

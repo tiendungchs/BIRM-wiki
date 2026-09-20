@@ -76,7 +76,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G58 | No control layer is instantiated by the existence of a choice at its own level | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g058.md]] |
 | G59 | Every hierarchical controller lets its lower level see the same observation as its upper level | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g059.md]] |
 | G60 | Every architecture derives its retrieval query from the goal; none chooses the query | part | `L2` | `OPEN` | 10 | [[wiki/gaps/g060.md]] |
-| G61 | Exploration is always an external schedule, never part of the selector | part | `L1` | `OPEN` | 11 | [[wiki/gaps/g061.md]] |
+| G61 | Exploration is always an external schedule, never part of the selector | part | `L1` | `OPEN` | 12 | [[wiki/gaps/g061.md]] |
 | G62 | Nothing scores a world model by what a planner can do with it | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g062.md]] |
 | G63 | The behaviour policy is a load-bearing parameter of world-model estimation, and every mechanism the wiki has for improving an agent destroys it | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g063.md]] |
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g064.md]] |
@@ -114,7 +114,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G97 | The read-out of a sparse store is dense, and that is where the interference comes back | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g097.md]] |
 | G98 | Nothing decides which knowledge belongs in weights and which belongs in an addressable store | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g098.md]] |
 | G99 | No architecture in the wiki can call a module's *operation* on an argument from outside the module's own domain; every transfer mechanism here moves representations, none exposes an operator | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g099.md]] |
-| G100 | No architecture in the wiki has a growth schedule: capacity is fully available at step 0, so nothing can arrive already conditioned on what an earlier, smaller version of itself learned | part | `L0` | `PARTIAL` | 6 | [[wiki/gaps/g100.md]] |
+| G100 | No architecture in the wiki has a growth schedule: capacity is fully available at step 0, so nothing can arrive already conditioned on what an earlier, smaller version of itself learned | part | `L0` | `PARTIAL` | 7 | [[wiki/gaps/g100.md]] |
 | G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g101.md]] |
 | G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g103.md]] |
