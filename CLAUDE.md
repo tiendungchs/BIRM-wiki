@@ -98,12 +98,6 @@ After fetching, create a `raw/` file if the source is reliable and worth an inge
 
 ---
 
-## Sibling project
-
-`../BIRM` is the model-development project: the benchmarks, the bodies, the brain and the training pipeline that this wiki reasons about. It reads this wiki as its source and does not edit it unless the user says so. Its open requests to the wiki are in `../BIRM/STATUS.md` § Requests to the wiki; its insights for the wiki are in `../BIRM/STATUS.md` § Insights for the wiki. A want-list wave may be anchored to those requests (wave 21 was).
-
----
-
 ## Conventions
 
 - Internal links: `[[wiki/concepts/working-memory.md]]` — always use full path from repo root.
