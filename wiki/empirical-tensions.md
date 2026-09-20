@@ -324,8 +324,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T356 | Does a homeostatic need drive behaviour by signalling a deficit to be reduced, or by potentiating the positive value of the outcome? | `L2` | `LIVE` | 5 | [[wiki/tensions/t356.md]] |
 | T357 | Does a negative teaching signal carry its address, or is the address discarded at the first relay? | `L2` | `LIVE` | 6 | [[wiki/tensions/t357.md]] |
 | T358 | Does novelty enter valuation as a bonus or as a penalty? | `L0` | `LIVE` | 7 | [[wiki/tensions/t358.md]] |
-| T359 | Is the motivational quantity a gain applied to one value estimate, or a second valuation system with its own associative structure? | `L1` | `LIVE` | 3 | [[wiki/tensions/t359.md]] |
-| T360 | Is non-instrumental information demand a drive to resolve uncertainty, or a drive to engage with positive items? | `L0` | `LIVE` | 3 | [[wiki/tensions/t360.md]] |
+| T359 | Is the motivational quantity a gain applied to one value estimate, or a second valuation system with its own associative structure? | `L1` | `LIVE` | 4 | [[wiki/tensions/t359.md]] |
+| T360 | Is non-instrumental information demand a drive to resolve uncertainty, or a drive to engage with positive items? | `L0` | `LIVE` | 4 | [[wiki/tensions/t360.md]] |
 | T361 | Is the lateral habenula a disappointment channel or a general aversion channel? | `L2` | `LIVE` | 4 | [[wiki/tensions/t361.md]] |
 | T362 | Does an internal state modulate learned value by a multiplicative gain or by an additive offset? | `L2` | `LIVE` | 4 | [[wiki/tensions/t362.md]] |
 | T363 | Does maximising control capacity land an agent on the states a task would have designated? | `L0` | `LIVE` | 2 | [[wiki/tensions/t363.md]] |
@@ -369,3 +369,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T401 | Should the lower level of a hierarchy be denied the environment's reward? | `L2` | `LIVE` | 2 | [[wiki/tensions/t401.md]] |
 | T402 | On sparse-reward long-horizon tasks, is the missing component a task decomposition or a persistent frontier store? | `L1` | `LIVE` | 4 | [[wiki/tensions/t402.md]] |
 | T403 | Does a self-generated goal curriculum teach through the goals, or through the solutions shipped with them? | `L1` | `LIVE` | 5 | [[wiki/tensions/t403.md]] |
+| T404 | Is the dopamine prediction error the teaching signal for stimulus–reward learning as such, or only for the attribution of incentive value to a cue? | `L2` | `LIVE` | 10 | [[wiki/tensions/t404.md]] |
