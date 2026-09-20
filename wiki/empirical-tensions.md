@@ -368,3 +368,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T400 | Does an extrinsic reward *add* to the self-generated one, or suppress its generation? | `L2` | `LIVE` | 2 | [[wiki/tensions/t400.md]] |
 | T401 | Should the lower level of a hierarchy be denied the environment's reward? | `L2` | `LIVE` | 2 | [[wiki/tensions/t401.md]] |
 | T402 | On sparse-reward long-horizon tasks, is the missing component a task decomposition or a persistent frontier store? | `L1` | `LIVE` | 4 | [[wiki/tensions/t402.md]] |
+| T403 | Does a self-generated goal curriculum teach through the goals, or through the solutions shipped with them? | `L1` | `LIVE` | 5 | [[wiki/tensions/t403.md]] |
