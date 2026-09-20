@@ -1,4 +1,4 @@
-# Ingest queue — 481 sources, wave-ordered
+# Ingest queue — 497 sources, wave-ordered
 
 Generated from `manifest.tsv`. Ingest top to bottom.
 Within a wave: **S**urvey → **F**ramework → **M**echanism/**B**enchmark → **R**esult → e**X**position, oldest first.
@@ -695,4 +695,38 @@ One INGEST each:
 
 **Wave 25 closed at lint 27** — all thirteen ingested 2026-09-19 in queue order; boxes ticked by the lint pass from the git log, not by the ingests (`L32`, third recurrence).
 
-**The queue is empty. The next operation is `ACQUIRE`, not `INGEST`.**
+## Wave 26 — how a want is built, and whether a terminal signal alone builds one
+
+Anchor: the want-list's wave 26 — the sibling project's three open requests (`R4` the chain from a
+primary reward to a want that has none; `R5` what pulls once the terminal reward is collected;
+`R2`/`G72` subgoals out of a terminal signal alone). All 16 targets landed; 0 FAIL, 2 WARN
+(both benign `$` counts, not math), manifest rows 477–492; three `LOSSY` (`williams`,
+`eisenberger`, `murayama` — APA/Springer served no clippable HTML, converted by `pdf2md.sh`,
+originals in `raw/originals/`). Not acquired: Shenhav et al. 2017, *Toward a rational and
+mechanistic account of mental effort* (`annualreviews.org`, excluded venue, no PMC deposit) —
+the effort half of `R5` is worked from `kool-2018` and `westbrook-2015` instead.
+
+Ingest pairings the want-list asks for: `kool-2018` with `westbrook-2015` (decision problem +
+elicited curves); `bacon-2017`/`vezhnevets-2017` as the single-channel vs own-channel pair for
+`T367`; `ecoffet-2021` read as the negative control against `bacon`…`openai`.
+
+One INGEST each:
+
+- [ ] `williams-1994-conditioned-reinforcement-neglected-or-outmoded.md` — rl-planning · S · 1994 · **LOSSY** (pdf2md)
+- [ ] `gewirtz-2000-pavlovian-higher-order-conditioning-paradigms.md` — rl-planning · S · 2000
+- [ ] `hackenberg-2009-token-reinforcement-review-and-analysis.md` — rl-planning · S · 2009
+- [ ] `westbrook-2015-cognitive-effort-neuroeconomic-approach.md` — rl-planning · S · 2015
+- [ ] `kool-2018-mental-labour.md` — rl-planning · S · 2018
+- [ ] `eisenberger-1992-learned-industriousness.md` — rl-planning · F · 1992 · **LOSSY** (pdf2md)
+- [ ] `gopnik-2020-childhood-as-solution-to-explore-exploit-tensions.md` — rl-planning · F · 2020
+- [ ] `murayama-2022-reward-learning-framework-of-knowledge-acquisition.md` — rl-planning · F · 2022 · **LOSSY** (pdf2md)
+- [ ] `bacon-2017-option-critic-architecture.md` — rl-planning · M · 2017
+- [ ] `vezhnevets-2017-feudal-networks-hierarchical-reinforcement-learning.md` — rl-planning · M · 2017
+- [ ] `eysenbach-2018-diversity-is-all-you-need.md` — rl-planning · M · 2018
+- [ ] `ecoffet-2021-first-return-then-explore.md` — rl-planning · M · 2021
+- [ ] `openai-2021-asymmetric-self-play-goal-discovery.md` — rl-planning · M · 2021
+- [ ] `flagel-2011-selective-role-for-dopamine-in-reward-learning.md` — rl-planning · R · 2011
+- [ ] `sharpe-2017-dopamine-transients-model-based-associations.md` — rl-planning · R · 2017
+- [ ] `poli-2020-infants-tailor-attention-to-maximize-learning.md` — rl-planning · R · 2020
+
+**16 sources open. The next operation is `INGEST`, starting at the top of wave 26.**

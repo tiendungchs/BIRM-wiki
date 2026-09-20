@@ -2,22 +2,36 @@
 
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
-## Wave 25 — capacity: what an associative store can hold, and what shape it holds it on
+## Wave 26 — how a want is built, and whether a terminal signal alone builds one
 
-Anchor: none — clipped and committed directly (`b955c46`) with no want-list, filed by lint 26; 13 files, 0 FAIL, 0 WARN, manifest rows 464–476; three loose PDFs moved to `raw/originals/`. Aimed at `G42`; `T62` and `T106` most likely to move.
+Anchor: the want-list's wave 26 — the sibling project's three open requests (`R4` the chain from a
+primary reward to a want that has none; `R5` what pulls once the terminal reward is collected;
+`R2`/`G72` subgoals out of a terminal signal alone). All 16 targets landed; 0 FAIL, 2 WARN
+(both benign `$` counts, not math), manifest rows 477–492; three `LOSSY` (`williams`,
+`eisenberger`, `murayama` — APA/Springer served no clippable HTML, converted by `pdf2md.sh`,
+originals in `raw/originals/`). Not acquired: Shenhav et al. 2017, *Toward a rational and
+mechanistic account of mental effort* (`annualreviews.org`, excluded venue, no PMC deposit) —
+the effort half of `R5` is worked from `kool-2018` and `westbrook-2015` instead.
+
+Ingest pairings the want-list asks for: `kool-2018` with `westbrook-2015` (decision problem +
+elicited curves); `bacon-2017`/`vezhnevets-2017` as the single-channel vs own-channel pair for
+`T367`; `ecoffet-2021` read as the negative control against `bacon`…`openai`.
 
 One INGEST each:
 
-- [x] `khona-2022-attractor-and-integrator-networks-in-the-brain.md` — hippocampal-entorhinal · S · 2022
-- [x] `krotov-2016-dense-associative-memory-for-pattern-recognition.md` — associative-memory · F · 2016
-- [x] `krotov-2020-large-associative-memory-problem-neurobiology-and-machine-learning.md` — associative-memory · F · 2020
-- [x] `ramsauer-2020-hopfield-networks-is-all-you-need.md` — associative-memory · F · 2020
-- [x] `kozachkov-2023-neuron-astrocyte-associative-memory.md` — associative-memory · R · 2023
-- [x] `tyulmankov-2021-biological-learning-in-key-value-memory-networks.md` — associative-memory · F · 2021
-- [x] `gershman-2025-key-value-memory-in-the-brain.md` — associative-memory · S · 2025
-- [x] `neunuebel-2014-ca3-pattern-completion-dentate-gyrus-pattern-separation.md` — hippocampal-entorhinal · R · 2014
-- [x] `colgin-2010-attractor-map-versus-autoassociation-hippocampal-dynamics.md` — hippocampal-entorhinal · R · 2010
-- [x] `jezek-2011-theta-paced-flickering-between-place-cell-maps.md` — hippocampal-entorhinal · R · 2011
-- [x] `chaudhuri-2019-intrinsic-attractor-manifold-head-direction-circuit.md` — hippocampal-entorhinal · R · 2019
-- [x] `gardner-2022-toroidal-topology-of-grid-cell-population-activity.md` — hippocampal-entorhinal · R · 2022
-- [x] `milstein-2021-bidirectional-synaptic-plasticity-modifies-hippocampal-representations.md` — hippocampal-entorhinal · R · 2021
+- [ ] `williams-1994-conditioned-reinforcement-neglected-or-outmoded.md` — rl-planning · S · 1994 · **LOSSY** (pdf2md)
+- [ ] `gewirtz-2000-pavlovian-higher-order-conditioning-paradigms.md` — rl-planning · S · 2000
+- [ ] `hackenberg-2009-token-reinforcement-review-and-analysis.md` — rl-planning · S · 2009
+- [ ] `westbrook-2015-cognitive-effort-neuroeconomic-approach.md` — rl-planning · S · 2015
+- [ ] `kool-2018-mental-labour.md` — rl-planning · S · 2018
+- [ ] `eisenberger-1992-learned-industriousness.md` — rl-planning · F · 1992 · **LOSSY** (pdf2md)
+- [ ] `gopnik-2020-childhood-as-solution-to-explore-exploit-tensions.md` — rl-planning · F · 2020
+- [ ] `murayama-2022-reward-learning-framework-of-knowledge-acquisition.md` — rl-planning · F · 2022 · **LOSSY** (pdf2md)
+- [ ] `bacon-2017-option-critic-architecture.md` — rl-planning · M · 2017
+- [ ] `vezhnevets-2017-feudal-networks-hierarchical-reinforcement-learning.md` — rl-planning · M · 2017
+- [ ] `eysenbach-2018-diversity-is-all-you-need.md` — rl-planning · M · 2018
+- [ ] `ecoffet-2021-first-return-then-explore.md` — rl-planning · M · 2021
+- [ ] `openai-2021-asymmetric-self-play-goal-discovery.md` — rl-planning · M · 2021
+- [ ] `flagel-2011-selective-role-for-dopamine-in-reward-learning.md` — rl-planning · R · 2011
+- [ ] `sharpe-2017-dopamine-transients-model-based-associations.md` — rl-planning · R · 2017
+- [ ] `poli-2020-infants-tailor-attention-to-maximize-learning.md` — rl-planning · R · 2020
