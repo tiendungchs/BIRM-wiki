@@ -142,7 +142,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G125 | Every internally-generated reward in the wiki is immune to its own delivery; the biological one extinguishes each time it is claimed | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g125.md]] |
 | G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g126.md]] |
 | G127 | Every self-generated reward in the wiki is spent the instant it is earned; nothing holds a balance, and behaviour is controlled by the redemption schedule | part | `L1` | `OPEN` | 4 | [[wiki/gaps/g127.md]] |
-| G128 | Every cost term in the wiki is a fixed function of load; none has a write port, so no agent can become industrious | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g128.md]] |
+| G128 | Every cost term in the wiki is a fixed function of load; none has a write port, so no agent can become industrious | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g128.md]] |
+| G129 | Every intrinsic reward in the wiki is exhausted by learning; none reads the structure of the agent's own store, so none can grow | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g129.md]] |
 
 ## How gaps are used
 

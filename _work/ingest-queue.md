@@ -719,7 +719,7 @@ One INGEST each:
 - [x] `kool-2018-mental-labour.md` — rl-planning · S · 2018
 - [x] `eisenberger-1992-learned-industriousness.md` — rl-planning · F · 1992 · **LOSSY** (pdf2md)
 - [x] `gopnik-2020-childhood-as-solution-to-explore-exploit-tensions.md` — rl-planning · F · 2020
-- [ ] `murayama-2022-reward-learning-framework-of-knowledge-acquisition.md` — rl-planning · F · 2022 · **LOSSY** (pdf2md)
+- [x] `murayama-2022-reward-learning-framework-of-knowledge-acquisition.md` — rl-planning · F · 2022 · **LOSSY** (pdf2md)
 - [ ] `bacon-2017-option-critic-architecture.md` — rl-planning · M · 2017
 - [ ] `vezhnevets-2017-feudal-networks-hierarchical-reinforcement-learning.md` — rl-planning · M · 2017
 - [ ] `eysenbach-2018-diversity-is-all-you-need.md` — rl-planning · M · 2018
