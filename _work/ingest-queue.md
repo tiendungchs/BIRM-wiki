@@ -727,6 +727,6 @@ One INGEST each:
 - [x] `openai-2021-asymmetric-self-play-goal-discovery.md` — rl-planning · M · 2021
 - [x] `flagel-2011-selective-role-for-dopamine-in-reward-learning.md` — rl-planning · R · 2011
 - [x] `sharpe-2017-dopamine-transients-model-based-associations.md` — rl-planning · R · 2017
-- [ ] `poli-2020-infants-tailor-attention-to-maximize-learning.md` — rl-planning · R · 2020
+- [x] `poli-2020-infants-tailor-attention-to-maximize-learning.md` — rl-planning · R · 2020
 
 **16 sources open. The next operation is `INGEST`, starting at the top of wave 26.**
