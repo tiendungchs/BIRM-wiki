@@ -33,5 +33,5 @@ One INGEST each:
 - [x] `ecoffet-2021-first-return-then-explore.md` — rl-planning · M · 2021
 - [x] `openai-2021-asymmetric-self-play-goal-discovery.md` — rl-planning · M · 2021
 - [x] `flagel-2011-selective-role-for-dopamine-in-reward-learning.md` — rl-planning · R · 2011
-- [ ] `sharpe-2017-dopamine-transients-model-based-associations.md` — rl-planning · R · 2017
+- [x] `sharpe-2017-dopamine-transients-model-based-associations.md` — rl-planning · R · 2017
 - [ ] `poli-2020-infants-tailor-attention-to-maximize-learning.md` — rl-planning · R · 2020

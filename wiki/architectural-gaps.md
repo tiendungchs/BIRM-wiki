@@ -32,7 +32,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 65 | [[wiki/gaps/g017.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 66 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 21 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
