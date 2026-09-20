@@ -332,7 +332,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T364 | Is the dorsomedial control layer a level-blind evaluator of control, or a level-specific selector organised by abstraction? | `L1` | `LIVE` | 4 | [[wiki/tensions/t364.md]] |
 | T365 | Do topological bottlenecks make the right subgoals, or the wrong ones? | `L0` | `LIVE` | 4 | [[wiki/tensions/t365.md]] |
 | T366 | Does widening the training goal set help the one task you care about, or destroy it? | `L0` | `LIVE` | 2 | [[wiki/tensions/t366.md]] |
-| T367 | Is the subgoal-level prediction error carried on its own channel, or on the reward channel with the running option as a mask? | `L2` | `LIVE` | 11 | [[wiki/tensions/t367.md]] |
+| T367 | Is the subgoal-level prediction error carried on its own channel, or on the reward channel with the running option as a mask? | `L2` | `LIVE` | 12 | [[wiki/tensions/t367.md]] |
 | T368 | Is the basolateral→central amygdala projection a valence-general output route or the negative-valence channel? | `L1` | `LIVE` | 4 | [[wiki/tensions/t368.md]] |
 | T369 | Under a state change, is the anti-reward channel an error against a prediction, or a valence read-out with a state-set origin? | `L2` | `LIVE` | 4 | [[wiki/tensions/t369.md]] |
 | T370 | Does uninstructed free play converge on an intermediate-difficulty set-point, or does it under-challenge? | `L0` | `LIVE` | 2 | [[wiki/tensions/t370.md]] |
@@ -366,3 +366,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T398 | Is the subjective cost of mental effort convex in effort, or concave (hyperbolic)? | `L0` | `LIVE` | 4 | [[wiki/tensions/t398.md]] |
 | T399 | Is the fall in exploration with age a maturational schedule, or just a sharpening posterior? | `L1` | `LIVE` | 2 | [[wiki/tensions/t399.md]] |
 | T400 | Does an extrinsic reward *add* to the self-generated one, or suppress its generation? | `L2` | `LIVE` | 2 | [[wiki/tensions/t400.md]] |
+| T401 | Should the lower level of a hierarchy be denied the environment's reward? | `L2` | `LIVE` | 2 | [[wiki/tensions/t401.md]] |
