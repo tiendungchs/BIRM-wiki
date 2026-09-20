@@ -712,7 +712,7 @@ elicited curves); `bacon-2017`/`vezhnevets-2017` as the single-channel vs own-ch
 
 One INGEST each:
 
-- [ ] `williams-1994-conditioned-reinforcement-neglected-or-outmoded.md` — rl-planning · S · 1994 · **LOSSY** (pdf2md)
+- [x] `williams-1994-conditioned-reinforcement-neglected-or-outmoded.md` — rl-planning · S · 1994 · **LOSSY** (pdf2md)
 - [ ] `gewirtz-2000-pavlovian-higher-order-conditioning-paradigms.md` — rl-planning · S · 2000
 - [ ] `hackenberg-2009-token-reinforcement-review-and-analysis.md` — rl-planning · S · 2009
 - [ ] `westbrook-2015-cognitive-effort-neuroeconomic-approach.md` — rl-planning · S · 2015
