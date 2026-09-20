@@ -144,6 +144,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | NRMSE | Normalized Root Mean Square Error | Forecasting error metric |
 | LVEBM | Latent-Variable Energy-Based Model | `F(x,y) = min_z E(x,y,z)`; the latent parameterises which relationship holds |
 | MCTS | Monte Carlo Tree Search | Forward search used to improve a value function or policy |
+| UCT | Upper Confidence bounds applied to Trees | The tree-search selection rule whose exploration term is a reciprocal-square-root visit count; the same `1/√(N+1)` form reappears as a count-based intrinsic reward and, in [[wiki/entities/go-explore.md]], as a sampling weight over an external archive |
 | BIC | Bayesian Information Criterion | Model comparison score penalising parameter count; the COIN-vs-dual-rate comparison is reported as ΔBIC in nats ([[wiki/entities/coin-model.md]]) |
 | COIN | COntextual INference | Heald et al. 2021's nonparametric Bayesian model of motor learning ([[wiki/entities/coin-model.md]]) |
 | DP | Dirichlet Process | Prior over distributions with an unbounded number of components; the "sticky" variant biases self-transition |

@@ -367,3 +367,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T399 | Is the fall in exploration with age a maturational schedule, or just a sharpening posterior? | `L1` | `LIVE` | 2 | [[wiki/tensions/t399.md]] |
 | T400 | Does an extrinsic reward *add* to the self-generated one, or suppress its generation? | `L2` | `LIVE` | 2 | [[wiki/tensions/t400.md]] |
 | T401 | Should the lower level of a hierarchy be denied the environment's reward? | `L2` | `LIVE` | 2 | [[wiki/tensions/t401.md]] |
+| T402 | On sparse-reward long-horizon tasks, is the missing component a task decomposition or a persistent frontier store? | `L1` | `LIVE` | 4 | [[wiki/tensions/t402.md]] |
