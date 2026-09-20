@@ -139,9 +139,10 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 3 | [[wiki/gaps/g122.md]] |
 | G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g123.md]] |
 | G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g124.md]] |
-| G125 | Every internally-generated reward in the wiki is immune to its own delivery; the biological one extinguishes each time it is claimed | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g125.md]] |
+| G125 | Every internally-generated reward in the wiki is immune to its own delivery; the biological one extinguishes each time it is claimed | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g125.md]] |
 | G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g126.md]] |
 | G127 | Every self-generated reward in the wiki is spent the instant it is earned; nothing holds a balance, and behaviour is controlled by the redemption schedule | part | `L1` | `OPEN` | 4 | [[wiki/gaps/g127.md]] |
+| G128 | Every cost term in the wiki is a fixed function of load; none has a write port, so no agent can become industrious | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g128.md]] |
 
 ## How gaps are used
 
