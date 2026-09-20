@@ -362,3 +362,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T394 | What makes map switching discrete: a posterior over hidden states, or a binding to a preconfigured attractor's coordinates? | `L1` | `LIVE` | 9 | [[wiki/tensions/t394.md]] |
 | T395 | Does a second-order cue retrieve the specific outcome's value, or only a US-general affective state? | `L1` | `LIVE` | 10 | [[wiki/tensions/t395.md]] |
 | T396 | In a common currency, are a gain and a loss of the same magnitude equal and opposite? | `L0` | `LIVE` | 2 | [[wiki/tensions/t396.md]] |
+| T397 | Is the effort cost term one block serving both domains, or two separately-addressed costs for cognitive and physical effort? | `L1` | `LIVE` | 2 | [[wiki/tensions/t397.md]] |
