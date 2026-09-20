@@ -9,7 +9,7 @@ Structural maintenance pass over the whole wiki. Find decay, propose a fix plan 
 
 ## Steps
 
-0. **Check problematic works:** check to see if any operation coincides with any Opus 5 elevated error period, reported by https://status.claude.com/ , and discard or fix them if possible.
+0. **Check problematic works:** check to see if any operation coincides with any Opus 5/Fable 5.1 elevated error period, reported by https://status.claude.com/ , and discard or fix them if possible.
 1. **Run the mechanical checks first** — they are free and they tell you what not to look for by hand:
    ```bash
    ./tools/wiki-stats.sh

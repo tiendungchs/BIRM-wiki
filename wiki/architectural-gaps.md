@@ -32,7 +32,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 64 | [[wiki/gaps/g017.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 65 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 21 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
@@ -130,16 +130,17 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G113 | A probe that perturbs the system to read it is certified read-only by a null, and no instrument in the wiki has a positive control for non-interference | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g113.md]] |
 | G114 | Every timescale the wiki cites is a biased point estimate, and the estimator that prices the bias has never been run on any of them | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g114.md]] |
 | G115 | Every geometric claim read off a fitted low-dimensional embedding is uncontrolled, because no one runs the arbitrary-target embedding that scores the same | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g115.md]] |
-| G116 | No task in the wiki's neuromodulator literature orthogonalizes valence against action, so no result there distinguishes a value signal from an action signal | part | `L0-INSTR` | `OPEN` | 11 | [[wiki/gaps/g116.md]] |
+| G116 | No task in the wiki's neuromodulator literature orthogonalizes valence against action, so no result there distinguishes a value signal from an action signal | part | `L0-INSTR` | `OPEN` | 12 | [[wiki/gaps/g116.md]] |
 | G117 | No architecture broadcasts one event on two differently-signed channels to different targets | arrangement | `L2` | `OPEN` | 5 | [[wiki/gaps/g117.md]] |
 | G118 | No architecture separates an outcome's hedonic magnitude from the motivation it commands | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g118.md]] |
 | G119 | No architecture has a reinforcer that is admissible to one of its learning systems and inadmissible to another | arrangement | `L2` | `OPEN` | 5 | [[wiki/gaps/g119.md]] |
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
-| G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 5 | [[wiki/gaps/g121.md]] |
+| G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 6 | [[wiki/gaps/g121.md]] |
 | G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 3 | [[wiki/gaps/g122.md]] |
 | G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g123.md]] |
 | G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g124.md]] |
 | G125 | Every internally-generated reward in the wiki is immune to its own delivery; the biological one extinguishes each time it is claimed | part | `L1` | `OPEN` | 4 | [[wiki/gaps/g125.md]] |
+| G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g126.md]] |
 
 ## How gaps are used
 
