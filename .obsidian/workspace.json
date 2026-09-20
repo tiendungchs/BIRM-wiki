@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "raw/Bidirectional synaptic plasticity rapidly modifies hippocampal representations.md",
+                "file": "raw/First return, then explore.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Bidirectional synaptic plasticity rapidly modifies hippocampal representations"
+              "title": "First return, then explore"
             }
           }
         ]
@@ -187,6 +187,19 @@
   },
   "active": "143968b04b3097a5",
   "lastOpenFiles": [
+    "raw/Asymmetric self-play for automatic goal discovery in robotic manipulation.md",
+    "raw/First return, then explore.md",
+    "raw/Diversity is All You NeedLearning Skills without a Reward Function.md",
+    "raw/FeUdal Networks for Hierarchical Reinforcement Learning.md",
+    "raw/The Option-Critic Architecture.md",
+    "raw/Dopamine transients are sufficient and necessary for acquisition of model-based associations.md",
+    "raw/A selective role for dopamine in reward learning.md",
+    "raw/TOKEN REINFORCEMENT A REVIEW AND ANALYSIS.md",
+    "raw/Using Pavlovian Higher-Order Conditioning Paradigms to Investigate the Neural Substrates of Emotional Learning and Memory.md",
+    "raw/Childhood as a solution to explore–exploit tensions.md",
+    "raw/Infants tailor their attention to maximize learning.md",
+    "raw/Cognitive effort A neuroeconomic approach.md",
+    "raw/Mental labour - Nature Human Behaviour.md",
     "raw/hopfield-1982-neural-networks-and-physical-systems-with-emergent-collective-computational-abilities.pdf",
     "raw/attractor-dynamics-in-hc-representation-of-the-env.pdf",
     "raw/Synaptic-Mechanisms-of-Pattern-Completion-in-the-Hippocampal-CA3-Network.pdf",
@@ -203,25 +216,12 @@
     "raw/Large Associative Memory Problem in Neurobiology and Machine Learning.md",
     "raw/Dense Associative Memory for Pattern Recognition.md",
     "raw/Key-value memory in the brain.md",
-    "wiki/tensions/t388.md",
-    "wiki/tensions/t387.md",
-    "wiki/tensions/t386.md",
-    "wiki/tensions/t385.md",
-    "wiki/entities/vdm-i2i.md",
-    "wiki/entities/varc.md",
-    "wiki/entities/multiscale-tracing-network.md",
-    "wiki/entities/dorsal-visual-stream.md",
-    "wiki/entities/blindtest.md",
-    "wiki/concepts/visual-routines.md",
-    "wiki/concepts/visual-indices.md",
-    "wiki/concepts/perception-reasoning-dissociation.md",
     "raw/originals/ullman-1984-visual-routines.pdf",
     "raw/originals/pylyshyn-2001-visual-indexes-preconceptual-objects.pdf",
     "raw/originals/ballard-1997-deictic-codes-for-embodiment-of-cognition.pdf",
     "raw/Deictic-codes.pdf",
     "raw/visual-routines.pdf",
     "raw/Visual-indexes.pdf",
-    "raw/Deictic=codes.pdf",
-    "raw/A model of inductive bias learning.pdf"
+    "raw/Deictic=codes.pdf"
   ]
 }
