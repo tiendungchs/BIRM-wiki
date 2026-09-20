@@ -93,7 +93,7 @@ Conditions 1 vs 4 hold the response-produced stimulus change constant and vary o
 |---|---|---|
 | Pietras & Hackenberg 2005 (pigeons) | conjoint FR 10 / FR 2 token **removal** superimposed on VR-4 (RI 30 s) token gain, multiple schedule | rates suppressed to 30–40% of baseline, not to zero |
 | — same, *exchange extinction* | tokens produced and accumulated normally but never redeemable | rates stabilise **at the punishment level, far above extinction** |
-| — same, full extinction (no tokens) | responding eliminated |
+| — same, *full extinction* | no tokens produced or delivered at all | responding eliminated |
 | Raiff, Bullock & Hackenberg 2008 | token-loss condition vs a **yoked** condition with matched food density and no loss contingency | yoked rates reduced somewhat, token-loss rates reduced more → a direct punishment effect, not a reinforcement-density artefact |
 
 The **exchange-extinction** row is the load-bearing one for this wiki: production and accumulation of a currency that is *signalled to be unredeemable* still maintains substantial behaviour. It sharpens `G125` in both directions — the manufactured reward does decay without primary backing ([[wiki/concepts/conditioned-reinforcement.md]]), but it decays to a **non-zero floor** as long as the token itself keeps being delivered. A machine subgoal reward is farmable at full value forever; a biological one is farmable at roughly a third of value, which is a weaker but still unbounded exploit.

@@ -48,7 +48,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 26 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `L0-INSTR` | `OPEN` | 10 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `L0` | `OPEN` | 20 | [[wiki/gaps/g032.md]] |
-| G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 26 | [[wiki/gaps/g033.md]] |
+| G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 27 | [[wiki/gaps/g033.md]] |
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g036.md]] |
@@ -133,7 +133,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G116 | No task in the wiki's neuromodulator literature orthogonalizes valence against action, so no result there distinguishes a value signal from an action signal | part | `L0-INSTR` | `OPEN` | 12 | [[wiki/gaps/g116.md]] |
 | G117 | No architecture broadcasts one event on two differently-signed channels to different targets | arrangement | `L2` | `OPEN` | 5 | [[wiki/gaps/g117.md]] |
 | G118 | No architecture separates an outcome's hedonic magnitude from the motivation it commands | part | `L1` | `OPEN` | 7 | [[wiki/gaps/g118.md]] |
-| G119 | No architecture has a reinforcer that is admissible to one of its learning systems and inadmissible to another | arrangement | `L2` | `OPEN` | 7 | [[wiki/gaps/g119.md]] |
+| G119 | No architecture has a reinforcer that is admissible to one of its learning systems and inadmissible to another | arrangement | `L2` | `OPEN` | 8 | [[wiki/gaps/g119.md]] |
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
 | G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 6 | [[wiki/gaps/g121.md]] |
 | G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 3 | [[wiki/gaps/g122.md]] |
@@ -143,7 +143,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g126.md]] |
 | G127 | Every self-generated reward in the wiki is spent the instant it is earned; nothing holds a balance, and behaviour is controlled by the redemption schedule | part | `L1` | `OPEN` | 4 | [[wiki/gaps/g127.md]] |
 | G128 | Every cost term in the wiki is a fixed function of load; none has a write port, so no agent can become industrious | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g128.md]] |
-| G129 | Every intrinsic reward in the wiki is exhausted by learning; none reads the structure of the agent's own store, so none can grow | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g129.md]] |
+| G129 | Every intrinsic reward in the wiki is exhausted by learning; none reads the structure of the agent's own store, so none can grow | part | `L1` | `OPEN` | 7 | [[wiki/gaps/g129.md]] |
 
 ## How gaps are used
 

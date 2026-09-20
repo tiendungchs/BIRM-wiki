@@ -16,7 +16,7 @@ The tenth option-discovery family on [[wiki/concepts/temporal-abstraction-option
 | Manager's own latent space | `s_t = f^Mspace(z_t)` | A further dense+ReLU layer. The space the goals live in is *learned by the Manager*, not given |
 | Manager | `h^M_t, ĝ_t = f^Mrnn(s_t, h^M_{t−1})`; `g_t = ĝ_t/‖ĝ_t‖` | `f^Mrnn` is a **dilated LSTM**; the goal is a unit vector — a direction, not a location |
 | Goal pooling + embedding | `w_t = φ(Σ_{i=t−c}^{t} g_i)` | Sum of the last `c` goals, then a linear `φ : R^d → R^k`, `k = 16`, **with no bias** |
-| Worker | `h^W, U_t = f^Wrnn(z_t, h^W_{t−1})`, `U_t ∈ R^{|a|×k}` | Standard LSTM, 256 units; one `k`-vector per primitive action |
+| Worker | `h^W, U_t = f^Wrnn(z_t, h^W_{t−1})`, `U_t ∈ R^{\|a\|×k}` | Standard LSTM, 256 units; one `k`-vector per primitive action |
 | Policy | `π_t = SoftMax(U_t w_t)` | The goal enters **multiplicatively**, not as a concatenated input |
 
 **The bias-free `φ` is a wiring-level anti-bypass device.** With no bias term `φ` can never emit a constant non-zero vector, and a constant `w` is the only way the Worker could factor the Manager out of `U_t w_t`. So the goal channel is made non-ignorable *by the algebra of the interface*, rather than by an auxiliary loss — the first instance in the wiki of the `G59` prescription being met by construction rather than by information-hiding. Pooling over `c` steps additionally makes the conditioning vary smoothly, so the Worker's context does not jump at option boundaries the way a call-and-return option does.
@@ -119,7 +119,7 @@ The `c = 1` row is the surprising one: it says most of FuN's benefit comes from 
 | `s = f^Mspace(z)` | A latent space with no requirement that it be a *graph*; only that displacement in it is (a) causable by the Worker and (b) predictive of return |
 | `g_t` | Not a node, not an edge — a **tangent vector**. The wiki's only subgoal representation that does not presuppose discrete structure |
 | Transition policy `π^TP` | The quotient MDP at horizon `c`, learned directly without ever building its transition table |
-| Worker | The thing that makes the quotient well-defined, by making `p(s_{t+c}|s_t,g)` concentrate |
+| Worker | The thing that makes the quotient well-defined, by making `p(s_{t+c}\|s_t,g)` concentrate |
 | Doorway/waypoint subgoals in Montezuma | Bottleneck-like structure recovered a third time (after [[wiki/entities/cscg.md]]'s partitions and option-critic's terminations) from yet another objective — which weakens the claim that any one discovery principle owns bottlenecks |
 
 ---
