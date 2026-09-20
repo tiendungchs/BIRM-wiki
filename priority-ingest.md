@@ -29,7 +29,7 @@ One INGEST each:
 - [x] `murayama-2022-reward-learning-framework-of-knowledge-acquisition.md` — rl-planning · F · 2022 · **LOSSY** (pdf2md)
 - [x] `bacon-2017-option-critic-architecture.md` — rl-planning · M · 2017
 - [x] `vezhnevets-2017-feudal-networks-hierarchical-reinforcement-learning.md` — rl-planning · M · 2017
-- [ ] `eysenbach-2018-diversity-is-all-you-need.md` — rl-planning · M · 2018
+- [x] `eysenbach-2018-diversity-is-all-you-need.md` — rl-planning · M · 2018
 - [ ] `ecoffet-2021-first-return-then-explore.md` — rl-planning · M · 2021
 - [ ] `openai-2021-asymmetric-self-play-goal-discovery.md` — rl-planning · M · 2021
 - [ ] `flagel-2011-selective-role-for-dopamine-in-reward-learning.md` — rl-planning · R · 2011

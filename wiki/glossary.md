@@ -489,6 +489,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | AGI | Artificial General Intelligence | Used in this wiki only as part of a benchmark name (`ARC-AGI-1/2/3`) or when quoting a source's own framing; the wiki takes no position that the term names a measurable quantity — the tension over whether the term is even scoped is `T17` |
 | CIFAR | Canadian Institute For Advanced Research (image datasets) | `CIFAR-10` / `CIFAR-100`: 60 000 32×32 colour images in 10 or 100 classes; the default small-scale benchmark for continual-learning and self-supervised ablations in this wiki. Both hyphenated and unhyphenated spellings appear in ingested sources |
 | VGG | Visual Geometry Group network | Simonyan & Zisserman 2014: a plain deep convolutional stack (`VGG-11/16/19`) with only 3×3 kernels; the pre-residual baseline architecture, cited here mainly as the comparison point for [[wiki/concepts/manifold-untangling.md]] and depth ablations |
+| DIAYN | Diversity Is All You Need | Eysenbach et al. 2018: skills discovered by maximising the mutual information between the skill index and the states visited, with a fixed uniform skill prior and a maximum-entropy policy; no environment reward ([[wiki/entities/diayn.md]]) |
+| SAC | Soft Actor–Critic | Haarnoja et al. 2018: off-policy actor–critic maximising return *plus* policy entropy `α·H[a|s]`; the optimiser DIAYN uses, and the source of its skills' diversity term ([[wiki/entities/diayn.md]]) |
+| VIC | Variational Intrinsic Control | Gregor et al. 2016: DIAYN's predecessor, differing in that it *learns* `p(z)`, discriminates on the final state only, and uses lower-entropy policies; the learned prior collapses the effective skill count `e^{H[Z]}` ~10× ([[wiki/entities/diayn.md]]) |
+| VIME | Variational Information Maximizing Exploration | Houthooft et al. 2016: an exploration bonus from information gain about the dynamics parameters, trained into a *single* policy; the baseline that scores poorly on all three post-hoc reward functions a skill collection covers ([[wiki/entities/diayn.md]]) |
+| TRPO | Trust Region Policy Optimization | Schulman et al. 2015: on-policy policy gradient with a KL trust region; PPO's predecessor and the on-policy flat baseline in hierarchical-RL comparisons |
 
 ## Neuroscience
 
