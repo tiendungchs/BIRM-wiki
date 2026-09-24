@@ -279,6 +279,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | RBF | Radial Basis Function | `ψ(r) = exp(−r²/2h²)` on a grid of centres; the basis used in place of B-splines in the KAN-ODE implementation |
 | SINDy | Sparse Identification of Nonlinear Dynamics | Sparse regression of a system's derivative onto a hand-supplied library of candidate functions; interpretable within the library and blind outside it |
 | PINN | Physics-Informed Neural Network | Puts the known governing equations in the loss as a soft constraint; interpretable, but requires the governing law up front |
+| GCN | Graph Convolutional Network | Kipf & Welling 2017: first-order Chebyshev spectral convolution `σ(D̃^{-1/2} Ã D̃^{-1/2} X Θ)` over a given adjacency; the operator HGNN reduces to on a reweighted clique projection ([[wiki/entities/hgnn.md]]) |
+| HGNN | Hypergraph Neural Network | Feng et al. 2019: GCN-style convolution over a vertex × hyperedge incidence matrix; linear in pairs ([[wiki/entities/hgnn.md]]) |
 | GNN | Graph Neural Network | Message-passing network over an explicit node/edge set; the backbone of [[wiki/entities/neuromatch.md]] |
 | GIN | Graph Isomorphism Network | The maximally expressive message-passing GNN under the Weisfeiler-Lehman test; the ceiling NeuroMatch's identity injection is designed to exceed |
 | GraphSAGE | Graph SAmple and aggreGatE | Inductive GNN layer: a *learned aggregator* over sampled neighbours, so embeddings can be produced for nodes unseen during training — the property [[wiki/entities/irene.md]] credits for handling evaluation-set entities |

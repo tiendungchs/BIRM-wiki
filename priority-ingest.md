@@ -34,7 +34,7 @@ One INGEST each:
 - [x] `mocanu-2018-sparse-evolutionary-training-adaptive-sparse-connectivity.md` — brain-networks · M · 2018
 - [x] `nachum-2018-data-efficient-hierarchical-reinforcement-learning.md` — rl-planning · M · 2018
 - [x] `burda-2018-exploration-by-random-network-distillation.md` — rl-planning · M · 2018
-- [ ] `feng-2019-hypergraph-neural-networks.md` — latent-graph · M · 2019
+- [x] `feng-2019-hypergraph-neural-networks.md` — latent-graph · M · 2019
 - [ ] `levy-2019-learning-multi-level-hierarchies-with-hindsight.md` — rl-planning · M · 2019
 - [ ] `badia-2020-never-give-up-learning-directed-exploration-strategies.md` — rl-planning · M · 2020
 - [ ] `evci-2020-rigging-the-lottery-making-all-tickets-winners.md` — brain-networks · M · 2020
@@ -46,4 +46,4 @@ One INGEST each:
 - [ ] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
 - [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
 
-**11 sources open. The next operation is `INGEST` of `feng-2019`.**
+**10 sources open. The next operation is `INGEST` of `levy-2019`.**
