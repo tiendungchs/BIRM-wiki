@@ -106,7 +106,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g089.md]] |
 | G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `L2` | `OPEN` | 9 | [[wiki/gaps/g090.md]] |
 | G91 | The wiki has no gate that learns what deserves to be broadcast, and no architecture in it has a discrete commit at all | arrangement | `L2` | `OPEN` | 9 | [[wiki/gaps/g091.md]] |
-| G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `L0` | `OPEN` | 1 | [[wiki/gaps/g092.md]] |
+| G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `L0` | `OPEN` | 3 | [[wiki/gaps/g092.md]] |
 | G93 | Context in every wiki architecture is either one global scalar or a hand-supplied task label; none has an *addressed* context channel | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g093.md]] |
 | G94 | Nothing in the wiki adapts a unit's *time constant*, and nothing pools its gain locally — input normalization is a global, offline, once-per-dataset operation | part | `L3` | `OPEN` | 2 | [[wiki/gaps/g094.md]] |
 | G95 | Every self-supervised system in the wiki has its invariance group *declared* by a hand-written augmentation list; nothing here discovers which directions are nuisance from the input's own statistics | part | `L3` | `PARTIAL` | 14 | [[wiki/gaps/g095.md]] |
@@ -143,7 +143,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g126.md]] |
 | G127 | Every self-generated reward in the wiki is spent the instant it is earned; nothing holds a balance, and behaviour is controlled by the redemption schedule | part | `L1` | `OPEN` | 4 | [[wiki/gaps/g127.md]] |
 | G128 | Every cost term in the wiki is a fixed function of load; none has a write port, so no agent can become industrious | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g128.md]] |
-| G129 | Every intrinsic reward in the wiki is exhausted by learning; none reads the structure of the agent's own store, so none can grow | part | `L1` | `OPEN` | 7 | [[wiki/gaps/g129.md]] |
+| G129 | Every intrinsic reward in the wiki is exhausted by learning; none reads the structure of the agent's own store, so none can grow | part | `L1` | `OPEN` | 8 | [[wiki/gaps/g129.md]] |
 
 ## How gaps are used
 

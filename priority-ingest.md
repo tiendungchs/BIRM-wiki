@@ -30,7 +30,7 @@ One INGEST each:
 - [x] `miller-2019-habits-without-values.md` — rl-planning · F · 2019
 - [x] `barak-2007-persistent-activity-in-neural-networks-with-dynamic-synapses.md` — working-memory · M · 2007
 - [x] `kulkarni-2016-hierarchical-deep-reinforcement-learning-temporal-abstraction-intrinsic-motivation.md` — rl-planning · M · 2016
-- [ ] `pathak-2017-curiosity-driven-exploration-by-self-supervised-prediction.md` — rl-planning · M · 2017
+- [x] `pathak-2017-curiosity-driven-exploration-by-self-supervised-prediction.md` — rl-planning · M · 2017
 - [ ] `mocanu-2018-sparse-evolutionary-training-adaptive-sparse-connectivity.md` — brain-networks · M · 2018
 - [ ] `nachum-2018-data-efficient-hierarchical-reinforcement-learning.md` — rl-planning · M · 2018
 - [ ] `burda-2018-exploration-by-random-network-distillation.md` — rl-planning · M · 2018
@@ -46,4 +46,4 @@ One INGEST each:
 - [ ] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
 - [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
 
-**15 sources open. The next operation is `INGEST` of `pathak-2017`.**
+**14 sources open. The next operation is `INGEST` of `mocanu-2018`.**
