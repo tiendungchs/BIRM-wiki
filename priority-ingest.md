@@ -43,7 +43,7 @@ One INGEST each:
 - [x] `chan-2022-causal-scrubbing-testing-interpretability-hypotheses.md` — mech-interp · M · 2022
 - [x] `trivedi-2023-interleaving-retrieval-with-chain-of-thought-reasoning.md` — reasoning-eval · M · 2023
 - [x] `asai-2023-self-rag-learning-to-retrieve-generate-and-critique.md` — reasoning-eval · M · 2023
-- [ ] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
+- [x] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
 - [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
 
-**2 sources open. The next operation is `INGEST` of `zhou-2016`.**
+**1 source open. The next operation is `INGEST` of `aizenbud-2026`.**

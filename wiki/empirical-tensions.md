@@ -244,7 +244,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T273 | What drives an internally generated content switch — the content-coding populations, or a content-free global state? | `L2` | `LIVE` | 3 | [[wiki/tensions/t273.md]] |
 | T274 | Is a consciously experienced feature maintained, or recomputed on demand? | `L1` | `LIVE` | 1 | [[wiki/tensions/t274.md]] |
 | T275 | Does suppressing the irrelevant need its own channel, or does it fall out of biasing the relevant? | `L2` | `LEANING` | 2 | [[wiki/tensions/t275.md]] |
-| T276 | What does a transthalamic cortico-cortical route carry — a copy of the content, or the sender's state? | `L2` | `LIVE` | 2 | [[wiki/tensions/t276.md]] |
+| T276 | What does a transthalamic cortico-cortical route carry — a copy of the content, or the sender's state? | `L2` | `LIVE` | 3 | [[wiki/tensions/t276.md]] |
 | T277 | Is the single-neuron receptive field still the right unit of description above the thalamus? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t277.md]] |
 | T278 | Is a single feedforward pass sufficient for object recognition, or is inter-areal feedback part of the computation? | `L2` | `BOTH` | 3 | [[wiki/tensions/t278.md]] |
 | T279 | Does decoding an attended feature from a population imply that population carries a feature-tuned gain signal? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t279.md]] |
@@ -338,10 +338,10 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T370 | Does uninstructed free play converge on an intermediate-difficulty set-point, or does it under-challenge? | `L0` | `LIVE` | 3 | [[wiki/tensions/t370.md]] |
 | T371 | Is the cortical circuit's invariant unit the layer or the genetically defined cell class? | `L1` | `LEANING` | 4 | [[wiki/tensions/t371.md]] |
 | T372 | When prior knowledge fits, do the controller and the store compete or cooperate? | `L2` | `LIVE` | 2 | [[wiki/tensions/t372.md]] |
-| T373 | Does the cortical slow oscillation schedule the consolidation window, or does the thalamus? | `L2` | `LIVE` | 3 | [[wiki/tensions/t373.md]] |
+| T373 | Does the cortical slow oscillation schedule the consolidation window, or does the thalamus? | `L2` | `LIVE` | 4 | [[wiki/tensions/t373.md]] |
 | T374 | When a top-down prediction meets matching feedforward drive, does the receiving cell burst or fall silent? | `L2` | `LIVE` | 5 | [[wiki/tensions/t374.md]] |
 | T375 | Should the consolidated model mirror the environment's statistics, or be deliberately biased away from them? | `L2` | `LIVE` | 2 | [[wiki/tensions/t375.md]] |
-| T376 | Is apical–basal coupling a global state variable, or a per-column gate that can be aimed? | `L2` | `LIVE` | 4 | [[wiki/tensions/t376.md]] |
+| T376 | Is apical–basal coupling a global state variable, or a per-column gate that can be aimed? | `L2` | `LIVE` | 5 | [[wiki/tensions/t376.md]] |
 | T377 | Which structure initiates a coordinated cortico-hippocampal replay event? | `L2` | `LEANING` | 3 | [[wiki/tensions/t377.md]] |
 | T378 | Does a hierarchical depth coordinate exist for association cortex, or only for the sensory streams it was defined on? | `L2` | `LIVE` | 5 | [[wiki/tensions/t378.md]] |
 | T379 | Is the direction of a cortical message set by frequency *order*, or by a fixed set of named channels? | `L2` | `LIVE` | 2 | [[wiki/tensions/t379.md]] |
