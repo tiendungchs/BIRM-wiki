@@ -367,8 +367,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T399 | Is the fall in exploration with age a maturational schedule, or just a sharpening posterior? | `L1` | `LIVE` | 2 | [[wiki/tensions/t399.md]] |
 | T400 | Does an extrinsic reward *add* to the self-generated one, or suppress its generation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t400.md]] |
 | T401 | Should the lower level of a hierarchy be denied the environment's reward? | `L2` | `LIVE` | 3 | [[wiki/tensions/t401.md]] |
-| T402 | On sparse-reward long-horizon tasks, is the missing component a task decomposition or a persistent frontier store? | `L1` | `LIVE` | 6 | [[wiki/tensions/t402.md]] |
+| T402 | On sparse-reward long-horizon tasks, is the missing component a task decomposition or a persistent frontier store? | `L1` | `LIVE` | 7 | [[wiki/tensions/t402.md]] |
 | T403 | Does a self-generated goal curriculum teach through the goals, or through the solutions shipped with them? | `L1` | `LIVE` | 5 | [[wiki/tensions/t403.md]] |
 | T404 | Is the dopamine prediction error the teaching signal for stimulus–reward learning as such, or only for the attribution of incentive value to a cue? | `L2` | `LIVE` | 11 | [[wiki/tensions/t404.md]] |
 | T405 | Does the habit controller store a cached value, or only how often each action was taken? | `L1` | `LIVE` | 4 | [[wiki/tensions/t405.md]] |
-| T406 | Should a subgoal passed down a hierarchy be a direction in a learned latent space, or a displacement in fixed state coordinates? | `L2` | `LIVE` | 2 | [[wiki/tensions/t406.md]] |
+| T406 | Should a subgoal passed down a hierarchy be a direction in a learned latent space, or a displacement in fixed state coordinates? | `L2` | `LIVE` | 3 | [[wiki/tensions/t406.md]] |
