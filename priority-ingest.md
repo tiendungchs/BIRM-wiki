@@ -40,10 +40,10 @@ One INGEST each:
 - [x] `evci-2020-rigging-the-lottery-making-all-tickets-winners.md` — brain-networks · M · 2020
 - [x] `elazar-2021-amnesic-probing-behavioral-explanation-with-amnesic-counterfactuals.md` — mech-interp · M · 2021
 - [x] `young-2021-hypergraph-reconstruction-from-network-data.md` — latent-graph · M · 2021
-- [ ] `chan-2022-causal-scrubbing-testing-interpretability-hypotheses.md` — mech-interp · M · 2022
+- [x] `chan-2022-causal-scrubbing-testing-interpretability-hypotheses.md` — mech-interp · M · 2022
 - [ ] `trivedi-2023-interleaving-retrieval-with-chain-of-thought-reasoning.md` — reasoning-eval · M · 2023
 - [ ] `asai-2023-self-rag-learning-to-retrieve-generate-and-critique.md` — reasoning-eval · M · 2023
 - [ ] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
 - [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
 
-**5 sources open. The next operation is `INGEST` of `chan-2022`.**
+**4 sources open. The next operation is `INGEST` of `trivedi-2023`.**

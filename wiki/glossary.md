@@ -528,6 +528,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | INLP | Iterative Nullspace Projection | Ravfogel et al. 2020: repeatedly train a linear classifier for a property and project the representation onto its nullspace until no linear classifier beats majority; the erasure step of amnesic probing ([[wiki/concepts/amnesic-probing.md]]) |
 | POS | Part-of-speech | Word-class tag (noun, verb, determiner…); "coarse" = 12 universal classes, "fine" = 45 treebank tags in [[wiki/concepts/amnesic-probing.md]] |
 | NER | Named-Entity Recognition | Tagging tokens as person / organisation / location / … spans; one of the six erased properties in [[wiki/concepts/amnesic-probing.md]] |
+| IOI | Indirect Object Identification | Wang et al. 2022: the GPT-2 small circuit that completes "When Mary and John went to the store, John gave a drink to" → Mary; its negative name-mover heads are the inhibitory-circuit example in [[wiki/concepts/causal-scrubbing.md]] |
 
 ## Neuroscience
 
