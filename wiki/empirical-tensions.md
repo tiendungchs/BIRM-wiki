@@ -150,7 +150,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T152 | Is a world model's conditioning interface a design requirement, or an implementation detail? | `L2` | `LEANING` | 5 | [[wiki/tensions/t152.md]] |
 | T153 | Is a straight latent trajectory a good representation or a partial collapse? | `L3` | `LIVE` | 3 | [[wiki/tensions/t153.md]] |
 | T154 | Does a control-usable visual world model need foundation-scale pretraining? | `L3` | `LIVE` | 8 | [[wiki/tensions/t154.md]] |
-| T155 | Does a simplicity prior select structure, or destroy it? *(absorbs T182, "does compression build the library or destroy it?", merged at the 284-source duplicate audit: the two rows asked one question over one measurement.)* | `L0` | `LIVE` | 7 | [[wiki/tensions/t155.md]] |
+| T155 | Does a simplicity prior select structure, or destroy it? *(absorbs T182, "does compression build the library or destroy it?", merged at the 284-source duplicate audit: the two rows asked one question over one measurement.)* | `L0` | `LIVE` | 8 | [[wiki/tensions/t155.md]] |
 | T156 | When a compositional model fails out of distribution, is the deficit in the vocabulary or in the search over it? | `L1` | `LIVE` | 7 | [[wiki/tensions/t156.md]] |
 | T157 | When a linear probe fails, is the representation non-linear or is the label basis wrong? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t157.md]] |
 | T158 | When a model is shown to use its world model, does it use it on every input? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t158.md]] |

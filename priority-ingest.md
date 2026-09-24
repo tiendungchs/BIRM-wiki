@@ -39,11 +39,11 @@ One INGEST each:
 - [x] `badia-2020-never-give-up-learning-directed-exploration-strategies.md` — rl-planning · M · 2020
 - [x] `evci-2020-rigging-the-lottery-making-all-tickets-winners.md` — brain-networks · M · 2020
 - [x] `elazar-2021-amnesic-probing-behavioral-explanation-with-amnesic-counterfactuals.md` — mech-interp · M · 2021
-- [ ] `young-2021-hypergraph-reconstruction-from-network-data.md` — latent-graph · M · 2021
+- [x] `young-2021-hypergraph-reconstruction-from-network-data.md` — latent-graph · M · 2021
 - [ ] `chan-2022-causal-scrubbing-testing-interpretability-hypotheses.md` — mech-interp · M · 2022
 - [ ] `trivedi-2023-interleaving-retrieval-with-chain-of-thought-reasoning.md` — reasoning-eval · M · 2023
 - [ ] `asai-2023-self-rag-learning-to-retrieve-generate-and-critique.md` — reasoning-eval · M · 2023
 - [ ] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
 - [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
 
-**6 sources open. The next operation is `INGEST` of `young-2021`.**
+**5 sources open. The next operation is `INGEST` of `chan-2022`.**
