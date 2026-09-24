@@ -18,7 +18,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T2 | Is the fast level a separate store or recurrent activity? | `L1` | `LIVE` | 10 | [[wiki/tensions/t002.md]] |
 | T3 | Is backpropagation biologically realizable? | `L3` | `LEANING` | 2 | [[wiki/tensions/t003.md]] |
 | T4 | Do abstract structural codes exist in the brain? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t004.md]] |
-| T5 | Was neuroscience causally responsible for the transferred mechanisms? | `META` | `LIVE` | 4 | [[wiki/tensions/t005.md]] |
+| T5 | Was neuroscience causally responsible for the transferred mechanisms? | `META` | `LIVE` | 5 | [[wiki/tensions/t005.md]] |
 | T6 | What is out-of-distribution failure a failure *of*? | `L0` | `LIVE` | 2 | [[wiki/tensions/t006.md]] |
 | T7 | Are backpropagation-derived local rules worth pursuing at all? | `L3` | `LEANING` | 2 | [[wiki/tensions/t007.md]] |
 | T8 | Is compositional machinery innate, or acquired from an external symbolic system? | `L0` | `LIVE` | 7 | [[wiki/tensions/t008.md]] |
@@ -153,7 +153,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T155 | Does a simplicity prior select structure, or destroy it? *(absorbs T182, "does compression build the library or destroy it?", merged at the 284-source duplicate audit: the two rows asked one question over one measurement.)* | `L0` | `LIVE` | 8 | [[wiki/tensions/t155.md]] |
 | T156 | When a compositional model fails out of distribution, is the deficit in the vocabulary or in the search over it? | `L1` | `LIVE` | 7 | [[wiki/tensions/t156.md]] |
 | T157 | When a linear probe fails, is the representation non-linear or is the label basis wrong? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t157.md]] |
-| T158 | When a model is shown to use its world model, does it use it on every input? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t158.md]] |
+| T158 | When a model is shown to use its world model, does it use it on every input? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t158.md]] |
 | T159 | Is a geometric structure that appears only after dimensionality reduction a property of the representation or of the projection? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t159.md]] |
 | T160 | Does the geometric quality of a representation predict whether the model uses it? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t160.md]] |
 | T161 | Does a stable signature failure profile identify an *installed* prior? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t161.md]] |
@@ -299,7 +299,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T331 | Do generalizable concepts require one transmodal store, or do direct modality-to-modality connections suffice? | `L1` | `LEANING` | 2 | [[wiki/tensions/t331.md]] |
 | T332 | Which frontal region is the apex of the lateral-frontal control hierarchy, and does "apex" survive the choice of ordering criterion? | `L2` | `LIVE` | 7 | [[wiki/tensions/t332.md]] |
 | T333 | Can long-range theta coherence carry content between two modules, or does it only index a shared relay? | `L2` | `LIVE` | 3 | [[wiki/tensions/t333.md]] |
-| T334 | Is an unobserved relational path written at encoding, or composed at retrieval? | `L2` | `LIVE` | 6 | [[wiki/tensions/t334.md]] |
+| T334 | Is an unobserved relational path written at encoding, or composed at retrieval? | `L2` | `LIVE` | 7 | [[wiki/tensions/t334.md]] |
 | T335 | Do matrix problems and four-term analogies measure the same relational competence? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t335.md]] |
 | T336 | Is the analogy integrator a 0.33 cc left frontopolar site, or a right frontal network? | `L1` | `LIVE` | 4 | [[wiki/tensions/t336.md]] |
 | T337 | Is working-memory capacity a duty cycle over a periodic frame, or a rate of aperiodic bursts? | `L1` | `LIVE` | 2 | [[wiki/tensions/t337.md]] |

@@ -30,7 +30,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G12 | No routing policy between structure types | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `L0` | `PARTIAL` | 2 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g014.md]] |
-| G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g015.md]] |
+| G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 28 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 66 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
@@ -64,7 +64,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G46 | Nothing predicts the *order* in which a learner disambiguates its aliased states | part | `L4` | `OPEN` | 2 | [[wiki/gaps/g046.md]] |
 | G47 | Nothing learns the topology of the state-space manifold it represents on | part | `L3` | `OPEN` | 13 | [[wiki/gaps/g047.md]] |
 | G48 | Nothing separates a store's content register from its attentional pointer | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g048.md]] |
-| G49 | No store schedules its own reads, and none has a relevance-addressed erase | part | `L2` | `OPEN` | 11 | [[wiki/gaps/g049.md]] |
+| G49 | No store schedules its own reads, and none has a relevance-addressed erase | part | `L2` | `OPEN` | 12 | [[wiki/gaps/g049.md]] |
 | G50 | The controller cannot set the gain of its own teaching signal | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g050.md]] |
 | G51 | Nothing transfers a representation out of the control layer into the store that will run it automatically | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g051.md]] |
 | G52 | No inter-module connection in the wiki has state of its own | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g052.md]] |
@@ -75,7 +75,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G57 | No architecture makes its teaching signal one of its own inputs | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g057.md]] |
 | G58 | No control layer is instantiated by the existence of a choice at its own level | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g058.md]] |
 | G59 | Every hierarchical controller lets its lower level see the same observation as its upper level | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g059.md]] |
-| G60 | Every architecture derives its retrieval query from the goal; none chooses the query | part | `L2` | `OPEN` | 10 | [[wiki/gaps/g060.md]] |
+| G60 | Every architecture derives its retrieval query from the goal; none chooses the query | part | `L2` | `OPEN` | 11 | [[wiki/gaps/g060.md]] |
 | G61 | Exploration is always an external schedule, never part of the selector | part | `L1` | `OPEN` | 14 | [[wiki/gaps/g061.md]] |
 | G62 | Nothing scores a world model by what a planner can do with it | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g062.md]] |
 | G63 | The behaviour policy is a load-bearing parameter of world-model estimation, and every mechanism the wiki has for improving an agent destroys it | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g063.md]] |
@@ -137,7 +137,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
 | G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 7 | [[wiki/gaps/g121.md]] |
 | G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 3 | [[wiki/gaps/g122.md]] |
-| G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g123.md]] |
+| G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 6 | [[wiki/gaps/g123.md]] |
 | G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g124.md]] |
 | G125 | Every internally-generated reward in the wiki is immune to its own delivery; the biological one extinguishes each time it is claimed | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g125.md]] |
 | G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g126.md]] |
