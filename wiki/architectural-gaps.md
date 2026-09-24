@@ -30,7 +30,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G12 | No routing policy between structure types | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `L0` | `PARTIAL` | 2 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g014.md]] |
-| G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 28 | [[wiki/gaps/g015.md]] |
+| G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 29 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 66 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
@@ -86,7 +86,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `L1` | `OPEN` | 15 | [[wiki/gaps/g068.md]] |
 | G69 | No architecture creates variables on demand | part | `L1` | `PARTIAL` | 10 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `PARTIAL` | 9 | [[wiki/gaps/g070.md]] |
-| G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g071.md]] |
+| G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 2 | [[wiki/gaps/g071.md]] |
 | G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 15 | [[wiki/gaps/g072.md]] |
 | G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 15 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g074.md]] |
@@ -121,7 +121,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `L3` | `PARTIAL` | 8 | [[wiki/gaps/g104.md]] |
 | G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `L0` | `PARTIAL` | 14 | [[wiki/gaps/g105.md]] |
 | G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `L3` | `OPEN` | 4 | [[wiki/gaps/g106.md]] |
-| G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 7 | [[wiki/gaps/g107.md]] |
+| G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 8 | [[wiki/gaps/g107.md]] |
 | G108 | No label-free criterion selects a good representation out of a training run | part | `L0-INSTR` | `OPEN` | 12 | [[wiki/gaps/g108.md]] |
 | G109 | No model claiming a knowledge/control split has been scored on the lesion profile that certifies one | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g109.md]] |
 | G110 | Top-down control is always applied to a module or its output; nothing applies it to the interface that feeds the module | arrangement | `L2` | `OPEN` | 7 | [[wiki/gaps/g110.md]] |
@@ -137,7 +137,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
 | G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 7 | [[wiki/gaps/g121.md]] |
 | G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 3 | [[wiki/gaps/g122.md]] |
-| G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 6 | [[wiki/gaps/g123.md]] |
+| G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 7 | [[wiki/gaps/g123.md]] |
 | G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g124.md]] |
 | G125 | Every internally-generated reward in the wiki is immune to its own delivery; the biological one extinguishes each time it is claimed | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g125.md]] |
 | G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g126.md]] |
