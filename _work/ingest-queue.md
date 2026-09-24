@@ -696,7 +696,7 @@ One INGEST each:
 
 One INGEST each:
 
-- [ ] `battiston-2020-networks-beyond-pairwise-interactions-structure-and-dynamics.md` — latent-graph · S · 2020
+- [x] `battiston-2020-networks-beyond-pairwise-interactions-structure-and-dynamics.md` — latent-graph · S · 2020
 - [ ] `galakhova-2022-evolution-of-cortical-neurons-supporting-human-cognition.md` — evolution-comparative · S · 2022
 - [ ] `miller-2019-habits-without-values.md` — rl-planning · F · 2019
 - [ ] `barak-2007-persistent-activity-in-neural-networks-with-dynamic-synapses.md` — working-memory · M · 2007
