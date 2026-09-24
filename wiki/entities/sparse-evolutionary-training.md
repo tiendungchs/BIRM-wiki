@@ -83,7 +83,7 @@ The weight counts give 2.2% for the top layers; the paper's own figure is "about
 | **Power-law test is under-specified** | Rejecting the null is read as "approaches a power law". In the cited Clauset–Shalizi–Newman framework, a small `p` *rules a power law out*. No likelihood comparison against lognormal or exponential is reported. The claim has the same instrument problem as `T254` |
 | **i.i.d. benchmarks only, seeds not stated** | Nothing compositional, no distribution shift, no robustness score (cf. `T300`) |
 | **Speed is notional** | Every run used dense-hardware libraries (Keras/Theano, MATLAB). Training-time reduction "may" follow on sparse hardware; no timing is measured |
-| **Regrowth is blind** | New edges are uniform random. The only selection is on the erase side, so the search on growth is undirected exploration |
+| **Regrowth is blind** | New edges are uniform random. The only selection is on the erase side, so the search on growth is undirected exploration. **Priced since:** replacing random regrowth with largest-`\|∇L\|` regrowth lifts ResNet-50/ImageNet at 80% sparsity from 72.9 to 74.6. SET also saturates around 75% under longer training, where the gradient-grown net reaches 76.6 at 5× (Evci et al. 2020, [[wiki/entities/rigl.md]]) |
 | **Post hoc biological analogy** | The link to sleep-time shrinking of the weakest synapses was found after the method was designed. It is an analogy, not a derivation |
 
 ---
@@ -99,7 +99,7 @@ The weight counts give 2.2% for the top layers; the paper's own figure is "about
 | Training signal | Gradient / contrastive divergence | Gradient | Gradient (masked) | Unsupervised, local; readout only | Gradient |
 | Beats random sparse at matched density? | **Yes, every model and dataset** | — (it is the baseline) | Yes, narrowing with scale (`T64`) | Not compared | — |
 
-**(brainstorm) SET and HAG are mirror images.** SET selects on erase and explores on growth. HAG selects on growth and explores on erase. Each lacks a criterion for the operation the other has one for. Neither has run the obvious hybrid: magnitude-based erase plus correlation-based growth.
+**(brainstorm) SET and HAG are mirror images.** SET selects on erase and explores on growth. HAG selects on growth and explores on erase. Each lacks a criterion for the operation the other has one for. Neither has run the obvious hybrid: magnitude-based erase plus correlation-based growth. **RigL runs a version of it** ([[wiki/entities/rigl.md]]): magnitude erase plus growth where `|∇_{W_ij} L| = |Σ_batch δ_i x_j|` is largest, i.e. a correlation between presynaptic activity and postsynaptic *error* rather than postsynaptic activity. It beats SET at every tested sparsity.
 
 ---
 
@@ -126,3 +126,4 @@ The weight counts give 2.2% for the top layers; the paper's own figure is "about
 - **[[wiki/concepts/small-world-topology.md]]** — the degree side of the missing trained-network measurement. SET reports a heavy-tailed hidden-unit degree emerging in training, but no clustering, no path length, and no fit against lognormal or exponential. So its topological claim is as weak as the `σ` claims that page criticises.
 - **[[wiki/concepts/sleep-oscillation-nesting.md]]** — the biological process the authors link to after the fact. Under the synaptic homeostasis account, sleep weakens synapses globally while tagged spines survive. SET removes the weakest edges outright and protects by magnitude alone, with no tag and no second signal.
 - **[[wiki/concepts/cellular-scaling-rules.md]]** — `ε` is the synapse-per-unit ratio as a hyperparameter. SET holds it at ~11–20 edges per unit and matches or beats dense layers. At fixed unit count, then, the machine side reports no gain from the rodent-style move of adding wiring per unit, on these benchmarks (`G101`).
+- **[[wiki/entities/rigl.md]]** — the same smallest-magnitude drop with growth changed from random to largest `|∇L|`. That isolates the growth criterion: it is worth +1.7 points on ResNet-50 at 80% sparsity and removes SET's saturation under longer training.

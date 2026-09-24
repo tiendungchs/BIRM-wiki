@@ -258,6 +258,11 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | AIS | Annealed Importance Sampling | Estimator of an intractable partition function; how RBM test log-likelihoods are reported |
 | NEAT | NeuroEvolution of Augmenting Topologies | Evolutionary search over both weights and topology, growing from small nets; does not scale to large inputs |
 | SReLU | S-shaped Rectified Linear Unit | Piecewise-linear activation with learned thresholds and slopes on both sides |
+| RigL | Rigged Lottery | Evci et al. 2020: sparse training that drops smallest-magnitude weights and grows those with the largest dense gradient every `ΔT` steps, at fixed width, edge count and FLOPs ([[wiki/entities/rigl.md]]) |
+| SNIP | Single-shot Network Pruning | Prune once at initialisation by saliency `\|θ·∇L\|`, then train the static mask |
+| SNFS | Sparse Networks From Scratch | Dynamic sparse training that grows by the momentum of the dense gradient, computed every step |
+| DSR | Dynamic Sparse Reparameterization | Dynamic sparse training with random regrowth that moves the parameter budget between layers |
+| DeepR | Deep Rewiring | SGD plus a random walk in parameter space; a weight whose sign would flip is set to zero and a random new edge is activated |
 | KAN | Kolmogorov-Arnold Network | Learnable univariate activation functions on the *edges* summed at the nodes, in place of fixed activations with learnable node weights; the basis of [[wiki/entities/kan-ode.md]] |
 | KAT | Kolmogorov-Arnold representation Theorem | `f(x) = Σ_q Φ_q(Σ_p φ_{q,p}(x_p))` — every continuous multivariate function is a finite composition of univariate ones; the KAN's licence, as the universal approximation theorem is the MLP's |
 | Neural ODE | Neural Ordinary Differential Equation | A network used as a gradient-getter, `du/dt = NN(u,t)`, integrated by a standard ODE solver with gradients taken by the adjoint method; makes a dynamics model continuous-time and grid-agnostic |

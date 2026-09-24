@@ -708,7 +708,7 @@ One INGEST each:
 - [x] `feng-2019-hypergraph-neural-networks.md` — latent-graph · M · 2019
 - [x] `levy-2019-learning-multi-level-hierarchies-with-hindsight.md` — rl-planning · M · 2019
 - [x] `badia-2020-never-give-up-learning-directed-exploration-strategies.md` — rl-planning · M · 2020
-- [ ] `evci-2020-rigging-the-lottery-making-all-tickets-winners.md` — brain-networks · M · 2020
+- [x] `evci-2020-rigging-the-lottery-making-all-tickets-winners.md` — brain-networks · M · 2020
 - [ ] `elazar-2021-amnesic-probing-behavioral-explanation-with-amnesic-counterfactuals.md` — mech-interp · M · 2021
 - [ ] `young-2021-hypergraph-reconstruction-from-network-data.md` — latent-graph · M · 2021
 - [ ] `chan-2022-causal-scrubbing-testing-interpretability-hypotheses.md` — mech-interp · M · 2022
