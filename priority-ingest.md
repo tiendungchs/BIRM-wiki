@@ -44,6 +44,6 @@ One INGEST each:
 - [x] `trivedi-2023-interleaving-retrieval-with-chain-of-thought-reasoning.md` — reasoning-eval · M · 2023
 - [x] `asai-2023-self-rag-learning-to-retrieve-generate-and-critique.md` — reasoning-eval · M · 2023
 - [x] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
-- [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
+- [x] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
 
-**1 source open. The next operation is `INGEST` of `aizenbud-2026`.**
+**Wave 27 fully ingested (20/20). `_work/ingest-queue.md` has no open rows and the want-list is empty — the next operation is `ACQUIRE` (wave 28).**

@@ -715,4 +715,4 @@ One INGEST each:
 - [x] `trivedi-2023-interleaving-retrieval-with-chain-of-thought-reasoning.md` — reasoning-eval · M · 2023
 - [x] `asai-2023-self-rag-learning-to-retrieve-generate-and-critique.md` — reasoning-eval · M · 2023
 - [x] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
-- [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
+- [x] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
