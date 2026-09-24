@@ -76,7 +76,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G58 | No control layer is instantiated by the existence of a choice at its own level | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g058.md]] |
 | G59 | Every hierarchical controller lets its lower level see the same observation as its upper level | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g059.md]] |
 | G60 | Every architecture derives its retrieval query from the goal; none chooses the query | part | `L2` | `OPEN` | 10 | [[wiki/gaps/g060.md]] |
-| G61 | Exploration is always an external schedule, never part of the selector | part | `L1` | `OPEN` | 12 | [[wiki/gaps/g061.md]] |
+| G61 | Exploration is always an external schedule, never part of the selector | part | `L1` | `OPEN` | 14 | [[wiki/gaps/g061.md]] |
 | G62 | Nothing scores a world model by what a planner can do with it | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g062.md]] |
 | G63 | The behaviour policy is a load-bearing parameter of world-model estimation, and every mechanism the wiki has for improving an agent destroys it | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g063.md]] |
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g064.md]] |
@@ -143,7 +143,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g126.md]] |
 | G127 | Every self-generated reward in the wiki is spent the instant it is earned; nothing holds a balance, and behaviour is controlled by the redemption schedule | part | `L1` | `OPEN` | 4 | [[wiki/gaps/g127.md]] |
 | G128 | Every cost term in the wiki is a fixed function of load; none has a write port, so no agent can become industrious | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g128.md]] |
-| G129 | Every intrinsic reward in the wiki is exhausted by learning; none reads the structure of the agent's own store, so none can grow | part | `L1` | `OPEN` | 9 | [[wiki/gaps/g129.md]] |
+| G129 | Every intrinsic reward in the wiki is exhausted by learning; none reads the structure of the agent's own store, so none can grow | part | `L1` | `OPEN` | 10 | [[wiki/gaps/g129.md]] |
 
 ## How gaps are used
 

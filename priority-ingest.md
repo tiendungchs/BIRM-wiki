@@ -36,7 +36,7 @@ One INGEST each:
 - [x] `burda-2018-exploration-by-random-network-distillation.md` — rl-planning · M · 2018
 - [x] `feng-2019-hypergraph-neural-networks.md` — latent-graph · M · 2019
 - [x] `levy-2019-learning-multi-level-hierarchies-with-hindsight.md` — rl-planning · M · 2019
-- [ ] `badia-2020-never-give-up-learning-directed-exploration-strategies.md` — rl-planning · M · 2020
+- [x] `badia-2020-never-give-up-learning-directed-exploration-strategies.md` — rl-planning · M · 2020
 - [ ] `evci-2020-rigging-the-lottery-making-all-tickets-winners.md` — brain-networks · M · 2020
 - [ ] `elazar-2021-amnesic-probing-behavioral-explanation-with-amnesic-counterfactuals.md` — mech-interp · M · 2021
 - [ ] `young-2021-hypergraph-reconstruction-from-network-data.md` — latent-graph · M · 2021
@@ -46,4 +46,4 @@ One INGEST each:
 - [ ] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
 - [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
 
-**9 sources open. The next operation is `INGEST` of `badia-2020`.**
+**8 sources open. The next operation is `INGEST` of `evci-2020`.**
