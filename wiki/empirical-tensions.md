@@ -370,3 +370,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T402 | On sparse-reward long-horizon tasks, is the missing component a task decomposition or a persistent frontier store? | `L1` | `LIVE` | 4 | [[wiki/tensions/t402.md]] |
 | T403 | Does a self-generated goal curriculum teach through the goals, or through the solutions shipped with them? | `L1` | `LIVE` | 5 | [[wiki/tensions/t403.md]] |
 | T404 | Is the dopamine prediction error the teaching signal for stimulus–reward learning as such, or only for the attribution of incentive value to a cue? | `L2` | `LIVE` | 11 | [[wiki/tensions/t404.md]] |
+| T405 | Does the habit controller store a cached value, or only how often each action was taken? | `L1` | `LIVE` | 4 | [[wiki/tensions/t405.md]] |
