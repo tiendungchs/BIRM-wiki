@@ -11,8 +11,8 @@
 | Component | Spec | Note |
 |---|---|---|
 | **Encoder `φ`** | 4 conv layers (32 filters, 3×3, stride 2, ELU); `φ(s) ∈ ℝ²⁸⁸`. Input = 4 stacked 42×42 greyscale frames | Trained by the inverse loss and the forward loss together |
-| **Inverse model `g`** | `â_t = g(φ(s_t), φ(s_{t+1}); θ_I)`; FC 256 → softmax over actions; `L_I` = cross-entropy | The only term that defines *what* `φ` keeps |
-| **Forward model `f`** | `φ̂(s_{t+1}) = f(φ(s_t), a_t; θ_F)`; FC 256 → 288; `L_F = ½‖φ̂(s_{t+1}) − φ(s_{t+1})‖²` | Its error is the reward |
+| **Inverse model `g`** | `â_t = g(φ(s_t), φ(s_{t+1}); θ_I)`; fully connected 256 → softmax over actions; `L_I` = cross-entropy | The only term that defines *what* `φ` keeps |
+| **Forward model `f`** | `φ̂(s_{t+1}) = f(φ(s_t), a_t; θ_F)`; fully connected 256 → 288; `L_F = ½‖φ̂(s_{t+1}) − φ(s_{t+1})‖²` | Its error is the reward |
 | **Reward** | `r_t = rⁱ_t + rᵉ_t`, `rⁱ_t = (η/2)‖φ̂ − φ‖²` | Additive. `rᵉ` is sparse or absent |
 | **Joint objective** | `min_{θ_P,θ_I,θ_F} [−λ E_π[Σ r_t] + (1−β)L_I + βL_F]`, `β = 0.2`, `λ = 0.1` | The policy gradient and the curiosity module are trained on one loss, each with its own weight |
 | **Policy** | A3C (Asynchronous Advantage Actor-Critic): same conv stack → LSTM 256 → value and policy heads; 20 asynchronous workers | The module is claimed to be policy-agnostic, but A3C is the only policy learner tested |

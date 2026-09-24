@@ -48,6 +48,7 @@ The wiki already cited it second-hand as the "hand-crafted subgoals" reference p
 | **Controller sees the full frame** | The goal mask is an added channel next to the raw state. Nothing makes the goal non-bypassable (`G59`) |
 | **No memory** | Non-Markovian tasks need "a flexible episodic memory module", which the paper names and does not build |
 | **Phase schedule not ablated** | No joint-from-start run is reported, so the value of the random-goal pretraining phase is unmeasured |
+| **No opponent term on the internal-critic reward** (`G126`) | The controller is paid `r(g) ∈ {0,1}` for every achievement at every training amount; capture is contained only because it never sees what the meta-controller is paid for |
 
 ---
 

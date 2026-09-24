@@ -15,7 +15,7 @@ Model split as `ŷ = c(h(x))`: encoder `h`, downstream reader `c` (here the word
 | **1. Probe** | Train linear classifier `W_i` to predict `Z` from `H`. If it is at majority, stop — an undecodable property cannot be used |
 | **2. Project out** | `H ← P_{N(W_i)} H`, so `W_i P_{N(W_i)} H = 0`; each iteration removes `#classes` directions |
 | **3. Iterate** | Repeat until no linear classifier beats majority — Iterative Nullspace Projection (INLP). Output `h(x)^{¬Z}` |
-| **4. Score** | Feed `h(x)^{¬Z}` to the *frozen* `c`; report task accuracy and `D_KL(p_c(·|h) ‖ p_c(·|h^{¬Z}))` over the whole output distribution |
+| **4. Score** | Feed `h(x)^{¬Z}` to the *frozen* `c`; report task accuracy and `D_KL(p_c(·\|h) ‖ p_c(·\|h^{¬Z}))` over the whole output distribution |
 
 The encoder is never retrained, so the answer is about *this* model's reader — unlike adversarial removal by gradient reversal, which changes the encoder and is reported not to remove all the information.
 

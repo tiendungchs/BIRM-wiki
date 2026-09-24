@@ -48,7 +48,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 26 | [[wiki/gaps/g030.md]] |
 | G31 | Generalization difficulty is uncomputable and unapproximated | part | `L0-INSTR` | `OPEN` | 10 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `L0` | `OPEN` | 20 | [[wiki/gaps/g032.md]] |
-| G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 28 | [[wiki/gaps/g033.md]] |
+| G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 30 | [[wiki/gaps/g033.md]] |
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g036.md]] |
@@ -140,7 +140,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 7 | [[wiki/gaps/g123.md]] |
 | G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g124.md]] |
 | G125 | Every internally-generated reward in the wiki is immune to its own delivery; the biological one extinguishes each time it is claimed | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g125.md]] |
-| G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 5 | [[wiki/gaps/g126.md]] |
+| G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 8 | [[wiki/gaps/g126.md]] |
 | G127 | Every self-generated reward in the wiki is spent the instant it is earned; nothing holds a balance, and behaviour is controlled by the redemption schedule | part | `L1` | `OPEN` | 4 | [[wiki/gaps/g127.md]] |
 | G128 | Every cost term in the wiki is a fixed function of load; none has a write port, so no agent can become industrious | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g128.md]] |
 | G129 | Every intrinsic reward in the wiki is exhausted by learning; none reads the structure of the agent's own store, so none can grow | part | `L1` | `OPEN` | 10 | [[wiki/gaps/g129.md]] |

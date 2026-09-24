@@ -12,7 +12,7 @@
 |---|---|---|
 | **Data** | Undirected simple graph `G` (`N` nodes, `E` edges) | Pairwise only. No time series, no node states |
 | **Latent** | Multi-hypergraph `H`: `A_{i₁…i_k} ≥ 0` hyperedges on each node set, sizes `2…L` | Repeats allowed a priori |
-| **Projection** `P(G|H)` | `1` iff `G = 𝒢(H)`: every edge of `G` lies in ≥ 1 hyperedge, and no hyperedge contains a non-edge. Else `0` | **Noise-free.** The authors reject noisy projections because they "blur the lines between community detection and higher-order interaction reconstruction" |
+| **Projection** `P(G\|H)` | `1` iff `G = 𝒢(H)`: every edge of `G` lies in ≥ 1 hyperedge, and no hyperedge contains a non-edge. Else `0` | **Noise-free.** The authors reject noisy projections because they "blur the lines between community detection and higher-order interaction reconstruction" |
 | **Factor graph** | Nodes = edges of `G`; factors = **every** clique of `G`, included sub-cliques too; a factor connects to each edge it contains | `G = 𝒢(H)` ⇔ every edge-node touches ≥ 1 active factor. Condition (ii) holds by construction: no factor spans a non-edge. Stored as maximal cliques, expanded lazily |
 | **Prior** `P(H)` | Poisson Random Hypergraph Model, PRHM (Darling & Norris 2005): `A_{i₁…i_k} ~ Poisson(λ_k)`, independent | Rate depends only on size `k` |
 | **Hyperprior** | `λ_k ~ Exp(mean ν_k)` (maximum entropy on `[0,∞)` with finite mean), integrated out | Softens the density commitment |

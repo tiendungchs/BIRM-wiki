@@ -6,7 +6,8 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 
 | # | Task | Why | Blocked on |
 |---|---|---|---|
-| P34 | **Ingest wave 27** — 20 pending in `_work/ingest-queue.md` | Acquired by `c6f8e71` against named rows: `G101` (A), `T367` (B), `G129`/`T358` (C), `G105` (D), five single measurements (E–I). Serves `P25` and `P28`(vi) | Ready to attempt (`INGEST`) |
+| P35 | **Run `T405`'s forced-action test** — the machine half costs nothing | Force an agent's actions by an external controller for `N` trials under zero reward, release, measure the logit bias by `N`. Model-free cache (A) predicts no bias; value-free habit store (B, [[wiki/concepts/value-free-habit.md]]) predicts bias growing in `N`. `L1`, and the first row in the file whose discriminating experiment needs no environment reward | Ready to attempt |
+| P36 | **Acquire wave 28** — queue is empty (516+1+0) | Wave 27 is fully ingested. Unacquired targets named by live rows: `G101`'s cross-species invariance (Sherwood 2020 unreachable), `T405` design (i) (repetition without reinforcement, microstimulation or instruction), `T406` (goal format crossed with domain — no source runs it) | Ready to attempt (`ACQUIRE`) |
 | P33 | **Back one agent's subgoal currency, and give it a balance** (`G125`, `G127`) | Cheapest `L1` experiment in the file. `G125`: per-option scalar `w_o ∈ [0,1]`, `r̃ = w_o` on termination, Pavlovian update. Read-outs: farming failure gone? `w_o` → empirical P(reward)? survives devaluation until run unbacked? `G127`: accumulate `r̃` in a policy-visible register, deliver to critic on its own schedule; test = ED/UD preference reversal | Ready to attempt |
 | P29 | **Four-cell valence × action design on a wiki agent** (`G116`) | Every result behind `T122`/`T85` populates only the congruent cells. Score a Go/No-Go gating agent ([[wiki/entities/pbwm.md]] first) on all four at matched difficulty; predicted deficit in `reward × No-Go` and `punishment × Go` | Ready to attempt |
 | P17 | **Run the two routers head to head** (`T283`) | Generative (Bayes over models) vs discriminative router: two wiki entities take opposite sides, never run on each other's benchmark. `T283` closes on an experiment, not a source — the discriminative side is already paged (Shazeer 2017, Fedus 2022 ×2, Andreas 2016). Also supplies `G12`/`G91`'s router | Ready to attempt |
@@ -25,8 +26,8 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 
 | # | Task | Why | Blocked on |
 |---|---|---|---|
-| P28 | **Write the missing overview sections** | Thematic body ends at section 17; ~142 of 496 sources sit outside it. Owed: (i) router and edge (MoE, deep-RL artefacts, continual-learning baselines, IRM, robustness instruments); (ii) per-tension adjudications; (iii) arrangement, objective, parts that reject; (iv) cortical channel and its rulers (waves 22–23: `T371` `T374` `T376` `T377` `T378` `T379` `T341` — a revision to the thesis); (v) what a store's discreteness is a property of (wave 25: `K^max = α_n N^{n−1}`, `T389` `T392`–`T394` `G123` `G124`); (vi) how a want is built (wave 26: `G125`–`G129` — no self-generated motivational quantity has an update rule). (vi) is the warmest | Ready to attempt |
-| P25 | **Edge-density scaling** (`G101`) | 2.75× cortical volume on 1.25× the neurons — the difference is connections; no wiki result says what a higher synapse-per-unit ratio buys. Wave-27 block A acquired it (Mocanu 2018, RigL, Galakhova 2022, Aizenbud 2026); `L3`, so it lands as prose. Cross-species invariance unsettled (Sherwood 2020 unreachable) | `P34` |
+| P28 | **Write the missing overview sections** | Thematic body ends at section 17; ~162 of 516 sources sit outside it. Owed: (i) router and edge (MoE, deep-RL artefacts, continual-learning baselines, IRM, robustness instruments); (ii) per-tension adjudications; (iii) arrangement, objective, parts that reject; (iv) cortical channel and its rulers (waves 22–23: `T371` `T374` `T376` `T377` `T378` `T379` `T341` — a revision to the thesis); (v) what a store's discreteness is a property of (wave 25: `K^max = α_n N^{n−1}`, `T389` `T392`–`T394` `G123` `G124`); (vi) how a want is built (wave 26: `G125`–`G129` — no self-generated motivational quantity has an update rule); (vii) what a connection buys and what a measurement may claim (wave 27: `G101`, `T405`, `T406`, higher-order interactions, amnesic probing, causal scrubbing). (vi) is the warmest | Ready to attempt |
+| P25 | **Edge-density scaling** (`G101`) | 2.75× cortical volume on 1.25× the neurons — the difference is connections; no wiki result says what a higher synapse-per-unit ratio buys. Wave-27 block A acquired it (Mocanu 2018, RigL, Galakhova 2022, Aizenbud 2026); `L3`, so it lands as prose — now ingested: [[wiki/entities/sparse-evolutionary-training.md]], [[wiki/entities/rigl.md]], [[wiki/entities/human-supragranular-pyramidal-neuron.md]], [[wiki/concepts/neuron-complexity-index.md]]. Cross-species invariance unsettled (`P36`) | Ready to attempt |
 | P24 | **Give one architecture a growth schedule** (`G100`) | [[wiki/concepts/developmental-heterochrony.md]]: a vector of per-module phase offsets over a conserved trajectory, sparse (~4% of components). Nothing in the wiki has a growth schedule | Ready to attempt |
 | P11 | **Score architectures against the six hardness sources** | A facet vector, not a scalar (`G13`). 118 entity pages, instrument still empty | Ready to attempt |
 | P13 | **Run the two specified-and-unrun world-model experiments** — (a) probe/ablate OthelloGPT end-game features (`T157`/`T158`); (b) LeJEPA rescaled-loss checkpoint ranking vs a patch-token probe | `P22` supplies the method for (a); `T285`: every "not decomposable" verdict so far dissolved under a better frame | Ready to attempt |
@@ -39,13 +40,15 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 | # | Task | Why |
 |---|---|---|
 | L36 | **Write the associative-memory *store* page** | Mechanism on 22 pages, concept page on none (7 concept / 15 entity). [[wiki/concepts/key-value-memory.md]] owns the address half; the storage rule and its capacity bound are scattered across [[wiki/concepts/attractor-dynamics.md]], [[wiki/concepts/retrieval-capacity.md]] and five entity pages. Primary sources on disk. Highest-value structural row |
+| L40 | **Adjudicate the 45 rows cited by ≤ 1 concept/entity page** — *ruling needed* | Lint(29) tally: 6 gaps (`G55` `G86` `G87` `G88` `G98` `G103`), 39 tensions (`T9`…`T380`). Step 5's second demotion criterion: each is re-levelled or `git mv`d to `closed/`. None is `L3`/`L4`, so `S19` cannot reach them; not acted on without a ruling |
+| L39 | **Write a dynamic-sparse-training concept page** | Prune-and-regrow is on two entity pages ([[wiki/entities/sparse-evolutionary-training.md]], [[wiki/entities/rigl.md]]) and cited from 8 more; `G101` is `L3`, so its content belongs in a concept body, which does not exist. Evci 2020 (the mask that only wins while it moves) sits inside the RigL page with no home of its own |
 | L38 | **Re-verify carried rows that assert something is missing** — *ruling needed: `S22`?* | `L20`/`P26` asserted a page missing that had existed six days. Mechanical half: any row claiming a page/file/source is missing, while the link resolves on disk → hard fail. Judgement half stays with lint |
 | L37 | **Work down `S21`'s 215 grandfathered one-way row references** | Baseline exact (0 stale). Proposed quota: 20 oldest pairs per pass → retired in 11 passes. Only row in the file with a finite, counted end state |
 | L34 | **Enforce `ACQUIRE` before a wave enters `raw/`** — *choice pending* | Waves 26–27 followed the order voluntarily; nothing requires it. Options: `ACQUIRE` in reconcile mode over unqueued files, or `S15` distinguishing queued rows with/without a gap tag |
 | L31 | **`T276` and `T344`: one wire, four proposed cargoes** — *ruling needed* | Not merged. Precedent favours a sibling note: `S12` resolved four such pairs that way (`T373`↔`T377`, `T374`↔`T376`, `T378`↔`T379`, `T341`↔`T380`) |
 | L29 | **Make [[wiki/concepts/latent-graph-discovery.md]] navigable** | 146 KB, largest page, and the CLAUDE.md tiebreaker. Cheapest probe: count sections reachable from its opening framing. Waves 25–26 are not reachable from it |
-| L27 | **Read the 108 grandfathered `L3`/`L4` rows directly** | Flat for eight passes. `S19` holds the entry point; neither demotion criterion reaches the block. Population — gaps `L0=28 L0-INSTR=13 L1=23 L2=44 L3=18 L4=1 META=1`; tensions `L0=38 L0-INSTR=64 L1=75 L2=84 L3=73 L4=16 META=6` |
-| L22 | **Escape `\|` inside table cells** | `S4` violations come in two classes: escaping (notation-heavy waves — conditional/cardinality bars in inline code) and short rows (any wave). Tally over three passes: 1/7, 0/1, 6/7 escaping |
+| L27 | **Read the 108 grandfathered `L3`/`L4` rows directly** | Flat for eight passes. `S19` holds the entry point; neither demotion criterion reaches the block. Population — gaps `L0=28 L0-INSTR=13 L1=23 L2=44 L3=18 L4=1 META=1`; tensions `L0=38 L0-INSTR=64 L1=76 L2=85 L3=73 L4=16 META=6` (lint 29) |
+| L22 | **Escape `\|` inside table cells** | `S4` violations come in two classes: escaping (notation-heavy waves — conditional/cardinality bars in inline code) and short rows (any wave). Tally over four passes: 1/7, 0/1, 6/7, 7/7 escaping |
 | L17 | **Audit `Closes when` fields against their evidence** | `S17`: 0 unset over 484 rows; ~290 criteria still unread against their evidence |
 | L16 | **Insert glossary rows by section, not by append** | `S13` catches duplicate keys, not rows under the wrong heading (64 ML rows once sat under `## Benchmarks`) nor one key with two meanings (`CPM`, `PC`) |
 | L8 | **Mark one `Connections` edge per page as primary** | 9,454 untyped edges over 411 pages; density per page now flat |
@@ -55,23 +58,23 @@ What to read or write next. Derived from [[wiki/architectural-gaps.md]], from op
 
 | # | Rule | Last state |
 |---|---|---|
-| S1 | Keep `Connections` bidirectional | 1 on entry at lint(28), repaired |
-| S2 | Lint after ~every 20 ingests | Last pass after 16 |
+| S1 | Keep `Connections` bidirectional | 0 on entry at lint(29) |
+| S2 | Lint after ~every 20 ingests | Last pass after 20 |
 | S3 | Re-run `./tools/qmd-index.sh` after each ingest | A stale index hides existing pages and causes duplicates |
-| S4 | Check table rows by column count — reset expected width at every table boundary | 7 on entry at lint(28), repaired; see `L22` |
-| S5 | Overview's source count is checked and exits non-zero | Repaired to 496 at lint(28) |
-| S5b | Overview's tension count likewise | Repaired to 356 at lint(28) |
+| S4 | Check table rows by column count — reset expected width at every table boundary | 7 on entry at lint(29), all escaping, repaired; see `L22` |
+| S5 | Overview's source count is checked and exits non-zero | Repaired to 516 at lint(29) |
+| S5b | Overview's tension count likewise | Repaired to 358 at lint(29) |
 | S6 | Write abbreviations the way the glossary lists them | `CPM` split into a two-sense row at lint(28) |
 | S7 | A concept reaching ~50% of a host page is a page — and the host need not be a page | Converse case live: `L36` |
 | S8 | Every cited `G`/`T` identifier has a row; no row shares an identifier | Clean |
 | S9 | A number quoted against a human is incomplete without its protocol; a capability number without its frame (`T291`) | — |
 | S10 | Every published self-count names the command that produces it — and something runs it | Held |
-| S11 | Check source integrity through `https://status.claude.com/api/v2/incidents.json`, not the status page | Clean window through wave 26 |
-| S12 | Check both registries for cross-topic duplicates by reading, not by `grep` | 0 merges at lint(28) |
+| S11 | Check source integrity through `https://status.claude.com/api/v2/incidents.json`, not the status page | Clean window through wave 27 (one incident, 2026-09-22 00:50–02:10 UTC, no commit inside it) |
+| S12 | Check both registries for cross-topic duplicates by reading, not by `grep` | 0 merges at lint(29) (`T405`, `T406` read against their neighbours) |
 | S13 | No glossary key may appear twice | Clean; blind to one key with two meanings (`S6`) |
 | S14 | A registry row and its carrying pages must cite each other, both directions | 0 uncited gaps, 0/356 uncited tensions |
-| S15 | The queue must reconcile exactly against `raw/` | OK at lint(28) |
-| S18 | A gap's `## From` names its carrying pages; each should cite the gap back | 3 on entry at lint(28), repaired |
+| S15 | The queue must reconcile exactly against `raw/` | OK at lint(29): 516+1+0 |
+| S18 | A gap's `## From` names its carrying pages; each should cite the gap back | 5 on entry at lint(29) (`G33`/`G126` ← wave 27's three hierarchy pages), repaired |
 | S19 | The level-admission rule | Clean; 108 grandfathered (`L27`) |
 | S20 | A pending queue row must be *true* | OK; not yet exercised against a real defect |
-| S21 | A registry row that names another row must be named back | 42 on entry at lint(28), repaired; 215 grandfathered (`L37`) |
+| S21 | A registry row that names another row must be named back | 5 on entry at lint(29) (`T405`, `T406`), repaired; 215 grandfathered (`L37`) |

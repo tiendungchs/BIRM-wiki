@@ -31,9 +31,9 @@
 
 | Case | Transitions received | Learned `Q` |
 |---|---|---|
-| `|s − a| > H` | Only penalties (never reachable, so never produced in hindsight) | `−H`: distant subgoals are no longer ignored |
-| `|s − a| ≤ H`, current lower hierarchy reaches it | Hindsight transitions; testing succeeds | Hindsight target |
-| `|s − a| ≤ H`, only the optimal hierarchy reaches it | Many hindsight transitions, few penalties | Weighted average, close to the hindsight target. The level still prefers subgoal paths the current executor can do |
+| `\|s − a\| > H` | Only penalties (never reachable, so never produced in hindsight) | `−H`: distant subgoals are no longer ignored |
+| `\|s − a\| ≤ H`, current lower hierarchy reaches it | Hindsight transitions; testing succeeds | Hindsight target |
+| `\|s − a\| ≤ H`, only the optimal hierarchy reaches it | Many hindsight transitions, few penalties | Weighted average, close to the hindsight target. The level still prefers subgoal paths the current executor can do |
 
 **HierQ** (Hierarchical Q-Learning), the tabular variant, replaces testing with **pessimistic initialisation** `Q_i ≤ −H^{i+1}` and updates every goal in `S` after each primitive step.
 
@@ -63,6 +63,8 @@
 | **Ant tasks are reacher / four-rooms** | Sparse reward, but not the deceptive Push/Fall family. No archive-and-return control (`T402`) |
 | **Lower levels see the full state** | Goal concatenated to `s` at every level: the standard `G59` violation |
 | **Hindsight-action bias** | Assumes the optimal executor reaches exactly what the noisy executor reached. Correct only when the reward depends on the endpoint alone, which is why the reward is restricted to `−1/0`. A path cost (energy, time within `H`) would break it |
+| **Three-level selection still without a world model** (`G33`) | First datum that more levels pay on top of relabelling (flat arm is DDPG + HER), but goals are raw states and nothing predicts them, so `G33`'s clause is failed on the same counts as HIRO |
+| **The `−H` penalty is not an opponent term** (`G126`) | It suppresses *infeasible* subgoals (tested misses), never *unbacked* ones: it fires when the executor cannot reach the target, not when reaching it fails to pay |
 
 ---
 

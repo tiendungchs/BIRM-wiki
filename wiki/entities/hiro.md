@@ -70,6 +70,8 @@ Best policy within 10M steps, mean ± standard error over 10 seeds. Gather = rew
 | **Baselines re-implemented, not native** | No official FuN code existed; the "FuN" rows are HIRO with one component swapped. SNN4HRL and VIME run with official code but on-policy TRPO (Trust Region Policy Optimization), so the off-policy vs. on-policy gap and the hierarchy gap are confounded in those rows |
 | **No relabelled-flat or archive control** | The flat arm is plain TD3, not TD3 with hindsight relabelling, and no archive-and-return baseline is run (`T402`; the tasks are also dense-reward, outside that row's scope) |
 | **Correction is approximate** | 10-candidate argmax; the pretrained-lower arm's win on Gather is read by the authors as evidence the correction is "still not perfect" |
+| **Selects subgoals from state, but not from a world model** (`G33`) | Beats flat TD3 at matched budget with no demonstrated decomposition, yet fails `G33`'s clause: goals are raw observations nothing predicts, and the flat arm is neither a planner nor a relabelled learner |
+| **No opponent term on the subgoal payment** (`G126`) | The lower level is paid the same graded distance at every training amount; runaway pursuit is contained only by concealing primary reward, as in [[wiki/entities/h-dqn.md]] |
 
 ---
 
