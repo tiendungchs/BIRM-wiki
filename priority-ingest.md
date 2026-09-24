@@ -28,7 +28,7 @@ One INGEST each:
 - [x] `battiston-2020-networks-beyond-pairwise-interactions-structure-and-dynamics.md` — latent-graph · S · 2020
 - [x] `galakhova-2022-evolution-of-cortical-neurons-supporting-human-cognition.md` — evolution-comparative · S · 2022
 - [x] `miller-2019-habits-without-values.md` — rl-planning · F · 2019
-- [ ] `barak-2007-persistent-activity-in-neural-networks-with-dynamic-synapses.md` — working-memory · M · 2007
+- [x] `barak-2007-persistent-activity-in-neural-networks-with-dynamic-synapses.md` — working-memory · M · 2007
 - [ ] `kulkarni-2016-hierarchical-deep-reinforcement-learning-temporal-abstraction-intrinsic-motivation.md` — rl-planning · M · 2016
 - [ ] `pathak-2017-curiosity-driven-exploration-by-self-supervised-prediction.md` — rl-planning · M · 2017
 - [ ] `mocanu-2018-sparse-evolutionary-training-adaptive-sparse-connectivity.md` — brain-networks · M · 2018
@@ -46,4 +46,4 @@ One INGEST each:
 - [ ] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
 - [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
 
-**17 sources open. The next operation is `INGEST` of `barak-2007`.**
+**16 sources open. The next operation is `INGEST` of `kulkarni-2016`.**

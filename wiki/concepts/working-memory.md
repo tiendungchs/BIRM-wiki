@@ -105,6 +105,18 @@ Four things this adds to the rows above, in descending order of how much they ch
 
 **What it does and does not settle for `G112`.** The ping is a *decoding* instrument, not a behavioural protocol: Experiment 3's whole point is that the manipulation leaves behaviour unchanged, so the carrier signal exists only in the decoded response and never in the scored output. `G112` therefore stays open — this is a fourth non-behavioural instrument beside the neuron-budget sweep, cross-task decoding and slot algebra, and much the cheapest of them, but it is on the same side of the line. Note also that the opposing synaptic-theory position (Mongillo et al. 2008) is not itself in the wiki, so the duality argument still has only one half in hand.
 
+### The two carriers are not exclusive: synapses can set the write for an activity store
+
+Barak & Tsodyks 2007 ([[wiki/entities/dynamic-synapse-attractor-network.md]]; mean-field theory, no data) keep the item in persistent spiking and add Tsodyks–Markram kinetics to the recurrent excitation. What the synapses then decide is **admission**, not storage:
+
+| Recurrent synapse type | Entry into the persistent state | Write criterion |
+|---|---|---|
+| Facilitating (`τ_f/τ_r > U/(1 − U)`) | Gradual; reversible until a separatrix is crossed | **Minimum input duration** (200 ms fails, 700 ms succeeds in the example) |
+| Depressing | Immediate population spike, then persistence | Any suprathreshold input, however short |
+| Both, inside one population, with cross-inhibition | Short pulse → depressing subpopulation persists; long pulse → facilitating one takes over and suppresses it | **Duration picks the attractor** at a fixed target set |
+
+For this page: a store can have a write rule with no gate and no controller, set by two kinetic constants. And the positions in `T86` can be layered rather than rival, with synaptic state deciding what enters an activity store. The model's predictions are transient synchrony at delay onset, and delay-cell diversity (transient vs ramping) from mixed synapse types. It says nothing about the activity-silent carrier, so it does not supply the missing Mongillo half of `G112`.
+
 
 ## Persistence with nothing to persist on
 
@@ -416,7 +428,7 @@ Three things this changes for fast **M**:
 ## Open problems
 
 - **Binding and variables.** The DNC demonstrates variable-binding-like behaviour without showing that a reusable variable *representation* exists; whether the binding generalizes to novel structures is untested here.
-- **Stability and flexibility may not be separable knobs.** In a persistent-activity circuit, the amplitude of the synaptic drive shifts the *induction* threshold and the *disruption* threshold in the same direction, so "easy to write" and "easy to clobber" are one parameter — and it is the same parameter that sets how long the attached decision circuit integrates ([[wiki/concepts/excitation-inhibition-balance.md]], Schirner et al. 2023). No store in the wiki reports these two thresholds separately, so none can say whether it has the same coupling.
+- **Stability and flexibility may not be separable knobs.** In a persistent-activity circuit, the amplitude of the synaptic drive shifts the *induction* threshold and the *disruption* threshold in the same direction, so "easy to write" and "easy to clobber" are one parameter — and it is the same parameter that sets how long the attached decision circuit integrates ([[wiki/concepts/excitation-inhibition-balance.md]], Schirner et al. 2023). No store in the wiki reports these two thresholds separately, so none can say whether it has the same coupling. Facilitating recurrence adds a write threshold on a *different* axis, input duration rather than amplitude (Barak & Tsodyks 2007). Its disruption threshold is not analysed, so whether duration decouples "easy to write" from "easy to clobber" is untested.
 - **Capacity and interference in the buffer** — no account of what happens when the instance-graph exceeds the memory matrix. And the limit need not be the matrix at all: where reads are by softmax attention, precision falls with the number of competing entries before the store is anywhere near full (Gong & Zhang 2024).
 - **Structural addressing.** Reads are by content similarity; navigation needs addressing by graph position (path-consistent `g`, gap G3).
 - **Interpretability.** Networks with external memory are the case that resists virtual brain analytics most stubbornly.
@@ -525,3 +537,4 @@ Three things this changes for fast **M**:
 - **[[wiki/concepts/visual-routines.md]]** — names a store none of this page's carriers is: the *incremental representation* is goal-dependent (same input, different question, different contents), addressed by location in the base representation, and holds **partial** parses rather than completed items — the thing a KV cache is not, because a cache is input-determined.
 - **[[wiki/concepts/visual-indices.md]]** — the pointer half of this page's stores isolated to the point of holding nothing: a FINST is a reference with no content register, so its 4–5 limit is a bound on *how many things can be referred to* rather than on how much can be held, and it is lost the moment its referent leaves the field — a working parse, not a memory (Pylyshyn 2001, `G48`).
 - **[[wiki/concepts/effort-based-decision-making.md]]** — the account that makes this page's capacity limit the *source* of a price rather than only a bound: allocation to any goal precludes allocation to every other, so the cost of control is the value of the next-best use of the store, and subjective effort is the felt representation of that opportunity cost. Two consequences. The limit becomes a decision variable — the same task is worth running under one set of alternatives and not another with the store's capacity unchanged — and the metabolic rival is ruled out on this page's behalf, since global cerebral glucose consumption rises ≤ ~1% during vigorous engagement (Westbrook & Braver 2015).
+- **[[wiki/entities/dynamic-synapse-attractor-network.md]]** — a hybrid of this page's two carriers: the item is held in persistent spiking, but whether and how it is written is set by short-term synaptic kinetics — a minimum input duration and a reversible approach under facilitation, an immediate population spike under depression — so the admission rule needs no controller (Barak & Tsodyks 2007).
