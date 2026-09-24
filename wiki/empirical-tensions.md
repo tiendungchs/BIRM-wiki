@@ -71,7 +71,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T59 | Does a stored memory live in the synaptic weights, or in a mask over them? | `L3` | `LIVE` | 3 | [[wiki/tensions/t059.md]] |
 | T62 | Should a fast associative store hold instances, or model a distribution? | `L1` | `LIVE` | 6 | [[wiki/tensions/t062.md]] |
 | T63 | Is the unit that stores a pattern the neuron or the dendritic segment? | `L4` | `LIVE` | 2 | [[wiki/tensions/t063.md]] |
-| T64 | Is the dendritic tree's *structure* load-bearing, or only its sparsity? | `L4` | `LIVE` | 3 | [[wiki/tensions/t064.md]] |
+| T64 | Is the dendritic tree's *structure* load-bearing, or only its sparsity? | `L4` | `LIVE` | 4 | [[wiki/tensions/t064.md]] |
 | T65 | Do cortical lateral connections link similar units, or deliberately mix dissimilar ones? | `L3` | `LIVE` | 2 | [[wiki/tensions/t065.md]] |
 | T66 | Does layer 6 supply a modulator signal, or the location code that decides what a column represents? | `L2` | `LIVE` | 2 | [[wiki/tensions/t066.md]] |
 | T67 | Where does mixed selectivity come from — wiring, or learning? | `L3` | `LIVE` | 3 | [[wiki/tensions/t067.md]] |
@@ -225,7 +225,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T251 | Does cortical geometry suffice to explain brain dynamics, or are the rare long-range connections load-bearing? | `L2` | `LIVE` | 3 | [[wiki/tensions/t251.md]] |
 | T252 | Is the direction of large-scale cortical flow fixed by anatomy or set dynamically? | `L2` | `LIVE` | 3 | [[wiki/tensions/t252.md]] |
 | T253 | Is slow connectome dynamics the accumulated expression of fast states, or an independent parallel stream? | `L4` | `LIVE` | 2 | [[wiki/tensions/t253.md]] |
-| T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L0-INSTR` | `LEANING` | 2 | [[wiki/tensions/t254.md]] |
+| T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t254.md]] |
 | T256 | Is the precuneus (area 7m) part of the default mode network? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t256.md]] |
 | T257 | In the default/control switch, who drives whom? | `L2` | `LIVE` | 3 | [[wiki/tensions/t257.md]] |
 | T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 4 | [[wiki/tensions/t259.md]] |
@@ -266,7 +266,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T297 | Is ordinary supervised learning causal or anticausal? | `L0` | `LIVE` | 3 | [[wiki/tensions/t297.md]] |
 | T298 | Should a discrete node be smoothed or differentiated exactly? | `L3` | `LIVE` | 2 | [[wiki/tensions/t298.md]] |
 | T299 | Does prioritising replay by surprise speed learning up, or destroy it? | `L3` | `LIVE` | 2 | [[wiki/tensions/t299.md]] |
-| T300 | Does added capacity buy robustness beyond what accuracy explains? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t300.md]] |
+| T300 | Does added capacity buy robustness beyond what accuracy explains? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t300.md]] |
 | T301 | Did the human cortex scale in units or in wiring-per-unit? | `L4` | `LIVE` | 3 | [[wiki/tensions/t301.md]] |
 | T302 | How deep is a single cortical pyramidal neuron? | `L4` | `LIVE` | 4 | [[wiki/tensions/t302.md]] |
 | T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `L1` | `LIVE` | 2 | [[wiki/tensions/t303.md]] |

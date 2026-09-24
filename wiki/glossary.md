@@ -252,6 +252,12 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | LRF / GRF | Local / Global Receptive Field | dANN input-sampling rules: receptive-field centre drawn per dendrite (LRF, best-performing) or per soma (GRF) |
 | eHebb | error-based Hebbian plasticity | `ΔW_{ℓ−1,ℓ} ∝ −e_ℓ e_{ℓ−1}ᵀ` — outer product of post- and pre-synaptic *error* signals rather than activations; drives forward weights toward the transpose of fixed random feedback (Shervani-Tabar & Rosenbaum 2023) |
 | MLP | Multi-Layer Perceptron | Plain fully-connected feedforward stack; the default comparator or head in most architectures here |
+| SET | Sparse Evolutionary Training | Each epoch: delete the fraction `ζ` of weights closest to zero, regrow as many at random; width and edge count fixed ([[wiki/entities/sparse-evolutionary-training.md]]) |
+| RBM | Restricted Boltzmann Machine | Two-layer undirected generative net, visible↔hidden edges only; trained by contrastive divergence |
+| XBM | compleX Boltzmann Machine | Sparse RBM with a *fixed* scale-free topology; SET's sparse predecessor ([[wiki/entities/sparse-evolutionary-training.md]]) |
+| AIS | Annealed Importance Sampling | Estimator of an intractable partition function; how RBM test log-likelihoods are reported |
+| NEAT | NeuroEvolution of Augmenting Topologies | Evolutionary search over both weights and topology, growing from small nets; does not scale to large inputs |
+| SReLU | S-shaped Rectified Linear Unit | Piecewise-linear activation with learned thresholds and slopes on both sides |
 | KAN | Kolmogorov-Arnold Network | Learnable univariate activation functions on the *edges* summed at the nodes, in place of fixed activations with learnable node weights; the basis of [[wiki/entities/kan-ode.md]] |
 | KAT | Kolmogorov-Arnold representation Theorem | `f(x) = Σ_q Φ_q(Σ_p φ_{q,p}(x_p))` — every continuous multivariate function is a finite composition of univariate ones; the KAN's licence, as the universal approximation theorem is the MLP's |
 | Neural ODE | Neural Ordinary Differential Equation | A network used as a gradient-getter, `du/dt = NN(u,t)`, integrated by a standard ODE solver with gradients taken by the adjoint method; makes a dynamics model continuous-time and grid-agnostic |

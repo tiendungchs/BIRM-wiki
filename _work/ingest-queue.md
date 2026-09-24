@@ -702,7 +702,7 @@ One INGEST each:
 - [x] `barak-2007-persistent-activity-in-neural-networks-with-dynamic-synapses.md` — working-memory · M · 2007
 - [x] `kulkarni-2016-hierarchical-deep-reinforcement-learning-temporal-abstraction-intrinsic-motivation.md` — rl-planning · M · 2016
 - [x] `pathak-2017-curiosity-driven-exploration-by-self-supervised-prediction.md` — rl-planning · M · 2017
-- [ ] `mocanu-2018-sparse-evolutionary-training-adaptive-sparse-connectivity.md` — brain-networks · M · 2018
+- [x] `mocanu-2018-sparse-evolutionary-training-adaptive-sparse-connectivity.md` — brain-networks · M · 2018
 - [ ] `nachum-2018-data-efficient-hierarchical-reinforcement-learning.md` — rl-planning · M · 2018
 - [ ] `burda-2018-exploration-by-random-network-distillation.md` — rl-planning · M · 2018
 - [ ] `feng-2019-hypergraph-neural-networks.md` — latent-graph · M · 2019
