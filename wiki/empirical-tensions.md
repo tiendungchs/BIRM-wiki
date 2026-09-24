@@ -267,7 +267,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T298 | Should a discrete node be smoothed or differentiated exactly? | `L3` | `LIVE` | 2 | [[wiki/tensions/t298.md]] |
 | T299 | Does prioritising replay by surprise speed learning up, or destroy it? | `L3` | `LIVE` | 2 | [[wiki/tensions/t299.md]] |
 | T300 | Does added capacity buy robustness beyond what accuracy explains? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t300.md]] |
-| T301 | Did the human cortex scale in units or in wiring-per-unit? | `L4` | `LIVE` | 2 | [[wiki/tensions/t301.md]] |
+| T301 | Did the human cortex scale in units or in wiring-per-unit? | `L4` | `LIVE` | 3 | [[wiki/tensions/t301.md]] |
 | T302 | How deep is a single cortical pyramidal neuron? | `L4` | `LIVE` | 4 | [[wiki/tensions/t302.md]] |
 | T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `L1` | `LIVE` | 2 | [[wiki/tensions/t303.md]] |
 | T304 | Should a joint-embedding's output be ℓ₂-normalised onto the hypersphere? | `L3` | `LIVE` | 5 | [[wiki/tensions/t304.md]] |
