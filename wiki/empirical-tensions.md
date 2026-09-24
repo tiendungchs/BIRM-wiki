@@ -38,7 +38,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T22 | Does a ranking metric on balanced samples say anything about a retrieval mechanism? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t022.md]] |
 | T23 | What licenses the creation of a new discrete node? | `L0` | `LIVE` | 4 | [[wiki/tensions/t023.md]] |
 | T24 | Does an adaptation curve measure learning? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t024.md]] |
-| T25 | Does a decodable internal structure license the claim that the model reasons over it? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t025.md]] |
+| T25 | Does a decodable internal structure license the claim that the model reasons over it? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t025.md]] |
 | T27 | Is the brain's map metric or topological? | `L1` | `LIVE` | 4 | [[wiki/tensions/t027.md]] |
 | T28 | Is the hippocampus a map, or an index of cortical representations? | `L1` | `LEANING` | 12 | [[wiki/tensions/t028.md]] |
 | T29 | Does de-aliasing conflict with generalisation? | `L0` | `LEANING` | 3 | [[wiki/tensions/t029.md]] |
@@ -109,7 +109,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T107 | Which structure holds the graph that a plan runs on — the hippocampal formation, or the cortical controller? | `L1` | `LIVE` | 5 | [[wiki/tensions/t107.md]] |
 | T108 | When a new situation is ambiguous between stored structures, does the learner mix them or commit to one? | `L2` | `LIVE` | 4 | [[wiki/tensions/t108.md]] |
 | T110 | When a task affords no higher-order structure, does the learner withdraw from the abstract level or keep imposing it? | `L2` | `LIVE` | 2 | [[wiki/tensions/t110.md]] |
-| T111 | Is a control representation a stable property of the tissue, or instantiated by the demand? | `L1` | `LIVE` | 3 | [[wiki/tensions/t111.md]] |
+| T111 | Is a control representation a stable property of the tissue, or instantiated by the demand? | `L1` | `LIVE` | 4 | [[wiki/tensions/t111.md]] |
 | T112 | Does removing a control signal reduce downstream selection, or eliminate it? | `L4` | `LEANING` | 3 | [[wiki/tensions/t112.md]] |
 | T113 | Is a control-band oscillation the control resource, or the receipt of one? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t113.md]] |
 | T114 | Does behavioural guidance by a feature imply an attentional gain signal for that feature in sensory cortex? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t114.md]] |

@@ -524,6 +524,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | LPM | Learning Progress Motivation | The intrinsic-motivation family whose reward is the negated derivative of mean prediction error over a window, computed *inside* a region of an incremental partition — progress over predictions, as against CPM's progress over achievements; the regionalisation it requires is the task decomposition `G33` asks for ([[wiki/concepts/intrinsic-motivation-typology.md]]) |
 | IGM | Information Gain Motivation | The intrinsic-motivation family whose reward is the entropy decrease of the agent's own distribution caused by an observation; the cell the infant-attention fit lands in, against the learning-progress cell its own literature predicted ([[wiki/concepts/intrinsic-motivation-typology.md]], [[wiki/concepts/realised-information-gain.md]]) |
 | COGED | Cognitive Effort Discounting | Westbrook & Braver 2015: a titration procedure that elicits a subjective value curve over task load by offering a smaller certain payment for a low-load task against a larger one for a high-load task; the wiki's only *measured* rather than stipulated cost term ([[wiki/concepts/effort-based-decision-making.md]], `G128`) |
+| INLP | Iterative Nullspace Projection | Ravfogel et al. 2020: repeatedly train a linear classifier for a property and project the representation onto its nullspace until no linear classifier beats majority; the erasure step of amnesic probing ([[wiki/concepts/amnesic-probing.md]]) |
+| POS | Part-of-speech | Word-class tag (noun, verb, determiner…); "coarse" = 12 universal classes, "fine" = 45 treebank tags in [[wiki/concepts/amnesic-probing.md]] |
+| NER | Named-Entity Recognition | Tagging tokens as person / organisation / location / … spans; one of the six erased properties in [[wiki/concepts/amnesic-probing.md]] |
 
 ## Neuroscience
 
