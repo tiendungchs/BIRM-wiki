@@ -62,6 +62,7 @@ The entropy term is the one piece of machinery here with no counterpart elsewher
 | [[wiki/entities/dqn.md]] | No | Weights only | No | 0 |
 | [[wiki/entities/neural-episodic-control.md]] | No | External store of *returns*, not of states to return to | No | 42.1 @ 10M frames |
 | [[wiki/entities/feudal-networks.md]] | Yes — learned latent directions | Manager's policy (parametric) | No | ~2,600 |
+| [[wiki/entities/h-dqn.md]] | Yes — designer-given objects, sequenced by a learned `Q₂` | Meta-controller's weights (parametric) | No | ~400 (room 1) |
 | [[wiki/entities/option-critic.md]] | No — policies, not targets | Option parameters (parametric) | No | not reported |
 | [[wiki/entities/diayn.md]] | Yes — discriminator regions, pre-task | Frozen skill set | No | not reported |
 | Count-based intrinsic motivation, same cell map | No | Weights + counts | No | 12,240 |
@@ -112,3 +113,4 @@ The entropy term is the one piece of machinery here with no counterpart elsewher
 - **[[wiki/concepts/replay-prioritisation.md]]** — the converse pairing: `|δ|` works as an action bonus and fails as a rehearsal priority, while `1/√(C+1)` fails as an action bonus and works as a memory-selection priority — two data points for the rule that an intrinsic quantity must be specified together with its consumer.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — the two-phase structure in an engineered system: a fast non-parametric store searches and accumulates specific trajectories, then a slow parametric learner is trained from them offline in a noisier copy of the world, with the store acting as its own demonstrator — consolidation with the teacher removed.
 - **[[wiki/entities/asymmetric-self-play.md]]** — the same simulator-reset exemption taken for a different purpose (re-enter a stored state, versus start two rollouts from one initial state so a proposed goal has a valid witness), and an independent arrival at this page's distillation step: what the solver actually learns from is the stored *route*, not the target — robustification clones the archive's own trajectories, Alice Behavioural Cloning clones the proposer's, and removing the latter costs everything (`T403`).
+- **[[wiki/entities/h-dqn.md]]** — the hierarchical answer on the same game without this page's control: both rely on a designer-given abstraction (object detector vs cell map), but only this page holds the abstraction fixed and changes the consumer. So h-DQN's ~400 against DQN's `0` cannot be split between the hierarchy and the object prior (`T402`, Kulkarni et al. 2016).
