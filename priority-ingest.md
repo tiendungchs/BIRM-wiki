@@ -32,7 +32,7 @@ One INGEST each:
 - [x] `kulkarni-2016-hierarchical-deep-reinforcement-learning-temporal-abstraction-intrinsic-motivation.md` — rl-planning · M · 2016
 - [x] `pathak-2017-curiosity-driven-exploration-by-self-supervised-prediction.md` — rl-planning · M · 2017
 - [x] `mocanu-2018-sparse-evolutionary-training-adaptive-sparse-connectivity.md` — brain-networks · M · 2018
-- [ ] `nachum-2018-data-efficient-hierarchical-reinforcement-learning.md` — rl-planning · M · 2018
+- [x] `nachum-2018-data-efficient-hierarchical-reinforcement-learning.md` — rl-planning · M · 2018
 - [ ] `burda-2018-exploration-by-random-network-distillation.md` — rl-planning · M · 2018
 - [ ] `feng-2019-hypergraph-neural-networks.md` — latent-graph · M · 2019
 - [ ] `levy-2019-learning-multi-level-hierarchies-with-hindsight.md` — rl-planning · M · 2019
@@ -46,4 +46,4 @@ One INGEST each:
 - [ ] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
 - [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
 
-**13 sources open. The next operation is `INGEST` of `nachum-2018`.**
+**12 sources open. The next operation is `INGEST` of `burda-2018`.**
