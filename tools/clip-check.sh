@@ -19,11 +19,16 @@ MIN_WORDS=600            # below this a clip is almost always a stub or an abstr
 DO_MANIFEST=0
 if [ "${1:-}" = "--manifest" ]; then DO_MANIFEST=1; shift; fi
 
-FILES="$*"
-if [ -z "$FILES" ]; then
-  FILES=$(git ls-files --others --exclude-standard raw/ | grep -E '\.(md|txt)$')
+# Clipped titles carry spaces, commas, colons, em-dashes and odd Unicode spaces (U+2002):
+# keep FILES an array and read git's output NUL-delimited, which also stops git
+# octal-quoting non-ASCII names. Bash 3.2 (macOS) has no mapfile, hence the loop.
+FILES=("$@")
+if [ ${#FILES[@]} -eq 0 ]; then
+  while IFS= read -r -d '' f; do
+    case "$f" in *.md|*.txt) FILES+=("$f") ;; esac
+  done < <(git ls-files -z --others --exclude-standard -- raw/)
 fi
-if [ -z "$FILES" ]; then
+if [ ${#FILES[@]} -eq 0 ]; then
   echo "clip-check: nothing to check (no untracked files in raw/)"; exit 0
 fi
 
@@ -33,9 +38,9 @@ fail() { say FAIL "$1"; FAILS=$((FAILS+1)); }
 warn() { say WARN "$1"; WARNS=$((WARNS+1)); }
 
 # ---- per-file checks -------------------------------------------------------
-for f in $FILES; do
+for f in "${FILES[@]}"; do
   N=$((N+1))
-  base=$(basename "$f")
+  base=${f##*/}
   FAILS_BEFORE=$FAILS
   echo "$f"
   if [ ! -f "$f" ]; then fail "no such file"; continue; fi

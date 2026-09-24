@@ -498,8 +498,6 @@ One INGEST each:
 
 ## Wave 18 — the relational supermodule, located: where System 2 relational reasoning runs, and by what mechanism
 
-Opened from the query on `analogical-mapping` / `working-memory` / Penn 2008. Ten targets on `_work/want-list.md`; nine filed, one unreachable.
-
 One INGEST each:
 
 - [x] `vendetti-2014-lateral-frontoparietal-evolution-development.md` — analogy-abstraction · S · 2014
@@ -517,8 +515,6 @@ Not acquired: Waltz et al. 1999, *A system for relational reasoning in human pre
 
 ## Unfiled clippings — dropped in `raw/` between waves
 
-Ingested in place; kept out of the wave blocks because none came from a want-list — each clipped opportunistically and anchored to its registry rows after the fact.
-
 - [x] `kirsanov-2026-firing-rate-fallacy.md` — neuromorphic-spiking · S · 2026
 - [x] `kirsanov-2026-surrogate-gradients-spikes.md` — neuromorphic-spiking · S · 2026
 - [x] `francioni-2026-vectorized-instructive-signals-dendrites.md` — plasticity · S · 2026
@@ -531,8 +527,6 @@ Ingested in place; kept out of the wave blocks because none came from a want-lis
 
 ## Pending — the hippocampal–prefrontal axis
 
-Dropped in `raw/` after wave 18 closed; 0 FAIL, 0 WARN, manifest rows 377–381. Ingest order S → F, anatomy before the model.
-
 - [x] `strange-2014-hippocampal-longitudinal-axis.md` — hippocampal-entorhinal · S · 2014
 - [x] `shin-2016-hippocampal-prefrontal-interaction-modes.md` — hippocampal-entorhinal · S · 2016
 - [x] `eichenbaum-2017-prefrontal-hippocampal-episodic-memory.md` — hippocampal-entorhinal · S · 2017
@@ -540,8 +534,6 @@ Dropped in `raw/` after wave 18 closed; 0 FAIL, 0 WARN, manifest rows 377–381.
 - [x] `george-2021-clone-structured-cognitive-graphs.md` — hippocampal-entorhinal · F · 2021
 
 ## Wave 19 — where the cortex's predictive capacity lives, and how it learns to predict the sensory consequence of an action
-
-Anchor: the user's query on TEM / Vector-HaSH generalisation — `T28` position B rests on a modelling assumption, with no measured circuit generating, delivering and learning an action-based prediction. All 6 targets clipped; 0 FAIL, 0 WARN, manifest rows 382–387.
 
 One INGEST each:
 
@@ -554,8 +546,6 @@ One INGEST each:
 
 ## Between-wave clips — dropped in `raw/` with wave 19
 
-Not from the want-list; anchored to open registry rows after the fact. 0 FAIL, 0 WARN, manifest rows 388–393; two duplicate bioRxiv clips of Whittington et al. 2025 deleted. Ingest order F → R, oldest first.
-
 - [x] `whittington-2025-tale-of-two-algorithms-structured-slots.md` — working-memory · F · 2025
 - [x] `bakermans-2025-hippocampal-composition-and-replay.md` — hippocampal-entorhinal · F · 2025
 - [x] `derdikman-2009-grid-map-fragmentation-multicompartment.md` — hippocampal-entorhinal · R · 2009
@@ -564,8 +554,6 @@ Not from the want-list; anchored to open registry rows after the fact. 0 FAIL, 0
 - [x] `braun-2009-motor-task-variation-structural-learning.md` — world-models · R · 2009
 
 ## Wave 20 — the starved bands: measurement validity, and the `L0` gaps whose artefact the wiki has never held
-
-Anchor: `P29` and `L27` at [[wiki/priority-tasks.md]] — `L0` at 39% and `L0-INSTR` at 13% against `L1` 93% / `L2` 97%; buys instrument-validity sources and the missing `L0` artefacts. 15 of 17 targets clipped; 0 FAIL, 4 WARN, manifest rows 394–408; three `LOSSY`.
 
 One INGEST each:
 
@@ -587,8 +575,6 @@ One INGEST each:
 
 ## Between-wave clips — dropped in `raw/` with wave 20: valence, the two dopamine populations, and need states as teaching signals
 
-Not from the want-list; anchored to open registry rows after the fact. 0 FAIL, 0 WARN, manifest rows 409–414. Ingest order S → R, oldest first.
-
 - [x] `boureau-2010-opponency-dopamine-serotonin.md` — rl-planning · S · 2010
 - [x] `brombergmartin-2010-dopamine-motivational-value-salience-alerting.md` — rl-planning · S · 2010
 - [x] `berridge-2016-liking-wanting-incentive-sensitization.md` — rl-planning · S · 2016
@@ -597,8 +583,6 @@ Not from the want-list; anchored to open registry rows after the fact. 0 FAIL, 0
 - [x] `campos-2018-parabrachial-cgrp-danger-encoding.md` — rl-planning · R · 2018
 
 ## Wave 21 — the four open BIRM requests: two valence channels, invented intermediate goals, learned wants, drives beyond the terminal reward
-
-Anchor: the want-list's wave 21 — one row per open request of `../BIRM/STATUS.md` (`R1`, `R2`, `R4`, `R5`). All 16 targets landed; 0 FAIL, 2 WARN, manifest rows 415–430; one `LOSSY` (Andrychowicz 2017).
 
 One INGEST each:
 
@@ -621,8 +605,6 @@ One INGEST each:
 
 ## Wave 22 — how the cortex computes, and how it is wired to the hippocampus
 
-Anchor: the want-list's wave 22 — block A on laminar wiring and hierarchy direction, block B on the medial-temporal funnel and the consolidation channel. All 14 targets landed; 0 FAIL, 0 WARN, manifest rows 431–444; two `LOSSY` (Lavenex 2000, Teyler 2007). Dropped at resolution: Buzsáki 1996, Tse 2007.
-
 One INGEST each:
 
 - [x] `lavenex-2000-hippocampal-neocortical-hierarchy-of-associativity.md` — hippocampal-entorhinal · S · 2000 · **LOSSY** (pdf2md)
@@ -642,8 +624,6 @@ One INGEST each:
 
 ## Wave 23 — the posterior exit from the hippocampal formation
 
-Anchor: the want-list's wave 23 — the posterior exit from the hippocampal formation (subiculum → retrosplenial → posterior cingulate / thalamus) had no page and no registry row. All 8 targets landed; 0 FAIL, 0 WARN, manifest rows 445–452.
-
 One INGEST each:
 
 - [x] `vann-2009-what-does-the-retrosplenial-cortex-do.md` — hippocampal-entorhinal · S · 2009
@@ -656,8 +636,6 @@ One INGEST each:
 - [x] `cembrowski-2018-dissociable-hippocampal-outputs-subiculum-cell-classes.md` — hippocampal-entorhinal · R · 2018
 
 ## Wave 24 — the parse itself: visual understanding as a mechanism, not a substrate
-
-Anchor: the want-list's wave 24 — seven registry rows name perception as the bottleneck while `wiki/concepts/` held no visual-mechanism page. 11 of 12 targets landed; 0 FAIL, 6 WARN, manifest rows 453–463; three `LOSSY` (`ullman`, `ballard`, `pylyshyn`). Not acquired: Roelfsema 2006 (`annualreviews.org`, outside the subscription).
 
 One INGEST each:
 
@@ -674,8 +652,6 @@ One INGEST each:
 - [x] `wang-2026-perception-bottleneck-abstract-reasoning-benchmarks.md` — reasoning-eval · R · 2026
 
 ## Wave 25 — capacity: what an associative store can hold, and what shape it holds it on
-
-Anchor: none — clipped and committed directly (`b955c46`) with no want-list, filed by lint 26; 13 files, 0 FAIL, 0 WARN, manifest rows 464–476; three loose PDFs moved to `raw/originals/`. Aimed at `G42`; `T62` and `T106` most likely to move.
 
 One INGEST each:
 
@@ -697,19 +673,6 @@ One INGEST each:
 
 ## Wave 26 — how a want is built, and whether a terminal signal alone builds one
 
-Anchor: the want-list's wave 26 — the sibling project's three open requests (`R4` the chain from a
-primary reward to a want that has none; `R5` what pulls once the terminal reward is collected;
-`R2`/`G72` subgoals out of a terminal signal alone). All 16 targets landed; 0 FAIL, 2 WARN
-(both benign `$` counts, not math), manifest rows 477–492; three `LOSSY` (`williams`,
-`eisenberger`, `murayama` — APA/Springer served no clippable HTML, converted by `pdf2md.sh`,
-originals in `raw/originals/`). Not acquired: Shenhav et al. 2017, *Toward a rational and
-mechanistic account of mental effort* (`annualreviews.org`, excluded venue, no PMC deposit) —
-the effort half of `R5` is worked from `kool-2018` and `westbrook-2015` instead.
-
-Ingest pairings the want-list asks for: `kool-2018` with `westbrook-2015` (decision problem +
-elicited curves); `bacon-2017`/`vezhnevets-2017` as the single-channel vs own-channel pair for
-`T367`; `ecoffet-2021` read as the negative control against `bacon`…`openai`.
-
 One INGEST each:
 
 - [x] `williams-1994-conditioned-reinforcement-neglected-or-outmoded.md` — rl-planning · S · 1994 · **LOSSY** (pdf2md)
@@ -729,4 +692,27 @@ One INGEST each:
 - [x] `sharpe-2017-dopamine-transients-model-based-associations.md` — rl-planning · R · 2017
 - [x] `poli-2020-infants-tailor-attention-to-maximize-learning.md` — rl-planning · R · 2020
 
-**16 sources open. The next operation is `INGEST`, starting at the top of wave 26.**
+## Wave 27 — what a connection buys, what runs out, and what a measurement is allowed to claim
+
+One INGEST each:
+
+- [ ] `battiston-2020-networks-beyond-pairwise-interactions-structure-and-dynamics.md` — latent-graph · S · 2020
+- [ ] `galakhova-2022-evolution-of-cortical-neurons-supporting-human-cognition.md` — evolution-comparative · S · 2022
+- [ ] `miller-2019-habits-without-values.md` — rl-planning · F · 2019
+- [ ] `barak-2007-persistent-activity-in-neural-networks-with-dynamic-synapses.md` — working-memory · M · 2007
+- [ ] `kulkarni-2016-hierarchical-deep-reinforcement-learning-temporal-abstraction-intrinsic-motivation.md` — rl-planning · M · 2016
+- [ ] `pathak-2017-curiosity-driven-exploration-by-self-supervised-prediction.md` — rl-planning · M · 2017
+- [ ] `mocanu-2018-sparse-evolutionary-training-adaptive-sparse-connectivity.md` — brain-networks · M · 2018
+- [ ] `nachum-2018-data-efficient-hierarchical-reinforcement-learning.md` — rl-planning · M · 2018
+- [ ] `burda-2018-exploration-by-random-network-distillation.md` — rl-planning · M · 2018
+- [ ] `feng-2019-hypergraph-neural-networks.md` — latent-graph · M · 2019
+- [ ] `levy-2019-learning-multi-level-hierarchies-with-hindsight.md` — rl-planning · M · 2019
+- [ ] `badia-2020-never-give-up-learning-directed-exploration-strategies.md` — rl-planning · M · 2020
+- [ ] `evci-2020-rigging-the-lottery-making-all-tickets-winners.md` — brain-networks · M · 2020
+- [ ] `elazar-2021-amnesic-probing-behavioral-explanation-with-amnesic-counterfactuals.md` — mech-interp · M · 2021
+- [ ] `young-2021-hypergraph-reconstruction-from-network-data.md` — latent-graph · M · 2021
+- [ ] `chan-2022-causal-scrubbing-testing-interpretability-hypotheses.md` — mech-interp · M · 2022
+- [ ] `trivedi-2023-interleaving-retrieval-with-chain-of-thought-reasoning.md` — reasoning-eval · M · 2023
+- [ ] `asai-2023-self-rag-learning-to-retrieve-generate-and-critique.md` — reasoning-eval · M · 2023
+- [ ] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
+- [ ] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
