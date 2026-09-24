@@ -323,7 +323,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T355 | Is the second midbrain dopamine channel a valence-blind salience magnitude, or a signed aversion channel? | `L2` | `LIVE` | 5 | [[wiki/tensions/t355.md]] |
 | T356 | Does a homeostatic need drive behaviour by signalling a deficit to be reduced, or by potentiating the positive value of the outcome? | `L2` | `LIVE` | 5 | [[wiki/tensions/t356.md]] |
 | T357 | Does a negative teaching signal carry its address, or is the address discarded at the first relay? | `L2` | `LIVE` | 6 | [[wiki/tensions/t357.md]] |
-| T358 | Does novelty enter valuation as a bonus or as a penalty? | `L0` | `LIVE` | 9 | [[wiki/tensions/t358.md]] |
+| T358 | Does novelty enter valuation as a bonus or as a penalty? | `L0` | `LIVE` | 10 | [[wiki/tensions/t358.md]] |
 | T359 | Is the motivational quantity a gain applied to one value estimate, or a second valuation system with its own associative structure? | `L1` | `LIVE` | 4 | [[wiki/tensions/t359.md]] |
 | T360 | Is non-instrumental information demand a drive to resolve uncertainty, or a drive to engage with positive items? | `L0` | `LIVE` | 4 | [[wiki/tensions/t360.md]] |
 | T361 | Is the lateral habenula a disappointment channel or a general aversion channel? | `L2` | `LIVE` | 4 | [[wiki/tensions/t361.md]] |
@@ -365,7 +365,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T397 | Is the effort cost term one block serving both domains, or two separately-addressed costs for cognitive and physical effort? | `L1` | `LIVE` | 3 | [[wiki/tensions/t397.md]] |
 | T398 | Is the subjective cost of mental effort convex in effort, or concave (hyperbolic)? | `L0` | `LIVE` | 4 | [[wiki/tensions/t398.md]] |
 | T399 | Is the fall in exploration with age a maturational schedule, or just a sharpening posterior? | `L1` | `LIVE` | 2 | [[wiki/tensions/t399.md]] |
-| T400 | Does an extrinsic reward *add* to the self-generated one, or suppress its generation? | `L2` | `LIVE` | 3 | [[wiki/tensions/t400.md]] |
+| T400 | Does an extrinsic reward *add* to the self-generated one, or suppress its generation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t400.md]] |
 | T401 | Should the lower level of a hierarchy be denied the environment's reward? | `L2` | `LIVE` | 3 | [[wiki/tensions/t401.md]] |
 | T402 | On sparse-reward long-horizon tasks, is the missing component a task decomposition or a persistent frontier store? | `L1` | `LIVE` | 6 | [[wiki/tensions/t402.md]] |
 | T403 | Does a self-generated goal curriculum teach through the goals, or through the solutions shipped with them? | `L1` | `LIVE` | 5 | [[wiki/tensions/t403.md]] |

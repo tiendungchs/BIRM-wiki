@@ -66,6 +66,7 @@ The entropy term is the one piece of machinery here with no counterpart elsewher
 | [[wiki/entities/option-critic.md]] | No — policies, not targets | Option parameters (parametric) | No | not reported |
 | [[wiki/entities/diayn.md]] | Yes — discriminator regions, pre-task | Frozen skill set | No | not reported |
 | Count-based intrinsic motivation, same cell map | No | Weights + counts | No | 12,240 |
+| [[wiki/entities/random-network-distillation.md]] | No | Predictor weights (a learned count); no address | No | 8,152 mean; 17,500 best single run (~2B frames) |
 
 ---
 
@@ -116,3 +117,4 @@ The entropy term is the one piece of machinery here with no counterpart elsewher
 - **[[wiki/entities/h-dqn.md]]** — the hierarchical answer on the same game without this page's control: both rely on a designer-given abstraction (object detector vs cell map), but only this page holds the abstraction fixed and changes the consumer. So h-DQN's ~400 against DQN's `0` cannot be split between the hierarchy and the object prior (`T402`, Kulkarni et al. 2016).
 - **[[wiki/entities/intrinsic-curiosity-module.md]]** — the reward-side answer this page's control argues against, measured on its own failure cases: its Mario agent stalls at a pit that needs a 15–20-press sequence with death on failure (this page's derailment), and fine-tuning on Level-3 degenerates once the prediction-error reward is spent before an impassable point (319 → 97.5). That is the parametric frontier going silent, which this page's archive avoids by storing the frontier (Pathak et al. 2017).
 - **[[wiki/entities/hiro.md]]** — the returning-to-states half of this page without the archive: HIRO's upper level issues raw-state targets that a learned executor reaches, and it beats a flat learner at matched budget. Its tasks are dense but deceptive reward, not sparse, and no archive-and-return control is run, so it does not bear on `T402` directly (Nachum et al. 2018).
+- **[[wiki/entities/random-network-distillation.md]]** — the strongest reward-side use of a novelty count on this page's benchmark, and its authors name the missing piece: RND reaches 8,152 on Montezuma's Revenge (one run passes level 1) but cannot save keys for the last doors, which they call global exploration "beyond the reach of our method". Go-Explore's archive supplies exactly that addressable frontier, (brainstorm) so this is a further data point for `T402`'s position B: neither system decomposes, and only the one that stores the frontier gets past the key constraint.

@@ -704,7 +704,7 @@ One INGEST each:
 - [x] `pathak-2017-curiosity-driven-exploration-by-self-supervised-prediction.md` — rl-planning · M · 2017
 - [x] `mocanu-2018-sparse-evolutionary-training-adaptive-sparse-connectivity.md` — brain-networks · M · 2018
 - [x] `nachum-2018-data-efficient-hierarchical-reinforcement-learning.md` — rl-planning · M · 2018
-- [ ] `burda-2018-exploration-by-random-network-distillation.md` — rl-planning · M · 2018
+- [x] `burda-2018-exploration-by-random-network-distillation.md` — rl-planning · M · 2018
 - [ ] `feng-2019-hypergraph-neural-networks.md` — latent-graph · M · 2019
 - [ ] `levy-2019-learning-multi-level-hierarchies-with-hindsight.md` — rl-planning · M · 2019
 - [ ] `badia-2020-never-give-up-learning-directed-exploration-strategies.md` — rl-planning · M · 2020
