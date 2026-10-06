@@ -5,6 +5,8 @@
 > **Provenance.** Cullen & Taube 2017, *Our sense of direction: progress, controversies and challenges*, Nat. Neurosci. 20(11) (`raw/cullen-2017-our-sense-of-direction-progress-controversies-challenges.md`). This is a Perspective, not new data. It joins two literatures that rarely cite each other: monkey vestibular-nucleus single units recorded during active versus passive motion (Cullen), and rat head-direction lesion and recording studies (Taube). Box 1 and Figures 1–3 are images or missing from the clip. Taube is an author on most of the rat lesion results the wiki already cites on [[wiki/entities/mammillary-bodies.md]] and [[wiki/entities/anterior-thalamic-nuclei.md]] (Stackman & Taube; Golob & Taube; Goodridge & Taube), so this source does not check those pages independently.
 >
 > **Second source.** Shinder & Taube 2014, *Resolving the active versus passive conundrum for head direction cells*, Neuroscience 270:123–138 (`raw/shinder-2014-resolving-active-versus-passive-conundrum-head-direction-cells.md`). A review written three years earlier that states the same conundrum from the rat side. It adds the stage-by-stage angular-head-velocity record, the only active-versus-passive data from the integrator's input stage (dorsal tegmental nucleus), velocity storage, and four candidate resolutions. Same lab as the first source (Taube), so it is not an independent check; several of its dorsal-tegmental results are the lab's unpublished preliminary data. Figures are images in the clip.
+>
+> **Third source.** Shinder & Taube 2014, *Self-motion improves head direction cell tuning*, J. Neurophysiol. 111(12):2479–2492 (`raw/shinder-2014-self-motion-improves-head-direction-cell-tuning.md`), cited below as **2014b**. Primary data: 55 `AD` heading cells, 9 head-fixed, body-restrained rats, held still after passive rotation. Same lab again (Taube), so not independent.
 
 Why this earns a page. "Head direction" appears on ~45 wiki pages. The circuit is covered node by node: the fly ring ([[wiki/entities/fly-central-complex.md]]), the mammillary generator ([[wiki/entities/mammillary-bodies.md]]), the thalamic manifold ([[wiki/entities/anterior-thalamic-nuclei.md]]) and the cortical stabiliser ([[wiki/entities/retrosplenial-cortex.md]]). No page covers the system end to end, and none asks what rides its input wire. This source does both. The second question is `T408`.
 
@@ -132,11 +134,64 @@ The canal signal is brief. Brainstem **velocity storage** extends it in time. Ve
 
 ---
 
+## With no motion: the direction is held, the contrast is not (Shinder & Taube 2014b)
+
+The ring is supposed to hold its state with zero velocity input. Test: rotate a head-fixed, body-restrained rat back and forth by hand for ~30 s, then stop it facing the cell's preferred direction, or 90° counter-clockwise from it, and hold it still for 30 s. A ~100° cue card stays visible throughout, in a 76-cm cylinder. Recordings are from `AD`.
+
+**Tuning while moving** (40 cells, each recorded in all three conditions):
+
+| Condition | Peak (spikes/s) | Background (spikes/s) | Firing range | Rayleigh `r` |
+|---|---|---|---|---|
+| Active foraging | 56.0 ± 4.8 | 1.1 ± 0.2 | 117.7° | 0.80 |
+| Passive rotation (head-fixed) | 55.3 ± 3.6 | 1.8 ± 0.3 | 132.4° | 0.76 |
+| Passive rotation within the braking protocol | 67.0 ± 3.9 | 0.7 ± 0.1 | 123.7° | 0.84 |
+
+**After the brake** (% of the cell's peak firing rate under passive rotation):
+
+| Epoch | Stopped facing the preferred direction (22 cells) | Stopped 90° away (19 other cells) |
+|---|---|---|
+| 100 ms before the brake | 92.0 | 3.6 |
+| First 100 ms after | 87.1 (n.s.) | 1.4 (n.s.) |
+| 0–1 s | 74.4 (`p` = 0.03) | 3.7 |
+| Slope, 0–4 s | **−10.7 %/s** | **+3.2 %/s** |
+| Plateau, 5–29 s | **42.4** (cells range ~10–70) | **14.0** = 9.5 spikes/s = **~7× background** (cells range 1–33%) |
+| Slope, last ~25 s | −0.11 %/s (flat) | −0.03 %/s (flat) |
+
+**Static placement** at 8 directions 45° apart, 30 s each, which isolates direction from braking:
+
+| Between placements | At the preferred direction | 90° away |
+|---|---|---|
+| ~1 s, 45° step (30 cells) | 51.0% of passive peak (49.6% of active peak) | 11.8%; ≥90° directions average ~3× passive background, ~5.7× active background |
+| 30 s of back-and-forth rotation (18 new cells) | 69.0% | 18.2%; ~9× passive background |
+
+| Property | Result |
+|---|---|
+| Onset | Nothing changes for ~100 ms; contrast then relaxes over **~4 s** to a stable plateau |
+| Preferred direction | Kept. First and last placements at 0° agree (`r` = 0.82, slope 0.89); no peak appears at 45° or 315° |
+| Plateau fluctuations | Aperiodic: interpeak intervals match a shuffle. Fewer peaks off-direction than on-direction. They vary from trial to trial within a cell |
+| Plateau level | Weakly predicted by the pre-brake rate (`r` = 0.45–0.53, against 0.77 for 100 ms before vs after the brake). Unchanged by 5 months of protocol experience (0.47 / 0.44 / 0.42, `p` = 0.89) |
+| 30 s of rotation between placements | Raises firing in **every** direction. A positive offset that leaves the peak-to-background separation unchanged. Origin unknown |
+| Earlier adaptation result | Taube & Muller 1998, freely moving rats, 0.33–2 s epochs: ~11% `AD` adaptation, none in postsubiculum, not replicated in a second data set. 2014b: the window was too short to see a ~4-s process |
+
+**What the authors rule out.** The preferred direction is not drifting or shifting. A slow drift would end at background, but the plateau sits ~35× above background. A fast drift would give periodic bursts, equally often on and off the preferred direction; the bursts are aperiodic and rarer off it. A jump to a new direction would leave off-field rates at zero, contradict the visible cue card, and show a shifted peak in the 45° steps. Post-rotatory vestibular firing is also excluded, because it needs sustained rotation in one direction. The account left: **the observed rate is intrinsic recurrent feedback plus angular-velocity input.** Remove the input and the rate falls to what the recurrence sustains alone. Cells differ in how much their inhibition relaxes, which explains the spread of plateau levels. One alternative from the introduction is that the tonic firing of `DTN` angular-velocity cells at rest (5–20 spikes/s) holds the state. That drive should be present at rest here too, yet contrast still falls, so at most it sustains the plateau.
+
+**Reconciles an earlier line.** "Heading firing stays constant in motionless rats" (Shinder & Taube 2011b, under *Head or gaze?* below) is true of the plateau only, after a ~4-s settle and at about half the contrast.
+
+**The authors' behavioural reading.** Lower contrast means each spike says less about heading. Human VR without self-motion gives orientation errors and less efficient search (Chance 1998; Klatzky 1998; Ruddle & Lessels 2006). With optic flow alone, turns, distance reproduction and triangle completion are all worse than with self-motion cues (Riecke 2002). Hippocampal place cells, by contrast, work in VR without self-motion (Harvey 2009). The authors suggest the heading system supplies the **orientation invariance** of spatial memory, so a view learned while motionless transfers less well to other orientations. Not tested here.
+
+**(brainstorm) The zero-input persistence test has two read-outs, and this system passes only one.** Zero the velocity input of a ring attractor and ask two things: does the bump stay where it was (position), and does it stay as sharp (contrast)? In the measured system the position is held and the contrast relaxes to about half, on a ~4-s time constant. A ring whose height is set by the recurrence alone would keep both. So the velocity channel carries a contrast-maintaining **gain** as well as the shift. The symmetric `LMN` speed cells above, which carry `|ω|`, are a candidate carrier. But half of them *decrease* firing with speed, so the sign of their gain effect is not given. This is a machine instrument point ([[wiki/concepts/attractor-identification.md]], C3): "the state survives zeroed input" must report both numbers.
+
+**(brainstorm) Bump contrast is not posterior precision.** If bump height encoded certainty, it should *fall* during motion, when integration error accumulates, and hold at rest, when nothing is being integrated. The measurement goes the other way: contrast is high while moving and low while still. A model that reads its ring's peak-to-background ratio as confidence would therefore be miscalibrated by motion state. This is an `L0-INSTR` hazard for any probe that equates activity amplitude with certainty ([[wiki/concepts/representation-probing.md]]).
+
+**(brainstorm) Landmark and contrast travel on separate channels.** The cue card was in view throughout and the preferred direction did not move, so the visual anchor kept *where* the bump sat. It did not keep *how sharp* the bump was. Anchoring (component ii above) fixes position only. Sharpness depends on the self-motion channel.
+
+---
+
 ## Head or gaze?
 
 - `NPH` is the oculomotor integrator, its lesion disrupts heading, and it targets regions projecting multisynaptically to presubiculum. So the ascending signal may carry **eye-in-head position** as well as head direction.
 - **No rodent study has recorded heading cells while tracking the eyes.** Whether a rodent "head-direction" cell codes head or gaze is open.
-- Shared wiring (Shinder & Taube 2014): transneuronal tracing from the medial rectus eye muscle labels `NPH`, medial vestibular nucleus, `DTN` and `LMN` (Graf et al. 2002). The heading path shares circuitry with the oculomotor one, so eye signals must be removed somewhere on the way up. The source nominates `SGN`, which is not reported as labelled. Indirect evidence against a gaze code: heading firing stays constant in motionless rats, when occasional eye movements would be expected (Shinder & Taube 2011b). Eyes were not tracked. Eye-head neurons code the same head turn differently when the vestibulo-ocular reflex is suppressed, so the source concludes no single cell type codes `AHV` consistently and the ring reads a population sum.
+- Shared wiring (Shinder & Taube 2014): transneuronal tracing from the medial rectus eye muscle labels `NPH`, medial vestibular nucleus, `DTN` and `LMN` (Graf et al. 2002). The heading path shares circuitry with the oculomotor one, so eye signals must be removed somewhere on the way up. The source nominates `SGN`, which is not reported as labelled. Indirect evidence against a gaze code: heading firing stays constant in motionless rats, when occasional eye movements would be expected (Shinder & Taube 2011b). This holds for the plateau only, reached after a ~4-s settle at about half the contrast (2014b, above). Eyes were not tracked. Eye-head neurons code the same head turn differently when the vestibulo-ocular reflex is suppressed, so the source concludes no single cell type codes `AHV` consistently and the ring reads a population sum.
 - Primate data point both ways:
 
 | Primate finding | Frame |
@@ -176,6 +231,7 @@ The forward model that decides what counts as self-generated is recalibrated wit
 | Virtual reality | Visual flow says the subject moves. Vestibular and proprioceptive feedback say it does not |
 | Head-fixed or head-restrained | Expected and actual vestibular and proprioceptive feedback disagree |
 | Human fMRI navigation | Supine, head fixed, watching a monitor: **no** active vestibular, motor-efference or proprioceptive signal |
+| Held motionless (rat, head-fixed; Shinder & Taube 2014b) | Heading kept, contrast about halved within ~4 s with a landmark in view. Every motionless setup above (fMRI included) would read the ring in this reduced state |
 
 **The source's untested prediction.** If the forward model adapts to the immersive setup, heading cells may encode heading **in the reality the subject is immersed in** (a VR world, a dream) rather than in the physical room. That would contradict the assumption that the system holds a fixed real-world heading.
 
@@ -214,6 +270,7 @@ The forward model that decides what counts as self-generated is recalibrated wit
 | Drift-versus-loss lesion logic | An ablation test for locating an integrator in a trained network (above) |
 | Gravity-referenced axis | A sensor-delivered anchor that removes part of the symmetry group (`G39`) |
 | VR / head-fixed mismatch | What the integrator counts as motion depends on the setup. A change in body dynamics recalibrates the integrator's input before it can affect the integrator |
+| Contrast loss when motionless (2014b) | The velocity channel sets bump **gain** as well as bump shift: `a_t = 0` keeps position and lowers peak-to-background ratio (brainstorm) |
 
 **(brainstorm) Put the forward model on the integrator's input path, not beside it.** Suppose the integrator needs total head motion and the sensor stage passes on only the unpredicted part. Then the input has to be rebuilt as `a_t = â_t(efference, proprioception) + e_t`: the forward model's prediction plus the exafferent residual. Three consequences follow. (i) A forward-model miscalibration becomes **integrator drift**. (ii) A sustained miscalibration, as in VR, is a sustained bias. (iii) The prediction: heading should drift, or follow the wrong gain, during the ~40–50 movements after a change in body dynamics. That is the window in which vestibular-nucleus neurons treat self-motion as passive. Untested. The fly compass is the cleanest machine template the wiki has ([[wiki/entities/fly-central-complex.md]]), and it was measured head-fixed in closed-loop VR, the setup this source flags as mismatched.
 
@@ -230,6 +287,7 @@ The forward model that decides what counts as self-generated is recalibrated wit
 - **No eye tracking in any rodent heading study**, so the variable's name is an assumption.
 - **The VR prediction is stated and not tested.** No heading recording is reported under a manipulated forward model.
 - **The integrator's input stage is barely measured.** `DTN` active-versus-passive data are one hand-held study (12 cells) plus unpublished head-fixed recordings; the two `DTN` tuning surveys disagree on symmetric cells; `SGN` has never been recorded.
+- **The motionless result is one preparation.** All 2014b data are head-fixed and body-restrained, from female rats and `AD` only, with manual rotation. The braking on-direction and off-direction groups are different cells, and "away" was tested only at 90° counter-clockwise. Other restraint methods change heading firing on their own (restraint confound above).
 - **Velocity storage evidence is one manipulation** (commissural section), reported second-hand in Shinder & Taube 2014 without the study named.
 
 ---
@@ -246,3 +304,4 @@ The forward model that decides what counts as self-generated is recalibrated wit
 - **[[wiki/entities/hippocampal-diencephalic-cingulate-network.md]]** — the circuit this chain runs through, with its theta twin one nucleus over at every level (ventral tegmental nucleus of Gudden → medial mammillary → `AV`). The two merge in `AV`'s head-direction-by-theta cells (Jankowski et al. 2013).
 - **[[wiki/concepts/reference-frame-transformation.md]]** — the system's velocity input may need its own frame transform, head-referenced yaw to gravity-referenced rotation, before `DTN`; the parameter (the gravity axis) is a sensor estimate, not an integrated variable.
 - **[[wiki/concepts/hexadirectional-signal.md]]** — the human instrument is run supine and head-fixed in front of a monitor, the setup in which this system's vestibular, proprioceptive and efference inputs are all absent or mismatched.
+- **[[wiki/concepts/attractor-identification.md]]** — this system is that page's strongest scoreboard row, and 2014b qualifies its invariance criterion: with the velocity input removed in waking, the ring keeps its position but loses about half its contrast within ~4 s, so a zero-input persistence test has to report position and contrast separately.
