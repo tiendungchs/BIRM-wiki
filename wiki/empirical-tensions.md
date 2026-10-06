@@ -371,6 +371,6 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T403 | Does a self-generated goal curriculum teach through the goals, or through the solutions shipped with them? | `L1` | `LIVE` | 5 | [[wiki/tensions/t403.md]] |
 | T404 | Is the dopamine prediction error the teaching signal for stimulus–reward learning as such, or only for the attribution of incentive value to a cue? | `L2` | `LIVE` | 11 | [[wiki/tensions/t404.md]] |
 | T405 | Does the habit controller store a cached value, or only how often each action was taken? | `L1` | `LIVE` | 4 | [[wiki/tensions/t405.md]] |
-| T406 | Should a subgoal passed down a hierarchy be a direction in a learned latent space, or a displacement in fixed state coordinates? | `L2` | `LIVE` | 3 | [[wiki/tensions/t406.md]] |
+| T406 | Should a subgoal passed down a hierarchy be a direction in a learned latent space, or a displacement in fixed state coordinates? | `L2` | `LIVE` | 4 | [[wiki/tensions/t406.md]] |
 | T407 | Is recognition familiarity a read of the episodic store, or a separate module that survives the store's removal? | `L1` | `LIVE` | 5 | [[wiki/tensions/t407.md]] |
 | T408 | Is the heading integrator's velocity input the vestibular measurement, or a reconstruction from motor prediction plus the exafferent residual? | `L2` | `LIVE` | 5 | [[wiki/tensions/t408.md]] |
