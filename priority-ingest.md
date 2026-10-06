@@ -11,15 +11,26 @@ page (named on 27 pages, owned by none), and `T408`'s record of heading under ac
 motion. The user clipped all 5 before a want-list row existed; each is anchored by `P36`. They failed
 clip-check only on filename and were renamed; after that, 0 FAIL, 0 WARN, manifest rows 518–522.
 `brown-2001` is from the Aggleton lab, so it is not independent of `aggleton-1999`/`aggleton-2022`.
-The other `P36` targets (`G101` cross-species invariance, `T405`, `T406`) are on `_work/want-list.md`
-and join this block when they land.
+The second drop (all 4 want-list rows plus the Dale & Cullen clip) also failed only on filename;
+renamed, 0 FAIL, 0 WARN, manifest rows 523–527, and rows 520–522 re-sequenced to keep the
+S → F → M → R order. `G101`: Sherwood et al. 2020 measures edges per unit across 25 primates;
+Herculano-Houzel & Kaas 2011 adds great apes, units only, cortex extrapolated from cerebellum, and
+is from the same lab as `herculanohouzel-2009`. `T405`: Greenstreet et al. 2025, a value-free action
+prediction error (reward present, so not design (i)). `T406`: Nachum et al. 2019, co-trained vs
+frozen vs objective-trained goal spaces in one agent. `T408`, Position B: Dale & Cullen 2017.
+*Not acquired:* `T405` design (i) — no source found.
 
 One INGEST each:
 
 - [ ] `brown-2001-recognition-memory-roles-perirhinal-cortex-hippocampus.md` — hippocampal-entorhinal · S · 2001
 - [ ] `shinder-2014-resolving-active-versus-passive-conundrum-head-direction-cells.md` — hippocampal-entorhinal · F · 2014
+- [ ] `nachum-2019-near-optimal-representation-learning-hierarchical-rl.md` — rl-planning · M · 2019
 - [ ] `bowles-2007-impaired-familiarity-preserved-recollection-temporal-resection-sparing-hippocampus.md` — hippocampal-entorhinal · R · 2007
+- [ ] `herculanohouzel-2011-gorilla-orangutan-brains-conform-primate-cellular-scaling-rules.md` — evolution-comparative · R · 2011
 - [ ] `shinder-2014-self-motion-improves-head-direction-cell-tuning.md` — hippocampal-entorhinal · R · 2014
+- [ ] `dale-2017-ventral-posterior-lateral-thalamus-encodes-externally-applied-vs-active-movement.md` — thalamocortical · R · 2017
 - [ ] `dugue-2017-cerebellar-re-encoding-self-generated-head-movements.md` — world-models · R · 2017
+- [ ] `sherwood-2020-invariant-synapse-density-neuronal-connectivity-scaling-primate-neocortex.md` — evolution-comparative · R · 2020
+- [ ] `greenstreet-2025-dopaminergic-action-prediction-errors-value-free-teaching-signal.md` — rl-planning · R · 2025
 
 **Order: survey → framework → mechanism → result, oldest first within tier.**

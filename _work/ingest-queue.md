@@ -719,18 +719,6 @@ One INGEST each:
 
 ## Wave 28 — the Papez loop as a loop
 
-Anchor: the want-list's wave 28 — from a query on 2026-10-06 that found the wiki holds the loop node
-by node (anterior thalamic nuclei, retrosplenial and posterior cingulate cortex, subiculum, entorhinal
-cortex) but has no page for the mammillary bodies, the fornix or the hippocampus proper, and no source
-that traces the circuit as a circuit. Rows served: `T381` (relay versus co-equal second stream — its
-`Closes when` needs the two routes' anatomy stated separately), `G39` (anchoring a retrieved structure
-to the present situation — the head-direction chain is biology's one measured instance), `T383`
-(egocentric↔allocentric conversion as one region's operation), `G43` (arbitration between concurrent
-frames — the landmark cue-conflict data) and `T101` (reuniens versus anterior thalamus as the
-controller's route into the store). All 5 targets landed; 0 FAIL, 1 WARN (`aggleton` lone `$`, a
-copyright-line price), manifest rows 513–517; one `LOSSY` (`aggleton-1999`, Cambridge Core PDF only).
-Taube 2007 (Annual Reviews, excluded venue) was replaced by Cullen & Taube 2017.
-
 One INGEST each:
 
 - [x] `bubb-2017-hippocampal-diencephalic-cingulate-networks-memory-emotion-anatomical-guide.md` — hippocampal-entorhinal · S · 2017
@@ -741,20 +729,15 @@ One INGEST each:
 
 ## Wave 29 — what recognition reads, and what the heading integrator is fed
 
-Anchor: `P36` (lint 30), which turned the targets lint(29) left unacquired and wave 28's three new
-ones into one acquire wave. This block holds wave 28's three: `T407`'s reverse case (a perirhinal
-resection that spares the hippocampus, with familiarity lost and recollection kept), a perirhinal-cortex
-page (named on 27 pages, owned by none), and `T408`'s record of heading under active versus passive
-motion. The user clipped all 5 before a want-list row existed; each is anchored by `P36`. They failed
-clip-check only on filename and were renamed; after that, 0 FAIL, 0 WARN, manifest rows 518–522.
-`brown-2001` is from the Aggleton lab, so it is not independent of `aggleton-1999`/`aggleton-2022`.
-The other `P36` targets (`G101` cross-species invariance, `T405`, `T406`) are on `_work/want-list.md`
-and join this block when they land.
-
 One INGEST each:
 
 - [ ] `brown-2001-recognition-memory-roles-perirhinal-cortex-hippocampus.md` — hippocampal-entorhinal · S · 2001
 - [ ] `shinder-2014-resolving-active-versus-passive-conundrum-head-direction-cells.md` — hippocampal-entorhinal · F · 2014
+- [ ] `nachum-2019-near-optimal-representation-learning-hierarchical-rl.md` — rl-planning · M · 2019
 - [ ] `bowles-2007-impaired-familiarity-preserved-recollection-temporal-resection-sparing-hippocampus.md` — hippocampal-entorhinal · R · 2007
+- [ ] `herculanohouzel-2011-gorilla-orangutan-brains-conform-primate-cellular-scaling-rules.md` — evolution-comparative · R · 2011
 - [ ] `shinder-2014-self-motion-improves-head-direction-cell-tuning.md` — hippocampal-entorhinal · R · 2014
+- [ ] `dale-2017-ventral-posterior-lateral-thalamus-encodes-externally-applied-vs-active-movement.md` — thalamocortical · R · 2017
 - [ ] `dugue-2017-cerebellar-re-encoding-self-generated-head-movements.md` — world-models · R · 2017
+- [ ] `sherwood-2020-invariant-synapse-density-neuronal-connectivity-scaling-primate-neocortex.md` — evolution-comparative · R · 2020
+- [ ] `greenstreet-2025-dopaminergic-action-prediction-errors-value-free-teaching-signal.md` — rl-planning · R · 2025
