@@ -735,7 +735,7 @@ One INGEST each:
 - [x] `shinder-2014-resolving-active-versus-passive-conundrum-head-direction-cells.md` — hippocampal-entorhinal · F · 2014
 - [x] `nachum-2019-near-optimal-representation-learning-hierarchical-rl.md` — rl-planning · M · 2019
 - [x] `bowles-2007-impaired-familiarity-preserved-recollection-temporal-resection-sparing-hippocampus.md` — hippocampal-entorhinal · R · 2007
-- [ ] `herculanohouzel-2011-gorilla-orangutan-brains-conform-primate-cellular-scaling-rules.md` — evolution-comparative · R · 2011
+- [x] `herculanohouzel-2011-gorilla-orangutan-brains-conform-primate-cellular-scaling-rules.md` — evolution-comparative · R · 2011
 - [ ] `shinder-2014-self-motion-improves-head-direction-cell-tuning.md` — hippocampal-entorhinal · R · 2014
 - [ ] `dale-2017-ventral-posterior-lateral-thalamus-encodes-externally-applied-vs-active-movement.md` — thalamocortical · R · 2017
 - [ ] `dugue-2017-cerebellar-re-encoding-self-generated-head-movements.md` — world-models · R · 2017
