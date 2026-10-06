@@ -2,48 +2,26 @@
 
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
-## Wave 27 — what a connection buys, what runs out, and what a measurement is allowed to claim
+## Wave 28 — the Papez loop as a loop
 
-Anchor: the want-list's wave 27 — anchored on the registries rather than on sibling-project requests,
-on rows whose `Closes when` names a measurement a published source may already have run (`G101`
-edge density; `T367`/`G33`/`G126` subgoal channel and schedule; `G129`/`T358` exhaustible intrinsic
-reward; `G105` `n`-ary relations; `G123` re-reading store; `G113`/`G109` probe controls; `T2`/`G112`
-fast-store carrier; `G110` control at the interface; `G121` devaluation as habit assay). All 20
-targets landed; 0 FAIL, 1 WARN (`elazar` odd `$` count, 141), manifest rows 493–512; no `LOSSY`.
-C2 (`burda-2018`, RND) landed last as `Exploration by Random Network Distillation.md`, renamed on
-filing. Not acquired: Sherwood et al. 2020, *Invariant synapse density
-and neuronal connectivity scaling in primate neocortical evolution* (`academic.oup.com/cercor`,
-excluded venue, no PMC deposit) — `G101`'s cross-species half stays unsettled; `galakhova-2022`
-and `aizenbud-2026` work the per-neuron side instead.
-
-Ingest pairings the want-list asks for: `mocanu-2018` before `evci-2020` (density varied, then budget
-held and topology varied); `kulkarni-2016` → `nachum-2018` → `levy-2019` in schedule order;
-`pathak-2017` and `burda-2018` before `badia-2020`; `battiston-2020` first in block D, then
-`young-2021`, then `feng-2019` as the negative control — **queue order puts `feng` before `young`
-(oldest first); the want-list wants `young` first**; `trivedi-2023` before `asai-2023`; `elazar-2021`
-before `chan-2022`.
+Anchor: the want-list's wave 28 — from a query on 2026-10-06 that found the wiki holds the loop node
+by node (anterior thalamic nuclei, retrosplenial and posterior cingulate cortex, subiculum, entorhinal
+cortex) but has no page for the mammillary bodies, the fornix or the hippocampus proper, and no source
+that traces the circuit as a circuit. Rows served: `T381` (relay versus co-equal second stream — its
+`Closes when` needs the two routes' anatomy stated separately), `G39` (anchoring a retrieved structure
+to the present situation — the head-direction chain is biology's one measured instance), `T383`
+(egocentric↔allocentric conversion as one region's operation), `G43` (arbitration between concurrent
+frames — the landmark cue-conflict data) and `T101` (reuniens versus anterior thalamus as the
+controller's route into the store). All 5 targets landed; 0 FAIL, 1 WARN (`aggleton` lone `$`, a
+copyright-line price), manifest rows 513–517; one `LOSSY` (`aggleton-1999`, Cambridge Core PDF only).
+Taube 2007 (Annual Reviews, excluded venue) was replaced by Cullen & Taube 2017.
 
 One INGEST each:
 
-- [x] `battiston-2020-networks-beyond-pairwise-interactions-structure-and-dynamics.md` — latent-graph · S · 2020
-- [x] `galakhova-2022-evolution-of-cortical-neurons-supporting-human-cognition.md` — evolution-comparative · S · 2022
-- [x] `miller-2019-habits-without-values.md` — rl-planning · F · 2019
-- [x] `barak-2007-persistent-activity-in-neural-networks-with-dynamic-synapses.md` — working-memory · M · 2007
-- [x] `kulkarni-2016-hierarchical-deep-reinforcement-learning-temporal-abstraction-intrinsic-motivation.md` — rl-planning · M · 2016
-- [x] `pathak-2017-curiosity-driven-exploration-by-self-supervised-prediction.md` — rl-planning · M · 2017
-- [x] `mocanu-2018-sparse-evolutionary-training-adaptive-sparse-connectivity.md` — brain-networks · M · 2018
-- [x] `nachum-2018-data-efficient-hierarchical-reinforcement-learning.md` — rl-planning · M · 2018
-- [x] `burda-2018-exploration-by-random-network-distillation.md` — rl-planning · M · 2018
-- [x] `feng-2019-hypergraph-neural-networks.md` — latent-graph · M · 2019
-- [x] `levy-2019-learning-multi-level-hierarchies-with-hindsight.md` — rl-planning · M · 2019
-- [x] `badia-2020-never-give-up-learning-directed-exploration-strategies.md` — rl-planning · M · 2020
-- [x] `evci-2020-rigging-the-lottery-making-all-tickets-winners.md` — brain-networks · M · 2020
-- [x] `elazar-2021-amnesic-probing-behavioral-explanation-with-amnesic-counterfactuals.md` — mech-interp · M · 2021
-- [x] `young-2021-hypergraph-reconstruction-from-network-data.md` — latent-graph · M · 2021
-- [x] `chan-2022-causal-scrubbing-testing-interpretability-hypotheses.md` — mech-interp · M · 2022
-- [x] `trivedi-2023-interleaving-retrieval-with-chain-of-thought-reasoning.md` — reasoning-eval · M · 2023
-- [x] `asai-2023-self-rag-learning-to-retrieve-generate-and-critique.md` — reasoning-eval · M · 2023
-- [x] `zhou-2016-pulvinar-cortex-interactions-in-vision-and-attention.md` — thalamocortical · R · 2016
-- [x] `aizenbud-2026-dendritic-morphology-synaptic-nonlinearities-human-cortical-neurons.md` — neuron-models · R · 2026
+- [ ] `bubb-2017-hippocampal-diencephalic-cingulate-networks-memory-emotion-anatomical-guide.md` — hippocampal-entorhinal · S · 2017
+- [ ] `aggleton-1999-episodic-memory-amnesia-hippocampal-anterior-thalamic-axis.md` — hippocampal-entorhinal · F · 1999 · LOSSY
+- [ ] `vann-2004-mammillary-bodies-two-memory-systems-in-one.md` — hippocampal-entorhinal · F · 2004
+- [ ] `cullen-2017-our-sense-of-direction-progress-controversies-challenges.md` — hippocampal-entorhinal · M · 2017
+- [ ] `jankowski-2013-anterior-thalamus-subcortical-circuit-memory-spatial-navigation.md` — thalamocortical · R · 2013
 
-**Wave 27 fully ingested (20/20). `_work/ingest-queue.md` has no open rows and the want-list is empty — the next operation is `ACQUIRE` (wave 28).**
+**Wave 28 queued (0/5 ingested). Order: survey → framework → mechanism → result, oldest first within tier.**
