@@ -54,7 +54,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g036.md]] |
 | G37 | Nothing decides which stored structure applies to the current situation | part | `L2` | `PARTIAL` | 32 | [[wiki/gaps/g037.md]] |
 | G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `L2` | `PARTIAL` | 39 | [[wiki/gaps/g038.md]] |
-| G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 27 | [[wiki/gaps/g039.md]] |
+| G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 28 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g040.md]] |
 | G41 | No test decides whether a domain's actions compose | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g041.md]] |
 | G42 | No machine fast store has a capacity model, so nothing knows when it is full | part | `L1` | `PARTIAL` | 35 | [[wiki/gaps/g042.md]] |
@@ -69,7 +69,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G51 | Nothing transfers a representation out of the control layer into the store that will run it automatically | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g051.md]] |
 | G52 | No inter-module connection in the wiki has state of its own | part | `L2` | `OPEN` | 14 | [[wiki/gaps/g052.md]] |
 | G53 | No architecture delivers one signal to two modules by the same wire, and none lets a third module license a pair's connection | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g053.md]] |
-| G54 | No architecture distinguishes a channel that carries content from one that only carries timing | part | `L2` | `PARTIAL` | 14 | [[wiki/gaps/g054.md]] |
+| G54 | No architecture distinguishes a channel that carries content from one that only carries timing | part | `L2` | `PARTIAL` | 15 | [[wiki/gaps/g054.md]] |
 | G55 | Every machine controller is either one resource or *n* independent ones; none has a shared component plus operation-specific parameters | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g055.md]] |
 | G56 | No architecture has a run-time gain register on its own connections | part | `L2` | `OPEN` | 10 | [[wiki/gaps/g056.md]] |
 | G57 | No architecture makes its teaching signal one of its own inputs | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g057.md]] |

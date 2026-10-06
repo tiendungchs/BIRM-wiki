@@ -20,8 +20,8 @@ One INGEST each:
 
 - [x] `bubb-2017-hippocampal-diencephalic-cingulate-networks-memory-emotion-anatomical-guide.md` — hippocampal-entorhinal · S · 2017
 - [x] `aggleton-1999-episodic-memory-amnesia-hippocampal-anterior-thalamic-axis.md` — hippocampal-entorhinal · F · 1999 · LOSSY
-- [ ] `vann-2004-mammillary-bodies-two-memory-systems-in-one.md` — hippocampal-entorhinal · F · 2004
+- [x] `vann-2004-mammillary-bodies-two-memory-systems-in-one.md` — hippocampal-entorhinal · F · 2004
 - [ ] `cullen-2017-our-sense-of-direction-progress-controversies-challenges.md` — hippocampal-entorhinal · M · 2017
 - [ ] `jankowski-2013-anterior-thalamus-subcortical-circuit-memory-spatial-navigation.md` — thalamocortical · R · 2013
 
-**Wave 28 queued (2/5 ingested). Order: survey → framework → mechanism → result, oldest first within tier.**
+**Wave 28 queued (3/5 ingested). Order: survey → framework → mechanism → result, oldest first within tier.**

@@ -64,6 +64,16 @@ The strongest single result in the review is a subtraction. Disconnecting the **
 
 The 1999 paper concedes one heading-specific effect. Anterior thalamic lesions disrupt the water maze *more* than fornix lesions do (Warburton & Aggleton), and it attributes the excess to lost head-direction input.
 
+**The mammillary side of the subtraction** (Vann & Aggleton 2004, [[wiki/entities/mammillary-bodies.md]]):
+
+| Finding | Detail |
+|---|---|
+| `AD` heading is generated upstream | Bilateral, not unilateral, lateral mammillary lesions abolish `AD` head-direction tuning, matching the bilateral projection. The lateral mammillary signal **leads** `AD`'s. `AD` is in turn needed for postsubicular heading (Goodridge & Taube 1997) |
+| …and independently of the store | Hippocampal or postsubicular lesions leave `AD` heading intact (Golob & Taube 1997). Vestibular removal abolishes it (Stackman & Taube 1997) |
+| `AV` is the theta nucleus | ~75% of `AV` cells fire in synchrony with hippocampal theta (Vertes et al. 2001). The theta reaches `AV` from the medial mammillary nucleus, which is driven from CA1 |
+| Lesion additivity | Lesions including `AD` impair radial-arm, T-maze and water-maze memory, but less than whole-`ATN` lesions. `AM`-centred lesions sparing `AD` give mild working-memory deficits. Whole-`ATN` > `AD`+`AV` in the water maze. Read as two mammillary inputs (heading → `AD`, theta → `AV`/`AM`) whose costs add, *or* as direct hippocampal input |
+| `AM` may be a third system | Stronger anterior-cingulate and prefrontal links than the other two nuclei, and **no theta cells** |
+
 ---
 
 ## The 1999 lesion record
@@ -202,4 +212,5 @@ Their inputs to overlapping cortical sites are separated by **topography and lam
 - **[[wiki/entities/hippocampal-diencephalic-cingulate-network.md]]** — the network this page's nuclei sit at the centre of, traced edge by edge. The store's output arrives here directly, via the mammillary bodies and via retrosplenial cortex, so this is the one node whose lesion disconnects every route. The same route anatomy shows `T381`'s two-stream cut has no clean surgical form on the cortical side.
 - **[[wiki/entities/dorsal-visual-stream.md]]** — the same head-direction circuit reached from the visual side: the pre- and parasubicular terminals of the parieto-medial-temporal pathway are part of this nuclei group's head-direction system, so a descending visual route and the ascending diencephalic route converge on one population (Kravitz et al. 2011).
 - **[[wiki/concepts/recollection-familiarity.md]]** — the functional split these nuclei anchor: Aggleton & Brown 1999 place them in the recollection system, whose lesions cost allocentric, object-in-place and recall memory and spare familiarity-based object recognition, which runs through perirhinal cortex instead.
+- **[[wiki/entities/mammillary-bodies.md]]** — the source of essentially all of this page's mammillary input, split into two systems: the lateral mammillary nucleus generates `AD`'s heading (bilateral lesions abolish it, its signal leads `AD`'s), and the medial nucleus relays hippocampal theta to `AV`. Because the two inputs land on different nuclei, the additive costs of `AD` and whole-`ATN` lesions can be read as the sum of two mammillary channels.
 - **[[wiki/concepts/hippocampal-indexing-theory.md]]** — Gabriel & Smith's extension of the index into these nuclei: a cue evokes a context-specific thalamo-cingulate pattern that retrieves content stored elsewhere, and hippocampal lesions remove the context-specificity while sparing the nuclei's own training-induced plasticity.
