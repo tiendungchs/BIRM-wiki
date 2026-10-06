@@ -76,6 +76,22 @@ The page's central content claim — prefrontal → reuniens → hippocampus del
 
 ---
 
+## A perirhinal input, and a familiarity candidate
+
+> Commentaries on Aggleton & Brown 1999 (`raw/aggleton-1999-episodic-memory-amnesia-hippocampal-anterior-thalamic-axis.md`); split on [[wiki/concepts/recollection-familiarity.md]].
+
+| Claim | Source |
+|---|---|
+| Perirhinal cortex projects **massively** to the posterior thalamic complex and to midline/intralaminar nuclei, reuniens and central medial included. Its projection to mediodorsal thalamus is sparse or absent (rat, cat; monkey reported similar) | Witter & Van der Werf |
+| A thalamic infarct at the right lateral internal medullary lamina, sparing the mediodorsal and anterior nuclei and the mammillothalamic tract, impaired face recognition and spared visual association learning: familiarity lost, recollection kept | Witter & Van der Werf (Van der Werf et al. 1998) |
+| Rostral midline nuclei (reuniens, paraventricular, parataenial) are reciprocally connected with the hippocampus, densely in rat. Highly selective anterior thalamic lesions show their damage is not needed for an alternation deficit; whether they add to larger lesions is untested | Aggleton & Brown, target article |
+| Intralaminar lesions impair rat delayed match/non-match tasks with a profile **dissociable** from hippocampal lesions | Mair et al. |
+| The intralaminar nuclei get perirhinal input but no direct hippocampal input, so they belong to a different system from the anterior thalamic one | Aggleton & Brown, response |
+
+The relay therefore has a third afferent class beside prefrontal and hippocampal: **perirhinal item information**. The infarct case puts the familiarity signal in this thalamic region rather than in mediodorsal thalamus, though the lesion crossed nuclei and fibres of passage. On the courier/coordinator question (`T339`), a nucleus that receives perirhinal familiarity and collateralises to both hippocampus and prefrontal cortex would deliver one item-level novelty scalar to store and controller at once. **(brainstorm)**
+
+---
+
 ## Limitations
 
 - **Everything here is rat, and almost all of it is lesion or electrical stimulation.** No cell-type-specific causal dissection of the collateralising population, so "the same spike goes to both" is anatomy (dual retrograde labelling) plus inference, not a simultaneous recording of both terminals.
@@ -105,3 +121,4 @@ The page's central content claim — prefrontal → reuniens → hippocampus del
 - **[[wiki/concepts/transthalamic-context-routing.md]]** — completes the three-way thalamic contrast: reuniens collateralises one spike train carrying *content* to two structures, the mediodorsal nucleus returns a *context* to its own source, and the higher-order visual thalamus hands an upstream area's *state* to a downstream one — same cell type, three routing topologies, three cargoes (Neske & Cardin 2025).
 - **[[wiki/concepts/sleep-oscillation-nesting.md]]** — the one named route by which hippocampal information could enter the thalamic spindle-scheduling scheme, and the stated open question of the sleep-consolidation literature.
 - **[[wiki/entities/anterior-thalamic-nuclei.md]]** — the other thalamic route into the store, and the one that types this one: relays are distinguished by **cortical source** rather than by cargo — this nucleus serves rostral/ventral prefrontal cortex, the anterior thalamic nuclei serve cingulate and retrosplenial cortex, their terminations in shared targets separated by topography and lamina, with anterior thalamic lesions the more disruptive in rodent spatial memory (`T101`).
+- **[[wiki/concepts/recollection-familiarity.md]]** — a candidate thalamic stage for the familiarity signal: perirhinal cortex projects densely here and sparsely to mediodorsal thalamus, and a midline/intralaminar infarct that spared the mediodorsal and anterior nuclei cost familiarity and spared recollection.

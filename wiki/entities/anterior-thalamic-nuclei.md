@@ -57,6 +57,34 @@ Each nucleus has its own gene-expression cluster and its own afferent set, but *
 
 The strongest single result in the review is a subtraction. Disconnecting the **ascending head-direction pathway** (lateral mammillary → `AD`) produces only *mild, transient* spatial-learning deficits, against the severe and persistent mnemonic deficits from lesioning all three nuclei. Head direction is therefore **not a proxy for episodic memory processing**, and the region's reputation as "the head-direction relay" is what stopped anyone looking further.
 
+**The same argument, made 23 years earlier without the subtraction** (Aggleton & Brown 1999, [[wiki/concepts/recollection-familiarity.md]]):
+- `AM` lesions alone impair T-maze alternation and the radial maze, and `AM` has no head-direction cells.
+- In monkeys, mammillary and anterior thalamic lesions impair **object-in-place** discrimination (Parker & Gaffan 1997). The animal points at the whole scene, so a heading signal cannot be what it lacks.
+- 2-deoxyglucose activity rises together in hippocampus, mammillary bodies and anterior thalamus on working-memory tasks that do not need heading.
+
+The 1999 paper concedes one heading-specific effect. Anterior thalamic lesions disrupt the water maze *more* than fornix lesions do (Warburton & Aggleton), and it attributes the excess to lost head-direction input.
+
+---
+
+## The 1999 lesion record
+
+> Aggleton & Brown 1999 (`raw/aggleton-1999-episodic-memory-amnesia-hippocampal-anterior-thalamic-axis.md`), the target article that put these nuclei at the centre of anterograde amnesia. The functional split it proposes is on [[wiki/concepts/recollection-familiarity.md]].
+
+| Finding | Detail |
+|---|---|
+| Severity ordering, rat T-maze alternation | Hippocampus ≈ fornix ≈ `ATN` > mammillary bodies ≈ cingulum bundle. Complete neurotoxic `ATN` lesions match fornix transection. `ATN` effects are significantly larger than mammillary ones, so the direct subiculum → `ATN` projection carries part of the load |
+| All three nuclei are needed | `AM`-only lesions and `AV`+`AD` lesions each give mild, significant deficits. Only the combined lesion gives the full effect, which explains earlier null results from subtotal lesions |
+| Allocentric only | `ATN`, fornix, mammillary and cingulum lesions spare an egocentric constant-turn task in the same apparatus |
+| Object recognition spared | `ATN` and hippocampal lesions leave spontaneous object recognition intact. Perirhinal lesions do the reverse |
+| Crossed disconnection (authors' response; Warburton et al., unpublished at the time) | A fornix lesion in one hemisphere plus an `ATN` lesion in the other impairs spatial working memory; the same two lesions in one hemisphere do not. This holds only when the fornix cut includes the hippocampal commissure. Crossed hippocampus × `ATN` lesions give the same result |
+| Human vascular cases | Bilateral **mammillothalamic-tract** damage is the reliable predictor of amnesia after thalamic infarct, and lesions confined to the mediodorsal nucleus are not amnesic (von Cramon et al. 1985; Gentilini et al. 1987) |
+| Human `ATN` infarct (Schnider et al. 1996) | Severe anterograde amnesia with recognition marred by false positives, normal with nonsense stimuli where context cannot help. A recollection loss with familiarity intact |
+| The paper's stated limit | "Lesion studies have been relatively unhelpful" for saying *why* a diencephalic stage is needed, because `ATN` damage mimics hippocampectomy so closely |
+
+**A primacy/recency split with the mediodorsal nucleus** (Gabriel 1993, cited in the target article and expanded in the Gabriel & Smith commentary). In rabbit discriminative avoidance, training-induced firing (more response to the conditioned stimulus, and discriminative firing between the two tones) appears in `ATN` and the upper layers of posterior cingulate cortex **late in training**, once the association is well learned. Gabriel calls this a "primacy" system that keeps the original encodings. Mediodorsal thalamus and anterior cingulate cortex discriminate from the **first** session with behavioural discrimination (a "recency" system). Hippocampal lesions leave avoidance acquisition and the `ATN` plasticity intact. They do remove the effect of a context shift on extinction. Lesions of both thalamic nuclei impair retention when made just after criterion, but not after 10 days of overtraining. In this paradigm the thalamic contribution is **time-limited**, like hippocampal dependence in episodic memory.
+
+Gabriel & Smith (commentary) add a content claim: `ATN` and posterior cingulate cortex produce **context-specific activation patterns** to the cue, at ~80 ms latency. These patterns differ for the same physical cue in two training apparatuses and depend on subicular, hippocampal and entorhinal input. On their account the circuit stores no memory content. It stores the associations that let a cue evoke a context-specific pattern, and that pattern retrieves content held elsewhere. This is [[wiki/concepts/hippocampal-indexing-theory.md]]'s content-free index, extended past the hippocampus into the diencephalon.
+
 ---
 
 ## What `AD`'s population actually looks like — the wiki's best-identified attractor, and it changes shape in sleep
@@ -173,3 +201,5 @@ Their inputs to overlapping cortical sites are separated by **topography and lam
 - **[[wiki/entities/bb-model.md]]** — this circuit as a *parameter source*, and the cleanest dissociation the framing predicts: deleting the head-direction input to a frame-conversion bank leaves both stores intact and destroys only the conversion, which reproduces anterograde amnesia plus loss of recollection with perirhinal recognition spared — the fornix/mammillary lesion signature obtained from one removed scalar rather than from a damaged store.
 - **[[wiki/entities/hippocampal-diencephalic-cingulate-network.md]]** — the network this page's nuclei sit at the centre of, traced edge by edge. The store's output arrives here directly, via the mammillary bodies and via retrosplenial cortex, so this is the one node whose lesion disconnects every route. The same route anatomy shows `T381`'s two-stream cut has no clean surgical form on the cortical side.
 - **[[wiki/entities/dorsal-visual-stream.md]]** — the same head-direction circuit reached from the visual side: the pre- and parasubicular terminals of the parieto-medial-temporal pathway are part of this nuclei group's head-direction system, so a descending visual route and the ascending diencephalic route converge on one population (Kravitz et al. 2011).
+- **[[wiki/concepts/recollection-familiarity.md]]** — the functional split these nuclei anchor: Aggleton & Brown 1999 place them in the recollection system, whose lesions cost allocentric, object-in-place and recall memory and spare familiarity-based object recognition, which runs through perirhinal cortex instead.
+- **[[wiki/concepts/hippocampal-indexing-theory.md]]** — Gabriel & Smith's extension of the index into these nuclei: a cue evokes a context-specific thalamo-cingulate pattern that retrieves content stored elsewhere, and hippocampal lesions remove the context-specificity while sparing the nuclei's own training-induced plasticity.

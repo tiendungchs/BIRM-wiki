@@ -104,6 +104,22 @@ Three things follow that this page should carry.
 
 ---
 
+## The index past the hippocampus
+
+> Gabriel & Smith, commentary on Aggleton & Brown 1999 (`raw/aggleton-1999-episodic-memory-amnesia-hippocampal-anterior-thalamic-axis.md`). Rabbit discriminative avoidance with multi-site unit recording, summarised from their own studies.
+
+| Claim | Evidence |
+|---|---|
+| The anterior thalamus and posterior cingulate cortex produce **context-specific patterns**: the same cue evokes different distributions of activity across thalamic nuclei and cingulate layers | Different patterns for one physical cue in an avoidance apparatus versus an approach apparatus. Latency ~80 ms after the cue |
+| The patterns depend on hippocampal output | Subicular, hippocampal and entorhinal lesions degrade them, and the lesioned rabbits fail to reduce responding when the training context is changed. They still inhibit normally when the cue itself is changed |
+| The circuit stores **no content** | Their reading: what it stores are synaptic changes that let a cue evoke the right context-specific pattern. The pattern retrieves behaviours or recollections stored elsewhere |
+| The dependence is **time-limited** | Anterior + mediodorsal thalamic lesions made just after criterion impair retention. The same lesions after 10 days of overtraining do not |
+| The hippocampus matters only under interference | Hippocampal lesions spare initial acquisition. Deficits appear with similar concurrent tasks, similar cues, context changes or configural demands |
+
+The architectural change is where the index sits. On this account the "index" is not only the hippocampal conjunction. It is also a **cue → context-specific pattern map one stage downstream**, in the anterior thalamus and posterior cingulate cortex, and the hippocampus *shapes* that map without being needed to read it. The anterior thalamic plasticity survives hippocampal lesions. What the lesion removes is the context-specificity. A machine version: an index layer *after* the store, trained by the store to make cue codes context-dependent, then usable when the store is offline.
+
+---
+
 ## Limitations
 
 - **A commentary, not a result.** No new data; the plasticity split is a plausibility argument built from slice and in-vivo LTP studies, and no experiment ties either LTP form to an index specifically.
@@ -129,3 +145,6 @@ Three things follow that this page should carry.
 - **[[wiki/entities/retrosplenial-cortex.md]]** — an index measured outside the hippocampus: multi-voxel retrosplenial patterns classify an item's *position in a list* independently of item identity, which is a pointer with no content, and the same region's lesion abolishes within-sequence order assignment while sparing order across 30-min-separated blocks (Alexander et al. 2023).
 - **[[wiki/entities/bb-model.md]]** — indexing in explicit form, with the index-writing operation named: place cells hold no scene content and bind the boundary, object and identity populations that do, and object encoding is literally a Hebbian outer product written between an identity cell, a vector cell and the currently active place cells — plus the demonstration that removing the index leaves residual identity-to-vector associations that are viewpoint-specific and location-blind.
 - **[[wiki/concepts/key-value-memory.md]]** — the computational statement of what an index *is*: a key whose value is empty, with the reason the address must be a separate representation — discriminability and fidelity cannot be optimised in one code — plus the behavioural ledger (feeling-of-knowing, familiarity without recollection) showing keys are matched but never recalled.
+- **[[wiki/entities/hippocampal-diencephalic-cingulate-network.md]]** — where Gabriel & Smith put a second index: the anterior thalamic and posterior cingulate end of this network turns a cue into a context-specific activation pattern within ~80 ms, needs hippocampal output for the context-specificity but not for the plasticity, and holds no content itself.
+- **[[wiki/entities/anterior-thalamic-nuclei.md]]** — the nucleus holding that downstream index: its training-induced firing appears late in learning, survives hippocampal lesions, and becomes unnecessary after overtraining, so the index here is time-limited like the hippocampal one.
+- **[[wiki/concepts/recollection-familiarity.md]]** — the dissociation this theory predicts, put on anatomy: an index that holds no content serves recollection (binding an item to its context), while familiarity, a one-trial item-level repetition decrement, lives in perirhinal cortex and survives the index's removal, which the ledger's spared novelty preference already shows.

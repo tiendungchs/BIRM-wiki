@@ -106,6 +106,26 @@ The claim the paper is built toward: cross-contextual suppression is not only in
 
 ---
 
+## A second proposed job: the thalamic node of familiarity
+
+> Aggleton & Brown 1999 (`raw/aggleton-1999-episodic-memory-amnesia-hippocampal-anterior-thalamic-axis.md`) and its commentaries; the full split is on [[wiki/concepts/recollection-familiarity.md]].
+
+The 1999 model puts this nucleus on a **perirhinal → magnocellular mediodorsal → medial/orbital prefrontal** route for familiarity-based recognition, parallel to the hippocampal → anterior-thalamic route for recollection. The evidence and the case against it:
+
+| For | Against |
+|---|---|
+| Mediodorsal lesions impair delayed (non-)match-to-sample acquisition and performance in monkey and rat | The deficit is markedly **smaller** than after perirhinal lesions (Parker; first noted by Aggleton & Mishkin 1983) |
+| Magnocellular and adjacent midline (paraventricular) neurons respond less to repeated visual stimuli (Fahy et al. 1993) | The numbers of such cells are small, in absolute and percentage terms |
+| Perirhinal → magnocellular projection runs in the inferior thalamic peduncle, not the fornix | The projection is **sparse** in monkey and has not been shown in rat. In rat and cat, perirhinal cortex projects massively to the posterior complex and to the **midline/intralaminar** nuclei, reuniens and central medial included (Witter & Van der Werf) |
+| Medial/orbital prefrontal removal impairs match-to-sample; dorsolateral removal, which receives *parvocellular* mediodorsal input, does not | Lesions confined to the medial magnocellular part are only mildly impairing. Disconnecting perirhinal cortex from the whole magnocellular part impairs recognition like a large prefrontal lesion would. Parker reads the effect as the nucleus driving its prefrontal partner, not relaying perirhinal familiarity |
+| Mediodorsal lesions, like perirhinal lesions, impair large-set but not small-set recognition (Parker et al. 1997). A&B argue this set-size effect cannot be perceptual | Lesions restricted to this nucleus in humans are not amnesic (Kritchevsky et al. 1987; only ~15% of the nucleus). A thalamic infarct at the internal medullary lamina that spared it still cost familiarity |
+
+**The authors' concession.** Growing evidence favours emphasising the prefrontal interactions "partly at the expense of the connections between perirhinal cortex and MD". This brings the 1999 recognition role closer to this page's main result: the nucleus acts on recognition through the prefrontal cortex it loops with.
+
+**Gabriel's timing contrast** (cited in the target article). In rabbit discriminative avoidance, this nucleus and anterior cingulate cortex discriminate the cues from the **first** session with behavioural discrimination, while the anterior thalamus and posterior cingulate cortex do so only late in training. Read with this page's switching result: the mediodorsal loop carries what is currently in force and acquires it fast. The anterior-thalamic loop holds the original encodings ([[wiki/entities/anterior-thalamic-nuclei.md]]).
+
+---
+
 ## Limitations
 
 - **The excitatory/inhibitory assignment is functional, not synaptic.** MD projections are glutamatergic; "inhibitory functional input" means a negative coupling filter in a fitted generalized linear model plus a correlated drop in fast-spiking firing. The interneuron class through which persistent MD acts is not identified — the source says so, and offers only the guess that transient MD recruits disinhibitory motifs while persistent MD targets soma-targeting cells.
@@ -138,3 +158,4 @@ The claim the paper is built toward: cross-contextual suppression is not only in
 - **[[wiki/entities/dendritic-integration-theory.md]]** — the neighbouring thalamic loop with the opposite cargo: mediodorsal thalamus returns a task-context signal to the prefrontal population it pooled from, while higher-order thalamus returns a content-free *permission to integrate* to the layer-5 cells that drive it — same loop shape, one carrying *what* and one carrying *whether*.
 - **[[wiki/entities/anterior-thalamic-nuclei.md]]** — the adjacent nucleus with the opposite wiring premise: the anterior nuclei sit on a dense reciprocal hippocampal loop and carry spatial codes, where this one has no direct hippocampal connection and runs a closed prefrontal loop carrying a context latent — and typical human thalamic pathology damages both, which is why the clinical evidence cannot separate them.
 - **[[wiki/entities/pulvinar.md]]** — the other half of the thalamic contrast: this nucleus builds a context variable its cortex does not carry and returns it as a signed gate, while the ventro-lateral pulvinar holds a convergent copy of what V4 already carries and returns an enabling drive, and removing it costs the partner's response and its active state, not its switching.
+- **[[wiki/concepts/recollection-familiarity.md]]** — the recognition role proposed for this nucleus in 1999: the thalamic stage of a perirhinal familiarity route parallel to the hippocampal recollection route. Sparse perirhinal input, small lesion effects and a familiarity deficit from a lesion that spared the nucleus have since moved that role toward its prefrontal loop.
