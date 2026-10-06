@@ -7,6 +7,8 @@
 > **Second source.** Shinder & Taube 2014, *Resolving the active versus passive conundrum for head direction cells*, Neuroscience 270:123–138 (`raw/shinder-2014-resolving-active-versus-passive-conundrum-head-direction-cells.md`). A review written three years earlier that states the same conundrum from the rat side. It adds the stage-by-stage angular-head-velocity record, the only active-versus-passive data from the integrator's input stage (dorsal tegmental nucleus), velocity storage, and four candidate resolutions. Same lab as the first source (Taube), so it is not an independent check; several of its dorsal-tegmental results are the lab's unpublished preliminary data. Figures are images in the clip.
 >
 > **Third source.** Shinder & Taube 2014, *Self-motion improves head direction cell tuning*, J. Neurophysiol. 111(12):2479–2492 (`raw/shinder-2014-self-motion-improves-head-direction-cell-tuning.md`), cited below as **2014b**. Primary data: 55 `AD` heading cells, 9 head-fixed, body-restrained rats, held still after passive rotation. Same lab again (Taube), so not independent.
+>
+> **Fourth source.** Dale & Cullen 2017, *The ventral posterior lateral thalamus preferentially encodes externally applied versus active movement*, Cereb. Cortex 29(1):305–318 (`raw/dale-2017-ventral-posterior-lateral-thalamus-encodes-externally-applied-vs-active-movement.md`). Primary data: 42 vestibular neurons in the ventral posterior lateral thalamus (`VPL`) of 2 macaques. It covers the **posterior** pathway, not the heading chain. Cullen lab, so it does not check the monkey vestibular-nucleus results in Cullen & Taube 2017 independently. Equations and figures are images in the clip.
 
 Why this earns a page. "Head direction" appears on ~45 wiki pages. The circuit is covered node by node: the fly ring ([[wiki/entities/fly-central-complex.md]]), the mammillary generator ([[wiki/entities/mammillary-bodies.md]]), the thalamic manifold ([[wiki/entities/anterior-thalamic-nuclei.md]]) and the cortical stabiliser ([[wiki/entities/retrosplenial-cortex.md]]). No page covers the system end to end, and none asks what rides its input wire. This source does both. The second question is `T408`.
 
@@ -252,10 +254,40 @@ The forward model that decides what counts as self-generated is recalibrated wit
 |---|---|---|
 | Route | Vestibular nuclei → `NPH`/`SGN` → `DTN` ↔ `LMN` → `AD` → retrosplenial cortex directly, and → pre-/parasubiculum → entorhinal cortex | Vestibular nuclei → ventral posterior (lateral) thalamus → somatosensory cortex and parieto-insular vestibular cortex |
 | Carries | A static **sense of direction**: a held state | Perceived **self-motion**: a rate, whether relative to the world or to a screen |
-| Studied | Extensively | Little |
+| Studied | Extensively | Little. One active-versus-passive single-unit study in the thalamus (Dale & Cullen 2017, below) |
+| Active-versus-passive record | Mixed and restraint-confounded (table above) | **~80% cancelled** in the thalamus |
 | Where the two merge | **Unknown** | |
 
-**(brainstorm) One sensor, two readers: a state and its derivative on separate wires.** In machine terms this is an `L1` split: the integrator and the motion percept are separate blocks. The `VO`-to-thalamus signal that reaches perception is the exafference-dominated one. If heading is built from that same attenuated signal, the integrator also needs the efference/proprioceptive estimate that perception discards. The two pathways would then differ in *which half of the motion* they are allowed to see.
+**(brainstorm) One sensor, two readers: a state and its derivative on separate wires.** In machine terms this is an `L1` split: the integrator and the motion percept are separate blocks. The `VO`-to-thalamus signal that reaches perception is the exafference-dominated one (now measured, below). If heading is built from that same attenuated signal, the integrator also needs the efference/proprioceptive estimate that perception discards. The two pathways would then differ in *which half of the motion* they are allowed to see.
+
+### The posterior route, measured (Dale & Cullen 2017)
+
+Macaques in darkness. 42 `VPL` neurons, chosen for responding to whole-body yaw rotation and not to eye movements or visual stimuli. For each cell the paper fits sensitivity to head velocity and acceleration and compares matched passive and active trajectories.
+
+| Cell class | Share | Passive sensitivity, sinusoid 40°/s ((spk/s)/(°/s)) |
+|---|---|---|
+| Vestibular-only (`VO`-like) | 17/42 (~40%) | 0.63 ± 0.38 |
+| Vestibular + neck proprioceptive (`V + N`) | 25/42 (~60%) | vestibular 0.49 ± 0.17; neck 0.36 ± 0.15, opposite phase |
+
+| Test | Result | Reading |
+|---|---|---|
+| Active vs passive, fast rotation (gaze shifts, ~180°/s) | Sensitivity down **83 ± 15%** (`VO`, n = 14) and **74 ± 19%** (`V + N`, n = 22). Every cell reduced | The thalamic relay to cortex drops most of the self-generated signal |
+| Active vs passive, slow rotation (pursuit, ~40°/s) | Down **92 ± 17%** / **93 ± 13%** | Same low floor at both speeds |
+| Active vs passive, translation (otolith input, n = 7) | Down **83 ± 17%** | Not specific to the canals |
+| Passive whole-body rotation during an active head turn | Sensitivity to the passive component 0.39 ± 0.16, against 0.35 ± 0.12 for the same rotation alone (n.s.). Active component 0.02 ± 0.02. Total head-in-space velocity mispredicts the firing | **Subtractive, per component**: the self-generated part is removed and the external part passes at full gain. A global gain change would scale both |
+| Passive vestibular + neck stimulation together | `V + N` response = vector sum of the two single-modality responses (n = 22, n.s.). `VO`: same as vestibular alone | Combining the two senses is linear; it does not cause the suppression |
+| Attempted head turn with the head blocked (neck torque 2.9 ± 1.1 N·m) | Firing unchanged from baseline, both directions | **No negative image.** A motor command with no matching movement cancels nothing |
+| Passive speed dependence | Sensitivity ~130% (`VO`) and ~70% (`V + N`) higher at 40°/s than at 180°/s | Passive coding is compressive in speed |
+
+**The authors' account.** The cancellation is computed before the thalamus. A comparator (they propose cerebellar cortex) matches the motor-based prediction against neck-proprioceptive feedback. On a match it inhibits the vestibular nuclei and rostral fastigial nucleus, which project to `VPL`. Across stages the passive selectivity increases: afferents show no attenuation, then vestibular nuclei, then rostral fastigial nucleus, then `VPL` (their Fig. 7B, values from earlier papers). Efference copy acting directly on `VPL` is ruled out by the blocked-head test. Electric fish do it differently: a cerebellum-like electrosensory stage forms a negative image of the predicted reafference whether or not the discharge happens (Bell 1981). In the primate vestibular system, the cancellation is **gated by the behaviour actually happening**.
+
+**What the cortex receives.** Thalamic input to parieto-insular vestibular cortex and ventral intraparietal cortex mostly carries externally caused motion. Their Fig. 7A note: to estimate *active* self-motion, cortex must combine several modalities. One `PIVC` study found no active/passive difference (Shinder & Newlands 2014, possibly confounded by object-relative coding). One `VIP` study found active responses diminished (Klam & Graf 2006).
+
+**Contrary report.** In squirrel monkeys, Marlinski & McCrea 2008b found equal `VPL` responses under active and passive motion. Dale & Cullen's objections: that study did not quantify active sensitivity and did not control for vision.
+
+**(brainstorm) The perception reader is architecturally denied the self-generated half.** This is an `L2` fact. The block that reports perceived self-motion is never given the self-generated component at its input. Only the external residual is. So any reader that needs *total* motion must rebuild it from elsewhere, and this is now measured for one of the two readers. That is `T408`'s Position B problem appearing in the pathway where it can be checked. The heading route has not been measured. Its answer is either the same rebuild, or a tap that sits upstream of the cancellation.
+
+**(brainstorm) Under a match-gated comparator, a prediction cannot substitute for feedback.** The output `sensed − â_t` subtracts the prediction only when proprioception confirms the movement. A command with no movement leaves the output untouched, and a movement with no command (passive) passes through. In machine terms, a reafference filter whose subtraction depends on a confirmation channel does not hallucinate motion when an action is blocked. A purely command-driven filter would output a spurious `−â_t` there. **Test for `T408`:** an attempted head turn under restraint. If heading cells shift, the integrator adds an ungated `â_t(efference)`. If they hold, the prediction is gated like `VPL`'s cancellation.
 
 ---
 
@@ -270,6 +302,7 @@ The forward model that decides what counts as self-generated is recalibrated wit
 | Drift-versus-loss lesion logic | An ablation test for locating an integrator in a trained network (above) |
 | Gravity-referenced axis | A sensor-delivered anchor that removes part of the symmetry group (`G39`) |
 | VR / head-fixed mismatch | What the integrator counts as motion depends on the setup. A change in body dynamics recalibrates the integrator's input before it can affect the integrator |
+| Thalamic `VPL` cancellation (Dale & Cullen 2017) | The perception reader's input is `sensed − â_t` per component, gated by proprioceptive confirmation; a blocked command gives no `−â_t` |
 | Contrast loss when motionless (2014b) | The velocity channel sets bump **gain** as well as bump shift: `a_t = 0` keeps position and lowers peak-to-background ratio (brainstorm) |
 
 **(brainstorm) Put the forward model on the integrator's input path, not beside it.** Suppose the integrator needs total head motion and the sensor stage passes on only the unpredicted part. Then the input has to be rebuilt as `a_t = â_t(efference, proprioception) + e_t`: the forward model's prediction plus the exafferent residual. Three consequences follow. (i) A forward-model miscalibration becomes **integrator drift**. (ii) A sustained miscalibration, as in VR, is a sustained bias. (iii) The prediction: heading should drift, or follow the wrong gain, during the ~40–50 movements after a change in body dynamics. That is the window in which vestibular-nucleus neurons treat self-motion as passive. Untested. The fly compass is the cleanest machine template the wiki has ([[wiki/entities/fly-central-complex.md]]), and it was measured head-fixed in closed-loop VR, the setup this source flags as mismatched.
@@ -288,6 +321,7 @@ The forward model that decides what counts as self-generated is recalibrated wit
 - **The VR prediction is stated and not tested.** No heading recording is reported under a manipulated forward model.
 - **The integrator's input stage is barely measured.** `DTN` active-versus-passive data are one hand-held study (12 cells) plus unpublished head-fixed recordings; the two `DTN` tuning surveys disagree on symmetric cells; `SGN` has never been recorded.
 - **The motionless result is one preparation.** All 2014b data are head-fixed and body-restrained, from female rats and `AD` only, with manual rotation. The braking on-direction and off-direction groups are different cells, and "away" was tested only at 90° counter-clockwise. Other restraint methods change heading firing on their own (restraint confound above).
+- **The posterior-route data are one lab and one species.** `VPL`: 2 macaques, Cullen lab; the stage-by-stage selectivity ladder is assembled from the same lab's earlier papers; the cortical consequences rest on one study per area; no optic flow was tested; a squirrel-monkey study reports the opposite.
 - **Velocity storage evidence is one manipulation** (commissural section), reported second-hand in Shinder & Taube 2014 without the study named.
 
 ---
