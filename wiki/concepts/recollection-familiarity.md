@@ -12,7 +12,7 @@ Why this earns a page. The wiki uses the recollection/familiarity split in at le
 
 | Object | Statement | Source of the form |
 |---|---|---|
-| Dual-process signal detection | `P("old" | studied) = R + (1 − R)·P(f > c)`, `P("old" | new) = P(f₀ > c)`; `R` is a threshold recollection probability, and `f`, `f₀` are equal-variance Gaussian familiarity values separated by `d′`. On the receiver-operating-characteristic (ROC) curve, `R` sets the y-intercept and `d′` sets the curvature | Yonelinas 1994; used in the Yonelinas et al. commentary. The equation is the standard form and is **not printed in the source** |
+| Dual-process signal detection | `P("old" \| studied) = R + (1 − R)·P(f > c)`, `P("old" \| new) = P(f₀ > c)`; `R` is a threshold recollection probability, and `f`, `f₀` are equal-variance Gaussian familiarity values separated by `d′`. On the receiver-operating-characteristic (ROC) curve, `R` sets the y-intercept and `d′` sets the curvature | Yonelinas 1994; used in the Yonelinas et al. commentary. The equation is the standard form and is **not printed in the source** |
 | Remember/know correction | "Know" responses are only possible when recollection fails, so `F = P(K) / (1 − P(R))`. Raw know rates underestimate familiarity | The constraint is stated in the source (Yonelinas et al.; authors' response). The correction formula is standard |
 | Cue direction | Recall = retrieve an item from a context cue. Recognition = retrieve the context from an item cue | Hasselmo & Wyble 1997 model, cited by Mayes et al. A "biochemical lesion" in that model disrupts recall and spares recognition, with no familiarity term at all |
 
