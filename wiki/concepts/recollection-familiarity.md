@@ -99,6 +99,7 @@ Mumby's commentary adds a **within-subject** version (Glenn & Mumby 1996). The s
 | Three developmental hippocampal cases (Vargha-Khadem et al. 1997) | Episodic amnesia with relatively preserved recognition and near-normal semantic learning |
 | Patient EP (Hamann & Squire 1997) | Chance recognition with intact priming. Familiarity is therefore not priming |
 | Thalamic infarct at the internal medullary lamina, sparing mediodorsal, anterior nuclei and mammillothalamic tract (Witter & Van der Werf) | The reverse: impaired face recognition, spared visual association learning |
+| Patient NB: left anterior temporal resection taking part of perirhinal and entorhinal cortex, hippocampus spared (Bowles et al. 2007; detail on [[wiki/entities/perirhinal-cortex.md]]) | The cortical reverse case. Familiarity impaired, recollection normal or above, overall recognition normal, across remember/know, ROC and a 400 vs 2,000 ms response deadline. Her ROC turns more linear, the shape a threshold-only recollection predicts |
 
 ---
 
@@ -110,7 +111,7 @@ Mumby's commentary adds a **within-subject** version (Glenn & Mumby 1996). The s
 | Remember and know are independent | Knowlton | Over one week, 29% of items move from remember to know and 10% the other way. Her conclusion: know is redundant with remember | Know is mathematically constrained by remember, so conversion rates cannot test independence |
 | Recognition has two processes | Pickering | In 6 yes/no studies, a familiarity-only model fits ROCs better than a dual-process model, and neither fits acceptably. Two-alternative forced-choice data fit worse | Unresolved; more studies needed |
 | Amnesia spares familiarity | Yonelinas et al. | Re-analysis with bias correction (remember/know, process dissociation, ROC) converges: amnesics lose both, and recollection disproportionately | Consistent with the model, since most amnesics have both systems damaged |
-| The split is by **attribute**, not process | Kesner; Knowlton; Mumby | The hippocampus does familiarity and recollection for space, perirhinal cortex does both for objects | Combined perirhinal + postrhinal lesions spare spatial memory although that cortex receives spatial input. Cytoarchitecture differs: convergent columns in ventral temporal cortex, divergence in the hippocampus |
+| The split is by **attribute**, not process | Kesner; Knowlton; Mumby | The hippocampus does familiarity and recollection for space, perirhinal cortex does both for objects | Combined perirhinal + postrhinal lesions spare spatial memory although that cortex receives spatial input. Cytoarchitecture differs: convergent columns in ventral temporal cortex, divergence in the hippocampus. Later (Bowles et al. 2007): with content fixed (words) and process varied, a perirhinal/entorhinal resection separates familiarity from recollection, which an attribute split does not predict |
 | The thalamic leg is the mediodorsal nucleus | Witter & Van der Werf; Mair et al.; Parker | Perirhinal → mediodorsal fibres are sparse. Perirhinal cortex projects massively to midline/intralaminar nuclei. Mediodorsal deficits look prefrontal | Partly conceded: prefrontal interactions "may prove to be partly at the expense of" the perirhinal–mediodorsal link |
 | Familiarity is fluency (priming) | Mayes et al. | Parsimony | Rejected. Hintzman: changing study modality leaves the recognition intercept unchanged, so exact perceptual repetition is not what recognition reads |
 
@@ -138,7 +139,7 @@ Mumby's commentary adds a **within-subject** version (Glenn & Mumby 1996). The s
 - **No recording separates the two streams' cargo.** The decomposition rests on lesion double dissociations and on c-*fos*, a coarse activity marker. Bures & Fenton argue the c-*fos* decrement could be habituation, not recognition.
 - **Recognition in animals cannot be assigned to a process.** Mumby: rats may solve delayed non-match to sample by whichever strategy their lesion leaves. A&B concede that no independent test shows when an animal is using recollection.
 - **Episodic memory has no rat assay.** Clayton & Dickinson 1998's what–where–when test exists for scrub jays only. Rat "recollection" results are spatial or scene results, and Burwell & Eichenbaum, Bures & Fenton, and Whishaw all object to treating space as a proxy for episodes.
-- **The human perirhinal boundary is uncertain** (Graham & Hodges), so human perirhinal cases cannot yet test the familiarity half.
+- **The human perirhinal boundary is uncertain** (Graham & Hodges), so human perirhinal cases cannot yet test the familiarity half. Bowles et al. 2007 use a volumetric protocol and find one case. The resection is partial and unilateral and also takes amygdala, temporal pole and entorhinal cortex, so it cannot say which of perirhinal or entorhinal cortex carries the signal.
 - **The thalamic leg of familiarity is unassigned**: mediodorsal, midline/intralaminar, or mediodorsal acting through prefrontal cortex.
 
 ---
