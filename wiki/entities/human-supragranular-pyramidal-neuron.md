@@ -17,8 +17,9 @@ This is the per-unit half of [[wiki/architectural-gaps.md]] `G101` (what a highe
 | Supragranular (L2/L3) share of cortical thickness | **~50%** | Other primates 46%, carnivores 36%, rodents 19% | Hutsler et al. 2005 |
 | Laminar origin of cortico-cortical projections | Shifted **up**, from L5/L6 to L2/L3 | Monkeys and other primates: more from deep layers | Goulas et al. 2018 |
 | Neuron count | What a primate brain of that size predicts | Cortex holds 20–25% of brain neurons in most mammals, humans included, while cortex reaches 82% of brain mass | Herculano-Houzel 2012 |
-| Neuron density vs brain size | Falls as brains and cortical thickness grow, across mammals "including primates" | — | DeFelipe 2011; Balaram & Kaas 2014; Semendeferi et al. 2011. **Conflicts with the invariant primate density of Herculano-Houzel 2009** — see `T301` |
-| Synapse density | Roughly constant across species | → synapses **per neuron** highest in humans | Elston et al. 2001; Sherwood et al. 2020; Benavides-Piccione et al. 2002 |
+| Neuron density vs brain size | Falls as brains and cortical thickness grow, across mammals "including primates" | — | DeFelipe 2011; Balaram & Kaas 2014; Semendeferi et al. 2011. **Conflicts with the invariant primate density of Herculano-Houzel 2009** — see `T301`. **Confirmed first-hand within primates:** across 25 species, density falls with brain mass in V1 and IT, layers II–III and V–VI. Humans are lowest (Sherwood et al. 2020) |
+| Synapse density | Roughly constant across species | → synapses **per neuron** highest in humans | Elston et al. 2001; Sherwood et al. 2020; Benavides-Piccione et al. 2002. **First-hand** (Sherwood et al. 2020): mean 256 M/mm³, with no brain-mass trend across 25 primates. Synapses per neuron are 671–5,081, highest in human IT, and on the primate line ([[wiki/concepts/cellular-scaling-rules.md]]) |
+| Supragranular vs infragranular synapses | ~13.9 M/mm³ more in L2/L3 than in L5/L6; higher synapses per neuron in L2/L3 | Same direction in V1 and IT across 25 primates. Synapses per neuron vary 3.9× more across species in IT L2/L3 than in IT L5/L6 | Sherwood et al. 2020 |
 | L5 extratelencephalic (subcortical-output) neurons | **2–6%** of L5 | Rodents 20–30% | Kalmbach et al. 2021 |
 
 ### Cell
@@ -101,7 +102,7 @@ This is the per-unit half of [[wiki/architectural-gaps.md]] `G101` (what a highe
 | Neurosurgical tissue | Tissue is resected from patients; the review does not state the conditions, so a disease effect on the IQ correlations is not excluded |
 | Correlational throughout | No manipulation links a gene, a cellular phenotype and a cognitive score |
 | Compartmentalization result contested | The sign of the human L5 difference depends on recording site and subtype |
-| Neuron density claim conflicts with whole-brain counts | Falling density with brain size "including primates" vs invariant primate density — `T301` |
+| Neuron density claim conflicts with whole-brain counts | Falling density with brain size "including primates" vs invariant primate density — `T301`. The primate falling-density result is now measured first-hand in V1 and IT (Sherwood et al. 2020). Whole-cortex homogenate counts still disagree |
 
 ---
 

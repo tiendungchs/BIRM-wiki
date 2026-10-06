@@ -30,7 +30,7 @@ One INGEST each:
 - [x] `shinder-2014-self-motion-improves-head-direction-cell-tuning.md` — hippocampal-entorhinal · R · 2014
 - [x] `dale-2017-ventral-posterior-lateral-thalamus-encodes-externally-applied-vs-active-movement.md` — thalamocortical · R · 2017
 - [x] `dugue-2017-cerebellar-re-encoding-self-generated-head-movements.md` — world-models · R · 2017
-- [ ] `sherwood-2020-invariant-synapse-density-neuronal-connectivity-scaling-primate-neocortex.md` — evolution-comparative · R · 2020
+- [x] `sherwood-2020-invariant-synapse-density-neuronal-connectivity-scaling-primate-neocortex.md` — evolution-comparative · R · 2020
 - [ ] `greenstreet-2025-dopaminergic-action-prediction-errors-value-free-teaching-signal.md` — rl-planning · R · 2025
 
 **Order: survey → framework → mechanism → result, oldest first within tier.**

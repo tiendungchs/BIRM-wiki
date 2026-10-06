@@ -5,6 +5,8 @@
 > **Provenance.** Herculano-Houzel 2009, *The Human Brain in Numbers: A Linearly Scaled-up Primate Brain*, Front. Hum. Neurosci. 3:31 (`raw/herculanohouzel-2009-human-brain-in-numbers.md`). A review of the author's own isotropic-fractionator counts (whole-brain tissue homogenates, anatomically defined regions) across 18 species of rodents, primates and insectivores, plus the first direct count of a whole human brain (Azevedo et al. 2009). Every number below is measured except the whale/elephant rows, which the source marks as predictions.
 >
 > **Second provenance.** Herculano-Houzel & Kaas 2011, *Gorilla and Orangutan Brains Conform to the Primate Cellular Scaling Rules: Implications for Human Evolution*, Brain Behav. Evol. 77:33–44 (`raw/herculanohouzel-2011-gorilla-orangutan-brains-conform-primate-cellular-scaling-rules.md`). Same lab and same method, so not an independent replication. It counts **cerebellum only** (1 gorilla, 3 orangutans); every great-ape cortex and whole-brain number in it is *predicted* from the cerebellar count, and every hominin number is predicted from cranial capacity. See § Great apes and hominins below.
+>
+> **Third provenance.** Sherwood et al. 2020, *Invariant Synapse Density and Neuronal Connectivity Scaling in Primate Neocortical Evolution*, Cereb. Cortex 30:5604–5615 (`raw/sherwood-2020-invariant-synapse-density-neuronal-connectivity-scaling-primate-neocortex.md`). An independent lab and method: stereology in tissue sections, with synapses counted as synaptophysin-immunoreactive puncta and neurons counted on Nissl stain. It measures layers II–III and V–VI of V1 and IT (inferotemporal cortex) in 25 primate species, humans and chimpanzees included. `n` = 1 per species (2 for human and chimpanzee). This is the first source on the page that measures **edges**. See § The edge side below.
 
 ---
 
@@ -23,7 +25,7 @@
 
 | Reading | Consequence |
 |---|---|
-| **`a ≈ 1` (primates)** | `s̄` invariant: neuronal density and the non-neuronal/neuronal ratio do not change with brain size. Units are added at **constant wiring per unit** |
+| **`a ≈ 1` (primates)** | `s̄` invariant: neuronal density and the non-neuronal/neuronal ratio do not change with brain size. Units are added at **constant wiring per unit**. **Contested at area and layer level:** in V1 and IT grey matter, primate neuron density *falls* with brain mass, implying `a` ≈ 1.15–1.26 there (Sherwood et al. 2020; § The edge side; `T301`) |
 | **`a > 1` (rodents; insectivore cortex)** | `s̄ ∼ N^0.74` in rodent cortex: added units are *also bigger* units. Density falls, glia:neuron rises with size |
 | **The exponent is per-structure** | Insectivores are primate-like in cerebellum (`1.028`) and rodent-like in cortex (`1.520`). One brain runs two regimes at once, so `a` is not a species constant |
 | **Cost of a 10× unit increase** | Rodent brain: **35×** mass. Primate brain: **11×** mass |
@@ -115,6 +117,51 @@ Modern human range: 76–90 B (Azevedo et al. 2009). *H. heidelbergensis* and *H
 
 ---
 
+## The edge side — synapse density is invariant, synapses per neuron are not
+
+Sherwood et al. 2020. Phylogenetic generalized least squares (pGLS) of log density against log brain mass across 25 primates, in four regions: V1 and IT, each at layers II–III and V–VI. Brain mass stands in for neocortex: on 13 species, brain mass against literature neocortical grey-matter volume gives `r²` = 0.976.
+
+| Quantity | Slope on brain mass (95% CI range over the 4 regions) | Values |
+|---|---|---|
+| Synapse density | All four CIs include 0 (from −0.05 to +0.06) | Mean **256 M/mm³** (SD 37.5 M). Range 1.9× across species, from 195 M (*Ateles* V1 V–VI) to 362 M (human IT II–III) |
+| Neuron density | **Negative in all four** (from −0.26 to −0.06) | V1 denser than IT (intercepts differ; slopes do not) |
+| Synapses per neuron | **Positive in all four** (from +0.05 to +0.27), with a common slope and different intercepts | 671 (*Tarsius* V1 II–III) to **5,081** (human IT V–VI), a 7.6× range |
+| Synapse density vs neuron density | All four CIs include 0 | The two vary independently |
+
+| Further result | Value |
+|---|---|
+| Layer difference | Supragranular has ~13.9 M/mm³ more synapses than infragranular (V1 `p` = 0.029, IT `p` = 0.027), and a higher synapses-per-neuron count |
+| Residual variance | Synapses per neuron in IT layers II–III accumulate 3.9× the residual variance of IT layers V–VI (`p` = 0.011). The excess comes from neuron density (ratio 2.8, `p` = 0.056), not synapse density (1.1, `p` = 0.78) |
+| Electron microscopy check (V1, 5 species) | Densities are higher than with the stain, and there is no significant brain-mass trend (Spearman ρ = 0.60, `p` = 0.285). With `n` = 5 this is a failure to detect a trend, not a demonstration that none exists |
+| Humans | Highest synapses per neuron, lowest neuron density. The departures above the primate line are positive but not significant (`p` = 0.05, 0.15, 0.13, 0.23) |
+| Source's explanation (not tested) | Synapse density is held by energy per unit tissue volume, coupled through astrocytes. Glial density is also reported constant |
+
+**Reading against this page's exponent (derived here, not in the source).** If `M ∼ N^a`, then neuron density `∼ M^(1/a − 1)`.
+
+| `a` | Implied density slope |
+|---|---|
+| Primate cortex, 1.077 (Herculano-Houzel 2009) | −0.071 |
+| Rodent cortex, 1.744 | −0.427 |
+| Shariff's 2.75× volume for 1.25× neurons (≈ 4.5) | ≈ −0.78 |
+
+| Measured midpoint slope (Sherwood et al. 2020) | Implied `a` |
+|---|---|
+| −0.13 (V1 II–III) | 1.15 |
+| −0.155 (V1 V–VI, IT II–III) | 1.18 |
+| −0.205 (IT V–VI) | 1.26 |
+
+The two V1 CIs reach −0.07; both IT CIs exclude it. One caveat: the regressor is brain mass, not cortical volume. If cortex grows faster than the brain, the slopes against cortex are shallower, so these values of `a` are upper estimates. Even so, every CI excludes both the rodent value and Shariff's value.
+
+| What it settles | What it does not |
+|---|---|
+| In primates, **edges per unit of tissue are conserved and edges per unit rise with size.** Synapses per neuron go up by roughly `M^0.15–0.2` | Whether the whole cortex follows V1 and IT. Two areas were sampled, and the source flags this itself |
+| The primate grey-matter regime is mildly super-linear (`a` ≈ 1.15–1.26). That falls between `T301`'s two positions and is far from Shariff's ratio | Whether "synapses per neuron within a layer" counts a neuron's real fan-in. Dendrites cross layers and terminals come from several sources. The source calls the measure coarse |
+| Human values sit on the primate line, as the human neuron count does in § The human numbers | What the higher ratio buys. The source offers memory capacity and dendritic integration, citing Hawkins & Ahmad 2016, and measures neither (`G101`) |
+
+**For a builder (brainstorm).** Biology fixes the edge budget **per unit of substrate volume**, not per unit. Thinning the units then raises fan-in for free. The machine analogue is a fixed number of nonzero weights per memory block, with width chosen inside it. This is a different rule from the Erdős–Rényi allocation in [[wiki/entities/rigl.md]], which keeps edges per unit roughly constant across layers. The two can be compared in a sweep. The supragranular excess, together with the extra variance in IT II–III, puts the variable part of the ratio in the cortico-cortical output tier. That is the tier [[wiki/entities/human-supragranular-pyramidal-neuron.md]] finds enlarged in humans.
+
+---
+
 ## What a builder takes from it
 
 | Move | Statement |
@@ -134,6 +181,7 @@ Modern human range: 76–90 B (Azevedo et al. 2009). *H. heidelbergensis* and *H
 - **`N` → cognition is a correlation with no mechanism.** The source's own proposal — combinatorial interaction of units, so ability rises *exponentially* in `N` with possible thresholds — is stated without a model, and would make a 3× neuron ratio (human:gorilla = gorilla:baboon) mean different things at different absolute scales. That is an untested nonlinearity doing all the explanatory work.
 - **The counts are for gross divisions only.** Cortex, cerebellum, and everything else lumped. Whether particular functional areas carry disproportionate units — the mosaic-evolution question, and the one that would bear on module-share arguments — is not answered by any number here.
 - **Within humans, volume and cognition are reported both to correlate and not to.** Population meta-analyses find brain volume correlates with IQ (McDaniel 2005; Pietschnig et al. 2015, via Galakhova et al. 2022). This page's source finds no correlation within families. The designs differ: a within-family comparison removes shared background. So both results can hold, but they disagree about whether volume causes cognition or only co-varies with background. At the cellular level, higher IQ tracks thicker L2/L3 made of **larger cells at lower density, not more neurons** (Heyer et al. 2021) — a within-species `s̄` effect with `N` unchanged ([[wiki/entities/human-supragranular-pyramidal-neuron.md]]).
+- **Primate neuron density: invariant or falling?** Whole-structure homogenate counts say density is invariant (`a` = 1.077). Section stereology in V1 and IT says it falls (`a` ≈ 1.15–1.26) (Sherwood et al. 2020). The methods count different volumes: whole cortex versus grey-matter layers of two areas. Nothing yet says whether the gap is real or comes from the method (`T301`).
 - **Why `a` differs between clades is unexplained.** The rules are descriptions; nothing says what developmental mechanism sets `s̄`'s dependence on `N`, so nothing says whether an engineer can choose the exponent or only inherit it.
 
 ---
