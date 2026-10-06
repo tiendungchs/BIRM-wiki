@@ -85,6 +85,25 @@ Three further properties fix what the channel is keyed to. It fires only for cue
 
 ---
 
+## A fourth channel, keyed to action
+
+> Greenstreet et al. 2025 (`raw/greenstreet-2025-dopaminergic-action-prediction-errors-value-free-teaching-signal.md`), mouse, dLight photometry plus optogenetics. Full treatment in [[wiki/concepts/action-prediction-error.md]].
+
+The review above lists "movement-related" responses among the further response types that might subdivide the population. One of them is now measured as a channel with its own address and its own consumer:
+
+| | Value (VS, same mice) | **Action (tail of striatum, TS)** |
+|---|---|---|
+| Source | VTA / medial SNc | Lateral SNc, substantia nigra pars lateralis |
+| Responds to | Reward and reward-predicting cues | Contralateral movement onset. **No** response to sound, outcome size, omission or predicted value |
+| Form | Signed `δ` | Rectified `a − A(s)`: shrinks as the state→action pairing becomes predictable, grows for a familiar action after a novel cue |
+| Stimulation reinforces | State–outcome (biases free choice toward the paired port) | State–action, and only when delivered at choice time. Neither appetitive nor aversive in place preference |
+
+Two consequences for this page:
+- **Address by axon again, now with a type restriction.** Each terminal field gets a different *kind* of error, not only a different sign convention. Stimulating TS dopamine at the outcome, or VS dopamine at the choice, does nothing, so the moment of delivery is part of the address (`G119`).
+- **The tail is itself split.** In the same mice, TS dopamine also responds to looming threat. The source proposes separate *Vglut2* (threat) and *Anxa1* (movement) subpopulations, both projecting to TS. Untested. If it holds, the posterior projection carries two channels on one target, which neither address-by-axon nor address-by-afferent alone resolves.
+
+---
+
 ## Where this puts the wiki's dopamine disputes
 
 | Row | What this source does to it |
@@ -154,3 +173,4 @@ This bites the two-population claim exactly where it is most load-bearing: the s
 - **[[wiki/entities/lateral-habenula.md]]** — the source this page names for the value channel, unpacked and partly corrected: it is not a single sign-inverting node but a funnel taking reward omission, pain, thirst, sound, touch, light and social defeat from more than a dozen afferents, with valence separated by *transmitter* within a pathway rather than by target, and with a slow burst-mode gain set by an astrocytic potassium channel — a second code dimension on the same wire that none of this page's three channels has.
 - **[[wiki/concepts/pseudo-reward-prediction-error.md]]** — the address problem raised one level up: this page splits the signal by *what is signalled about the outcome*, and a subgoal-level error adds a split by *which value function the error belongs to* — with the observation that at 3 mm voxels and scalp EEG the two are co-localised in all four structures, so the second split, if it exists, is invisible at the resolutions used (`T367`, Ribas-Fernandes et al. 2011).
 - **[[wiki/concepts/sign-tracking-and-goal-tracking.md]]** — the case that most needs this page's answer and is not settled by it: an animal that learns a CS→US association shows no prediction-error signature in accumbens core, which is either a second chemistry or a channel this page's partition predicts and that electrode did not sample — and the systemic-antagonist arm argues against the address-by-axon rescue without closing it (`T404`).
+- **[[wiki/concepts/action-prediction-error.md]]** — a measured channel of the kind this page decomposes. Lateral nigral dopamine to the tail of the striatum carries a value-free error over *which action the state predicted*. It is silent to sound and outcome, and is admitted only to a state→action store at choice time. Ventral-striatal dopamine in the same animals carries the signed value error. So the projection splits by error type as well as by sign, with the timing of delivery as part of the address.

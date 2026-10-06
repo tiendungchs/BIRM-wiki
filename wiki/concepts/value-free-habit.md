@@ -68,8 +68,28 @@ Proposal:
 **Predictions from the divorce.**
 
 - Dorsolateral-striatum activity should rise with the number of repetitions, and lesions there should reduce value-free perseveration (`β_a`).
-- **Repetition alone should build a habit.** Actions elicited by microstimulation in a context, with no reinforcement, should be facilitated later in that context. Not run.
+- **Repetition alone should build a habit.** Actions elicited by microstimulation in a context, with no reinforcement, should be facilitated later in that context. Still not run. Greenstreet et al. 2025 stimulate the value-free teaching signal at choice time, but inside a rewarded task.
 - Obsessive–compulsive and tic disorders need not involve faulty valuation.
+
+---
+
+## The update term, measured
+
+> Greenstreet et al. 2025, Nature (`raw/greenstreet-2025-dopaminergic-action-prediction-errors-value-free-teaching-signal.md`). Mouse auditory two-alternative choice; tests this source as its ref. 4. Full treatment in [[wiki/concepts/action-prediction-error.md]].
+
+The bracket in `H`'s update, `(𝐚_t − H)`, is an **action prediction error (APE)**, and dopamine in the tail of the striatum (TS) carries one:
+
+| This page's claim | Status after Greenstreet et al. |
+|---|---|
+| The habit store's update reads no outcome | **Measured for TS.** TS dopamine is unchanged by larger reward, by omission and by a shift in predicted value. VS dopamine changes strongly under all three |
+| `H` tracks executed actions | TS dopamine falls over learning, is smaller after the same sound→action pairing on the previous trial, and rises when a novel cue precedes a familiar action |
+| Repetition writes the store | Stimulating TS dopamine at choice time builds a contralateral bias over the session, with no bias on the stimulated trial itself. A larger endogenous TS response predicts repeating the choice (`β_a > 0`) |
+| Habits form out of goal-directed choices | A value-free controller alone cannot learn. With an actor–critic it learns faster, and TS takes over expert performance only once choices are consistent (TS silencing has no effect early and an effect after ~65% correct) |
+| Address: dorsolateral striatum | **Extended.** The measured value-free store is TS, the auditory-recipient posterior striatum. The source *proposes* DLS movement-related dopamine is also APE (untested) |
+| Arbitration by contingency against concentration (`w`) | **Not used.** The source's model sums the two controllers' outputs. Control passes because the reward-trained actor's weights decay when the reward error is small |
+| The omission and devaluation wedge | **Not tested.** No omission or devaluation test is run, so this source cannot decide `T405` on the evidence this page calls decisive |
+
+It also bears on limitation 1 below. One mechanism appears at two timescales: a trial-lag repetition effect (the endogenous TS response predicts the next choice) and a slow takeover over thousands of trials. The source attributes both to one store. Its own simulations still set the store's rate per experiment: `ε` = 0.01 for most, 0.001 for the predicted-value experiment "to mimic how a value-free controller should update slowly". So it does not settle whether one rate serves both timescales.
 
 ---
 
@@ -108,7 +128,7 @@ Proposal:
 ## Open problems
 
 - **Is perseveration the same thing as a habit?** The mechanism is shared, but the time constants are not (limitation 1). The discriminating experiment: does a dorsolateral-striatum lesion that abolishes overtraining habits also remove the per-trial `β_a` kernel?
-- **Repetition-only habit induction** (microstimulation, or instructed forced choice with outcomes equalised) is the direct test of the divorce. It also discriminates against incentive salience, which has no reason to grow from unrewarded repetition (`G121`, `T405`).
+- **Repetition-only habit induction** (microstimulation, or instructed forced choice with outcomes equalised) is the direct test of the divorce. It also discriminates against incentive salience, which has no reason to grow from unrewarded repetition (`G121`, `T405`). The teaching signal to stimulate is now identified (TS dopamine, [[wiki/concepts/action-prediction-error.md]]), which makes the test cheaper: stimulate at choice time in a session with outcomes equalised, then test free choice.
 - **What sets `α_H`, and is it modulated by value?** The source allows value to scale habit *writing*. If it does, the empirical boundary between "value-free" and "value-cached" becomes a question of which term the modulation enters.
 - **The union claim is a prediction, not a result.** "No region has a model-free error without a model-based one" is a universal negative. It is also consistent with [[wiki/concepts/amortized-inference.md]]'s reading (Mishchanchuk et al. 2024) that the model-free update runs over a model-based state estimate.
 
@@ -121,3 +141,4 @@ Proposal:
 - **[[wiki/concepts/default-policy-regularization.md]]** — the same distilled default policy, entering behaviour differently. There, `π₀` is distilled from task policies and departure from it is priced by `KL`. Here, `H` is distilled from executed actions and added to the drive under a contingency-gated weight. The two disagree on whether habits come from *pricing* or from *repetition*.
 - **[[wiki/concepts/incentive-salience.md]]** — the account `G121` opposes to S–R habit, now faced with a positive S–R definition. The two predict opposite results for unrewarded repetition: it builds `H` but gives the mesolimbic gain nothing to attach to.
 - **[[wiki/concepts/reward-prediction-error.md]]** — the source's case against a purely model-free dopamine system (inferred values, counterfactual outcomes, sensory-preconditioning errors) is the same record that page uses against reading 1. Here it is used for a different conclusion: the habit system does not need dopamine's error at run time at all.
+- **[[wiki/concepts/action-prediction-error.md]]** — the measured carrier of this page's update term. TS dopamine encodes `a − A(s)`, is unmodulated by outcome or predicted value, and causally biases state→action choice. In a dual-controller model it copies a reward-trained actor's choices into a store that takes over expert performance. It runs no omission or devaluation test, so it supports this page's update rule without deciding `T405`.
