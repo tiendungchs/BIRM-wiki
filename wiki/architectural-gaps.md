@@ -67,7 +67,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G49 | No store schedules its own reads, and none has a relevance-addressed erase | part | `L2` | `OPEN` | 12 | [[wiki/gaps/g049.md]] |
 | G50 | The controller cannot set the gain of its own teaching signal | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g050.md]] |
 | G51 | Nothing transfers a representation out of the control layer into the store that will run it automatically | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g051.md]] |
-| G52 | No inter-module connection in the wiki has state of its own | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g052.md]] |
+| G52 | No inter-module connection in the wiki has state of its own | part | `L2` | `OPEN` | 14 | [[wiki/gaps/g052.md]] |
 | G53 | No architecture delivers one signal to two modules by the same wire, and none lets a third module license a pair's connection | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g053.md]] |
 | G54 | No architecture distinguishes a channel that carries content from one that only carries timing | part | `L2` | `PARTIAL` | 14 | [[wiki/gaps/g054.md]] |
 | G55 | Every machine controller is either one resource or *n* independent ones; none has a shared component plus operation-specific parameters | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g055.md]] |

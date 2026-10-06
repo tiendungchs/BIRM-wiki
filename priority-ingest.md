@@ -18,10 +18,10 @@ Taube 2007 (Annual Reviews, excluded venue) was replaced by Cullen & Taube 2017.
 
 One INGEST each:
 
-- [ ] `bubb-2017-hippocampal-diencephalic-cingulate-networks-memory-emotion-anatomical-guide.md` — hippocampal-entorhinal · S · 2017
+- [x] `bubb-2017-hippocampal-diencephalic-cingulate-networks-memory-emotion-anatomical-guide.md` — hippocampal-entorhinal · S · 2017
 - [ ] `aggleton-1999-episodic-memory-amnesia-hippocampal-anterior-thalamic-axis.md` — hippocampal-entorhinal · F · 1999 · LOSSY
 - [ ] `vann-2004-mammillary-bodies-two-memory-systems-in-one.md` — hippocampal-entorhinal · F · 2004
 - [ ] `cullen-2017-our-sense-of-direction-progress-controversies-challenges.md` — hippocampal-entorhinal · M · 2017
 - [ ] `jankowski-2013-anterior-thalamus-subcortical-circuit-memory-spatial-navigation.md` — thalamocortical · R · 2013
 
-**Wave 28 queued (0/5 ingested). Order: survey → framework → mechanism → result, oldest first within tier.**
+**Wave 28 queued (1/5 ingested). Order: survey → framework → mechanism → result, oldest first within tier.**

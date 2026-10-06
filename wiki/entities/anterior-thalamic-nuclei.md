@@ -25,6 +25,18 @@ Why this earns a page. The wiki holds two thalamic nuclei as **relays or gates**
 
 **Collateralisation across the two streams.** ~50% of rat hippocampal projections to retrosplenial cortex come from neurons that *also* innervate the mammillary bodies — the same axon feeds the cortical convergence zone and the diencephalic stream that will arrive there.
 
+**Routes and origins, from the tracing review** (Bubb, Kinnavane & Aggleton 2017; full edge table in [[wiki/entities/hippocampal-diencephalic-cingulate-network.md]]):
+
+| Fact | Detail |
+|---|---|
+| Three routes converge here | Subiculum → `ATN` directly; via the mammillary bodies; via retrosplenial cortex. This is the only node where all three meet, which the source gives as the reason `ATN` lesions usually exceed mammillary lesions and sometimes exceed fornix lesions |
+| Not all-fornical | Most direct subicular input runs in the fornix. Distal subiculum/presubiculum → dorsolateral `AV`, and most postsubiculum/parasubiculum → `AD`, run in the **internal capsule**, so a fornix transection spares them |
+| Origin split by lamina | The direct `ATN` projection comes from the **deepest** subicular layer, and the mammillary projection from the **middle** layer (laminar only in monkey; also proximal→`AM` / distal→`AV` in rat) |
+| Origin split by long axis | Direct `ATN` input comes mostly from **dorsal**/posterior hippocampus. Mammillary input comes from dorsal *and* ventral, and the mammillothalamic map runs orthogonal to the subiculo-mammillary one, so both ends of the axis can reach one thalamic site |
+| Cortical returns | Retrosplenial layer VI → `ATN`, to **both** hemispheres (thalamocortical output is ipsilateral). Viral tracing makes retrosplenial → `ATN` → dorsal hippocampus a **major** cingulate→store pathway |
+| Species | Rat `AM`/`AD` → entorhinal cortex; monkey `ATN` **do not** project to entorhinal cortex. Anterior cingulate areas 24/25/32 reach `ATN` only via `AM`, and their densest thalamic partner is the mediodorsal nucleus |
+| Not purely relayed | Mammillary and `ATN` contributions to learning "not solely dependent on their hippocampal inputs" (Dillingham 2015b; Wright 2015, cited) — evidence for Position B on `T381` |
+
 ---
 
 ## Three nuclei, three jobs
@@ -159,4 +171,5 @@ Their inputs to overlapping cortical sites are separated by **topography and lam
 - **[[wiki/entities/posterior-cingulate-cortex.md]]** — this nucleus group is what *defines* the retrosplenial subregion against the other two: dorsal posterior cingulate takes posterolateral/central/mediodorsal/ventral thalamic input and ventral posterior cingulate takes anterior medial, pulvinar and lateral dorsal, so three subregions of one cortical expanse are separated by three thalamic sources — and only one of them is this page's.
 - **[[wiki/entities/subiculum.md]]** — resolves "the subiculum projects here" into one cell type: the non-pyramidal *Ly6g6e*⁺ **ovoid** neuron of the deep polymorphic layer projects selectively to these nuclei, so the fornix input this page describes has a named, molecularly accessible origin — and the dependency runs both ways, since these nuclei's lesion silences spatial firing across that output stage (Kinman et al. 2026).
 - **[[wiki/entities/bb-model.md]]** — this circuit as a *parameter source*, and the cleanest dissociation the framing predicts: deleting the head-direction input to a frame-conversion bank leaves both stores intact and destroys only the conversion, which reproduces anterograde amnesia plus loss of recollection with perirhinal recognition spared — the fornix/mammillary lesion signature obtained from one removed scalar rather than from a damaged store.
+- **[[wiki/entities/hippocampal-diencephalic-cingulate-network.md]]** — the network this page's nuclei sit at the centre of, traced edge by edge. The store's output arrives here directly, via the mammillary bodies and via retrosplenial cortex, so this is the one node whose lesion disconnects every route. The same route anatomy shows `T381`'s two-stream cut has no clean surgical form on the cortical side.
 - **[[wiki/entities/dorsal-visual-stream.md]]** — the same head-direction circuit reached from the visual side: the pre- and parasubicular terminals of the parieto-medial-temporal pathway are part of this nuclei group's head-direction system, so a descending visual route and the ascending diencephalic route converge on one population (Kravitz et al. 2011).
