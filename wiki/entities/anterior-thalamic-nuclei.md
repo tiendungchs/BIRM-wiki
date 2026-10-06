@@ -78,6 +78,63 @@ The 1999 paper concedes one heading-specific effect. Anterior thalamic lesions d
 
 ---
 
+## The 2013 review: per-nucleus wiring, and the two Papez signals meeting in one cell
+
+> Jankowski, Ronnqvist, Tsanov, Vann, Wright, Erichsen, Aggleton & O'Mara 2013, *The anterior thalamus provides a subcortical circuit supporting memory and spatial navigation*, Front. Syst. Neurosci. 7:45 (`raw/jankowski-2013-anterior-thalamus-subcortical-circuit-memory-spatial-navigation.md`). A rodent-centred review from the same group as the 2022 and 1999 sources (Aggleton, O'Mara, Vann are authors), so it does not check them independently. Figures 1–5 are images only. The theta-cell data are the authors' own (Tsanov et al. 2011a, b).
+
+**Per-nucleus edges the tables above do not carry** (rat):
+
+| Nucleus | Inputs not listed above | Outputs not listed above |
+|---|---|---|
+| `AD` | **Retina** (direct); caudal dorsal reticular nucleus; granular retrosplenial | **Hippocampus** (Wyss 1979; Amaral & Cowan 1980); pre-/para-/postsubiculum; granular retrosplenial |
+| `AM` | Rostral dorsal reticular nucleus; prelimbic, medial orbital, secondary motor cortex; **entorhinal**, subiculum | Frontal polar, medial orbital, anterior cingulate, perirhinal, entorhinal, visual area 18b, temporal/occipital areas, secondary motor cortex |
+| `AV` | Caudal dorsal reticular nucleus; **laterodorsal tegmental nucleus**; secondary motor cortex | Entorhinal, secondary motor cortex |
+
+- **Segregation at the cell, again.** Inputs to `AV` and `AM` often come from the same structure but rarely from the same cells (Wright et al. 2013). The subiculum's mammillary-projecting and `ATN`-projecting cells form distinct bands (Wright et al. 2010). Both repeat the "routes split at the cell of origin" fact on `T381`.
+
+**Three parallel sub-systems** (Aggleton et al. 2010, restated):
+
+| Sub-system | Proposed job |
+|---|---|
+| `AM` | Largely **feed-forward**: integrated hippocampal-diencephalic output → prefrontal; executive function |
+| `AV` | A **return loop** whose main job is to keep theta going back into the hippocampal formation |
+| `AD` | The head-direction system |
+
+**The head-direction and theta circuits run in parallel, one nucleus apart at every level**: dorsal vs ventral tegmental nucleus of Gudden → lateral vs medial mammillary → `AD` vs `AV` → subicular/entorhinal cortex.
+
+**…and they meet in single `AV` cells** (Tsanov et al. 2011a, b; freely moving rats):
+
+| Population | Fraction |
+|---|---|
+| `AV` units that are slow- or fast-spiking bursters entrained to theta | ~23% |
+| `AV` head-direction cells that spike in theta-rhythmic trains when the animal faces the preferred direction ("head-direction-by-theta" cells) | **39%** of `AV` heading cells |
+| Theta and spindle oscillations in `AV` | Spatially distributed differently, so taken to have separate cellular sources |
+
+Conjunctive heading×theta cells were already known in pre-/parasubiculum (Cacucci 2004; Boccara 2010). This is the first report that the merge happens in the thalamus, a stage earlier. The review proposes that the merged signal ascends through Papez' circuit to shape the pre-/parasubicular cells. It also proposes that non-directional `AV` theta cells prime retrosplenial cells and so amplify `AD`'s heading input there (Albo 2003).
+
+**Theta-cell counts disagree across preparations.**
+
+| Claim | Source | Preparation |
+|---|---|---|
+| ~75% of `AV` cells theta-synchronous; no theta cells in `AM` or `AD` | Vertes et al. 2001 (carried on [[wiki/entities/mammillary-bodies.md]]) | Urethane-anaesthetised |
+| Theta-modulated cells present in `AM` and `AD` | Albo et al. 2003 | Urethane-anaesthetised |
+| Theta-modulated cells in `AM` | The authors' unpublished data | Freely moving |
+| ~23% of `AV` units theta-entrained bursters | Tsanov et al. 2011b | Freely moving |
+| `ATN` theta cells whose burst frequency varies as the **cosine of movement direction**, with landmark-controlled tuning | Welday et al. 2011 | Freely moving |
+
+So the "`AM` has no theta cells" premise of the 2004 third-system argument matches one anaesthetised study, and two later reports, one of them in freely moving rats, contradict it. The third-system case still has its connectivity argument (`AM`'s prefrontal and anterior-cingulate links), but not the theta one. The 75%-versus-23% gap may be a criterion difference (synchrony versus classed bursting units), but the source does not reconcile them. Welday's cells are the velocity-coupled oscillator that oscillatory-interference grid models assume ([[wiki/concepts/path-integration.md]]).
+
+**Lesion and clinical additions.**
+- Discrete lesions of hippocampus, mammillary bodies, fornix and `ATN` all impair spatial alternation, with different severity. Hippocampus, fornix and `ATN` lesions also impair **temporal-order discrimination** (Fortin 2002; Charles 2004; Wolff 2006). `ATN` deep-brain stimulation also impairs alternation in rats (Hamani 2010).
+- Korsakoff post-mortem: `ATN` atrophy tracks the amnesia. It is absent in Wernicke's encephalopathy, an alcoholic condition without persistent amnesia (Harding et al. 2000). Twelve patients with `ATN`-involving infarcts had anterograde deficits (Ghika-Schmid & Bogousslavsky 2000).
+- `ATN` deep-brain stimulation for epilepsy cuts seizures by >50% on average over two years (SANTE (Stimulation of the Anterior Nucleus of the Thalamus for Epilepsy) trial, Fisher 2010). In a chronic kainate rat model it **increased** seizure frequency 2.5× (Lado 2006). The review attributes the benefit to a network effect beyond the Papez circuit.
+
+**The review's closing claim, which bears on `T381`.** Framing these nuclei inside Papez' circuit implies that the hippocampus drives them. The authors argue the reverse direction may matter as much. The head-direction signal comes from tegmental inputs that do not depend on the hippocampus. They expect other tegmental inputs (ventral tegmental nucleus of Gudden, laterodorsal tegmental nucleus, the latter reaching `AV` directly) to matter for memory in the same way, and through the nuclei to matter for the medial temporal lobe. They also call the nuclei "a subcortical gate for information used in path integration processes by cortical structures".
+
+**(brainstorm) Content and clock: separate wires, merged at the receiver.** The mammillary bodies carry heading and theta on separate sub-populations ([[wiki/entities/mammillary-bodies.md]], `G54`). The 2013 data show where they stop being separate: 39% of `AV`'s heading cells emit their heading *only within theta-paced bursts*. A machine reading: the receiver forms `h_i(θ_heading) · c(φ_theta)`, a content unit gated by the sender's clock. Downstream modules then get content that is pre-timed, readable only in one theta phase window, with no separate clock wire of their own. The design choice `G54` leaves open is where this multiplication happens. Two answers are measured: at the first receiver (`AV`) and at a later one (pre-/parasubiculum). The model-side question is whether multiplexing early costs anything. Once merged, a downstream lesion can no longer remove timing without removing content, which is the separability `G54` asks for.
+
+---
+
 ## The 1999 lesion record
 
 > Aggleton & Brown 1999 (`raw/aggleton-1999-episodic-memory-amnesia-hippocampal-anterior-thalamic-axis.md`), the target article that put these nuclei at the centre of anterograde amnesia. The functional split it proposes is on [[wiki/concepts/recollection-familiarity.md]].

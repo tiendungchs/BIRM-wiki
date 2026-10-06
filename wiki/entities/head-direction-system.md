@@ -35,6 +35,22 @@ The source splits the signal into **(i) the directional signal**, which in theor
 
 `NPH` and `SGN` lesions give the untethered pattern. So the attractor sits downstream of them, consistent with `DTN` ↔ `LMN`.
 
+**The same lesion logic run on the rest of the chain** (Jankowski et al. 2013, review; Taube-lab and Clark & Taube results):
+
+| Lesion | Effect | Reading |
+|---|---|---|
+| `DTN` or `LMN` (bilateral) | `AD` heading abolished | Generator below `AD` |
+| `AD` | Heading abolished in postsubiculum, parasubiculum and superficial medial entorhinal cortex | Ascending dependence |
+| Postsubiculum | Subcortical heading intact | No descending dependence for the *direction* |
+| Postsubiculum or retrosplenial cortex | `AD` cells lose **landmark control** of their tuning | The *anchor* is cortical and descends |
+| Medial entorhinal cortex | `AD` tuning only mildly affected; no clear loss of landmark processing or angular path integration | Top of the hierarchy, a consumer |
+| Lateral dorsal thalamus | Postsubicular heading barely affected | `AD`, not lateral dorsal thalamus, feeds the postsubiculum |
+| Vestibular hair cells (neurotoxic) | `AD` directional tuning lost for ≥3 months. A new class of **non-directional bursting cells** appears. Vision, touch and smell do not compensate | The velocity source is not substitutable |
+| Otoconia-deficient *tilted* mice | Directional cells present but **unstable across sessions**: tuning holds within one session and is lost between sessions | Otolith (gravity) input is needed for the anchor to persist across sessions, not for the direction itself |
+| `AD` (effect on hippocampus) | Place fields survive but are degraded and **more directional** (Calton 2003) | The store keeps its map but loses part of its heading-invariance |
+
+The table splits the two components by lesion site: direction ascends from the brainstem, anchor descends from cortex.
+
 **(brainstorm) An ablation instrument for trained networks.** "Drift versus loss" tells *severed input* apart from *destroyed integrator* without reading any weights. Ablate the inputs to a recurrent module in a trained model. If the state persists but random-walks, the module is the integrator and the ablated block was its velocity source. If the state collapses, the integrator is at or below the cut. The test is cheap, and it would make the attractor criteria on [[wiki/concepts/attractor-identification.md]] usable on models. No machine study in the wiki runs it.
 
 ---
@@ -58,6 +74,7 @@ The source splits the signal into **(i) the directional signal**, which in theor
 | Tuning is retained under passive rotation, where only vestibular cues are present | Vestibular input alone can drive the ring |
 | Rats moved by cart to a novel room: preferred directions are **unstable**. Rats that walk there: **stable** | A normal vestibular signal is not sufficient. Proprioception or efference copy is needed to carry orientation into a new environment |
 | Active-versus-passive heading differences are mixed: attenuated when passive in towel-restrained rats; similar in head-fixed `AD` | Unresolved |
+| Numbers, `AD` (Jankowski et al. 2013): tight trunk restraint, head free → near-complete suppression when passive (Taube 1995; Knierim 1995). Unrestrained passive → peak rate −27%, tuning kept (Zugaro 2001). Loose restraint → −23% (Bassett 2005). Trunk and head fixed → **no** reduction, also in the dark (Shinder & Taube 2011) | The size of the effect follows the restraint, not the active/passive contrast. Restraint is a confound, and in the head-fixed case vision, motor and proprioceptive input are not needed for tuning |
 
 **Two candidate answers, neither tested.** (i) Mouse `VO` neurons, unlike monkey ones, carry a **static neck-position** signal that is unchanged between active and passive motion. (ii) The residual ~30% is **up-weighted** in the active condition and/or combined with proprioceptive and efference signals inside the heading network, so the input is decoded according to context. The source asks which circuit would do this and has no answer. Registered as `T408`.
 
@@ -169,4 +186,5 @@ The forward model that decides what counts as self-generated is recalibrated wit
 - **[[wiki/entities/fly-central-complex.md]]** — the insect ring this system is compared with. That page's cue-conflict data were measured head-fixed in closed-loop VR, the setup this source says changes what a heading network is fed.
 - **[[wiki/entities/cerebellum.md]]** — the cancellation of self-generated vestibular input is cerebellum-dependent and recalibrates in ~40–50 movements, so the forward model that page describes for limb control sits on the heading integrator's input path.
 - **[[wiki/concepts/prediction-error-neurons.md]]** — a subcortical, first-synapse version of that page's comparator: vestibular-only neurons pass on sensed minus predicted motion, gated by a proprioceptive match, one synapse from the sensor rather than in cortical layer 2/3.
+- **[[wiki/entities/hippocampal-diencephalic-cingulate-network.md]]** — the circuit this chain runs through, with its theta twin one nucleus over at every level (ventral tegmental nucleus of Gudden → medial mammillary → `AV`). The two merge in `AV`'s head-direction-by-theta cells (Jankowski et al. 2013).
 - **[[wiki/concepts/hexadirectional-signal.md]]** — the human instrument is run supine and head-fixed in front of a monitor, the setup in which this system's vestibular, proprioceptive and efference inputs are all absent or mismatched.
