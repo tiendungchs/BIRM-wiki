@@ -3,6 +3,8 @@
 **The chain of brainstem, hypothalamic, thalamic and parahippocampal populations that holds one allocentric heading variable as a single activity bump on a ring: vestibular nuclei → nucleus prepositus / supragenual nucleus → dorsal tegmental nucleus ↔ lateral mammillary nucleus → anterodorsal thalamus → postsubiculum → retrosplenial and entorhinal cortex. The signal has two parts: a direction integrated from self-motion, and an anchor that fixes its reference frame. The textbook input is vestibular angular velocity, but the first central vestibular stage cancels ~70% of the signal whenever the movement is self-generated. So whatever drives the ring during active behaviour is not a plain sensor reading.**
 
 > **Provenance.** Cullen & Taube 2017, *Our sense of direction: progress, controversies and challenges*, Nat. Neurosci. 20(11) (`raw/cullen-2017-our-sense-of-direction-progress-controversies-challenges.md`). This is a Perspective, not new data. It joins two literatures that rarely cite each other: monkey vestibular-nucleus single units recorded during active versus passive motion (Cullen), and rat head-direction lesion and recording studies (Taube). Box 1 and Figures 1–3 are images or missing from the clip. Taube is an author on most of the rat lesion results the wiki already cites on [[wiki/entities/mammillary-bodies.md]] and [[wiki/entities/anterior-thalamic-nuclei.md]] (Stackman & Taube; Golob & Taube; Goodridge & Taube), so this source does not check those pages independently.
+>
+> **Second source.** Shinder & Taube 2014, *Resolving the active versus passive conundrum for head direction cells*, Neuroscience 270:123–138 (`raw/shinder-2014-resolving-active-versus-passive-conundrum-head-direction-cells.md`). A review written three years earlier that states the same conundrum from the rat side. It adds the stage-by-stage angular-head-velocity record, the only active-versus-passive data from the integrator's input stage (dorsal tegmental nucleus), velocity storage, and four candidate resolutions. Same lab as the first source (Taube), so it is not an independent check; several of its dorsal-tegmental results are the lab's unpublished preliminary data. Figures are images in the clip.
 
 Why this earns a page. "Head direction" appears on ~45 wiki pages. The circuit is covered node by node: the fly ring ([[wiki/entities/fly-central-complex.md]]), the mammillary generator ([[wiki/entities/mammillary-bodies.md]]), the thalamic manifold ([[wiki/entities/anterior-thalamic-nuclei.md]]) and the cortical stabiliser ([[wiki/entities/retrosplenial-cortex.md]]). No page covers the system end to end, and none asks what rides its input wire. This source does both. The second question is `T408`.
 
@@ -75,8 +77,58 @@ The table splits the two components by lesion site: direction ascends from the b
 | Rats moved by cart to a novel room: preferred directions are **unstable**. Rats that walk there: **stable** | A normal vestibular signal is not sufficient. Proprioception or efference copy is needed to carry orientation into a new environment |
 | Active-versus-passive heading differences are mixed: attenuated when passive in towel-restrained rats; similar in head-fixed `AD` | Unresolved |
 | Numbers, `AD` (Jankowski et al. 2013): tight trunk restraint, head free → near-complete suppression when passive (Taube 1995; Knierim 1995). Unrestrained passive → peak rate −27%, tuning kept (Zugaro 2001). Loose restraint → −23% (Bassett 2005). Trunk and head fixed → **no** reduction, also in the dark (Shinder & Taube 2011) | The size of the effect follows the restraint, not the active/passive contrast. Restraint is a confound, and in the head-fixed case vision, motor and proprioceptive input are not needed for tuning |
+| Head-fixed controls (Shinder & Taube 2011a, via Shinder & Taube 2014) | `AD` cells' angular-head-velocity sensitivity is also unchanged under head-fixed restraint, so a different velocity distribution does not explain the hand-held drops. Naive and acclimated rats do not differ, so stress does not either. Preliminary: head-fixed `DTN` heading cells are also unattenuated | Why hand-held restraint lowers firing remains unexplained |
 
-**Two candidate answers, neither tested.** (i) Mouse `VO` neurons, unlike monkey ones, carry a **static neck-position** signal that is unchanged between active and passive motion. (ii) The residual ~30% is **up-weighted** in the active condition and/or combined with proprioceptive and efference signals inside the heading network, so the input is decoded according to context. The source asks which circuit would do this and has no answer. Registered as `T408`.
+**What the cancellation is keyed to** (Shinder & Taube 2014). Monkey `VO` suppression is near-complete in ~75% of cells; the other ~25% are attenuated by only 20–75% (McCrea et al. 1999). Suppression occurs only when the neck turns the head on the body. A monkey that steers its chair by hand, turning head and body together with no neck rotation, shows none (Roy & Cullen 2001). So the cancelling signal is the efference copy of the **neck** motor command, not a higher-order plan of head-in-space motion. In mice, ~70% of `VO` cells are bimodal vestibular–neck cells. During active rotation their neck sensitivity is unchanged and their vestibular sensitivity drops, so they encode **head-on-body** rotation (Medrea & Cullen 2013). Heading cells code head-in-world direction independent of neck angle, so this signal is the wrong variable for the integrator.
+
+**Two candidate answers, neither tested.** (i) Mouse `VO` neurons, unlike monkey ones, carry a **static neck-position** signal that is unchanged between active and passive motion. (ii) The residual ~30% is **up-weighted** in the active condition and/or combined with proprioceptive and efference signals inside the heading network, so the input is decoded according to context. The source asks which circuit would do this and has no answer. Registered as `T408`. Shinder & Taube 2014 lists four candidates (table below); (i) is weakened by the head-on-body result above.
+
+---
+
+## The velocity wire, stage by stage (Shinder & Taube 2014)
+
+| Stage | Angular-head-velocity (`AHV`) cells | Other content | Note |
+|---|---|---|---|
+| Medial vestibular nucleus | `PVP`, `VO`, eye-head (`EH`) classes, all modulated by passive rotation in darkness | `PVP`/`EH` vestibular modulation suppressed during gaze shifts until the eye is stable in space; `VO` suppressed for the whole movement | Some cells gravity-referenced (Yakusheva et al. 2007); site of velocity storage |
+| `NPH` | Monkey: position and burst-position cells (eye only) plus eye-head cells, one turn direction only; ~half of those insensitive to eye position (effectively `NPH` `VO`). Rodent: 30% eye-head. At fixed rotation frequency, 7/10 cells *decrease* firing with head velocity, 2/10 increase | Eye velocity, visual motion, neck proprioception | Only 6.6% show velocity storage; output to abducens is inhibitory. Lesion: fewer `AD` heading cells, preferred directions unstable in darkness |
+| `PGRNd` | Cat: 37% orienting eye–neck cells, active gaze shifts only, no vestibular sensitivity; 14.7% of the rest vestibular under passive rotation. Rat (unpublished): asymmetric `AHV` cells | Head, eye, neck rotation | Projects to `NPH` and `SGN`; could impose or cancel active-motion suppression there. Frontal eye fields also project to both |
+| `SGN` | **No published recordings.** Unpublished: many asymmetric `AHV` cells | — | Lesion disrupts `AD` heading; partial sparing → fewer heading cells, unstable preferred directions |
+| `DTN` | ~75% of cells. Bassett & Taube 2001: majority symmetric (all positive slope), ~36% asymmetric, 9/11 asymmetric favour contralateral turns. Sharp et al. 2001b: 35/35 asymmetric, ipsilateral bias | **Multimodal**: `AHV` cells also carry pitch, translation or heading | Integrator's input stage |
+| `LMN` | ~44% of cells. **Symmetric**: insensitive to turn direction; half increase and half decrease firing with speed | **Unimodal**: little pitch or heading convergence on `AHV` cells. Head-pitch cells all peak at nose-up −90° | Heading cells here and in `AD` are mildly `AHV`-modulated |
+
+**Reading the progression.** Ascending, the code goes from one-direction, multimodal cells to direction-insensitive, single-variable cells. The source proposes a circuit for the switch: inhibitory, contralaterally biased `NPH` eye-head output converging with excitatory, ipsilaterally biased `SGN` output, which crosses to the contralateral `DTN`. Untested.
+
+**(brainstorm) The ring's input arrives as sign and magnitude on separate cells.** A symmetric `LMN` `AHV` cell carries `|ω|`, which cannot be integrated into a heading. The sign has to come from the asymmetric `DTN` cells. So the top velocity stage looks like a polar split of the input, `ω = sign × |ω|`, and the unsigned half would act as a gain on the bump shift, not as a drive. No model in the wiki splits its velocity input this way. The copy-and-offset shift mechanism drives opposing copies differentially with one signed velocity ([[wiki/concepts/path-integration.md]]).
+
+**An instrument confound across the table.** The brainstem stages were characterised with passive sinusoidal rotation, one frequency and amplitude at a time. `DTN` and `LMN` were recorded in freely moving rats. Natural head movements couple frequency to amplitude (at 10°/s, a 0.1 Hz sinusoid gives 6.3°/s² of acceleration, a 2 Hz one 125.7°/s²), and the vestibular system does not sum mixed frequencies linearly (Massot et al. 2012). So stage-to-stage comparisons of tuning are not like for like. **(brainstorm)** The machine version is an `L0-INSTR` hazard: a module characterised with factorial parametric probes is mispredicted on natural input where those parameters co-vary ([[wiki/concepts/representation-probing.md]]).
+
+### Active versus passive at the integrator's input stage
+
+| Study | `DTN` result |
+|---|---|
+| Sharp et al. 2001b, hand-held restraint, 12 asymmetric `AHV` cells | 8 **lost** `AHV` sensitivity when passive; 4 kept it (2 unchanged; 2 reversed their preferred turn direction or lost it later in the session); none increased. Rats often struggled, so the passive condition was not clean |
+| Taube lab, full head-and-body restraint, unpublished | Replicates the common response, plus cells with weak `AHV` tuning when active and **strong** tuning when passive (Fig. 2G), and one cell whose asymmetry reversed (Fig. 2E) |
+
+A relayed `VO` signal predicts *stronger* `AHV` firing under passive rotation. Most `DTN` cells show the opposite. So the input stage changes with the condition, in both directions across cells, while `AD` heading under head-fixed passive rotation does not. Whatever resolves the conundrum sits between `DTN` input and `AD` output, or in a population sum that hides the per-cell changes. Evidence weak: one hand-held study plus unpublished data.
+
+### Four candidate resolutions (non-exclusive)
+
+| # | Mechanism | Machine form | Relation to `T408` |
+|---|---|---|---|
+| 1 | **Distributed sum.** The ascending signal sums several cell types and nuclei (`VO`, eye-head, eye–neck; `NPH`, `SGN`, `PGRNd`), some non-vestibular (proprioception, efference copy), each encoding a component of head motion; `DTN` as the summation site | `a_t = Σ_k w_k s_k` with fixed weights | Position B, sum form |
+| 2 | **Spared subpopulation.** The `VO` cells attenuated only 20–75% feed the heading path | `a_t` = the non-cancelling minority of the sensor channel | Position A |
+| 3 | **Gated switch.** `VO` input drives the ring under passive motion, another source (`PGRNd`, cerebellum) under active motion; efference copy does not encode motion, it selects the source | `a_t = g·s_passive + (1−g)·s_active`, `g` from efference | A third form, not stated by either position |
+| 4 | **Compensation.** The ring receives the altered input and reinterprets it per condition from visual, motor and proprioceptive context | `a_t = D(s_t; c_t)`, a context-conditioned decoder | Position B, decoding form (Cullen & Taube's (ii)) |
+
+The authors favour 2 and 1 together. Their argument for vestibular primacy: passive head-fixed tuning is intact with motor and proprioceptive input absent, and vestibular lesions abolish heading under active motion, so non-vestibular cues cannot replace the vestibular signal. They frame the conundrum as one case of a general problem: one head movement is coded differently by sensory neurons depending on behavioural context, and heading must come out the same.
+
+**(brainstorm) Telling 3 from 1 and 4.** Use a movement that is partly self-generated, such as an active head turn during imposed body rotation. A switch (3) assigns the whole movement to one channel, so heading errors are all-or-none per condition. A sum (1) or decoder (4) gives errors that scale with the self-generated fraction. The chair-steering result (head and body turned together, no neck motion, no cancellation) shows the gate signal is the neck command alone, which is the variable to manipulate.
+
+### Velocity storage: the input is already an estimate
+
+The canal signal is brief. Brainstem **velocity storage** extends it in time. Velocity storage is read as a by-product of an internal model that resolves ambiguous vestibular input using the prior estimate of orientation and motion, referenced to gravity through cerebellar nodulus and uvula (Laurens & Angelaki 2011). Cutting the commissure between the vestibular nuclei, which disrupts velocity storage, makes heading-cell preferred directions **drift continuously in the direction of movement**. Drift onset is abrupt and usually follows low-frequency, long-duration head turns. So the ring receives the velocity-storage-extended signal. Only 6.6% of `NPH` cells show velocity storage, so the extension is computed in the vestibular nuclei, before `NPH`/`SGN`.
+
+**(brainstorm) A second sense in which `a_t` is not a sensor reading.** Separate from `T408`'s cancellation, and present under passive motion too: the integrator's input passes through a state estimator that compensates the sensor's high-pass dynamics with a prior. Removing the estimator under-signals slow rotation, and an integrator fed by it drifts. A machine integrator fed by a high-pass sensor needs this filter in front, or slow motion is lost.
 
 ---
 
@@ -84,6 +136,7 @@ The table splits the two components by lesion site: direction ascends from the b
 
 - `NPH` is the oculomotor integrator, its lesion disrupts heading, and it targets regions projecting multisynaptically to presubiculum. So the ascending signal may carry **eye-in-head position** as well as head direction.
 - **No rodent study has recorded heading cells while tracking the eyes.** Whether a rodent "head-direction" cell codes head or gaze is open.
+- Shared wiring (Shinder & Taube 2014): transneuronal tracing from the medial rectus eye muscle labels `NPH`, medial vestibular nucleus, `DTN` and `LMN` (Graf et al. 2002). The heading path shares circuitry with the oculomotor one, so eye signals must be removed somewhere on the way up. The source nominates `SGN`, which is not reported as labelled. Indirect evidence against a gaze code: heading firing stays constant in motionless rats, when occasional eye movements would be expected (Shinder & Taube 2011b). Eyes were not tracked. Eye-head neurons code the same head turn differently when the vestibulo-ocular reflex is suppressed, so the source concludes no single cell type codes `AHV` consistently and the ring reads a population sum.
 - Primate data point both ways:
 
 | Primate finding | Frame |
@@ -107,6 +160,8 @@ The table splits the two components by lesion site: direction ascends from the b
 | Shinder & Taube: head-fixed rats placed passively in all three rotational planes | Responses largely explained by orientation **relative to the gravity axis** |
 | Otolith disruption | Impairs heading cells |
 | Monkey anterior thalamus | Cells tuned to pitch and roll relative to gravity |
+| `DTN`/`LMN` `AHV` (Shinder & Taube 2014) | Tested only for yaw in the horizontal plane. If the input is gravity-referenced, a head→gravity frame transform must happen at or before `DTN`. Candidates: gravity-referenced medial vestibular cells fed by cerebellar nodulus and uvula; velocity→orientation integration in `NPH`/`SGN`. Untested |
+| Cerebellar plasticity mutant (Rochefort et al. 2011) | Mice lacking protein-kinase-C-dependent parallel-fibre–Purkinje plasticity have impaired place cells **only when they must rely on self-motion** |
 
 **(brainstorm) The cheapest anchor in the wiki.** One axis of the frame is fixed by a sensor reading of a physical constant. Nothing has to be learned and nothing searched. Read against `G39`: part of the symmetry group is removed before any landmark is consulted. Rotation in 3-D reduces to rotation about a known axis. Abstract structures have no such constant.
 
@@ -174,6 +229,8 @@ The forward model that decides what counts as self-generated is recalibrated wit
 - **The attractor's site is a hypothesis** based on lesion-pattern logic and reciprocal wiring. No connectivity measurement is reported.
 - **No eye tracking in any rodent heading study**, so the variable's name is an assumption.
 - **The VR prediction is stated and not tested.** No heading recording is reported under a manipulated forward model.
+- **The integrator's input stage is barely measured.** `DTN` active-versus-passive data are one hand-held study (12 cells) plus unpublished head-fixed recordings; the two `DTN` tuning surveys disagree on symmetric cells; `SGN` has never been recorded.
+- **Velocity storage evidence is one manipulation** (commissural section), reported second-hand in Shinder & Taube 2014 without the study named.
 
 ---
 
@@ -184,7 +241,8 @@ The forward model that decides what counts as self-generated is recalibrated wit
 - **[[wiki/entities/anterior-thalamic-nuclei.md]]** — `AD` is the chain's high-signal-to-noise relay (~50% heading cells), and it is the head of the anterior vestibulothalamic pathway, the "sense of direction" route that this source contrasts with the posterior, self-motion-perception route.
 - **[[wiki/entities/retrosplenial-cortex.md]]** — supplies the system's one measured case of two frames held at once: global-tied, local-tied and dual-preferred-direction heading cells (the last only in dysgranular cortex), the basis the source offers for keeping several spatial representations concurrently.
 - **[[wiki/entities/fly-central-complex.md]]** — the insect ring this system is compared with. That page's cue-conflict data were measured head-fixed in closed-loop VR, the setup this source says changes what a heading network is fed.
-- **[[wiki/entities/cerebellum.md]]** — the cancellation of self-generated vestibular input is cerebellum-dependent and recalibrates in ~40–50 movements, so the forward model that page describes for limb control sits on the heading integrator's input path.
+- **[[wiki/entities/cerebellum.md]]** — the cancellation of self-generated vestibular input is cerebellum-dependent and recalibrates in ~40–50 movements, so the forward model that page describes for limb control sits on the heading integrator's input path. Nodulus and uvula also reference velocity storage to gravity, a second cerebellar estimator on the same wire (Shinder & Taube 2014).
 - **[[wiki/concepts/prediction-error-neurons.md]]** — a subcortical, first-synapse version of that page's comparator: vestibular-only neurons pass on sensed minus predicted motion, gated by a proprioceptive match, one synapse from the sensor rather than in cortical layer 2/3.
 - **[[wiki/entities/hippocampal-diencephalic-cingulate-network.md]]** — the circuit this chain runs through, with its theta twin one nucleus over at every level (ventral tegmental nucleus of Gudden → medial mammillary → `AV`). The two merge in `AV`'s head-direction-by-theta cells (Jankowski et al. 2013).
+- **[[wiki/concepts/reference-frame-transformation.md]]** — the system's velocity input may need its own frame transform, head-referenced yaw to gravity-referenced rotation, before `DTN`; the parameter (the gravity axis) is a sensor estimate, not an integrated variable.
 - **[[wiki/concepts/hexadirectional-signal.md]]** — the human instrument is run supine and head-fixed in front of a monitor, the setup in which this system's vestibular, proprioceptive and efference inputs are all absent or mismatched.
