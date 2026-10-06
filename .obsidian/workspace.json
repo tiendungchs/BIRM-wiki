@@ -11,10 +11,14 @@
             "id": "143968b04b3097a5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "raw/The anterior thalamus provides a subcortical circuit supporting memory and spatial navigation.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "The anterior thalamus provides a subcortical circuit supporting memory and spatial navigation"
             }
           }
         ]
@@ -183,6 +187,11 @@
   },
   "active": "143968b04b3097a5",
   "lastOpenFiles": [
+    "raw/Episodic memory, amnesia, and the hippocampal–anterior thalamic axis.pdf",
+    "raw/Our sense of direction progress, controversies and challenges.md",
+    "raw/The anterior thalamus provides a subcortical circuit supporting memory and spatial navigation.md",
+    "raw/The mammillary bodies two memory systems in one? - Nature Reviews Neuroscience.md",
+    "raw/Hippocampal–diencephalic–cingulate networks for memory and emotion An anatomical guide.md",
     "raw/Exploration by Random Network Distillation.md",
     "raw/burda-2018-exploration-by-random-network-distillation.md",
     "raw/Pulvinar-Cortex Interactions in Vision and Attention.md",
@@ -204,11 +213,6 @@
     "raw/Evolution of cortical neurons supporting human cognition.md",
     "raw/Rigging the Lottery Making All Tickets Winners.md",
     "raw/Scalable training of artificial neural networks with adaptive sparse connectivity inspired by network science.md",
-    "raw/Asymmetric self-play for automatic goal discovery in robotic manipulation.md",
-    "raw/First return, then explore.md",
-    "raw/Diversity is All You NeedLearning Skills without a Reward Function.md",
-    "raw/FeUdal Networks for Hierarchical Reinforcement Learning.md",
-    "raw/The Option-Critic Architecture.md",
     "raw/hopfield-1982-neural-networks-and-physical-systems-with-emergent-collective-computational-abilities.pdf",
     "raw/attractor-dynamics-in-hc-representation-of-the-env.pdf",
     "raw/Synaptic-Mechanisms-of-Pattern-Completion-in-the-Hippocampal-CA3-Network.pdf",

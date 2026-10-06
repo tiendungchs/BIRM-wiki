@@ -40,13 +40,14 @@ The user has **institutional access (UBO Brest)**, so a paywall is not a filter.
 
 | Venue | Resolve to | Note |
 |---|---|---|
-| arXiv | `arxiv.org/html/<id>` → else `ar5iv.labs.arxiv.org/html/<id>` | real MathML. **Never** `/pdf/` |
-| Nature · Cell · Science · Neuron · PNAS | publisher HTML article page | reachable through the institution; richer than the mirror — prefer it |
+| arXiv | `arxiv.org/html/<id>` → else `ar5iv.labs.arxiv.org/html/<id>` → else the `pdf` route | real MathML. Else `/pdf/` |
+| Nature · Cell · Science · Neuron · PNAS | publisher HTML article page → PMC mirror if one exists | most reachable through the institution; richer than the mirror — prefer it |
 | Biomedical with no good publisher HTML | `pmc.ncbi.nlm.nih.gov/articles/PMC…` | always open, tables as HTML |
 | eLife · PLOS · Frontiers · MDPI | publisher HTML | open and HTML-native |
 | Blogs · LessWrong · Alignment Forum · Distill · Transformer Circuits | canonical post | already HTML |
 | Benchmarks · leaderboards · docs · model cards | the page itself | `self` route |
-| `onlinelibrary.wiley.com` (Hippocampus, Eur. J. Neurosci., …) | PMC mirror if one exists → else the `pdf` route | Wiley serves the article as PDF only: the DOI page is a landing shell, so a clip captures nothing. Reachable through the institution — a format limit, not an exclusion, so it never belongs in the excluded-venues table. Evidence: Lavenex 2000, Teyler 2007 (wave 22) |
+| `onlinelibrary.wiley.com` (Hippocampus, Eur. J. Neurosci., …) | PMC mirror if one exists → else the `pdf` route | Wiley serves the article as PDF only: the DOI page is a landing shell, so a clip captures nothing. Reachable through the institution — a format limit, not an exclusion. |
+| `academic.oup.com` | PMC mirror if one exists → else the `pdf` route; else drop | Oxford serves the article as PDF only (some are paywalled). |
 | Books, pre-2000 papers, scans | user downloads the PDF to `raw/`, then `./tools/pdf2md.sh` | flag `LOSSY` in the manifest. `--layout` for table-heavy sources; the script falls back to the OCR layer on scans |
 
 ### Excluded venues — outside the institutional subscription
@@ -56,16 +57,14 @@ hits the same paywall `WebFetch` does, and the row sits `open` on the want-list 
 cannot tell this apart from a bot-block, so the list is the only source of truth — **check it
 before probing**.
 
-| Excluded | Scope | Evidence | Do instead |
+| Excluded | Scope | Do instead |
 |---|---|---|---|
-| `science.org` | Science, Science Advances, all AAAS titles | Mongillo, Barak & Tsodyks 2008 (wave 20 row 9) — never obtainable | PMC mirror, author copy, or `pdf` route from an author PDF; else drop |
-| `academic.oup.com/cercor` | Cerebral Cortex only — **`academic.oup.com/brain` is covered** (manifest rows 368, 369) | Elston 2003 (wave 20 row 11) — never obtainable | PMC mirror; else drop |
-| `annualreviews.org` | Annual Reviews, all titles | Roelfsema 2006, *Cortical algorithms for perceptual grouping* (wave 24 row 2) — the user hit the paywall with institutional login | PMC mirror, author copy (ResearchGate), or `pdf` route; else drop |
+| `science.org` | Science, Science Advances, all AAAS titles | PMC mirror, author copy, or `pdf` route from an author PDF; else drop |
+| `annualreviews.org` | Annual Reviews, all titles paywalled | PMC mirror, author copy, or `pdf` route; else drop |
+| `cambridge.org` | Cambridge Core, all titles — **provisional**: institutional login fails with `SHIBBOLETH_NOT_FOUND` (UBO not registered with CUP); remove once the UBO library has set it up | PMC mirror, author copy, or `pdf` route; else drop |
 
-Maintenance: the moment the user reports a target they could not reach, add a row here with the
-target that proved it and the narrowest scope that is actually blocked (a title, not a publisher,
-unless the whole publisher is blocked). Then retire the want-list row per that file's rule —
-one *Not acquired* line in `_work/ingest-queue.md`, then delete it.
+Maintenance: the moment the user reports a target they could not reach, add a row here iif the whole publisher is blocked. 
+Then retire the want-list row — one *Not acquired* line in `_work/ingest-queue.md`, then delete it.
 
 ---
 
