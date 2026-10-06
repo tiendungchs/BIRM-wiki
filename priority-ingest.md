@@ -22,7 +22,7 @@ frozen vs objective-trained goal spaces in one agent. `T408`, Position B: Dale &
 
 One INGEST each:
 
-- [ ] `brown-2001-recognition-memory-roles-perirhinal-cortex-hippocampus.md` — hippocampal-entorhinal · S · 2001
+- [x] `brown-2001-recognition-memory-roles-perirhinal-cortex-hippocampus.md` — hippocampal-entorhinal · S · 2001
 - [ ] `shinder-2014-resolving-active-versus-passive-conundrum-head-direction-cells.md` — hippocampal-entorhinal · F · 2014
 - [ ] `nachum-2019-near-optimal-representation-learning-hierarchical-rl.md` — rl-planning · M · 2019
 - [ ] `bowles-2007-impaired-familiarity-preserved-recollection-temporal-resection-sparing-hippocampus.md` — hippocampal-entorhinal · R · 2007
