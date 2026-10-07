@@ -76,7 +76,7 @@ All weights are bounded positive. `W_actor` and `W_tail` start at 1, `W_critic` 
 | Error | Differenced over | Form | Carrier | Writes |
 |---|---|---|---|---|
 | Reward ([[wiki/concepts/reward-prediction-error.md]]) | Outcome value | `r + γV(s′) − V(s)` | VTA / medial SNc → VS | Critic and actor |
-| State ([[wiki/concepts/state-prediction-error.md]]) | Which event follows | `x_obs − x̂(·|c)` (wiki's reconstruction) | VTA transient | Cue → cue edge |
+| State ([[wiki/concepts/state-prediction-error.md]]) | Which event follows | `x_obs − x̂(·\|c)` (wiki's reconstruction) | VTA transient | Cue → cue edge |
 | Pseudo-reward ([[wiki/concepts/pseudo-reward-prediction-error.md]]) | Subgoal value | `γV_o(s′) − V_o(s)` | Dorsal anterior cingulate, anterior insula, habenula, amygdala, accumbens (functional MRI / EEG) | Option policy |
 | **Action (this page)** | **Which action given the state** | `a − A(s)`, rectified | **Lateral SNc / substantia nigra pars lateralis → TS** | **State → action store** |
 | Threat (proposed by others; Menegas et al. 2018, cited) | Threat | — | Also TS dopamine. Looming stimuli evoke TS responses in the same mice | Avoidance. Here TS stimulation is never aversive. The source proposes separate *Vglut2* (threat) and *Anxa1* (movement) subpopulations. Untested |
