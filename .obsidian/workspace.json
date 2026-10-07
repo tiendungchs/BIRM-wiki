@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "raw/The anterior thalamus provides a subcortical circuit supporting memory and spatial navigation.md",
+                "file": "raw/Near-Optimal Representation Learning for Hierarchical Reinforcement Learning.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The anterior thalamus provides a subcortical circuit supporting memory and spatial navigation"
+              "title": "Near-Optimal Representation Learning for Hierarchical Reinforcement Learning"
             }
           }
         ]
@@ -187,6 +187,21 @@
   },
   "active": "143968b04b3097a5",
   "lastOpenFiles": [
+    "raw/Dopaminergic action prediction errors serve as a value-free teaching signal.md",
+    "raw/Near-Optimal Representation Learning for Hierarchical Reinforcement Learning.md",
+    "raw/Gorilla and Orangutan Brains Conform to the Primate Cellular Scaling Rules Implications for Human Evolution.md",
+    "raw/Invariant Synapse Density and Neuronal Connectivity Scaling in Primate Neocortical Evolution.md",
+    "raw/The Ventral Posterior Lateral Thalamus Preferentially Encodes Externally Applied Versus Active Movement Implications for Self-Motion Perception.md",
+    "raw/Cerebellar re-encoding of self-generated head movements.md",
+    "raw/shinder-2014-self-motion-improves-head-direction-cell-tuning.md",
+    "raw/shinder-2014-resolving-active-versus-passive-conundrum-head-direction-cells.md",
+    "raw/brown-2001-recognition-memory-roles-perirhinal-cortex-hippocampus.md",
+    "raw/bowles-2007-impaired-familiarity-preserved-recollection-temporal-resection-sparing-hippocampus.md",
+    "raw/dugue-2017-cerebellar-re-encoding-self-generated-head-movements.md",
+    "raw/Self-motion improves head direction cell tuning.md",
+    "raw/Resolving the Active versus Passive Conundrum for Head Direction Cells.md",
+    "raw/Recognition memory What are the roles of the perirhinal cortex and hippocampus? - Nature Reviews Neuroscience.md",
+    "raw/Impaired familiarity with preserved recollection after anterior temporal-lobe resection that spares the hippocampus.md",
     "raw/Episodic memory, amnesia, and the hippocampal–anterior thalamic axis.pdf",
     "raw/Our sense of direction progress, controversies and challenges.md",
     "raw/The anterior thalamus provides a subcortical circuit supporting memory and spatial navigation.md",
@@ -199,20 +214,6 @@
     "raw/Persistent Activity in Neural Networks with Dynamic Synapses.md",
     "raw/Causal Scrubbing a method for rigorously testing interpretability hypotheses Redwood Research — AI Alignment Forum.md",
     "raw/Amnesic Probing Behavioral Explanation with Amnesic Counterfactuals.md",
-    "raw/Self-rag Learning to Retrieve, Generate, and Critique through Self-Reflection.md",
-    "raw/Interleaving Retrieval with Chain-of-Thought Reasoningfor Knowledge-Intensive Multi-Step Questions.md",
-    "raw/Hypergraph Neural Networks.md",
-    "raw/Networks beyond pairwise interactions structure and dynamics.md",
-    "raw/Hypergraph reconstruction from network data.md",
-    "raw/Never Give Up Learning Directed Exploration Strategies.md",
-    "raw/Curiosity-driven Exploration by Self-supervised Prediction.md",
-    "raw/Learning Multi-Level Hierarchies with  Hindsight.md",
-    "raw/Data-Efficient Hierarchical Reinforcement Learning.md",
-    "raw/Hierarchical Deep Reinforcement Learning Integrating Temporal Abstraction and Intrinsic Motivation.md",
-    "raw/Dendritic morphology and synaptic nonlinearities enhance functional complexity in human cortical neurons.md",
-    "raw/Evolution of cortical neurons supporting human cognition.md",
-    "raw/Rigging the Lottery Making All Tickets Winners.md",
-    "raw/Scalable training of artificial neural networks with adaptive sparse connectivity inspired by network science.md",
     "raw/hopfield-1982-neural-networks-and-physical-systems-with-emergent-collective-computational-abilities.pdf",
     "raw/attractor-dynamics-in-hc-representation-of-the-env.pdf",
     "raw/Synaptic-Mechanisms-of-Pattern-Completion-in-the-Hippocampal-CA3-Network.pdf",
@@ -221,7 +222,6 @@
     "raw/originals/ballard-1997-deictic-codes-for-embodiment-of-cognition.pdf",
     "raw/Deictic-codes.pdf",
     "raw/visual-routines.pdf",
-    "raw/Visual-indexes.pdf",
-    "raw/Deictic=codes.pdf"
+    "raw/Visual-indexes.pdf"
   ]
 }
