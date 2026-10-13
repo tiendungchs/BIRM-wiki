@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "raw/Near-Optimal Representation Learning for Hierarchical Reinforcement Learning.md",
+                "file": "raw/A Philosophical Treatise of Universal Induction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Near-Optimal Representation Learning for Hierarchical Reinforcement Learning"
+              "title": "A Philosophical Treatise of Universal Induction"
             }
           }
         ]
@@ -187,6 +187,25 @@
   },
   "active": "143968b04b3097a5",
   "lastOpenFiles": [
+    "raw/A Philosophical Treatise of Universal Induction.md",
+    "raw/Predictive State Representation.pdf",
+    "raw/A Formal Theory of Inductive Inference.pdf",
+    "raw/Resource-rational analysis.pdf",
+    "raw/Provably Bounded.pdf",
+    "raw/Selecting Computations.pdf",
+    "raw/Rational choice and the structure of the environment.pdf",
+    "raw/A behavioral model of rational choice.pdf",
+    "raw/Coarse-graining of cellular automata, emergence, and thepredictability of complex systems.md",
+    "raw/Software in the natural world A computational approach to hierarchical emergence.md",
+    "raw/What Is a Macrostate? Subjective Observations and Objective Dynamics.md",
+    "raw/Computational MechanicsPattern and Prediction, Structure and Simplicity.md",
+    "raw/Simplicity a unifying principle in cognitive science?.md",
+    "raw/Predictability, complexity and learning.md",
+    "raw/Reinforcement Learning, Fast and Slow.md",
+    "raw/Memory as a Computational Resource.md",
+    "raw/Rational use of cognitive resources in human planning - Nature Human Behaviour.md",
+    "raw/Thermodynamics as a theory of decision-making with information processing costs.md",
+    "raw/SpeedAccuracy Trade-Off between the Habitual and the Goal-Directed Processes.md",
     "raw/Dopaminergic action prediction errors serve as a value-free teaching signal.md",
     "raw/Near-Optimal Representation Learning for Hierarchical Reinforcement Learning.md",
     "raw/Gorilla and Orangutan Brains Conform to the Primate Cellular Scaling Rules Implications for Human Evolution.md",
@@ -200,28 +219,8 @@
     "raw/dugue-2017-cerebellar-re-encoding-self-generated-head-movements.md",
     "raw/Self-motion improves head direction cell tuning.md",
     "raw/Resolving the Active versus Passive Conundrum for Head Direction Cells.md",
-    "raw/Recognition memory What are the roles of the perirhinal cortex and hippocampus? - Nature Reviews Neuroscience.md",
-    "raw/Impaired familiarity with preserved recollection after anterior temporal-lobe resection that spares the hippocampus.md",
     "raw/Episodic memory, amnesia, and the hippocampal–anterior thalamic axis.pdf",
-    "raw/Our sense of direction progress, controversies and challenges.md",
-    "raw/The anterior thalamus provides a subcortical circuit supporting memory and spatial navigation.md",
-    "raw/The mammillary bodies two memory systems in one? - Nature Reviews Neuroscience.md",
-    "raw/Hippocampal–diencephalic–cingulate networks for memory and emotion An anatomical guide.md",
-    "raw/Exploration by Random Network Distillation.md",
-    "raw/burda-2018-exploration-by-random-network-distillation.md",
-    "raw/Pulvinar-Cortex Interactions in Vision and Attention.md",
-    "raw/Habits without Values.md",
-    "raw/Persistent Activity in Neural Networks with Dynamic Synapses.md",
-    "raw/Causal Scrubbing a method for rigorously testing interpretability hypotheses Redwood Research — AI Alignment Forum.md",
-    "raw/Amnesic Probing Behavioral Explanation with Amnesic Counterfactuals.md",
     "raw/hopfield-1982-neural-networks-and-physical-systems-with-emergent-collective-computational-abilities.pdf",
-    "raw/attractor-dynamics-in-hc-representation-of-the-env.pdf",
-    "raw/Synaptic-Mechanisms-of-Pattern-Completion-in-the-Hippocampal-CA3-Network.pdf",
-    "raw/originals/ullman-1984-visual-routines.pdf",
-    "raw/originals/pylyshyn-2001-visual-indexes-preconceptual-objects.pdf",
-    "raw/originals/ballard-1997-deictic-codes-for-embodiment-of-cognition.pdf",
-    "raw/Deictic-codes.pdf",
-    "raw/visual-routines.pdf",
-    "raw/Visual-indexes.pdf"
+    "raw/attractor-dynamics-in-hc-representation-of-the-env.pdf"
   ]
 }
