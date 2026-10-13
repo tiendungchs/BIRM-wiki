@@ -103,7 +103,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T101 | Can the control layer address the episodic store directly, or only through a relay? | `L2` | `LEANING` | 2 | [[wiki/tensions/t101.md]] |
 | T102 | When forward and reverse inference disagree about a region's function, which wins? | `META` | `LEANING` | 2 | [[wiki/tensions/t102.md]] |
 | T103 | What is the common component of control? | `L1` | `LEANING` | 1 | [[wiki/tensions/t103.md]] |
-| T104 | Is the working-memory capacity limit a resource ceiling or a safety margin the system imposes on itself? | `L1` | `LIVE` | 2 | [[wiki/tensions/t104.md]] |
+| T104 | Is the working-memory capacity limit a resource ceiling or a safety margin the system imposes on itself? | `L1` | `LIVE` | 3 | [[wiki/tensions/t104.md]] |
 | T105 | Does model-based *behaviour* license the inference that a model-based *algorithm* is running? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t105.md]] |
 | T106 | Do task-trained prefrontal-like recurrent networks settle into attractors, or avoid them? | `L3` | `LIVE` | 4 | [[wiki/tensions/t106.md]] |
 | T107 | Which structure holds the graph that a plan runs on — the hippocampal formation, or the cortical controller? | `L1` | `LIVE` | 5 | [[wiki/tensions/t107.md]] |
@@ -131,7 +131,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T132 | Is the indirect pathway a veto or an exploration channel? | `L1` | `LIVE` | 3 | [[wiki/tensions/t132.md]] |
 | T133 | What does the direct/indirect pathway balance set — the discount factor or the exploration temperature? | `L2` | `LIVE` | 3 | [[wiki/tensions/t133.md]] |
 | T134 | Does serotonin set the prediction horizon or report the average reward? | `L2` | `LIVE` | 4 | [[wiki/tensions/t134.md]] |
-| T135 | What is compared when a brain decides whether to plan — the reliability of the two answers, or the cost and benefit of computing one? | `L2` | `LIVE` | 4 | [[wiki/tensions/t135.md]] |
+| T135 | What is compared when a brain decides whether to plan — the reliability of the two answers, or the cost and benefit of computing one? | `L2` | `LIVE` | 5 | [[wiki/tensions/t135.md]] |
 | T137 | Is the subthalamic nucleus a threshold unit or an exponentiator? | `L3` | `LEANING` | 2 | [[wiki/tensions/t137.md]] |
 | T138 | Does the separation/completion bias actually need a controller, or is a well-placed constant enough? | `L2` | `LIVE` | 2 | [[wiki/tensions/t138.md]] |
 | T139 | What defines a behavioural segment boundary — predictive failure, or clustering under a smoothness prior? | `L0` | `LIVE` | 2 | [[wiki/tensions/t139.md]] |
@@ -362,7 +362,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T394 | What makes map switching discrete: a posterior over hidden states, or a binding to a preconfigured attractor's coordinates? | `L1` | `LIVE` | 9 | [[wiki/tensions/t394.md]] |
 | T395 | Does a second-order cue retrieve the specific outcome's value, or only a US-general affective state? | `L1` | `LIVE` | 10 | [[wiki/tensions/t395.md]] |
 | T396 | In a common currency, are a gain and a loss of the same magnitude equal and opposite? | `L0` | `LIVE` | 2 | [[wiki/tensions/t396.md]] |
-| T397 | Is the effort cost term one block serving both domains, or two separately-addressed costs for cognitive and physical effort? | `L1` | `LIVE` | 3 | [[wiki/tensions/t397.md]] |
+| T397 | Is the effort cost term one block serving both domains, or two separately-addressed costs for cognitive and physical effort? | `L1` | `LIVE` | 4 | [[wiki/tensions/t397.md]] |
 | T398 | Is the subjective cost of mental effort convex in effort, or concave (hyperbolic)? | `L0` | `LIVE` | 4 | [[wiki/tensions/t398.md]] |
 | T399 | Is the fall in exploration with age a maturational schedule, or just a sharpening posterior? | `L1` | `LIVE` | 2 | [[wiki/tensions/t399.md]] |
 | T400 | Does an extrinsic reward *add* to the self-generated one, or suppress its generation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t400.md]] |
