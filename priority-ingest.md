@@ -2,35 +2,27 @@
 
 `_work/ingest-queue.md` hold the full ingest queue. This file contain only the current wave. Once a wave is fully ingested, replace the wave below with a new one.
 
-## Wave 29 — what recognition reads, and what the heading integrator is fed
-
-Anchor: `P36` (lint 30), which turned the targets lint(29) left unacquired and wave 28's three new
-ones into one acquire wave. This block holds wave 28's three: `T407`'s reverse case (a perirhinal
-resection that spares the hippocampus, with familiarity lost and recollection kept), a perirhinal-cortex
-page (named on 27 pages, owned by none), and `T408`'s record of heading under active versus passive
-motion. The user clipped all 5 before a want-list row existed; each is anchored by `P36`. They failed
-clip-check only on filename and were renamed; after that, 0 FAIL, 0 WARN, manifest rows 518–522.
-`brown-2001` is from the Aggleton lab, so it is not independent of `aggleton-1999`/`aggleton-2022`.
-The second drop (all 4 want-list rows plus the Dale & Cullen clip) also failed only on filename;
-renamed, 0 FAIL, 0 WARN, manifest rows 523–527, and rows 520–522 re-sequenced to keep the
-S → F → M → R order. `G101`: Sherwood et al. 2020 measures edges per unit across 25 primates;
-Herculano-Houzel & Kaas 2011 adds great apes, units only, cortex extrapolated from cerebellum, and
-is from the same lab as `herculanohouzel-2009`. `T405`: Greenstreet et al. 2025, a value-free action
-prediction error (reward present, so not design (i)). `T406`: Nachum et al. 2019, co-trained vs
-frozen vs objective-trained goal spaces in one agent. `T408`, Position B: Dale & Cullen 2017.
-*Not acquired:* `T405` design (i) — no source found.
+## Wave 30 — what a bounded predictor must internalize
 
 One INGEST each:
 
-- [x] `brown-2001-recognition-memory-roles-perirhinal-cortex-hippocampus.md` — hippocampal-entorhinal · S · 2001
-- [x] `shinder-2014-resolving-active-versus-passive-conundrum-head-direction-cells.md` — hippocampal-entorhinal · F · 2014
-- [x] `nachum-2019-near-optimal-representation-learning-hierarchical-rl.md` — rl-planning · M · 2019
-- [x] `bowles-2007-impaired-familiarity-preserved-recollection-temporal-resection-sparing-hippocampus.md` — hippocampal-entorhinal · R · 2007
-- [x] `herculanohouzel-2011-gorilla-orangutan-brains-conform-primate-cellular-scaling-rules.md` — evolution-comparative · R · 2011
-- [x] `shinder-2014-self-motion-improves-head-direction-cell-tuning.md` — hippocampal-entorhinal · R · 2014
-- [x] `dale-2017-ventral-posterior-lateral-thalamus-encodes-externally-applied-vs-active-movement.md` — thalamocortical · R · 2017
-- [x] `dugue-2017-cerebellar-re-encoding-self-generated-head-movements.md` — world-models · R · 2017
-- [x] `sherwood-2020-invariant-synapse-density-neuronal-connectivity-scaling-primate-neocortex.md` — evolution-comparative · R · 2020
-- [x] `greenstreet-2025-dopaminergic-action-prediction-errors-value-free-teaching-signal.md` — rl-planning · R · 2025
+- [ ] `botvinick-2019-reinforcement-learning-fast-and-slow.md` — rl-planning · S · 2019
+- [ ] `lieder-2020-resource-rational-analysis-optimal-use-limited-computational-resources.md` — foundations · S · 2020 · LOSSY
+- [ ] `dasgupta-2021-memory-as-a-computational-resource.md` — rl-planning · S · 2021
+- [ ] `simon-1955-behavioral-model-of-rational-choice.md` — foundations · F · 1955 · LOSSY
+- [ ] `simon-1956-rational-choice-and-structure-of-environment.md` — foundations · F · 1956 · LOSSY
+- [ ] `solomonoff-1964-formal-theory-of-inductive-inference-part-1.md` — foundations · F · 1964 · LOSSY
+- [ ] `russell-1995-provably-bounded-optimal-agents.md` — foundations · F · 1995 · LOSSY
+- [ ] `shalizi-2001-computational-mechanics-pattern-prediction-structure-simplicity.md` — foundations · F · 2001
+- [ ] `bialek-2001-predictability-complexity-and-learning.md` — foundations · F · 2001
+- [ ] `chater-2003-simplicity-unifying-principle-in-cognitive-science.md` — foundations · F · 2003
+- [ ] `shalizi-2003-what-is-a-macrostate-subjective-observations-objective-dynamics.md` — foundations · F · 2003
+- [ ] `ortega-2013-thermodynamics-decision-making-information-processing-costs.md` — rl-planning · F · 2013
+- [ ] `rosas-2024-software-in-the-natural-world-hierarchical-emergence.md` — foundations · F · 2024
+- [ ] `singh-2004-predictive-state-representations-new-theory-dynamical-systems.md` — latent-graph · M · 2004 · LOSSY
+- [ ] `israeli-2006-coarse-graining-cellular-automata-emergence-predictability.md` — foundations · M · 2006
+- [ ] `keramati-2011-speed-accuracy-trade-off-habitual-goal-directed.md` — rl-planning · M · 2011
+- [ ] `hay-2012-selecting-computations-theory-and-applications.md` — rl-planning · M · 2012 · LOSSY
+- [ ] `callaway-2022-rational-use-of-cognitive-resources-in-human-planning.md` — rl-planning · R · 2022
 
 **Order: survey → framework → mechanism → result, oldest first within tier.**

@@ -741,3 +741,42 @@ One INGEST each:
 - [x] `dugue-2017-cerebellar-re-encoding-self-generated-head-movements.md` — world-models · R · 2017
 - [x] `sherwood-2020-invariant-synapse-density-neuronal-connectivity-scaling-primate-neocortex.md` — evolution-comparative · R · 2020
 - [x] `greenstreet-2025-dopaminergic-action-prediction-errors-value-free-teaching-signal.md` — rl-planning · R · 2025
+
+## Wave 30 — what a bounded predictor must internalize
+
+Anchor: the user's framing (2026-10-13) of an agent dropped into a generated world with a limited
+view, memory and time, which needs higher-level laws the world itself never runs. Built from the
+registry rows that framing touches: the price on computation (`G107`, `T135`, `G86`, `G24`, `G25`,
+`G98`), the cost of fast learning in generality (`T93`, `G23`, `T16`, `G35`, `G26`, `T155`), and why a
+higher-level law exists for an observer (`G27`, `G92`, `G31`, `G81`, `G2`). `G107` and `G24` are `L3`:
+their sources land as prose in concept bodies and open no registry row. The drop held 12 clips and
+7 PDFs; the clips failed clip-check only on filename and were renamed; the PDFs were converted with
+`pdf2md.sh` (pymupdf4llm) and are `LOSSY`. Repairs: Bialek's clipped title was "Contents"; both
+Shalizi clips carried wrong `published:` dates; Chater & Vitányi's clip carried Cell's AI-widget
+sign-in residue after the abstract (stripped, body intact); Russell & Subramanian's PDF dropped every
+fi/ff/ffi ligature as U+FFFD (284 repaired by dictionary lookup, ~64 left inside math and
+identifiers). After that, 0 FAIL, 8 WARN (missing frontmatter on the 7 conversions, one unbalanced
+`$` in Simon 1956), manifest rows 528–545.
+*Not acquired:* `B4` Rathmanner & Hutter 2011 — the MDPI clip captured abstract and references only
+(1293 words); it stays on the want-list, re-resolved to the `/htm` view.
+
+One INGEST each:
+
+- [ ] `botvinick-2019-reinforcement-learning-fast-and-slow.md` — rl-planning · S · 2019
+- [ ] `lieder-2020-resource-rational-analysis-optimal-use-limited-computational-resources.md` — foundations · S · 2020 · LOSSY
+- [ ] `dasgupta-2021-memory-as-a-computational-resource.md` — rl-planning · S · 2021
+- [ ] `simon-1955-behavioral-model-of-rational-choice.md` — foundations · F · 1955 · LOSSY
+- [ ] `simon-1956-rational-choice-and-structure-of-environment.md` — foundations · F · 1956 · LOSSY
+- [ ] `solomonoff-1964-formal-theory-of-inductive-inference-part-1.md` — foundations · F · 1964 · LOSSY
+- [ ] `russell-1995-provably-bounded-optimal-agents.md` — foundations · F · 1995 · LOSSY
+- [ ] `shalizi-2001-computational-mechanics-pattern-prediction-structure-simplicity.md` — foundations · F · 2001
+- [ ] `bialek-2001-predictability-complexity-and-learning.md` — foundations · F · 2001
+- [ ] `chater-2003-simplicity-unifying-principle-in-cognitive-science.md` — foundations · F · 2003
+- [ ] `shalizi-2003-what-is-a-macrostate-subjective-observations-objective-dynamics.md` — foundations · F · 2003
+- [ ] `ortega-2013-thermodynamics-decision-making-information-processing-costs.md` — rl-planning · F · 2013
+- [ ] `rosas-2024-software-in-the-natural-world-hierarchical-emergence.md` — foundations · F · 2024
+- [ ] `singh-2004-predictive-state-representations-new-theory-dynamical-systems.md` — latent-graph · M · 2004 · LOSSY
+- [ ] `israeli-2006-coarse-graining-cellular-automata-emergence-predictability.md` — foundations · M · 2006
+- [ ] `keramati-2011-speed-accuracy-trade-off-habitual-goal-directed.md` — rl-planning · M · 2011
+- [ ] `hay-2012-selecting-computations-theory-and-applications.md` — rl-planning · M · 2012 · LOSSY
+- [ ] `callaway-2022-rational-use-of-cognitive-resources-in-human-planning.md` — rl-planning · R · 2022
