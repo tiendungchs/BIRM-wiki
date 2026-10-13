@@ -30,7 +30,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G12 | No routing policy between structure types | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `L0` | `PARTIAL` | 2 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g014.md]] |
-| G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 30 | [[wiki/gaps/g015.md]] |
+| G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 31 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 24 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 68 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
@@ -42,7 +42,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 15 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 23 | [[wiki/gaps/g026.md]] |
-| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 40 | [[wiki/gaps/g027.md]] |
+| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 41 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `L0` | `PARTIAL` | 20 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 10 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 26 | [[wiki/gaps/g030.md]] |
@@ -77,7 +77,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G59 | Every hierarchical controller lets its lower level see the same observation as its upper level | part | `L2` | `OPEN` | 9 | [[wiki/gaps/g059.md]] |
 | G60 | Every architecture derives its retrieval query from the goal; none chooses the query | part | `L2` | `OPEN` | 11 | [[wiki/gaps/g060.md]] |
 | G61 | Exploration is always an external schedule, never part of the selector | part | `L1` | `OPEN` | 14 | [[wiki/gaps/g061.md]] |
-| G62 | Nothing scores a world model by what a planner can do with it | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g062.md]] |
+| G62 | Nothing scores a world model by what a planner can do with it | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g062.md]] |
 | G63 | The behaviour policy is a load-bearing parameter of world-model estimation, and every mechanism the wiki has for improving an agent destroys it | part | `L0` | `OPEN` | 12 | [[wiki/gaps/g063.md]] |
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g064.md]] |
 | G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `L3` | `CONTESTED` | 4 | [[wiki/gaps/g065.md]] |
@@ -121,7 +121,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `L3` | `PARTIAL` | 8 | [[wiki/gaps/g104.md]] |
 | G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `L0` | `PARTIAL` | 14 | [[wiki/gaps/g105.md]] |
 | G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `L3` | `OPEN` | 4 | [[wiki/gaps/g106.md]] |
-| G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 10 | [[wiki/gaps/g107.md]] |
+| G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 11 | [[wiki/gaps/g107.md]] |
 | G108 | No label-free criterion selects a good representation out of a training run | part | `L0-INSTR` | `OPEN` | 12 | [[wiki/gaps/g108.md]] |
 | G109 | No model claiming a knowledge/control split has been scored on the lesion profile that certifies one | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g109.md]] |
 | G110 | Top-down control is always applied to a module or its output; nothing applies it to the interface that feeds the module | arrangement | `L2` | `OPEN` | 8 | [[wiki/gaps/g110.md]] |
