@@ -58,6 +58,16 @@ where `h` is a free variable initialized from `q` and then updated to increase `
 
 **The prediction that makes amortization falsifiable:** because different problems share amortized computations, their solutions become *correlated* in ways the exact posterior would not predict. That is a signature of the mechanism rather than of its output — the same kind of evidence as a signature limit ([[wiki/concepts/core-knowledge.md]]), and directly runnable on a model.
 
+**Measured in people, with its two preconditions** (Dasgupta et al. 2018, 2020, second-hand via Dasgupta & Gershman 2021, [[wiki/concepts/computational-reuse.md]]):
+
+| Result | What it pins down |
+|---|---|
+| Recent inferences on *other* queries bias the current one, in proportion to query overlap | The correlation above exists, and it is graded by overlap |
+| The sharing needs a capacity-limited mapping (a bottleneck from input to output) | With enough capacity the posteriors would not share structure. The signature appears only below some capacity |
+| Better Bayesian accuracy with realistic probabilities; manipulating the historical query distribution moves the bias | Capacity goes to frequent queries, so the bias is set by the query history rather than built into the inference engine |
+
+The same source files this page's subject as **top-down memoization**, where the outermost answer is cached and intermediates are discarded. A recognition network is Michie's (1968) interpolating memo-table. The bottom-up alternative caches sub-solutions under a Markov decomposition (Kalman sufficient statistics, value iteration). It gives partial reuse, which a top-down cache cannot, and the source links that missing reuse to recognition networks' weak compositional generalisation.
+
 ---
 
 ## Arbitration between the two systems
@@ -292,4 +302,5 @@ The fourth row of the table above is the architectural proposal: **the neural ne
 - **[[wiki/concepts/value-free-habit.md]]** — contests this page's "habitization is the shift to model-free control": the habit store there holds executed-action frequencies, not values. So plan amortization into habit is behaviour cloning of what the planner did, and the arbitration is contingency against habit concentration rather than relative uncertainty (`T405`).
 - **[[wiki/entities/diayn.md]]** — a recognition model over the agent's own cached policies, obtained free: `q_φ(ẑ|τ*)` scores how well a stored skill matches an observed trajectory *before* the skill is executed, and it predicts imitation accuracy — which is the execute-or-replan confidence this page needs and that no option framework in the wiki otherwise supplies.
 - **[[wiki/concepts/resource-rationality.md]]** — the objective this page's arbitration is one instance of: pick the algorithm that maximises utility net of time and resources. It also supplies the human evidence for amortisation's payoff — sampled hypotheses are memorised and reused on related queries (Dasgupta et al. 2018) — and the time-limited plan-then-habit hand-off that bears on `T135`.
+- **[[wiki/concepts/computational-reuse.md]]** — the parent taxonomy: this page is top-down memoization with a parametric memo-table, set beside bottom-up caches of sub-solutions (sufficient statistics, value iteration) that this page's mapping cannot supply. It contributes the human amortisation bias (overlap-graded, capacity-dependent, moved by query history) and Logan's race, a fourth arbitration rule that compares nothing and prices nothing.
 - **[[wiki/concepts/action-prediction-error.md]]** — a measured compile step from a value-trained controller into a cache. The cache is trained by a value-free error over executed actions (`a − A(s)`, carried by tail-of-striatum dopamine), not by Dyna-style value learning. Handover needs no arbiter: the source controller's weights relax once its reward error is small, and the cache, which cannot learn the task alone, then carries expert choice.
