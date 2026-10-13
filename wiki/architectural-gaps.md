@@ -31,7 +31,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G13 | No tractable system covers all six hardness sources | part | `L0` | `PARTIAL` | 2 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 30 | [[wiki/gaps/g015.md]] |
-| G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 23 | [[wiki/gaps/g016.md]] |
+| G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 24 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 68 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 22 | [[wiki/gaps/g019.md]] |
@@ -41,12 +41,12 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `L2` | `OPEN` | 16 | [[wiki/gaps/g023.md]] |
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 15 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g025.md]] |
-| G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g026.md]] |
+| G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 23 | [[wiki/gaps/g026.md]] |
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 37 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `L0` | `PARTIAL` | 20 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 10 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 26 | [[wiki/gaps/g030.md]] |
-| G31 | Generalization difficulty is uncomputable and unapproximated | part | `L0-INSTR` | `OPEN` | 11 | [[wiki/gaps/g031.md]] |
+| G31 | Generalization difficulty is uncomputable and unapproximated | part | `L0-INSTR` | `OPEN` | 12 | [[wiki/gaps/g031.md]] |
 | G32 | Nothing designs the experience stream | part | `L0` | `OPEN` | 20 | [[wiki/gaps/g032.md]] |
 | G33 | Nothing decomposes a task into subgoals | part | `L0` | `PARTIAL` | 30 | [[wiki/gaps/g033.md]] |
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g034.md]] |
