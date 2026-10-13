@@ -38,7 +38,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
 | G21 | No mechanism composes the outputs of two specialized modules | part | `L2` | `CONTESTED` | 18 | [[wiki/gaps/g021.md]] |
 | G22 | Nothing selects which compositions get built | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g022.md]] |
-| G23 | Machine priors are unconditional; a prior needs an entry test | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g023.md]] |
+| G23 | Machine priors are unconditional; a prior needs an entry test | part | `L2` | `OPEN` | 16 | [[wiki/gaps/g023.md]] |
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 14 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 21 | [[wiki/gaps/g026.md]] |

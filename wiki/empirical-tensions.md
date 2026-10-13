@@ -318,7 +318,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T350 | Is a memory library a set of discrete atoms, or one continuous family plus a metaparameter? | `L1` | `LIVE` | 4 | [[wiki/tensions/t350.md]] |
 | T351 | Does an easy-to-hard curriculum pay at *fixed* capacity, or only when capacity is small and then grows? | `L0` | `LIVE` | 3 | [[wiki/tensions/t351.md]] |
 | T352 | Should a fast store hold the *maximum* return ever seen, or an estimate of the expectation? | `L2` | `LIVE` | 4 | [[wiki/tensions/t352.md]] |
-| T353 | Does a sample-efficiency result measure the agent, or the benchmark's exact-state-revisit rate? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t353.md]] |
+| T353 | Does a sample-efficiency result measure the agent, or the benchmark's exact-state-revisit rate? | `L0-INSTR` | `LIVE` | 7 | [[wiki/tensions/t353.md]] |
 | T354 | Does a growth schedule buy *competence*, or only *compute*? | `L0` | `LIVE` | 4 | [[wiki/tensions/t354.md]] |
 | T355 | Is the second midbrain dopamine channel a valence-blind salience magnitude, or a signed aversion channel? | `L2` | `LIVE` | 5 | [[wiki/tensions/t355.md]] |
 | T356 | Does a homeostatic need drive behaviour by signalling a deficit to be reduced, or by potentiating the positive value of the outcome? | `L2` | `LIVE` | 5 | [[wiki/tensions/t356.md]] |

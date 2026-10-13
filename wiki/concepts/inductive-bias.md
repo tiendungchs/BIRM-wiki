@@ -55,6 +55,15 @@ The definition does the work: **`er_Q(H)` measures how appropriate a bias is for
 
 **A multi-class classifier is not a bias learner.** Baxter's sharpest architectural point: `n`-way face recognition and "learn features that let *any* new face be separated from the rest" are different problems that look identical from the loss. Theorem 8 specialises to the known parameter-counting bound (`mn = O(nk + W)`) in the first case, but only the second licenses using the features on an unseen task — and only if `n` was large enough. **Features learnt on too few tasks implement idiosyncrasies of those tasks rather than invariances of the environment, and nothing in the training loss distinguishes the two cases.** That is the identifiability worry of [[wiki/concepts/objective-identifiability.md]] arriving with a sample-size threshold attached.
 
+**Bias as the cause of slow learning, and its two origins** (Botvinick et al. 2019, [[wiki/concepts/meta-learning.md]]). The review uses the bias–variance trade-off to name *weak inductive bias* as one of two reasons first-generation deep RL needs so much data; the other reason is small incremental updates, and a bias does not remove it. It sorts biases into two kinds:
+
+| Kind | Example | How `H` is chosen |
+|---|---|---|
+| **Architectural / algorithmic** | Convolution's translation invariance; episodic RL's built-in smoothness assumption that similar states call for similar actions | Written in by hand; fixed |
+| **Learned** | Meta-RL's recurrent dynamics after training on correlated bandits find the better arm faster than after training on independent ones | Estimated from a task family — Baxter's `(n, m)`-sample |
+
+The review then merges the two rows: in a brain, architectural bias was learned too, by evolution. So "hand-designed vs learned" is a difference in *which loop* estimated `H`, not in what kind of object `H` is. Both rows carry the same condition stated above as `er_Q(H)`: a narrow `H` speeds learning only if it contains the correct hypothesis. The review gives this only as a verbal condition; this page's bias loss is what makes it measurable.
+
 ---
 
 ## The regress, and where the theory stops

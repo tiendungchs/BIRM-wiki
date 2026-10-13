@@ -68,6 +68,7 @@ The primary source behind the meta-RL section of [[wiki/concepts/meta-learning.m
 | Replica variance | Harlow: 14/50 replicas reached maximal performance; the emergent algorithm is not a reliable product of the training procedure |
 | `p(T)` is authored | Every task distribution is hand-specified; inherits the knowledge-boundedness limit of [[wiki/concepts/meta-learning.md]] in full |
 | Inner learner is opaque | The algorithm exists only as dynamics — it can be characterised post hoc (regret curves, learning rates, PCA) but not read out, edited, or composed |
+| What the inner loop learns is lost at the episode boundary | The conclusion lives only in the hidden state, so a task met again must be re-explored. Episodic meta-RL (Ritter et al. 2018, via Botvinick et al. 2019) fixes exactly this by storing and reinstating hidden states — see Comparison |
 
 ---
 
@@ -81,6 +82,7 @@ The primary source behind the meta-RL section of [[wiki/concepts/meta-learning.m
 | **[[wiki/entities/stsp-working-memory-rnn.md]]** | Short-term synaptic facilitation | Task loss | The decay constant; storage is in synapses, not activity |
 | **[[wiki/concepts/complementary-learning-systems.md]]** | A second anatomical store | Different learning rules per system | The system boundary |
 | **[[wiki/entities/coin-model.md]]** | Posterior over an unbounded context set | Bayesian filtering, no outer loop | The latent state that meta-RL leaves implicit in PCA space |
+| **Episodic meta-RL** (Ritter et al. 2018; [[wiki/concepts/meta-learning.md]]) | LSTM hidden state, **plus** a context-keyed store of past hidden states | The same outer RL, which also learns when to reinstate | The store, whose contents are the inner learner's own states. On a repeated task it retrieves the earlier solution with no re-exploration |
 
 **(brainstorm)** The most useful thing to steal is not the LSTM, it is the input convention. Feeding `(o_t, a_{t-1}, r_{t-1})` is what turns a sequence model into a learner, because it makes the agent's own experience part of the observable state — an in-context RL setup written in 2018 in RL notation. The wiki's structural models ([[wiki/entities/tolman-eichenbaum-machine.md]], [[wiki/entities/cscg.md]]) feed observations and actions but not *outcomes*, so their inner loop can bind an instance-graph but cannot bind a *policy* over it. Adding the reward channel is a one-line change with a two-level consequence.
 
