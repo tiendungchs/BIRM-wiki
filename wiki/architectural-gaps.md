@@ -39,7 +39,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G21 | No mechanism composes the outputs of two specialized modules | part | `L2` | `CONTESTED` | 18 | [[wiki/gaps/g021.md]] |
 | G22 | Nothing selects which compositions get built | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g022.md]] |
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `L2` | `OPEN` | 16 | [[wiki/gaps/g023.md]] |
-| G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 14 | [[wiki/gaps/g024.md]] |
+| G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 15 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 21 | [[wiki/gaps/g026.md]] |
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 36 | [[wiki/gaps/g027.md]] |
@@ -73,7 +73,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G55 | Every machine controller is either one resource or *n* independent ones; none has a shared component plus operation-specific parameters | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g055.md]] |
 | G56 | No architecture has a run-time gain register on its own connections | part | `L2` | `OPEN` | 10 | [[wiki/gaps/g056.md]] |
 | G57 | No architecture makes its teaching signal one of its own inputs | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g057.md]] |
-| G58 | No control layer is instantiated by the existence of a choice at its own level | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g058.md]] |
+| G58 | No control layer is instantiated by the existence of a choice at its own level | part | `L1` | `OPEN` | 3 | [[wiki/gaps/g058.md]] |
 | G59 | Every hierarchical controller lets its lower level see the same observation as its upper level | part | `L2` | `OPEN` | 9 | [[wiki/gaps/g059.md]] |
 | G60 | Every architecture derives its retrieval query from the goal; none chooses the query | part | `L2` | `OPEN` | 11 | [[wiki/gaps/g060.md]] |
 | G61 | Exploration is always an external schedule, never part of the selector | part | `L1` | `OPEN` | 14 | [[wiki/gaps/g061.md]] |

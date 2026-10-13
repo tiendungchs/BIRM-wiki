@@ -2,7 +2,9 @@
 
 **Replace "find the best alternative" with "find an alternative whose every possible outcome clears an aspiration level". Then let that level move with how hard satisfactory alternatives are to find. This turns an optimisation into a feasibility test. It needs no probabilities, no complete ordering of payoffs and no price on search, and the aspiration dynamics guarantee that a solution exists.**
 
-> **Provenance.** Simon 1955, *A behavioral model of rational choice*, Quarterly Journal of Economics 69(1):99–118 (`raw/simon-1955-behavioral-model-of-rational-choice.md`). A theoretical paper. Its evidence is "casual empiricism" plus one chess estimate, and it says so. The clip is a lossy PDF conversion with interleaved columns. Rules A–E below are rebuilt from the source's prose definitions. The appendix equations (A.1–A.10) are unreadable, so only their stated interpretation is carried. Figures I–II carry no data. The sequel on the environment's side of the problem is Simon 1956 (queued).
+> **Provenance.** Simon 1955, *A behavioral model of rational choice*, Quarterly Journal of Economics 69(1):99–118 (`raw/simon-1955-behavioral-model-of-rational-choice.md`). A theoretical paper. Its evidence is "casual empiricism" plus one chess estimate, and it says so. The clip is a lossy PDF conversion with interleaved columns. Rules A–E below are rebuilt from the source's prose definitions. The appendix equations (A.1–A.10) are unreadable, so only their stated interpretation is carried. Figures I–II carry no data. The sequel on the environment's side of the problem is carried in [The environment's side](#the-environments-side-simon-1956) below.
+>
+> **Provenance (second source).** Simon 1956, *Rational choice and the structure of the environment*, Psychological Review 63(2):129–138 (`raw/simon-1956-rational-choice-and-structure-of-environment.md`). Theoretical, with worked numbers and no data. The clip is a lossy PDF conversion: Equations 2.1–2.8 and 3.1–3.5 are garbled. They are rebuilt below from the prose and checked against the paper's own worked numbers. Equation 3.1 and the danger-point form are reconstructions and are flagged as such.
 
 [[wiki/concepts/resource-rationality.md]] carries the modern objective: bounded optimality, solved by an outer loop. This page is its root. Simon's argument is the *reason* that outer loop exists: the organism does not know the costs or the weights it would need to optimise online.
 
@@ -110,6 +112,95 @@ The appendix is the paper's example of **rationality at two levels**: choosing r
 
 ---
 
+## The environment's side (Simon 1956)
+
+The 1955 paper limits the organism. The 1956 paper asks what about the **environment** lets very simple choice suffice: "How simple a set of choice mechanisms can we postulate and still obtain the gross features of observed adaptive choice behavior?" The environment is defined relative to the organism's needs and perception (its "life space"), not as the physical world.
+
+### The model: a branching graph with rare goal nodes
+
+| Symbol | Meaning | Belongs to |
+|---|---|---|
+| `p` | Fraction of branch points holding food, placed at random | Environment |
+| `d` | Mean number of paths leaving each branch point | Environment |
+| `v` | Look-ahead: food within `v` moves is seen and reached by a known path | Organism |
+| `H` | Maximum moves between meals without starving (storage) | Organism |
+| `ε = 1 − P` | Acceptable risk of starving between meals | Specification |
+
+The policy: explore at random, go straight to any food that becomes visible, and rest whenever food intake beats energy spent. Each move reveals `d^v` new points.
+
+| # | Equation | Meaning |
+|---|---|---|
+| 2.1 | `ρ = (1 − p)^{d^v}` | Chance that no new visible point holds food, per move |
+| 2.2 | `1 − P = ρ^{H−v}` | Starvation = no food seen in the `H − v` moves left after reserving `v` to reach it |
+| 2.4 | `H ≥ v + log ε / log ρ` | Minimum storage for risk `ε` |
+| 2.5–2.6 | `P_k = (1 − ρ)ρ^{k−1}`, `M = 1/(1 − ρ)` | Mean moves to discover food |
+| 2.7–2.8 | `M/(H − v) = log ρ / ((1 − ρ) log ε) ≈ 1/ln(1/ε)` | Since `ρ ≈ 1`. For `ε = 10⁻⁴`, `M/(H−v) ≈ 0.11`, so storage `≈ a(v + 9M)` at `a` units metabolised per move |
+
+**Worked numbers** (the paper's own). `p = 10⁻⁴`, `d = 10`, `v = 3`, `H − v = 100`:
+
+| Case | Survival per meal interval |
+|---|---|
+| Baseline | `1 − ρ ≈ 0.088` per move, so `P ≈ 1 − 10⁻⁴` |
+| Random behaviour (no look-ahead) | `P′ = 1 − (1 − p)^{100} ≈ 0.009` |
+| `H − v` up by one-third (100 → 133) | Starvation `< 10⁻⁵` |
+| `v` up by one-third (3 → 4) | Starvation `10⁻⁴ → 10⁻⁴⁰` |
+| `ρ = 0.95`, `ε = 10⁻¹⁰` | `H − v ≈ 455` |
+
+Look-ahead multiplies the rate of finding food by ~880. The paper reads the `M : H` ratio as roughly right for real animals, without data. A footnote gives the limiting case: where the resource is everywhere (oxygen for land animals), search time is ~0 and storage is minutes.
+
+### Several needs without a utility function
+
+Add a second need (water). The organism may spend only a fraction `λ` of its time on food.
+
+| Mechanism | Content |
+|---|---|
+| **Threshold trigger** | Start searching `μ` periods after the last meal. Search takes `M` on average, so `λ = M/(μ + M)` (reconstructed 3.1). A large `μ` makes `λ` as small as wanted |
+| **Two-bin inventory** | Primary store `H` = buffer against running out while searching (risk `1 − P`). Secondary store `μ` = the **order point**. `μ + M` = the mean order quantity. `μ` trades storage cost against how often the organism has to search |
+| **Feasibility** | Both needs fit iff `λ₁ + λ₂ < 1`. Random, independent placement means the two searches do not interfere |
+| **Arbitration, only when both goals are visible at once** | Go to food or water according to whether `M₁/S₁` or `M₂/S₂` is larger (`S_i` = what is left in store `i`). Simon says this maximises survival probability. It needs a drive proportional to `M_i/S_i` |
+| **Simpler rule** | Keep searching for whichever need crossed its threshold first. Wasteful of time, but enough given generous storage |
+
+**Joint search.** With `n` needs at independent sites, each with the same density, take the first need-satisfying point seen, then the next one that serves an unmet need, and so on:
+
+```
+M_(k) = 1/(1 − ρ^k)                      mean wait for a point serving any of k unmet needs   (3.2)
+total = M_(n) + M_(n−1) + … + M_(1)                                                          (3.3)
+      ≈ M_1 (1 + 1/2 + … + 1/n)          for ρ ≈ 1 (rare goal points)                         (3.5)
+```
+
+Two needs cost `3/2 M₁`, three cost `11/6 M₁`, four cost `25/12 M₁` (a little over twice one need). Joint search leaves the primary store unchanged but **removes the need for a secondary store**. That holds only for **independent** placement. If sites for different needs are negatively correlated, it pays to pursue needs separately, with a simple trigger signal per need backed by secondary storage.
+
+**Danger points.** If a fraction `r` of points is dangerous, fewer paths are usable, so `ρ` rises, `M` grows and so does the storage required. The source's exact form is garbled; `((1 − r)d)^v` usable points per look-ahead is this wiki's reading.
+
+### Clues extend the horizon
+
+| Clue type | Effect |
+|---|---|
+| The `k` branch points before each food site are marked, and the organism has learned the association | Search ends at the clue: `v′ = v + k` |
+| Each branch point has a visible feature that predicts the chance of food on a random continuation | Go to the point with the best feature. Where only some points carry it: systematic choice *between* regions, random search *inside* one. Example: chess "position play" (pick positions rich in possibilities with no plan beyond them) |
+| Regions rich in one need's sites are poor in another's | The priority mechanism must also be conditioned onto **competing clues**, not only onto competing visible goals |
+
+Converging paths do not change the analysis. What the environment has to supply is only:
+
+1. a completely random path almost never survives, and
+2. clues (visible goals or anticipatory clues) often enough pick out paths that lead, certainly or with high probability, to a need-satisfying point.
+
+### What the argument assumes, and what it concludes
+
+| Assumed of the organism | Assumed of the environment |
+|---|---|
+| Plans short sequences (`≤ v`) but not long ones | Needs are met only at **rare** points |
+| Needs are satiable: once all are met, it goes inactive. No marginal trade-offs | Those points are placed (roughly) at random |
+| Enough storage that *when* a need is met is not critical | — |
+
+- **Main conclusion.** Blocks of time can be given to separate **means–end chains**, one per need, with no overall allocation, no coordination and no utility function. The only scarce resource is time, and storage reduces its scarcity.
+- **Efficiency is optional.** Picking shorter paths to a given need (rats learn this) adds slack. It does not require any mechanism that allocates time *between* needs.
+- **Aspiration closes the loop.** In humans the balance between time needed and time available is conjectured to be kept by raising and lowering aspiration levels (back to the 1955 paper). Needs may be acquired as well as innate; the model only needs them stated as aspiration levels for kinds of consummatory behaviour.
+- **Conflict as a missing mechanism.** Laboratory conflict is made by asking for two goal behaviours at once, or by blocking the usual one. Simon reads it as a situation the organism is "not programmed" for: a conflict of choice "may often be equivalent to an absence of a choice mechanism", because the natural environment rarely poses it.
+- A footnote: the design matches Grey Walter's *Machina speculatrix* turtle, which was arrived at independently.
+
+---
+
 ## Instantiations elsewhere in the wiki
 
 | Where | What satisfices | Aspiration set by |
@@ -130,6 +221,10 @@ The appendix is the paper's example of **rationality at two levels**: choosing r
 | Refine only near `S′` | Graph discovery restricted to the edges that touch the goal region — what is learned is set by the query |
 | Broadening `Å` | Adding candidate edges or actions to the graph when search fails, instead of lowering the bar |
 | Two-component payoff | Immediate reward + a value on the node reached: the bootstrapped value at the planning horizon |
+| 1956 environment (`p`, `d`) | A tree with branching factor `d` and goal nodes at density `p`. Look-ahead `v` = exhaustive reachability check to depth `v` |
+| Anticipatory clue on the `k` nodes before a goal | A learned edge label that turns a depth-`v` query into a depth-`(v + k)` one |
+| Region clue (a node feature predicting goal density below it) | A heuristic node value used greedily between regions, with random search inside one |
+| One means–end chain per need | One subgraph query per need, run in its own time block. Needs share the graph but not a value function |
 
 ---
 
@@ -140,6 +235,9 @@ The appendix is the paper's example of **rationality at two levels**: choosing r
 - **(brainstorm) Aspiration dynamics implies a success-rate set-point.** Let `k` rise after easy success and fall after a failed search. Then the stationary `k` is where the per-episode success probability balances the up and down step sizes, so the step sizes (and their asymmetry) *are* a target success rate. That is a mechanism for the 70–80% free-play set-point ([[wiki/concepts/information-sampling-vs-search.md]], `T370`). The set-point becomes a ratio of two step sizes, not a constant. Untested; it predicts that the set-point moves when the cost of a failed attempt changes.
 - **(brainstorm) A three-valued evaluator is a cheaper training target than a value function.** A detector of "clearly won / lost / drawn" only needs to fire on *transitions* between classes. That is a classification target with sharp boundaries, against a regression target that must be calibrated everywhere. Nothing in the wiki trains one and compares sample cost against a graded value head.
 - **Vector aspirations dodge the common-currency requirement.** Rule E needs no weights across objectives. That contrasts with the single measured scalar in [[wiki/concepts/subjective-value.md]], whose evidence covers one commensurable pair (money × delay), while Simon's cases are the incommensurable ones.
+- **A multi-need controller needs no common currency, under stated conditions** (Simon 1956). The parts are a per-need threshold trigger (order point `μ_i`), a per-need search-and-approach chain, and an arbiter that runs only when two goals are visible at once, ranking by urgency `M_i/S_i` (expected search time over remaining reserve). The conditions are satiable needs, rare goal sites placed independently of each other, and storage large enough that timing is slack. Negatively correlated sites break the independence condition and force a priority mechanism onto competing clues. This is a candidate answer to the arbitration problem [[wiki/concepts/homeostatic-need-signal.md]] leaves open.
+- **Look-ahead buys survival far faster than buffer does.** Starvation risk is `ρ^{H−v}` with `ρ = (1 − p)^{d^v}`, so `v` sits in an exponent of an exponent while `H` sits in one exponent. One-third more storage gives 10⁻⁴ → <10⁻⁵; one-third more look-ahead gives 10⁻⁴ → 10⁻⁴⁰. **(brainstorm)** In Simon's model the `d^v` points are *seen* for free. In a machine they are computed, so the same equation becomes a compute (`∝ d^v`) against reserve (`H`) trade-off whose best split depends on `p` and `d`. That makes the horizon a function of environment statistics, which is the kind of quantity `G24` asks for. Nothing has run it.
+- **(brainstorm) Conflict marks the edge of the trained arbitration set.** If choice mechanisms exist only for choices the environment poses, an agent built from per-need chains should freeze or oscillate on goal pairs it never saw together. That predicted failure is a probe: present goal combinations held out of training and check whether the arbiter generalises or goes missing. It is the developmental-timescale analogue of `G58`'s level that exists only while a choice exists at that level.
 
 ---
 
@@ -150,16 +248,20 @@ The appendix is the paper's example of **rationality at two levels**: choosing r
 - **The "clearly won" detector's coverage is assumed.** The ~10²⁴ → <100 reduction depends on how much of the objective win set the coarse detector recognises. Nothing says how such a detector is learned, or what happens where it covers little.
 - **What level is optimised is left to the analyst.** The hierarchy of rational mechanisms (choose within limits → set limits → judge by survival value) has no stopping point. [[wiki/concepts/resource-rationality.md]] places the cost–benefit in an outer loop, which names a level but does not derive one.
 - **No measurement.** The paper has no data beyond the chess count and an anecdote. Its own disclaimer: no claim is made about when, or how much, humans use these simplifications.
+- **The 1956 optimality claim for `M_i/S_i` is asserted, not derived.** No derivation is given, and the clip carries none. The rule also needs `M_i`, a per-need estimate of expected search time that the organism must learn, and the paper never says how.
+- **The environment conditions are not measured.** Rare, random, independent goal sites and an `M : H` ratio near 1 : 9 are argued from "general observation". The one real check the paper offers (oxygen: near-zero search time, minutes of storage) is a single anecdote.
+- **The model is static.** Needs, `v`, `d` and storage are fixed. Learning appears only as a change in `d` or `v`, or as a clue that adds `k` to `v`. Clue learning itself is not modelled.
 
 ---
 
 ## Connections
 
-- **[[wiki/concepts/resource-rationality.md]]** — the modern successor: bounded optimality supplies the "broader criterion" Simon says is needed to rank satisficing against optimising. Its first structural commitment (the agent does not solve the cost–benefit online) follows from Simon's argument that the organism does not know the costs of search or the weights across goals.
+- **[[wiki/concepts/resource-rationality.md]]** — the modern successor: bounded optimality supplies the "broader criterion" Simon says is needed to rank satisficing against optimising. Its first structural commitment (the agent does not solve the cost–benefit online) follows from Simon's argument that the organism does not know the costs of search or the weights across goals. Its robust form (a heuristic chosen for a distribution of environments) is the formal version of Simon 1956's claim that the environment's structure decides which simple mechanism suffices.
+- **[[wiki/concepts/homeostatic-need-signal.md]]** — supplies the biological per-need channels Simon 1956's controller assumes: one deficit signal per need, each with its own trigger. In return Simon gives that page's open arbitration problem a rule: arbitrate only when two goals are visible at once, by `M_i/S_i`, and otherwise let the first need to cross threshold own the search.
 - **[[wiki/concepts/evidence-accumulation.md]]** — the same commit rule on a stream of evidence instead of a stream of alternatives: act at the first threshold crossing. Simon's aspiration adjustment is a candidate setter for the threshold that page leaves unmodelled, driven by search difficulty rather than by a fixed error rate.
-- **[[wiki/concepts/simulation-based-planning.md]]** — supplies a *when is the answer good enough* rule for game-tree search: stop at the first move whose every reply lands in a recognised goal region. On two chess positions this cut ~10²⁴ variations to <100 lines. Simon's two-component payoff (immediate + position) is the value-at-horizon bootstrap that page's depth question presupposes.
+- **[[wiki/concepts/simulation-based-planning.md]]** — supplies a *when is the answer good enough* rule for game-tree search: stop at the first move whose every reply lands in a recognised goal region. On two chess positions this cut ~10²⁴ variations to <100 lines. Simon's two-component payoff (immediate + position) is the value-at-horizon bootstrap that page's depth question presupposes. Simon 1956 adds a priced depth: survival risk `ρ^{H−v}`, `ρ = (1 − p)^{d^v}`, so look-ahead `v` trades against reserve `H` at a rate set by goal density and branching.
 - **[[wiki/entities/alphazero.md]]** — the opposite design: a graded value `v ∈ [−1, 1]` on every leaf, at a fixed 800 simulations. Simon's alternative is a three-valued detector that only has to fire on transitions between won, lost and drawn, plus search that stops at the first satisfactory move.
-- **[[wiki/concepts/subjective-value.md]]** — the common-currency scalar that Rule E does without. That page measures one scalar for commensurable money × delay outcomes; Simon's cases are the incommensurable ones (salary vs climate), handled by per-component aspiration levels with no weights.
+- **[[wiki/concepts/subjective-value.md]]** — the common-currency scalar that Rule E does without. That page measures one scalar for commensurable money × delay outcomes; Simon's cases are the incommensurable ones (salary vs climate), handled by per-component aspiration levels with no weights. Simon 1956 extends this from one choice to a lifetime of several needs: separate means–end chains in separate time blocks, no utility function, valid while goal sites are rare and independent.
 - **[[wiki/concepts/information-sampling-vs-search.md]]** — aspiration dynamics as a candidate mechanism for that page's 70–80% free-play set-point `(brainstorm)`. A level that rises after easy success and falls after failure settles at a success rate fixed by its two step sizes (`T370`).
 - **[[wiki/concepts/adaptive-computation-time.md]]** — a learned halting unit that crosses a hand-set threshold. Simon's argument is that such a threshold cannot be priced, and should instead be moved at run time by how hard success was to reach (`G107`).
-- **[[wiki/concepts/latent-graph-discovery.md]]** — satisficing search refines the graph only where it touches a goal region, so the query decides which part of the latent graph is discovered. When search fails, it adds candidate edges (broadening `Å`) instead of lowering the bar.
+- **[[wiki/concepts/latent-graph-discovery.md]]** — satisficing search refines the graph only where it touches a goal region, so the query decides which part of the latent graph is discovered. When search fails, it adds candidate edges (broadening `Å`) instead of lowering the bar. Simon 1956 states the environment as such a graph (branching `d`, goal density `p`) and shows that learned clues on nodes stretch the reachability query from depth `v` to `v + k`.
