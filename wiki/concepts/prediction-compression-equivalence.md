@@ -15,7 +15,7 @@ The value of the identity here is instrumental. `K(µ)` on [[wiki/concepts/unive
 | **Predictor → compressor** | Arithmetic coding: recursively split `[0,1)` by `ρ̂(x_k \| x_<k)`, emit the shortest binary `λ` in the final interval | Code length `−⌈log₂ ρ̂(x_1:n)⌉ + 1` bits; `O(n2^−B)` extra at `B`-bit precision (negligible at 32/64 bit) |
 | **Compressor → predictor** | `ρ̂(x_i \| x_<i) = 2^{ℓ_c(x_<i) − ℓ_c(x_<i x_i)}` — query the compressor once per candidate symbol, renormalise | `\|X\|` compressor calls per symbol; biased for dictionary coders (gzip's multi-byte tokens are invisible to a one-step-ahead query) |
 | **Optimum** | Source coding theorem: `L ≥ H(ρ)`; with a model `ρ̂` the expected length is the cross-entropy `H(ρ, ρ̂) = E_{x∼ρ}[Σ_i −log₂ ρ̂(x_i \| x_<i)]` | Exactly the log-loss used to train every foundation model — **current language-model training is a maximum-compression objective, unmodified** |
-| **Limit case** | Set `ℓ_c = K` (Kolmogorov complexity) and the induced predictor *is* Solomonoff's | Uncomputable; this is the top of [[wiki/concepts/universal-induction.md]] |
+| **Limit case** | Set `ℓ_c = K` (Kolmogorov complexity) and the induced predictor *is* Solomonoff's. Solomonoff 1964 introduces it as an **inversion of Huffman coding**: Huffman maps a distribution to the minimal code, and this maps minimal codes back to the distribution | Uncomputable; this is the top of [[wiki/concepts/universal-induction.md]] |
 
 Consequence for the wiki's slot table ([[wiki/concepts/three-component-framework.md]]): the objective slot is not empty by default — it is silently filled with *code length*, for every autoregressive model, whether or not the designer meant to choose it.
 

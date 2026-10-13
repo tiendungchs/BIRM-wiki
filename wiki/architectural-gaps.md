@@ -32,7 +32,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 30 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 22 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 66 | [[wiki/gaps/g017.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 67 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 22 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
@@ -112,7 +112,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G95 | Every self-supervised system in the wiki has its invariance group *declared* by a hand-written augmentation list; nothing here discovers which directions are nuisance from the input's own statistics | part | `L3` | `PARTIAL` | 14 | [[wiki/gaps/g095.md]] |
 | G96 | Top-down control needs an address inside the control layer, and every model gets it by reading the ground truth | part | `L2` | `PARTIAL` | 3 | [[wiki/gaps/g096.md]] |
 | G97 | The read-out of a sparse store is dense, and that is where the interference comes back | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g097.md]] |
-| G98 | Nothing decides which knowledge belongs in weights and which belongs in an addressable store | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g098.md]] |
+| G98 | Nothing decides which knowledge belongs in weights and which belongs in an addressable store | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g098.md]] |
 | G99 | No architecture in the wiki can call a module's *operation* on an argument from outside the module's own domain; every transfer mechanism here moves representations, none exposes an operator | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g099.md]] |
 | G100 | No architecture in the wiki has a growth schedule: capacity is fully available at step 0, so nothing can arrive already conditioned on what an earlier, smaller version of itself learned | part | `L0` | `PARTIAL` | 7 | [[wiki/gaps/g100.md]] |
 | G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `L3` | `OPEN` | 7 | [[wiki/gaps/g101.md]] |
