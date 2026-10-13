@@ -13,7 +13,7 @@ One INGEST each:
 - [x] `simon-1956-rational-choice-and-structure-of-environment.md` — foundations · F · 1956 · LOSSY
 - [x] `solomonoff-1964-formal-theory-of-inductive-inference-part-1.md` — foundations · F · 1964 · LOSSY
 - [x] `russell-1995-provably-bounded-optimal-agents.md` — foundations · F · 1995 · LOSSY
-- [ ] `shalizi-2001-computational-mechanics-pattern-prediction-structure-simplicity.md` — foundations · F · 2001
+- [x] `shalizi-2001-computational-mechanics-pattern-prediction-structure-simplicity.md` — foundations · F · 2001
 - [ ] `bialek-2001-predictability-complexity-and-learning.md` — foundations · F · 2001
 - [ ] `chater-2003-simplicity-unifying-principle-in-cognitive-science.md` — foundations · F · 2003
 - [ ] `shalizi-2003-what-is-a-macrostate-subjective-observations-objective-dynamics.md` — foundations · F · 2003
