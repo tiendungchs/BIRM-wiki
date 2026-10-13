@@ -766,7 +766,7 @@ One INGEST each:
 - [x] `lieder-2020-resource-rational-analysis-optimal-use-limited-computational-resources.md` — foundations · S · 2020 · LOSSY
 - [x] `dasgupta-2021-memory-as-a-computational-resource.md` — rl-planning · S · 2021
 - [x] `simon-1955-behavioral-model-of-rational-choice.md` — foundations · F · 1955 · LOSSY
-- [ ] `simon-1956-rational-choice-and-structure-of-environment.md` — foundations · F · 1956 · LOSSY
+- [x] `simon-1956-rational-choice-and-structure-of-environment.md` — foundations · F · 1956 · LOSSY
 - [ ] `solomonoff-1964-formal-theory-of-inductive-inference-part-1.md` — foundations · F · 1964 · LOSSY
 - [ ] `russell-1995-provably-bounded-optimal-agents.md` — foundations · F · 1995 · LOSSY
 - [ ] `shalizi-2001-computational-mechanics-pattern-prediction-structure-simplicity.md` — foundations · F · 2001
