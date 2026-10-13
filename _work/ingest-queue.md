@@ -772,7 +772,7 @@ One INGEST each:
 - [x] `shalizi-2001-computational-mechanics-pattern-prediction-structure-simplicity.md` — foundations · F · 2001
 - [x] `bialek-2001-predictability-complexity-and-learning.md` — foundations · F · 2001
 - [x] `chater-2003-simplicity-unifying-principle-in-cognitive-science.md` — foundations · F · 2003
-- [ ] `shalizi-2003-what-is-a-macrostate-subjective-observations-objective-dynamics.md` — foundations · F · 2003
+- [x] `shalizi-2003-what-is-a-macrostate-subjective-observations-objective-dynamics.md` — foundations · F · 2003
 - [ ] `rathmanner-2011-philosophical-treatise-of-universal-induction.md` — foundations · F · 2011
 - [ ] `ortega-2013-thermodynamics-decision-making-information-processing-costs.md` — rl-planning · F · 2013
 - [ ] `rosas-2024-software-in-the-natural-world-hierarchical-emergence.md` — foundations · F · 2024
