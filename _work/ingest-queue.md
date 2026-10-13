@@ -768,7 +768,7 @@ One INGEST each:
 - [x] `simon-1955-behavioral-model-of-rational-choice.md` — foundations · F · 1955 · LOSSY
 - [x] `simon-1956-rational-choice-and-structure-of-environment.md` — foundations · F · 1956 · LOSSY
 - [x] `solomonoff-1964-formal-theory-of-inductive-inference-part-1.md` — foundations · F · 1964 · LOSSY
-- [ ] `russell-1995-provably-bounded-optimal-agents.md` — foundations · F · 1995 · LOSSY
+- [x] `russell-1995-provably-bounded-optimal-agents.md` — foundations · F · 1995 · LOSSY
 - [ ] `shalizi-2001-computational-mechanics-pattern-prediction-structure-simplicity.md` — foundations · F · 2001
 - [ ] `bialek-2001-predictability-complexity-and-learning.md` — foundations · F · 2001
 - [ ] `chater-2003-simplicity-unifying-principle-in-cognitive-science.md` — foundations · F · 2003
