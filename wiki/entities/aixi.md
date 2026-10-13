@@ -89,6 +89,8 @@ The construction that makes the ceiling finite, at absurd cost.
 
 Also noted: an inconsistent policy must be able to *continue a strategy started by another policy*, which the source flags as problematic outside episodic (factorizable) environments — swapping controllers mid-episode is not free.
 
+**The other reduction: MC-AIXI-CTW.** This one approximates the *model*, not the policy class. Actions and rewards are written into the history, Context Tree Weighting (an exact mixture over prediction suffix trees up to a depth) stands in for `ξ`, and Monte-Carlo tree search replaces expectimax. Rathmanner & Hutter 2011 report only "promising results" and give no numbers ([[wiki/concepts/universal-induction.md]]). The two reductions keep different halves of the ideal. AIXItl keeps the universal class and gives up feasibility. MC-AIXI-CTW keeps feasibility and shrinks the environment class to variable-order Markov models, so it sits on the *Markovian* line of the separability table above.
+
 ---
 
 ## Scoring against the six hardness sources
