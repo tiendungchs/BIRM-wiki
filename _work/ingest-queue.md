@@ -757,8 +757,8 @@ sign-in residue after the abstract (stripped, body intact); Russell & Subramania
 fi/ff/ffi ligature as U+FFFD (284 repaired by dictionary lookup, ~64 left inside math and
 identifiers). After that, 0 FAIL, 8 WARN (missing frontmatter on the 7 conversions, one unbalanced
 `$` in Simon 1956), manifest rows 528–545.
-*Not acquired:* `B4` Rathmanner & Hutter 2011 — the MDPI clip captured abstract and references only
-(1293 words); it stays on the want-list, re-resolved to the `/htm` view.
+`B4` Rathmanner & Hutter 2011: the first MDPI clip captured abstract and references only (1293 words);
+re-clipped from the `/htm` view the same day (52699 words, manifest row 546), filed, want-list emptied.
 
 One INGEST each:
 
@@ -773,6 +773,7 @@ One INGEST each:
 - [ ] `bialek-2001-predictability-complexity-and-learning.md` — foundations · F · 2001
 - [ ] `chater-2003-simplicity-unifying-principle-in-cognitive-science.md` — foundations · F · 2003
 - [ ] `shalizi-2003-what-is-a-macrostate-subjective-observations-objective-dynamics.md` — foundations · F · 2003
+- [ ] `rathmanner-2011-philosophical-treatise-of-universal-induction.md` — foundations · F · 2011
 - [ ] `ortega-2013-thermodynamics-decision-making-information-processing-costs.md` — rl-planning · F · 2013
 - [ ] `rosas-2024-software-in-the-natural-world-hierarchical-emergence.md` — foundations · F · 2024
 - [ ] `singh-2004-predictive-state-representations-new-theory-dynamical-systems.md` — latent-graph · M · 2004 · LOSSY
