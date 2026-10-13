@@ -762,7 +762,7 @@ re-clipped from the `/htm` view the same day (52699 words, manifest row 546), fi
 
 One INGEST each:
 
-- [ ] `botvinick-2019-reinforcement-learning-fast-and-slow.md` — rl-planning · S · 2019
+- [x] `botvinick-2019-reinforcement-learning-fast-and-slow.md` — rl-planning · S · 2019
 - [ ] `lieder-2020-resource-rational-analysis-optimal-use-limited-computational-resources.md` — foundations · S · 2020 · LOSSY
 - [ ] `dasgupta-2021-memory-as-a-computational-resource.md` — rl-planning · S · 2021
 - [ ] `simon-1955-behavioral-model-of-rational-choice.md` — foundations · F · 1955 · LOSSY
