@@ -15,7 +15,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | # | Tension | Level | Status | Cited by | Detail |
 |---|---|---|---|---|---|
 | T1 | Does the implementation level carry computational content? | `META` | `LEANING` | 20 | [[wiki/tensions/t001.md]] |
-| T2 | Is the fast level a separate store or recurrent activity? | `L1` | `LIVE` | 10 | [[wiki/tensions/t002.md]] |
+| T2 | Is the fast level a separate store or recurrent activity? | `L1` | `LIVE` | 11 | [[wiki/tensions/t002.md]] |
 | T3 | Is backpropagation biologically realizable? | `L3` | `LEANING` | 2 | [[wiki/tensions/t003.md]] |
 | T4 | Do abstract structural codes exist in the brain? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t004.md]] |
 | T5 | Was neuroscience causally responsible for the transferred mechanisms? | `META` | `LIVE` | 5 | [[wiki/tensions/t005.md]] |
@@ -374,3 +374,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T406 | Should a subgoal passed down a hierarchy be a direction in a learned latent space, or a displacement in fixed state coordinates? | `L2` | `LIVE` | 4 | [[wiki/tensions/t406.md]] |
 | T407 | Is recognition familiarity a read of the episodic store, or a separate module that survives the store's removal? | `L1` | `LIVE` | 5 | [[wiki/tensions/t407.md]] |
 | T408 | Is the heading integrator's velocity input the vestibular measurement, or a reconstruction from motor prediction plus the exafferent residual? | `L2` | `LIVE` | 5 | [[wiki/tensions/t408.md]] |
+| T409 | Is a stream's structure measured by its statistical complexity `C_μ`, or only by the divergent part of its predictive information? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t409.md]] |
