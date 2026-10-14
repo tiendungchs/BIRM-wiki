@@ -160,6 +160,8 @@ The handover is **migration between striatal territories**, measured. TS silenci
 
 **(brainstorm)** Read against the census above, this reframes the "relocation or distillation" question (T131): if both controllers are corticostriatal loops, then automatisation is neither — it is a *change in which loop wins an uncertainty comparison*, with both loops retaining a complete policy the whole time. That is testable with the recording prediction the source states: each system's activity should track its own preference even when the other is driving behaviour, so switching the arbitration factors (training amount, reward proximity) should switch which loop's activity correlates with choice, without either falling silent.
 
+**Dopamine's role on the planning side, first proposal: in the switch, not in the tree** (Keramati, Dezfouli & Piray 2011, [[wiki/concepts/amortized-inference.md]]). The same loop split: habitual control in the sensorimotor loop (infralimbic → dorsolateral striatum), goal-directed control in the associative loop (paralimbic cortex → dorsomedial striatum). Phasic dopamine trains the cache, and tonic dopamine, read as the average reward rate, prices deliberation, so it decides whether the associative loop is consulted at all. This answers the table's "wholly unresolved" row only partly. It assigns dopamine a job in the *arbitration* and still none in the model-based controller. It also runs against the Parkinson's datum carried on [[wiki/concepts/neuromodulatory-metaparameters.md]] (depletion impairs model-based choice; this account predicts depletion makes deliberation cheaper). Both positions are kept.
+
 ---
 
 ## What the circuit computes, if it is optimal

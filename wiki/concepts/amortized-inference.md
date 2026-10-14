@@ -100,7 +100,7 @@ Both halves of a cost–benefit comparison move the arbitration independently, a
 
 > `raw/daw-2005-uncertainty-based-arbitration.md` — Daw, Niv & Dayan, *Nature Neuroscience* 8:1704–1711, 2005.
 
-The "arbitration is rational" row above is a second-hand summary of this paper. The mechanism it actually proposes is sharper than a flexibility/speed trade-off, and it is the wiki's only **computable** candidate for the metacognitive estimator this page's open problems say is missing.
+The "arbitration is rational" row above is a second-hand summary of this paper. The mechanism it actually proposes is sharper than a flexibility/speed trade-off, and it is one of the wiki's two **computable** candidates for the metacognitive estimator this page's open problems say is missing. The other is the value-of-information rule in the next subsection (Keramati et al. 2011).
 
 **The rule.** Run both controllers as approximate Bayesian learners, so each returns a *posterior* over each action's value rather than a point estimate. For each action, adopt the estimate of whichever controller has the smaller posterior variance; choose among actions in proportion to the resulting values. Three properties a builder should notice:
 
@@ -125,6 +125,62 @@ The "arbitration is rational" row above is a second-hand summary of this paper. 
 **Both controllers are rational.** The paper sets itself against the economic framing in which an impulsive limbic system interferes with a rational prefrontal one: here the two pursue identical ends and the cache is simply the approximation that trades accuracy for tractability. The wiki's habitual reading of model-free control as *the failure mode* is the framing this paper rejects — consistent with the amortization inversion at the end of this section.
 
 **(brainstorm) What blocks the machine version is one missing term.** The rule needs both learners to emit calibrated variances on a shared scale; a deep model-based/model-free pair emits neither, and ensembles or dropout give a variance for the value head but nothing for **computational noise** — the tree's uncertainty about its *own* approximation. Monte-Carlo tree search does not report how much its pruning cost it. Without that term the crossing that produces habits cannot occur, which is a compact statement of why machine agents have no principled reason to stop planning and no principled route to automatisation: they are missing the one uncertainty that grows with thinking.
+
+### Arbitration by value of information — the primary account of `T135` position B
+
+> `raw/keramati-2011-speed-accuracy-trade-off-habitual-goal-directed.md` — Keramati, Dezfouli & Piray, *PLoS Comput Biol* 7(5):e1002055, 2011. Simulation paper. Every fit is qualitative (means over 3000 runs) and no parameter is fitted to data. All display equations are images in the clip. The rule below is recovered from the prose and the Figure 1 caption, and the Gaussian closed form (Eq. 20) is not recoverable.
+
+**The rule, per action `a` at state `s`:**
+
+| Term | Definition | Computed from |
+|---|---|---|
+| `Gain_a(q)` | `Q̄(s,a₂) − q` if `a = a₁` and `q < Q̄(s,a₂)`; `q − Q̄(s,a₁)` if `a ≠ a₁` and `q > Q̄(s,a₁)`; `0` otherwise. `a₁`, `a₂` = best and second-best actions by cached mean | Cached means |
+| **Benefit:** `VPI(s,a) = ∫ Gain_a(q) · p(Q(s,a) = q) dq` | Value of perfect information (VPI), the measure Dearden et al. 1998 built for exploration. Roughly the overlap of `a`'s value distribution with the best action's (or, for `a₁`, with the runner-up's) | **The habitual posterior only.** Mean and variance from Kalman temporal-difference (KTD) Q-learning, with Q-values modelled as a random walk so variance never reaches 0 |
+| **Cost:** `R̄ · τ` | `R̄ ← (1−σ)R̄ + σr`, a moving average of reward per time step over non-exploratory actions (Eq. 7). `τ` = expected deliberation time, proportional to the edges traversed (0.08 of a time step per edge), averaged over past deliberations | A global reward-rate statistic. Tonic dopamine is the proposed carrier |
+| **Rule** | If `VPI(s,a) > R̄τ`, run depth-3 value iteration on the learned `T, R` for `a`, substituting cached `Q̄` beyond depth 3. Otherwise use `Q̄(s,a)` | — |
+| Selection | Softmax over the per-action values, whichever system each came from | — |
+
+**Why it is approximately optimal.** Deliberating returns `Q̄ + VPI`, delayed by `τ`, so it is worth `γ^τ(Q̄ + VPI)` against `Q̄` for not deliberating. With `Q ≈ Q̃ + R̄/(1−γ)` (average-adjusted value plus the reward rate) and `γ → 1`, this reduces to `VPI > R̄τ`. The same rule is optimal if the goal is average reward. The derivation **assumes the tree returns the true value**.
+
+**What a builder should notice (signal flow):**
+
+- **The goal-directed system has no vote.** The arbitration reads the cache's posterior, the reward rate and a time estimate. Nothing the tree knows, including its own uncertainty, enters. Daw et al. 2005 compare *both* posteriors. So this rule needs no computational-noise term, which is the term the brainstorm above says no machine planner supplies.
+- **It is relational across actions.** `VPI(s,a)` depends on the gap between `a` and the best (or second-best) action. Under Daw's rule each action's arbitration reads only that action's two variances. So under B the relative value of the options moves the arbitration. Under A it cannot.
+- **The price is a rate, and it is global.** One `R̄` prices deliberation in every state, so a rich environment makes thinking expensive everywhere at once.
+- **The arbiter is cheap and off the reaction-time path.** Eq. 20 is closed form. KTD's matrix updates run *after* the choice, when the cache is updated, so reaction time is search time only.
+
+**What it reproduces:**
+
+| Experiment | Model behaviour | Data |
+|---|---|---|
+| Devaluation, one lever, 40 vs 240 training trials | 40 trials: VPI is still above `R̄τ` at devaluation, so control is goal-directed and choosing the press drops to 50% at once. 240 trials: VPI falls below `R̄τ` by ~trial 100, deliberation time goes to 0 and pressing persists. In the extinction test `R̄` decays, VPI regrows, and goal-directed control returns after a lag | Adams 1982 |
+| Two levers, two different outcomes of **equal value**, extensive training | The two value distributions never separate. Random-walk noise keeps the variance above 0. VPI stays above `R̄τ`, so control stays goal-directed and remains devaluation-sensitive | Concurrent-choice devaluation (Kosaki & Dickinson 2010; the in-text citation is lost in the clip, matched by title) |
+| Go/no-go reversal, human reaction time | Reaction time is high while the rule is being found and low while it is being applied. It rises again a few trials after each reversal, once the cache's variance grows | Pessiglione et al. 2005: reaction time changes and movement time stays constant, which rules out a pure hesitation account |
+| Choice reaction time vs number of alternatives, instructed task | Early in training, deliberation time grows with the number of alternatives. After training it is flat. Instructions are fed to the tree as `T, R`, so performance is high from trial 1, which a single habitual system cannot reproduce | Hick 1952; practice removes the effect (Mowbray 1959) |
+| Vicarious trial-and-error (VTE), the head-sweeps rats make at choice points | Predicted to decline with training, because deliberation time goes to 0 | VTE declines with training |
+
+**Where it fails, by its own account:**
+
+- **Hick's law is logarithmic and the model is linear.** Each action is deliberated separately, so time adds up across alternatives. The basal-ganglia stopping rule on [[wiki/concepts/evidence-accumulation.md]] gives `ln N` because the alternatives share one normaliser. **(brainstorm)** So per-action serial deliberation is the wrong unit, and deliberation should run over the option set.
+- **The exact-tree assumption fails whenever the model is wrong:** early in a new task, when both systems are ignorant and deliberating wastes time, and in reversal. Verbal instruction changes the tree but cannot move the arbitration, because the arbitration does not read the tree.
+- **Depth is hand-set at 3.** The rule decides *whether* to search, not *how deep*.
+- **`R̄` needs a cyclic, repetitive task.** A motivational shift such as hunger cannot reach the arbitration until rewards have been re-experienced, although hunger is known to move tonic dopamine at once.
+- **The two systems only compete.** Cooperation is out of scope, though the paper names it: the spiral striatum–midbrain projections could let the goal-directed system shape the habitual prediction error.
+- **Other costs are named but not modelled:** working-memory load, energy (add a term: `VPI > R̄τ + E`), and seriality (one deliberation at a time against massively parallel habits).
+
+**Against Daw et al. 2005, the critique.** In that model the tree searches on every trial whichever system controls behaviour. Its pruning noise is fixed, so it predicts **no change in reaction time with training**. Activity is observed to move from prefrontal cortex and caudate to motor cortex and putamen with overtraining.
+
+**Three designs that separate A from B without a deadline** (the paper's Table 1 and Figure 10, all untested in 2011):
+
+| Design | B (this paper) | A (Daw et al. 2005) | Dickinson's contingency account |
+|---|---|---|---|
+| Concurrent levers, outcomes of **unequal** value, extensive training | Habitual: the distributions separate and VPI → 0 | Goal-directed: arbitration ignores the other action's value | Habitual |
+| Concurrent levers, **identical** outcome, extensive training | Goal-directed: the values are equal | Depends on parameters | Habitual |
+| Moderately trained T-maze, then a few trials placed in the goal arm with random or absent reward (raises **only the tree's** uncertainty), then test from the opposite start | Stays goal-directed. `R̄` falls, so even more so | Shifts toward habitual (response strategy) | — |
+
+The third design also tests incentive learning: under B, re-exposure only updates `R` in a tree that was already in control, so it does not shift control between systems.
+
+**(brainstorm) Position B can be built on today's machine stack, and its weakness tells you where to add A.** An ensemble or distributional Q-head supplies `VPI` per action. `R̄` is a running mean, and `τ` is a node count. Nothing is missing. But the rule trusts the planner absolutely, and a learned world model is exactly where that trust fails. The composite would deflate the benefit by the tree's reliability before comparing it with the price. It needs the computational-noise term again, but only as a *discount*, so a crude proxy (model ensemble disagreement along the rollout) degrades the rule gracefully rather than disabling it.
 
 
 **What the arbitration rule is calibrated against, and the cost of that** (`G121`): every empirical anchor above — the within-chain dissociation, the reversal results, the incentive-learning falsifier — is a *devaluation-insensitivity* measurement, i.e. a negative criterion. If devaluation-survival also marks a cue-bound motivational gain rather than a cache read, then the crossing of the two uncertainty curves is being fitted to a mixture of two phenomena and the arbitration is between the wrong two controllers.
@@ -260,9 +316,9 @@ The fourth row of the table above is the architectural proposal: **the neural ne
 - **[[wiki/entities/neuromatch.md]]** — structural amortisation on an NP-complete query: subgraph containment answered by precomputed order embeddings plus a coordinate comparison, with all the cost moved offline.
 - **[[wiki/concepts/precision-weighting.md]]** — the representational precondition for amortisation: free-form (sample-based) posteriors need neurons exponential in latent dimensionality, so only a fixed-form code — a small vector of sufficient statistics, with precision derivable from the mean — is something a recognition network can emit (Friston 2009).
 - **[[wiki/entities/basal-ganglia.md]]** — supplies the anatomy for the uncertainty arbitration and narrows it: the cache is specifically the dorsolateral corticostriatal loop, the tree system reaches into dorsomedial striatum, and infralimbic cortex is the candidate arbiter — a third structure whose lesion *reinstates* goal-directed control (Daw et al. 2005).
-- **[[wiki/concepts/neuromodulatory-metaparameters.md]]** — the candidate substrate for the arbitration variable: relative posterior variance has to be represented somewhere, and cholinergic/noradrenergic signalling is the standing proposal for carrying expected and unexpected uncertainty — the same transmitters Doya 2002 assigns to learning rate and exploration.
+- **[[wiki/concepts/neuromodulatory-metaparameters.md]]** — the candidate substrate for the arbitration variable: relative posterior variance has to be represented somewhere, and cholinergic/noradrenergic signalling is the standing proposal for carrying expected and unexpected uncertainty — the same transmitters Doya 2002 assigns to learning rate and exploration. Under the value-of-information rule the quantity that needs a carrier is instead a reward *rate*, the price of search, and tonic dopamine is the proposal (Keramati et al. 2011).
 - **[[wiki/concepts/temporal-abstraction-options.md]]** — the same compilation applied to action sequences rather than to posteriors: an option is a cached partial path selected as one arm, so hierarchy is amortisation with a *commitment* attached — and this page's variance arbitration is the natural candidate for the decision HRL never makes, whether to execute a compiled option or re-plan through its interior (Botvinick, Niv & Barto 2009).
-- **[[wiki/concepts/evidence-accumulation.md]]** — the same commit-or-continue decision one level down: that page arbitrates *which* controller to believe by comparing posterior variances, this one decides when either controller has integrated enough evidence to act, and both make the criterion a quantity the estimator already holds rather than a tuned threshold — but only the evidence-accumulation version has a proof of optimality, and only at the price of requiring the alternatives to be enumerated in advance.
+- **[[wiki/concepts/evidence-accumulation.md]]** — the same commit-or-continue decision one level down: that page arbitrates *which* controller to believe by comparing posterior variances, this one decides when either controller has integrated enough evidence to act, and both make the criterion a quantity the estimator already holds rather than a tuned threshold — but only the evidence-accumulation version has a proof of optimality, and only at the price of requiring the alternatives to be enumerated in advance. The two also scale differently in the number of options: per-action value-of-information deliberation gives decision time linear in `N`, the shared-normaliser rule gives `ln N`, and Hick's law is logarithmic (Keramati et al. 2011).
 - **[[wiki/concepts/learned-world-models.md]]** — the hidden cost of compiling a planner into a reactive policy: identifying a controlled world model requires conditional action variation given the state, and a distilled deterministic policy has none, so amortisation degrades the very model the planner it replaced was running on — invisibly, since on-policy prediction loss keeps falling (Zhang et al. 2026, gap G63).
 - **[[wiki/concepts/reward-prediction-error.md]]** — the signal that trains the cheap side of this page's arbitration: the cached model-free values whose reliability the relative-uncertainty rule weighs are built by `δ`, so the arbitration's inputs and the teaching signal share a substrate.
 - **[[wiki/entities/adaworld.md]]** — amortisation of a *vocabulary* rather than of a search: 100 samples per action, averaged in latent space, compile a new environment's controls into an interface a pretrained model already speaks, so adaptation costs 800 finetune steps instead of retraining the dynamics.

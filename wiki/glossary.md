@@ -541,6 +541,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | POS | Part-of-speech | Word-class tag (noun, verb, determiner…); "coarse" = 12 universal classes, "fine" = 45 treebank tags in [[wiki/concepts/amnesic-probing.md]] |
 | NER | Named-Entity Recognition | Tagging tokens as person / organisation / location / … spans; one of the six erased properties in [[wiki/concepts/amnesic-probing.md]] |
 | IOI | Indirect Object Identification | Wang et al. 2022: the GPT-2 small circuit that completes "When Mary and John went to the store, John gave a drink to" → Mary; its negative name-mover heads are the inhibitory-circuit example in [[wiki/concepts/causal-scrubbing.md]] |
+| VPI | Value of Perfect Information | Expected improvement in the chosen action's value from learning one action's true value, `∫ Gain_a(q)p(q)dq`, computed from a value posterior (Dearden et al. 1998). Keramati et al. 2011 use it as the benefit of planning, compared against the reward rate × search time ([[wiki/concepts/amortized-inference.md]]) |
+| KTD | Kalman Temporal Differences | Temporal-difference learning run as a Kalman filter over the value parameters, returning a mean *and a covariance* for each Q-value. The variance source for the habitual posterior in Keramati et al. 2011 ([[wiki/concepts/amortized-inference.md]]) |
 
 ## Neuroscience
 
@@ -930,6 +932,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | Tripartite synapse | — (not an abbreviation) | Presynaptic terminal + postsynaptic spine + enveloping astrocytic process. A single astrocyte forms `>10⁶` of them, and astrocytes tile the brain in non-overlapping islands; in the Kozachkov–Slotine–Krotov model the process's Ca²⁺ level `p_ij` is a per-synapse state variable held *outside* the synapse, and transport of Ca²⁺ between processes is where the memories are stored ([[wiki/entities/neuron-astrocyte-associative-memory.md]]) |
 | D-serine | — (not an abbreviation) | Astrocyte-released co-agonist at the NMDA receptor's glycine site; one of the gliotransmitter routes by which the glial layer sets synaptic efficacy ([[wiki/entities/neuron-astrocyte-associative-memory.md]]) |
 | WM | Working Memory | Used standalone on 60+ pages and defined inline on only one. Not a synonym for a buffer: the wiki's carrier account is an actively maintained state with a bounded dwell (~67 ms per visit in prefrontal cortex) and a separate access protocol ([[wiki/concepts/working-memory.md]], [[wiki/concepts/memory-read-and-erase.md]]). Distinguish from the model-name fragment in `Drive-WM`, which is not this term |
+| VTE | Vicarious Trial-and-Error | Head sweeps a rat makes between options at a choice point, read as deliberation. It declines with training, which Keramati et al. 2011 read as control passing from planning to habit ([[wiki/concepts/amortized-inference.md]]) |
 
 ## Benchmarks
 
