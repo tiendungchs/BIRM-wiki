@@ -5,6 +5,8 @@
 > **Provenance.** Lieder & Griffiths 2020, *Resource-rational analysis: understanding human cognition as the optimal use of limited computational resources*, Behavioral and Brain Sciences 43:e1 (`raw/lieder-2020-resource-rational-analysis-optimal-use-limited-computational-resources.md`). Target article (a review: almost every result below is cited to its original and carried here **second-hand**), 25 open peer commentaries, and the authors' response. The clip is a lossy PDF conversion: Equations 3–4 are garbled in the source and are reconstructed here from the article's own prose definitions of each term. The formal root is bounded optimality (Russell & Subramanian 1995; Horvitz 1987), carried directly in [The 1995 constructions](#the-1995-constructions-russell--subramanian) below.
 >
 > **Provenance (formal root).** Russell & Subramanian 1995, *Provably bounded-optimal agents*, Journal of Artificial Intelligence Research 2:575–609 (`raw/russell-1995-provably-bounded-optimal-agents.md`). Theory with one simulation (a mail sorter). The clip is a lossy PDF conversion that drops **every digit**: theorem, lemma and equation numbers, the worked example's values, and the mail sorter's reported gains are gone. Equations below are rebuilt from the prose definitions and from the proof chains; the learning bound is re-derived from its proof and flagged as such.
+>
+> **Provenance (metalevel MDP, first-hand).** Hay, Russell, Tolpin & Shimony 2012, *Selecting computations: theory and applications*, UAI 2012 (`raw/hay-2012-selecting-computations-theory-and-applications.md`). Theory plus two experiments (flat Bernoulli selection, 9×9 Go). The clip is a lossy PDF conversion: two-column layout interleaved, Eqs. 7–11 and Theorem 5's right-hand side scrambled, every plot reduced to axis ticks. Equations below are rebuilt from the definitions and proof text; regret curves survive only as the prose ranking.
 
 The wiki has carried pieces of this criterion under other names — a priced control signal ([[wiki/concepts/expected-value-of-control.md]]), a priced arbitration between planner and cache ([[wiki/concepts/amortized-inference.md]], `T135`), a priced backup ([[wiki/concepts/replay-prioritisation.md]]). This page is the common objective they are each an instance of, plus the argument for who solves it.
 
@@ -112,6 +114,55 @@ The slack is a faster **machine**, not more **time**: these programs trade their
 
 ---
 
+## The metalevel MDP, solved per decision (Hay, Russell, Tolpin & Shimony 2012)
+
+The 1995 results choose a program offline and treat quality as input-independent. This paper takes the per-decision metalevel problem the 1995 table calls ill-posed in general, poses it as a Markov decision process (MDP) for **one** decision, and approximates it **online**, inside the agent, from the evidence gathered so far.
+
+### The object
+
+| Element | Definition |
+|---|---|
+| Metalevel probability model | `(U_1,…,U_k, 𝓔)`: utilities of `k` actions ("arms"), plus a countable set of computations `E ∈ 𝓔`, each a random variable jointly distributed with the `U_i` |
+| State | The sequence of computation outcomes so far, `⟨e_1,…,e_n⟩`; plus a terminal `⊥` |
+| Actions | Any allowed computation `E ∈ 𝓔_s`, or `⊥` (stop and act) |
+| Reward | `−c` per computation; on stopping, `max_i μ_i(s)`, `μ_i(s) = E[U_i \| e_1,…,e_n]` |
+| Value (Thm 4) | `V^π(s) = E[−c·N + max_i μ_i(S_N)]`, `N` = number of computations run |
+| Bernoulli instance | `Θ_i ~ U[0,1]`, each simulation of arm `i` ~ Bernoulli(`Θ_i`); state = `(s_i, f_i)` per arm; `μ_i = (s_i+1)/(n_i+2)` |
+
+A deadline or total budget is not in the MDP and is added by putting time or spent cost into the state.
+
+### Results
+
+| # | Result | Builder reading |
+|---|---|---|
+| Thm 5 | `E[N \| s] ≤ (1/c)·(E[max_i U_i \| s] − max_i μ_i(s))`: expected computation ≤ value of perfect information / cost. Any policy with infinite expected `N` has value `−∞`, so the optimal one stops with probability 1 | A **ceiling** on *how deep*, computable from the posterior the agent already holds |
+| Ex. 3 | Arm 1 = ½, arm 2 = ⅓ or ⅔: the posterior depends only on `s−f`, the optimal policy samples at `s−f ∈ {−1,0,1}`, and returns to `0` with prob. ⅓ every two samples | The **realised** `N` of an optimal controller can be unbounded (a sequential probability ratio test random walk); a hard cap is still needed in practice |
+| Thm 7 | If the myopic policy (one more computation, then stop) computes in `s`, so does the optimal one | Myopic metareasoning errs in one direction only: it **stops too early**, because changing the chosen action usually takes more than one computation |
+| Thm 9 | If the myopic policy stops everywhere in a transition-closed state set, so does the optimal one | Turns a myopic test into a provable stopping region |
+| Thm 10 | One-armed Bernoulli vs a known constant `λ`: at most `λ(1−λ)/c − 3 ≤ 1/(4c) − 3` computations | The optimal policy is computable in `O(1/c²)`: exact metalevel control is affordable when `c` is high |
+| Ex. 4, Thm 12 | **No index policy.** With arms `U_1 ∈ {−1.5, 1.5}`, `U_2 ∈ {0.25, 1.75}` and a known third option `λ`, the optimal computation inverts from observing arm 1 (low `λ`) to arm 2 (medium `λ`). The stopping region in `s` is the complement of one interval `I(s)` of `λ`, containing `max_i μ_i(s)` when non-empty | Unlike Gittins indices for bandits, *which* option to think about cannot be scored from that option's own state; the other options' values must enter |
+| Def. 13–14, Thm 16 | **Blinkered policy.** If computations split by action (each `E` informs one `U_i`), consider any number of computations but on **one** action at a time. `Q^myopic ≤ Q^blinkered ≤ Q*`. It decomposes into `k` one-action problems, each against a constant `λ = max_{j≠i} μ_j(s)`, and costs `O(D/c²)` independent of `k` (`D` = 129 grid points of `λ`) | The first non-myopic approximation in the wiki that is cheap and runs at decision time |
+| Thm 17–18, Eqs. 9–11 | Distribution-free: bound the value of information (VOI) of `N` more samples of an arm by Hoeffding on the probability that they flip the sample-mean ranking (best arm `α` falls below second-best `β`, or another arm rises above `α`). Stop when `max_i Λ̂_i / N ≤ c` | A stopping rule from sample means and counts alone, no prior |
+
+**Why bandit rules are the wrong object** (Audibert et al. 2010 and Bubeck et al. 2011 concur, per the source). In a bandit each trial is a real action with a real payoff (cumulative regret). A simulation's cost does not depend on the value of the action simulated, and only the final choice pays (simple regret). Two consequences: Upper Confidence Bound (UCB1) and UCT are biased away from low-valued arms whose information could still flip the choice, and they have no stopping rule.
+
+### Experiments
+
+| Setting | Comparison | Result (from the prose; plotted values lost in the clip) |
+|---|---|---|
+| 25-arm Bernoulli, step cost `c` from 0.1 to 0.001, 1000 trials, regret includes `c·n` | Blinkered, myopic, ESPb (a normal-approximation policy), UCB1 with two stopping rules | Blinkered best everywhere. Myopic **plateaus**: it soon reaches states where no single computation can change the choice. UCB1's choice of *what* to sample is worse even with a good stopping rule |
+| 25-arm Bernoulli, fixed budget 200–2000 samples, 10000 trials | VOI and VOI+ (Eqs. 9, 10) vs UCB1 | UCB1 "always considerably worse" |
+| 9×9 Go, Pachi's UCT engine, 5000–15000 samples per move, 1000 games each | VOI selection **at the root only**, UCT below; stop when max VOI `< c`; unused samples carried to the next move (both engines get the carry-over) | At `c = 10⁻⁶` VOI almost always wins, peaking at **64%** at 10000 samples/move. The gain is largest at intermediate budgets. Disabling sample reuse in both engines raises VOI's win rate further |
+
+### What a builder takes
+
+- **Root and interior computations have different purposes.** At the root a rollout serves *choosing*; below it, *estimating a node's value* so the root choice improves. The theory covers only the root; interior nodes keep UCT, and extending the formalism to them is the paper's stated open problem.
+- **The price becomes an opportunity cost the agent could compute.** With budget carry-over, `c` = the VOI of one extra sample at a *future* decision, i.e. Eq. 3's `λ` read off the agent's own later decisions. The paper does not compute it: `c` is calibrated by a sweep, and the win-rate curve vs `c` differs by samples per move (`G107`).
+- **The 1995 objection is narrowed, not refuted.** Per-decision metalevel control is ill-posed as a *standard* for a whole agent (Russell & Subramanian 1995), but usable as a *component* inside one: the Go controller runs it at every root, with `c` as the link to the program-level trade-off.
+- **(brainstorm)** Thm 5 gives every planner in the wiki a free depth ceiling: `N_max = VPI/c` from the value posterior it already keeps. Combined with the blinkered decomposition, *which branch* and *how much more* both read off per-action posteriors plus one global price. That is Keramati et al. 2011's arbitration rule ([[wiki/concepts/amortized-inference.md]]) generalised from one exact search per action to many noisy samples.
+
+---
+
 ## The method (five steps)
 
 1. State the computational-level problem and its ideal solution.
@@ -138,7 +189,7 @@ All second-hand, via Lieder & Griffiths 2020.
 | **Sparse attention to variables** (Gabaix 2014–2017) | Cost of attending | Attend a few variables, replace the rest by defaults, partially adjust partly-attended ones; one model yields base-rate neglect, insensitivity to sample size, overconfidence, projection bias |
 | **Planning strategies** (Callaway et al. 2018; Lieder et al. 2017) | Cost per planning operation, non-myopic | Strategy discovery by solving a **meta-level Markov decision process** over computations. Humans reach **~86%** of the best achievable quality–time trade-off and agree with the bounded-optimal strategy **~55%** of the time; strategies shift across environments as predicted |
 | **Strategy discovery** (Lieder et al. 2017) | Same | A previously unknown heuristic — satisficing plus Take-The-Best (SAT-TTB): inspect payoffs only for the most probable outcome, stop at the first above an aspiration level — derived, then confirmed in people **only** on the problems where it is bounded-optimal. The aspiration-level stop is Simon 1955's Rule D ([[wiki/concepts/satisficing.md]]) |
-| **Myopic metareasoning** (Gabaix & Laibson 2005) | Immediate cost vs immediate gain of each operation | Greedy one-step value of computation; predicts suboptimal search in a bandit task |
+| **Myopic metareasoning** (Gabaix & Laibson 2005) | Immediate cost vs immediate gain of each operation | Greedy one-step value of computation; predicts suboptimal search in a bandit task. First-hand, the direction of the error is proved: myopic control stops too early, never late (Hay et al. 2012, Thm 7) |
 | **Habits** (Keramati et al. 2011, 2016; Huys et al. 2015) | Time available; planning cost | Arbitration by cost–benefit; people **plan a few steps then hand off to habitual values, with the depth set by time available**; sequential problems decomposed into sub-problems to trade planning savings against decision quality. **2011, first-hand:** a myopic per-action value of computation, `VPI(s,a) > R̄·τ`, whose price is Eq. 3's `λ·t_h` with `λ` = the average reward rate `R̄` ([[wiki/concepts/amortized-inference.md]]) |
 | **Goals** | Planning cost | An unbounded expected-utility maximiser has no reason to have goals. Backward planning from a goal (means–ends analysis) ignores most states and action sequences — goals as a **tractability device** |
 | **Working memory** (Sims et al. 2012; van den Berg & Ma 2018) | Rate–distortion capacity; neural cost | Capacity flexibly split (few items precise / many coarse); the **total** resource is itself set by a cost–benefit, not fixed |
@@ -198,7 +249,7 @@ All second-hand, via Lieder & Griffiths 2020.
 ## Open problems
 
 - **No machine instance of Eq. 4.** Meta-learning optimises the inner learner's performance; nothing in the wiki also charges its compute in the outer loss. Whether the inner algorithm would change class as `λ` rises is untested (see the brainstorm above).
-- **The meta-level problem is solved offline here.** The 86% / 55% planning numbers come from a strategy derived by solving a meta-level Markov decision process outside the agent; how a learner reaches it is the open half ([[wiki/architectural-gaps.md]] `G15`).
+- **The meta-level problem is solved offline here.** The 86% / 55% planning numbers come from a strategy derived by solving a meta-level Markov decision process outside the agent; how a learner reaches it is the open half ([[wiki/architectural-gaps.md]] `G15`). Hay et al. 2012 approximate it online for one decision at a time (blinkered policy, distribution-free VOI bounds), but only for the root of a search and with `c` calibrated by hand.
 - **The cost currency is unsettled** — one information-theoretic capacity, or several incommensurable resources (Bates et al. vs Lieder & Griffiths; `T397`).
 - **Hard budget or priced budget.** The two forms predict different responses to a changed environment (Ma & Woodford), and the working-memory evidence favours a priced budget (van den Berg & Ma 2018) — which bears on whether a capacity limit is a ceiling at all (`T104`).
 - **Re-evaluation trigger.** Nothing says when a learned heuristic is re-optimised after the resources it was fitted to have changed (Persaud et al.) — the cost-side analogue of the knowledge-boundedness limit on [[wiki/concepts/meta-learning.md]]. The formal root names the same hole from the other side: with the learner inside the agent and a small program, there is no stable bounded-optimal configuration, and the agent must rewrite itself as it goes obsolete (Russell & Subramanian 1995). Neither source says what triggers the rewrite.
@@ -226,4 +277,5 @@ All second-hand, via Lieder & Griffiths 2020.
 - **[[wiki/concepts/satisficing.md]]** — the root this page's objective descends from: Simon 1955 argues the organism knows neither the cost of finding alternatives nor the weights across its goals, so it cannot optimise online and instead searches until an aspiration level is met. That argument is why this page puts the cost–benefit in an outer loop, and SAT-TTB is Simon's Rule D derived as bounded-optimal. Its 1956 sequel supplies the environment side that Eq. 4 formalises: the environment's statistics (goal density, branching, clue availability) decide how simple a sufficient mechanism can be. Russell & Subramanian 1995 give the aspiration level a proved role: it is one of the two termination tests (the other is a herald percept) that make the universal doubling schedule UABO when the time-dependence of utility is deterministic.
 - **[[wiki/concepts/thermodynamic-bounded-rationality.md]]** — fills Eq. 3's free cost function with a derived one, `(1/β)·KL(p‖p₀)`, whose optimum is `p ∝ p₀e^{βU}`. It also gives the first structural commitment a mechanism: the agent samples until the resource runs out and never reasons about its constraints, and `β` counts the samples (Theorem 4).
 - **[[wiki/concepts/simplicity-principle.md]]** — that page's search problem is this page's objective applied to hypothesis selection: the mind may prefer the simplest pattern *it can find* rather than the simplest one, so a simplicity account predicts nothing precise until the search budget is modelled (Chater & Vitányi 2003).
+- **[[wiki/entities/alphazero.md]]** — the deployed planner this page's metalevel section argues against at the root: its selection rule is from the UCT bandit family, which optimises cumulative rather than simple regret and has no stopping rule, and it has no stopping rule of its own (a fixed 800 simulations). VOI selection at the root plus VOI stopping beat a UCT engine with a heuristic stop in up to 64% of 9×9 Go games (against plain UCT, not AlphaZero's prior-weighted rule; Hay et al. 2012).
 - **[[wiki/concepts/exact-coarse-graining.md]]** — what a bounded predictor buys against a computationally irreducible world: when an exact coarse variable exists, predicting it costs a run of the smaller coarse rule rather than of the micro level. Exact coarse levels exist even for undecidable cellular automata, so irreducibility of the world does not by itself make the agent's target unpredictable (Israeli & Goldenfeld 2006).

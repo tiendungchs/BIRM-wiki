@@ -543,6 +543,7 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | IOI | Indirect Object Identification | Wang et al. 2022: the GPT-2 small circuit that completes "When Mary and John went to the store, John gave a drink to" → Mary; its negative name-mover heads are the inhibitory-circuit example in [[wiki/concepts/causal-scrubbing.md]] |
 | VPI | Value of Perfect Information | Expected improvement in the chosen action's value from learning one action's true value, `∫ Gain_a(q)p(q)dq`, computed from a value posterior (Dearden et al. 1998). Keramati et al. 2011 use it as the benefit of planning, compared against the reward rate × search time ([[wiki/concepts/amortized-inference.md]]) |
 | KTD | Kalman Temporal Differences | Temporal-difference learning run as a Kalman filter over the value parameters, returning a mean *and a covariance* for each Q-value. The variance source for the habitual posterior in Keramati et al. 2011 ([[wiki/concepts/amortized-inference.md]]) |
+| VOI | Value Of Information | Expected gain in final decision quality from running a computation or gathering an observation, before its cost; the metalevel quantity that selects and stops simulations in Hay et al. 2012, where `E[N] ≤ VPI/c` bounds the optimal amount of computation ([[wiki/concepts/resource-rationality.md]]) |
 
 ## Neuroscience
 
