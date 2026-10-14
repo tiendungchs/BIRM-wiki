@@ -375,3 +375,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T407 | Is recognition familiarity a read of the episodic store, or a separate module that survives the store's removal? | `L1` | `LIVE` | 5 | [[wiki/tensions/t407.md]] |
 | T408 | Is the heading integrator's velocity input the vestibular measurement, or a reconstruction from motor prediction plus the exafferent residual? | `L2` | `LIVE` | 5 | [[wiki/tensions/t408.md]] |
 | T409 | Is a stream's structure measured by its statistical complexity `C_μ`, or only by the divergent part of its predictive information? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t409.md]] |
+| T410 | Does a coarse level that predicts its own future (Markovian macrostates) certify a self-contained level, or must the micro level also add nothing (information closure)? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t410.md]] |

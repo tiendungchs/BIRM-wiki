@@ -88,6 +88,18 @@ Two consequences for this page. **Symmetry is not purely a cost.** The `W = Wᵀ
 
 ---
 
+## Retrieval is a closed macro-level computation (Rosas et al. 2024)
+
+With the Hebbian write and `m` patterns, every unit's field is a function of the `m` overlaps `Z^μ = (1/n) Σ_i ξ^μ_i s_i`: `h_j = Σ_μ ξ^μ_j Z^μ`. Under a **synchronous** stochastic update, the next state's distribution therefore depends on the current state only through `Z`, so `Z` is informationally closed and hence computationally closed ([[wiki/concepts/computational-closure.md]]). Retrieval runs on an `m`-dimensional level with `m ≪ n`, and the neurons are its substrate.
+
+| Consequence | Detail |
+|---|---|
+| **Scope** | The argument needs synchronous update. Under this page's asynchronous update, a flip of unit `i` moves `Z` by an amount depending on `s_i`, not only on `Z`. **(brainstorm)** The closed level is then the finer set of sub-lattice magnetisations (units grouped by pattern-sign vector), which is the standard order-parameter treatment |
+| **The hybrid-Boltzmann equivalence, re-read** **(brainstorm)** | The `P` hidden units of the equivalent hybrid Boltzmann machine (section above) carry the overlap variables, so the factorized form makes the closed macro level explicit as units |
+| **A retrieval controller needs only `Z`** **(brainstorm)** | Anything that monitors or steers recall (a context mask, a stop rule, a confidence read-out — `G42`) can be denied the `n`-unit state at zero predictive cost under synchronous update, and should be wired to the overlaps |
+
+---
+
 ## Open problems it leaves (all inherited by its successors)
 
 - **Nothing sets the number of stored patterns.** The write rule cannot refuse, so overload is silent and catastrophic (G42).
@@ -133,4 +145,5 @@ Two consequences for this page. **Symmetry is not purely a cost.** The `W = Wᵀ
 - **[[wiki/entities/two-body-dense-associative-memory.md]]** — this page derived twice from a more general object: `n = 2` in that framework gives the binary network, and its Appendix B gives Hopfield 1984's continuous graded-response network, with `T_ij = Σ_μ ξ_μi ξ_μj` emerging as what remains after hidden memory neurons are eliminated — so the outer-product matrix is an artefact of folding, not the primitive, and this page's `0.14N` is the information-counting bound for a store that has only feature–feature synapses to write in (Krotov & Hopfield 2021).
 - **[[wiki/entities/continuous-modern-hopfield-network.md]]** — this page's three failures scored individually: binary states and the `0.14N` cliff both go (continuous states, capacity exponential in `d`, retrieval in one update instead of a settling pass), spurious minima do not (the continuous energy is a Gaussian mixture, which can have more modes than components), and the write rule disappears entirely — patterns are supplied or backpropagated, so the one-shot Hebbian property this page contributes has no successor there (Ramsauer et al. 2020).
 - **[[wiki/entities/three-factor-key-value-memory.md]]** — the slot-based alternative built to replace this one, and the sharpest available statement of what superposition costs: graded overload instead of blackout at any network size, near-uncorrelated performance at `ρ = 0.6`, native heteroassociation, and a per-item retention latch that a shared weight matrix cannot support — bought at `C ≈ 0.16N` against `0.14N` for twice the connections, i.e. no gain in capacity per connection at all (Tyulmankov et al. 2021).
+- **[[wiki/concepts/computational-closure.md]]** — certifies that this network's retrieval runs at the level of the `m` pattern overlaps: under synchronous update each field is a function of the overlaps alone, so the overlap vector is an informationally closed coarse-graining of the `n`-unit state. The asynchronous update used here needs a finer closed level.
 - **[[wiki/concepts/associative-memory.md]]** — the synthesis page this one is the baseline of: it reads every successor as a change to exactly one of four independent decisions (code, kernel, separation operator, write rule), which is why `0.14N`, `α_n N^{n−1}` and `N ≥ √p c^{(d−1)/4}` are not competing numbers — and it carries the elimination principle that makes this page's `T_ij` the *folded* form of a bipartite network rather than the primitive.
