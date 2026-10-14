@@ -21,7 +21,7 @@ One INGEST each:
 - [x] `ortega-2013-thermodynamics-decision-making-information-processing-costs.md` — rl-planning · F · 2013
 - [x] `rosas-2024-software-in-the-natural-world-hierarchical-emergence.md` — foundations · F · 2024
 - [x] `singh-2004-predictive-state-representations-new-theory-dynamical-systems.md` — latent-graph · M · 2004 · LOSSY
-- [ ] `israeli-2006-coarse-graining-cellular-automata-emergence-predictability.md` — foundations · M · 2006
+- [x] `israeli-2006-coarse-graining-cellular-automata-emergence-predictability.md` — foundations · M · 2006
 - [ ] `keramati-2011-speed-accuracy-trade-off-habitual-goal-directed.md` — rl-planning · M · 2011
 - [ ] `hay-2012-selecting-computations-theory-and-applications.md` — rl-planning · M · 2012 · LOSSY
 - [ ] `callaway-2022-rational-use-of-cognitive-resources-in-human-planning.md` — rl-planning · R · 2022
