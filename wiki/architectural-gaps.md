@@ -16,23 +16,23 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 
 | # | Gap | Kind | Level | Status | Cited by | Detail |
 |---|---|---|---|---|---|---|
-| G1 | Two-level separation exists as a timescale split, not as a factorization | part | `L1` | `PARTIAL` | 24 | [[wiki/gaps/g001.md]] |
-| G2 | De-aliasing without a hand-built state space | part | `L0` | `PARTIAL` | 14 | [[wiki/gaps/g002.md]] |
+| G1 | Two-level separation exists as a timescale split, not as a factorization | part | `L1` | `PARTIAL` | 25 | [[wiki/gaps/g001.md]] |
+| G2 | De-aliasing without a hand-built state space | part | `L0` | `PARTIAL` | 15 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `L1` | `PARTIAL` | 14 | [[wiki/gaps/g003.md]] |
 | G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 29 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `L1` | `PARTIAL` | 7 | [[wiki/gaps/g005.md]] |
 | G6 | Spurious edges survive training — and are the default, not the exception | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g007.md]] |
 | G8 | Rule reification has no implementation | part | `L0` | `OPEN` | 10 | [[wiki/gaps/g008.md]] |
-| G9 | W is flat; there is no third tier | part | `L1` | `PARTIAL` | 11 | [[wiki/gaps/g009.md]] |
+| G9 | W is flat; there is no third tier | part | `L1` | `PARTIAL` | 12 | [[wiki/gaps/g009.md]] |
 | G10 | Self-generated intermediate nodes are unreliable | part | `L0` | `OPEN` | 5 | [[wiki/gaps/g010.md]] |
 | G11 | No mechanism for the non-embeddable symbolic slice | part | `L0` | `OPEN` | 10 | [[wiki/gaps/g011.md]] |
 | G12 | No routing policy between structure types | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `L0` | `PARTIAL` | 2 | [[wiki/gaps/g013.md]] |
 | G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g014.md]] |
 | G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 31 | [[wiki/gaps/g015.md]] |
-| G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 24 | [[wiki/gaps/g016.md]] |
-| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 68 | [[wiki/gaps/g017.md]] |
+| G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 25 | [[wiki/gaps/g016.md]] |
+| G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 69 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
 | G19 | No local rule is selective about what it writes | part | `L3` | `PARTIAL` | 22 | [[wiki/gaps/g019.md]] |
 | G20 | No local rule reaches delayed credit *and* stays online | part | `L3` | `PARTIAL` | 5 | [[wiki/gaps/g020.md]] |
@@ -42,7 +42,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 15 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 23 | [[wiki/gaps/g026.md]] |
-| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 42 | [[wiki/gaps/g027.md]] |
+| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 43 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `L0` | `PARTIAL` | 20 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 10 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 26 | [[wiki/gaps/g030.md]] |
@@ -78,7 +78,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G60 | Every architecture derives its retrieval query from the goal; none chooses the query | part | `L2` | `OPEN` | 11 | [[wiki/gaps/g060.md]] |
 | G61 | Exploration is always an external schedule, never part of the selector | part | `L1` | `OPEN` | 14 | [[wiki/gaps/g061.md]] |
 | G62 | Nothing scores a world model by what a planner can do with it | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g062.md]] |
-| G63 | The behaviour policy is a load-bearing parameter of world-model estimation, and every mechanism the wiki has for improving an agent destroys it | part | `L0` | `OPEN` | 13 | [[wiki/gaps/g063.md]] |
+| G63 | The behaviour policy is a load-bearing parameter of world-model estimation, and every mechanism the wiki has for improving an agent destroys it | part | `L0` | `OPEN` | 14 | [[wiki/gaps/g063.md]] |
 | G64 | No architecture lets one modulator set a gain and a learning rate at once | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g064.md]] |
 | G65 | Nothing protects a pretrained representation from a downstream module's initialisation transient except switching its learning off | part | `L3` | `CONTESTED` | 4 | [[wiki/gaps/g065.md]] |
 | G66 | No sampler draws training pairs with respect to the quantity being learned | part | `L3` | `OPEN` | 6 | [[wiki/gaps/g066.md]] |
