@@ -544,6 +544,9 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | VPI | Value of Perfect Information | Expected improvement in the chosen action's value from learning one action's true value, `∫ Gain_a(q)p(q)dq`, computed from a value posterior (Dearden et al. 1998). Keramati et al. 2011 use it as the benefit of planning, compared against the reward rate × search time ([[wiki/concepts/amortized-inference.md]]) |
 | KTD | Kalman Temporal Differences | Temporal-difference learning run as a Kalman filter over the value parameters, returning a mean *and a covariance* for each Q-value. The variance source for the habitual posterior in Keramati et al. 2011 ([[wiki/concepts/amortized-inference.md]]) |
 | VOI | Value Of Information | Expected gain in final decision quality from running a computation or gathering an observation, before its cost; the metalevel quantity that selects and stops simulations in Hay et al. 2012, where `E[N] ≤ VPI/c` bounds the optimal amount of computation ([[wiki/concepts/resource-rationality.md]]) |
+| ABO / UABO | Asymptotic Bounded Optimality / Universal ABO | Russell & Subramanian 1995: a program is ABO if, on a machine sped up by a constant factor `k`, it is at least as good as any program on the original machine; UABO is the same guarantee for a program that needs no knowledge of the deadline ([[wiki/concepts/resource-rationality.md]]) |
+| TTB / SAT-TTB | Take-The-Best / satisficing plus Take-The-Best | Gigerenzer's one-reason heuristic (inspect cues in validity order, stop at the first that discriminates); SAT-TTB adds Simon's aspiration-level stop rule ([[wiki/concepts/satisficing.md]]) |
+| CTW | Context Tree Weighting | A Bayesian mixture over all bounded-depth context-tree sources, computable in time linear in the sequence length; a practical approximation to the universal predictor ([[wiki/concepts/universal-induction.md]]) |
 
 ## Neuroscience
 

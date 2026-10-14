@@ -101,7 +101,7 @@ Authors' conclusions: undecidability and computational irreducibility are poor m
 ## Open problems
 
 - **Exact and deterministic only.** No approximate version: probabilistic CA, coupled maps and partial differential equations are named as future work. A learned model never satisfies Eq. 1 exactly, and nothing here says what an almost-commuting projection buys (the quasi-lumpability gap on [[wiki/concepts/computational-closure.md]]).
-- **The rule must be known.** Every search runs on `f_A`. Learning `f_A` from observed trajectories, and how estimation error propagates through `f_{A^N}`, are not addressed.
+- **The rule must be known, so the first alphabet is still not supplied** (`G27`). Every search runs on `f_A`. Learning `f_A` from observed trajectories, and how estimation error propagates through `f_{A^N}`, are not addressed.
 - **Search is exponential in `N`.** Binary projections number `2^{2^N}`, and the supercell table has `S^{3N}` rows.
 - **The `K` → projection link is empirical.** `K̃` and `K̄` are upper bounds, and the data collapse is a fit. The conjecture is stated as unproved.
 - **Trivial vs non-trivial closure is not separated by a measure.** Rule 110 → 0 counts as decidable. The equal-partition restriction removes Garden of Eden cases but not other low-information projections. Theory-space deduplication ([[wiki/concepts/computational-closure.md]]) is the missing filter.
