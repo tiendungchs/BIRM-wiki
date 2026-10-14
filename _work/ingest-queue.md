@@ -779,5 +779,5 @@ One INGEST each:
 - [x] `singh-2004-predictive-state-representations-new-theory-dynamical-systems.md` — latent-graph · M · 2004 · LOSSY
 - [x] `israeli-2006-coarse-graining-cellular-automata-emergence-predictability.md` — foundations · M · 2006
 - [x] `keramati-2011-speed-accuracy-trade-off-habitual-goal-directed.md` — rl-planning · M · 2011
-- [ ] `hay-2012-selecting-computations-theory-and-applications.md` — rl-planning · M · 2012 · LOSSY
+- [x] `hay-2012-selecting-computations-theory-and-applications.md` — rl-planning · M · 2012 · LOSSY
 - [ ] `callaway-2022-rational-use-of-cognitive-resources-in-human-planning.md` — rl-planning · R · 2022
