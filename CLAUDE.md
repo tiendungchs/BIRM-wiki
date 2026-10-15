@@ -92,6 +92,7 @@ After fetching, create a `raw/` file if the source is reliable and worth an inge
 ## Decision-making
 
 - `[[wiki/concepts/latent-graph-discovery.md]]` - **CORE PROBLEM FRAMING** — the unified problem: infer hidden graph structure from observations and navigate it; subsumes all task types; read when faced with a decision regarding the wiki content
+- `[[wiki/concepts/abstraction-graph.md]]` **(brainstorm)** — sits over the core framing: the meta-graph's vocabulary given depth and a budget. Two rules it adds: its requirements table decides which biological mechanisms are load-bearing (those answering a row); computational models are references for how a row was approximated, not components. Read when deciding whether a source or mechanism earns a page, or how a model page maps to the brain.
 - **Maintenance is key:** keep in mind when faced with a decision reagarding the wiki's structure.
 - **Design ladder:** registry rows are worked in the order `L0` behaviour → `L1` decomposition → `L2` signal flow (including what is architecturally denied to a reader); a row lower on the ladder waits.
 - **`L3`/`L4` material lives in page bodies, not in the registries** — realization and substrate detail is ingested as concept/entity prose and found by search when a realization is chosen; only `L0`/`L1`/`L2`/`L0-INSTR` rows may be opened.
