@@ -24,7 +24,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T8 | Is compositional machinery innate, or acquired from an external symbolic system? | `L0` | `LIVE` | 7 | [[wiki/tensions/t008.md]] |
 | T9 | Are installed priors unitary modules or bundles of independently violable constraints? | `L1` | `LEANING` | 1 | [[wiki/tensions/t009.md]] |
 | T10 | Is an innate prior architecturally necessary, or just knowledge delivered early? | `L1` | `LIVE` | 2 | [[wiki/tensions/t010.md]] |
-| T11 | Is an installed prior a hard constraint or a strong default? | `L1` | `LEANING` | 1 | [[wiki/tensions/t011.md]] |
+| T11 | Is an installed prior a hard constraint or a strong default? | `L1` | `LEANING` | 2 | [[wiki/tensions/t011.md]] |
 | T12 | Are the conceptual primitives of infancy installed, or learned from sensorimotor prediction in the first months? | `L0` | `LIVE` | 5 | [[wiki/tensions/t012.md]] |
 | T13 | Is long-term potentiation the mechanism behind behavioural learning? | `L4` | `LEANING` | 2 | [[wiki/tensions/t013.md]] |
 | T14 | Are structured representations real, or emergent descriptions of sub-symbolic processes? | `L0` | `LIVE` | 1 | [[wiki/tensions/t014.md]] |
@@ -82,14 +82,14 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T78 | Is failure to scale evidence against a learning rule's biological plausibility? | `META` | `LIVE` | 2 | [[wiki/tensions/t078.md]] |
 | T79 | Where does fast sensorimotor learning physically happen — in the circuit that carries the manifold, or upstream of it? | `L1` | `LIVE` | 2 | [[wiki/tensions/t079.md]] |
 | T80 | Can a population run a stored sequence backwards? | `L1` | `LIVE` | 2 | [[wiki/tensions/t080.md]] |
-| T81 | What determines whether a memory consolidates — that it *recurs*, or that the slow learner can *model* it? | `L2` | `LIVE` | 2 | [[wiki/tensions/t081.md]] |
+| T81 | What determines whether a memory consolidates — that it *recurs*, or that the slow learner can *model* it? | `L2` | `LIVE` | 3 | [[wiki/tensions/t081.md]] |
 | T82 | Is permanent hippocampal dependence an optimal refusal or a transport failure? | `L1` | `LIVE` | 5 | [[wiki/tensions/t082.md]] |
 | T83 | Is memory allocation decided by the excitability of neurons just before learning? | `L3` | `LEANING` | 2 | [[wiki/tensions/t083.md]] |
 | T85 | Is phasic dopamine a reward *prediction* or a reward *association*? | `L4` | `LIVE` | 6 | [[wiki/tensions/t085.md]] |
 | T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `L1` | `LEANING` | 3 | [[wiki/tensions/t086.md]] |
 | T87 | Is a working memory held at a fixed point, or in a moving trajectory? | `L3` | `LEANING` | 3 | [[wiki/tensions/t087.md]] |
 | T88 | What is prefrontal delay-period activity *about* — the item held, or the place attention is pointed? | `L1` | `LEANING` | 5 | [[wiki/tensions/t088.md]] |
-| T89 | Is a working memory cleared by decay or by an addressed erase signal? | `L2` | `LIVE` | 1 | [[wiki/tensions/t089.md]] |
+| T89 | Is a working memory cleared by decay or by an addressed erase signal? | `L2` | `LIVE` | 2 | [[wiki/tensions/t089.md]] |
 | T90 | Is a working-memory operation implemented by one controller, or by the conjunction of several subsystems each representing it differently? | `L1` | `LIVE` | 1 | [[wiki/tensions/t090.md]] |
 | T92 | Is working memory the specialized function of prefrontal cortex? | `L4` | `LIVE` | 5 | [[wiki/tensions/t092.md]] |
 | T93 | Does abstracting a rule enable generalization, or only speed it up? | `L0` | `LIVE` | 4 | [[wiki/tensions/t093.md]] |
@@ -127,7 +127,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T128 | Are all precisions inferred, or are some structural constants? | `L3` | `LIVE` | 3 | [[wiki/tensions/t128.md]] |
 | T129 | Is the direct/indirect relation a scalar balance, or two concurrently active ensembles? | `L1` | `LIVE` | 2 | [[wiki/tensions/t129.md]] |
 | T130 | In a gated working memory, is the basal ganglia a write-enable or the maintenance loop itself? | `L1` | `LIVE` | 3 | [[wiki/tensions/t130.md]] |
-| T131 | When a behaviour becomes automatic, is the policy distilled into a new substrate or migrated to another loop? | `L2` | `LIVE` | 4 | [[wiki/tensions/t131.md]] |
+| T131 | When a behaviour becomes automatic, is the policy distilled into a new substrate or migrated to another loop? | `L2` | `LIVE` | 5 | [[wiki/tensions/t131.md]] |
 | T132 | Is the indirect pathway a veto or an exploration channel? | `L1` | `LIVE` | 3 | [[wiki/tensions/t132.md]] |
 | T133 | What does the direct/indirect pathway balance set — the discount factor or the exploration temperature? | `L2` | `LIVE` | 3 | [[wiki/tensions/t133.md]] |
 | T134 | Does serotonin set the prediction horizon or report the average reward? | `L2` | `LIVE` | 4 | [[wiki/tensions/t134.md]] |
@@ -357,7 +357,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T389 | Is the place-cell code generated by recurrent attractor dynamics, or is it a feedforward conjunction that only looks like one? | `L2` | `LIVE` | 5 | [[wiki/tensions/t389.md]] |
 | T390 | Is a trained attention head performing associative retrieval, or pooling? | `L2` | `LIVE` | 4 | [[wiki/tensions/t390.md]] |
 | T391 | Should a fast store's write gate be uncoordinated across units, sequenced, or rate-regulated? | `L2` | `LIVE` | 5 | [[wiki/tensions/t391.md]] |
-| T392 | Is forgetting the loss of a trace, or the loss of its address? | `L1` | `LIVE` | 4 | [[wiki/tensions/t392.md]] |
+| T392 | Is forgetting the loss of a trace, or the loss of its address? | `L1` | `LIVE` | 5 | [[wiki/tensions/t392.md]] |
 | T393 | Is the dentate separator a slope or a threshold? | `L2` | `LIVE` | 2 | [[wiki/tensions/t393.md]] |
 | T394 | What makes map switching discrete: a posterior over hidden states, or a binding to a preconfigured attractor's coordinates? | `L1` | `LIVE` | 9 | [[wiki/tensions/t394.md]] |
 | T395 | Does a second-order cue retrieve the specific outcome's value, or only a US-general affective state? | `L1` | `LIVE` | 10 | [[wiki/tensions/t395.md]] |
@@ -370,7 +370,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T402 | On sparse-reward long-horizon tasks, is the missing component a task decomposition or a persistent frontier store? | `L1` | `LIVE` | 7 | [[wiki/tensions/t402.md]] |
 | T403 | Does a self-generated goal curriculum teach through the goals, or through the solutions shipped with them? | `L1` | `LIVE` | 5 | [[wiki/tensions/t403.md]] |
 | T404 | Is the dopamine prediction error the teaching signal for stimulus–reward learning as such, or only for the attribution of incentive value to a cue? | `L2` | `LIVE` | 11 | [[wiki/tensions/t404.md]] |
-| T405 | Does the habit controller store a cached value, or only how often each action was taken? | `L1` | `LEANING` | 6 | [[wiki/tensions/t405.md]] |
+| T405 | Does the habit controller store a cached value, or only how often each action was taken? | `L1` | `LEANING` | 7 | [[wiki/tensions/t405.md]] |
 | T406 | Should a subgoal passed down a hierarchy be a direction in a learned latent space, or a displacement in fixed state coordinates? | `L2` | `LIVE` | 4 | [[wiki/tensions/t406.md]] |
 | T407 | Is recognition familiarity a read of the episodic store, or a separate module that survives the store's removal? | `L1` | `LIVE` | 5 | [[wiki/tensions/t407.md]] |
 | T408 | Is the heading integrator's velocity input the vestibular measurement, or a reconstruction from motor prediction plus the exafferent residual? | `L2` | `LIVE` | 5 | [[wiki/tensions/t408.md]] |
