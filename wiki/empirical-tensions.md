@@ -89,7 +89,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T86 | Is a working memory held in persistent spiking, or in synaptic state that spiking only reads? | `L1` | `LEANING` | 3 | [[wiki/tensions/t086.md]] |
 | T87 | Is a working memory held at a fixed point, or in a moving trajectory? | `L3` | `LEANING` | 3 | [[wiki/tensions/t087.md]] |
 | T88 | What is prefrontal delay-period activity *about* — the item held, or the place attention is pointed? | `L1` | `LEANING` | 5 | [[wiki/tensions/t088.md]] |
-| T89 | Is a working memory cleared by decay or by an addressed erase signal? | `L2` | `LIVE` | 2 | [[wiki/tensions/t089.md]] |
+| T89 | Is a working memory cleared by decay or by an addressed erase signal? | `L2` | `LIVE` | 1 | [[wiki/tensions/t089.md]] |
 | T90 | Is a working-memory operation implemented by one controller, or by the conjunction of several subsystems each representing it differently? | `L1` | `LIVE` | 1 | [[wiki/tensions/t090.md]] |
 | T92 | Is working memory the specialized function of prefrontal cortex? | `L4` | `LIVE` | 5 | [[wiki/tensions/t092.md]] |
 | T93 | Does abstracting a rule enable generalization, or only speed it up? | `L0` | `LIVE` | 4 | [[wiki/tensions/t093.md]] |
