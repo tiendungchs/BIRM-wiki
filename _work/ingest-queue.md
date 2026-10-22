@@ -744,22 +744,6 @@ One INGEST each:
 
 ## Wave 30 — what a bounded predictor must internalize
 
-Anchor: the user's framing (2026-10-13) of an agent dropped into a generated world with a limited
-view, memory and time, which needs higher-level laws the world itself never runs. Built from the
-registry rows that framing touches: the price on computation (`G107`, `T135`, `G86`, `G24`, `G25`,
-`G98`), the cost of fast learning in generality (`T93`, `G23`, `T16`, `G35`, `G26`, `T155`), and why a
-higher-level law exists for an observer (`G27`, `G92`, `G31`, `G81`, `G2`). `G107` and `G24` are `L3`:
-their sources land as prose in concept bodies and open no registry row. The drop held 12 clips and
-7 PDFs; the clips failed clip-check only on filename and were renamed; the PDFs were converted with
-`pdf2md.sh` (pymupdf4llm) and are `LOSSY`. Repairs: Bialek's clipped title was "Contents"; both
-Shalizi clips carried wrong `published:` dates; Chater & Vitányi's clip carried Cell's AI-widget
-sign-in residue after the abstract (stripped, body intact); Russell & Subramanian's PDF dropped every
-fi/ff/ffi ligature as U+FFFD (284 repaired by dictionary lookup, ~64 left inside math and
-identifiers). After that, 0 FAIL, 8 WARN (missing frontmatter on the 7 conversions, one unbalanced
-`$` in Simon 1956), manifest rows 528–545.
-`B4` Rathmanner & Hutter 2011: the first MDPI clip captured abstract and references only (1293 words);
-re-clipped from the `/htm` view the same day (52699 words, manifest row 546), filed, want-list emptied.
-
 One INGEST each:
 
 - [x] `botvinick-2019-reinforcement-learning-fast-and-slow.md` — rl-planning · S · 2019

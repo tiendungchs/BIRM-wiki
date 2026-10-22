@@ -62,6 +62,8 @@ before probing**.
 | `science.org` | Science, Science Advances, all AAAS titles | PMC mirror, author copy, or `pdf` route from an author PDF; else drop |
 | `annualreviews.org` | Annual Reviews, all titles paywalled | PMC mirror, author copy, or `pdf` route; else drop |
 | `cambridge.org` | Cambridge Core, all titles — **provisional**: institutional login fails with `SHIBBOLETH_NOT_FOUND` (UBO not registered with CUP); remove once the UBO library has set it up | PMC mirror, author copy, or `pdf` route; else drop |
+| `https://direct.mit.edu` | MIT Press Direct, all titles - UBO not in the list | Author copy, or `pdf` route; else drop |
+
 
 Maintenance: the moment the user reports a target they could not reach, add a row here iif the whole publisher is blocked. 
 Then retire the want-list row — one *Not acquired* line in `_work/ingest-queue.md`, then delete it.
