@@ -22,7 +22,7 @@ Five limits follow from the setup alone, before anything is said about the agent
 | **Time** | the world moves while the agent perceives and derives | unbounded deliberation per step |
 | **Energy** | every observation, derivation step and action is paid for | free computation and free observation |
 | **Finite experience** | a lifetime is a finite sequence of observations | the full graph: only the visited part is evidenced, the rest is extrapolated |
-| **A goal** | the goal sets the query distribution | indifference: which parts of the structure are worth holding is decided by what will be asked |
+| **A goal** | the goal sets the query distribution, and that distribution may span domains: one goal asks questions about several worlds whose individuals differ and whose relations recur | indifference: which parts of the structure are worth holding is decided by what will be asked; and, when the queries span domains, holding structure over the individuals of one domain alone, since what transfers between domains is stated over relations ([[wiki/concepts/relational-reinterpretation.md]], P7) |
 
 These limits are upstream of any model. [[wiki/concepts/abstraction-graph.md]] takes the setup and the five limits as its starting point, adds two limits that belong to the agent rather than the setup (memory, to exclude the lookup table; compute, to exclude the simulator), and predicts from the whole list what an ideal bounded agent would internalise, compress and retrieve of the structure.
 
