@@ -6,12 +6,30 @@
 
 ---
 
+## Limits
+
+**Derivation order of this page: setup → limits → features of the graph → consequences → requirements → Correspondence.** The setup lives on [[wiki/concepts/latent-graph-discovery.md]] (§ The Setup): an agent in a world, with a goal, perceiving a sliver of the state at a time; the five limits of the first group are stated there and repeated here. The page reasons from the problem side toward the brain: the features below are predictions about how an ideal bounded agent would internalise, compress and retrieve its world's structure, and the brain is read against them last. Every feature on this page carries a **follows from** cell naming the limit or the earlier feature that forces it; a feature that cites nothing is marked **posited**. The list is closed: no limit is added below this section, and the brain adds none.
+
+| Limit | Group | What it denies the agent | Degenerate agent it excludes |
+|---|---|---|---|
+| **Partial perception** | setup | reading the state: an observation is a coarse-graining of it, so structure is inferred, never read off | — |
+| **Time** | setup | unbounded deliberation per step: the world moves while the agent perceives and derives | — |
+| **Energy** | setup | free observation, derivation and action | — |
+| **Finite experience** | setup | the full graph: only the visited part is evidenced, the rest is extrapolated | — |
+| **A goal** | setup | indifference: the goal sets the query distribution, so which structure is worth holding is decided by what will be asked | — |
+| **Memory** | definitional | holding every situation met | the **lookup table**: unbounded memory, answers by match, needs no schema for anything already met |
+| **Compute** | definitional | deriving from the base at every query | the **simulator**: the generator-agent of the next section, unbounded derivation per query, needs no cache |
+
+The second group is a choice of this page, not a consequence of the setup. Both could be argued from energy and time as rates; the page does not argue them, and states them outright so that the two degenerate agents are excluded by definition. The two agents are the two corners of the front under Scoring: the lookup table is the all-shallow-lit corner and the simulator the base-only corner, and the question the page answers — how an ideal bounded agent internalises and compresses its world's structure — has an answer other than a corner only once both limits hold.
+
+---
+
 ## Two graphs
 
-| Object | Definition | Held by |
-|---|---|---|
-| **Derivation graph** (world side) | The closure of the world's axioms and building blocks under derivation: every schema derivable from them, every coarse-graining of their variables, and each coarse-graining's *true* error `ε` — zero exactly when the coarse-graining is computationally closed ([[wiki/concepts/computational-closure.md]]) | In full, only by the **generator-agent**: the world's own simulator, which predicts the whole next state exactly at unbounded cost. The formal ceiling of this page, as [[wiki/entities/aixi.md]] is the core framing's |
-| **Abstraction graph** (agent side) | A lit subgraph of the derivation graph with the per-node attributes below and an *estimated* `ε` on each lossy edge. Per agent: shaped by what it has met and what it can afford | Any bounded agent. An efficient agent predicts the *relevant part* of the next state with bounded error at a small fraction of the generator's cost, using lossy schemas over coarse variables |
+| Object | Definition | Held by | Follows from |
+|---|---|---|---|
+| **Derivation graph** (world side) | The closure of the world's axioms and building blocks under derivation: every schema derivable from them, every coarse-graining of their variables, and each coarse-graining's *true* error `ε` — zero exactly when the coarse-graining is computationally closed ([[wiki/concepts/computational-closure.md]]) | In full, only by the **generator-agent**: the world's own simulator, which predicts the whole next state exactly at unbounded cost — the agent the compute limit excludes. The formal ceiling of this page, as [[wiki/entities/aixi.md]] is the core framing's | the setup: a world with a hidden rule structure. That the structure is held as a closure under derivation is the formalisation chosen — **posited** |
+| **Abstraction graph** (agent side) | A lit subgraph of the derivation graph with the per-node attributes below and an *estimated* `ε` on each lossy edge. Per agent: shaped by what it has met and what it can afford | Any bounded agent. An efficient agent predicts the *relevant part* of the next state with bounded error at a small fraction of the generator's cost, using lossy schemas over coarse variables | finite experience (only met structure is lit), memory (only what can be held is lit), partial perception (`ε` is estimated, never read) |
 
 **Relation to the core framing.** [[wiki/concepts/latent-graph-discovery.md]]'s nodes are world states and its edges are transitions. The abstraction graph's nodes are that framing's *node types and edge labels*. So it sits over the core framing's vocabulary, which that page holds as a flat alphabet (hardness source 2) and which [[wiki/concepts/reasoning.md]] shows every operation-definition takes as given. It fills the open problem "multi-level hierarchy — making W itself a discoverable graph" and gap `G9`. The state graph is unchanged: it is the world.
 
@@ -25,12 +43,14 @@
 
 ## Nodes and edges
 
-| Element | Definition | Consequence |
-|---|---|---|
-| **Node** | A typed proposition schema with free variables | A **concept** is a schema with a unary head (`fork(P, A, B)`); a **rule** has at least one free variable and a precondition; a **fact** has none. Facts are the shallow end: the most specific nodes, with nothing derived from them |
-| **Edge** | "Derived from": a *premise set* → one conclusion (AND); a node may have several alternative derivations (OR) | The graph is an AND-OR graph. A derivation of `X` is an AND-tree rooted at `X`; its **premises** are the nodes where expansion stops. "Go down as far as needed" = expand toward deeper premises until every premise is lit |
-| **Fidelity** | **Exact**: instantiate a variable, add a precondition, chain two schemas, unfold a definition. **Lossy**: replace variables by a coarse-graining of them; the conclusion then holds with closure error `ε` at that grain. `ε` is the edge's error on the coarse variable's *own* dynamics only; what the coarse-graining discards about the fine state is the node's grain attribute, not part of `ε` (the split is made under Tests and open problems) | Deduction, which the reasoning census says no wiki definition covers, lives on exact edges. Induction and discovery are not a third edge kind: they light a deep node from many shallow lit facts, its edges to those facts staying exact instantiations, with the uncertainty carried as the new node's precision (below), not as `ε`. **Exact is a formal kind, not a neural one.** The one lesion series that tests deduction and analogy together separates items by how many mutually irreducible structures a step must hold at once (indeterminate against determinate syllogisms), not by validity (Mole et al. 2025, [[wiki/entities/lateral-frontoparietal-network.md]], [[wiki/concepts/reasoning.md]]); the quantity the anatomy sees is row 14 of the requirements table, which cuts across exact and lossy |
-| **Direction** | General → specific throughout. Convention: deep is *down*, so derivation runs upward from premises to conclusion and expansion runs downward from a conclusion to its premises; induction lights a node further down | Specialisation is instantiation. Inheritance: a rule applies to a concept and to all its specialisations, never to its generalisations |
+| Element | Definition | Consequence | Follows from |
+|---|---|---|---|
+| **Node** | A typed proposition schema with free variables | A **concept** is a schema with a unary head (`fork(P, A, B)`); a **rule** has at least one free variable and a precondition; a **fact** has none. Facts are the shallow end: the most specific nodes, with nothing derived from them | finite experience + a goal: one lifetime meets each situation at most once while the queries range over unmet ones, so anything held that transfers must range over situations — a free variable. The type system is **posited** |
+| **Edge** | "Derived from": a *premise set* → one conclusion (AND); a node may have several alternative derivations (OR) | The graph is an AND-OR graph. A derivation of `X` is an AND-tree rooted at `X`; its **premises** are the nodes where expansion stops. "Go down as far as needed" = expand toward deeper premises until every premise is lit | the derivation graph: closure under derivation gives the premise set (AND); two chains reaching one schema give the alternatives (OR) |
+| **Fidelity** | **Exact**: instantiate a variable, add a precondition, chain two schemas, unfold a definition. **Lossy**: replace variables by a coarse-graining of them; the conclusion then holds with closure error `ε` at that grain. `ε` is the edge's error on the coarse variable's *own* dynamics only; what the coarse-graining discards about the fine state is the node's grain attribute, not part of `ε` (the split is made under Tests and open problems) | Deduction, which the reasoning census says no wiki definition covers, lives on exact edges. Induction and discovery are not a third edge kind: they light a deep node from many shallow lit facts, its edges to those facts staying exact instantiations, with the uncertainty carried as the new node's precision (below), not as `ε`. **Exact is a formal kind, not a neural one.** The one lesion series that tests deduction and analogy together separates items by how many mutually irreducible structures a step must hold at once (indeterminate against determinate syllogisms), not by validity (Mole et al. 2025, [[wiki/entities/lateral-frontoparietal-network.md]], [[wiki/concepts/reasoning.md]]); the quantity the anatomy sees is row 14 of the requirements table, which cuts across exact and lossy | exact: the derivation graph's own edges. Lossy: partial perception (the agent's variables are coarse-grainings to begin with) + compute (an exact chain may exceed the per-query budget, so a coarse variable with a known error is the cheaper node) |
+| **Direction** | General → specific throughout. Convention: deep is *down*, so derivation runs upward from premises to conclusion and expansion runs downward from a conclusion to its premises; induction lights a node further down | Specialisation is instantiation. Inheritance: a rule applies to a concept and to all its specialisations, never to its generalisations | the edge: instantiation specialises. "Deep is down" is notation, not a feature |
+| **Length** | A derivation runs until every premise is lit, so its length is set by the query and by the current lit set, not fixed in advance | Chaining at inference time is variable-length; no bound on the number of steps per query can be set before the query arrives. The feature the variable-length-chaining row of the requirements table cites | the edge (expansion stops at lit premises) + the abstraction graph (which premises are lit is per agent) + a goal (the queries vary) |
+| **Width** | An AND edge with `k` premises needs `k` nodes co-held while the conclusion is formed. Since a node is a schema and a variable may range over schemas — a relation is itself an object of the graph — second-order schemas exist (a relation between relations), and one needs its first-order premises held apart from each other while it is formed | Holding is `k`-wide, not only long: a bound on co-held mutually irreducible structures is a second budget on derivation, independent of length. The feature the width row of the requirements table cites | the node (relations as objects) + the edge (a premise set, not a single premise) |
 
 **Worked case (chess).** `fork(P, A, B) ⟺ attacks(P, A) ∧ attacks(P, B) ∧ A ≠ B` is a concept derived *exactly* from the base predicates; unfold it and the movement rules are back. "Knight forks king and queen, queen unprotected → queen lost in two plies" is derivable from the movement rules plus "the king must leave check" by a long exact chain, and is one step once `fork` is lit. So a concept is a *named sub-derivation* that shortens every derivation through it — [[wiki/entities/dreamcoder.md]]'s library — which is why one can understand without articulating: the long chain exists whether or not the lemma is named. `material = Σ piece values` is a *chosen* coarse-graining of the piece-position variables, a lossy edge with no exact chain behind it; "material advantage of two or more → likely win" is not derivable from the axioms by any exact chain, holds at the grain of `material` with some `ε`, and is the kind of node an efficient agent's graph is mostly made of.
 
@@ -38,11 +58,11 @@
 
 ## Three axes, not one
 
-| Axis | Property of | Measures | Ordering comes from |
-|---|---|---|---|
-| **Generality** (deep / shallow) | a *schema* | how many situations its preconditions admit | derivation: specialising makes a schema shallower |
-| **Grain** (coarse / fine) | a *variable* | how much of the state the many-one map discards: the unprocessed information `Δ = I(←X;→X) − I(←Z;→Z)` of [[wiki/concepts/computational-closure.md]], small for an irrelevant merge and large for a relevant level | the coarse-graining lattice ([[wiki/concepts/computational-closure.md]]) |
-| **Horizon** (long / short) | a *prediction* | how many generator steps ahead the conclusion is about | the generator |
+| Axis | Property of | Measures | Ordering comes from | Follows from |
+|---|---|---|---|---|
+| **Generality** (deep / shallow) | a *schema* | how many situations its preconditions admit | derivation: specialising makes a schema shallower | the node + the edge: instantiation specialises |
+| **Grain** (coarse / fine) | a *variable* | how much of the state the many-one map discards: the unprocessed information `Δ = I(←X;→X) − I(←Z;→Z)` of [[wiki/concepts/computational-closure.md]], small for an irrelevant merge and large for a relevant level | the coarse-graining lattice ([[wiki/concepts/computational-closure.md]]) | partial perception: the observation is already a coarse-graining, and every lossy edge adds one |
+| **Horizon** (long / short) | a *prediction* | how many generator steps ahead the conclusion is about | the generator | time + a goal: the world moves, and the queries ask about steps ahead |
 
 Only generality orders the graph; grain and horizon are node attributes. Chess separates all three: the knight-move rule is deep, fine and one-ply; the material heuristic is deep, coarse and long; a memorised opening line is shallow, fine and medium; "opposite-coloured bishops draw" is mid-depth, coarse and long.
 
@@ -57,14 +77,16 @@ Two correlations are statable as conjectures with a mechanism, and neither is a 
 
 ## Agent-side attributes
 
-| Attribute | Meaning | Biological register |
-|---|---|---|
-| **Access cost** | What it costs to read the node now; a function of which store serves the read | Per store, table below |
-| **Precision** | How far the node is trusted. Below one everywhere on the agent side: only the derivation graph holds truths. An exact derivation inherits its premises' precision; a lossy one adds `ε`. Updated by evidence, with the step scaled by expected information gained ([[wiki/concepts/synaptic-plasticity.md]]) | A register separate from strength, on a slower timescale ([[wiki/concepts/precision-weighting.md]]); accessibility declines while precision does not (`T392`) |
-| **Suppressed** | A competing node is winning. Refutation never deletes | Extinction adds a second, context-limited association; weights become unreachable and reacquisition is fast; abandonment has its own channel ([[wiki/entities/lateral-habenula.md]]) |
-| **Provenance** | The derivation that lit the node, or one of three terminal values: observed, told, innate. The registry already asks for this: `G71`, a generated inference is never tagged as one | The hippocampus reinstates the *intermediary* of a composed edge at choice time (Barron et al. 2020, [[wiki/concepts/offline-replay.md]]) |
+| Attribute | Meaning | Biological register | Follows from |
+|---|---|---|---|
+| **Access cost** | What it costs to read the node now; a function of which store serves the read | Per store, table below | memory + energy: a held node is paid for per store, and a read is paid for |
+| **Precision** | How far the node is trusted. Below one everywhere on the agent side: only the derivation graph holds truths. An exact derivation inherits its premises' precision; a lossy one adds `ε`. Updated by evidence, with the step scaled by expected information gained ([[wiki/concepts/synaptic-plasticity.md]]) | A register separate from strength, on a slower timescale ([[wiki/concepts/precision-weighting.md]]); accessibility declines while precision does not (`T392`) | partial perception + finite experience: structure is inferred, never read, so no agent-side node reaches the derivation graph's certainty; a lossy edge adds its `ε` |
+| **Suppressed** | A competing node is winning. Refutation never deletes | Extinction adds a second, context-limited association; weights become unreachable and reacquisition is fast; abandonment has its own channel ([[wiki/entities/lateral-habenula.md]]) | partial perception: the refuting evidence is itself a sliver, so the node may hold in a context the agent did not see, and deleting it would lose that. "Never deletes" and "context-gated" are the derived parts |
+| **Provenance** | The derivation that lit the node, or one of three terminal values: observed, told, innate. The registry already asks for this: `G71`, a generated inference is never tagged as one | The hippocampus reinstates the *intermediary* of a composed edge at choice time (Barron et al. 2020, [[wiki/concepts/offline-replay.md]]) | precision + suppression: when a premise loses precision or is suppressed the change must reach its dependents, which needs the derivation that lit each node to be recoverable |
 
 Derived states are computed, not stored: **conjectured** = low precision; **refuted** = suppressed; **forgotten** = access cost has risen. This adopts Position A of `T392`, a `LIVE` row: forgetting is loss of address, not of the trace. The gate-out column of the store table below lists Position B's mechanisms (decay, addressed erase, an index "designed to be lost"), and under A each of those raises access cost rather than deleting; **derivable-but-unlit** and **unreachable** fall out of the AND-OR expansion. **Innate** = installed with high precision at low access cost, a strong default and not a constraint — defeasible at the conceptual level through symbol systems ([[wiki/concepts/core-knowledge.md]], `T11`).
+
+**Two registers per node, moved by different events.** Precision moves on evidence: a confirmation or a contradiction of what the node predicts. Access cost moves on use and on budget: a read lowers it, disuse and eviction raise it. Neither event implies the other, so the two cannot be one quantity: a node may be trusted and hard to reach (forgotten, not doubted) or cheap to reach and distrusted (a suppressed habit still fires first). Follows from the two attributes' definitions above. This is the feature the access-cost-and-precision row of the requirements table cites; that the brain carries the two on different timescales (`T392` Position A, [[wiki/concepts/precision-weighting.md]]) is its Correspondence, not its ground.
 
 **The stores run in parallel, not as a ladder** (the `L1` evidence; every row second-hand from the page named).
 
@@ -86,7 +108,7 @@ Three observations against reading this as stages: the hippocampal trace stays f
 
 ## What gets lit
 
-**The cache objective.** Light the nodes that maximise `frequency × value × derivation cost saved / memory`. Reward has one role: it weights the query. The nearest measured form is replay priority as gain × need (Mattar & Daw 2018, [[wiki/concepts/simulation-based-planning.md]]): need is the frequency term, gain is value × derivation cost saved, and the memory denominator is absent because replay prices compute, not storage. The objective is a memo-table policy in the sense of [[wiki/concepts/computational-reuse.md]], whose three design issues map onto this page one to one: *generalisation* (how an entry serves a query it was not computed for) is the free variable, *persistence* is access cost, *decomposition* (whole answer or sub-solution) is concept against fact. The four measured gates are each a one-sided approximation:
+**The cache objective.** Light the nodes that maximise `frequency × value × derivation cost saved / memory`. Reward has one role: it weights the query. Follows from memory (the denominator), compute (the derivation cost saved) and a goal (frequency and value are properties of the query distribution). The nearest measured form is replay priority as gain × need (Mattar & Daw 2018, [[wiki/concepts/simulation-based-planning.md]]): need is the frequency term, gain is value × derivation cost saved, and the memory denominator is absent because replay prices compute, not storage. The objective is a memo-table policy in the sense of [[wiki/concepts/computational-reuse.md]], whose three design issues map onto this page one to one: *generalisation* (how an entry serves a query it was not computed for) is the free variable, *persistence* is access cost, *decomposition* (whole answer or sub-solution) is concept against fact. The four measured gates are each a one-sided approximation:
 
 | Gate | Approximates | Page |
 |---|---|---|
@@ -101,15 +123,15 @@ Three observations against reading this as stages: the hippocampal trace stays f
 
 **Budgets.** All priced by the opportunity-cost rate `λ` of [[wiki/concepts/resource-rationality.md]]. `λ` has units: as the inverse temperature `β` of [[wiki/concepts/thermodynamic-bounded-rationality.md]] it is a sample count, and that page gives the outer-loop objection (the cost–benefit is learned, not run) its mechanism: the agent does not reason about its constraint, it derives until the resource runs out. The alternative to a price is an aspiration level, a stopping rule for derivation that drifts with how hard success is to reach ([[wiki/concepts/satisficing.md]]). This page prices every budget by `λ` and inherits the outer-loop objection with it; the aspiration level is the `G107` answer that needs no exchange rate, and it is not used here.
 
-| Budget | Where it enters |
-|---|---|
-| Perception | The observation is a coarse-graining of the true state: the core framing's observation-map bit, with [[wiki/concepts/emergent-macrostates.md]]'s `f : Γ → Ξ` as the map |
-| Memory | Number of lit nodes × per-store hold cost |
-| Compute | Derivation steps per query; the exchange rate against accuracy is hand-set in every architecture that varies its own compute (`G107`) |
-| Time | The world moves while the agent derives |
-| Energy / action | Folded into `λ` |
-| Ingraining | The per-store hold cost of lowering a node's access cost |
-| Experience selection | Observation is free per unit and time-bounded, so which experience to seek is a priced choice ([[wiki/concepts/epistemic-value.md]], [[wiki/concepts/information-sampling-vs-search.md]], `G129`) |
+| Budget | Where it enters | Follows from |
+|---|---|---|
+| Perception | The observation is a coarse-graining of the true state: the core framing's observation-map bit, with [[wiki/concepts/emergent-macrostates.md]]'s `f : Γ → Ξ` as the map | partial perception |
+| Memory | Number of lit nodes × per-store hold cost | memory |
+| Compute | Derivation steps per query; the exchange rate against accuracy is hand-set in every architecture that varies its own compute (`G107`) | compute |
+| Time | The world moves while the agent derives | time |
+| Energy / action | Folded into `λ` | energy |
+| Ingraining | The per-store hold cost of lowering a node's access cost | memory + the access-cost attribute |
+| Experience selection | Observation is free per unit and time-bounded, so which experience to seek is a priced choice ([[wiki/concepts/epistemic-value.md]], [[wiki/concepts/information-sampling-vs-search.md]], `G129`) | finite experience + time + a goal |
 
 ---
 
