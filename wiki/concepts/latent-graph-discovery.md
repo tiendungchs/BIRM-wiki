@@ -10,6 +10,24 @@ Working claim: abstract reasoning, analogy, planning, mathematics, navigation, a
 
 ---
 
+## The Setup
+
+**An agent in a world, with a goal, perceiving a sliver of the state at a time.** The world has a hidden structure — the graph formalised below — and moves on its own clock. The agent sees one observation per step, through a map that discards most of the state, and it has a goal, which decides which questions about the world it will ever need answered. Every reasoning benchmark is this setup in miniature: the world is the hidden rule (the meta-graph), the sliver is the evidence handed over (demonstration pairs, a prefix of a sequence, one grid), and the goal is the query. Evidence and query are the shape parameters of the taxonomy below; the structure to recover is what the sliver does not show.
+
+Five limits follow from the setup alone, before anything is said about the agent:
+
+| Limit | From which part of the setup | What it denies the agent |
+|---|---|---|
+| **Partial perception** | the sliver: an observation is a coarse-graining of the state (the observation-map bit of the taxonomy) | reading the state; structure must be inferred, never read off |
+| **Time** | the world moves while the agent perceives and derives | unbounded deliberation per step |
+| **Energy** | every observation, derivation step and action is paid for | free computation and free observation |
+| **Finite experience** | a lifetime is a finite sequence of observations | the full graph: only the visited part is evidenced, the rest is extrapolated |
+| **A goal** | the goal sets the query distribution | indifference: which parts of the structure are worth holding is decided by what will be asked |
+
+These limits are upstream of any model. [[wiki/concepts/abstraction-graph.md]] takes the setup and the five limits as its starting point, adds two limits that belong to the agent rather than the setup (memory, to exclude the lookup table; compute, to exclude the simulator), and predicts from the whole list what an ideal bounded agent would internalise, compress and retrieve of the structure.
+
+---
+
 ## The Graph Formalization
 
 | Element | Interpretation |
@@ -567,4 +585,4 @@ Three corrections the source itself forces on the wiki's earlier reading of this
 - **[[wiki/concepts/simplicity-principle.md]]** — a criterion for edge creation from perception: a cube-like projection is read as a rigid wire cube because a simple arrangement held by accident would be a coincidence, so a hidden causal link is posited when the data compress better with it (Chater & Vitányi 2003, Box 1). **(brainstorm)** Add the edge when the bits it saves on the data exceed its own description cost.
 - **[[wiki/concepts/predictive-state-representations.md]]** — a carrier for the latent structure that is not a graph: a vector of predictions for action-conditioned tests with signed linear updates. It is exact for every system of finite linear dimension, including systems with no finite node set, so it bounds where "discover the nodes" is the right first step.
 - **[[wiki/concepts/computational-closure.md]]** — says when a coarse graph of the latent graph is itself an exact graph: the walk over its communities must be strongly lumpable. In the modular-network case this needs between-module transitions to depend only on the current module. Otherwise planning on the quotient graph is approximate by a measurable conditional mutual information (Rosas et al. 2024).
-- **[[wiki/concepts/abstraction-graph.md]]** — **(brainstorm)** the vocabulary this page holds as a flat alphabet, given depth: its nodes are this page's node types and edge labels ordered by generality, its edges are derivations (exact or lossy with an error), and its nodes carry an access cost, a precision and a provenance chosen under a budget — the object the "multi-level hierarchy" open problem and `G9` were asking for, with the state graph left as the world.
+- **[[wiki/concepts/abstraction-graph.md]]** — **(brainstorm)** the vocabulary this page holds as a flat alphabet, given depth: starting from the setup above and the five limits it imposes, that page predicts what an ideal bounded agent would hold — this page's node types and edge labels ordered by generality, derivations (exact or lossy with an error) as edges, and an access cost, a precision and a provenance per node, chosen under a budget — the object the "multi-level hierarchy" open problem and `G9` were asking for, with the state graph left as the world.
