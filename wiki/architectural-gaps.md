@@ -17,7 +17,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | # | Gap | Kind | Level | Status | Cited by | Detail |
 |---|---|---|---|---|---|---|
 | G1 | Two-level separation exists as a timescale split, not as a factorization | part | `L1` | `PARTIAL` | 25 | [[wiki/gaps/g001.md]] |
-| G2 | De-aliasing without a hand-built state space | part | `L0` | `PARTIAL` | 15 | [[wiki/gaps/g002.md]] |
+| G2 | De-aliasing without a hand-built state space | part | `L0` | `PARTIAL` | 16 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `L1` | `PARTIAL` | 14 | [[wiki/gaps/g003.md]] |
 | G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 29 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `L1` | `PARTIAL` | 7 | [[wiki/gaps/g005.md]] |
@@ -29,8 +29,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G11 | No mechanism for the non-embeddable symbolic slice | part | `L0` | `OPEN` | 10 | [[wiki/gaps/g011.md]] |
 | G12 | No routing policy between structure types | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g012.md]] |
 | G13 | No tractable system covers all six hardness sources | part | `L0` | `PARTIAL` | 2 | [[wiki/gaps/g013.md]] |
-| G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 27 | [[wiki/gaps/g014.md]] |
-| G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 31 | [[wiki/gaps/g015.md]] |
+| G14 | No consolidation channel: instance structure never becomes meta structure | part | `L2` | `PARTIAL` | 28 | [[wiki/gaps/g014.md]] |
+| G15 | No control policy over simulation | part | `L2` | `PARTIAL` | 32 | [[wiki/gaps/g015.md]] |
 | G16 | The intended graph is not identifiable from data alone | part | `L0` | `OPEN` | 25 | [[wiki/gaps/g016.md]] |
 | G17 | No evaluation protocol can certify structure discovery | part | `L0` | `OPEN` | 69 | [[wiki/gaps/g017.md]] |
 | G18 | Discovered learning rules do not generalize outside the rule-search restrictions imposed by hand | part | `L3` | `OPEN` | 3 | [[wiki/gaps/g018.md]] |
@@ -52,9 +52,9 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `L0` | `OPEN` | 7 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g036.md]] |
-| G37 | Nothing decides which stored structure applies to the current situation | part | `L2` | `PARTIAL` | 32 | [[wiki/gaps/g037.md]] |
-| G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `L2` | `PARTIAL` | 39 | [[wiki/gaps/g038.md]] |
-| G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 29 | [[wiki/gaps/g039.md]] |
+| G37 | Nothing decides which stored structure applies to the current situation | part | `L2` | `PARTIAL` | 33 | [[wiki/gaps/g037.md]] |
+| G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `L2` | `PARTIAL` | 40 | [[wiki/gaps/g038.md]] |
+| G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 30 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g040.md]] |
 | G41 | No test decides whether a domain's actions compose | part | `L0-INSTR` | `OPEN` | 5 | [[wiki/gaps/g041.md]] |
 | G42 | No machine fast store has a capacity model, so nothing knows when it is full | part | `L1` | `PARTIAL` | 37 | [[wiki/gaps/g042.md]] |
@@ -67,7 +67,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G49 | No store schedules its own reads, and none has a relevance-addressed erase | part | `L2` | `OPEN` | 12 | [[wiki/gaps/g049.md]] |
 | G50 | The controller cannot set the gain of its own teaching signal | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g050.md]] |
 | G51 | Nothing transfers a representation out of the control layer into the store that will run it automatically | part | `L2` | `PARTIAL` | 5 | [[wiki/gaps/g051.md]] |
-| G52 | No inter-module connection in the wiki has state of its own | part | `L2` | `OPEN` | 14 | [[wiki/gaps/g052.md]] |
+| G52 | No inter-module connection in the wiki has state of its own | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g052.md]] |
 | G53 | No architecture delivers one signal to two modules by the same wire, and none lets a third module license a pair's connection | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g053.md]] |
 | G54 | No architecture distinguishes a channel that carries content from one that only carries timing | part | `L2` | `PARTIAL` | 16 | [[wiki/gaps/g054.md]] |
 | G55 | Every machine controller is either one resource or *n* independent ones; none has a shared component plus operation-specific parameters | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g055.md]] |
@@ -111,7 +111,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G94 | Nothing in the wiki adapts a unit's *time constant*, and nothing pools its gain locally — input normalization is a global, offline, once-per-dataset operation | part | `L3` | `OPEN` | 2 | [[wiki/gaps/g094.md]] |
 | G95 | Every self-supervised system in the wiki has its invariance group *declared* by a hand-written augmentation list; nothing here discovers which directions are nuisance from the input's own statistics | part | `L3` | `PARTIAL` | 15 | [[wiki/gaps/g095.md]] |
 | G96 | Top-down control needs an address inside the control layer, and every model gets it by reading the ground truth | part | `L2` | `PARTIAL` | 3 | [[wiki/gaps/g096.md]] |
-| G97 | The read-out of a sparse store is dense, and that is where the interference comes back | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g097.md]] |
+| G97 | The read-out of a sparse store is dense, and that is where the interference comes back | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g097.md]] |
 | G98 | Nothing decides which knowledge belongs in weights and which belongs in an addressable store | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g098.md]] |
 | G99 | No architecture in the wiki can call a module's *operation* on an argument from outside the module's own domain; every transfer mechanism here moves representations, none exposes an operator | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g099.md]] |
 | G100 | No architecture in the wiki has a growth schedule: capacity is fully available at step 0, so nothing can arrive already conditioned on what an earlier, smaller version of itself learned | part | `L0` | `PARTIAL` | 7 | [[wiki/gaps/g100.md]] |
@@ -124,7 +124,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 12 | [[wiki/gaps/g107.md]] |
 | G108 | No label-free criterion selects a good representation out of a training run | part | `L0-INSTR` | `OPEN` | 12 | [[wiki/gaps/g108.md]] |
 | G109 | No model claiming a knowledge/control split has been scored on the lesion profile that certifies one | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g109.md]] |
-| G110 | Top-down control is always applied to a module or its output; nothing applies it to the interface that feeds the module | arrangement | `L2` | `OPEN` | 8 | [[wiki/gaps/g110.md]] |
+| G110 | Top-down control is always applied to a module or its output; nothing applies it to the interface that feeds the module | arrangement | `L2` | `OPEN` | 10 | [[wiki/gaps/g110.md]] |
 | G111 | Every predictor in the wiki compares its prediction with feedback in temporal register by fiat; none learns its own delay | part | `L2` | `OPEN` | 2 | [[wiki/gaps/g111.md]] |
 | G112 | Which carrier holds the fast store is not identifiable from behaviour: the synaptic and activity solutions to structured sequence memory are provably the same function | part | `L0-INSTR` | `OPEN` | 8 | [[wiki/gaps/g112.md]] |
 | G113 | A probe that perturbs the system to read it is certified read-only by a null, and no instrument in the wiki has a positive control for non-interference | part | `L0-INSTR` | `OPEN` | 4 | [[wiki/gaps/g113.md]] |
@@ -136,7 +136,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G119 | No architecture has a reinforcer that is admissible to one of its learning systems and inadmissible to another | arrangement | `L2` | `OPEN` | 10 | [[wiki/gaps/g119.md]] |
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
 | G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 8 | [[wiki/gaps/g121.md]] |
-| G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 4 | [[wiki/gaps/g122.md]] |
+| G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 5 | [[wiki/gaps/g122.md]] |
 | G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 7 | [[wiki/gaps/g123.md]] |
 | G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g124.md]] |
 | G125 | Every internally-generated reward in the wiki is immune to its own delivery; the biological one extinguishes each time it is claimed | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g125.md]] |
