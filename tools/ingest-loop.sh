@@ -234,7 +234,9 @@ render() {
   if command -v jq >/dev/null; then
     # drop any non-JSON line so one stray warning can't kill the renderer
     grep --line-buffered '^{' | jq --unbuffered -rj '
-      if .type == "assistant" then
+      if .type == "system" and .subtype == "init" then
+        "[ingest-loop] session model: " + (.model // "?") + "\n"
+      elif .type == "assistant" then
         ( .message.content[]? |
           if   .type == "text"     then .text
           elif .type == "thinking" then ""
@@ -329,7 +331,7 @@ while :; do
     log="$LOGDIR/$stamp-pass$pass.log"
     raw="$LOGDIR/$stamp-pass$pass.jsonl"
     err="$LOGDIR/$stamp-pass$pass.err"
-    echo "=== [ingest-loop] pass $pass${attempt:+ (attempt $attempt)} — ${current_source:-?} — $left open in wave, $(open_in "$MASTER") open overall — log: $log ==="
+    echo "=== [ingest-loop] pass $pass${attempt:+ (attempt $attempt)} — ${current_source:-?} — model: $MODEL — $left open in wave, $(open_in "$MASTER") open overall — log: $log ==="
 
     if (( DRY )); then
       echo "claude -p \"$PROMPT\" --model $MODEL --permission-mode $PERM --output-format stream-json --verbose"
