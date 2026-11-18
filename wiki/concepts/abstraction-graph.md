@@ -12,15 +12,15 @@
 
 **Direction `(brainstorm)`.** The agent whose features are predicted is the *ideal* bounded agent, the optimum of the front under Scoring: a small, deep, lit set `R` that derives almost all of its domain within budget (Understanding), sparsely lit across the generality axis at fixed memory, the fourth point of the corners table under Reasoning. That optimum is the direction the frontier moves toward, and it is what keeps the page finite: reasoning from the limits alone grows a feature list without bound, and a feature the ideal agent does not need is not added. The human whose competence the target resembles is the expert with a deep understanding of a domain, not the one who learned it by heart. The shortcuts the human record also shows, chunking and segmentation on [[wiki/concepts/relational-reinterpretation.md]], the degenerate corners under Reasoning, are the brain's approximations of the front and not features of the target; nothing in the wiki models them, and the page does not ask it to. The brain is read against the features last, as Correspondence, for the same reason.
 
-| Limit | Group | What it denies the agent | Degenerate agent it excludes |
-|---|---|---|---|
-| **Partial perception** | setup | reading the state: an observation is a coarse-graining of it, so structure is inferred, never read off | — |
-| **Time** | setup | unbounded deliberation per step: the world moves while the agent perceives and derives | — |
-| **Energy** | setup | free observation, derivation and action | — |
-| **Finite experience** | setup | the full graph: only the visited part is evidenced, the rest is extrapolated | the **innate agent**: a fixed lit set installed by evolution, no write; excluded once the goal ranges over queries the lineage's sample did not meet (corners table under Reasoning) |
-| **A goal** | setup | indifference: the goal sets the query distribution, so which structure is worth holding is decided by what will be asked | — (a goal over unmet queries is what makes the innate agent degenerate: the finite-experience row) |
-| **Memory** | definitional | holding every situation met | the **lookup table**: unbounded memory, answers by match, needs no schema for anything already met |
-| **Compute** | definitional | deriving from the base at every query | the **simulator**: the generator-agent of the next section, unbounded derivation per query, needs no cache |
+| Limit | Group | What it denies the agent |
+|---|---|---|
+| **Partial perception** | setup | reading the state: an observation is a coarse-graining of it, so structure is inferred, never read off |
+| **Time** | setup | unbounded deliberation per step: the world moves while the agent perceives and derives |
+| **Energy** | setup | free observation, derivation and action |
+| **Finite experience** | setup | the full graph: only the visited part is evidenced, the rest is extrapolated |
+| **A goal** | setup | indifference: the goal sets the query distribution, so which structure is worth holding is decided by what will be asked |
+| **Memory** | definitional | holding every situation met |
+| **Compute** | definitional | deriving from the base at every query |
 
 The second group is a choice of this page, not a consequence of the setup. Both could be argued from energy and time as rates; the page does not argue them, and states them outright so that the two degenerate agents are excluded by definition. The three degenerate agents are the three corners of the table under Reasoning, and the question the page answers — how an ideal bounded agent internalises and compresses its world's structure — has an answer other than a corner only once all three limits hold.
 
