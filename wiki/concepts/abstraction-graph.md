@@ -22,7 +22,7 @@
 | **Memory** | definitional | holding every situation met |
 | **Compute** | definitional | deriving from the base at every query |
 
-The second group is a choice of this page, not a consequence of the setup. Both could be argued from energy and time as rates; the page does not argue them, and states them outright so that the two degenerate agents are excluded by definition. The three degenerate agents are the three corners of the table under Reasoning, and the question the page answers — how an ideal bounded agent internalises and compresses its world's structure — has an answer other than a corner only once all three limits hold.
+The second group is a choice of this page, not a consequence of the setup. Both could be argued from energy and time as rates; the page does not argue them, and states them outright. The limits are stated before the two graphs and mirror the setting an agent, a reasoning benchmark or a game puts it in; no limit is paired with an agent it excludes here, because a degenerate agent is excluded by a combination of limits, not one. Which combinations exclude which degenerate agents is worked out in the corners table under Reasoning, once the two graphs are in place, and the question the page answers — how an ideal bounded agent internalises and compresses its world's structure — has an answer other than a corner only once all the limits hold.
 
 ---
 

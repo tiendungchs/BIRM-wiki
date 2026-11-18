@@ -81,6 +81,7 @@ Temporary. Holds the decisions of the 27-29 October 2026 grilling sessions and t
 | D60 | **Amends D51.** The loop (§ 5) is the Reasoning section's core. "How this page is used" keeps the reader's matter only (derivation order, the query posed by the goal, D26) and points to the loop |
 | D61 | The page's definition of reasoning stays **page-local**. [[wiki/concepts/reasoning.md]]'s Connections entry is updated in pass 7's sweep; adding it to the census as R8 is a later lint's decision |
 | D62 | **Pass 4b writes decisions only**; pass 5 writes the Reasoning section, citing rows by their new numbers. Pass 5 scope grows by D52, D53 (Candidates row 4), D55 (Budgets sentence), D58 (`L0` context sentence), D59 (corners table, Limits cell), D60 |
+| D63 | **Supersedes the Limits-table clause of D59.** The Limits table drops its *Degenerate agent it excludes* column: a corner is excluded by a combination of limits, not by one, so a one-to-one pairing was wrong; and the limits are the pre-formal starting point of the brainstorm, mirroring reality, reasoning problems, benchmarks and games, while the corners emerge only once the derivation and abstraction graphs are worded. The limit-to-corner mapping lives in the corners table's *Excluded by* column alone; the paragraph under the Limits table points forward to it. The rest of D59 stands (18 November 2026) |
 
 ## 3. Pre-audit of the current fourteen rows
 
