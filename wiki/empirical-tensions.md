@@ -213,7 +213,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T239 | Is a mean-field population model licensed to describe a network that synchronises? | `L0-INSTR` | `LIVE` | 1 | [[wiki/tensions/t239.md]] |
 | T240 | Is a resting-state functional network an object, or an artefact of the integration window? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t240.md]] |
 | T241 | Does the default mode network's activity mean self-referential cognition is occurring? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t241.md]] |
-| T242 | Which carrier frequency's power do resting BOLD fluctuations track — and can the question be settled at all? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t242.md]] |
+| T242 | Which carrier frequency's power do resting BOLD fluctuations track — and can the question be settled at all? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t242.md]] |
 | T243 | Do between-subject differences in a functional connectome measure coupling, or where the regions are? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t243.md]] |
 | T244 | Is the cortex a set of units with borders, or a continuum with axes? | `L1` | `BOTH` | 1 | [[wiki/tensions/t244.md]] |
 | T245 | How many connectivity parameters are identifiable from one resting-state fMRI dataset? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t245.md]] |
