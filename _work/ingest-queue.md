@@ -799,7 +799,7 @@ One INGEST each:
 
 - [x] `vanstrien-2009-anatomy-of-memory-parahippocampal-hippocampal-network.md` — hippocampal-entorhinal · S · 2009
 - [x] `knierim-2016-tracking-flow-hippocampal-computation.md` — hippocampal-entorhinal · S · 2016
-- [ ] `holyoak-2021-relational-integration-human-brain-review.md` — prefrontal-control · S · 2021 · LOSSY
+- [x] `holyoak-2021-relational-integration-human-brain-review.md` — prefrontal-control · S · 2021 · LOSSY
 - [ ] `hummel-2003-symbolic-connectionist-theory-relational-inference.md` — analogy-abstraction · F · 2003 · LOSSY
 - [ ] `buzsaki-2013-memory-navigation-theta-hippocampal-entorhinal.md` — hippocampal-entorhinal · F · 2013
 - [ ] `kesner-2015-computational-theory-hippocampal-function-new-developments.md` — hippocampal-entorhinal · F · 2015
