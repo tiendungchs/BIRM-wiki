@@ -22,7 +22,7 @@ One INGEST each:
 - [x] `schlichting-2015-learning-related-representational-changes-integration-separation.md` — hippocampal-entorhinal · R · 2015
 - [x] `spalding-2015-vmpfc-necessary-schematic-influence-on-memory.md` — prefrontal-control · R · 2015
 - [x] `dixon-2018-heterogeneity-frontoparietal-control-network-default-dorsal-attention.md` — brain-networks · R · 2018
-- [ ] `koster-2018-big-loop-recurrence-hippocampal-integration-across-episodes.md` — hippocampal-entorhinal · R · 2018
+- [x] `koster-2018-big-loop-recurrence-hippocampal-integration-across-episodes.md` — hippocampal-entorhinal · R · 2018
 - [ ] `spalding-2018-vmpfc-necessary-associative-inference-memory-integration.md` — prefrontal-control · R · 2018
 - [ ] `hammer-2019-analogical-reasoning-multivariate-task-based-fmri.md` — analogy-abstraction · R · 2019
 

@@ -945,6 +945,10 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | D-serine | — (not an abbreviation) | Astrocyte-released co-agonist at the NMDA receptor's glycine site; one of the gliotransmitter routes by which the glial layer sets synaptic efficacy ([[wiki/entities/neuron-astrocyte-associative-memory.md]]) |
 | WM | Working Memory | Used standalone on 60+ pages and defined inline on only one. Not a synonym for a buffer: the wiki's carrier account is an actively maintained state with a bounded dwell (~67 ms per visit in prefrontal cortex) and a separate access protocol ([[wiki/concepts/working-memory.md]], [[wiki/concepts/memory-read-and-erase.md]]). Distinguish from the model-name fragment in `Drive-WM`, which is not this term |
 | VTE | Vicarious Trial-and-Error | Head sweeps a rat makes between options at a choice point, read as deliberation. It declines with training, which Keramati et al. 2011 read as control passing from planning to habit ([[wiki/concepts/amortized-inference.md]]) |
+| sEC / dEC | superficial / deep Entorhinal Cortex | The outer and inner thirds of entorhinal cortical depth in laminar fMRI, ≈ layers II/III (input to dentate gyrus/CA3 and CA1) and V/VI (hippocampal output); the middle third is discarded, so neither maps onto one lamina ([[wiki/entities/entorhinal-cortex.md]], [[wiki/entities/remerge.md]]) |
+| PAI | Paired Associate Inference | Learn `A–B` and `B–C` as separate pairs, then test the never-seen `A–C`; the minimal latent-graph probe of composing two stored edges ([[wiki/entities/remerge.md]], [[wiki/concepts/retrieval-mediated-learning.md]]) |
+| IC (fMRI) | Informational Connectivity | Trial-by-trial covariation of multivoxel decoding evidence between two regions, the pattern-level analogue of functional connectivity. Not the Intrinsic Cost of the machine-learning section ([[wiki/entities/remerge.md]]) |
+| MSP | MonoSynaptic Pathway | The direct entorhinal → CA1 route, bypassing dentate gyrus and CA3; in Schapiro et al. 2017's hybrid model it learns overlapping structure slowly ([[wiki/concepts/complementary-learning-systems.md]]) |
 
 ## Benchmarks
 

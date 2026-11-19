@@ -62,9 +62,49 @@ The 2016 summary located the recurrence in CA3 recurrent collaterals plus the en
 | Subiculum stimulation → deep entorhinal cortex → re-entry into CA1 | Kloosterman et al. 2004 |
 | Perforant-path stimulation evokes triple dentate responses, especially at rest | Buzsáki 1989 |
 
-The feature layer's anatomical home is left open: entorhinal cortex, other medial-temporal regions, or loops through neocortex including prefrontal cortex.
+The feature layer's anatomical home is left open: entorhinal cortex, other medial-temporal regions, or loops through neocortex including prefrontal cortex. The first measurement favours the first option, a direct deep → superficial entorhinal route, with perirhinal and parahippocampal loops not supported (Koster et al. 2018, below).
 
 **Nodal codings, reread.** Cells responding to a shared feature across many events (Wood et al. 1999) are taken as the **componential input/output format** of dentate gyrus–CA3, not as a generalization mechanism. CA3 codes are near-orthogonal across rooms while CA1 codes track shared enclosure shape (Leutgeb et al. 2004), and fast-developing CA1 codes fit a direct entorhinal→CA1 drive. Human "concept cells" respond at 300–600 ms. The source suggests that latency could reflect recurrent co-activation of conjunctive ensembles rather than feedforward drive **(tentative)**.
+
+### The loop measured: deep → superficial entorhinal recirculation at test (Koster et al. 2018)
+
+> Koster, Chadwick, Chen, Berron, Banino, Düzel, Hassabis & Kumaran 2018, *Big-loop recurrence within the hippocampal system supports integration of information across episodes*, Neuron 99:1342 (`raw/koster-2018-big-loop-recurrence-hippocampal-integration-across-episodes.md`). The first empirical test of the model's circuit claim, by the model's author group. Figures and supplement (Figures S1–S9, Tables S1–S4, including the between-subject simulation) were not clipped.
+
+**Design.**
+
+| Element | Content |
+|---|---|
+| Subjects, scanner | n = 26 (4 excluded: 3 for entorhinal signal dropout, 1 for below-chance `AC`). 7 T, 0.8 mm isotropic EPI, TR 2 s, partial coverage along the hippocampal axis |
+| Task | Paired associate inference (PAI). 144 triads, face–object–face or face–scene–face. Per block: 16 `AB` pairs, then the 16 `BC` pairs, then the whole sequence once more, so **2 exposures** per pair |
+| Test | `AC` is tested **before** `AB` or `BC` of the same triad. Lure is a same-category item from another triad, so neither category memory nor familiarity solves it |
+| Key property | `A` and `C` are always faces, so on `AC` trials any scene-vs-object decoding can only come from the reinstated absent `B` |
+| Laminar split | Entorhinal cortex segmented per subject into thirds: superficial (sEC ≈ layers II/III, the input to dentate gyrus/CA3 and CA1) and deep (dEC ≈ layers V/VI, the hippocampal output). The middle third is discarded |
+| Instrument | Informational connectivity (IC): trial-by-trial covariation of decoding evidence between two regions, partialling out every other MTL (medial temporal lobe) region and both layers' mean univariate signal |
+
+**Results.**
+
+| Prediction of the loop | Measurement |
+|---|---|
+| Layers carry separable signal | A voxel's temporal response profile classifies it as sEC or dEC: 85.9% over all trials, 67.3% on `AC` trials alone (both p < 0.001). Time courses standardised, so not a mean difference |
+| Absent `B` reinstated on the **input** layer | Scene-vs-object decoding in sEC on `AC` trials: z = 2.45, p = 0.007, one-tailed. Survives regressing out the nearest smoothed dEC voxel from each sEC voxel (p = 0.003) |
+| A functional dEC → sEC connection | Laminar IC ρ = 0.11 (p < 0.0001). Above the IC of anatomically indirect MTL pairs (z = 2.96), and classified as "direct" (evidence 0.62, p < 0.024). Survives the local-signal regression and a medial-section ↔ lateral-section control that has no adjacent voxels |
+| sEC reinstatement is driven by the loop | Across subjects, laminar IC × sEC decoding r = 0.41; × dEC decoding r = −0.20; difference 0.61, p = 0.014. Partialling the other layer: 0.46 vs −0.32 |
+| Recirculated content re-enters the **separating** fields | Laminar IC × sEC–DG&CA3 IC r = 0.39; × sEC–CA1&subiculum IC r = −0.21; difference 0.61, p = 0.016 |
+| The loop closes inside entorhinal cortex | No correlation of sEC reinstatement with sEC–perirhinal or sEC–parahippocampal IC (\|r\| ≤ 0.21, n.s.). All effects survive partialling both out |
+| The loop predicts inference | Laminar IC × `AC` accuracy r = 0.38 (p = 0.028). dEC decoding, the proxy for ordinary associative retrieval of `AB`/`BC` from the faces on screen, × `AC` accuracy r = −0.20; difference 0.57, p = 0.021 |
+| Behaviour | `AB` 0.89, `BC` 0.88, `AC` 0.76. RT 2,013 / 2,127 / **2,935 ms**; `AC` is slower on correct trials alone too |
+
+**What it settles and what it does not.**
+
+| Point | Reading |
+|---|---|
+| Encoding-based accounts | Predict dEC reinstatement of `B` (completion of an `ABC` composite) but **not** its recirculation to sEC or the link to behaviour. Here dEC reinstatement is the one signal that predicts nothing |
+| Anatomical home of the feature layer, left open by the 2012 paper | Direct dEC → sEC, not a longer loop through perirhinal or parahippocampal cortex. The authors cannot exclude an unmeasured MTL sub-region or a route outside the MTL |
+| Settling cost | `AC` is ~800 ms slower than `BC`, which fits per-query settling and the model's `RT` row below. Settling cycles are still not mapped onto milliseconds |
+| Causality | None. Every brain–behaviour link is a between-subject correlation at n = 26, one-tailed, with r ≈ 0.4. Laminar BOLD carries draining-vein confounds, which the controls address but cannot exclude, and absolute decoding accuracies are low |
+| Rival model the source names | Schapiro et al. 2017 (second-hand here): big-loop recurrence **plus** a slowly learning entorhinal → CA1 "monosynaptic pathway" (MSP) that encodes overlapping structure. The loop dominates after 1–2 exposures and the MSP after many. Two exposures cannot tell the hybrid from pure REMERGE |
+
+**(brainstorm) Two importable instruments.** (i) **The bridge-item probe at test.** In any multi-hop retrieval model, decode the absent bridge entity from the store's *input* side on two-hop queries. A one-read model can show it at the output only. A recirculating model shows it re-entering the input, and the per-query strength of re-entry, not of first-pass retrieval, should predict two-hop accuracy. (ii) **The direct/indirect positive control for a connectivity measure.** Before reading an IC (or attention-flow) edge between two modules, score the measure on module pairs whose wiring is known. It must rank direct above indirect before the unknown edge is classified. Few connectivity results in the wiki report such a control.
 
 ---
 
@@ -104,11 +144,12 @@ So weak traces sparing generalization is a signature of the **exemplar half**, n
 | Same, probe `B–D` | `B` preferred | `B` preferred |
 | Replay content as inhibition varies offline | Generalized replay **interspersed** with single-episode replay | Similarity is fixed in the code, so no switching is predicted |
 | Disable big-loop recurrence | Abolishes generalized replay and inference, spares premise memory | — |
+| Strength of big-loop recurrence, across people (Koster et al. 2018, above) | Predicts inference; ordinary retrieval of the premises does not. **Measured** in correlational form: laminar IC × `AC` r = 0.38, dEC decoding × `AC` r = −0.20. No ablation | Not predicted: the composite is reinstated in the output layer and nothing needs to recirculate |
 | Replay-disruption effect | Generalization more sensitive than premise memory | — |
-| Response time, unobserved vs trained pair | Longer, if settling cycles map onto response time. Not simulated **(brainstorm)** | Equal: the link is read from a cached code **(brainstorm)** |
+| Response time, unobserved vs trained pair | Longer, if settling cycles map onto response time. Not simulated **(brainstorm)**. In PAI after 2 exposures, `AC` is ~800 ms slower than `BC`, correct trials included (Koster et al. 2018) | Equal: the link is read from a cached code **(brainstorm)** |
 | Hippocampal lesion **after** premise training, before test **(brainstorm)** | Inference abolished: the loop must run in the store at test | Spared, if the ordering is cached in a code outside the lesion |
 
-**The response-time row has data, from acquired equivalence, not transitive inference** (Shohamy & Wagner 2008, [[wiki/concepts/retrieval-mediated-learning.md]]). In the top quartile the untrained pair is answered within 39 ms of the trained ones, and the gap predicts generalization (r = −0.69). This favours a stored link. It does not rule REMERGE out, because the mapping from settling cycles to milliseconds is unspecified.
+**The response-time row has data, from acquired equivalence, not transitive inference** (Shohamy & Wagner 2008, [[wiki/concepts/retrieval-mediated-learning.md]]). In the top quartile the untrained pair is answered within 39 ms of the trained ones, and the gap predicts generalization (r = −0.69). This favours a stored link. It does not rule REMERGE out, because the mapping from settling cycles to milliseconds is unspecified. **Paired associate inference after only two exposures shows the opposite**: the unobserved `AC` pair takes ~800 ms longer than the trained `BC`, and in the same subjects the strength of entorhinal recirculation predicts `AC` accuracy (Koster et al. 2018, above). The two studies differ in paradigm (acquired equivalence vs associative chain) and in training (8 intermixed repetitions with feedback vs 2 exposures), and either difference could set which mechanism runs ([[wiki/empirical-tensions.md]] T334).
 
 **The ablation row has a rat analogue, but it does not test the model** (Dusek & Eichenbaum 1997). Perirhinal + entorhinal ablation (lateral entorhinal 93% removed, perirhinal 71%) and fornix transection each leave the four premise pairs intact and put `B–D` at chance: 50% on the first presentation, against 88% in controls (n = 6, 4, 8). The two lesions do not differ from each other. That is the predicted dissociation. But entorhinal cortex is a candidate home for the feature layer, and in the model removing the feature layer takes premise memory with it. The premises survive anyway, by a route the model does not contain (the source's candidate: configural stimulus–reward associations). So the data fit any account in which a second system learns the pairs, and do not single out the loop. **(brainstorm)** The fornix lesion also removed the septal input, verified by lost hippocampal acetylcholinesterase staining. The model assigns the encoding/recall split to exactly that kind of modulatory state. So the fornix deficit may come from losing the read-mode control rather than the loop itself.
 
@@ -201,4 +242,6 @@ The Isomap parallel is the one closest to [[wiki/concepts/latent-graph-discovery
 - **[[wiki/concepts/relational-reinterpretation.md]]** — supplies the reward-history deflation this page sets aside for TI. The rat lesion control filed there shows that the lesioned animal keeps item value and still fails `B–D`, which makes it the ablated twin any settling account must be scored against ([[wiki/empirical-tensions.md]] T411).
 - **[[wiki/entities/lateral-frontoparietal-network.md]]** — locates the query-time composer for transitive inference outside this model's store: with premises on screen, rostrolateral prefrontal cortex chains the two relations while hippocampal activation stays flat and only its coupling to the integrator rises, so the hippocampus is read rather than settled (Wendelken & Bunge 2010).
 - **[[wiki/entities/medial-prefrontal-cortex.md]]** — supplies the lesion profile this model cannot produce. Human vmPFC damage leaves premise accuracy equal to controls' and drives interior transitive pairs below chance, while the source's uniform premise-strength sweep only reaches chance. The prefrontal suppression the model leaves to an unspecified setter of `τ` is the candidate missing variable (Koscik & Tranel 2012).
+- **[[wiki/entities/entorhinal-cortex.md]]** — the anatomical home of this model's feature ↔ conjunctive loop: the layer Vb → II/III projection is the recirculation path, and human 7 T data show the absent bridge item reinstated in the superficial layers on inference trials, in proportion to deep–superficial connectivity, which predicts inference (Koster et al. 2018).
+- **[[wiki/entities/hippocampal-formation.md]]** — places this model on the circuit hub: its conjunctive layer is the dentate gyrus–CA3 stage, and the measured big loop re-enters exactly there and not at CA1/subiculum, so the model's two layers map onto the hub's write front end and its entorhinal return edge.
 - **[[wiki/concepts/analogical-mapping.md]]** — marks this model's hard limit for abstract reasoning. Recurrent similarity cannot transfer between domains that share no input features, so structure-mapping across perceptually unrelated domains needs a cortically learned relational code before the fast store can help.
