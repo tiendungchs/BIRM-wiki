@@ -162,6 +162,7 @@ This is the first functional evidence for the brainstorm above. Proximal CA1 rec
 | `T381` | Whether the diencephalic route is a relay or a second stream; the branch point is at the subicular cell of origin | `LIVE` |
 | `T389` / `T394` | Attractor or feedforward conjunction; hidden-state posterior or preconfigured coordinates | `LIVE` |
 | `T393` | Dentate separator as slope or threshold | `LIVE` |
+| `T414` | Whether CA3 and CA1 split space and time between them, or carry both and differ only in the gap they bridge | `LIVE` |
 | `T407` | Familiarity as a read of the store or a module that survives it | `LIVE` |
 | `T100` | Which task phase the hippocampal → prefrontal channel is needed at; the distal subicular class is needed for encoding and not retrieval | `LIVE` |
 | `T82` / `T97` | Permanent hippocampal dependence as optimal refusal or transport failure; whether the controller holds a memory from the start | `LIVE` / `LEANING` |
@@ -206,12 +207,12 @@ Per [[wiki/concepts/abstraction-graph.md]], a computational model is a reference
 |---|---|
 | A dentate gyrus page | Held inside [[wiki/concepts/pattern-separation-completion.md]] and [[wiki/entities/rolls-treves-hippocampal-model.md]] |
 | A CA1 page | Spread across the `T33` pages; the three CA1 functions have never been compared in one place. CA1's own recurrent loops, its transverse stream typing and the subdomain proposal are in *Edges the diagram omits* |
-| CA2 | Two incidental mentions ([[wiki/entities/inhibitory-replay-filter.md]], [[wiki/concepts/inhibitory-control-of-coding.md]]), plus one second-hand functional datum: it behaves like distal CA3 under cue conflict (*Edges the diagram omits*). No source on its social-memory or sequence role |
+| CA2 | Two incidental mentions ([[wiki/entities/inhibitory-replay-filter.md]], [[wiki/concepts/inhibitory-control-of-coding.md]]), plus two second-hand functional data: it behaves like distal CA3 under cue conflict (*Edges the diagram omits*). Its foraging maps barely separate boxes but drift over hours, and it has robust place fields only when the animal is still (`T414`, [[wiki/entities/rolls-treves-hippocampal-model.md]]). No source on its social-memory role |
 | Medial septum as theta generator | Named as the cholinergic mode switch; no page on the pacemaker or on theta's own origin, which [[wiki/entities/subiculum.md]] contests |
 | Sharp-wave ripple generation | Ripple content is paged; the CA3 → CA1 generation mechanism is not |
 | Pre-, para-, postsubiculum | Inside [[wiki/entities/head-direction-system.md]], [[wiki/entities/subiculum.md]], [[wiki/entities/dorsal-visual-stream.md]] |
 | Fornix lesion record | Listed as unpaged in [[wiki/index-entities.md]]; the tract is traced edge by edge on [[wiki/entities/hippocampal-diencephalic-cingulate-network.md]] |
-| Time cells and theta sequences as objects | No page. Theta-sequence mechanics are on [[wiki/concepts/temporal-coding.md]]. Time tracking by self-generated sequences, and re-timing when the delay changes, is on [[wiki/concepts/path-integration.md]]. Mentions on [[wiki/concepts/offline-replay.md]] and [[wiki/concepts/working-memory.md]] |
+| Time cells and theta sequences as objects | No page. Theta-sequence mechanics are on [[wiki/concepts/temporal-coding.md]]. Time tracking by self-generated sequences, and re-timing when the delay changes, is on [[wiki/concepts/path-integration.md]]. CA1 drift from seconds to days, the scalar time code, the medial entorhinal source of time-cell sequences, and the independent assignment of space and time to cells are on [[wiki/entities/temporal-context-model.md]]. Mentions on [[wiki/concepts/offline-replay.md]] and [[wiki/concepts/working-memory.md]] |
 
 ---
 
@@ -256,4 +257,5 @@ Per [[wiki/concepts/abstraction-graph.md]], a computational model is a reference
 - **[[wiki/entities/default-mode-network.md]]** — the cortical system that lists the formation as its medial temporal subsystem, supplying stored associations to a prefrontal constructor.
 - **[[wiki/entities/dorsal-visual-stream.md]]** — the input wire into this page's CA1/prosubiculum and pre-/parasubiculum, staged and partitioned by source as the exit is by destination.
 - **[[wiki/entities/remerge.md]]** — the reference model for this page's recirculation row: separated dentate gyrus–CA3 traces with the entorhinal return edge used as a read loop, so cross-episode inference is composed at the query rather than stored.
+- **[[wiki/entities/temporal-context-model.md]]** — the reference model for this page's time dimension: one leaky context integrator fed from entorhinal cortex, whose drift is recorded in CA1 from seconds to days, with space and time assigned to the same cells independently.
 - **[[wiki/concepts/temporal-coding.md]]** — owns the within-cycle mechanics behind this page's theta control row: assemblies defined by a reader's 10–30 ms window, 5–9 per cycle, segregated by perisomatic inhibition, with lag proportional to distance and a sigmoid limit on how far ahead one cycle resolves.

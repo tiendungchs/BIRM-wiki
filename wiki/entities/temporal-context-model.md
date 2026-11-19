@@ -85,6 +85,50 @@ Both extremes fail: the pure place code cannot distinguish two visits to the sam
 
 ---
 
+## Hippocampal tests of the drift, and the multiplexing limit (Eichenbaum 2017)
+
+> Eichenbaum 2017, *On the integration of space, time, and memory*, Neuron 95:1007–1018 (`raw/eichenbaum-2017-integration-space-time-memory.md`). A review. Rat recordings and human fMRI, cited through it. It takes this model as the best available mechanism and adds one constraint the model does not state.
+
+**The drift equation's predictions, recorded at two timescales.**
+
+| Scale | Prediction from `t_i = ρ_i t_{i-1} + β t_i^IN` | Recorded (rat CA1 unless stated) |
+|---|---|---|
+| Within a trial (seconds) | Ensemble similarity falls with separation of events | Ensemble pattern drifts across a trial whose stimuli are 10 s apart, and the **amount of drift on a trial predicts correct order memory on that trial**, while the two locations stay distinctly coded throughout (Manns et al. 2007) |
+| Session (≥ 1 h) | Continuous change with no input boundary | Cells wax and wane in the ensemble across the whole session (Manns et al. 2007) |
+| Hours to days | Same drift, longer horizon | Population place code in highly familiar boxes keeps changing over ≥ 30 h (Mankin et al. 2012). A large fraction of cells change their field each day while a stable subset remains (Ziv et al. 2013, imaging) |
+| Days, two boxes | Shared context within a day, different across days | Maps share elements **within a day whatever the box**, and differ across days. Cells that mark the day ("timestamps") include place cells and cells with no spatial field (Rubin et al. 2015) |
+| Days, with a shock | Contiguity transfers learning | Box ensembles recorded hours apart are correlated, days apart are not. Fear acquired in one box generalises to the other only when the ensembles were correlated (Cai et al. 2016; the same result is the excitability-tag datum on [[wiki/concepts/memory-allocation-excitability.md]]) |
+| Route structure | Overlapping routes average out, stereotyped routes separate | Open-field place fields are path-independent; fields become route-specific when foraging switches to stereotyped routes (Markus et al. 1995) and on the shared stem of a T-maze (Wood et al. 2000; Frank et al. 2000) |
+
+**The context source is where this page puts it.** Medial entorhinal grid cells fire at successive moments while the rat runs in place on a treadmill, and code both elapsed time and distance (Kraus et al. 2015). Optogenetic inactivation of medial entorhinal cortex disrupts CA1 time-cell sequences (Robinson et al. 2017).
+
+**Two arguments the source gives for this model over internally generated sequences** (Buzsáki's position, [[wiki/concepts/path-integration.md]], [[wiki/empirical-tensions.md]] T32):
+
+| Observation | Problem for a self-generated sequence | How this model handles it |
+|---|---|---|
+| Open-field place cells fire at the same place whatever the current trajectory | A sequence-bound code needs an extra mechanism to merge the same location across different sequences | External input integrates across overlapping routes, so a path-independent map forms on its own |
+| **Scalar time code:** later time cells are fewer and fire for longer (Kraus et al. 2013; Salz et al. 2016), while place fields tile space linearly | A sequence needs a nonlinear time-field scaling distinct from its linear place scaling | Inputs from different cortical networks arrive with their own scales, and the integrator inherits them |
+
+The scalar property is the bank-of-integrators brainstorm below in measured form: field width growing with delay is what a log-spaced set of `ρ` values produces.
+
+**The constraint: space and time are multiplexed, not unified.** If each cell coded one coordinate of a joint "spacetime", its spatial and temporal tuning would be correlated. They are not.
+
+| Evidence | Finding |
+|---|---|
+| Same cells on maze arms (place) and treadmill (time) | P(cell codes time *and* place) equals P(time) × P(place): the two are assigned independently (Salz et al. 2016) |
+| Day-to-day drift | Separate elements code day independent of space and space independent of day (Rubin et al. 2015) |
+| T-maze stem | Three cell types: fire on one route only, fire on both identically, or fire at different rates on the two (Wood et al. 2000; Robitsek et al. 2013) |
+| Treadmill at forced speeds | Time-vs-distance coding strength spans the full distribution across cells (Kraus et al. 2013) |
+| Human fMRI | Spatial and temporal judgements give distinct multivoxel patterns (Kyle et al. 2015). Pattern similarity scales with remembered proximity in both, and each keeps an effect with the other removed (Deuker et al. 2016) |
+
+The source's synthesis: this model's integrator running over a population with **mixed selectivity** for many inputs. One population, each dimension assigned to cells independently, all of them integrated the same way.
+
+**(proposed, untested) One mechanism for both timescales.** Slow drift (macrotime) and stable place/time-cell sequences on repeated trials (microtime) may be the same process: replaying the first events of a familiar episode reinstates the network state it started from, and the state re-runs its evolution, which sharpens each cell's field with each repetition. This is `α_N` reinstatement applied to the start of an episode.
+
+**(brainstorm) The builder's version.** Keep the context as a bank of leaky integrators, each driven by a *different* input stream (velocity, an event stream, a slow clock), with units receiving random mixtures of those streams. The test that it matches the tissue is cheap: across units, P(selective for A and B) should equal P(A) × P(B). A model that learns one joint embedding fails it.
+
+---
+
 ## Limits
 
 | Limit | Consequence |
@@ -98,6 +142,7 @@ Both extremes fail: the pure place code cannot distinguish two visits to the sam
 | **Cached, so blind to a changed structure** | Kumaran & McClelland 2012 class this model as cached (model-free-like) against REMERGE's search at the point of choice, and note that no simulation of its transitive-inference *behaviour* has been published. Their discriminating probe: after `A>…>F`, train `F+ A−`. Here `B`'s stored item–context code is untouched, so `B` stays preferred over `E`. A retrieval-time composer goes to chance. Both keep `B > D` ([[wiki/entities/remerge.md]]) |
 | **The entorhinal lesion does not fit the mapping** | Context is the sole retrieval cue and lives in entorhinal cortex. So removing it should take the premise associations with the transitive ones. Perirhinal + entorhinal ablation (lateral entorhinal 93% removed, caudal medial entorhinal severely damaged) leaves all four premise pairs, the end-anchor curve and `A–E` intact, and abolishes `B–D` only, exactly as fornix transection does (Dusek & Eichenbaum 1997). The premises are carried outside the model. The source's candidate is configural stimulus–reward association. The control also leaves `B`'s and `D`'s reward histories equal, so the intact rat's `B–D` is an ordering, which is what this model supplies, and not item value ([[wiki/empirical-tensions.md]] T411) |
 | **Scalar lesion** | Hippocampal function reduced to one number (`α_N`); anything the hippocampus does that is not context reinstatement is invisible |
+| **One context vector, independent dimensions** | The model writes one context `t`. The tissue assigns space and time to cells independently in one population (Salz et al. 2016, via Eichenbaum 2017). A sum of inputs is compatible with that only if each unit sees its own random mix of input streams, which the model leaves unspecified |
 
 ---
 
@@ -142,4 +187,6 @@ Both extremes fail: the pure place code cannot distinguish two visits to the sam
 - **[[wiki/concepts/hippocampal-indexing-theory.md]]** — the same commitment compressed into one scalar: the hippocampus stores nothing and acts as a reinstatement operator on entorhinal state, with `α_N` setting how strongly a repeated item pulls back the context that surrounded it.
 - **[[wiki/entities/remerge.md]]** — the rival for the same transitive behaviour, which classes this model as *encoding-based*: the similarity between non-adjacent items is built into the context code during training, where REMERGE computes it at the query from separated traces. The two predict opposite `B–E` choices once a closing premise `F+ A−` is added.
 - **[[wiki/concepts/relational-reinterpretation.md]]** — names what this model builds: an "ordered analog representation" of the items with no transitive operator. The rat lesion control filed there rules out item value as the source of `B–D` but not an ordering of this kind (T411).
+- **[[wiki/entities/hippocampal-formation.md]]** — the circuit this model's drift is recorded in: CA1 ensemble drift over seconds to days, a medial entorhinal context source whose inactivation breaks CA1 time-cell sequences, and the subfield question (`T414`) of whether CA3 and CA1 split the space and time dimensions this page integrates in one vector.
 - **[[wiki/concepts/key-value-memory.md]]** — this model located as the **slowly drifting random** address space in a scaffold taxonomy: random keys that change slowly make temporally adjacent items similar in address space, which is the minimal structured scaffold and needs no learned key mapping at all.
+- **[[wiki/concepts/nonspatial-maps.md]]** — the non-spatial dimensions this integrator is proposed to cover: time cells re-time as place cells remap, and frequency fields tile a pitch ramp, which Eichenbaum 2017 reads as one integration code over any continuous dimension of experience.

@@ -177,6 +177,16 @@ The authors' own caveat: across multi-trial acquisition, storage and retrieval b
 
 **The authors' summary rule.** CA3 handles space and the short term (~10 s). CA1 handles time and the intermediate term (5 min–24 h). The two cooperate when a task needs both. The short-term and intermediate-term effects dissociate in **both** directions, so the two stores run in parallel, not as a feedforward chain. Supporting the intermediate-term reading: CA1 immediate-early-gene induction appears at day 1 and is absent at 5 and 28 days. A post-training CA1 lesion at 24 h disrupts recall, and the same lesion at 3 weeks does not.
 
+**The space/time half of the rule is contested** (Eichenbaum 2017, `raw/eichenbaum-2017-integration-space-time-memory.md`, `T414`).
+
+| Against "CA3 = space, CA1 = time" | Finding |
+|---|---|
+| Lesion | Ten odour pairs, order test. At a 3 s gap, CA3 lesions disrupt order and CA1 lesions do not. At 10 s, both do (Farovik et al. 2010). So CA3 is needed for temporal order too, and the subfields differ by gap length |
+| Recording | Time and place are signalled equivalently by CA1 and CA3 populations (Salz et al. 2016). CA1 and CA3 separate overlapping routes equally (Bahar et al. 2012) |
+| For the rule | CA3 maps stable and box-specific, CA2 maps drifting over hours, CA1 both (Mankin et al. 2012). CA3 keeps one field across two routes, CA1 separates them (Ito et al. 2015) |
+
+Eichenbaum's reading keeps the short-term/intermediate-term split and drops the space/time split: both fields process time, and the division is by duration bridged.
+
 **Separation is not a hippocampal monopoly.** Lesions including the dentate spare separation of visual objects, of reward value and of motor responses. The source assigns these to inferior temporal and perirhinal cortex, orbitofrontal cortex and amygdala, and caudate respectively, and assigns odour to piriform cortex plus ventral dentate. This is against the human fMRI reading that dentate/CA3 separation is domain-general (`T413`).
 
 ### The mode scalar, by dendritic layer
