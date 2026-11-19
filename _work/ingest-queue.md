@@ -772,7 +772,7 @@ One INGEST each:
 
 - [x] `kumaran-2012-generalization-recurrent-interaction-episodic-memories-remerge.md` — hippocampal-entorhinal · M · 2012
 - [x] `dusek-1997-hippocampus-memory-orderly-stimulus-relations.md` — hippocampal-entorhinal · R · 1997
-- [ ] `wendelken-2008-brain-is-to-thought-as-stomach-is-to.md` — prefrontal-control · R · 2008 · LOSSY
+- [x] `wendelken-2008-brain-is-to-thought-as-stomach-is-to.md` — prefrontal-control · R · 2008 · LOSSY
 - [ ] `shohamy-2008-integrating-memories-hippocampal-midbrain-overlapping-events.md` — hippocampal-entorhinal · R · 2008
 - [ ] `vincent-2008-frontoparietal-control-system-intrinsic-functional-connectivity.md` — brain-networks · R · 2008
 - [ ] `fox-2009-global-signal-anticorrelated-resting-state-networks.md` — brain-networks · R · 2009
