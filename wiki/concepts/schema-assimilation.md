@@ -166,6 +166,17 @@ Against this, lateral prefrontal cortex resolves the *same* competition the othe
 
 Comparison here is not passive accumulation of feature statistics across examples — it is active generation of structural correspondences ([[wiki/concepts/analogical-mapping.md]]), and the schema is the *intersection* the mapping exposes.
 
+**How the intersection is computed** (Hummel & Holyoak 2003, `raw/hummel-2003-symbolic-connectionist-theory-relational-inference.md`, [[wiki/entities/lisa.md]]):
+
+| Step | Mechanism |
+|---|---|
+| Correspondence first | The schema is an empty analog. Each driver token gets a schema token the first time it fires, wired by the same minting rule that makes analogical inferences |
+| Shared features weigh double | Recipient feedback to the semantic units gives features shared by the mapped pair ≈ 2× the input of unshared ones. Divisive normalization (`a_i = n_i / max(max|n|, 1)`) turns that into stronger schema weights |
+| What is abstracted is what was attended | Propositions never fired never enter the schema, so firing order and pragmatic importance set its content (the *focus determines schema quality* result below, as a mechanism) |
+| Iterated, it converges on statistics | Unique features are down-weighted, never deleted, so feature weights approach their frequency across examples. Identity function: `number` weight .98 after two examples, .44 after a third with no shared object features. A role-defined, progressively universal `f(x) = x` |
+
+So the induced schema is **relationally gated but statistically weighted**: structure decides *which* features are compared, and frequency decides how strongly each survives. Comparison is active in choosing what to align, and feature-statistics accumulation comes back in at the weighting step. Open, per the authors: whether induced schemas are kept, merged or forgotten, and what stops them proliferating.
+
 | Result | Number |
 |---|---|
 | Schema induced by comparing **two** disparate analogs, improving transfer to a third (Gick & Holyoak 1983) | — |
@@ -179,7 +190,7 @@ Comparison here is not passive accumulation of feature statistics across example
 - **Progressive alignment** (Kotovsky & Gentner 1996): order the comparisons easy-to-hard, where early pairs share salient surface similarity **and** the relational match, and later pairs share only the relational match. Surface similarity bootstraps the correspondence, which then survives its own removal. This is a curriculum specified by the *relation between consecutive examples* rather than by difficulty — the concrete proposal gap G32 asks for, and it is cheap to run.
 - **Focus determines schema quality**: schemas built while attending to goal-relevant relations transfer; schemas built on incidental detail do not.
 
-**And the counterweight — a schema you already have can silently rewrite the situation.** Bassok, Wu & Olseth 1995: formally isomorphic permutation problems where an "assign" relation is read through an overlearned **get** schema (the person receives the object) regardless of the roles the stated relation assigns. Transfer is **89%** when source and target share the object→person direction and **0%** when they do not. Assimilation is not a benign fit-benefit here: the schema fires unconditionally on object *types* and re-parses the input, and every downstream step then works correctly on the wrong structure. This is the sharpest measurement in the wiki of gap G23 (a prior with no entry test) and it lands squarely on this page's unresolved item — **schema identity is unoperationalised**, so nothing decides whether the get schema applies.
+**And the counterweight — a schema you already have can silently rewrite the situation.** Bassok, Wu & Olseth 1995: formally isomorphic permutation problems where an "assign" relation is read through an overlearned **get** schema (the person receives the object) regardless of the roles the stated relation assigns. Transfer is **89%** when source and target share the object→person direction and **0%** when they do not. Assimilation is not a benign fit-benefit here: the schema fires unconditionally on object *types* and re-parses the input, and every downstream step then works correctly on the wrong structure. LISA reproduces the 89% / 0% cells deterministically by exactly this order of operations: schema → target augmentation (`get(person, object)` whichever way the assignment was stated) → mapping to the source ([[wiki/entities/lisa.md]]). This is the sharpest measurement in the wiki of gap G23 (a prior with no entry test) and it lands squarely on this page's unresolved item — **schema identity is unoperationalised**, so nothing decides whether the get schema applies.
 
 ---
 

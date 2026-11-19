@@ -294,7 +294,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T327 | Is a world model's payoff the rollout, or the state it carries? | `L1` | `LIVE` | 4 | [[wiki/tensions/t327.md]] |
 | T328 | Does a per-neuron error need an electrically independent compartment, or is a magnitude residual on coincident events enough? | `L3` | `LIVE` | 3 | [[wiki/tensions/t328.md]] |
 | T329 | Do pre/post spike pairs contribute to plasticity independently? | `L3` | `LEANING` | 5 | [[wiki/tensions/t329.md]] |
-| T330 | Is analogy a pipeline of separable subprocesses, or one search whose "subprocesses" are facets of it? | `L1` | `LIVE` | 3 | [[wiki/tensions/t330.md]] |
+| T330 | Is analogy a pipeline of separable subprocesses, or one search whose "subprocesses" are facets of it? | `L1` | `LIVE` | 4 | [[wiki/tensions/t330.md]] |
 | T331 | Do generalizable concepts require one transmodal store, or do direct modality-to-modality connections suffice? | `L1` | `LEANING` | 2 | [[wiki/tensions/t331.md]] |
 | T332 | Which frontal region is the apex of the lateral-frontal control hierarchy, and does "apex" survive the choice of ordering criterion? | `L2` | `LIVE` | 7 | [[wiki/tensions/t332.md]] |
 | T333 | Can long-range theta coherence carry content between two modules, or does it only index a shared relay? | `L2` | `LIVE` | 3 | [[wiki/tensions/t333.md]] |

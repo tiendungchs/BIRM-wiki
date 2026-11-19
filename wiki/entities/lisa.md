@@ -1,8 +1,8 @@
 # LISA (Learning and Inference with Schemas and Analogies)
 
-**A symbolic-connectionist model of analogy in which role-filler bindings are carried by *neural synchrony*, so working-memory capacity is not a parameter but a consequence: only as many bindings can be live as there are mutually out-of-phase time slots. Every other component of analogy — retrieval, mapping, inference, schema induction — is then made to run inside that budget.**
+**A symbolic-connectionist model of analogy in which role-filler bindings are carried by *neural synchrony*, so working memory has a capacity *bound* that comes from the code, not from a slot count: only as many bindings can be live as can be kept mutually out of phase under noise. The bound's *value* (5–6 bindings) is chosen by the modellers (see "From the primary" below). Every other component of analogy — retrieval, mapping, inference, schema induction — is then made to run inside that budget.**
 
-> **Provenance.** Described in Holyoak, K. J. (2012), *Analogy and relational reasoning*, in Holyoak & Morrison (eds.), *The Oxford Handbook of Thinking and Reasoning*, ch. 13 (`raw/holyoak-2012-analogy-relational-reasoning.md`), which reviews the model rather than presenting it. Primary sources are Hummel & Holyoak 1997, 2003 and Doumas, Hummel & Sandhofer 2008 — **not read**; every number and mechanism above the "neural realization" section below is second-hand and the architectural detail is at review grain. That section is from **Knowlton, Hummel & Holyoak 2012** (two of the model's three authors), which is the wiki's one first-party statement of what LISA claims about tissue.
+> **Provenance.** Described in Holyoak, K. J. (2012), *Analogy and relational reasoning*, in Holyoak & Morrison (eds.), *The Oxford Handbook of Thinking and Reasoning*, ch. 13 (`raw/holyoak-2012-analogy-relational-reasoning.md`), which reviews the model rather than presenting it. The "neural realization" section is from **Knowlton, Hummel & Holyoak 2012** (two of the model's three authors), which is the wiki's one first-party statement of what LISA claims about tissue. **Primary now read (fourth source on this page):** Hummel, J. E. & Holyoak, K. J. (2003), *A symbolic-connectionist theory of relational inference and generalization*, Psychological Review 110(2):220–264 (`raw/hummel-2003-symbolic-connectionist-theory-relational-inference.md`). It gives inference, schema induction and the full equations, and it is the source for the "From the primary" section. Hummel & Holyoak 1997 (retrieval and mapping) and Doumas, Hummel & Sandhofer 2008 (DORA) are still **not read**.
 
 The wiki reaches LISA from [[wiki/concepts/analogical-mapping.md]], where it already occupies one row of the model-landscape table as the model whose vector similarity measures "do not apply". This page states what it buys in exchange.
 
@@ -22,7 +22,7 @@ Two memories: a **long-term store** of propositions and concept meanings, and a 
 | Operation | Mechanism |
 |---|---|
 | **Binding** (WM) | **Synchrony**: a role and its filler fire in phase; different bindings occupy different phases |
-| **Capacity** | Falls out of the code — a finite number of bindings can be simultaneously active and mutually *out* of phase. Reviewed estimate: **2–3 propositions** live in the driver |
+| **Capacity** | A finite number of bindings can be simultaneously active and mutually *out* of phase. Reviewed estimate: **2–3 propositions** live in the driver. *Corrected from the primary:* the existence of the bound comes from the code; its value, **5–6 SPs** (subproposition units), is set by a chosen decay constant (see below) |
 | **Retrieval** | Guided pattern matching: driver propositions drive synchronized activation on the *semantic* units, which activates propositions in recipients residing in long-term memory |
 | **Mapping** | **Mapping connections** between same-type units (object↔object, predicate↔predicate) in separate analogs, grown by simultaneous activity — a Hebbian correspondence learned during co-activation, not a search over match hypotheses |
 | **Inference** | Self-supervised learning: run the *source* as driver, and the structure it induces in the recipient that the recipient lacks is the analogical inference (copy-with-substitution-and-generation, [[wiki/concepts/analogical-mapping.md]]) |
@@ -171,6 +171,132 @@ LISA needs long-range **theta** to be the channel that carries posterior semanti
 
 ---
 
+## From the primary (Hummel & Holyoak 2003)
+
+> Everything in this section is first-hand from the 2003 paper. Simulations use hand-coded toy analogs (≤ 27 propositions), with importance and support values set by hand for each simulation; human data are reproduced qualitatively, not fitted.
+
+### The five requirements the architecture is derived from
+
+| # | Requirement | What it forces |
+|---|---|---|
+| 1 | Bind fillers to roles | Explicit binding tag |
+| 2 | Filler identity survives across roles, and role identity across fillers | Role and filler represented **independently** of each other, so a conjunctive unit (`Bill-as-lover`) is ruled out |
+| 3 | Map by role, not by filler similarity | Sally → Bill despite Sally ≈ Mary in features |
+| 4 | Inference extends the mapping | A correspondence must be stored somewhere it can be reused |
+| 5 | Symbols have semantic content | Distributed features underneath the localist tokens |
+
+1–4 make it a symbol system; 5 makes the symbols distributed. The claim: synchrony is the one neurally plausible binding tag that meets 1–2 at once. They cite Hummel, Devnich & Stevens 2003 (a manuscript in preparation, not read) as proving that "synchrony of firing is unique in its capacity to represent bindings both explicitly and independently of the bound entities" (`T293` Position A).
+
+### Why the tokens are localist (`L2`)
+
+- **A correspondence lives on a token, not on a feature pattern.** If Sally were a distributed code over object units, a mapping learned for Sally would "generalize automatically to any other objects sharing object units with Sally". Generalization is a strength of distributed codes, and here it would be a liability: Sally → Bill does not imply that everyone similar to Sally maps to Bill.
+- **Types vs tokens.** Each analog has its own token for each entity (one token per entity per analog, however often it is mentioned). All tokens of a type connect to the same semantic units, plus a unique feature (`Bill#47`). The **semantic units are types and the only channel between analogs**. Two same-type entities stay distinct by construction (cf. `G69`'s harder statement), but every token is created by hand at encoding.
+- **The proposition is stored by the same units in WM and LTM (long-term memory).** The only difference: synchrony binds in WM, and the localist SP units hold the binding in LTM. This is the "graft onto a conjunctive store" that Penn et al. read off the model (above).
+
+### Memory hierarchy, with time constants
+
+| Level | Content | Capacity | Duration |
+|---|---|---|---|
+| LTM | All analogs | Unbounded | Lifetime |
+| Active memory (Cowan; long-term WM) | Driver, recipient, **mapping weights** | No firm limit; time-limited | Decays ≈ **20 s** unless re-attended |
+| WM = phase set | Mutually desynchronized role bindings; **mapping hypotheses** | **5–6 SPs** ≈ 2–3 propositions | ≈ 0.5 s to a few s |
+| One phase | One role binding | 1 | A few ms per peak |
+
+**Mapping hypotheses (`h`) and mapping weights (`w`) sit at different levels.** `h` can be updated only while its driver unit is active, so it lives in WM, and WM capacity therefore caps the number of correspondences under evaluation at once. `w` lives in active memory and carries across phase sets. The authors' neural guess is prefrontal neurons with rapidly modifiable synapses whose activity *gates* communication between the units they map. They do not propose it as a literal weight.
+
+### Signal flow inside one phase set (`L2`)
+
+| Signal | Rule | Why |
+|---|---|---|
+| Attention | External input 1.0 to each SP in the phase set, not to the P (proposition) unit | Lets the SPs of several co-loaded propositions time-share |
+| Driver SP oscillation | Each SP has a yoked inhibitor; strong SP–SP inhibition | Bound units fire together; different bindings fire apart |
+| Driver → recipient | Only through shared semantic units at first; later through mapping weights too | Communication between analogs is by type |
+| Recipient top-down feedback and out-of-proposition inhibition | **Suspended until every driver SP in the phase set has fired once** | Stops the recipient committing to the best match for the first SP that fires |
+| Global inhibitor | Turns on (value 10) whenever no driver SP is ≥ 0.7, and clears all non-driver analogs | Refresh between phases |
+| Mapping-based global inhibition | A driver unit inhibits all recipient units in proportion to `max w` out of it and `max w` into them, and a matching mapping weight exactly cancels it (`3w − max − max = w`) | Replaces inhibitory mapping connections: same effect, no all-to-all wiring |
+| **Co-loaded propositions** | When > 1 proposition is in the phase set, **object semantics are ignored** | Puts all the emphasis on relations (Medin, Goldstone & Gentner 1994: features early, relations late). The user, not the model, decides when to co-load |
+
+### Equations worth keeping
+
+```
+Firing choice (Luce):   p_i = c_i / Σ_j c_j ,   c_i = r_i (s_i + m_i)
+  s_i = support from recently fired propositions (decays ×0.5 per step; reset on firing)
+  m_i = pragmatic importance (user-set);  r_i = readiness, grows +0.1 per step, halves on firing
+Token activation:       Δa_i = γ n_i (1 − a_i) − δ a_i        (γ = .3, δ = .1)
+Mapping hypothesis:     Δh_ij = a_i a_j                        (Hebbian, within a phase set)
+Mapping weight:         h ← h / max(row, col);  h ← h − max_other(row, col);
+                        Δw_ij = η (1.1 − w_ij) h_ij , clipped to [0, 1]   (η = .9)
+Semantic unit:          a_i = n_i / max(max_j |n_j|, 1)        (divisive normalization; negative = negation)
+Inferred unit → semantics: Δw_ij = 0.2 (a_j − w_ij)
+```
+
+Row/column competition in the `w` update is the **soft one-to-one constraint**. The asymptote of 1.1 with clipping at 1 keeps a weight of 1.0 revisable.
+
+### Capacity is a noise limit on time-sharing, and its value is chosen
+
+*Corrected from the primary.* The 25 ms / 5 ms = 5 arithmetic (Singer & Gray 1995) is the *motivation*. The *implemented* limit is a time-sharing algorithm:
+
+- After an SP fires, its sensitivity to inhibition from other SPs jumps to MaxS = 6 and decays by `δ_s` toward MinS = 3. The SP that fired least recently wins the next phase.
+- If `s` returns to its minimum in the time `N` SPs take to fire, then **`N + 1` SPs time-share reliably**.
+- A smaller `δ_s` buys slots in principle, but it shrinks the differences between the `s_j(t)`. Under nonzero noise those differences stop being discriminable, so there is an optimal `δ_s` and capacity falls on either side of it.
+- "There is currently no basis for estimating the amount of noise" — the authors **chose** `δ_s` (= .0015) to give 5–6 SPs.
+
+So LISA's capacity bound is a *signal-to-noise* bound on a decay constant, which is closer to Rolls's noise-driven `7 ± 2` ([[wiki/concepts/working-memory.md]]) than the clock-ratio framing (Knowlton et al. 2012, above) suggests. For `T32`, the phase position therefore does not escape a noise parameter either.
+
+### Inference: absence of a match is itself a signal (`L2`)
+
+| Step | Mechanism |
+|---|---|
+| **License** | Inference is attempted only if ≥ **70%** of the recipient's importance-weighted units (`Σ q_i j_i / Σ q_i`) map to the driver. The rule is deterministic and checks the whole analog, not subsets; both are named simplifications |
+| **Detect a missing correspondent** | An unmapped driver unit `k` sends mapping-based global inhibition to every mapped recipient unit and excites none. **Inhibition without excitation** is the cue that nothing in the recipient corresponds to `k` |
+| **Mint** | The recipient creates a new token of the same type (P, SP, predicate or object). The authors do not claim new neurons; they claim the same process that creates tokens at encoding |
+| **Wire** | The new unit learns Hebbian connections to whatever is co-active: a new P to active SPs, a new SP to active predicates/objects, new predicates/objects to active semantics. Mapped fillers arrive in synchrony over their mapping weights, so `jealous(Bill, Sam)` yields `*jealous(Sally, Cathy)` |
+
+The authors call this **self-supervised**: no teacher, and not driven by input statistics alone; the system's own mapping decides whether to infer and what. Because inference runs through the mapping, LISA **cannot make an inference inconsistent with the mapping it found** (Spellman & Holyoak below).
+
+**(brainstorm)** The trigger is a generic `L2` primitive the wiki lacks: *a broadcast that every matched unit is entitled to cancel, so a residual uncancelled inhibition flags "no correspondent here"*. It costs one global signal per driver unit, needs no enumeration of candidates, and doubles as the minting trigger for `G69` and as a novelty signal.
+
+### Schema induction: intersection by normalized feedback
+
+- The schema starts as an **empty analog** and is filled by the same minting rule: every driver token that fires for the first time gets a schema token.
+- Recipient units feed back to the semantic units, so semantics shared by driver and recipient get ≈ **2×** the input of unshared ones. After divisive normalization, schema tokens learn **stronger weights to shared features**.
+- **Propositions never fired never enter the schema.** Firing order and importance therefore filter trivial details out of both inference and abstraction, with no explicit filter.
+- **Iterated, it is graded, not binary.** Unique features are down-weighted, never deleted, so weights converge on each feature's frequency across examples: 8 of 10 love triangles with a female in the central role give a central-role token biased toward `female`.
+
+### Results
+
+| Simulation | Runs | Result |
+|---|---|---|
+| Airport/beach (St. John 1992) | many | **Always** infers `drive-to(John, Civic, airport)` from **one** example, and also from a schema. The Story Gestalt model fails after **10⁶** training stories |
+| Lassaline 1996 — strong (causal link, 3 extra shared properties) | 50 | Both inferences 35 · effect only 2 · link only 9 · neither 4 |
+| — medium (`precedes`, 2 extra) | 50 | 15 · 11 · 13 · 11 |
+| — weak (no link, 0 extra) | 50 | effect 14 · neither 36 |
+| Spellman & Holyoak 1996, two four-way-ambiguous plots | 48 per condition | High pragmatic focus → mappings goal-consistent and independent of the irrelevant `cheats` relation; low focus → `cheats` influences them. **Every inference consistent with the run's mapping.** LISA under-produces humans' "other" responses |
+| Bassok, Wu & Olseth 1995, source OP (objects assigned to people) | ≥ 20 per condition | Reproduces 89% (OP target) vs 0% (PO target) **deterministically**: the `get` schema first augments the target with `get(secretaries, computers)` whichever way the assignment was stated, then mapping to the source sends computers to `n` |
+| Identity function, one example `input(one), output(one)` | — | Infers `output(two)`, and `output(Mary)`, `output(flower)` with **zero** semantic overlap with `one`. Transfer rides only on the overlap between the roles `input`/`input` |
+| Incremental schema, identity function | — | Object weights: `number`, `unit` **.98** after one pair, **.44** after adding `flower`; `one`/`two` .45–.53 → .20–.24. Progressively universal `f(x) = x` |
+| Fortress → radiation, good firing order | — | Correct convergence schema induced |
+| Radiation → fortress, poor firing order | — | No useful schema. It infers `if–then(P16, destroyed(tumor))` with **P16 a P unit with no roles or fillers**: "there is some solution", content unknown |
+
+The last row is a minted variable with structure and no content. It is the only place in the wiki where a placeholder for an unknown is created as a side effect of mapping (`G69`).
+
+### Two unifications the paper states
+
+- **Retrieval = mapping minus learning mapping connections.** During access the driver activates recipients through the semantics, but no `h`/`w` is kept: there are too many LTM candidates to hold hypotheses for. The authors report that Hummel & Holyoak 1997 (not read) reproduces, from this single difference, the human dissociation between surface-sensitive access and structure-sensitive mapping (Ross 1989). That is a candidate for the second branch of `T330`'s `Closes when`.
+- **Reflexive : reflective = retrieval : mapping.** Automatic inferences (sold → owns) use existing LTM connections only. Effortful ones can use correspondences written during the trial. Hummel & Choplin 2000 implement the reflexive half by feedback from dormant LTM analogs to the semantic units, which also gives context-dependent predicate meaning (`loves` a person vs a food).
+
+### Limitations the authors state
+
+- **Hand-coded representations**: "the most serious limitation". That includes where one analog ends and the next begins.
+- **Predicates are formal**: `cause` is a predicate like `loves`, with no link to causal-induction machinery. The one exception is the Metric Array Module (MAM; Hummel & Holyoak 2001) for transitive inference. MAM relies on LISA's ability to map an `n`-place predicate onto an `m`-place one (`n ≠ m`), which most analogy models forbid.
+- **No ontological status**: a proposition cannot be marked as fact, conjecture, wish, *inference* or falsehood. Higher-order `not(·)`/`wishes(·)` "seems to miss something fundamental". Inferred units are starred only in the paper's notation, not in the model (`G71`).
+- **No goals, no metacognition**: LISA cannot judge whether a mapping is good, decide when to stop, or problem-solve. The 70% gate is its only self-assessment (`G89`).
+- **The user decides when to co-load propositions**, though LISA picks which ones.
+- **Schema proliferation is unaddressed**: whether induced schemas are kept, merged or forgotten "lie[s] beyond the scope".
+- Explanation-based learning (EBL) is argued to be structure mapping between an instance and loose background schemas, not a separate mechanism (Ahn et al. 1992: EBL from one instance needs background knowledge plus an instruction to use it, and improves with a second example).
+
+---
+
 ## Limitations
 
 - **Does not scale.** Reviewed as failing on large analogs; the demonstrations are laboratory-scale propositions.
@@ -183,6 +309,9 @@ LISA needs long-range **theta** to be the channel that carries posterior semanti
 ---
 
 - **`G104` — the one gap this model closes and nothing else does.** Role-filler independence *during* binding: a role and its filler fire in phase, simultaneously and separably active, so both stay addressable while bound. The cost is the capacity ceiling below, which is why the gap stays `OPEN` despite having a worked instance.
+- **`G69` — a connectionist partial.** A token is minted when an unmapped driver unit fires, persists in its analog, and caches its properties as weights to the semantic units. Localist tokens keep two same-type entities distinct. Short of `Closes when`: minting is triggered by *inference*, not by first mention. Tokens for observed entities are hand-coded, and the type of a minted unit is copied from the driver.
+- **`G71` — conceded, not solved.** Inferred units are written into the target in the same format as stated ones, and the authors list "no ontological status" as an open limitation.
+- **`G89` — the 70% licensing gate is the model's only self-assessment**, and the authors say LISA "cannot decide for itself whether a mapping is good or bad".
 
 ## Connections
 
@@ -192,14 +321,15 @@ LISA needs long-range **theta** to be the channel that carries posterior semanti
 - **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the unspecified junction the authors flag: prefrontal dynamic role binding and hippocampal/medial-temporal binding are both synchrony claims in this wiki, on a wire whose theta and gamma channels are dissociable, and no account says whether a role binding is ever transferred between them or only re-derived.
 - **[[wiki/concepts/analogical-mapping.md]]** — the operation this model exists to perform, and the alternative cost model: mapping by Hebbian growth of correspondence links under a phase-capacity bound, against mapping by `argmax` of a similarity between re-represented codes.
 - **[[wiki/concepts/temporal-coding.md]]** — the mechanism claim in its home page's vocabulary: LISA is the wiki's only *cognitive-level* consumer of phase as a variable-binding carrier, and it converts a spike-timing scheme directly into a behavioural capacity limit.
-- **[[wiki/concepts/working-memory.md]]** — where the capacity limit is derived rather than assumed: the number of simultaneously maintainable role-filler bindings is the number of resolvable phases, which makes relational complexity (how many relations must be integrated) the load variable rather than item count.
+- **[[wiki/concepts/working-memory.md]]** — where the capacity limit is derived rather than assumed: the number of simultaneously maintainable role-filler bindings is the number of resolvable phases, which makes relational complexity (how many relations must be integrated) the load variable rather than item count. The primary's implementation sets that number by a decay constant bounded by noise, which puts it closer to the noise-driven attractor account on that page than the clock-ratio arithmetic suggests.
 - **[[wiki/concepts/vector-symbolic-binding.md]]** — the rival binding carrier: an algebraic operator on fixed-width vectors keeps structure comparable by dot product and loses the hard capacity bound, where synchrony keeps the bound and loses comparability.
 - **[[wiki/concepts/cognitive-control.md]]** — supplies the second prefrontal function the model needs: mapping against a featurally similar distractor requires the correct proposition's units to inhibit the competitor's, so relational responding is an inhibition outcome and its failure mode is a confident perceptual answer.
 - **[[wiki/concepts/inter-areal-synchrony.md]]** — the same coding assumption at the systems scale: if bindings are phases, then routing a binding between areas is a phase-alignment problem, and the wiki's synchrony-as-communication evidence is what LISA's implementation claim would have to rest on.
-- **[[wiki/concepts/schema-assimilation.md]]** — the terminal step of the pipeline: intersection discovery over a completed mapping is the model's mechanism for turning two analogs into a schema, which is the abstraction operation the schema literature assumes and does not implement.
+- **[[wiki/concepts/schema-assimilation.md]]** — the terminal step of the pipeline: intersection discovery over a completed mapping is the model's mechanism for turning two analogs into a schema, which is the abstraction operation the schema literature assumes and does not implement. Shared semantic features get twice the feedback, and divisive normalization turns that into stronger schema weights. The same machinery run *forwards*, a stored `get` schema augmenting a target before mapping, reproduces Bassok et al.'s 89% → 0% transfer collapse.
 - **[[wiki/concepts/relational-reinterpretation.md]]** — the comparative argument this model is the existence proof for: it is the wiki's only architecture that holds role-filler independence *during* binding, which is the one property the whole human/nonhuman decomposition turns on, and its non-scaling is read there as the reason the exit from the PDP local minimum was paid only once.
 - **[[wiki/entities/macfac.md]]** — the rival division of labour for the same pipeline: both run retrieval on a non-structural pathway and mapping on a structural one, but LISA's limit on what reaches mapping is derived from the phase code's capacity while MAC/FAC's is a fitted 10% band around the best score.
 - **[[wiki/entities/resonator-network.md]]** — the same binding problem solved without expanding the representation: synchrony adds a temporal dimension to keep role and filler separately addressable and caps at 2–3 propositions, whereas a Hadamard-bound compound stays the width of an atom and moves the entire cost into a factorization step that searches all candidate fillers in superposition (`G104`, `T293`).
 - **[[wiki/entities/sme.md]]** — the enumerating rival for the same operation: it constructs *every* structurally consistent interpretation and ranks them, where a synchrony code can hold only 2–3 propositions in phase and must serialise — and its cost blows up on flat descriptions exactly where LISA's phase budget does not care.
 - **[[wiki/entities/esbn.md]]** — the same property — constituents preserved while bound — obtained without a phase code: two aligned memory columns give role-filler independence at one row per timestep instead of 2–3 propositions, and leave a dot-product read available on the value column, which is exactly what synchrony forfeits.
 - **[[wiki/entities/lateral-frontoparietal-network.md]]** — the anatomy of the box this model fills: a frontopolar integrator selectively engaged by relations-between-relations and not by difficulty, fed by a parietal store of first-order relations. Synchrony at 2–3 propositions is what a fixed-depth second-order comparator would look like — and the anatomy is silent on depth, since nothing in that literature tests beyond second order.
+- **[[wiki/concepts/relational-bottleneck.md]]** — a switched version of the same denial: when more than one proposition is co-loaded, LISA ignores the semantics of the objects and maps on relations alone. So the bottleneck is on only under relational load, and the user, not the model, throws the switch. The graded dial that page lists as unimplemented is what the authors also say would be more realistic and did not build.

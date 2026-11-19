@@ -84,9 +84,9 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G66 | No sampler draws training pairs with respect to the quantity being learned | part | `L3` | `OPEN` | 6 | [[wiki/gaps/g066.md]] |
 | G67 | Nothing decides how many timescales a model needs, or where the boundaries between them go | part | `L1` | `OPEN` | 17 | [[wiki/gaps/g067.md]] |
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `L1` | `OPEN` | 15 | [[wiki/gaps/g068.md]] |
-| G69 | No architecture creates variables on demand | part | `L1` | `PARTIAL` | 12 | [[wiki/gaps/g069.md]] |
+| G69 | No architecture creates variables on demand | part | `L1` | `PARTIAL` | 13 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `PARTIAL` | 10 | [[wiki/gaps/g070.md]] |
-| G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g071.md]] |
+| G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g071.md]] |
 | G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 16 | [[wiki/gaps/g072.md]] |
 | G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 17 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g074.md]] |
@@ -103,7 +103,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G86 | Every architecture in the wiki tunes its stopping rule and its memory separately, and nothing couples them | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g086.md]] |
 | G87 | Nothing in the wiki has ever shown that a better representation of activity produces a better decision | part | `L0-INSTR` | `OPEN` | 1 | [[wiki/gaps/g087.md]] |
 | G88 | No architecture in the wiki has a direction of information flow that comes from its own weight matrix | arrangement | `L2` | `OPEN` | 1 | [[wiki/gaps/g088.md]] |
-| G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g089.md]] |
+| G89 | No architecture in the wiki models its own competence, and nothing calibrates the estimates that come closest | part | `L1` | `OPEN` | 7 | [[wiki/gaps/g089.md]] |
 | G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `L2` | `OPEN` | 9 | [[wiki/gaps/g090.md]] |
 | G91 | The wiki has no gate that learns what deserves to be broadcast, and no architecture in it has a discrete commit at all | arrangement | `L2` | `OPEN` | 9 | [[wiki/gaps/g091.md]] |
 | G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `L0` | `OPEN` | 4 | [[wiki/gaps/g092.md]] |

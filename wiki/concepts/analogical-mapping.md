@@ -272,7 +272,7 @@ And a **functional dissociation inside prefrontal cortex** (Cho et al. 2010; Chr
 
 CWSG's stated failure mode, in Holyoak's words: without additional constraints, **any** unmapped source proposition generates a target inference, and since the source is essentially never isomorphic to a subset of the target, this produces rampant error. The constraint that works is *causal*:
 
-- **Lassaline 1996.** Source and target animals both have a weak immune system. If the source states the weak immune system **causes** an acute sense of smell, the inference transfers more strongly than if it merely "and"s the two properties — and the boost shrinks if the link is weakened to "develops before".
+- **Lassaline 1996.** Source and target animals both have an **acute sense of smell**; only the source is said to have a **weak immune system**, and the inference is that the target has one too. *Corrected via Hummel & Holyoak 2003* (`raw/hummel-2003-symbolic-connectionist-theory-relational-inference.md`): the wiki's earlier wording had the shared and inferred properties swapped. The inference is rated more probable when (i) source and target share more other attributes, (ii) a higher-order relation links the two source properties ("develops before") rather than "and", and (iii) the link is explicitly **causal**. LISA reproduces the ordering over 50 runs per condition with two mechanisms and no inference filter: causal/important propositions fire earlier and more often, and inference is licensed only once ≥ 70% of the importance-weighted target is mapped. Both inferences: 35/50 strong, 15/50 medium; no inference at all: 4, 11, 36 ([[wiki/entities/lisa.md]]).
 - **Lee & Holyoak 2008.** If the source shows the effect **despite** a preventive cause, people judge the effect **more** likely in a target that lacks the preventer — *even though removing the preventer lowers overall source–target similarity*. Inference strength and analog similarity dissociate, with the sign reversed.
 - **Holyoak, Lee & Lu 2010** formalise this: extend a Bayesian causal-strength model so that the source's causal network **plus** the mapping is the input to CWSG, and the output is an elaborated causal model of the target which is then queried for arbitrary inferences.
 
@@ -322,8 +322,13 @@ So: transfer runs spontaneously on mere juxtaposition, its products are written 
 |---|---|---|
 | OP | OP | **89%** |
 | OP | PO | **0%** |
+| PO | PO | 53% |
+| PO | OP | 33% |
+| PP (people to people → symmetric `pair` schema) | PP | 50% (chance) |
+| PP | OP | 67% |
+| PP | PO | 31% |
 
-Isomorphic problems, one schema, a 89-point swing. The relation *as stated* was overridden by a relation the reasoner already had. This is [[wiki/architectural-gaps.md]] G23 measured: an unconditional prior with no entry test, firing on object *types*, silently re-parsing the input — and the mapping machinery downstream is working perfectly on the wrong parse (G27).
+The PO and PP rows come from Hummel & Holyoak 2003's account of the study. Isomorphic problems, one schema, a 89-point swing. **A mechanism reproduces the two extreme cells deterministically** ([[wiki/entities/lisa.md]], ≥ 20 runs each). The `get` schema's second and third `assign-to` roles share 4 of 5 semantic features, and its `object`/`recipient` fillers are semantically far apart, so filler *type* decides the mapping and role position barely matters. The schema first augments the target with `get(secretaries, computers)` whichever way the assignment was stated. Mapping the augmented target to the source then sends computers to `n`. The error is made upstream of mapping, by an inference that is stored untagged (`G71`). The relation *as stated* was overridden by a relation the reasoner already had. This is [[wiki/architectural-gaps.md]] G23 measured: an unconditional prior with no entry test, firing on object *types*, silently re-parsing the input — and the mapping machinery downstream is working perfectly on the wrong parse (G27).
 
 ## Why this matters to the rest of the wiki
 
