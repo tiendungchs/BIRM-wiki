@@ -784,7 +784,7 @@ One INGEST each:
 - [x] `keller-2013-neurophysiological-investigation-correlated-anticorrelated-bold.md` — brain-networks · R · 2013
 - [x] `waechter-2013-transitive-inference-parietal-lesions-not-rostrolateral.md` — prefrontal-control · R · 2013
 - [x] `schlichting-2015-learning-related-representational-changes-integration-separation.md` — hippocampal-entorhinal · R · 2015
-- [ ] `spalding-2015-vmpfc-necessary-schematic-influence-on-memory.md` — prefrontal-control · R · 2015
+- [x] `spalding-2015-vmpfc-necessary-schematic-influence-on-memory.md` — prefrontal-control · R · 2015
 - [ ] `dixon-2018-heterogeneity-frontoparietal-control-network-default-dorsal-attention.md` — brain-networks · R · 2018
 - [ ] `koster-2018-big-loop-recurrence-hippocampal-integration-across-episodes.md` — hippocampal-entorhinal · R · 2018
 - [ ] `spalding-2018-vmpfc-necessary-associative-inference-memory-integration.md` — prefrontal-control · R · 2018
