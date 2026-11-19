@@ -36,6 +36,18 @@ The reconciliation the authors offer: because entorhinal modules overlap spatial
 
 Caveats the source is explicit about: whether place-field growth is *truly* continuous has not been tested against the genetic domain borders (if it steps, it should step where they do), and the rescaling asymmetry found across grid modules — large-scale modules rescale to a compressed environment, small ones do not — has never been checked between ventral and dorsal place fields.
 
+**The wiring that carries the conversion, stage by stage** (van Strien et al. 2009, rat tracer compilation, [[wiki/entities/hippocampal-formation.md]]).
+
+| Stage | Long-axis topography |
+|---|---|
+| Entorhinal → hippocampus | Dorsolateral entorhinal → septal, intermediate → intermediate, ventromedial → temporal. That is the **densest** component. Weaker components spread more widely along the axis |
+| Grid → place scale | Because of that topography, the smallest-scale grid cells (dorsolateral medial entorhinal) feed the smallest place fields (septal), and the largest feed the largest. Scale is matched by wiring |
+| CA3 → CA1 | Septal CA1 hears septal + intermediate CA3. Temporal CA1 hears temporal + intermediate CA3 |
+| CA1 recurrents | **Confined to one septotemporal level**: each CA1 level then processes its input independently |
+| CA1 → entorhinal | Mirrors the input topography (septotemporal → dorsolateral–ventromedial) |
+
+**(brainstorm)** So scale-mixing happens at two points, the weak divergent perforant-path components and CA3 → CA1, and CA1 is where levels are kept apart. That fits the authors' mixing-matrix reconciliation above. It adds that the mixing profile is wider at the CA3 → CA1 stage than at the entorhinal entry.
+
 **Why a gradient rather than a set of scales.** The authors' argument: a gradient "accommodates both spatial resolution and spatial contiguity" — a discrete stack has to solve the correspondence problem between levels, a gradient has neighbouring levels already in register because the wiring is monotone and mostly short-range. This is the same locality argument [[wiki/concepts/microarchitectural-topography.md]] makes for cortex: a smooth gradient makes coupling *similar* units cheap and coupling *distant* points of the axis expensive.
 
 ---

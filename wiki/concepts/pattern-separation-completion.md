@@ -37,6 +37,18 @@ Entorhinal cortex (EC) layer II → dentate gyrus (DG) → CA3 → CA1, a primar
 
 **The write/read dissociation is anatomical, and it is causal.** Inactivating mossy fibers impairs new learning and spares recall; lesioning the direct EC→CA3 perforant path impairs retrieval and spares encoding. So the same recurrent network is addressed by two different inputs depending on whether it is being written to or read from — which is the wiki's first concrete mechanism for a store that does not have to *choose* between separation and completion globally.
 
+**Wiring the table leaves out** (van Strien et al. 2009, rat tracer compilation, `raw/vanstrien-2009-anatomy-of-memory-parahippocampal-hippocampal-network.md`; full list on [[wiki/entities/hippocampal-formation.md]]).
+
+| Omitted element | Anatomy | What it changes here |
+|---|---|---|
+| Two streams on one separator cell | Lateral entorhinal → outer third of the dentate molecular layer, medial → middle third. In CA3 stratum lacunosum-moleculare, lateral → superficial, medial → deep | The separator's input is a conjunction of both streams on one cell, with each stream on its own dendritic band. So an inhibitor targeting one band (the HIPP row below) can scale one stream's share of the code ([[wiki/entities/entorhinal-cortex.md]]) |
+| Not only layer II feeds the dentate | Layers III, V, VI also project there (more weakly), and activating the deep layers alone drives it | The separator's input includes the entorhinal return layer, i.e. part of the store's own output (`T334`, [[wiki/entities/remerge.md]]) |
+| A second recurrent field before CA3 | Granule cell → several hilar mossy cells → back onto granule dendrites | The controller row "mossy cells" is also a recurrent excitatory loop inside the separator. The source expects it to compute something like CA3's attractor, which nobody has measured |
+| The CA3 → dentate backprojection's extent | Onto the hilus and inner molecular layer, at every septotemporal level, **strongest from temporal CA3 to temporal dentate** | The wire behind the closed-loop controller below is densest where place fields are widest ([[wiki/concepts/hippocampal-long-axis.md]]) |
+| A CA1 → CA3 backprojection | From CA1 strata radiatum/oriens, probably GABAergic | The completion stage receives inhibition from its own output stage. Function unknown |
+
+**(brainstorm)** If the temporal CA3 → dentate backprojection is the strongest, the self-supervised setting rule (completion quality sets the next input's separation) is most active at the coarse, generalising end of the axis. That is the end where separation is least needed and completion error is cheapest to tolerate. Two readings fit, and nothing tests either. In one, the loop exists to *suppress* separation where gist is the goal. In the other, coarse codes alias most easily, so they need the most policing.
+
 ## Transfer curves by subfield
 
 | Region | Curve shape | Evidence |

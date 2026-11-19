@@ -141,6 +141,16 @@ The authors' own reconciliation, offered because contextual fear conditioning gi
 | Marker gene | *Ly6g6e*⁺ ovoid neurons in the deep layer show **sustained** responses to novel objects and drive object recognition | mouse |
 | Oscillation | Theta can **originate in the subiculum and propagate backward** across the hippocampal network, matching structural back-projections; subtype-specific drive of sharp-wave ripples; proximal–distal variation in theta and gamma | rat, mouse |
 
+**The intrinsic wiring behind "re-mixing"** (van Strien et al. 2009, rat tracer compilation, [[wiki/entities/hippocampal-formation.md]]).
+
+| Element | Anatomy | Consequence the source draws |
+|---|---|---|
+| Recurrent network | Principal-cell collaterals onto pyramidal cells and interneurons, over a large part of the subiculum **ventral** to the cell of origin | The best explanation for why the predicted proximal/distal spatial difference is small. Distal subiculum gets the medial (spatial) entorhinal input and should hold the most prominent place cells, but one study finds only subtle differences (Sharp & Green 1994) |
+| Backprojection to CA1 | Subicular pyramidal layer → all layers of CA1 | Sign unknown |
+| Non-principal-layer output | Molecular-layer cells → pre-/parasubiculum, postrhinal cortex, both entorhinal divisions | Inferred to be long-range GABAergic, coordinating oscillations across the network. That fits the backward theta propagation in the table above, but it is inferred and not measured |
+
+This is the intrinsic-recurrence continuum of `G122` in a proposed instance. The afferents are segregated (entorhinal input is topographic), and dense local collaterals are invoked to explain why the segregation barely shows in the firing. It is offered as an explanation and has not been measured. The direction matters: the collaterals run ventrally, so the re-mixing spans the long axis as well as the transverse one.
+
 The review's three-principle summary: multimodal properties **covary** within a subtype, **dissociate** between subtypes, and are **reinforced by temporal dynamics** — so the subiculum is "a highly complex arrangement of distinct circuits", not a monolithic relay.
 
 ---

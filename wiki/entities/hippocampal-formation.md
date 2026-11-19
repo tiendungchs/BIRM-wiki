@@ -2,7 +2,7 @@
 
 **The dentate gyrus, the CA fields and the subicular complex, with the entorhinal cortex as their only cortical gateway: one repeated trisynaptic circuit laid along a long axis, with a write port and a read port into the same recurrent field, an output stage typed by destination, and a return loop that carries a copy of its own write. The wiki holds this structure node by node and operation by operation on some thirty pages; this page is the index of those pages — which stage each one owns, where the registries pivot on the structure, and what no page holds yet.**
 
-> **Epistemic status.** A hub, not an ingest: no new source. Every statement below is held by the page it names, and the number, species and caveat live there. Written because [[wiki/index-entities.md]] had carried "Hippocampus / medial temporal lobe" as referenced-but-not-paged while the structure was being cited on 157 pages, and because three `L1` tensions (`T28`, `T107`, `T203`) and the brain-candidate column of [[wiki/concepts/abstraction-graph.md]] turn on what "the hippocampus" is taken to include.
+> **Epistemic status.** A hub, not an ingest. Every statement below is held by the page it names, and the number, species and caveat live there. **One exception:** the section *Edges the diagram omits* is held here, from van Strien, Cappaert & Witter 2009 (`raw/vanstrien-2009-anatomy-of-memory-parahippocampal-hippocampal-network.md`). It needs a hub because no stage page owns the edges that run *between* stages against the standard direction. Written because [[wiki/index-entities.md]] had carried "Hippocampus / medial temporal lobe" as referenced-but-not-paged while the structure was being cited on 157 pages, and because three `L1` tensions (`T28`, `T107`, `T203`) and the brain-candidate column of [[wiki/concepts/abstraction-graph.md]] turn on what "the hippocampus" is taken to include.
 
 **Node definition.** Whether the entorhinal cortex belongs to the formation is a convention, not a fact, and the subiculum's own borders are disputed by the atlases ([[wiki/entities/subiculum.md]], [[wiki/concepts/node-definition-problem.md]]). This page includes the entorhinal cortex because every edge in and out of the store passes through it, and names the subicular complex (subiculum, presubiculum, parasubiculum, postsubiculum) as the exit. Primate orientation: the rodent dorsal → ventral axis is the primate posterior → anterior axis after a ~90° rotation ([[wiki/concepts/hippocampal-long-axis.md]]).
 
@@ -63,6 +63,55 @@
 | Amygdala | Hippocampal → prefrontal edge | A lock on that edge's writability, outside both endpoints (`G52`) | [[wiki/entities/hippocampal-prefrontal-channel.md]] |
 | Cortical slow oscillation → thalamic spindle | Ripple timing and content | When the consolidation window is open; the cortical pre-ripple pattern tells the store which memory to reactivate | [[wiki/concepts/sleep-oscillation-nesting.md]], [[wiki/concepts/offline-replay.md]] |
 | Anterior thalamic nuclei | Subiculum | Spatial firing throughout the subiculum depends on them, CA1 spared | [[wiki/entities/anterior-thalamic-nuclei.md]] |
+
+---
+
+## Edges the diagram omits
+
+> van Strien, Cappaert & Witter 2009, Nat Rev Neurosci 10:272–282. Rat. The tracer literature compiled into ~1,600 connections and compared with the "standard model" that recent key studies use. The diagram above is that standard model plus the entorhinal loop. The source's warning: connections left out of models because they seem to have no function "tend to be erased from the common scientific memory". Density is shown as uniform, and sign is mostly unknown.
+
+**Backprojections — the circuit is not unidirectional.**
+
+| Edge | Origin → termination | Sign | Owning page |
+|---|---|---|---|
+| CA3 → dentate gyrus | CA3 pyramidal cells → hilus and inner molecular layer, at every septotemporal level, **strongest temporally** | Excitatory (principal cells) | [[wiki/concepts/pattern-separation-completion.md]] (the closed-loop separation controller) |
+| CA1 → CA3 | Stratum radiatum / oriens of CA1 → the same strata of CA3 | **Probably inhibitory.** It does not come from the pyramidal layer, and *in vivo* labelling finds CA1 GABAergic neurons with the same origin and termination | — |
+| Subiculum → CA1 | Subicular pyramidal layer → all layers of CA1 | **Unknown** | [[wiki/entities/subiculum.md]] |
+
+**Recurrent fields — CA3 is not the only one.**
+
+| Field | Loop | Extent |
+|---|---|---|
+| Dentate gyrus | Granule cell → several hilar mossy cells → back to granule-cell dendrites in the molecular layer | — |
+| CA3 | Recurrent collaterals | The best known, the most extensive |
+| CA1 | Recurrent loops | **Confined to one septotemporal level**, against "almost none" in [[wiki/concepts/hierarchy-of-associativity.md]] |
+| Subiculum | Principal-cell collaterals onto pyramidal cells and interneurons | Spread over a large part of the subiculum *ventral* to the cell of origin |
+
+**Bypasses — the trisynaptic path is not the only way in or out.**
+
+| Edge | What it skips |
+|---|---|
+| Presubiculum, parasubiculum (all layers) → dentate gyrus, CA3, CA1, subiculum | The entorhinal cortex |
+| Perirhinal (areas 35, 36), postrhinal → CA1, subiculum (postrhinal possibly to every field; the reports disagree) | The entorhinal cortex |
+| Entorhinal layers III, V, VI → dentate gyrus. Layers II, V, VI → CA1/subiculum | The laminar in/out rule ([[wiki/entities/entorhinal-cortex.md]]) |
+| CA1, subiculum → superficial entorhinal layers | Layer V |
+| CA3, CA1, subiculum → pre-/parasubiculum. CA1, subiculum → perirhinal, postrhinal | The entorhinal cortex, on the way out |
+
+**Inhibitory long-range coupling, inferred from layer of origin.** A projection that does not start in a principal-cell layer is probably GABAergic. The rule is checked on CA1 → CA3 (above) and on CA1 stratum-radiatum cells → dentate molecular layer and subiculum, where GABAergic axons are reported. Applied to the rest of the diagram, it flags four more edges: dentate hilus → CA1; subicular molecular layer → para-/presubiculum and postrhinal cortex; CA1 strata oriens/radiatum → both entorhinal divisions; subicular molecular layer → both entorhinal divisions. The proposed job is to couple the subregions and coordinate oscillations across the whole network. That would be a set of **timing wires anatomically separate from the content wires** (`G54`). But the inhibitory identity is inferred, and so is the job.
+
+**Two transverse channels on the direct path, one mixed channel on the trisynaptic path.**
+
+| Stage | Lateral-entorhinal (non-spatial) input | Medial-entorhinal (spatial) input |
+|---|---|---|
+| Dentate gyrus, CA3 | Same cells, outer / superficial dendritic band | Same cells, middle / deep band |
+| CA1 | Distal | Proximal |
+| CA3 → CA1 (Schaffer) | Proximal CA3 → distal CA1 | Distal CA3 → proximal CA1 |
+| CA1 → subiculum | Distal CA1 → proximal subiculum | Proximal CA1 → distal subiculum |
+| CA1, subiculum → entorhinal | Distal CA1, proximal subiculum → lateral | Proximal CA1, distal subiculum → medial |
+
+The segregation survives from the entorhinal cortex through CA1 and the subiculum and back. Only the dentate/CA3 stage puts both streams on one cell. The predicted consequence is that proximal CA1 is more spatial than distal CA1, and distal subiculum more spatial than proximal. CA1 has this in preliminary data (an abstract, McNaughton et al. 2008). The subiculum shows only a small difference (Sharp & Green 1994), which the authors attribute to its recurrent network re-mixing the streams. They also propose that CA1 is split into **subdomains** along both axes, each storing its own combination of inputs independently (`T33`). Untested.
+
+**(brainstorm) The reading for a builder.** The formation runs two codes in parallel. One is stream-typed, in which a reader can tell from transverse position which input stream a CA1/subiculum cell came from. The other is stream-mixed, in which a dentate/CA3 reader cannot. CA1 is where the two meet: each CA1 cell receives a mixed CA3 code plus one *typed* direct input, and which part of CA3 it hears is set by the transverse mapping. That makes CA1 a per-stream comparator between "what the binder recalled" and "what this stream says now". It is a narrower job than any of `T33`'s three positions. It is also a narrower version of the layer Vb comparator one stage on ([[wiki/entities/entorhinal-cortex.md]]).
 
 ---
 
@@ -136,7 +185,7 @@ Per [[wiki/concepts/abstraction-graph.md]], a computational model is a reference
 | [[wiki/entities/spiking-tem.md]], [[wiki/entities/mm-tem-hippoformer.md]], [[wiki/entities/tem-transformer.md]] | The index factorisation rebuilt in spiking, multimodal and attention form | — |
 | [[wiki/entities/thousand-brains-theory.md]] | The formation's what/where binding miniaturised and replicated per cortical column | No equation, simulation or result |
 
-**What is architecturally denied to a reader of this store** (`L2`). Modality of origin is mixed away upstream, so a reader cannot recover which sense an index came from. Item novelty is not signalled by the store. The controller cannot address the store except through the entorhinal cortex or the reuniens. Consumers within one subicular output suite cannot be addressed separately. The medial prefrontal cortex receives context and no position, because its input leaves the wide-field end of the axis. Beyond the entorhinal cortex, reinstatement reaches a partly different population from the one that wrote, so the return is re-synthesis rather than addressing.
+**What is architecturally denied to a reader of this store** (`L2`). Modality of origin is mixed away upstream, so a reader cannot recover which sense an index came from. **Stream** of origin (lateral vs medial entorhinal) survives one stage further, and only on the direct path: a CA1 or subicular reader can recover it from transverse position, and a dentate/CA3 reader cannot (*Edges the diagram omits*). Item novelty is not signalled by the store. The controller cannot address the store except through the entorhinal cortex or the reuniens. Consumers within one subicular output suite cannot be addressed separately. The medial prefrontal cortex receives context and no position, because its input leaves the wide-field end of the axis. Beyond the entorhinal cortex, reinstatement reaches a partly different population from the one that wrote, so the return is re-synthesis rather than addressing.
 
 ---
 
@@ -145,7 +194,7 @@ Per [[wiki/concepts/abstraction-graph.md]], a computational model is a reference
 | Missing | Where the nearest material sits |
 |---|---|
 | A dentate gyrus page | Held inside [[wiki/concepts/pattern-separation-completion.md]] and [[wiki/entities/rolls-treves-hippocampal-model.md]] |
-| A CA1 page | Spread across the `T33` pages; the three CA1 functions have never been compared in one place |
+| A CA1 page | Spread across the `T33` pages; the three CA1 functions have never been compared in one place. CA1's own recurrent loops, its transverse stream typing and the subdomain proposal are in *Edges the diagram omits* |
 | CA2 | Two incidental mentions ([[wiki/entities/inhibitory-replay-filter.md]], [[wiki/concepts/inhibitory-control-of-coding.md]]); no source on its social-memory or sequence role |
 | Medial septum as theta generator | Named as the cholinergic mode switch; no page on the pacemaker or on theta's own origin, which [[wiki/entities/subiculum.md]] contests |
 | Sharp-wave ripple generation | Ripple content is paged; the CA3 → CA1 generation mechanism is not |

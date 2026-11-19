@@ -69,7 +69,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G51 | Nothing transfers a representation out of the control layer into the store that will run it automatically | part | `L2` | `PARTIAL` | 5 | [[wiki/gaps/g051.md]] |
 | G52 | No inter-module connection in the wiki has state of its own | part | `L2` | `OPEN` | 15 | [[wiki/gaps/g052.md]] |
 | G53 | No architecture delivers one signal to two modules by the same wire, and none lets a third module license a pair's connection | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g053.md]] |
-| G54 | No architecture distinguishes a channel that carries content from one that only carries timing | part | `L2` | `PARTIAL` | 16 | [[wiki/gaps/g054.md]] |
+| G54 | No architecture distinguishes a channel that carries content from one that only carries timing | part | `L2` | `PARTIAL` | 17 | [[wiki/gaps/g054.md]] |
 | G55 | Every machine controller is either one resource or *n* independent ones; none has a shared component plus operation-specific parameters | part | `L1` | `OPEN` | 1 | [[wiki/gaps/g055.md]] |
 | G56 | No architecture has a run-time gain register on its own connections | part | `L2` | `OPEN` | 10 | [[wiki/gaps/g056.md]] |
 | G57 | No architecture makes its teaching signal one of its own inputs | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g057.md]] |
@@ -118,7 +118,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G101 | Nothing in the wiki scales *edge density* rather than unit count, and no result says what a higher synapse-per-unit ratio buys | part | `L3` | `OPEN` | 7 | [[wiki/gaps/g101.md]] |
 | G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g103.md]] |
-| G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `L3` | `PARTIAL` | 9 | [[wiki/gaps/g104.md]] |
+| G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `L3` | `PARTIAL` | 10 | [[wiki/gaps/g104.md]] |
 | G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `L0` | `PARTIAL` | 14 | [[wiki/gaps/g105.md]] |
 | G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `L3` | `OPEN` | 4 | [[wiki/gaps/g106.md]] |
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 12 | [[wiki/gaps/g107.md]] |

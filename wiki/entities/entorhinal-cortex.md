@@ -163,12 +163,44 @@ Hippocampal output driven by an input that entered through the lateral division 
 
 ---
 
+## The gateway mixes the two streams before the store does
+
+> van Strien, Cappaert & Witter 2009, *The anatomy of memory: an interactive overview of the parahippocampal–hippocampal network*, Nat Rev Neurosci 10:272–282 (`raw/vanstrien-2009-anatomy-of-memory-parahippocampal-hippocampal-network.md`). The rat tracer literature compiled into an interactive diagram of ~1,600 connections and compared with a "standard model": the subset of connections that eight recent key studies actually use. Figures and supplementary panels are missing from the clip. The diagram shows every connection at equal density, and for most of them the sign (excitatory or inhibitory) is not known. Same senior author as the Witter 2017 review above, eight years earlier.
+
+The standard model treats the entorhinal cortex as a relay with two parallel, separate lines: perirhinal → lateral → hippocampus (non-spatial) and postrhinal → medial → hippocampus (spatial). The source gives four anatomical arguments against it.
+
+| Argument | Wiring | Quantity / evidence |
+|---|---|---|
+| **The cortical inputs cross** | Postrhinal → lateral division as well as medial. Perirhinal → medial (mainly from area 36) as well as lateral | Share of total cortical input: perirhinal → lateral **15.6%**, postrhinal → lateral **4.9%**. Perirhinal → medial is equal to postrhinal → medial, **7.5%** as stated (Burwell & Amaral 1998) |
+| **The two divisions are wired to each other** | Medial layers II, III, V, VI → lateral superficial layers. Lateral II, V → medial superficial. Lateral III, VI → medial superficial *and* deep | Lateral entorhinal cortex is needed for odour–place associations |
+| **The layers are wired to each other** | Deep ↔ superficial | Medial-entorhinal firing is correlated across all layers during spatial tasks |
+| **No laminar split into "in" and "out"** | Layers III, V, VI also project to the dentate gyrus (weaker than II). Layers II, V, VI also project to CA1/subiculum (weaker than III). CA1 and subiculum project to the **superficial** layers of both divisions as well as the deep ones | Activating the deep layers alone is enough to drive the dentate gyrus |
+
+**What the numbers say about the medial division.** On these figures the rat medial division gets as much perirhinal input as postrhinal input. Its spatial character therefore cannot come from postrhinal dominance. It has to come from its other afferents (pre-/parasubiculum, retrosplenial and visual cortex, in the extrinsic table above). The lateral division is perirhinal-dominated by about 3:1. This is consistent with the fan-in thesis above, and makes it stricter: what defines each stream is its *private* afferents, not its share of the two shared ones.
+
+**The authors' proposal: two association stages at two grains.** The entorhinal cortex associates information *before* the hippocampus, at a more generic level. It holds a "universal" representation, of which the grid map shared across environments is one case. The hippocampus processes the *details* of the same associations through separation and completion. The evidence offered is one human result: hippocampal activity rises when detail is recalled. **(brainstorm)** In machine terms, the store's input is already a what×where conjunction at coarse grain, and the store's job is to individuate instances of it. A model that writes raw `g` and raw `x` into the store separately does the first association in the wrong place.
+
+**The two streams land on the same cells in the trisynaptic path, and on different cells in the direct path.**
+
+| Target | Lateral-division terminals | Medial-division terminals | Arrangement |
+|---|---|---|---|
+| Dentate gyrus molecular layer | Outer third | Middle third | Same granule cells and interneurons, **different dendritic segments** |
+| CA3 stratum lacunosum-moleculare | Superficial part | Deep part | Same cells, different dendritic segments |
+| CA1 / subiculum | Distal CA1, proximal subiculum | Proximal CA1, distal subiculum | **Different cells**, by transverse position (table at the top of this page) |
+
+**(brainstorm)** So the binder gets the two streams as separately addressable compartments of one cell, and the direct route keeps them on separate cells. A dendritic-compartment conjunction keeps each stream's contribution separately gateable *at the moment of binding*. An inhibitory input targeting one dendritic band can scale one stream without touching the other, and HIPP interneurons do target the perforant-path band ([[wiki/concepts/pattern-separation-completion.md]]). That is the property `G104` says no structural code in the wiki has: role and filler still separately addressable while bound. It is `L3` realization detail and gets no row of its own.
+
+**What this does to `T340`.** The tension asks whether the store returns its output to the stream that wrote it. On this wiring, stream-crossing needs no non-reciprocal output wire. Lateral input enters the dentate gyrus and CA3 on the same cells as medial input. Schaffer collaterals then cover the whole transverse extent of CA1 (distal CA3 → proximal CA1, proximal CA3 → distal CA1; [[wiki/entities/hippocampal-formation.md]]). Proximal CA1 projects to the medial division. So an odour that entered laterally can come back out medially over strictly reciprocal CA1/subiculum wiring. The final medial → lateral step of the Biella & de Curtis sequence also has a wire: the intrinsic medial → lateral superficial projection. Logged in the row.
+
+---
+
 ## Limitations
 
 - **Rodent, and largely anatomy.** Comparative claims for monkey and human rest on tracer studies in few animals plus connectional MRI; the two-division scheme is explicitly a *proposal* that two subdivisions suffice, against cytoarchitectural schemes that find more.
 - **The intrinsic-circuit half is thin on one side.** Lateral entorhinal layer II microcircuitry is preliminary (fan–fan pairs, "present but not prevalent"), basket cells there are described but untyped, and layer III microcircuitry is unknown in both divisions.
 - **The central thesis is not tested.** "Phenotype = big input differences + small intrinsic differences" is an inference from two comparisons run separately, not from any manipulation that swaps inputs or circuits.
 - **The mouse clustering picture is unrepresentative** and the review says so — the calbindin-island arrangement holds in a restricted posterior patch of mouse medial entorhinal cortex and inverts elsewhere, so any model motivated by "islands and ocean" is motivated by a special case.
+- **Connection density is not graded anywhere.** The 2009 diagram shows every connection at equal weight, and the source says density is rarely reported quantitatively in the anatomical literature. The percentages above are the exception. So "weaker" in the 2009 tables is the authors' qualitative call.
 - **No functional recordings here.** Grid cells, object-vector cells and lateral-entorhinal object coding are cited, not measured; the page's circuit claims and the wiki's coding claims meet only by juxtaposition. (The coding side is now held separately from a primary — [[wiki/concepts/vector-coding.md]] — but the juxtaposition stands: nothing links the object-vector code to any cell class or laminar position described above.)
 
 ---
@@ -200,4 +232,5 @@ Hippocampal output driven by an input that entered through the lateral division 
 - **[[wiki/concepts/topological-latent-decoding.md]]** — the instrument behind this page's torus result, with its cost: ~35 simulated and ~60 recorded grid cells suffice to reveal the 2-torus, the two-dimensional route reads the toroidal coordinates straight off the barcode's cocycles instead of fitting anything, and the same method applied to the upstream heading circuit finds a purely one-dimensional ring with no toroidal component.
 - **[[wiki/entities/perirhinal-cortex.md]]** — the stage upstream of the lateral division: perirhinal cortex computes item familiarity on its own, entorhinal neurons carry both familiarity and spatial information as the junction between the item and arrangement systems, and entorhinal lesions cost object recognition less, and less lastingly, than perirhinal ones (Brown & Aggleton 2001).
 - **[[wiki/entities/hippocampal-formation.md]]** — the hub that places this gateway inside the formation by convention and draws its layer II/III write, layer III temporoammonic path and layer Vb return as the entry and exit edges of one circuit diagram, with the owning page named per edge.
+- **[[wiki/entities/head-direction-system.md]]** — heading has two candidate routes into the store, and this page holds one of them: the presubiculum projects to medial-entorhinal layers I–III (deep presubiculum to all layers), so heading can reach the hippocampus through layer II/III as well as directly from the presubiculum. Which route dominates is decided by a lesion comparison nobody has run (van Strien et al. 2009).
 - **[[wiki/entities/remerge.md]]** — gives this page's deep-to-superficial arm a computational job: the store's output is recirculated as its next input, so retrieval can chain across separately stored episodes. In humans the absent bridge item is decoded from the superficial layers on inference trials, in proportion to deep–superficial connectivity, and that connectivity predicts inference (Koster et al. 2018).
