@@ -107,7 +107,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G90 | No architecture in the wiki has an internally generated mode that competes with the input-driven one, and none has an arbitrator | arrangement | `L2` | `OPEN` | 10 | [[wiki/gaps/g090.md]] |
 | G91 | The wiki has no gate that learns what deserves to be broadcast, and no architecture in it has a discrete commit at all | arrangement | `L2` | `OPEN` | 9 | [[wiki/gaps/g091.md]] |
 | G92 | No architecture in the wiki derives the agent/world boundary; every one of them has it drawn by hand | part | `L0` | `OPEN` | 4 | [[wiki/gaps/g092.md]] |
-| G93 | Context in every wiki architecture is either one global scalar or a hand-supplied task label; none has an *addressed* context channel | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g093.md]] |
+| G93 | Context in every wiki architecture is either one global scalar or a hand-supplied task label; none has an *addressed* context channel | arrangement | `L2` | `OPEN` | 4 | [[wiki/gaps/g093.md]] |
 | G94 | Nothing in the wiki adapts a unit's *time constant*, and nothing pools its gain locally — input normalization is a global, offline, once-per-dataset operation | part | `L3` | `OPEN` | 2 | [[wiki/gaps/g094.md]] |
 | G95 | Every self-supervised system in the wiki has its invariance group *declared* by a hand-written augmentation list; nothing here discovers which directions are nuisance from the input's own statistics | part | `L3` | `PARTIAL` | 15 | [[wiki/gaps/g095.md]] |
 | G96 | Top-down control needs an address inside the control layer, and every model gets it by reading the ground truth | part | `L2` | `PARTIAL` | 3 | [[wiki/gaps/g096.md]] |

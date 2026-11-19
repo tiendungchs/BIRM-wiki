@@ -379,3 +379,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T412 | Is parietal cortex necessary for verbal relational deduction? | `L1` | `LIVE` | 4 | [[wiki/tensions/t412.md]] |
 | T413 | Is hippocampal pattern separation domain-general, or one per-stream operation among several? | `L1` | `LIVE` | 2 | [[wiki/tensions/t413.md]] |
 | T414 | Does the hippocampus split space and time across subfields, or carry both in every subfield? | `L1` | `LIVE` | 3 | [[wiki/tensions/t414.md]] |
+| T415 | Which hippocampal recurrent field holds the item attractor: CA3, with the dentate as separator, or the dentate, with CA3 as a heteroassociative sequence stepper? | `L1` | `LIVE` | 4 | [[wiki/tensions/t415.md]] |

@@ -13,7 +13,7 @@ One INGEST each:
 - [x] `buzsaki-2013-memory-navigation-theta-hippocampal-entorhinal.md` — hippocampal-entorhinal · F · 2013
 - [x] `kesner-2015-computational-theory-hippocampal-function-new-developments.md` — hippocampal-entorhinal · F · 2015
 - [x] `eichenbaum-2017-integration-space-time-memory.md` — hippocampal-entorhinal · F · 2017
-- [ ] `lisman-1999-relating-hippocampal-circuitry-to-function.md` — hippocampal-entorhinal · M · 1999
+- [x] `lisman-1999-relating-hippocampal-circuitry-to-function.md` — hippocampal-entorhinal · M · 1999
 - [ ] `lu-2022-probabilistic-analogical-mapping-semantic-relation-networks.md` — analogy-abstraction · M · 2022 · LOSSY
 - [ ] `webb-2023-zero-shot-visual-reasoning-probabilistic-analogical-mapping.md` — analogy-abstraction · M · 2023
 - [ ] `christoff-2001-rostrolateral-prefrontal-relational-integration-reasoning.md` — prefrontal-control · R · 2001 · LOSSY
