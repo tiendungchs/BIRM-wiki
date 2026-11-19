@@ -797,7 +797,7 @@ Not acquired: Waltz et al. 1999, *A system for relational reasoning in human pre
 
 One INGEST each:
 
-- [ ] `vanstrien-2009-anatomy-of-memory-parahippocampal-hippocampal-network.md` — hippocampal-entorhinal · S · 2009
+- [x] `vanstrien-2009-anatomy-of-memory-parahippocampal-hippocampal-network.md` — hippocampal-entorhinal · S · 2009
 - [ ] `knierim-2016-tracking-flow-hippocampal-computation.md` — hippocampal-entorhinal · S · 2016
 - [ ] `holyoak-2021-relational-integration-human-brain-review.md` — prefrontal-control · S · 2021 · LOSSY
 - [ ] `hummel-2003-symbolic-connectionist-theory-relational-inference.md` — analogy-abstraction · F · 2003 · LOSSY
