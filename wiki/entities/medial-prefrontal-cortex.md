@@ -507,6 +507,22 @@ Controls the source runs, all passed by the vmPFC effect: education as a covaria
 
 ---
 
+## Human ventral-tier lesions and schema congruence in recognition: detection survives, application does not
+
+> **Provenance.** Spalding, Jones, Duff, Tranel & Warren 2015, J Neurosci 35(47):15746–15751 (`raw/spalding-2015-vmpfc-necessary-schematic-influence-on-memory.md`). Focal bilateral vmPFC lesions `n = 6` (same Iowa registry as Koscik & Tranel 2012) against 12 matched normal comparisons. Objects studied with a congruent or incongruent context word, then tested alone as old / similar (perceptual lure) / new. Full treatment: [[wiki/concepts/schema-assimilation.md]].
+
+| Operation | After vmPFC damage |
+|---|---|
+| Classify object–context congruence | Mildly worse (`d′`, `p = .019`), still > 90% agreement with norms |
+| Imagery, overall old/new recognition | Intact |
+| Congruence at study raises "old" responses to studied items **and** their lures | **Absent** (group × congruence `p = .011`). Still absent with each patient's own congruence ratings as predictor |
+
+- **This extends claim 3 of the Gilboa & Marlatte section above to perceptual lures and to true recognition.** The lesion removes both the schema's benefit and its error on one manipulation, and leaves mean accuracy unchanged. It is the ablation profile that section predicts.
+- **Detection and application dissociate.** The congruence signal still reaches an explicit rating without this tissue but no longer reaches recognition. This places the ventral tier on the route from congruence to memory, not as the congruence detector.
+- **Target and lure shift together** (item type × congruence n.s.). A read-side criterion is as consistent with the data as a write-side loss of detail ([[wiki/concepts/pattern-separation-completion.md]], `G38`).
+
+---
+
 ## Limitations
 
 - **Rat, and homology is asserted at one point only** — prelimbic ≈ Brodmann area 32. Everything else must be mapped by hand before it constrains a primate-derived control model.
@@ -536,12 +552,13 @@ Controls the source runs, all passed by the vmPFC effect: education as a covaria
 - **The geometry is measured on session-averaged bouts in a 2-D principal-component projection**, with cluster distance as the only statistic; no intrinsic-dimension estimate, no cross-condition generalization test, and no input-geometry control ([[wiki/concepts/population-geometry.md]]), so the divergence is a difference between two projections rather than a characterised difference of manifolds.
 - **The monkey arm is two animals and one task, and its region has no independent anatomical definition.** pmPFC is delimited by where task-related neurons were found plus two negatives (no sensory response, no microstimulation effect); no cytoarchitecture, no tract tracing, and no homology to the rat tiers above or to the human medial wall below is offered. Its central manipulation is also confounded: the single-tactic blocks removed the choice *and* made the cue→target spatial relation constant, so habit formation is an alternative account of the withdrawal that the design cannot exclude ([[wiki/empirical-tensions.md]] T94).
 - **The human transitive-inference lesion result is a floor-level comparison.** Both control groups are at chance on the transitive items, so the vmPFC effect is a below-chance reversal and not a lost inference. The study's nulls (unilateral MTL, dorsolateral PFC) cannot be read (Koscik & Tranel 2012).
+- **The human schema-congruence lesion result is six patients at two congruence levels.** It shows necessity for the congruence effect, not where in the encode→retrieve pipeline the tissue acts (context is absent at test, lesions are permanent). Its Table 2 congruence main effect is internally inconsistent (`β/SE ≈ 0.93` against a reported `Z = 2.89`) (Spalding et al. 2015).
 
 ---
 
 ## Connections
 
-- **[[wiki/concepts/schema-assimilation.md]]** — *(third link, the instantiation arm)* adds an operation earlier than anything this page's control literature describes: before any memory effect, the ventral tier binds posterior long-term representations into a context-sensitive template and biases the input stream to fit it, causally — lesion abolishes the fusiform N170 familiarity modulation and the pre-stimulus vmPFC↔temporal theta decoupling, and *protects* against schema-induced false memory (Gilboa & Marlatte 2017).
+- **[[wiki/concepts/schema-assimilation.md]]** — *(third link, the instantiation arm)* adds an operation earlier than anything this page's control literature describes: before any memory effect, the ventral tier binds posterior long-term representations into a context-sensitive template and biases the input stream to fit it, causally — lesion abolishes the fusiform N170 familiarity modulation and the pre-stimulus vmPFC↔temporal theta decoupling, and *protects* against schema-induced false memory (Gilboa & Marlatte 2017). In recognition, focal damage removes the congruence-driven rise in both hits and perceptual-lure false alarms while congruence classification survives, so this tier applies the schema to memory rather than detecting fit (Spalding et al. 2015).
 - **[[wiki/entities/hippocampal-prefrontal-channel.md]]** — the projection into and out of this region, split off from this page because it is about neither endpoint: the medial wall's two tiers turn out to be the channel's two ports (ventral tier receives context, anterior cingulate writes the retrieval trigger back), and the edge itself carries a plasticity rule, a dopaminergic gain, an amygdala write-lock and a stress-set operating point that this page's anatomy only supplies the terminals for.
 - **[[wiki/concepts/cognitive-control.md]]** — supplies the anatomy that page's mechanism omits: the "sustained bias broadcast to the systems that supply its input" is emitted by *two* controllers with disjoint output ports (dorsal → sensorimotor/collicular/accumbens-core, ventral → limbic/autonomic/monoaminergic), so which systems get biased is a property of which tier holds the task model — and the prelimbic→infralimbic goal-directed→habit shift contradicts that page's account of automaticity as the controller dropping out ([[wiki/empirical-tensions.md]] T94).
 - **[[wiki/concepts/working-memory.md]]** — locates the maintenance deficit: delay-dependent error growth and muscarinic-blockade-sensitive spatial working memory are prelimbic/infralimbic, not anterior cingulate, so the cholinergic gate on maintenance is subregion-specific rather than a global prefrontal parameter — and then removes most of what is left: rodent delay-period deficits are confounded with task novelty, with mediating behavioural strategies (cells resolve sub-centimetre position differences), and with reference memory, leaving short-term memory *for actions and errors* as the only well-controlled residue (Euston et al. 2012).

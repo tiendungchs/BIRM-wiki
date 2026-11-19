@@ -53,7 +53,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G35 | No model pays for its own parameters | part | `L0` | `OPEN` | 7 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g036.md]] |
 | G37 | Nothing decides which stored structure applies to the current situation | part | `L2` | `PARTIAL` | 33 | [[wiki/gaps/g037.md]] |
-| G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `L2` | `PARTIAL` | 40 | [[wiki/gaps/g038.md]] |
+| G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `L2` | `PARTIAL` | 41 | [[wiki/gaps/g038.md]] |
 | G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 30 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g040.md]] |
 | G41 | No test decides whether a domain's actions compose | part | `L0-INSTR` | `OPEN` | 5 | [[wiki/gaps/g041.md]] |

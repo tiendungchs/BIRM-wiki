@@ -295,6 +295,59 @@ Three consequences for this page.
 
 ---
 
+## The lesion test of property (i): one vmPFC-dependent shift, on hits and lures alike
+
+> **Provenance (sixth ingest).** Spalding, Jones, Duff, Tranel & Warren 2015, *Investigating the neural correlates of schemas: ventromedial prefrontal cortex is necessary for normal schematic influence on memory*, J Neurosci 35(47):15746–15751, doi:10.1523/JNEUROSCI.2767-15.2015 (`raw/spalding-2015-vmpfc-necessary-schematic-influence-on-memory.md`). Focal bilateral vmPFC lesions `n = 6` against normal comparisons (NC) `n = 12`, matched 2:1 on sex, age and education. Figure 1 not clipped, so per-condition proportions are known only from the text and Table 2.
+
+Gilboa & Marlatte's "the same edge makes the prior useful and manufactures the error" (above) rests on two different tasks: N170 for the benefit, Deese–Roediger–McDermott (DRM) word lists for the cost. This study puts benefit and cost on **one manipulation and one lesion**.
+
+**Design.**
+
+| Phase | What happens |
+|---|---|
+| Study (congruence judgement) | 384 everyday objects, each with two visually similar exemplars (the Yassa et al. 2011 set). An object is shown for 4 s with a context word that is congruent (cactus + "desert") or incongruent (cactus + "ice rink"). Subjects imagine the object in the setting, then rate image clarity (1–4) and congruence (1–4) |
+| Test (recognition) | Object alone, **no context**. Old / similar / new, plus confidence (1–4). 96 items per type: *old* (studied exemplar), *similar* (the other exemplar of a studied object, a perceptual lure), *new*. Old and similar split 48/48 by study congruence |
+| Analysis | Multilevel logistic regression on P("old"). Fixed effects: group, congruence, item type, group × congruence, confidence, response time, one-back and two-back previous response. Random intercepts for item and participant. Parametric-bootstrap significance |
+
+**Results.**
+
+| Measure | NC | vmPFC | Statistic |
+|---|---|---|---|
+| Agreement of congruence ratings with norms (`d′`) | higher | lower | `t(16) = 2.62, p = .019`; **both groups > 90% agreement** |
+| Image clarity | — | not different | `t(16) = 0.97, p = .35` |
+| Old/new recognition accuracy | — | not different | `t(16) = 0.20, p = .84` |
+| Congruence main effect on P("old") | | | `β = 0.136`, odds ratio (OR) 1.31, `p = .004` |
+| **Group × congruence** | | | `β = 0.124`, OR 1.13, `p = .011` |
+| Congruence effect on **old** items (true recognition) | `p = .044` | `p = .68` | linear contrast |
+| Congruence effect on **similar** lures (false recognition) | `p = .003` | `p = .52` | linear contrast |
+| Item type × congruence; group × item type × congruence | | | `β = 0.008`, `β = −0.017`, both n.s. |
+| Model 2: each subject's *own* congruence rating replaces the norm | `p = .032` old, `p = .044` similar | `p = .68`, `p = .52` | interaction holds, `β = 0.110, p < .05` |
+
+**What it adds.**
+
+1. **Benefit and cost fall together under one ablation.** In controls a congruent study context raises "old" responses to the studied exemplar *and* to its perceptual lure. After vmPFC damage neither moves. This is the human lesion instance of the brainstorm under Gilboa & Marlatte above (accuracy on in-schema items and hallucination on schema-adjacent distractors should move together). Here the lures are perceptual, not semantic as in DRM.
+2. **Computing congruence is not the same as using it.** The patients still classify congruence correctly on > 90% of trials. With their own ratings as the predictor (Model 2), their memory still shows no congruence effect. So the congruence signal is still available to an explicit judgement without vmPFC, but does not reach recognition. Reading for a builder **(brainstorm)**: two readers of one signal, and vmPFC sits only on the path to the mnemonic reader. `n = 6`.
+3. **The shift is common to targets and lures.** Item type × congruence is null (`β = 0.008`): in log-odds, congruence adds the same amount to studied exemplars and to their lures. Under a logistic signal-detection reading, the ability to tell old from similar stays the same and the criterion moves. The authors' account (a generalized trace that lacks the detail to reject the lure) is one reading. A congruence-conditional liberal criterion at test is the other. The design cannot separate them: new items carry no congruence label, and no per-condition discrimination index is reported. This bears on `T372`. Position A reads its strongest datum as *reduced pattern separation*, and this primary study measures a bias shift without a measured discrimination loss.
+4. **Encoding or retrieval is not resolved.** Context is absent at test and the lesion is permanent, so vmPFC may act when the object is bound to its setting, or at test by reinstating the studied setting. The instantiation/encoding split above is not addressed.
+5. **No overall memory deficit.** vmPFC loss shows up only as a missing modulation (`t(16) = 0.20` on overall accuracy). Scored on average accuracy, the region's contribution would be invisible.
+
+**For a model (brainstorm).**
+
+- **Ablation scoring rule.** For any schema or context pathway, report the congruence × item-type cell table (hits and near-duplicate false alarms by study congruence), not mean accuracy. An ablation that leaves mean accuracy flat may still have removed the whole schematic effect.
+- **The machine replication.** Store items under a congruent or incongruent context, test without context on exact items and near-duplicates, and compute per congruence condition both discrimination (`logit(hit) − logit(lure FA)`) and criterion. Then ablate the context pathway. Point 3 predicts the intact model shows criterion movement only. A discrimination change would make it a write-side specificity effect (pattern separation, `G38`), not a read-side bias.
+
+**Limits.**
+
+| Limit | Consequence |
+|---|---|
+| `n = 6`; etiologies mixed (4 resection, 1 stroke, 1 subarachnoid haemorrhage); 20–56% of vmPFC grey matter lesioned | Group-level only; no lesion-extent analysis |
+| Two congruence levels | Says nothing about `T372`'s inverted U, which needs ≥ 3 |
+| Explicit old/similar/new judgement | Invites recall-to-reject ([[wiki/concepts/pattern-separation-completion.md]], Bakker et al. 2008), so lure responses mix separation, completion and strategy |
+| Table 2 congruence main effect: `β = 0.136`, `SE = 0.147`, `Z = 2.893` | Inconsistent: `0.136/0.147 ≈ 0.93`. Probably a typo for `SE = 0.047` (`0.136/0.047 ≈ 2.89`, matching neighbouring rows). The interaction row is internally consistent |
+| Item type entered as one three-level predictor with one `β` (0.811); congruence coding for new items (no study context) unstated | The model's handling of new items cannot be checked |
+
+---
+
 ## Open problems
 
 - **No arbitration between integration and separation** (above). Both are prefrontal, both are triggered by conflict, and nothing predicts which fires.
@@ -303,7 +356,8 @@ Three consequences for this page.
 - **Accommodation has no mechanism.** The review assigns it to prefrontal cortex and describes its behavioural signature; it names no plasticity rule that rewrites an existing structure without destroying it — which is the continual-learning problem ([[wiki/concepts/continual-learning.md]]) stated in memory terms.
 - **Schema identity is unoperationalised.** "The same schema" is defined ostensively — the same arena, the same list. Two experiences overlapping in some features and not others have no defined membership, and property (i) (one-trial learning) was shown to fail across environments, so the boundary is doing real work while remaining undefined (this is G37/G27 in another vocabulary).
 - **Homology.** "mPFC in rats ≈ vmPFC in humans" carries the entire cross-species argument and the source flags it as unfinished.
-- **Competition or cooperation between controller and store is unresolved, and the deciding variable is the same unmeasured one** ([[wiki/empirical-tensions.md]] T372). SLIMM has vmPFC inhibiting medial-temporal binding when the input resonates with a schema; the associative-inference literature has the two coupling more, and the coupling predicting inference. The source's reconciliation is an inverted U over relatedness — weak coupling for arbitrary material *and* for very strongly schematic material, peak in between — which no study has tested because none varies relatedness at more than two levels.
+- **Competition or cooperation between controller and store is unresolved, and the deciding variable is the same unmeasured one** ([[wiki/empirical-tensions.md]] T372). SLIMM has vmPFC inhibiting medial-temporal binding when the input resonates with a schema; the associative-inference literature has the two coupling more, and the coupling predicting inference. The source's reconciliation is an inverted U over relatedness — weak coupling for arbitrary material *and* for very strongly schematic material, peak in between — which no study has tested because none varies relatedness at more than two levels. Position A's false-alarm datum is now causal, since vmPFC lesions remove it. But in the primary lesion study the false-alarm datum is a shift shared with hits, not a measured loss of discrimination (Spalding et al. 2015, above).
+- **Whether schematic influence is a trace property or a read criterion.** Congruence at study shifts hits and lure false alarms equally in log-odds, and no study reports discrimination per congruence condition. A write-side loss of specificity and a read-side liberal criterion predict the same cell pattern in this design (Spalding et al. 2015).
 - **How schemas are *constructed and accommodated* is barely studied at all.** The source says so directly: almost all work is on assimilation of new information into an existing schema. Accommodation still has no mechanism (above), and now neither does construction.
 - **Whether general-form schemas are the same object as the low-level knowledge structures actually tested.** Nearly every paradigm uses informationally specific prior knowledge (a trained array of paired associates, a weather-prediction rule set). Whether a superordinate template recruits a broader compilation of the same subprocesses or something qualitatively different is stated as unknown — which is the source's own version of this page's *schema identity is unoperationalised*.
 - **Statistical learning alone, or a prior that constrains it?** Open in the source: whether detection of regularities can by itself yield structured symbolic schemas, or whether prior abstract knowledge must be assumed to constrain acquisition — the [[wiki/concepts/inductive-bias.md]] question stated inside the memory literature.
@@ -326,14 +380,14 @@ Three consequences for this page.
 - **[[wiki/concepts/complementary-learning-systems.md]]** — indexes the same fast/slow transport by a different variable: not elapsed time or learning rate but *overlap with what is already stored*, which turns the standard slow-cortical-learning claim into a special case (the no-schema condition) and makes one-trial cortical learning the schema-matched case (Tse et al. 2007, via Preston & Eichenbaum 2013).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the biological statement of the page's central problem in memory terms: a schema is a known subgraph, assimilation is adding an edge between existing nodes, accommodation is rewriting existing edges, and the inference test (A–C never observed) is a path query over a *discovered* graph.
 - **[[wiki/entities/medial-prefrontal-cortex.md]]** — supplies the content on that page's one-way hippocampal channel: a generality-graded context code from the ventral/anterior pole, and the causal demonstration that the controller *selects* rather than retrieves — mPFC inactivation leaves dorsal hippocampal retrieval intact but indiscriminate.
-- **[[wiki/concepts/pattern-separation-completion.md]]** — proposes what sets that page's separate-vs-complete knob: schema membership rather than input similarity, because events inside a known structure are written to the *same* cells with similar patterns and only differentiate over days, which is the opposite trajectory to sparse-conjunctive separation (gap G38).
+- **[[wiki/concepts/pattern-separation-completion.md]]** — proposes what sets that page's separate-vs-complete knob: schema membership rather than input similarity, because events inside a known structure are written to the *same* cells with similar patterns and only differentiate over days, which is the opposite trajectory to sparse-conjunctive separation (gap G38). Behaviourally, congruence at study raises perceptual-lure false alarms through vmPFC, but by the same log-odds as hits. So it is not yet shown to act on that page's write-side knob rather than on a read criterion (Spalding et al. 2015).
 - **[[wiki/concepts/contextual-inference.md]]** — the same context-selects-which-memory-is-expressed logic, with the selection localised to a controller rather than to a posterior: the store returns all context-matched and context-mismatched candidates and prefrontal cortex suppresses the wrong ones, so responsibility is applied downstream of retrieval instead of inside it.
 - **[[wiki/concepts/offline-replay.md]]** — adds an *online* reinstatement to the replay inventory: during encoding of an overlapping pair the prior associate is retrieved into the episode, so the conflict that drives integration is manufactured by replay at write time rather than resolved offline afterwards.
 - **[[wiki/concepts/recall-gated-consolidation.md]]** — the opposite sign of one statistic: that page gates the slow write on the fast store *agreeing* with the proposed update, this one engages the expensive module when it *disagrees*, and both are computed from the same retrieval-vs-observation comparison.
 - **[[wiki/concepts/generalization-optimized-consolidation.md]]** — a second reason the optimal transport is not "everything": beyond the generalization-error stopping rule, the demand for transport depends on whether the new item conflicts with stored structure, and on whether its episodic detail must survive — two inputs that page's objective does not have.
 - **[[wiki/concepts/cognitive-control.md]]** — extends the controller's job description backwards in time: the same bias signal that selects a task set is here selecting a *memory structure*, and its trigger is measured (mnemonic conflict, with vmPFC recruitment under conflict predicting successful inference).
 - **[[wiki/concepts/continual-learning.md]]** — names the operation neither literature has a rule for: accommodation is a targeted rewrite of an existing structure to admit a conflicting item, which is what importance-gated plasticity is designed to *prevent*, so the two mechanisms want opposite things from the same weights.
-- **[[wiki/entities/medial-prefrontal-cortex.md]]** — *(second link, human arm)* localises this page's schema operations in humans and widens their content: Brodmann-area-11 damage removes schema assimilation and schema-biased recall, and the tissue that does it is the one region of the medial wall that no psychological domain can claim, which is what an amodal situation model should look like (Lieberman & Meyer 2018).
+- **[[wiki/entities/medial-prefrontal-cortex.md]]** — *(second link, human arm)* localises this page's schema operations in humans and widens their content: Brodmann-area-11 damage removes schema assimilation and schema-biased recall, and the tissue that does it is the one region of the medial wall that no psychological domain can claim, which is what an amodal situation model should look like (Lieberman & Meyer 2018). The causal test of property (i) on one manipulation: focal bilateral damage removes the congruence-driven rise in both true and false recognition, while overall recognition and > 90% congruence classification survive. So the tissue is needed to *apply* congruence to memory, not to detect it (Spalding et al. 2015).
 - **[[wiki/concepts/event-segmentation.md]]** — the same stored object approached from time rather than from overlap: an event model and a situation model have the same slot problem, and the situational reading adds evaluative and social dimensions that a boundary-detection account has no way to produce.
 - **[[wiki/concepts/abstraction-graph.md]]** — this page's division of labour is that page's cache and deriver in biology (store returns, controller selects), its integrate-versus-separate split is the medial/lateral bridge that page's two prefrontal anchors needed, and its three-stage trajectory (hippocampus → ventromedial template → ventrolateral and anterior temporal cortex) is the way-station row in that page's store table.
 - **[[wiki/concepts/cognitive-map.md]]** — the long-axis generality gradient in its home domain: item-in-place coding at the dorsal/posterior pole, context-discriminating coding at the ventral/anterior pole, with only the latter projecting to the controller — two grains of one map with a different consumer each.
