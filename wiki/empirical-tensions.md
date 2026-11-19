@@ -194,7 +194,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T204 | Does test-time compute buy generalization on ARC, or does it only buy the tail? | `L0-INSTR` | `LIVE` | 5 | [[wiki/tensions/t204.md]] |
 | T208 | Does an application-layer harness measure a capability the model has, or one the harness author has? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t208.md]] |
 | T211 | Should an intelligence benchmark equalise human priors, or withhold them? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t211.md]] |
-| T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `L0-INSTR` | `LEANING` | 9 | [[wiki/tensions/t215.md]] |
+| T215 | Is the visual/textual gap on ARC-format tasks a reasoning deficit or a perceptual one? | `L0-INSTR` | `LEANING` | 10 | [[wiki/tensions/t215.md]] |
 | T217 | Does conditioning on a self-generated intermediate trace help or hurt? | `L2` | `LEANING` | 6 | [[wiki/tensions/t217.md]] |
 | T218 | Is normalised exact match an adequate acceptance test? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t218.md]] |
 | T220 | Is best-of-`k` monotone in `k`? | `L0-INSTR` | `LEANING` | 5 | [[wiki/tensions/t220.md]] |
@@ -380,4 +380,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T413 | Is hippocampal pattern separation domain-general, or one per-stream operation among several? | `L1` | `LIVE` | 2 | [[wiki/tensions/t413.md]] |
 | T414 | Does the hippocampus split space and time across subfields, or carry both in every subfield? | `L1` | `LIVE` | 3 | [[wiki/tensions/t414.md]] |
 | T415 | Which hippocampal recurrent field holds the item attractor: CA3, with the dentate as separator, or the dentate, with CA3 as a heteroassociative sequence stepper? | `L1` | `LIVE` | 4 | [[wiki/tensions/t415.md]] |
-| T416 | Does analogical mapping need explicit higher-order relations (propositions that take propositions as arguments), or do pairwise relations among co-occurring concepts suffice? | `L1` | `LIVE` | 3 | [[wiki/tensions/t416.md]] |
+| T416 | Does analogical mapping need explicit higher-order relations (propositions that take propositions as arguments), or do pairwise relations among co-occurring concepts suffice? | `L1` | `LIVE` | 4 | [[wiki/tensions/t416.md]] |
