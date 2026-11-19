@@ -45,8 +45,8 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T30 | What is replay for — planning the next path, or building a transferable map? | `L2` | `LIVE` | 8 | [[wiki/tensions/t030.md]] |
 | T31 | Is the entorhinal integrator perfect or leaky? | `L3` | `LIVE` | 2 | [[wiki/tensions/t031.md]] |
 | T32 | Is serial order carried by oscillatory phase or by rate-coded time cells? | `L3` | `LIVE` | 5 | [[wiki/tensions/t032.md]] |
-| T33 | Is CA1 a linear relay or a second recombination-and-completion stage? | `L1` | `LIVE` | 5 | [[wiki/tensions/t033.md]] |
-| T34 | Does hippocampus→cortex transfer happen during sleep or during waking? | `L2` | `LEANING` | 3 | [[wiki/tensions/t034.md]] |
+| T33 | Is CA1 a linear relay or a second recombination-and-completion stage? | `L1` | `LIVE` | 6 | [[wiki/tensions/t033.md]] |
+| T34 | Does hippocampus→cortex transfer happen during sleep or during waking? | `L2` | `LEANING` | 4 | [[wiki/tensions/t034.md]] |
 | T35 | Is remapping controlled by the environment or by the animal's inference history? | `L2` | `LEANING` | 1 | [[wiki/tensions/t035.md]] |
 | T37 | Is grid-like coding a discovery or a detection artefact? | `L0-INSTR` | `LIVE` | 8 | [[wiki/tensions/t037.md]] |
 | T38 | Do grid cells emerge from training on path integration? | `L3` | `LEANING` | 8 | [[wiki/tensions/t038.md]] |
@@ -377,3 +377,4 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T410 | Does a coarse level that predicts its own future (Markovian macrostates) certify a self-contained level, or must the micro level also add nothing (information closure)? | `L0-INSTR` | `LEANING` | 4 | [[wiki/tensions/t410.md]] |
 | T411 | Does above-chance `B–D` choice after five-term premise training measure an ordering of the items, or item-level reward history? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t411.md]] |
 | T412 | Is parietal cortex necessary for verbal relational deduction? | `L1` | `LIVE` | 4 | [[wiki/tensions/t412.md]] |
+| T413 | Is hippocampal pattern separation domain-general, or one per-stream operation among several? | `L1` | `LIVE` | 2 | [[wiki/tensions/t413.md]] |
