@@ -19,7 +19,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G1 | Two-level separation exists as a timescale split, not as a factorization | part | `L1` | `PARTIAL` | 25 | [[wiki/gaps/g001.md]] |
 | G2 | De-aliasing without a hand-built state space | part | `L0` | `PARTIAL` | 16 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `L1` | `PARTIAL` | 14 | [[wiki/gaps/g003.md]] |
-| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 29 | [[wiki/gaps/g004.md]] |
+| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 30 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `L1` | `PARTIAL` | 7 | [[wiki/gaps/g005.md]] |
 | G6 | Spurious edges survive training — and are the default, not the exception | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g007.md]] |
@@ -42,7 +42,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 15 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 24 | [[wiki/gaps/g026.md]] |
-| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 44 | [[wiki/gaps/g027.md]] |
+| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 45 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `L0` | `PARTIAL` | 20 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 10 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 26 | [[wiki/gaps/g030.md]] |
@@ -52,7 +52,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G34 | Every self-supervised objective's cheapest solution is to represent nothing | part | `L3` | `PARTIAL` | 20 | [[wiki/gaps/g034.md]] |
 | G35 | No model pays for its own parameters | part | `L0` | `OPEN` | 7 | [[wiki/gaps/g035.md]] |
 | G36 | Nothing measures the capacity to *construct* an arrangement, only the arrangement | part | `L0-INSTR` | `OPEN` | 2 | [[wiki/gaps/g036.md]] |
-| G37 | Nothing decides which stored structure applies to the current situation | part | `L2` | `PARTIAL` | 33 | [[wiki/gaps/g037.md]] |
+| G37 | Nothing decides which stored structure applies to the current situation | part | `L2` | `PARTIAL` | 34 | [[wiki/gaps/g037.md]] |
 | G38 | Nothing sets the separation/completion bias, and it is not a constant | part | `L2` | `PARTIAL` | 41 | [[wiki/gaps/g038.md]] |
 | G39 | Nothing anchors a retrieved structure to the present situation | part | `L2` | `OPEN` | 30 | [[wiki/gaps/g039.md]] |
 | G40 | Nothing decides when to factorise and when to entangle | part | `L2` | `OPEN` | 13 | [[wiki/gaps/g040.md]] |
@@ -119,7 +119,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G102 | No architecture has a state in which it holds a capability and declines to deploy it | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g102.md]] |
 | G103 | No architecture imposes self–other equivalence: nothing requires that the description under which a model perceives another agent's act be the same description under which it produces that act itself | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g103.md]] |
 | G104 | No architecture holds role-filler independence *during* binding: in every structural code here the role and the filler stop being separately addressable the moment they are bound | part | `L3` | `PARTIAL` | 10 | [[wiki/gaps/g104.md]] |
-| G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `L0` | `PARTIAL` | 14 | [[wiki/gaps/g105.md]] |
+| G105 | Every graph-discovery mechanism in the wiki estimates pairs; nothing infers a relation among three or more elements from data | part | `L0` | `PARTIAL` | 15 | [[wiki/gaps/g105.md]] |
 | G106 | A superposition-of-bindings code over a fully crossed stimulus set is linearly dependent by construction, and nothing in the wiki checks for it | part | `L3` | `OPEN` | 4 | [[wiki/gaps/g106.md]] |
 | G107 | The exchange rate between computation and accuracy is a hand-set constant in every architecture that varies its own compute | part | `L3` | `OPEN` | 12 | [[wiki/gaps/g107.md]] |
 | G108 | No label-free criterion selects a good representation out of a training run | part | `L0-INSTR` | `OPEN` | 12 | [[wiki/gaps/g108.md]] |
