@@ -19,7 +19,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G1 | Two-level separation exists as a timescale split, not as a factorization | part | `L1` | `PARTIAL` | 25 | [[wiki/gaps/g001.md]] |
 | G2 | De-aliasing without a hand-built state space | part | `L0` | `PARTIAL` | 16 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `L1` | `PARTIAL` | 14 | [[wiki/gaps/g003.md]] |
-| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 30 | [[wiki/gaps/g004.md]] |
+| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 31 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `L1` | `PARTIAL` | 7 | [[wiki/gaps/g005.md]] |
 | G6 | Spurious edges survive training — and are the default, not the exception | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g007.md]] |
@@ -42,7 +42,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 15 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g025.md]] |
 | G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 24 | [[wiki/gaps/g026.md]] |
-| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 45 | [[wiki/gaps/g027.md]] |
+| G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 46 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `L0` | `PARTIAL` | 20 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 10 | [[wiki/gaps/g029.md]] |
 | G30 | The `g`/`x` factorization occupies only one slot of three | part | `L1` | `OPEN` | 26 | [[wiki/gaps/g030.md]] |
@@ -88,9 +88,9 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `PARTIAL` | 10 | [[wiki/gaps/g070.md]] |
 | G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 5 | [[wiki/gaps/g071.md]] |
 | G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 16 | [[wiki/gaps/g072.md]] |
-| G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 17 | [[wiki/gaps/g073.md]] |
+| G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 18 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g074.md]] |
-| G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `L0` | `OPEN` | 18 | [[wiki/gaps/g075.md]] |
+| G75 | Nothing chooses how to parse the input; the object decomposition is fixed before the task is seen | part | `L0` | `OPEN` | 19 | [[wiki/gaps/g075.md]] |
 | G76 | A temporally coded output has no loss function | part | `L3` | `PARTIAL` | 6 | [[wiki/gaps/g076.md]] |
 | G77 | Every high-performing temporal code in the wiki needs a time origin that nothing supplies | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g077.md]] |
 | G78 | Nothing sets a slow variable's time constant, and memory span is that time constant | part | `L3` | `PARTIAL` | 7 | [[wiki/gaps/g078.md]] |

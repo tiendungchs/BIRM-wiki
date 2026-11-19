@@ -271,7 +271,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T303 | Is the striatum an action-selection module, or a prediction-error stage *below* prefrontal cortex? | `L1` | `LIVE` | 2 | [[wiki/tensions/t303.md]] |
 | T304 | Should a joint-embedding's output be ℓ₂-normalised onto the hypersphere? | `L3` | `LIVE` | 5 | [[wiki/tensions/t304.md]] |
 | T305 | Should a joint-embedding's predictor be kept *optimal*, or merely *fast*? | `L3` | `LIVE` | 5 | [[wiki/tensions/t305.md]] |
-| T306 | Should an analogical matcher emit every consistent interpretation, or commit to one? | `L1` | `LIVE` | 3 | [[wiki/tensions/t306.md]] |
+| T306 | Should an analogical matcher emit every consistent interpretation, or commit to one? | `L1` | `LIVE` | 4 | [[wiki/tensions/t306.md]] |
 | T307 | Does neural predictivity certify that a model implements the brain's algorithm? | `META` | `LEANING` | 6 | [[wiki/tensions/t307.md]] |
 | T308 | Is the momentum encoder necessary to prevent collapse, or only the stop-gradient? | `L3` | `LEANING` | 3 | [[wiki/tensions/t308.md]] |
 | T309 | Does a learned proposer beat blind enumeration, or only when the library is co-adapting? | `L3` | `LIVE` | 5 | [[wiki/tensions/t309.md]] |
@@ -302,7 +302,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T335 | Do matrix problems and four-term analogies measure the same relational competence? | `L0-INSTR` | `LIVE` | 6 | [[wiki/tensions/t335.md]] |
 | T336 | Is the analogy integrator a 0.33 cc left frontopolar site, or a right frontal network? | `L1` | `LIVE` | 6 | [[wiki/tensions/t336.md]] |
 | T337 | Is working-memory capacity a duty cycle over a periodic frame, or a rate of aperiodic bursts? | `L1` | `LIVE` | 2 | [[wiki/tensions/t337.md]] |
-| T338 | Is the relational integrator one shared head with routed inputs, or a tiled family of heads each wired to its own content feed? | `L2` | `LIVE` | 7 | [[wiki/tensions/t338.md]] |
+| T338 | Is the relational integrator one shared head with routed inputs, or a tiled family of heads each wired to its own content feed? | `L2` | `LIVE` | 8 | [[wiki/tensions/t338.md]] |
 | T339 | Does nucleus reuniens carry content between controller and store, or only open the direction? | `L2` | `LIVE` | 3 | [[wiki/tensions/t339.md]] |
 | T340 | Does the episodic store return its output to the stream that wrote it, or to the other one? | `L2` | `LIVE` | 3 | [[wiki/tensions/t340.md]] |
 | T341 | Does a cortical area carry one signed prediction-error population, or two sign-specific ones? | `L1` | `LEANING` | 4 | [[wiki/tensions/t341.md]] |
