@@ -2,7 +2,7 @@
 
 **A new event is encoded not only against what is present but against what the store *retrieves* while it is present: overlapping content cues reinstatement of a prior episode's unseen elements, and the current event is bound to the reinstated content rather than to the input alone. The composite `A–C` is therefore written at encoding time, before any query for it exists — not composed at retrieval.**
 
-> **Provenance.** Zeithamova, Dominick & Preston 2012, *Hippocampal and ventral medial prefrontal activation during retrieval-mediated learning supports novel inference*, Neuron 75:168–179 (`raw/zeithamova-2012-retrieval-mediated-learning-inference.md`). 26 subjects, block-design fMRI, associative-inference triads (`A–B`, `B–C` interleaved; tested on `A–C`), with multivoxel pattern analysis used to read out the *unseen* third element during encoding. The wiki already carried this result secondhand through Preston & Eichenbaum 2013 ([[wiki/concepts/schema-assimilation.md]]); this is the primary source, and it supplies the measurement the review only summarised.
+> **Provenance.** Zeithamova, Dominick & Preston 2012, *Hippocampal and ventral medial prefrontal activation during retrieval-mediated learning supports novel inference*, Neuron 75:168–179 (`raw/zeithamova-2012-retrieval-mediated-learning-inference.md`). 26 subjects, block-design fMRI, associative-inference triads (`A–B`, `B–C` interleaved; tested on `A–C`), with multivoxel pattern analysis used to read out the *unseen* third element during encoding. The wiki already carried this result secondhand through Preston & Eichenbaum 2013 ([[wiki/concepts/schema-assimilation.md]]); this is the primary source, and it supplies the measurement the review only summarised. A second primary source, Shohamy & Wagner 2008 (acquired equivalence with a midbrain gate and a latency test), has its own section below.
 
 ---
 
@@ -150,10 +150,66 @@ This page's mechanism is what the complementary-learning-systems literature call
 | Predicted dissociation | reactivation magnitude at encoding predicts inference (measured here, r = 0.46) | inference **lags** premise memory and is lost first when premise traces weaken. The review's "weak traces suffice" holds only for categorization ([[wiki/entities/remerge.md]]) |
 | What explains good vs poor generalizers | an integrated representation in good generalizers only | premise weights 1.52 vs 1.47 fit 73% vs 54% inference (Zeithamova & Preston 2010 data) |
 | Cost | paid once per episode, queried or not | paid per query, bounded by settling time |
+| Test latency, unobserved vs trained pair | equal: 39 ms gap in the best acquired-equivalence generalizers (Shohamy & Wagner 2008, below) | longer, if settling cycles map onto response time. Not simulated **(brainstorm)** |
 
 **The source's verdict is that the two are not currently distinguishable**, that both may run depending on paradigm, training amount and training–test delay, and — importantly for `T334` — that the distinction is **not absolute**: *generalized replay* (simultaneous reactivation of several related traces, offline) can write a settled state back as a new trace, at which point a retrieval-based mechanism has manufactured the composite this page measures. So the wiki's two positions are plausibly the same loop observed at different points, with the offline period as the converter.
 
 **What this page's measurement still buys against REMERGE.** The reactivation curve is read out during re-presentation of `AB` **with no query pending** — nothing is being asked, so there is no settling process to attribute it to. A pure retrieval-based account has to explain why the absent element is reinstated at encoding time at all. That is the sharpest constraint in the wiki on the retrieval-only pole, and neither source states it. **It is weaker than it looked.** The primary REMERGE paper fits a hippocampal encoding effect of the same kind (activity on `BC` trials predicts later `A–C`, Zeithamova & Preston 2010) as plain completion of the stronger `AB` trace when `B` reappears. That reinstatement needs no query and no integrated unit. So reinstatement of an absent element at encoding does not by itself favour this page. The part that still does is the ventromedial prefrontal effect surviving the partialling-out of premise memory, which trace strength cannot produce.
+
+---
+
+## Second primary source: integration gated by the midbrain (Shohamy & Wagner 2008)
+
+> Shohamy & Wagner 2008, *Integrating memories in the human brain: hippocampal–midbrain encoding of overlapping events*, Neuron 60:378–389 (`raw/shohamy-2008-integrating-memories-hippocampal-midbrain-overlapping-events.md`). n = 24 (3 non-learners excluded), event-related fMRI, acquired-equivalence design. The supplement was not clipped, so claims that rest on it are marked *(suppl.)*. The Figure 6 caption lost its subscripts, so the text's reading is used. Before this ingest the wiki carried the study only through REMERGE's fit to it ([[wiki/entities/remerge.md]]).
+
+**Design.**
+
+| Phase | Content |
+|---|---|
+| Learning (two scans: early, late) | 12 sets × 3 trained pairs `F1–S1`, `F2–S1`, `F1–S2` (36 pairs). A face is shown, the subject picks 1 of 2 scenes, feedback follows. 8 repetitions per pair, **intermixed** (no pair twice in a row). The correct scene for one face is the foil for another, so stimulus–response learning cannot solve the task |
+| Test (no feedback) | Trained pairs plus the untrained `F2–S2`, each shown 6 times |
+| Pre-exposure | Half the stimuli shown alone beforehand. No effect on learning or generalization, so the data are collapsed across it |
+
+`F2–S2` is **acquired equivalence**: `F1` and `F2` share `S1`, so what `F1` gets (`S2`) transfers to `F2`. It is not a chain `A–B–C` with a hidden middle item.
+
+**Results.**
+
+| Measure | Result |
+|---|---|
+| Trained accuracy | 57% → 80% (scan 1), 86% → 93% (scan 2), 93% at test |
+| Generalization | 81% mean, **range 38–100%**, stable over the 6 test repeats |
+| Good vs poor (median split) | 96% vs 66% generalization. The gap is larger than on trained pairs, and persists when trained performance is equated *(suppl.)* |
+| Encoding predictor | The early → late **increase** in bilateral hippocampus and VTA/SN (ventral tegmental area / substantia nigra) correlates with generalization (p < .05, small-volume corrected). It survives dropping the >95% generalizers (n = 16: r = .60 left hippocampus, .68 right, .63 midbrain) |
+| Group × learning phase | The good group increases (p < .001), the poor group is flat (p > .60). Right hippocampus F(1,22) = 4.31, midbrain 4.70, left hippocampus 3.25 (p = .08) |
+| Midbrain–hippocampus covariance | Across subjects, the midbrain change predicts the hippocampal change (p < .001 both sides; r = .59 / .75 without the two most extreme subjects). Selective to hippocampus *(suppl.)* |
+| Striatum (caudate) | Engaged by feedback learning, declines as errors decline, unrelated to generalization *(suppl.)* |
+| Test-phase activation | No hippocampal difference between generalization and trained probes, and no correlation with generalization *(suppl.)*. This is a null result |
+| Latency | (trained − generalization RT gap) × generalization accuracy: **r = −0.69**. Group × trial type F(1,22) = 31.3. On the first encounter alone, F = 4.61, p < .05. Top quartile (n = 6): **39 ms** gap, and half of them were faster on generalization probes |
+| Event type | The correlation is strongest for `F2–S1` learning trials, and the midbrain good-group increase is selective to them. There is no trial-type interaction, so this is suggestive only |
+| Awareness | 2 of 24 noticed novel pairs at test, both poor generalizers |
+
+**What it adds to the write-time account.**
+
+| Finding | Consequence for a builder |
+|---|---|
+| Good generalizers answer the untrained pair as fast as the trained ones | A behavioural discriminator that needs no probe: a query-time composer pays per hop at test, a write-time integrator does not. **(brainstorm)** It runs on any machine with variable compute (settling steps, retrieval rounds, reasoning tokens). Compare the compute spent on `F2–S2` with that spent on trained probes. Equal compute means the link was stored, extra compute means it was composed |
+| **The midbrain gate.** The source's mechanism, built on Lisman & Grace 2005's hippocampal–VTA loop: `S1` in an `F2–S1` trial retrieves `F1`. Its mismatch with the present `F2` produces a hippocampal novelty signal, which drives the VTA. Dopamine then raises hippocampal plasticity, and the two episodes are encoded as one | Integration is triggered by an **episodic prediction error**: a mismatch between retrieved and present content, not between expected and received reward. This is the same family as [[wiki/concepts/state-prediction-error.md]]. The evidence is human and correlational here, causal and in rats there. **(brainstorm)** The loop is a biological form of *read before you write*: the store's own retrieval decides whether a write is needed ([[wiki/gaps/g019.md]]'s Kanerva entry), with a broadcast gain in place of a target |
+| Midbrain and hippocampal activity *rise* while errors and striatal activity fall | Not a reward prediction error on the feedback, because the feedback becomes more predictable as learning goes on. The driver is associative novelty (new combinations of familiar items), not item novelty *(suppl.)* |
+| `F2–S1` is the integration trial | It is the trial whose overlap cues a two-step retrieval chain (`S1` → `F1` → `S2`). Pattern completion of the overlapping trace picks which episodes merge, which is the trigger stated above, now with a candidate gain signal |
+| The training schedule selects the mechanism | Here the overlapping pairs are intermixed. Blocked designs show test-time hippocampal inference effects (Heckers et al. 2004; Preston et al. 2004). Transitive inference shows them only when the non-overlapping pairs are trained first (Titone et al. 2004, via this source). The source's claim is that both mechanisms exist and the structure of the experience decides between them ([[wiki/empirical-tensions.md]] T334) |
+| Generalizers do not know they generalized | The generated `F2–S2` link is retrieved as if it had been experienced. The source calls this a false memory: an internally generated association misattributed to experience (Underwood 1965). A link integrated at write time carries no provenance mark ([[wiki/gaps/g071.md]]) |
+
+**(brainstorm) Acquired equivalence has two write-time solutions, and this design cannot tell them apart.** (i) Store the `F2–S2` link, which is the source's reading. (ii) Merge `F1` and `F2` into one equivalence class, a single latent node in the sense of [[wiki/concepts/latent-graph-discovery.md]], so `F2` inherits every edge of `F1` with nothing link-specific written. (ii) is deliberate state aliasing. Test: after training, add a new `F1–S3` pair with no further `F2` trials. (ii) predicts that `F2–S3` transfers with no extra integration episode. (i) predicts transfer only if encoding `F1–S3` reinstates `F2`.
+
+**Conflicts and caveats.**
+
+| Issue | Detail |
+|---|---|
+| The hippocampal predictor has the opposite sign to Zeithamova et al. 2012 | Here an early → late *increase* predicts generalization. There a first → last *decrease* predicts inference. The paradigm (acquired equivalence vs associative inference), schedule (intermixed vs blocked) and time window (scan vs repetition) all differ. The source contrasts its rise with the usual decline on non-overlapping pairs (Kohler et al. 2005; Zeineh et al. 2003). Rises and falls are both read as integration, so the BOLD sign does not test the mechanism (`L4`, no registry row) |
+| "Functional interaction" is a between-subject covariance of change scores | It is not within-subject timecourse coupling, and BOLD in VTA/SN is not dopamine. The midbrain region is two 10 mm spheres around the peaks of Adcock et al. 2006 |
+| The test-phase null rests on the supplement | No hippocampal inference signal at test is a null result at n = 23 |
+| "Equated for trained performance" | Equal accuracy near 93% is not equal premise strength (as in T411). REMERGE's lag generalization turns a small premise-weight gap into a larger group gap on generalization than on trained pairs ([[wiki/entities/remerge.md]]), so this control is weaker than stated |
+| Latency over 6 test repeats | With no feedback, `F2–S2` could be integrated on its first test trial. The first-encounter analysis (F = 4.61) is the clean one |
 
 ---
 
@@ -176,3 +232,5 @@ This page's mechanism is what the complementary-learning-systems literature call
 - **[[wiki/concepts/effective-connectivity.md]]** — this page's specificity control is that page's worked cautionary case: frontal pole, precuneus and superior parietal raised hippocampal coupling across repetitions exactly as vmPFC did and predicted nothing about inference, so a coupling change is licensed as evidence only when a behavioural contrast survives alongside it.
 - **[[wiki/concepts/hierarchy-of-associativity.md]]** — turns this page's reinstatement measurement into a directional prediction: the medial-temporal return path is wide to early visual areas and narrow to frontal cortex and is not cell-for-cell reciprocal, so a decoded reinstated pattern should be systematically more faithful in sensory cortex than in frontal cortex — the opposite ordering a pointer-to-the-encoder account expects (`T28`).
 - **[[wiki/concepts/hippocampal-indexing-theory.md]]** — the behavioural existence proof this page's mechanism needs: a rat conditioned on the *retrieved* memory of a context it is not currently in shows fear to that context and not to a control context, and the effect is abolished by dorsal-hippocampal inactivation, so an index read-out can serve as the input to new associative learning.
+- **[[wiki/concepts/state-prediction-error.md]]** — supplies the causal half of this page's candidate write gate: there a ventral tegmental dopamine transient is necessary and sufficient to write a valueless cue→cue link in rats, while here midbrain activity rising with hippocampal activity across learning predicts which humans integrate overlapping pairs. The source names the trigger an *episodic* prediction error, a mismatch between retrieved and present content (Shohamy & Wagner 2008).
+- **[[wiki/entities/ventral-tegmental-area.md]]** — the proposed gain source for integration, through the hippocampal–VTA loop: hippocampal mismatch drives the midbrain, and dopamine back in the hippocampus raises the chance that the present and retrieved episodes are written as one. Here the midbrain change covaries with hippocampus and not striatum, so the line involved is a hippocampal-projecting one, not among the four that page traces.
