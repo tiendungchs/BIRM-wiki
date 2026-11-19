@@ -19,7 +19,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G1 | Two-level separation exists as a timescale split, not as a factorization | part | `L1` | `PARTIAL` | 25 | [[wiki/gaps/g001.md]] |
 | G2 | De-aliasing without a hand-built state space | part | `L0` | `PARTIAL` | 16 | [[wiki/gaps/g002.md]] |
 | G3 | Nothing enforces path-consistency of `g` | part | `L1` | `PARTIAL` | 14 | [[wiki/gaps/g003.md]] |
-| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 31 | [[wiki/gaps/g004.md]] |
+| G4 | Vocabulary co-discovery at scale | part | `L0` | `PARTIAL` | 32 | [[wiki/gaps/g004.md]] |
 | G5 | No joint discover-and-navigate loop | part | `L1` | `PARTIAL` | 7 | [[wiki/gaps/g005.md]] |
 | G6 | Spurious edges survive training — and are the default, not the exception | part | `L0` | `OPEN` | 9 | [[wiki/gaps/g006.md]] |
 | G7 | Non-stationary topology is tractable only under untested conditions | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g007.md]] |
@@ -41,7 +41,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G23 | Machine priors are unconditional; a prior needs an entry test | part | `L2` | `OPEN` | 16 | [[wiki/gaps/g023.md]] |
 | G24 | No principled planning horizon exists, even in the ideal agent | part | `L3` | `CONTESTED` | 15 | [[wiki/gaps/g024.md]] |
 | G25 | Optimality cannot be certified for any agent whose actions shape its data | part | `L0` | `OPEN` | 6 | [[wiki/gaps/g025.md]] |
-| G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 24 | [[wiki/gaps/g026.md]] |
+| G26 | Nothing selects hypotheses by structure rather than by description length | part | `L0` | `OPEN` | 25 | [[wiki/gaps/g026.md]] |
 | G27 | Nothing supplies the discretisation the graph formalisation assumes | part | `L0` | `CONTESTED` | 46 | [[wiki/gaps/g027.md]] |
 | G28 | Nothing composes a learned environment model with an arbitrary new reward at query time | part | `L0` | `PARTIAL` | 20 | [[wiki/gaps/g028.md]] |
 | G29 | Exploration of the space of architectures is not algorithmic | part | `META` | `PARTIAL` | 10 | [[wiki/gaps/g029.md]] |
