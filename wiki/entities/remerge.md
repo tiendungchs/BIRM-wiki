@@ -46,7 +46,7 @@
 
 On a `B–E` probe, `CD` ends above `AB` and `EF`, although `CD` shares **no** feature with the input. On a premise probe (`B–C`), `BC` dominates and the other traces stay low.
 
-**Why one pass cannot do it** (derived from the architecture, not simulated in the source): on the first pass `AB`, `BC`, `CD`, `DE` are equally active, so `B` gets `+BC −AB = 0` and `D` gets `+DE −CD = 0`. A non-recurrent exemplar model is at chance on `B–D` by construction. The source's general statement is that GCM-class models "are unable to perform inference" here, because their similarities are computed only against the external input. A standard interactive activation and competition (IAC) network (McClelland 1981) reproduces the same `B–D` dynamics, so the effect belongs to the recurrent class, not to the softmax form.
+**Why one pass cannot do it** (derived from the architecture, not simulated in the source): on the first pass `AB`, `BC`, `CD`, `DE` are equally active, so `B` gets `+BC −AB = 0` and `D` gets `+DE −CD = 0`. A non-recurrent exemplar model is at chance on `B–D` by construction. The source's general statement is that GCM-class models "are unable to perform inference" here, because their similarities are computed only against the external input. A standard interactive activation and competition (IAC) network (McClelland 1981) reproduces the same `B–D` dynamics, so the effect belongs to the recurrent class, not to the softmax form. This is the model half of `G123` ([[wiki/gaps/g123.md]]): the external cue is unchanged and the retrieval is revised, but the cue the store sees changes every cycle (the reconstructed features are part of it), so it is one relaxation and not a re-decision on the same evidence.
 
 ---
 

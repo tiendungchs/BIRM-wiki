@@ -86,7 +86,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G68 | Every architecture in the wiki is a proposer; nothing is a rejector | part | `L1` | `OPEN` | 15 | [[wiki/gaps/g068.md]] |
 | G69 | No architecture creates variables on demand | part | `L1` | `PARTIAL` | 12 | [[wiki/gaps/g069.md]] |
 | G70 | Every induced program in the wiki is a straight-line composition; nothing induces a loop, and the cost is that no program can extrapolate a count | part | `L0` | `PARTIAL` | 10 | [[wiki/gaps/g070.md]] |
-| G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 3 | [[wiki/gaps/g071.md]] |
+| G71 | A generated inference is never tagged as one; transferred content becomes indistinguishable from observed content | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g071.md]] |
 | G72 | Nothing infers what counts as success | part | `L0` | `OPEN` | 16 | [[wiki/gaps/g072.md]] |
 | G73 | Nothing constructs a problem representation; every architecture is handed one | part | `L0` | `OPEN` | 17 | [[wiki/gaps/g073.md]] |
 | G74 | Every search, verification and refinement mechanism in the wiki assumes a wrong attempt is free | part | `L0` | `OPEN` | 8 | [[wiki/gaps/g074.md]] |
@@ -137,7 +137,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
 | G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 8 | [[wiki/gaps/g121.md]] |
 | G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 6 | [[wiki/gaps/g122.md]] |
-| G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 7 | [[wiki/gaps/g123.md]] |
+| G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 8 | [[wiki/gaps/g123.md]] |
 | G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g124.md]] |
 | G125 | Every internally-generated reward in the wiki is immune to its own delivery; the biological one extinguishes each time it is claimed | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g125.md]] |
 | G126 | The procedure that manufactures a subgoal also trains its suppressor; no machine subgoal mechanism has an opponent term | part | `L1` | `OPEN` | 8 | [[wiki/gaps/g126.md]] |
