@@ -12,7 +12,7 @@ One INGEST each:
 - [x] `shohamy-2008-integrating-memories-hippocampal-midbrain-overlapping-events.md` — hippocampal-entorhinal · R · 2008
 - [x] `vincent-2008-frontoparietal-control-system-intrinsic-functional-connectivity.md` — brain-networks · R · 2008
 - [x] `fox-2009-global-signal-anticorrelated-resting-state-networks.md` — brain-networks · R · 2009
-- [ ] `spreng-2010-default-network-coupled-frontoparietal-goal-directed-cognition.md` — default-mode · R · 2010
+- [x] `spreng-2010-default-network-coupled-frontoparietal-goal-directed-cognition.md` — default-mode · R · 2010
 - [ ] `wendelken-2010-transitive-inference-rostrolateral-prefrontal-hippocampus.md` — prefrontal-control · R · 2010
 - [ ] `koscik-2012-vmpfc-critical-transitive-inference.md` — prefrontal-control · R · 2012
 - [ ] `chai-2012-anticorrelations-resting-state-without-global-signal-regression.md` — brain-networks · R · 2012

@@ -230,7 +230,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T257 | In the default/control switch, who drives whom? | `L2` | `LIVE` | 3 | [[wiki/tensions/t257.md]] |
 | T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 4 | [[wiki/tensions/t259.md]] |
 | T260 | Does the brain have an absolute activity baseline, or only relative ones? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t260.md]] |
-| T262 | During an externally directed task, does the default mode network decouple from task-positive systems or integrate with them? | `L2` | `BOTH` | 3 | [[wiki/tensions/t262.md]] |
+| T262 | During an externally directed task, does the default mode network decouple from task-positive systems or integrate with them? | `L2` | `BOTH` | 4 | [[wiki/tensions/t262.md]] |
 | T263 | Does within-module connectivity move with brain state, or only between-module connectivity? | `L4` | `LIVE` | 2 | [[wiki/tensions/t263.md]] |
 | T264 | Is default-mode anticorrelation a neural phenomenon or a product of global signal regression? | `L0-INSTR` | `LIVE` | 4 | [[wiki/tensions/t264.md]] |
 | T265 | Where does the default mode network sit relative to the sensory-fugal hierarchy? | `L4` | `LEANING` | 2 | [[wiki/tensions/t265.md]] |
