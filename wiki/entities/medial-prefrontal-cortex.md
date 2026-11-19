@@ -437,6 +437,60 @@ The assays label states behaviourally, which the wiki normally distrusts. The in
 
 ---
 
+## Human ventral-tier lesions and transitive inference from trained premises: a below-chance reversal, not a lost inference
+
+> **Provenance.** Koscik & Tranel 2012, *The human ventromedial prefrontal cortex is critical for transitive inference*, Journal of Cognitive Neuroscience 24(5):1191–1204, doi:10.1162/jocn_a_00203 (`raw/koscik-2012-vmpfc-critical-transitive-inference.md`; author manuscript, figures lost in conversion, so per-pattern and per-distance values are known only from captions and text). The wiki's only human lesion study of transitive inference with **trained** premises. Groups: vmPFC (ventromedial prefrontal cortex) lesions `n = 15` (8 bilateral); brain-damaged comparison (BDC, lesions sparing vmPFC) `n = 36`, which splits into a unilateral medial temporal lobe (MTL) subgroup `n = 17` and a subgroup `n = 19` sparing both vmPFC and MTL; normal comparison `n = 44`. All lesions chronic (> 3 months).
+
+**Design.** Seven arbitrary black-and-white patterns `A>B>…>G`, two-alternative forced choice. Training: 2 × 48 trials on the six adjacent pairs, with feedback, and **no learning criterion**. Test: 2 × 42 trials, every pair, no feedback.
+
+| Test item type | Pairs | What solves it |
+|---|---|---|
+| Learned | 6 adjacent pairs | Premise memory |
+| Non-transitive | Any pair containing `A` (always right) or `G` (always wrong) | An end-anchor rule |
+| Transitive | `B–D`, `B–E`, `B–F`, `C–E`, `C–F`, `D–F` | Combining premises; transitive distance 2–4 |
+
+**Results.** Chance = 0.50. The `t` vs chance column is computed by the wiki from the reported mean and standard deviation (one-sample, two-tailed); the source reports no test against chance.
+
+| Item type | vmPFC | BDC | Normal | Group effect |
+|---|---|---|---|---|
+| Learned | 0.53 ± 0.12 (`t(14) ≈ 1.0`, n.s.) | 0.57 ± 0.14 | 0.59 ± 0.15 (`t(43) ≈ 4.0`) | `F(2,94) = 0.91`, n.s. |
+| Non-transitive | 0.63 ± 0.19 | 0.69 ± 0.20 | 0.71 ± 0.20 | `F = 0.84`, n.s. |
+| **Transitive** | **0.36 ± 0.18 (`t(14) ≈ −3.0`, below chance)** | 0.52 ± 0.21 (`t(35) ≈ 0.6`, n.s.) | 0.54 ± 0.21 (`t(43) ≈ 1.3`, n.s.) | **`F(2,94) = 4.52`, `p = .013`**. vmPFC < BDC (`p = .034`), vmPFC < normal (`p = .011`) |
+
+Controls the source runs, all passed by the vmPFC effect: education as a covariate; the training learning curve (no group difference, no group × block interaction); response-time decline over training (no group difference); per-pattern reinforcement/punishment ratios (patterns differ, groups do not; transitive accuracy does not vary by pattern); transitive distance (no effect, no interaction, vmPFC lower at every distance); sex and lesion side. Excluding subjects at chance on the last training block weakens the effect to `p = .061`.
+
+**The reading the numbers support, and the one they do not.**
+
+| Claim | Status |
+|---|---|
+| "An intact vmPFC is necessary for normal transitive inference" (the source's title claim) | **Not supported as stated.** Both control groups are at chance on transitive items, so this task elicits no transitive inference to lose. The group effect is the vmPFC group's **below-chance** responding |
+| vmPFC damage produces a systematic wrong-direction choice on interior non-adjacent pairs, with premise and end-anchor items unaffected | Supported, `n = 15`. The source does not note that 0.36 is below chance and offers no mechanism for the reversal |
+| Unilateral MTL damage does not impair transitive inference (`F(2,79) = 0.12`) | **Uninformative.** A deficit down to chance cannot be seen against controls already at chance. Only a below-chance effect is detectable in this design |
+| Four BDC patients with large dorsolateral/dorsomedial prefrontal lesions are spared (mean 0.50) | Same floor problem. 0.50 is chance |
+| Learning is uncorrelated with transitive accuracy in vmPFC and normal groups, so inference is separate from learning (source's reading) | Uninformative: a score at chance has no variance to correlate |
+| No transitive-distance effect | Uninformative for controls. For the vmPFC group the reversal is flat across distances 2–4 |
+
+**Fit with the rat literature.** Preston & Eichenbaum 2013 (claim 3 in **What the controller is selecting** above) report that rat mPFC damage in transitive inference slows acquisition of the overlapping pairs and blocks inference. Here the vmPFC group's premise accuracy matches controls'. But at test it is not above chance in any group by the wiki's computation (vmPFC 0.53), so "acquisition intact" means equally weak. It does not contradict the rat result, and no registry row is opened.
+
+**The authors' two-regime proposal** (Discussion, untested). *Explicit* transitive inference applies the transitivity rule to premises held in view. Their examples are on-screen premises (Wendelken & Bunge 2010) and WAIS (Wechsler Adult Intelligence Scale) Matrix Reasoning, which vmPFC lesions spare (Tranel et al. 2008, second-hand). They propose dorsolateral PFC for it. *Implicit* transitive inference combines relations acquired across many separate encounters, "similar to procedural forms of memory", possibly without awareness, and they propose vmPFC for it. Their real-world corollary: vmPFC patients keep their social knowledge but fail to integrate several pieces of it in a new situation (Saver & Damasio 1991, second-hand). This is the same split as the two-regime bullet on [[wiki/entities/lateral-frontoparietal-network.md]], reached independently. In the trained regime it lacks a working test, for the floor reason above.
+
+**For a model.**
+
+- `(brainstorm)` **A below-chance ablation is a different result from a chance-level one.** Removing a composition operator should leave a reader at chance on unobserved pairs. Going *below* chance means a second reader is still systematically answering and gets the sign wrong. Candidates the wiki can name, none tested here: a recency or interference heuristic over the last-seen adjacent pair, or an item-value read under imperfect training (`T411`). So every ablation score on an inference probe should be reported against chance *and* against the intact model. An ablation that lands below chance points to a competing pathway that the removed component used to override. That is the suppressor role this page gives the ventral tier ([[wiki/concepts/abstraction-graph.md]] suppressor row, claim 2 of **What the controller is selecting**).
+- `(brainstorm)` **Instrument rule (`L0-INSTR`).** A lesion or ablation test on a probe is valid only if the intact system is above chance on that probe. Here learning was not trained to criterion, which leaves controls at chance on the probe items. The machine analogue is to train to a premise criterion before scoring any `B–D`-type probe. Otherwise a null ablation result cannot be interpreted.
+
+**Limits.**
+
+| Limit | Consequence |
+|---|---|
+| No learning criterion. Test-phase premise accuracy is 0.53–0.59 | Every comparison runs near the floor, and the strongest claim depends on one group's below-chance mean |
+| Wiki-computed `t` assumes approximately normal group scores | 24 transitive trials per subject (6 pairs × 4), so each subject's score is coarse. The vmPFC reversal is about 3 standard errors from chance and stands. The control nulls hold with room to spare |
+| vmPFC lesions are mostly tumour resection and aneurysm, 8 of 15 bilateral, and overlap dorsolateral PFC with the BDC group (Figure 1 caption) | The site is ventromedial plus some spill-over. The study cannot separate subregions |
+| Only unilateral MTL damage, mostly epilepsy resections | Says nothing about bilateral hippocampal necessity, and the floor problem applies anyway |
+| Right-hemisphere damage gives lower transitive scores than left in the MTL + non-vmPFC subgroups (0.43 vs 0.59, `F(1,30) = 5.32`) | The difference spans chance and is not specific to MTL. Flagged by the source as a visual-material effect, untested |
+
+---
+
 ## Limitations
 
 - **Rat, and homology is asserted at one point only** — prelimbic ≈ Brodmann area 32. Everything else must be mapped by hand before it constrains a primate-derived control model.
@@ -465,6 +519,7 @@ The assays label states behaviourally, which the wiki normally distrusts. The in
 - **Cross-session neuron co-registration is a minority of cells** — 30% (open field→elevated plus maze) and 16% (open field→social) for mPFC→BLA, 23% and 21% for mPFC→NAc — so the centre-ON ensemble followed across tasks is a biased survivor subset, and its transfer claim is conditioned on trackability.
 - **The geometry is measured on session-averaged bouts in a 2-D principal-component projection**, with cluster distance as the only statistic; no intrinsic-dimension estimate, no cross-condition generalization test, and no input-geometry control ([[wiki/concepts/population-geometry.md]]), so the divergence is a difference between two projections rather than a characterised difference of manifolds.
 - **The monkey arm is two animals and one task, and its region has no independent anatomical definition.** pmPFC is delimited by where task-related neurons were found plus two negatives (no sensory response, no microstimulation effect); no cytoarchitecture, no tract tracing, and no homology to the rat tiers above or to the human medial wall below is offered. Its central manipulation is also confounded: the single-tactic blocks removed the choice *and* made the cue→target spatial relation constant, so habit formation is an alternative account of the withdrawal that the design cannot exclude ([[wiki/empirical-tensions.md]] T94).
+- **The human transitive-inference lesion result is a floor-level comparison.** Both control groups are at chance on the transitive items, so the vmPFC effect is a below-chance reversal and not a lost inference. The study's nulls (unilateral MTL, dorsolateral PFC) cannot be read (Koscik & Tranel 2012).
 
 ---
 
@@ -516,7 +571,7 @@ The assays label states behaviourally, which the wiki normally distrusts. The in
 - **[[wiki/entities/ch-hnn.md]]** — the region cast as the regularity extractor of a hybrid continual learner, and the cost of the casting: mPFC, MTL, EC and CA1 are collapsed into a single "mPFC-CA1" pathway, which discards exactly the asymmetry this page documents — that the hippocampal store addresses the controller directly while the controller must return through entorhinal cortex or a diencephalic relay.
 - **[[wiki/concepts/intrinsic-timescale-measurement.md]]** — the temporal position of this region: anterior cingulate cortex has the **longest** intrinsic time constant of the seven macaque areas measured, in every dataset containing it, and also the longest reward-memory timescale — so the medial prefrontal apex is the slow end of the cortical hierarchy as well as its anatomical top.
 - **[[wiki/entities/lateral-frontal-pole.md]]** — the anterior-cingulate end of that page's proposed model, and the wiki's clearest instance of an evolutionary change that adds a *stage* rather than a computation: macaques do the counterfactual bookkeeping for exploration in anterior cingulate / dorsomedial frontal cortex, humans show that signal **plus** a lateral-frontal-pole one, on a task both species solve with the same fitted computational mechanism.
-- **[[wiki/concepts/retrieval-mediated-learning.md]]** — the human ventromedial arm measured at *encoding* rather than at expression: activation increase across repetitions of overlapping pairs predicts later inference over and above premise memory (partial r = 0.53), which is the strongest evidence here that the controller does integration work at write time and not only schema selection at read time.
+- **[[wiki/concepts/retrieval-mediated-learning.md]]** — the human ventromedial arm measured at *encoding* rather than at expression: activation increase across repetitions of overlapping pairs predicts later inference over and above premise memory (partial r = 0.53), which is the strongest evidence here that the controller does integration work at write time and not only schema selection at read time. Its would-be causal counterpart does not deliver: human vmPFC lesions with intact premises push transitive choices below chance, but against controls who are themselves at chance (Koscik & Tranel 2012).
 - **[[wiki/concepts/hippocampal-long-axis.md]]** — the loop is closed at one end of a gradient rather than across the structure: infralimbic and prelimbic cortex reach the hippocampus only via ventromedial entorhinal cortex and therefore only its ventral levels, while retrosplenial cortex reaches only dorsal levels, so prefrontal↔hippocampal traffic is topographically pre-sorted by long-axis position.
 - **[[wiki/concepts/activity-slots.md]]** — the mechanism proposed for this region's goal-progress cells and structured memory buffers (task-progress slots plus a computed progress velocity), and the reason the finding does not localise anything: the algorithm is defined by storing in activity rather than by being prefrontal, this region can also carry grid-like position codes, and the two algorithms are behaviourally indistinguishable ([[wiki/empirical-tensions.md]] T92, `G112`; Whittington et al. 2025).
 - **[[wiki/entities/ventral-tegmental-area.md]]** — the loop this page documents in the ascending direction, closed: the ventral tier back-projects strongly onto the ventral tegmental area, and mPFC is also the sole cortical target of a lateral-habenula-driven dopamine line whose D₁ receptors *here* are necessary for conditioned place aversion — so this region both addresses and is taught by a channel that carries bad news as dopamine release rather than as a dip (Lammel et al. 2012).
@@ -526,5 +581,6 @@ The assays label states behaviourally, which the wiki normally distrusts. The in
 - **[[wiki/concepts/encoding-retrieval-alternation.md]]** — the same encode/retrieve arbitration at a different timescale and with a different owner: there it is an intrinsic 4–8 Hz alternation needing no controller, here it is a controller decision taken once per retrieval on the outcome of a cortical match/mismatch test.
 - **[[wiki/entities/amygdala.md]]** — the subcortical partner in the same conditioning circuit: basolateral→medial-prefrontal connectivity is what lets conditioned punishment modulate instrumental choice, and this region's anterior cingulate supplies the accumbens core with the cue-disambiguating content that the amygdala does not.
 - **[[wiki/concepts/abstraction-graph.md]]** — the requirements table this page's two tiers answer: the ventral tier is leg (ii) of the suppressor row (the store returns every candidate, the controller suppresses the unlicensed ones), the precision and precondition rows, and the store table's way-station, since what consolidates here is a ground-fact mapping with the vocabulary already in place, which that page had filed as its named exception.
-- **[[wiki/entities/lateral-frontoparietal-network.md]]** — the other prefrontal system in the same story, and the split is by operation: this medial wall *integrates* conflicting items into one structure and selects which structure is live, the lateral network *separates* items and compares relations between relations; the two resolve one conflict signal in opposite directions with no arbitration rule ([[wiki/concepts/schema-assimilation.md]]), and the two pages carried no link until this one.
+- **[[wiki/entities/lateral-frontoparietal-network.md]]** — the other prefrontal system in the same story, and the split is by operation: this medial wall *integrates* conflicting items into one structure and selects which structure is live, the lateral network *separates* items and compares relations between relations; the two resolve one conflict signal in opposite directions with no arbitration rule ([[wiki/concepts/schema-assimilation.md]]), and the two pages carried no link until this one. For transitive inference the split becomes a proposed regime split: premises held in view go to the lateral network, premises built up over trained encounters go to this region's ventral tier. Only the lateral half has a working measurement (Koscik & Tranel 2012).
+- **[[wiki/entities/remerge.md]]** — the premise-strength account that this region's human lesion data put outside its range. vmPFC patients match controls on premise items and go *below* chance on interior transitive pairs. A settling loop driven only by uniformly scaled premise trace strength predicts chance at weak premises. The source never simulates a reversal (Koscik & Tranel 2012).
 - **[[wiki/entities/hippocampal-formation.md]]** — the hub for the store this controller's ventral tier is wired to: it lists what the controller receives (context, not position) and the two routes by which it can reach back (entorhinal cortex, nucleus reuniens).

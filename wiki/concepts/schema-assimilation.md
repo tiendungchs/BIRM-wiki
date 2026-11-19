@@ -70,7 +70,7 @@ This is the same anatomy [[wiki/entities/medial-prefrontal-cortex.md]] establish
 
 ## Integration demand, not age, indexes module involvement
 
-The reconciliation the review is built to deliver. The divergent findings are: mPFC needed only at remote delays (contextual fear) vs. mPFC needed from the outset (associative inference, food-location schema, transitive inference — where mPFC damage both slows acquisition of the overlapping pairs and blocks inferential expression).
+The reconciliation the review is built to deliver. The divergent findings are: mPFC needed only at remote delays (contextual fear) vs. mPFC needed from the outset (associative inference, food-location schema, transitive inference — where mPFC damage both slows acquisition of the overlapping pairs and blocks inferential expression). The one human lesion test of the transitive case neither confirms nor contradicts this. vmPFC patients learn the pairs as well as controls, but every group is near chance on premises and controls are at chance on inference, so it cannot be read (Koscik & Tranel 2012, [[wiki/entities/medial-prefrontal-cortex.md]]).
 
 | Overlap of the new event with existing knowledge | Prefrontal involvement | Example |
 |---|---|---|
