@@ -13,7 +13,7 @@ One INGEST each:
 - [x] `vincent-2008-frontoparietal-control-system-intrinsic-functional-connectivity.md` — brain-networks · R · 2008
 - [x] `fox-2009-global-signal-anticorrelated-resting-state-networks.md` — brain-networks · R · 2009
 - [x] `spreng-2010-default-network-coupled-frontoparietal-goal-directed-cognition.md` — default-mode · R · 2010
-- [ ] `wendelken-2010-transitive-inference-rostrolateral-prefrontal-hippocampus.md` — prefrontal-control · R · 2010
+- [x] `wendelken-2010-transitive-inference-rostrolateral-prefrontal-hippocampus.md` — prefrontal-control · R · 2010
 - [ ] `koscik-2012-vmpfc-critical-transitive-inference.md` — prefrontal-control · R · 2012
 - [ ] `chai-2012-anticorrelations-resting-state-without-global-signal-regression.md` — brain-networks · R · 2012
 - [ ] `spreng-2013-intrinsic-architecture-default-dorsal-attention-frontoparietal-control.md` — brain-networks · R · 2013
