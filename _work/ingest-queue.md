@@ -770,7 +770,7 @@ One INGEST each:
 
 One INGEST each:
 
-- [ ] `kumaran-2012-generalization-recurrent-interaction-episodic-memories-remerge.md` — hippocampal-entorhinal · M · 2012
+- [x] `kumaran-2012-generalization-recurrent-interaction-episodic-memories-remerge.md` — hippocampal-entorhinal · M · 2012
 - [ ] `dusek-1997-hippocampus-memory-orderly-stimulus-relations.md` — hippocampal-entorhinal · R · 1997
 - [ ] `wendelken-2008-brain-is-to-thought-as-stomach-is-to.md` — prefrontal-control · R · 2008 · LOSSY
 - [ ] `shohamy-2008-integrating-memories-hippocampal-midbrain-overlapping-events.md` — hippocampal-entorhinal · R · 2008
