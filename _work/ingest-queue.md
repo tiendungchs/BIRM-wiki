@@ -787,7 +787,7 @@ One INGEST each:
 - [x] `spalding-2015-vmpfc-necessary-schematic-influence-on-memory.md` — prefrontal-control · R · 2015
 - [x] `dixon-2018-heterogeneity-frontoparietal-control-network-default-dorsal-attention.md` — brain-networks · R · 2018
 - [x] `koster-2018-big-loop-recurrence-hippocampal-integration-across-episodes.md` — hippocampal-entorhinal · R · 2018
-- [ ] `spalding-2018-vmpfc-necessary-associative-inference-memory-integration.md` — prefrontal-control · R · 2018
+- [x] `spalding-2018-vmpfc-necessary-associative-inference-memory-integration.md` — prefrontal-control · R · 2018
 - [ ] `hammer-2019-analogical-reasoning-multivariate-task-based-fmri.md` — analogy-abstraction · R · 2019
 
 Not acquired: Waltz et al. 1999, *A system for relational reasoning in human prefrontal cortex* (`T336`, `G104`) — not reachable, and still cited second-hand (also listed as not acquired in an earlier wave above).
