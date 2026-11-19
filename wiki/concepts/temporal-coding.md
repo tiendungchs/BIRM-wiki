@@ -130,6 +130,52 @@ Everything above is an unsupervised timing detector. The moment a temporal code 
 
 ---
 
+## Theta-nested assemblies: the reader sets the assembly, the cycle sets the slots
+
+> Buzsáki & Moser 2013, *Memory, navigation and theta rhythm in the hippocampal-entorhinal system*, Nat Neurosci 16:130–138 (`raw/buzsaki-2013-memory-navigation-theta-hippocampal-entorhinal.md`). A review with an explicit hypothesis. Rat CA1/entorhinal data, with the primaries cited through the review.
+
+**An assembly is defined by its reader, not by its members.** Upstream spikes that arrive within one reader membrane time constant (`τ_m` ≈ 10–30 ms) count as one event. Spikes outside that window belong to another assembly and fire other readers. Four quantities share this window: `τ_m`, the STDP window, the GABA_A/AMPA receptor time constants that generate gamma, and one gamma cycle. Hence:
+
+```
+assemblies per theta cycle ≈ T_theta / T_gamma ≈ 5–9      (assembly lifetime 10–30 ms)
+```
+
+This is the same ratio as the slot count on [[wiki/concepts/working-memory.md]] (`slots = frame / gamma`), here derived from the reader's integration window.
+
+**What theta phase segregation does to a trajectory (CA1 place cells):**
+
+| Property | Measurement / claim | Builder reading |
+|---|---|---|
+| Within-cycle order | Descending phase → trough → ascending phase carry **past → current → future** positions | One cycle is a window over the trajectory, centred on now |
+| Lag ∝ distance | Sub-cycle lag between two overlapping place cells is proportional to the travel time between their field peaks (>3,000 CA1 pairs) | Behavioural distance is stored as a compressed spike lag, inside the STDP window |
+| Saturation | The theta period caps the distance that can be resolved linearly, so lag vs distance is **sigmoid** | Near upcoming positions get fine resolution, distant ones coarse ("zoom") |
+| Scaling | Field size and pair distance representations scale with environment size | Fixed slot count, environment-dependent resolution: small arena → more cells per area, more co-firing per cycle |
+| Speed invariance | Place/grid oscillation frequency rises with running speed. Within-cycle lags stay largely independent of firing rate | The same positions and distances are coded at any speed |
+| Precession | Each place cell oscillates faster than the population theta. The interference is phase precession. These delays set field size ("lifetime") and precession slope. The same rules are proposed for grid size | — |
+| Segregation mechanism | A perisomatic (basket) interneuron driven by assembly A fires at the phase where competing assembly B is silent. Perturbing perisomatic inhibition scrambles the assembly order so downstream readout fails | Phase slots are carved by **competitive inhibition**, not by the clock alone |
+
+**Theta also carries non-sequential content.**
+- **Higher-order links.** Place fields have long tails, so cells with distant fields occasionally fire in the same cycle. This links non-neighbours. Wide ventral fields and large ventral grids make it more frequent ([[wiki/concepts/hippocampal-long-axis.md]]). Proposed uses: transitive inference, shortcut and detour solving.
+- **Jumps.** A single cycle can carry an assembly for a different location, or for the other environment after a light-cue "teleport". In the teleport case the maps flicker cycle by cycle (Jezek et al. 2011; `T56`).
+- **Look-ahead.** Extended sequences from the start to the goal appear at choice points in memory tasks.
+
+**The memory transfer (hypothesis).** Treat locations as items in a buffer. Then the slot count limits how many items can be recalled or consciously held at once. Recall has fine resolution near the recalled event and coarser resolution further away, mirroring the zoom. The forward-biased links give the **asymmetry** and **contiguity** of free recall. The authors also claim that the theta mechanism, flickering between current, past and future, *is* the mechanism for imagining past and future situations. No experiment in the source tests the transfer.
+
+**The carrier is not universal** (the authors' own challenge 2):
+
+| Observation | Consequence |
+|---|---|
+| Primate hippocampal neurons rarely fire theta-rhythmically. Continuous local-field theta is infrequent | Theta is not a precondition of a hippocampal code |
+| Bats have place and grid cells without apparent theta modulation (Yartsev et al. 2011) | Spatial firing does not need theta |
+| Position firing persists after theta stops. Theta-modulated and unmodulated grid cells coexist at one site | — |
+| With theta, place and grid fields are more pronounced, peak rates higher, and fields more stable | Theta improves the code but does not create it |
+
+The authors ask whether theta matters more for **memory**, which depends on internally generated sequences, than for navigation, which can be input-driven. They also ask whether another event can supply the frame, such as echolocation pulses in bats or saccades in primates. **(brainstorm)** If so, `G77`'s answer (ii), an internally generated reference, has a variant in which the frame is set by the agent's own sampling actions, not by an oscillator. That gives every message a start and end time without a free-running clock.
+
+**(brainstorm) The importable form.** A recurrent sequence model whose per-step readout is a fixed number of slots (`T_frame / T_slot`), filled with a window of predicted states ordered past → now → future. Slot spacing is proportional to state distance and saturates, so near states are resolved finely, and the frame rescales with speed. That is a fixed-*width* lookahead whose resolution falls off with distance. The test is to compare it with a uniform-resolution rollout of equal compute ([[wiki/concepts/simulation-based-planning.md]]). No source in the wiki has run it.
+
+---
+
 ## Why this matters for a reasoning model
 
 - **It is the quantitative core of [[wiki/empirical-tensions.md]] T1.** The claim "spikes carry information a rate specification cannot express" is here a measured 20–25 µs with an explicit account of where the precision comes from — and, critically, a demonstration that the precision is *not* inherited from fast components. A functional specification that abstracts to rates loses the variable that carries the answer.
@@ -184,3 +230,6 @@ Everything above is an unsupervised timing detector. The moment a temporal code 
 - **[[wiki/concepts/neuron-complexity-index.md]]** — a direction-selective detector with no delay parameter: one of the four filters that fit a single L23PC basal branch prefers distal→proximal activation sequences, produced by cable propagation and NMDA kinetics alone, so *order* selectivity is available to a dendrite without the tuned axonal delays this page treats as its source.
 - **[[wiki/concepts/hippocampal-long-axis.md]]** — where a timing window is converted into a representational property: phase precession compresses a traversed sequence into one theta cycle, how much of the sequence fits is set by place-field width, and width varies ~tenfold along the hippocampal axis — so the same temporal code yields near-neighbour binding at one pole and non-adjacent, higher-order binding at the other.
 - **[[wiki/concepts/hierarchy-of-associativity.md]]** — a coincidence window imposed from above: perirhinal cortex receives no medial-septal pacemaker input yet its theta is highly coherent with entorhinal theta, so the plasticity window at the store's first input stage is set by the stage above it rather than generated locally.
+- **[[wiki/concepts/offline-replay.md]]** — the online row of that page's online/offline table, given its mechanics here: within one theta cycle the order is past → current → future, lag is proportional to distance and saturates, and inhibition-carved phase slots are what make the compressed sequence readable downstream (Buzsáki & Moser 2013).
+- **[[wiki/concepts/working-memory.md]]** — the same slot count from the opposite end: that page derives `slots = frame / gamma` from capacity data, and this page derives it from the reader's 10–30 ms integration window, so the capacity limit and the definition of an assembly are one ratio (Buzsáki & Moser 2013).
+- **[[wiki/entities/hippocampal-formation.md]]** — the circuit this page's theta section is measured in: the theta row of that hub's control table is made concrete here as 5–9 inhibition-segregated assemblies per cycle, with the carrier's absence in primates and bats as the stated limit.

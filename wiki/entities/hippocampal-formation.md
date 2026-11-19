@@ -54,7 +54,7 @@
 | Control | Enters at | What it sets | Page |
 |---|---|---|---|
 | Medial-septal acetylcholine | CA3 recurrents | Recurrent read-out gain down, recurrent learning rate up: the write/read mode scalar | [[wiki/entities/rolls-treves-hippocampal-model.md]] |
-| Theta (4–8 Hz) | Whole structure | Encoding on one half-cycle, retrieval on the other; the two half-cycles as the phases of an error-driven rule | [[wiki/concepts/encoding-retrieval-alternation.md]] |
+| Theta (4–8 Hz) | Whole structure | Encoding on one half-cycle, retrieval on the other; the two half-cycles as the phases of an error-driven rule. Within a cycle, 5–9 gamma-length assemblies are kept apart by perisomatic inhibition and ordered past → current → future, with lag ∝ distance. The carrier is intermittent in primates and absent in bat place and grid cells (Buzsáki & Moser 2013) | [[wiki/concepts/encoding-retrieval-alternation.md]], [[wiki/concepts/temporal-coding.md]] |
 | CA3 → dentate backprojection | Mossy cells, HIPP interneurons | Closed-loop separation bias: how well CA3 completed sets how hard the dentate separates next | [[wiki/concepts/pattern-separation-completion.md]] |
 | Ventromedial prefrontal → medial entorhinal | Entorhinal gateway | Write geometry: how much a new episode's dorsal-CA1 ensemble may overlap a prior one, switched on only once the cortical trace has matured | [[wiki/concepts/memory-allocation-excitability.md]], [[wiki/concepts/complementary-learning-systems.md]] |
 | Medial prefrontal → perirhinal / lateral entorhinal deep layers | Input gateway | Top-down control applied to the interface, not the store (`G110`); costs the store one factor of its conjunctive code | [[wiki/entities/hippocampal-prefrontal-channel.md]] |
@@ -211,7 +211,7 @@ Per [[wiki/concepts/abstraction-graph.md]], a computational model is a reference
 | Sharp-wave ripple generation | Ripple content is paged; the CA3 → CA1 generation mechanism is not |
 | Pre-, para-, postsubiculum | Inside [[wiki/entities/head-direction-system.md]], [[wiki/entities/subiculum.md]], [[wiki/entities/dorsal-visual-stream.md]] |
 | Fornix lesion record | Listed as unpaged in [[wiki/index-entities.md]]; the tract is traced edge by edge on [[wiki/entities/hippocampal-diencephalic-cingulate-network.md]] |
-| Time cells and theta sequences as objects | Mentioned on [[wiki/concepts/offline-replay.md]] and [[wiki/concepts/working-memory.md]]; no page |
+| Time cells and theta sequences as objects | No page. Theta-sequence mechanics are on [[wiki/concepts/temporal-coding.md]]. Time tracking by self-generated sequences, and re-timing when the delay changes, is on [[wiki/concepts/path-integration.md]]. Mentions on [[wiki/concepts/offline-replay.md]] and [[wiki/concepts/working-memory.md]] |
 
 ---
 
@@ -256,3 +256,4 @@ Per [[wiki/concepts/abstraction-graph.md]], a computational model is a reference
 - **[[wiki/entities/default-mode-network.md]]** — the cortical system that lists the formation as its medial temporal subsystem, supplying stored associations to a prefrontal constructor.
 - **[[wiki/entities/dorsal-visual-stream.md]]** — the input wire into this page's CA1/prosubiculum and pre-/parasubiculum, staged and partitioned by source as the exit is by destination.
 - **[[wiki/entities/remerge.md]]** — the reference model for this page's recirculation row: separated dentate gyrus–CA3 traces with the entorhinal return edge used as a read loop, so cross-episode inference is composed at the query rather than stored.
+- **[[wiki/concepts/temporal-coding.md]]** — owns the within-cycle mechanics behind this page's theta control row: assemblies defined by a reader's 10–30 ms window, 5–9 per cycle, segregated by perisomatic inhibition, with lag proportional to distance and a sigmoid limit on how far ahead one cycle resolves.

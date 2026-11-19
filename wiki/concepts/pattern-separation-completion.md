@@ -72,6 +72,21 @@ Under global remapping the two subfields differ in *kind*: DG re-codes within th
 
 Three consequences, and the first is a correction to the row above. (i) Rate versus global remapping is not read off "how large the input change is" — the input change was **identical** between groups, and only the coordinate assignment differed. (ii) The **allocate-vs-reuse decision (`G38`) is therefore made outside this page's circuitry entirely**, upstream of the dentate gyrus, on a variable (path-integrator state at first encounter) that carries no information about the stimuli being separated. That is a third candidate location for the knob, beside a steep CA3 transfer curve and `T393`'s threshold separator in the dentate — and the only one supported by a manipulation. (iii) It supplies the companion result to Neunuebel & Knierim 2014 below: there, the afferent that *places* the attractor bump is the weakest spatial one; here, whether two bumps exist to choose between is set before any cue is presented. Both point the same way — CA3's separation behaviour is largely inherited from which addresses its inputs deliver, not computed from similarity among them ([[wiki/empirical-tensions.md]] `T389`, `T394`).
 
+**How a coordinate difference could become a different CA3 population: module-wise realignment** (Buzsáki & Moser 2013, `raw/buzsaki-2013-memory-navigation-theta-hippocampal-entorhinal.md`. A review hypothesis; the grid data are cited through it).
+
+| Step | Content |
+|---|---|
+| Modules | Grid cells form semi-independent modules along the dorsoventral medial entorhinal axis. Each step in scale comes with quantal shifts in orientation and grid asymmetry |
+| Independent realignment | Modules respond to an environment change with **different** rotations and translations |
+| Coincidence read-out | A CA3 cell fires where, and only where, the grid nodes of its afferents from several modules overlap. Realign the modules independently and the coincidence set changes, so a different subset of place cells is active at each location. That is global remapping |
+| Intra-hippocampal additions | (i) Low-divergence dentate → CA3 connectivity splits the entorhinal pattern into subpatterns. (ii) CA3 recurrent and CA3 → CA1 weights encode the distance relations among them |
+| Measured endpoint | Orthogonalisation is strongest in CA3: across environments, two cells' firing locations are no more correlated than chance |
+
+Three consequences for this page.
+- **It makes Colgin's "different coordinates" concrete.** The variable that selects between global and rate remapping would be a vector of per-module phase offsets. The number of distinct maps would then be the number of distinguishable offset combinations. The separation would be computed upstream as a combinatorial code. Nothing would need to compute it from input similarity.
+- **It is compatible with the grid↔place result above.** If place fields are coincidences of grid nodes, each place cell's relation to its grid inputs survives a remap by construction (Whittington et al. 2018, `T39`).
+- **It leaves the split between the two sources open.** The authors list both "independent changes in grid maps" and "intrinsic architectural properties of the hippocampus" as sources of the multiplicity. Their open question 3 asks whether module realignment is instrumental at all, how many maps can be generated, and whether hippocampal output maintains the grid. None is tested. **(brainstorm)** One discriminating recording would settle part of it: realign one module optogenetically, or by a geometry change that moves one module only, and score the place-cell population. If module realignment is the source, a single moved module should produce partial remapping in proportion to that module's share of each cell's input.
+
 ---
 
 ## The measurement the definition demands, run once

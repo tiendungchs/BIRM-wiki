@@ -132,6 +132,39 @@ The second coupling is the important one architecturally: it makes sensory predi
 
 ---
 
+## Episodic memory as the integrator run without input — the evolutionary hypothesis
+
+> Buzsáki & Moser 2013, Nat Neurosci 16:130–138 (`raw/buzsaki-2013-memory-navigation-theta-hippocampal-entorhinal.md`). A hypothesis paper. The rodent data are cited through the review.
+
+**The claim.** Memory and planning evolved from navigation, and "the neuronal algorithms underlying navigation in real and mental space are fundamentally the same".
+
+| Navigation mode | Memory system | Shared property |
+|---|---|---|
+| **Path integration** (self-referenced: speed × elapsed time, heading, start position) | **Episodic** (first-person, in space and subjective time; used for planning) | Items are linked in sequence, mostly one way, which gives free recall its **forward asymmetry** and **temporal contiguity** |
+| **Map-based** (landmark relations, allocentric) | **Semantic** (facts with no temporal or contextual reference) | Built by repetition: a map from repeated exploration, semantics from repeated episodes sharing elements, until the content is context-free ([[wiki/concepts/nonspatial-maps.md]]) |
+
+The authors say this does **not** imply that all memories are spatial.
+
+**Two requirements a navigator does not need and a memory system does:**
+1. **Many orthogonal representations**, supplied by grid-module realignment and the dentate/CA3 stages ([[wiki/concepts/pattern-separation-completion.md]]).
+2. **Self-generated assembly sequences.** Mental travel has no `a_t`, so the sequence must be produced internally. During wheel running, with environmental and body cues held constant, the hippocampus emits continually changing assembly sequences that predict the animal's correct *or erroneous* maze choice seconds before the turn. More distinct sequences can be generated than there are member neurons, which is the capacity argument for sequences as the episodic code ([[wiki/entities/adaptive-cann.md]] and [[wiki/entities/bb-model.md]] are the wiki's input-free generators).
+
+**Chunking supplies a reason for re-zeroing.** Path representations break into repeating chunks at landmarks, state changes and reinforcers. On linear tracks, fields are direction-specific (different cells in each direction, the same mechanism proposed as remapping). In the hairpin maze, one sequence repeats per arm. Reset is either of the path integrator or of the self-organised trajectory by a new initial condition. The stated benefit is that **chunking bounds the error that accumulates over long sequences**. The authors propose chunking as a property shared by path integration and episodic memory ([[wiki/concepts/event-segmentation.md]]). The Derdikman measurement above shows the reset happening. This supplies an error budget as a candidate reason. It does not supply a rule for where to reset (open problem below).
+
+**Time is tracked by the same sequences, and the error does not grow like drift.**
+
+| Claim | Evidence (via the review) | Contrast with this page's integrator |
+|---|---|---|
+| Elapsed time is decodable from theta-bound assembly sequences during a wheel-running delay | Time-prediction error from a probabilistic decoder over spike theta phases | — |
+| Error stays **asymptotically low** over tens of seconds instead of growing with elapsed time. The within-cycle sequences are proposed as the error-correction | Same | A drift-limited integrator's error grows with elapsed time (fly darkness drift, `G124`) |
+| When the delay length is changed, a few cells stay anchored to delay onset. Most **re-time** into a new trajectory | Delay-switch recordings (MacDonald et al. 2011) | Same split as place cells: some anchored to the start box, the rest remapping |
+
+**(brainstorm)** A time code whose error saturates is not a pure integrator of a constant velocity: such an integrator's error would grow without bound. Two readings fit. (i) The sequence is periodically re-anchored, which is chunking applied in time. (ii) The code is a trajectory on a fixed manifold, and the within-cycle sequences act as a local consistency check on it (cf. Nieh et al. 2021 on [[wiki/concepts/offline-replay.md]]). The review does not separate them. For a builder they differ: (i) needs a boundary detector and (ii) needs a learned manifold.
+
+**Limits.** The review states the hypothesis and selects supporting data. No experiment in it tests a navigation mechanism on a non-spatial episodic task. The authors' own challenge 5 is open. During encoding the entorhinal cortex drives the hippocampus. During spontaneous recall the flow reverses, hippocampus → entorhinal. Whether the direction flips back and forth *during* navigation once a route is learned is unknown (`G90`).
+
+---
+
 ---
 
 ## The learning cost of an integrator is two correspondences
@@ -154,7 +187,7 @@ Khona & Fiete 2022 price this page's trade as sample complexity rather than as c
 - **The manifold's topology is built in, never inferred** (`G47`). Ring, torus and plane are architectural choices in every implementation above; no model here discovers from experience which one its domain has, which is why the abstract-domain demonstrations all run on hand-designed continuous planes.
 - **Precision under noise — and the noise budget is on the wrong axis.** Periodicity is error-correcting for accumulated noise; nothing here states the bound, or what happens at a module boundary. What is now measured is *which* noise matters: in the mammalian heading integrator, drift under zeroed directional input is **20–50× larger** than independent per-neuron noise predicts, and is accounted for by low-dimensional noise entering through the velocity channel itself, because isotropic high-dimensional noise has variance `1/N` along the manifold (Chaudhuri et al. 2019, [[wiki/concepts/topological-latent-decoding.md]]). Integration fidelity is therefore a property of the *drive* rather than of the units, and no implementation above reports the decomposition (`G124`).
 - **Isometry is measured biologically and never for a learned integrator.** Equal external displacement ↔ equal coding length is what makes a unit velocity input mean the same thing everywhere on the manifold, i.e. it is the precondition this page's composition argument assumes silently. It is confirmed for the heading ring by uniform arc-length parameterization decoding without per-region rescaling; it is criterion C4 of [[wiki/concepts/attractor-identification.md]], and that page records it as having no machine instance at all.
-- **Nothing decides where one integrator's domain ends.** The measured code is re-zeroed at compartment boundaries, so the environment is covered by a mosaic of integrators rather than by one; no model here has a rule for when to start a new frame instead of continuing the current one, which is `G40`'s composition question with the *segmentation* half made explicit ([[wiki/concepts/event-segmentation.md]], `T347`).
+- **Nothing decides where one integrator's domain ends.** Buzsáki & Moser 2013 give a cost for not deciding: unchunked sequences accumulate error. That prices the decision without making it. The measured code is re-zeroed at compartment boundaries, so the environment is covered by a mosaic of integrators rather than by one; no model here has a rule for when to start a new frame instead of continuing the current one, which is `G40`'s composition question with the *segmentation* half made explicit ([[wiki/concepts/event-segmentation.md]], `T347`).
 - **Path integration is not a sufficiently constraining task.** No trained system in the wiki produces the *multi-module* code that makes the biological one unambiguous over large ranges, and adjacent-period ratios come out near 1 rather than ≈1.4. The proposed missing constraints are exponential coding capacity, intrinsic error correction and whitened information across cells (Schaeffer et al. 2022) — none of which is an objective anything here optimizes ([[wiki/concepts/objective-identifiability.md]]).
 
 ---

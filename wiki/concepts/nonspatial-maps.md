@@ -121,6 +121,24 @@ Zheng et al. 2024 re-ran the Garvert et al. 2017 fMRI (n = 23) with **three** pa
 
 ---
 
+### Why the substrate would be general: the capacity-surplus argument
+
+> Buzsáki & Moser 2013, Nat Neurosci 16:130–138 (`raw/buzsaki-2013-memory-navigation-theta-hippocampal-entorhinal.md`). An argument from comparative capacity, not a measurement. Its episodic ↔ path-integration half is on [[wiki/concepts/path-integration.md]].
+
+| Step | Content |
+|---|---|
+| Navigation needs little | Insects navigate well with far smaller circuits. A rat's local environment is mapped to centimetre precision by about a dozen grid cells or place cells |
+| Mammals have far more | Semi-independent grid modules feed a densely connected CA3 random graph. That combination can produce a very large number of discrete, orthogonal maps |
+| So the surplus is for something else | The combinatorial capacity exceeds what navigation needs. It is proposed as what lets one structure store the many environments and experiences of a lifetime |
+| Semantic memory = the allocentric map's operation | The mechanisms that fix positions by landmark relations are proposed to fix objects, events and individuals by their relations. Human hippocampal and entorhinal neurons fire for specific words, objects or people, largely independent of physical appearance. Semantic-relatedness models use a vector-distance metric like the one between landmarks |
+| Semantic knowledge is decontextualised by repetition | Facts are acquired as similar episodes are encoded repeatedly, until the content is context-independent. Allocentric maps form the same way, from repeated exploration ([[wiki/concepts/schema-assimilation.md]]) |
+
+**What it adds to this page.** The rows above show that the map's signatures appear off the plane. This argument says why that is expected: a navigation system needs only a small fraction of the representational capacity the mammalian formation has. It does not say that the surplus is used relationally, as opposed to as an address space. [[wiki/entities/vector-hash.md]]'s content-blind scaffold is exactly a surplus-capacity address space, and it predicts the same signatures. So the argument fits both readings of the rows above and separates neither.
+
+**(brainstorm) It maps semantic memory to the *landmark* mode, and that bears on the anchoring asymmetry.** Here a "landmark" is an item whose relations to other items fix where it sits. That gives a non-spatial landmark a definition: a stored item used as a reference point. It does not give a **reset**. Nothing in the argument says what re-registers a drifting conceptual position against such an item. So the element the review leaves undefined off the plane stays undefined (`G39`).
+
+---
+
 ---
 
 ## Open problems

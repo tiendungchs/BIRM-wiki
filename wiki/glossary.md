@@ -958,6 +958,8 @@ Abbreviations used across the wiki. Per the schema, terms are expanded in place 
 | 3AFC | Three-Alternative Forced Choice | Recognition test in which the subject picks the studied partner of a cue from three options, so chance is 0.33. With lures drawn from other studied pairs, no option is a systematic wrong-direction answer, so a below-chance reversal cannot be expressed ([[wiki/entities/medial-prefrontal-cortex.md]]) |
 | IC (fMRI) | Informational Connectivity | Trial-by-trial covariation of multivoxel decoding evidence between two regions, the pattern-level analogue of functional connectivity. Not the Intrinsic Cost of the machine-learning section ([[wiki/entities/remerge.md]]) |
 | MSP | MonoSynaptic Pathway | The direct entorhinal → CA1 route, bypassing dentate gyrus and CA3; in Schapiro et al. 2017's hybrid model it learns overlapping structure slowly ([[wiki/concepts/complementary-learning-systems.md]]) |
+| AMPA | α-Amino-3-hydroxy-5-Methyl-4-isoxazolePropionic Acid (receptor) | Fast ionotropic glutamate receptor; with GABA_A its time constant sets the gamma cycle and the 10–30 ms assembly window ([[wiki/concepts/temporal-coding.md]]) |
+| GABA_A | γ-AminoButyric Acid type-A (receptor) | Fast ionotropic inhibitory receptor; the perisomatic-inhibition time constant behind gamma and theta-phase assembly segregation ([[wiki/concepts/temporal-coding.md]]) |
 
 ## Benchmarks
 
