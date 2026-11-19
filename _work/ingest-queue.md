@@ -818,7 +818,7 @@ Not acquired: Halford, Wilson & Phillips 1998 (width row, `G104`), Kroger et al.
 
 One INGEST each:
 
-- [ ] `plotkin-1970-note-on-inductive-generalization.md` — rule-induction · F · 1970 · LOSSY
+- [x] `plotkin-1970-note-on-inductive-generalization.md` — rule-induction · F · 1970 · LOSSY
 - [ ] `levesque-1984-logic-implicit-explicit-belief.md` — foundations · F · 1984 · LOSSY
 - [ ] `bjork-1992-new-theory-of-disuse-stimulus-fluctuation.md` — memory-consolidation · F · 1992 · LOSSY
 - [ ] `johnson-1993-source-monitoring.md` — memory-consolidation · F · 1993 · LOSSY
