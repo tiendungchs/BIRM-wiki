@@ -139,7 +139,7 @@ Hippocampal coupling rose with vmPFC, frontal pole, precuneus and superior parie
 
 ## The named rival, and why the source that proposes it says the evidence cannot separate them
 
-> Kumaran & McClelland 2012, via Kumaran, Hassabis & McClelland 2016 (`raw/kumaran-2016-complementary-learning-systems-updated.md`). Full treatment: [[wiki/entities/remerge.md]].
+> Kumaran & McClelland 2012 (`raw/kumaran-2012-generalization-recurrent-interaction-episodic-memories-remerge.md`), and its summary in Kumaran, Hassabis & McClelland 2016 (`raw/kumaran-2016-complementary-learning-systems-updated.md`). Full treatment: [[wiki/entities/remerge.md]].
 
 This page's mechanism is what the complementary-learning-systems literature calls an **encoding-based overlap** model — the hippocampus stores a representation that *integrates* overlapping pairs. REMERGE is the **retrieval-based** alternative built to get the same behaviour without giving up pattern separation: the similarity computation over separated traces is recirculated — its output combined with the external input and fed back — until the system settles, and the higher-order similarity that links `A` to `C` through `B` appears in the settled state rather than in any stored code.
 
@@ -147,12 +147,13 @@ This page's mechanism is what the complementary-learning-systems literature call
 |---|---|---|
 | When the composite exists | during encoding of the overlapping episode | only while the query is settling |
 | What the store holds | an integrated `ABC` representation | separated `AB`, `BC` traces |
-| Predicted dissociation | reactivation magnitude at encoding predicts inference (measured here, r = 0.46) | **weak traces suffice**: poor item recognition with near-normal generalization |
+| Predicted dissociation | reactivation magnitude at encoding predicts inference (measured here, r = 0.46) | inference **lags** premise memory and is lost first when premise traces weaken. The review's "weak traces suffice" holds only for categorization ([[wiki/entities/remerge.md]]) |
+| What explains good vs poor generalizers | an integrated representation in good generalizers only | premise weights 1.52 vs 1.47 fit 73% vs 54% inference (Zeithamova & Preston 2010 data) |
 | Cost | paid once per episode, queried or not | paid per query, bounded by settling time |
 
 **The source's verdict is that the two are not currently distinguishable**, that both may run depending on paradigm, training amount and training–test delay, and — importantly for `T334` — that the distinction is **not absolute**: *generalized replay* (simultaneous reactivation of several related traces, offline) can write a settled state back as a new trace, at which point a retrieval-based mechanism has manufactured the composite this page measures. So the wiki's two positions are plausibly the same loop observed at different points, with the offline period as the converter.
 
-**What this page's measurement still buys against REMERGE.** The reactivation curve is read out during re-presentation of `AB` **with no query pending** — nothing is being asked, so there is no settling process to attribute it to. A pure retrieval-based account has to explain why the absent element is reinstated at encoding time at all. That is the sharpest constraint in the wiki on the retrieval-only pole, and neither source states it.
+**What this page's measurement still buys against REMERGE.** The reactivation curve is read out during re-presentation of `AB` **with no query pending** — nothing is being asked, so there is no settling process to attribute it to. A pure retrieval-based account has to explain why the absent element is reinstated at encoding time at all. That is the sharpest constraint in the wiki on the retrieval-only pole, and neither source states it. **It is weaker than it looked.** The primary REMERGE paper fits a hippocampal encoding effect of the same kind (activity on `BC` trials predicts later `A–C`, Zeithamova & Preston 2010) as plain completion of the stronger `AB` trace when `B` reappears. That reinstatement needs no query and no integrated unit. So reinstatement of an absent element at encoding does not by itself favour this page. The part that still does is the ventromedial prefrontal effect surviving the partialling-out of premise memory, which trace strength cannot produce.
 
 ---
 
