@@ -2,7 +2,7 @@
 
 **A new event is encoded not only against what is present but against what the store *retrieves* while it is present: overlapping content cues reinstatement of a prior episode's unseen elements, and the current event is bound to the reinstated content rather than to the input alone. The composite `A–C` is therefore written at encoding time, before any query for it exists — not composed at retrieval.**
 
-> **Provenance.** Zeithamova, Dominick & Preston 2012, *Hippocampal and ventral medial prefrontal activation during retrieval-mediated learning supports novel inference*, Neuron 75:168–179 (`raw/zeithamova-2012-retrieval-mediated-learning-inference.md`). 26 subjects, block-design fMRI, associative-inference triads (`A–B`, `B–C` interleaved; tested on `A–C`), with multivoxel pattern analysis used to read out the *unseen* third element during encoding. The wiki already carried this result secondhand through Preston & Eichenbaum 2013 ([[wiki/concepts/schema-assimilation.md]]); this is the primary source, and it supplies the measurement the review only summarised. A second primary source, Shohamy & Wagner 2008 (acquired equivalence with a midbrain gate and a latency test), has its own section below.
+> **Provenance.** Zeithamova, Dominick & Preston 2012, *Hippocampal and ventral medial prefrontal activation during retrieval-mediated learning supports novel inference*, Neuron 75:168–179 (`raw/zeithamova-2012-retrieval-mediated-learning-inference.md`). 26 subjects, block-design fMRI, associative-inference triads (`A–B`, `B–C` interleaved; tested on `A–C`), with multivoxel pattern analysis used to read out the *unseen* third element during encoding. The wiki already carried this result secondhand through Preston & Eichenbaum 2013 ([[wiki/concepts/schema-assimilation.md]]); this is the primary source, and it supplies the measurement the review only summarised. A second primary source, Shohamy & Wagner 2008 (acquired equivalence with a midbrain gate and a latency test), has its own section below. A third, Schlichting et al. 2015 (item-level integration and separation codes, with the training schedule manipulated within subjects), has the section after it.
 
 ---
 
@@ -213,6 +213,64 @@ This page's mechanism is what the complementary-learning-systems literature call
 
 ---
 
+## Third primary source: item-level codes, with the schedule manipulated (Schlichting, Mumford & Preston 2015)
+
+> Schlichting, Mumford & Preston 2015, *Learning-related representational changes reveal dissociable integration and separation signatures in the hippocampus and prefrontal cortex*, Nat Commun 6:8151 (`raw/schlichting-2015-learning-related-representational-changes-integration-separation.md`). n = 26 (30 scanned; 4 excluded, 1 of them for direct-pair memory below 80%). High-resolution fMRI (1.7 mm isotropic voxels). Figures and supplement were not clipped, so claims that rest on them are marked *(suppl.)*.
+
+**Design.**
+
+| Element | Content |
+|---|---|
+| Stimuli | 36 novel 3-D objects in 12 `ABC` triads, chosen to have no pre-existing representations |
+| Study (not scanned) | 24 pairs × 12 presentations. **Blocked** (6 triads): all 12 `AB` presentations before any `BC`. **Intermixed** (6 triads): `AB` and `BC` alternate. Within subjects, order counterbalanced. The overlap is not disclosed |
+| Exposure scans, before and after study, identical order | Single items for 300 ms under an orthogonal fixation-colour task. Each item twice per run, 4 runs per phase |
+| Test (after scanning) | Surprise `AC` inference first, then `AB` and `BC`. Two-alternative forced choice, foils from another triad of the same condition |
+| Measure | Searchlight representational similarity analysis (RSA): `ΔRS = z(post) − z(pre)` for `A–C` pairs, **within-triad minus across-triad**, cross-run pairs only. Integration = within > across, separation = within < across. Correct-inference triads only |
+
+**Behaviour.** `AB` 95.8%, `BC` 97.4%, `AC` 90.4%. `AC` blocked 92.3% vs intermixed 88.5%: no condition effect (F = 0.43) and no interaction.
+
+**Results by region** (MNI coordinates, mm).
+
+| Region | Signature | Detail |
+|---|---|---|
+| Posterior hippocampus, right (28/−37/−1) | **Separation under both schedules** | each schedule p < 0.005 *(suppl.)* |
+| Anterior hippocampus (left −17/−16/−21; right 29/−11/−27) | **Blocked → integration, intermixed → separation** | Right: both effects significant (p < 0.047). Left: intermixed separation p < 0.0001, blocked integration a trend (p = 0.081) |
+| Anterior MPFC (medial prefrontal cortex; 1/58/−20) | Separation under both | both p < 0.03 |
+| Mid MPFC (−8/44/−17) | **Integration under both** | both p < 0.002. The only region-of-interest cluster that integrates whatever the schedule |
+| Subgenual MPFC (3/15/−17; −7/18/−24) | Blocked → integration, intermixed → separation | Same pattern as anterior hippocampus |
+| IFG (inferior frontal gyrus): left anterior BA 45 (−47/29/6), right posterior BA 44 (50/6/−2) | Separation under both | all p < 0.020 |
+| IFG, more medial (−29/30/−2; 41/10/3, extending into insula) | Blocked → integration, intermixed → separation | |
+| Whole brain *(suppl.)* | Only two integration-main-effect clusters, both prefrontal. Separation is widespread (ventral occipitotemporal, temporal pole, insula). Midbrain shows separation plus blocked → integration. Precuneus, middle temporal gyrus and dorsal PFC show the reverse interaction (intermixed → integration) | |
+| Every ROI | No intermixed → integration cluster. Across-triad similarity unchanged | |
+
+**Structure.** Anterior hippocampal (head) volume predicts blocked-condition integration across subjects (r = 0.43, p = 0.027). In a regression with body and tail, only head volume predicts it (β = 0.50). No subregion's volume predicts intermixed separation.
+
+**What it adds.**
+
+| Finding | Consequence for a builder |
+|---|---|
+| **The same `A` and `C` are coded as integrated in one region and as separated in another, at the same time** | The store does not have to pick one policy per pair. It can hold a separated code and an integrated code of one triad in parallel, which moves the integrate-vs-separate question from storage to the reader: which copy does a query consult? **(brainstorm)** This is the first human item-level measurement of both codes at once |
+| **The schedule sets the hippocampal bias, and recency does not** | Intermixed `AB` is more recent when `BC` first appears, and it gives separation. Blocked `AB` is older but established, and it gives integration. The authors' reading is that completion during new encoding needs a strong prior trace (O'Reilly & Rudy 2001). That adds a precondition to the trigger stated above (integration runs where the store completes): the overlapping trace must be strong enough to complete *at the first overlap* ([[wiki/gaps/g038.md]]) |
+| **Inference accuracy is the same under both schedules** | In the intermixed condition, correct `AC` inference happened while anterior hippocampus was separating. So an integrated hippocampal code is not necessary for inference here. Mid-MPFC's integrated code (present under both schedules) or retrieval-time recombination of separated traces is enough ([[wiki/empirical-tensions.md]] T334) |
+| **The controller integrates under both schedules, the store only under one** | Mid-MPFC integrates either way, anterior hippocampus only after blocked training. **(brainstorm)** This fits Zeithamova et al. 2012 above, where the vmPFC effect survives the premise-memory control and the hippocampal one does not: the controller's integration is the schedule-robust one |
+| **Midbrain follows the anterior-hippocampal pattern** | The authors read it as a mismatch response that switches between separation (encoding) and integration by completion (retrieval). That would make the Shohamy & Wagner gate above a separation/completion switch as well as a write gain. Speculation in the source |
+| **The item-level design rules out a process account** | Within-minus-across-triad ΔRS cancels any process engaged by every item (retrieving a narrative label, a novelty response). The authors use this to criticise Milivojevic et al. 2015, where narrative membership was confounded with temporal proximity. It is a probe rule worth importing ([[wiki/concepts/representation-probing.md]]) |
+
+**(brainstorm) Separation as clone allocation.** The authors offer a second reading of a similarity decrease. Viewing `A` completes `B_A` (B in the context of A) and viewing `C` completes `B_C`, so `A` and `C` drift apart because they retrieve different copies of `B`. Integration is then completion to one shared `B`. In latent-graph terms the separating region has split the shared node into two context-specific clones, and the integrating region holds one node with two edges. This matches the clone-allocation reading of separation in [[wiki/entities/cscg.md]]. The design cannot tell a stored representational change from automatic completion at viewing, but under either reading the two codes coexist.
+
+**Conflicts and caveats.**
+
+| Issue | Detail |
+|---|---|
+| Schedule direction vs Shohamy & Wagner 2008 | There, *intermixed* overlapping pairs gave the encoding-phase integration signal (a hippocampal activation rise predicting generalization), and blocked designs elsewhere gave test-phase effects. Here intermixed gives hippocampal *separation* and blocked gives integration. The measures differ (activation change vs item-similarity change), and so do the paradigms (acquired equivalence vs associative inference), so this is not a clean reversal. But the schedule → mechanism mapping recorded in `T334` does not survive as stated |
+| Zeithamova et al. 2012 also trained interleaved | and found the absent element reinstated during encoding. Reinstatement during intermixed encoding and separated item codes afterwards are compatible: the `B_A`/`B_C` reading needs completion to a different copy of `B`, not an absence of completion |
+| Separation is widespread in neocortex | This looks like a conflict with complementary learning systems (neocortex integrates). The authors' answer is timescale: one session is short, and cortical integration may need more experience or consolidation. Blocked training may beat interleaved for integration on short timescales and lose on long ones ([[wiki/concepts/complementary-learning-systems.md]]) |
+| Only correct-inference triads analysed | No subject-level link between code type and inference is tested, so neither code is shown to cause inference |
+| Volume–integration correlation | r = 0.43 at n = 26, one test. It conflicts with "smaller anterior hippocampus = better recollection" (Poppenk et al. 2013) unless integration costs detail recall. That is the authors' reconciliation, and it is untested |
+| Supplement and figures not clipped | Per-schedule follow-up tests, the whole-brain table and the null effect of condition order rest on them |
+
+---
+
 ## Connections
 
 - **[[wiki/entities/remerge.md]]** — the named rival mechanism for this page's behaviour: recirculate the store's own similarity computation until it settles instead of binding a reinstated element at write time, which keeps the separated code and moves the whole cost to the query ([[wiki/empirical-tensions.md]] T334).
@@ -234,3 +292,5 @@ This page's mechanism is what the complementary-learning-systems literature call
 - **[[wiki/concepts/hippocampal-indexing-theory.md]]** — the behavioural existence proof this page's mechanism needs: a rat conditioned on the *retrieved* memory of a context it is not currently in shows fear to that context and not to a control context, and the effect is abolished by dorsal-hippocampal inactivation, so an index read-out can serve as the input to new associative learning.
 - **[[wiki/concepts/state-prediction-error.md]]** — supplies the causal half of this page's candidate write gate: there a ventral tegmental dopamine transient is necessary and sufficient to write a valueless cue→cue link in rats, while here midbrain activity rising with hippocampal activity across learning predicts which humans integrate overlapping pairs. The source names the trigger an *episodic* prediction error, a mismatch between retrieved and present content (Shohamy & Wagner 2008).
 - **[[wiki/entities/ventral-tegmental-area.md]]** — the proposed gain source for integration, through the hippocampal–VTA loop: hippocampal mismatch drives the midbrain, and dopamine back in the hippocampus raises the chance that the present and retrieved episodes are written as one. Here the midbrain change covaries with hippocampus and not striatum, so the line involved is a hippocampal-projecting one, not among the four that page traces.
+- **[[wiki/concepts/hippocampal-long-axis.md]]** — places this page's integration at the anterior end and makes it depend on the schedule: posterior hippocampus separates `A` from `C` under any schedule, anterior hippocampus integrates only blocked triads, and head volume predicts how much (Schlichting et al. 2015).
+- **[[wiki/entities/lateral-frontoparietal-network.md]]** — supplies the item-level separating code beside this page's integrating one: lateral IFG (left BA 45, right BA 44) pushes indirectly related items apart under both schedules while mid-MPFC pulls the same items together, so the two prefrontal resolution policies run in parallel on one triad (Schlichting et al. 2015).

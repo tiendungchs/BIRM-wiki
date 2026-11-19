@@ -303,6 +303,14 @@ The one-trial-cortical-learning exception to this page's slow-cortex premise is 
 
 This is the interference argument at the top of the page with its exception made precise: the reason distributed networks were thought incapable of fast integration is the overlapping case, and connectionist models that update representational layers show little interference on related non-overlapping material. It also sharpens `T82` and `G14`, and it makes the acceleration reported by the sleep literature (spindle density predicting accelerated hippocampal disengagement for schema-dependent material) a consequence of a licence rather than of a rate.
 
+**A fast integrated cortical code, and widespread fast cortical separation, in one session** (Schlichting et al. 2015, [[wiki/concepts/retrieval-mediated-learning.md]]). Item-level fMRI similarity after about 20 minutes of overlapping `AB`, `BC` training on novel objects:
+
+| Observation | Bearing on this page |
+|---|---|
+| Mid-MPFC integrates indirectly related `A` and `C` under blocked and intermixed training alike | Neocortical integration with no consolidation period and no prior schema for the stimuli |
+| Separation is the commonest cortical signature (ventral occipitotemporal cortex, temporal pole, insula, anterior MPFC, lateral IFG) | Neocortex mostly *separates* on this timescale. The authors' reading: cortical integration needs more experience or consolidation |
+| Blocked training is what makes anterior hippocampus integrate | Blocked may beat interleaved for integration on short timescales and lose on long ones, where this page's interference argument favours interleaving. The authors raise this and do not test it |
+
 ---
 
 ## The 21-year retrospective: the dichotomy softens on both sides

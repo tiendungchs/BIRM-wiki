@@ -129,6 +129,8 @@ Against this, lateral prefrontal cortex resolves the *same* competition the othe
 
 **These are two policies over one conflict signal, and the source states no arbitration rule** — nor does it know whether their time courses differ. That is a clean open question with an obvious machine analogue: on encountering a new item that conflicts with a stored one, a system may merge them under a common structure or push them apart, and every wiki mechanism that touches this (dentate expansion recoding, memory allocation by excitability, engram linking) implements one policy without a selector between them.
 
+**Both policies run on the same items at the same time** (Schlichting et al. 2015, [[wiki/concepts/retrieval-mediated-learning.md]]). Item-level similarity after `AB`, `BC` learning shows three groups. Lateral IFG (left BA 45, right BA 44) separates `A` from `C` under both schedules. Mid-MPFC integrates them under both. Medial IFG, subgenual MPFC and anterior hippocampus integrate only when `AB` was established before `BC`. So the stored code has no arbitration: one triad gets an integrated and a separated representation in different regions. The open question moves to which one a query reads **(brainstorm)**. In the regions that switch, what moves them is the strength of the first memory at the first overlap, not its recency. That is a selector criterion a system can compute at write time.
+
 ---
 
 ## The human substrate, and a wider definition of what is in a schema
