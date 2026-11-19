@@ -227,7 +227,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T253 | Is slow connectome dynamics the accumulated expression of fast states, or an independent parallel stream? | `L4` | `LIVE` | 2 | [[wiki/tensions/t253.md]] |
 | T254 | Is the degree distribution of neural graphs heavy-tailed (lognormal/power-law) or exponential? | `L0-INSTR` | `LEANING` | 3 | [[wiki/tensions/t254.md]] |
 | T256 | Is the precuneus (area 7m) part of the default mode network? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t256.md]] |
-| T257 | In the default/control switch, who drives whom? | `L2` | `LIVE` | 3 | [[wiki/tensions/t257.md]] |
+| T257 | In the default/control switch, who drives whom? | `L2` | `LIVE` | 4 | [[wiki/tensions/t257.md]] |
 | T259 | Is the cortical predictive hierarchy a chain of command, or an apex that broadcasts across levels? | `L2` | `LEANING` | 4 | [[wiki/tensions/t259.md]] |
 | T260 | Does the brain have an absolute activity baseline, or only relative ones? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t260.md]] |
 | T262 | During an externally directed task, does the default mode network decouple from task-positive systems or integrate with them? | `L2` | `BOTH` | 4 | [[wiki/tensions/t262.md]] |

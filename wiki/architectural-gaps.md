@@ -98,7 +98,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G81 | No graph-discovery mechanism in the wiki estimates edges through an observation model | part | `L1` | `OPEN` | 2 | [[wiki/gaps/g081.md]] |
 | G82 | Every low-dimensional manifold in the wiki is measured, none is generated | part | `L3` | `PARTIAL` | 7 | [[wiki/gaps/g082.md]] |
 | G83 | Every structure-discovery mechanism in the wiki outputs a structure; none outputs a reusable map between structures | part | `L0` | `PARTIAL` | 4 | [[wiki/gaps/g083.md]] |
-| G84 | No architecture in the wiki knows the topological position of its own modules, and none has a component whose job is to be the crossing point | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g084.md]] |
+| G84 | No architecture in the wiki knows the topological position of its own modules, and none has a component whose job is to be the crossing point | arrangement | `L2` | `OPEN` | 4 | [[wiki/gaps/g084.md]] |
 | G85 | No architecture in the wiki reads its own network topology, and none treats it as a demand-graded control variable | arrangement | `L2` | `OPEN` | 3 | [[wiki/gaps/g085.md]] |
 | G86 | Every architecture in the wiki tunes its stopping rule and its memory separately, and nothing couples them | part | `L2` | `OPEN` | 1 | [[wiki/gaps/g086.md]] |
 | G87 | Nothing in the wiki has ever shown that a better representation of activity produces a better decision | part | `L0-INSTR` | `OPEN` | 1 | [[wiki/gaps/g087.md]] |
@@ -136,7 +136,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | G119 | No architecture has a reinforcer that is admissible to one of its learning systems and inadmissible to another | arrangement | `L2` | `OPEN` | 10 | [[wiki/gaps/g119.md]] |
 | G120 | No architecture regenerates its teaching signal from the memory that teaching signal created | arrangement | `L2` | `OPEN` | 2 | [[wiki/gaps/g120.md]] |
 | G121 | Devaluation-insensitive responding is the wiki's definition of a habit, and it does not identify one | part | `L0-INSTR` | `OPEN` | 8 | [[wiki/gaps/g121.md]] |
-| G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 5 | [[wiki/gaps/g122.md]] |
+| G122 | Every hub in the wiki is drawn as one box with many inputs; nothing decides whether its afferents are mixed across the population or biased to projection-defined sub-populations | arrangement | `L1` | `OPEN` | 6 | [[wiki/gaps/g122.md]] |
 | G123 | Every store in the wiki reads once per query, so no retrieval can be revised | part | `L2` | `OPEN` | 7 | [[wiki/gaps/g123.md]] |
 | G124 | A manifold code's drift is set by the alignment of its noise, and every robustness number in the wiki is reported against the one perturbation that cannot move it | part | `L2` | `OPEN` | 4 | [[wiki/gaps/g124.md]] |
 | G125 | Every internally-generated reward in the wiki is immune to its own delivery; the biological one extinguishes each time it is claimed | part | `L1` | `OPEN` | 6 | [[wiki/gaps/g125.md]] |

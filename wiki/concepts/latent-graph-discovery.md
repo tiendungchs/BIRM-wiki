@@ -242,7 +242,7 @@ Mapping to the two-timescale factorization (W = slow **w**eights, gradient-updat
 | Estimator | What it returns | Its characteristic failure |
 |---|---|---|
 | **Correlation / covariance** | Symmetric similarity | **Transitive closure** — indirectly coupled nodes get filled in, so the recovered graph is systematically too dense, too clustered and too modular, and the excess dependencies come from indirect paths in the true anatomy |
-| **Partial correlation** | Sparser symmetric graph | Hard to interpret, may **regress away true interactions**, and needs many samples for stability |
+| **Partial correlation** | Sparser symmetric graph | Hard to interpret, may **regress away true interactions**, and needs many samples for stability. One mitigation: condition only on each pair's reliable neighbours, not on every node (Spreng et al. 2013, [[wiki/concepts/node-definition-problem.md]]). That buys degrees of freedom, but a third path outside the chosen set is left uncontrolled |
 | **Granger causality / transfer entropy** | Directed edges from temporal precedence | Direction only in the narrow sense that one series' past predicts another's future; validated on spiking and electrophysiology, not on slow filtered observables |
 | **Model inversion (dynamic causal modelling)** | Directed coupling `A` plus its modulation by input `B^k` | Direction is *derived from a model class*, so the edges are contingent on that class ([[wiki/concepts/effective-connectivity.md]]) |
 
