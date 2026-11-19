@@ -68,6 +68,7 @@ Brown's recordings in monkey (and rat) perirhinal cortex, as summarised in the t
 | Large featureless test boxes make rat recognition hippocampus-dependent. Small boxes, encoded as objects, do not (Cassaday & Rawlins 1995, 1997) | Whether a stimulus is an *object* or an *array* decides which system handles it |
 | Mayes et al.'s selective-hippocampal patient: normal item recognition; impaired object–location, temporal-order and face–voice recognition | The split runs between item and association, not between recognition and recall |
 | Item recognition rests mainly on familiarity, associative recognition on recollection (Yonelinas 1997 ROC) | The same split, measured in healthy subjects |
+| Fornix transection and perirhinal + entorhinal ablation each abolish transitive inference (`B–D`) on a five-term odour series. The deficit is total and equal for the two lesions, and the premise pairs survive both (Dusek & Eichenbaum 1997). The source sets this against the recognition literature it cites: rhinal damage impairs simple recognition, fornix damage does not | Relational expression needs the hippocampus with *both* its cortical and its subcortical connections. Recognition needs only the rhinal cortex. The fornix lesion also cut the septal cholinergic input (verified by lost hippocampal acetylcholinesterase staining), so "subcortical connection" includes a modulatory input as well as the output route. Item value survives both lesions ([[wiki/empirical-tensions.md]] T411) |
 
 ---
 

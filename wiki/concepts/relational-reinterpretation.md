@@ -52,6 +52,23 @@ Formally, the deflated solver for a putative higher-order task is `response = f(
 
 **The general shape.** In every row the deflated solver reproduces the positive result *and* predicts the specific failure that was found — set-size asymmetry, transfer cost in the thousands of trials, cardinality-not-kind, cue removal, rotation of an irrelevant feature. That is what makes it an instrument rather than a sceptical stance: **the chunk hypothesis is falsifiable and keeps being confirmed.**
 
+### The transitive-inference row has a lesion control, and it cuts against one deflation only
+
+Dusek & Eichenbaum 1997 (`raw/dusek-1997-hippocampus-memory-orderly-stimulus-relations.md`): rats trained on odour pairs `A>B`, `B>C`, `C>D`, `D>E` (blocked, then mixed), probed on `B–D` and `A–E`. Final n = 8 controls, 6 perirhinal + entorhinal ablation, 4 complete fornix transection.
+
+| Control | Result | What it removes |
+|---|---|---|
+| `AB` accuracy = `CD` accuracy during testing | Equal error-driven losses of reward strength on `B` and `D` | The Couvillon & Bitterman 1992 account: unequal error counts make `B` worth more than `D` |
+| First `B–D` presentation | Controls 88% correct. Lesioned 50% | Learning from probe reward |
+| Novel odour pairs `WX`, `YZ` on the same spaced schedule | Chance in all groups. Controls' `B–D` beats them | Fast learning of a new pair |
+| Lesioned rats on everything item value can solve | Premise pairs, end-anchor curve (`AB`, `DE` best) and `A–E` all intact | — |
+
+**What it refutes.** A deflation by *item* reward strength. The lesioned rat keeps every reward-history effect and still fails `B–D`, so it is a working item-value solver, and that solver is not enough.
+
+**What it does not refute.** (i) **Value transfer**: `B` gaining value from `A`, the always-rewarded item it is paired with. This is untested, and it is an item–item link of the kind the hippocampus is held to carry, so the lesion does not separate it from an ordering. (ii) **The deflation of P8.** The source's own conclusion, "an orderly representation" of the five items, is this page's "ordered analog representation." It is evidence against item value, not for classical systematicity. Filed as [[wiki/empirical-tensions.md]] T411.
+
+**(brainstorm) The lesioned rat is the deflation's positive control, and a machine can build it.** Train a five-term series on a model and on its *ablated twin*, with the relational path removed: TEM's memory, REMERGE's loop, TCM's `α_N`. Require two things. The twin keeps the premises and `A–E` at ceiling and falls to chance on `B–D`. The intact model's first-presentation `B–D` beats its learning rate on a novel pair. A `B–D` score is evidence of relational inference only relative to that twin. Equalise item reinforcement by construction (fixed reward counts per item), since matched accuracy is not matched history. No wiki TI result is reported this way.
+
 ---
 
 ## Two things this decides for a machine
@@ -135,4 +152,6 @@ The first is the more useful export: it makes *number of relations that must be 
 - **[[wiki/entities/esbn.md]]** — a candidate for the operation this page places above the line, built without symbolic machinery: role-filler independence held during binding, demonstrated by generalising same/different to 98 unseen entities after training on 2.
 - **[[wiki/entities/lateral-frontoparietal-network.md]]** — the anatomy this page argues for and does not have: the supermodule inference here is made from a recurring behavioural profile across domains, and a term-based meta-analysis over 46 studies spanning memory, reasoning, decision-making and perception returns one converging set of regions (rostrolateral prefrontal, dorsolateral prefrontal, inferior parietal), with the human-specific piece proposed to be a rostrolateral-prefrontal↔inferior-parietal connection that has no macaque analogue (Vendetti & Bunge 2014). It also concedes what this page denies — great apes and Old World monkeys do solve relational match-to-sample — and relocates part of the discontinuity onto trials-to-criterion (35 vs ~400).
 - **[[wiki/concepts/abstraction-graph.md]]** — reads P7 as a derivation step rather than a comparative claim: a goal whose queries span domains forces variables that range over relations, which gives that page's Width feature (a relation between relations) and the minimal sorts of its typed nodes; and that page's target is the ideal bounded agent, so the chunking deflation here is filed there as the brain's approximation of the front, not as a feature to model.
+- **[[wiki/entities/remerge.md]]** — the retrieval-time mechanism for the transitive-inference row, and the model that sets this page's reward deflation aside for TI. Its big-loop ablation predicts the lesioned rat's profile (premises kept, `B–D` lost), which makes that rat the ablated twin a settling account is scored against (T411).
+- **[[wiki/entities/temporal-context-model.md]]** — this page's "ordered analog representation" built explicitly: context overlap decays with chain distance, so `B–D` is solved by an ordering with no transitive operator. The model's `α_N = 0` lesion predicts the rat profile that rules out item value but not ordering (T411).
 - **[[wiki/concepts/latent-graph-discovery.md]]** — the setup whose goal limit this page gives teeth to: when a goal's queries span domains, holding structure over one domain's individuals is denied the agent, because what transfers between domains is stated over relations, which is P7's domain-independent inference stated as a limit of the problem rather than as a property of the human mind.
