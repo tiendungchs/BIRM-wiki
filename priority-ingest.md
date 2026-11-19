@@ -15,7 +15,7 @@ One INGEST each:
 - [x] `spreng-2010-default-network-coupled-frontoparietal-goal-directed-cognition.md` — default-mode · R · 2010
 - [x] `wendelken-2010-transitive-inference-rostrolateral-prefrontal-hippocampus.md` — prefrontal-control · R · 2010
 - [x] `koscik-2012-vmpfc-critical-transitive-inference.md` — prefrontal-control · R · 2012
-- [ ] `chai-2012-anticorrelations-resting-state-without-global-signal-regression.md` — brain-networks · R · 2012
+- [x] `chai-2012-anticorrelations-resting-state-without-global-signal-regression.md` — brain-networks · R · 2012
 - [ ] `spreng-2013-intrinsic-architecture-default-dorsal-attention-frontoparietal-control.md` — brain-networks · R · 2013
 - [ ] `keller-2013-neurophysiological-investigation-correlated-anticorrelated-bold.md` — brain-networks · R · 2013
 - [ ] `waechter-2013-transitive-inference-parietal-lesions-not-rostrolateral.md` — prefrontal-control · R · 2013

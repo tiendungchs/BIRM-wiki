@@ -131,7 +131,7 @@ Task × network interaction `F(1,19) = 42.49` vs counting; `6.25` vs trial onset
 | "Coupling" is the correlation of **trial-averaged** time courses over 10 scans of 2.5 s (25 s), plus one across-subject seed analysis | Two regions that both follow the evoked response correlate whether or not they exchange information. The brain-score correlation of `r = .94` is mostly shared response shape. The measure is co-activation over time, not trial-to-trial interaction. The authors' argument against sequential operation only rules out alternation slower than 2.5 s |
 | The two planning tasks differ in more than content source | Autobiographical planning has no correct answer and longer response times (14.2 vs 12.4 s for counting). It is checked by verbal protocols and a post-scan interview |
 | `n = 20`, one task pair | The partner switch is shown for one internal/external pair. Whether the control network's partner set includes the salience network or the medial-temporal subsystem alone is not tested |
-| Network regions of interest come from a resting map with the global signal regressed | `T264` applies to the region definitions, not to the task signs, which are computed without regression |
+| Network regions of interest come from a resting map with the global signal regressed | `T264` applies to the region definitions, not to the task signs, which are computed without regression. `T264` is resolved: the default↔task-positive sign survives without GSR, at reduced magnitude (Chai et al. 2012) |
 | Autobiographical difficulty is self-reported after the scan | The difficulty null is strong for the Tower of London and weak for autobiographical planning |
 
 ---
