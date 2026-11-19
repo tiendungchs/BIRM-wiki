@@ -2,6 +2,8 @@
 
 **Three cortical regions — rostrolateral prefrontal cortex (RLPFC), dorsolateral prefrontal cortex (DLPFC) and inferior parietal lobule/sulcus (IPL/IPS) — plus the long-range white matter joining the first and third. Proposed as the anatomy of higher-order relational thinking: the same set is recruited whenever a relation between relations must be evaluated, across memory, reasoning, decision-making and perception. Its RLPFC↔IPL link is the one connection in the set with no macaque analogue.**
 
+> **Provenance (seventeenth ingest).** Krawczyk 2011, *A hierarchy for relational reasoning in the prefrontal cortex*, Cortex, doi:10.1016/j.cortex.2010.04.008 (`raw/krawczyk-2011-hierarchy-relational-reasoning-prefrontal-cortex.md`; figures lost in conversion, so per-level activation maps and ROI bar plots are known only from text; in-text citations stripped). `n = 20`, 3 T, one session, two tasks: a block-design visuospatial series-verification task at 1, 2 or 3 relations, which defines four right-frontal regions of interest (ROIs); and a phase-decomposed picture four-term analogy task read out in those ROIs. Adds the section **Across formats in one session: an additive caudal→rostral series** and a row to **More matched-difficulty designs**.
+>
 > **Provenance (sixteenth ingest).** Christoff, Prabhakaran, Dorfman, Zhao, Kroger, Holyoak & Gabrieli 2001, *Rostrolateral prefrontal cortex involvement in relational integration during reasoning*, NeuroImage 14:1136–1149, doi:10.1006/nimg.2001.0922 (`raw/christoff-2001-rostrolateral-prefrontal-relational-integration-reasoning.md`; PDF conversion, figures known only from captions, part of the appendix region list lost to column interleaving). The primary for "Christoff et al. 2001", which this page and [[wiki/concepts/analogical-mapping.md]] had carried second-hand. `n = 10`, 1.5 T event-related fMRI, Raven-style `3×3` matrices at 0, 1 or 2 relations, four-alternative forced-choice **completion**. Comparative and developmental claims in its introduction (Halford 1984; Tomasello & Call 1997; Waltz et al. 1999) are second-hand. Adds the section **Inside the matrix format: the step at two relations**, a row to **More matched-difficulty designs** and one to **Rival accounts of RLPFC**, and corrects the localisation caveat under **Semantic distance**.
 
 > **Provenance (fifteenth ingest).** Holyoak & Monti 2021, *Relational integration in the human brain: a review and synthesis*, Journal of Cognitive Neuroscience 33(3):341–356, doi:10.1162/jocn_a_01619 (`raw/holyoak-2021-relational-integration-human-brain-review.md`; PDF conversion, figure 1 known only from its caption, abstract truncated in conversion). A narrative review, not a meta-analysis: everything below tagged "via Holyoak & Monti 2021" is second-hand, and "this issue" papers (Chiang et al.; Wang, Hsieh & Bunge) are cited before publication. Four-node scheme: PPC (posterior parietal cortex) represents first-order relations, DLPFC maintains them, VLPFC controls interference, RLPFC integrates. Adds **More matched-difficulty designs**, **Four-term analogies hand over the mapping**, **Relation codes move with the task** and **Rival accounts of RLPFC**; extends the DLPFC row, **Development** and three open problems.
@@ -405,6 +407,49 @@ Readings, by grade:
 
 `(brainstorm)` **For a model.** Equal-increment levels make a duration-residualised probe: build three item levels whose compute cost rises in equal steps (halting steps, tokens) while only the top step adds a joint constraint. Then regress each component's activity on cost and test the residual. A component that steps only at the top level is an integrator; one that follows cost is shared machinery. Exported as `I36`'s fourth arm on [[wiki/concepts/certification-instruments.md]].
 
+### Across formats in one session: an additive caudal→rostral series
+
+Krawczyk 2011 (primary). Same 20 subjects, same session, two tasks. Both use a true/false **verification** response, so response mode is held fixed across format.
+
+**Task 1: visuospatial series.** Three frames left to right, four shapes per frame. One, two or three shapes change (rotation, revolution, multiplication, size increase). Judge whether every change completes across the frames. In "false" items, one changed shape reverts to its start position. 32 problems per level, 5 s per trial, block design.
+
+| Relations | Accuracy / RT | Right-frontal regions above baseline (`p < .005` unc., ≥10 voxels, prefrontal mask) |
+|---|---|---|
+| 1 | Highest / fastest | Premotor cortex (PMC, MNI 40/0/66) only |
+| 2 | Lower / slower (all pairwise differences significant) | PMC + dorsolateral prefrontal cortex (DLPFC, 48/32/43) + inferior frontal gyrus (IFG, 60/26/32) |
+| 3 | Lowest / slowest | PMC + DLPFC + IFG + **RLPFC (42/53/21)** |
+
+Parametric 1 → 2 → 3 increase, whole brain (FDR (false discovery rate) `p < .05`): bilateral IFG, middle frontal gyrus, cingulate sulcus, **intraparietal sulcus**, middle occipital gyrus, and left posterior orbital gyrus.
+
+**Task 2: picture four-term analogy, read out in the four Task-1 ROIs.** `A:B` shown (4 s), then `C` (6 s, the inference phase), then a candidate `D` (4 s, response). Two controls keep `A`, `B` and `C` and change only the instruction: judge `D` against `C` on perceptual similarity, or on semantic association. Neither control needs the `A:B` relation.
+
+| ROI | Analogy > perceptual control | Analogy > semantic control |
+|---|---|---|
+| RLPFC | All three phases: encoding `t₁₉ = 2.80`, inference `3.13`, response `2.92` | Marginal, each phase `p = .07` |
+| IFG | Encoding `2.13`, inference `2.34`; response marginal (`2.00`) | Not reported as significant |
+| DLPFC | Marginal: inference `2.03`, response `1.85` | — |
+| PMC | None, any phase | None |
+
+Behaviour runs **against** the activation: analogy items are answered faster than both controls (`F₂,₅₄ = 3.66`) and more accurately than the perceptual control (`F₂,₅₄ = 3.55`).
+
+Readings, by grade:
+
+- **Additive, caudal→rostral recruitment with relation count.** Regions are added as load rises and the lower ones stay active. The authors read this as a hierarchy of prefrontal regions with RLPFC on top, *against* a single integration region. Caveat: "absent at level `k`" is a per-level vs-baseline null at an uncorrected threshold. No region × level interaction is reported, and RT and accuracy are not controlled (block design). It is the same activation-ordering criterion as `T332` Position A, now on a relation-count axis instead of a policy-order axis ([[wiki/concepts/policy-abstraction-hierarchy.md]]).
+- **RLPFC enters at 3 relations, not 2.** This conflicts on its face with Christoff et al. 2001's step at 2 (above). The source flags the difference itself. **Count is not width:** each changing shape here can be checked on its own, so a 3-relation item is a conjunction of three independent checks. The authors concede that a sequential strategy (check one relation, hold the result, go on) fits the data as well as integration does, and would make the manipulation a working-memory load. Christoff's 2-relational matrix cell is fixed only by both relations jointly. Two positions, no registry row:
+
+  | | Claim | Consistent with |
+  |---|---|---|
+  | A | RLPFC responds to the number of held relational results once that number is large enough, whether or not they must be integrated | This task at 3; the parametric intraparietal sulcus effect (the store's count variable, node table above) |
+  | B | RLPFC responds only to joint integration; Krawczyk's 3-relation items recruit it because subjects chunk or coordinate several held results | Wendelken et al. 2008a (RLPFC does not separate 7 from 4 items); Coetzee & Monti 2018 (working-memory load alone does not recruit it, second-hand) |
+
+  `(brainstorm)` The discriminating item set is cheap: hold the count at 3 and cross *independent* changes (each shape checkable alone) with *coupled* ones (the third shape's state determined by the other two). Under A RLPFC does not move; under B it does. The same crossing runs on a model ([[wiki/concepts/abstraction-graph.md]], Width).
+- **Shared ROIs across formats, at fixed response mode.** Right RLPFC and IFG, defined by a visuospatial series task, separate picture analogy from perceptual matching in the same subjects. This bears on `T335`. But the series task is a 1 × 3 progression, not a `3×3` matrix. Against the semantic control the effect is only marginal, so semantic retrieval of a relation may carry part of it.
+- **No phase selectivity.** RLPFC and IFG separate analogy from the perceptual control at encoding (only `A:B` on screen), at inference and at response. The authors read this as a temporally extended role across preparation, inference and verification. Their own alternative is maintaining `A:B` in working memory, which the design cannot rule out. DLPFC is marginal and late, and the authors' discussion places it at verification only. That matches the order of Qiu et al. 2008's ERP components (rostral BA 10 at 900–1200 ms, dorsal BA 9 at 2000–2500 ms) only loosely. This bears on `T330`.
+- **Right hemisphere, dorsal site.** All four ROIs are right-frontal, and the RLPFC peak sits at `z = +21`. That is dorsal, like Christoff's and the other "Raven" peaks, and contralateral to the left ventral analogy cluster (MNI −48/44/−8). This bears on `T336` and `T338`. Only right-hemisphere ROIs were carried to the analogy task, so the left homologue was never tested on it.
+- **Premotor cortex is the floor.** PMC is active at 1 relation and does not separate analogy from either control at any phase. The authors read it as a general, low-order role. Its site is the 1st-order band of [[wiki/concepts/policy-abstraction-hierarchy.md]] (dorsal premotor), contralateral.
+
+`(brainstorm)` **For a model.** Two probes. (1) **Recruitment order:** sweep relation count and record which components join and in what order. An additive series in which lower components stay active is a stack. A single component whose activity ramps is a monolith. (2) **Phase profile:** if a candidate integrator is already active while only the source pair is shown, before any target exists, it is holding or pre-computing the source relation, not mapping. The probe is free in any staged-input analogy harness.
+
 ---
 
 ## The causal test: a 0.33 cc lesion site, and what it does *not* impair
@@ -497,11 +542,12 @@ A second consequence, for the wiki's load accounting: **items and relations are 
 
 ### More matched-difficulty designs, from other labs
 
-Second-hand (via Holyoak & Monti 2021) except the first row. They answer the open problem below that the crossed designs "come from one lab" (Bunge's): the rows below come from the Gabrieli/Holyoak, Holyoak, Chatterjee and Monti groups.
+Second-hand (via Holyoak & Monti 2021) except the first two rows. They answer the open problem below that the crossed designs "come from one lab" (Bunge's): the rows below come from the Gabrieli/Holyoak, Krawczyk, Holyoak, Chatterjee and Monti groups.
 
 | Design | Difficulty control | Result | Source |
 |---|---|---|---|
 | Matrix problems, 0/1/2 relations, **primary**: duration modelled per trial, plus a post-hoc RT- and accuracy-matched subset | 1 vs 0 and 2 vs 1 add equal RT (+1.41 s, +1.47 s); matched subset at ~4.05 s per level | PFC only for 2 vs 1; left RLPFC alone survives matching (**Inside the matrix format**) | Christoff et al. 2001 |
+| Picture four-term analogy vs perceptual- and semantic-matching controls on the same `A`, `B`, `C` items, **primary** | Analogy is *faster* than both controls and more accurate than the perceptual one, so difficulty runs against relational demand | RLPFC and IFG > perceptual control at every phase; vs semantic control marginal (`p = .07`); `A:B` maintenance load uncontrolled (**Across formats in one session**) | Krawczyk 2011 |
 | Matrix problems, 0–4 relations, plus a **perceptual-noise** arm with relational complexity fixed | Noise raised error rate and solution time to match the high-complexity items | Anterior left PFC follows relational complexity, not noise | Kroger et al. 2002 |
 | Visuospatial analogy vs a non-analogical **subgoal-coordination** task | Matched in overall difficulty | Analogy > subgoal task in RLPFC | Watson & Chatterjee 2012 |
 | Deduction: modus ponens vs modus tollens + De Morgan, linguistic complexity fixed; plus a working-memory load arm **without** inference | Working-memory demand raised alone | Left RLPFC tracks deductive complexity; WM load alone does **not** recruit it. Holds when `P, Q, R` are letters, nonsense syllables, or noun phrases about imaginary objects, faces or houses | Monti et al. 2007, 2009; Monti & Osherson 2012; Coetzee & Monti 2018 |
@@ -966,4 +1012,5 @@ The three are not exclusive, and that is the point of the table `(brainstorm)`: 
 - **[[wiki/concepts/retrieval-mediated-learning.md]]** — supplies the item-level evidence for this network's separating role in memory: lateral IFG makes indirectly related items less similar after overlapping-pair training under any schedule, while medial prefrontal cortex makes the same items more similar, so the two prefrontal policies are kept in parallel rather than arbitrated (Schlichting et al. 2015).
 - **[[wiki/concepts/inter-areal-synchrony.md]]** — the band rules that a synchrony account of this network's binding must satisfy: the proposed mechanism (prefrontal nodes holding posterior item/relation codes active, RLPFC integrating over multi-band coherence) is a claim about which band carries content, and that page decides what an observed fronto-parietal coherence licenses.
 - **[[wiki/entities/pam.md]]** — the model whose edge code this page's one model-based relation-identity result was scored against: BART relation vectors fit the RSA (representational similarity analysis) structure of word-pair patterns during `A:B::C:D` evaluation (Chiang et al. 2021), and the same vectors, as edges of a graph matcher, carry mapping on tasks where correspondences must be found — stories, texts and cross-mapped character sets, which this page's four-term designs never pose.
+- **[[wiki/concepts/policy-abstraction-hierarchy.md]]** — the same caudal→rostral recruitment order on a different axis: that page's bands are ordered by policy order (a rule naming a rule), this page's by relation count, with premotor cortex alone at one relation and dorsolateral, inferior frontal and then rostrolateral cortex added as count rises (Krawczyk 2011). Both orderings are read from activation, so both inherit `T332`'s objection that an activation gradient carries no claim of control flow.
 - **[[wiki/entities/basal-ganglia.md]]** — the one subcortical partner whose response rises with relational complexity beyond what longer processing predicts: caudate head bilaterally, alongside the prefrontal integrator, on 2- vs 1-relational matrices (Christoff et al. 2001), the same PFC + caudate pair that alone tracks Tower of London complexity (Dagher et al. 1999, second-hand). `(brainstorm)` This makes the caudate–prefrontal loop a candidate gate on when the integrator is called.
