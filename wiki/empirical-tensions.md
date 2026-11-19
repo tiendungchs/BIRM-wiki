@@ -232,7 +232,7 @@ The ladder is a **priority order, not a quality order**: L0 before L1 before L2,
 | T260 | Does the brain have an absolute activity baseline, or only relative ones? | `L0-INSTR` | `LEANING` | 1 | [[wiki/tensions/t260.md]] |
 | T262 | During an externally directed task, does the default mode network decouple from task-positive systems or integrate with them? | `L2` | `BOTH` | 3 | [[wiki/tensions/t262.md]] |
 | T263 | Does within-module connectivity move with brain state, or only between-module connectivity? | `L4` | `LIVE` | 2 | [[wiki/tensions/t263.md]] |
-| T264 | Is default-mode anticorrelation a neural phenomenon or a product of global signal regression? | `L0-INSTR` | `LIVE` | 2 | [[wiki/tensions/t264.md]] |
+| T264 | Is default-mode anticorrelation a neural phenomenon or a product of global signal regression? | `L0-INSTR` | `LIVE` | 3 | [[wiki/tensions/t264.md]] |
 | T265 | Where does the default mode network sit relative to the sensory-fugal hierarchy? | `L4` | `LEANING` | 2 | [[wiki/tensions/t265.md]] |
 | T266 | Can a working memory held in synaptic weights be operated on, or only stored? | `L1` | `LIVE` | 1 | [[wiki/tensions/t266.md]] |
 | T267 | Which function do the medial prefrontal / posterior cingulate / precuneus hubs serve — broadcasting current content, or generating internal content? | `L1` | `LIVE` | 3 | [[wiki/tensions/t267.md]] |
